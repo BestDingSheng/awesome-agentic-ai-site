@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import type { SiteLang } from '../lib/i18n';
 
 interface Heading {
   depth: number;
@@ -15,11 +16,20 @@ interface Props {
   sourcePath: string;
   syncedAt: string;
   headings?: Heading[];
+  lang: SiteLang;
+  currentPath: string;
+  languageLinks: Array<{ lang: SiteLang; label: string; href: string }>;
 }
 
-const { title, description, collectionLabel, sourceUrl, sourcePath, syncedAt, headings = [] } = Astro.props;
+const { title, description, collectionLabel, sourceUrl, sourcePath, syncedAt, headings = [], lang, currentPath, languageLinks } = Astro.props;
 ---
-<BaseLayout title={`${title} · Awesome Agentic AI 中文学习站`} description={description}>
+<BaseLayout
+  title={`${title} · Awesome Agentic AI 学习站`}
+  description={description}
+  lang={lang}
+  currentPath={currentPath}
+  languageLinks={languageLinks}
+>
   <section class="doc">
     <aside class="meta panel">
       <span class="badge">{collectionLabel}</span>

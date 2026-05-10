@@ -3,17 +3,20 @@ title: "Stage 4 — Agent Frameworks"
 description: "⏱ **時間估算**：2-3 週（約 10-15 小時）"
 section: "Stage"
 sourcePath: "stages/04-agent-frameworks.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "04-agent-frameworks"
 order: 4
 ---# Stage 4 — Agent Frameworks
 
-> **繁體中文** | [English](/stages/04-agent-frameworks-en/)
+> **繁體中文** | [English](/en/stages/04-agent-frameworks/)
 
 ⏱ **時間估算**：2-3 週（約 10-15 小時）
 
-> 💡 用語不熟（framework / supervisor / worker / handoff⋯）→ 翻 [`resources/glossary.md`](/resources/glossary/)。
+> 💡 用語不熟（framework / supervisor / worker / handoff⋯）→ 翻 [`resources/glossary.md`](/zh-tw/resources/glossary/)。
 
 你已經從零打造過一個 ReAct agent（Stage 3）。現在來看 framework 到底幫你做了什麼。**挑一個深入學**，其他的瀏覽過去就好，知道什麼時候該換。
 
@@ -32,7 +35,7 @@ order: 4
 - 從零寫過 ReAct（練習 3）
 - 對 async Python 上手（framework 大量依賴 async）
 
-⚠️ **Memory 預備（需要時偷看一下）**：有些 framework 功能會用到 memory 的概念 — LangGraph 用 checkpointing（狀態持久化），CrewAI 在 agent 之間傳遞任務結果（輕量 memory）。這些東西在 [Stage 6 — Memory & RAG](/stages/06-memory-rag/) 會講清楚。你不必先讀完那篇，只是當某個 framework 功能讓你看不懂的時候，去那邊找答案就對了。
+⚠️ **Memory 預備（需要時偷看一下）**：有些 framework 功能會用到 memory 的概念 — LangGraph 用 checkpointing（狀態持久化），CrewAI 在 agent 之間傳遞任務結果（輕量 memory）。這些東西在 [Stage 6 — Memory & RAG](/zh-tw/stages/06-memory-rag/) 會講清楚。你不必先讀完那篇，只是當某個 framework 功能讓你看不懂的時候，去那邊找答案就對了。
 
 ## 📚 必修閱讀
 
@@ -280,7 +283,7 @@ pip install langgraph langchain-anthropic
 - [ ] 看出什麼時候 CodeAct（Smolagents）比 JSON-tool 更好
 - [ ] 判斷什麼時候該丟掉 framework、直接用 raw API
 
-如果可以 → 進 [Stage 5 — Claude Code Ecosystem](/stages/05-claude-code-ecosystem/)。
+如果可以 → 進 [Stage 5 — Claude Code Ecosystem](/zh-tw/stages/05-claude-code-ecosystem/)。
 
 ## 💡 策略提示
 

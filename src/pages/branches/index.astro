@@ -1,16 +1,4 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import CollectionGrid from '../../components/CollectionGrid.astro';
-import { getCollection } from 'astro:content';
-const branches = await getCollection('branches');
-const items = branches.map((entry) => ({
-  title: entry.data.title,
-  href: `/branches/${entry.slug}/`,
-  description: entry.data.description,
-  meta: entry.data.section
-}));
+import SectionIndex from '../_SectionIndex.astro';
 ---
-<BaseLayout title="Branches · Awesome Agentic AI 中文学习站">
-  <section class="section-head"><div><h1>Branches</h1><p class="muted">按人群细分的延伸路线。</p></div></section>
-  <CollectionGrid items={items} />
-</BaseLayout>
+<SectionIndex lang="zh-cn" collection="branches" title="Branches" description="按人群细分的延伸路线，默认显示简体中文版本。" />

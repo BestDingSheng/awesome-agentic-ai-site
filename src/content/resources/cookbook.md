@@ -3,14 +3,17 @@ title: "Cookbook — 把概念變成可執行 recipe"
 description: "寫 Skill 跟「在 prompt 裡加幾段 instruction」差別在於："
 section: "Resource"
 sourcePath: "resources/cookbook.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/cookbook.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "cookbook"
 ---# Cookbook — 把概念變成可執行 recipe
 
-> **繁體中文** | [English](/resources/cookbook-en/)
+> **繁體中文** | [English](/en/resources/cookbook/)
 
-> Stage 5（Claude Code 生態）跟 [`mcp-skills-catalog.md`](/resources/mcp-skills-catalog/) 講「概念」跟「有哪些工具」。這份 cookbook 補中間缺的：「**怎麼動手做出來**」。每個 recipe 是一份 step-by-step + sample code + 常見 pitfall，~30-50 分鐘做完一個。
+> Stage 5（Claude Code 生態）跟 [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/) 講「概念」跟「有哪些工具」。這份 cookbook 補中間缺的：「**怎麼動手做出來**」。每個 recipe 是一份 step-by-step + sample code + 常見 pitfall，~30-50 分鐘做完一個。
 >
 > 不是 reference 也不是 tutorial——是 recipe，挑你需要的那道煮就好。
 
@@ -143,9 +146,9 @@ When the user wants Python imports cleaned up:
 
 ### 進一步
 
-- 看 [Stage 5.3](/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層) 的 Skill anatomy 詳解
+- 看 [Stage 5.3](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層) 的 Skill anatomy 詳解
 - 看 [`anthropics/skills`](https://github.com/anthropics/skills) 官方 skill 範本（docx / xlsx / pptx 等）的寫法
-- 多個 skill 打包成 plugin → [Stage 5.4](/stages/05-claude-code-ecosystem/#54--plugins-與-marketplaces)
+- 多個 skill 打包成 plugin → [Stage 5.4](/zh-tw/stages/05-claude-code-ecosystem/#54--plugins-與-marketplaces)
 
 ---
 
@@ -246,15 +249,15 @@ Claude 回（會顯示 tool call icon）：Echo: hello world
 | 症狀 | 原因 | 解法 |
 |---|---|---|
 | Claude Desktop 沒看到 tool | server.py 啟動失敗 | terminal 直接 `python server.py` 跑、看 stderr 哪裡爆 |
-| tool 列出但 call 失敗 | inputSchema 格式錯（required 漏寫、type 寫錯） | 看 [`schema-design-cheatsheet.md`](/resources/schema-design-cheatsheet/) |
+| tool 列出但 call 失敗 | inputSchema 格式錯（required 漏寫、type 寫錯） | 看 [`schema-design-cheatsheet.md`](/zh-tw/resources/schema-design-cheatsheet/) |
 | Claude 不主動叫 tool | description 太籠統 | description 改成「When the user asks X, use this tool」式的具體 trigger |
 | stdio 跟 SSE 哪個用？ | local desktop integration 用 stdio；remote / web 用 SSE | 第一個 server 一律用 stdio |
 
 ### 進一步
 
-- 看 [Stage 5.2](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) 的 MCP 完整介紹
+- 看 [Stage 5.2](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) 的 MCP 完整介紹
 - 看 [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) 官方範例（filesystem、github、sqlite、time 等）
-- 寫 production server 看 [Stage 5.2「練習：MCP in production」](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) 跟 [`anthropics/claude-code`](https://github.com/anthropics/claude-code) 的 `~/.claude/skills/`
+- 寫 production server 看 [Stage 5.2「練習：MCP in production」](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) 跟 [`anthropics/claude-code`](https://github.com/anthropics/claude-code) 的 `~/.claude/skills/`
 
 ---
 
@@ -335,7 +338,7 @@ Claude 會根據 user query 自動載入合適的 skill。
 
 ### 進一步
 
-- catalog §2 [`mcp-skills-catalog.md` §2 辦公文件](/resources/mcp-skills-catalog/#2-辦公文件word--excel--powerpoint--pdf)：補強版 office skill / Excel / PPT 專用 MCP
+- catalog §2 [`mcp-skills-catalog.md` §2 辦公文件](/zh-tw/resources/mcp-skills-catalog/#2-辦公文件word--excel--powerpoint--pdf)：補強版 office skill / Excel / PPT 專用 MCP
 - 中文圈 office workflow：[`leemysw/feishu-docx`](https://github.com/leemysw/feishu-docx) 飛書 / Lark docs ↔ Markdown
 
 ---
@@ -420,7 +423,7 @@ print(answer.citations)
 
 ### 進一步
 
-- catalog §1 [`mcp-skills-catalog.md` §1 筆記 / 知識庫](/resources/mcp-skills-catalog/#1-筆記--知識庫)
+- catalog §1 [`mcp-skills-catalog.md` §1 筆記 / 知識庫](/zh-tw/resources/mcp-skills-catalog/#1-筆記--知識庫)
 - 完整 research workspace：用 [`WenyuChiou/research-hub`](https://github.com/WenyuChiou/research-hub) 整合 NotebookLM + Zotero + Obsidian
 
 ---
@@ -509,9 +512,9 @@ git clone https://github.com/WenyuChiou/zotero-skills ~/.claude/skills/zotero-sk
 
 ## 找不到你要的 recipe？
 
-- 看 [Stage 5](/stages/05-claude-code-ecosystem/) 完整概念
-- 看 [`mcp-skills-catalog.md`](/resources/mcp-skills-catalog/) 完整工具清單
-- 看 [`schema-design-cheatsheet.md`](/resources/schema-design-cheatsheet/) 寫 tool schema 的細節
-- 看 [`cli-agents-guide.md`](/resources/cli-agents-guide/) 6 個主流 CLI agent 比較
+- 看 [Stage 5](/zh-tw/stages/05-claude-code-ecosystem/) 完整概念
+- 看 [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/) 完整工具清單
+- 看 [`schema-design-cheatsheet.md`](/zh-tw/resources/schema-design-cheatsheet/) 寫 tool schema 的細節
+- 看 [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) 6 個主流 CLI agent 比較
 
 要新 recipe → 開 issue 或直接 PR 一份。recipe 格式：**為什麼 + 步驟 + 範本 prompt + 常見 pitfall + 進一步**。

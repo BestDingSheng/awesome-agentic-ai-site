@@ -3,12 +3,15 @@ title: "MCP / Skills Integration Catalog"
 description: "| Field | Value | |---|---| | Stars | ★ 4k+ |"
 section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "mcp-skills-catalog"
 ---# MCP / Skills Integration Catalog
 
-> [繁體中文](/resources/mcp-skills-catalog/) | [简体中文](/resources/mcp-skills-catalog-zh-cn/) | **English**
+> [繁體中文](/zh-tw/resources/mcp-skills-catalog/) | [简体中文](/resources/mcp-skills-catalog/) | **English**
 
 > Connect Claude Code (or any other CLI agent) to the apps you already use, without window-hopping. This page is a curated index of 62 MCP servers / Claude Skills / integrations grouped by use case (incl. research-workflow + multi-LLM-delegation dedicated sections).
 
@@ -17,8 +20,8 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 ## How to use this catalog
 
 - **Looking for a specific tool's MCP**: jump to the relevant section below
-- **Want to know what MCP / Skills / Plugins are**: see [README "Three core terms"](../README.en.md#three-core-terms-mcp--skills--plugins) first, then [Stage 5 — Claude Code Ecosystem](/stages/05-claude-code-ecosystem-en/)
-- **Want hands-on exercises (install + test)**: see [Stage 5.2 (MCP)](/stages/05-claude-code-ecosystem-en/#52--mcp-model-context-protocol-foundation) and [Stage 5.3 (Skills)](/stages/05-claude-code-ecosystem-en/#53--skills-claude-code-behavior-layer)
+- **Want to know what MCP / Skills / Plugins are**: see [README "Three core terms"](/en#three-core-terms-mcp--skills--plugins) first, then [Stage 5 — Claude Code Ecosystem](/en/stages/05-claude-code-ecosystem/)
+- **Want hands-on exercises (install + test)**: see [Stage 5.2 (MCP)](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol-foundation) and [Stage 5.3 (Skills)](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer)
 
 ### Inclusion direction (not strict rules)
 
@@ -884,7 +887,7 @@ If your integration isn't above, check these catalogs first:
 2. Or PR directly: add an entry under the relevant category in this format (Stars / License / Rating + What it does / Audience / Notes).
 3. **Stars < 100 + non-official** typically gets rejected unless you can argue a strong niche use case.
 
-Read [`resources/style-guide.md`](/resources/style-guide-en/) and [`CONTRIBUTING.md`](../CONTRIBUTING.md) before submitting.
+Read [`resources/style-guide.md`](/en/resources/style-guide/) and [`CONTRIBUTING.md`](../CONTRIBUTING.md) before submitting.
 
 ---
 

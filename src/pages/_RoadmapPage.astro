@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollectionByLang } from '../lib/content';
+import { buildEntryRoute, createSectionLanguageLinks, type SiteLang } from '../lib/i18n';
+
+interface Props {
+  lang: SiteLang;
+}
+
+const { lang } = Astro.props;
+const [stages, tracks] = await Promise.all([
+  getCollectionByLang('stages', lang),
+  getCollectionByLang('tracks', lang)
+]);
+
+const labels = {
+  'zh-cn': {
+    eyebrow: 'Learning Roadmap',
+    title: '学习地图总览',
+    intro: '这里把 Stage 与 Track 按当前语言整理成更清晰的路线视图，默认简体中文。',
+    stageTitle: '共用基础 + 进阶主线',
+    trackTitle: '补充 Track'
+  },
+  'zh-tw': {
+    eyebrow: 'Learning Roadmap',
+    title: '學習地圖總覽',
+    intro: '這裡把 Stage 與 Track 按目前語言整理成更清晰的路線視圖，預設簡體中文。',
+    stageTitle: '共用基礎 + 進階主線',
+    trackTitle: '補充 Track'
+  },
+  en: {
+    eyebrow: 'Learning Roadmap',
+    title: 'Roadmap Overview',
+    intro: 'This page reorganizes Stages and Tracks into a clearer route view for the current language.',
+    stageTitle: 'Shared Foundations + Main Path',
+    trackTitle: 'Supplemental Tracks'
+  }
+}[lang];
+---
+<BaseLayout
+  title={`${labels.title} · Awesome Agentic AI 学习站`}
+  description={labels.intro}
+  lang={lang}
+  currentPath="/roadmap/"
+  languageLinks={createSectionLanguageLinks('/roadmap/')}
+>
+  <section class="panel">
+    <span class="eyebrow">{labels.eyebrow}</span>
+    <h1>{labels.title}</h1>
+    <p class="muted">{labels.intro}</p>
+  </section>
+
+  <section class="section-head"><div><h2>{labels.stageTitle}</h2></div></section>
+  <div class="route-list">
+    {stages.map((entry) => (
+      <a class="route-item" href={buildEntryRoute('stages', entry)}>
+        <div>
+          <div class="badge">Stage {entry.data.order ?? '-'}</div>
+          <h3>{entry.data.title}</h3>
+          {entry.data.description && <p class="muted small">{entry.data.description}</p>}
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <section class="section-head"><div><h2>{labels.trackTitle}</h2></div></section>
+  <div class="grid cols-2">
+    {tracks.map((entry) => (
+      <a class="card" href={buildEntryRoute('tracks', entry)}>
+        <div class="badge">{entry.data.section}</div>
+        <h3>{entry.data.title}</h3>
+        {entry.data.description && <p class="muted">{entry.data.description}</p>}
+      </a>
+    ))}
+  </div>
+</BaseLayout>

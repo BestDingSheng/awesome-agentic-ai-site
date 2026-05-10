@@ -1,0 +1,14 @@
+---
+import EntryPage from '../../_EntryPage.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('tracks');
+  return entries
+    .filter((entry) => entry.data.language === 'en')
+    .map((entry) => ({ params: { slug: entry.data.baseSlug }, props: { baseSlug: entry.data.baseSlug } }));
+}
+
+const { baseSlug } = Astro.props;
+---
+<EntryPage collection="tracks" lang="en" baseSlug={baseSlug} />

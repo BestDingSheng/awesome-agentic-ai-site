@@ -3,18 +3,21 @@ title: "Stage 6 — Memory · RAG · Advanced"
 description: "⏱ **Time estimate**: 2 weeks (~10 hours)"
 section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "06-memory-rag"
 order: 6
 ---# Stage 6 — Memory · RAG · Advanced
 
-> [繁體中文](/stages/06-memory-rag/) | **English**
+> [繁體中文](/zh-tw/stages/06-memory-rag/) | **English**
 
 
 ⏱ **Time estimate**: 2 weeks (~10 hours)
 
-> 💡 This stage is term-heavy (**RAG / vector DB / embedding / chunking / hybrid search / reranking / …**) → if any are unfamiliar, check [`resources/glossary.en.md` §3](/resources/glossary-en/#3-memory--retrieval--rag) first.
+> 💡 This stage is term-heavy (**RAG / vector DB / embedding / chunking / hybrid search / reranking / …**) → if any are unfamiliar, check [`resources/glossary.en.md` §3](/en/resources/glossary/#3-memory--retrieval--rag) first.
 
 Agents that don't remember past interactions are not useful. RAG (Retrieval-Augmented Generation) is the standard approach. This stage covers both.
 
@@ -324,4 +327,4 @@ Can you:
 - [ ] Pick between Chroma, Qdrant, pgvector for a given scale
 - [ ] Distinguish "give the agent memory" from "use RAG"
 
-If yes → proceed to [Stage 7 — Multi-Agent · Production](/stages/07-multi-agent-production/).
+If yes → proceed to [Stage 7 — Multi-Agent · Production](/zh-tw/stages/07-multi-agent-production/).

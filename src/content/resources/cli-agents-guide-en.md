@@ -3,17 +3,20 @@ title: "CLI Agents Comparison Guide"
 description: "A cross-branch reference shared by Track A (A1-A3) + all 5 specialized branches: **how to choose between Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider?** Every branch"
 section: "Resource"
 sourcePath: "resources/cli-agents-guide.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
----> [繁體中文](/resources/cli-agents-guide/) | [简体中文](/resources/cli-agents-guide-zh-cn/) | **English**
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "cli-agents-guide"
+---> [繁體中文](/zh-tw/resources/cli-agents-guide/) | [简体中文](/resources/cli-agents-guide/) | **English**
 
 # CLI Agents Comparison Guide
 
-> [← Back to main path README](../README.en.md)
+> [← Back to main path README](/en)
 
 > 📌 **This is a reference doc** (depth comparison, selection logic, pitfalls, recommended setups).
-> First time touching CLI agents, want step-by-step onboarding → see [`tracks/cli/A1-cli-intro.en.md`](/tracks/a1-cli-intro-en/) (Track A first stop).
+> First time touching CLI agents, want step-by-step onboarding → see [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) (Track A first stop).
 > Already using one, want to decide / compare / upgrade → stay here.
 
 A cross-branch reference shared by Track A (A1-A3) + all 5 specialized branches: **how to choose between Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider?** Every branch references CLI agents but no single branch "owns" this comparison, so it lives in `resources/`.
@@ -22,7 +25,7 @@ A cross-branch reference shared by Track A (A1-A3) + all 5 specialized branches:
 
 ## 📋 6 Major Terminal CLI Agents
 
-Only terminal-based CLI agents are included. IDE-based agents (Cursor / Cline / Continue) live in [for-developer](/branches/for-developer-en/). All numbers verified via `gh api` on 2026-05-06.
+Only terminal-based CLI agents are included. IDE-based agents (Cursor / Cline / Continue) live in [for-developer](/en/branches/for-developer/). All numbers verified via `gh api` on 2026-05-06.
 
 | Tool | Provider | License | Primary LLM | Auth / Pricing | Stars |
 |---|---|---|---|---|---|
@@ -125,11 +128,11 @@ Three common combinations; pick one that fits:
 
 Different audiences have different CLI needs:
 
-- **[for-developer](/branches/for-developer-en/)**: also see IDE-based agents (Cursor, Cline, Continue)
-- **[for-everyday-users](/branches/for-everyday-users-en/)** Tier 2: CLI is the advanced option; try Tier 0 / 1 (Web / Desktop App) first
-- **[for-researcher](/branches/for-researcher-en/)**: also see paper-specific tools (paper-qa, gpt-researcher, ChatPaper)
-- **[for-knowledge-worker](/branches/for-knowledge-worker-en/)**: also see workflow automation (n8n, Make)
-- **[for-teacher](/branches/for-teacher-en/)**: CLI is advanced for teachers; start with prompt libraries
+- **[for-developer](/en/branches/for-developer/)**: also see IDE-based agents (Cursor, Cline, Continue)
+- **[for-everyday-users](/en/branches/for-everyday-users/)** Tier 2: CLI is the advanced option; try Tier 0 / 1 (Web / Desktop App) first
+- **[for-researcher](/en/branches/for-researcher/)**: also see paper-specific tools (paper-qa, gpt-researcher, ChatPaper)
+- **[for-knowledge-worker](/en/branches/for-knowledge-worker/)**: also see workflow automation (n8n, Make)
+- **[for-teacher](/en/branches/for-teacher/)**: CLI is advanced for teachers; start with prompt libraries
 
 ---
 

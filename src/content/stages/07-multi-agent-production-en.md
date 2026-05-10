@@ -3,18 +3,21 @@ title: "Stage 7 — Multi-Agent · Production"
 description: "⏱ **Time estimate**: 2-4 weeks (~15-30 hours)"
 section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "07-multi-agent-production"
 order: 7
 ---# Stage 7 — Multi-Agent · Production
 
-> [繁體中文](/stages/07-multi-agent-production/) | **English**
+> [繁體中文](/zh-tw/stages/07-multi-agent-production/) | **English**
 
 
 ⏱ **Time estimate**: 2-4 weeks (~15-30 hours)
 
-> 💡 Term-dense (multi-agent / handoff / eval / observability / guardrails / …) → see [`resources/glossary.en.md` §4 + §6](/resources/glossary-en/#4-multi-agent).
+> 💡 Term-dense (multi-agent / handoff / eval / observability / guardrails / …) → see [`resources/glossary.en.md` §4 + §6](/en/resources/glossary/#4-multi-agent).
 
 The final stage. You're moving from "I can build agents" to "I can run them in production with multiple agents coordinating, evaluation, observability, and deployment."
 
@@ -361,7 +364,7 @@ Can you:
 - [ ] Measure and compare cost before/after prompt caching on a real workload
 - [ ] Deploy an agent to a cloud service (any provider)
 
-If yes → you've completed the main path. Choose a [specialized branch](../README.en.md#the-7-stage-learning-map) or contribute to this repo.
+If yes → you've completed the main path. Choose a [specialized branch](/en#the-7-stage-learning-map) or contribute to this repo.
 
 ## 💡 What's Next
 

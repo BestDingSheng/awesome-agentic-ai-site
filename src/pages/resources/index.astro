@@ -1,16 +1,4 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import CollectionGrid from '../../components/CollectionGrid.astro';
-import { getCollection } from 'astro:content';
-const resources = await getCollection('resources');
-const items = resources.map((entry) => ({
-  title: entry.data.title,
-  href: `/resources/${entry.slug}/`,
-  description: entry.data.description,
-  meta: entry.data.section
-}));
+import SectionIndex from '../_SectionIndex.astro';
 ---
-<BaseLayout title="Resources · Awesome Agentic AI 中文学习站">
-  <section class="section-head"><div><h1>Resources</h1><p class="muted">术语表、cookbook、目录与扩展资料。</p></div></section>
-  <CollectionGrid items={items} />
-</BaseLayout>
+<SectionIndex lang="zh-cn" collection="resources" title="Resources" description="术语表、cookbook、目录与扩展资料，默认显示简体中文版本。" />

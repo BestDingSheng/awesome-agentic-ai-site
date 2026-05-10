@@ -3,18 +3,21 @@ title: "Stage 0 — Foundations"
 description: "⏱ **Time estimate**: 1-2 weeks (~5-15 hours, can skip if you have these)"
 section: "Stage"
 sourcePath: "stages/00-foundations.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/00-foundations.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "00-foundations"
 order: 0
 ---# Stage 0 — Foundations
 
-> [繁體中文](/stages/00-foundations/) | **English**
+> [繁體中文](/zh-tw/stages/00-foundations/) | **English**
 
 
 ⏱ **Time estimate**: 1-2 weeks (~5-15 hours, can skip if you have these)
 
-> 💡 **Don't recognize a term?** Check [`resources/glossary.en.md`](/resources/glossary-en/) for a 30-second definition. Stage 0 doesn't lean on much jargon, but the next stages do.
+> 💡 **Don't recognize a term?** Check [`resources/glossary.en.md`](/en/resources/glossary/) for a 30-second definition. Stage 0 doesn't lean on much jargon, but the next stages do.
 
 ## When to skip this stage
 
@@ -24,7 +27,7 @@ If you can:
 - Use the command line on your OS (cd, ls, mkdir, run a script)
 - Read a YAML / JSON file without confusion
 
-→ **Skip directly to [Stage 1](/stages/01-llm-basics/)**.
+→ **Skip directly to [Stage 1](/zh-tw/stages/01-llm-basics/)**.
 
 If you can't, work through this stage. Don't skip — every later stage assumes these.
 
@@ -79,4 +82,4 @@ Most "AI agent" tutorials assume you already have these. If you don't, you'll ge
 
 ---
 
-> ✅ **Done with Stage 0?** Next, [**Stage 1 — LLM Fundamentals**](/stages/01-llm-basics-en/) takes 5-8 hours to walk you through your first LLM API call, the meaning of token / context window / temperature, and how to estimate real task cost via per-token pricing. **Keep going →**
+> ✅ **Done with Stage 0?** Next, [**Stage 1 — LLM Fundamentals**](/en/stages/01-llm-basics/) takes 5-8 hours to walk you through your first LLM API call, the meaning of token / context window / temperature, and how to estimate real task cost via per-token pricing. **Keep going →**

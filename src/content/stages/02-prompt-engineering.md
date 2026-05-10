@@ -3,17 +3,20 @@ title: "Stage 2 — Prompt Engineering"
 description: "⏱ **時間估算**：1-2 週（約 5-12 小時）"
 section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "02-prompt-engineering"
 order: 2
 ---# Stage 2 — Prompt Engineering
 
-> **繁體中文** | [English](/stages/02-prompt-engineering-en/)
+> **繁體中文** | [English](/en/stages/02-prompt-engineering/)
 
 ⏱ **時間估算**：1-2 週（約 5-12 小時）
 
-> 💡 用語不熟（prompt / few-shot / CoT / system prompt⋯）→ 翻 [`resources/glossary.md`](/resources/glossary/)。
+> 💡 用語不熟（prompt / few-shot / CoT / system prompt⋯）→ 翻 [`resources/glossary.md`](/zh-tw/resources/glossary/)。
 
 ## 📌 學習目標
 
@@ -173,8 +176,8 @@ Stage 1 已經提過。這裡特別推 `misc/prompt_caching.ipynb` 跟 `multimod
 
 **這個 stage 不用學完它**，只是給個方向性提示：
 
-- 在 [Stage 6（Memory · RAG）](/stages/06-memory-rag/) 會碰到（什麼資料塞進 prompt）
-- 在 [Stage 7（Multi-Agent · Production）](/stages/07-multi-agent-production/) 完整面對（context window 預算、memory 階層、observability）
+- 在 [Stage 6（Memory · RAG）](/zh-tw/stages/06-memory-rag/) 會碰到（什麼資料塞進 prompt）
+- 在 [Stage 7（Multi-Agent · Production）](/zh-tw/stages/07-multi-agent-production/) 完整面對（context window 預算、memory 階層、observability）
 
 延伸閱讀（不必修、未來想深挖時看）：
 
@@ -189,4 +192,4 @@ Stage 1 已經提過。這裡特別推 `misc/prompt_caching.ipynb` 跟 `multimod
 - [ ] 反覆 refine 一個 prompt 5 次，每一版都留下記錄
 - [ ] 看出 prompt 不是對的工具的時候（這時要用 tool use）
 
-如果可以 → 進 [Stage 3 — Tool Use & Agent 入門](/stages/03-tool-use-and-hello-agent/)。這是最重要的一個階段——prompt 不要急著跳過去，但也不要卡在這裡。
+如果可以 → 進 [Stage 3 — Tool Use & Agent 入門](/zh-tw/stages/03-tool-use-and-hello-agent/)。這是最重要的一個階段——prompt 不要急著跳過去，但也不要卡在這裡。

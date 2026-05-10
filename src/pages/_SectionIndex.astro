@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CollectionGrid from '../components/CollectionGrid.astro';
+import { getCollectionByLang } from '../lib/content';
+import { buildEntryRoute, createSectionLanguageLinks, type CollectionKey, type SiteLang } from '../lib/i18n';
+
+interface Props {
+  lang: SiteLang;
+  collection: CollectionKey;
+  title: string;
+  description: string;
+}
+
+const { lang, collection, title, description } = Astro.props;
+const entries = await getCollectionByLang(collection, lang);
+const items = entries.map((entry) => ({
+  title: entry.data.title,
+  href: buildEntryRoute(collection, entry),
+  description: entry.data.description,
+  meta: entry.data.section
+}));
+const currentPath = `/${collection}/`;
+---
+<BaseLayout
+  title={`${title} · Awesome Agentic AI 学习站`}
+  description={description}
+  lang={lang}
+  currentPath={currentPath}
+  languageLinks={createSectionLanguageLinks(currentPath)}
+>
+  <section class="section-head"><div><h1>{title}</h1><p class="muted">{description}</p></div></section>
+  <CollectionGrid items={items} />
+</BaseLayout>

@@ -3,15 +3,18 @@ title: "A3 — Integration & Production"
 description: "⏱ **時間估算**：1-2 週（約 8-15 小時）"
 section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "cli-a3-cli-production"
 order: 3
 ---# A3 — Integration & Production
 
-> **繁體中文** | [简体中文](/tracks/a3-cli-production-zh-cn/) | [English](/tracks/a3-cli-production-en/)
+> **繁體中文** | [简体中文](/tracks/cli-a3-cli-production/) | [English](/en/tracks/cli-a3-cli-production/)
 
-> [← A2 — CLI Workflow Patterns](/tracks/a2-cli-workflow/) · **Track A: CLI Power User** 第 3 站（最後）
+> [← A2 — CLI Workflow Patterns](/zh-tw/tracks/cli-a2-cli-workflow/) · **Track A: CLI Power User** 第 3 站（最後）
 
 ⏱ **時間估算**：1-2 週（約 8-15 小時）
 
@@ -26,15 +29,15 @@ CLI 跑得順了之後，下一步：**把它接到你的真實工作流程裡**
 
 ## 📚 必修閱讀
 
-1. [**Stage 5.2 — MCP（Model Context Protocol）**](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) — MCP 概念跟基礎
+1. [**Stage 5.2 — MCP（Model Context Protocol）**](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) — MCP 概念跟基礎
 2. [**Anthropic — Prompt Caching**](https://www.anthropic.com/news/prompt-caching) — 90% cost reduction 的關鍵技巧
-3. [**Stage 7 — Observability section**](/stages/07-multi-agent-production/#observability) — langfuse / Helicone / weave
-4. [**`resources/cli-agents-guide.md`** §「常見坑」](/resources/cli-agents-guide/) — production 用 CLI 最常踩的問題
+3. [**Stage 7 — Observability section**](/zh-tw/stages/07-multi-agent-production/#observability) — langfuse / Helicone / weave
+4. [**`resources/cli-agents-guide.md`** §「常見坑」](/zh-tw/resources/cli-agents-guide/) — production 用 CLI 最常踩的問題
 
 ## 🛠 動手練習
 
 ### 動手練習 CLI-9：MCP server 接 CLI
-照 [Stage 5.2 練習：MCP client](/stages/05-claude-code-ecosystem/#hello-x) 的步驟，把至少一個有用的 MCP server 接到你的 CLI：
+照 [Stage 5.2 練習：MCP client](/zh-tw/stages/05-claude-code-ecosystem/#hello-x) 的步驟，把至少一個有用的 MCP server 接到你的 CLI：
 - `filesystem` server → 讓 CLI 在指定目錄外也能讀檔
 - `github` server → 讓 CLI 直接讀 PR / issue
 - 自架 server → 接你的 internal API / DB
@@ -54,23 +57,23 @@ CLI 跑得順了之後，下一步：**把它接到你的真實工作流程裡**
 ### 動手練習 CLI-11：Cost tracking
 跑你日常的一個 task，**先預估** token 用量，再實際跑、查 token usage。差距通常很大（多半你低估）。
 - 算式：input tokens + output tokens 各乘以 model 單價
-- 接 langfuse 或 Helicone（[Stage 7 Observability section](/stages/07-multi-agent-production/#observability)）做 trace
+- 接 langfuse 或 Helicone（[Stage 7 Observability section](/zh-tw/stages/07-multi-agent-production/#observability)）做 trace
 - 觀察：哪個 sub-task 花最多 token？是不是有不必要的 long context？
 
 ### 動手練習 CLI-12：Skill / plugin 跨 team 分享
 把你的 `.claude/commands/` 跟 `CLAUDE.md` 打包成 plugin，發布到內部 marketplace 或 GitHub。Team 其他人 `claude plugin install` 之後就有同樣的工作流。
-- Skill / plugin 細節見 [Stage 5.3 + 5.4](/stages/05-claude-code-ecosystem/)
+- Skill / plugin 細節見 [Stage 5.3 + 5.4](/zh-tw/stages/05-claude-code-ecosystem/)
 - 範本：[anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official)
 
 ## 🎯 精選 Projects
 
 ### MCP server collection（接 CLI 用）
 
-> 💡 **要找接日常工具的 MCP**（Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma 等）：[`resources/mcp-skills-catalog.md`](/resources/mcp-skills-catalog/)——62 個分類整理，每個都有 stars / license / 適合誰。下面只列「寫自己 MCP server / 找 reference」用的核心 catalog。
+> 💡 **要找接日常工具的 MCP**（Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma 等）：[`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)——62 個分類整理，每個都有 stars / license / 適合誰。下面只列「寫自己 MCP server / 找 reference」用的核心 catalog。
 
 #### [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) ⭐⭐⭐⭐⭐
 ★ 85k+ — 官方 reference servers。filesystem、github、sqlite、git、time、fetch、memory、sequential-thinking。
-> 詳見 [Stage 5.2](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎)。
+> 詳見 [Stage 5.2](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎)。
 
 #### [wong2/awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers)
 社群 MCP server catalog。150+ 個依分類整理。
@@ -84,7 +87,7 @@ CLI 跑得順了之後，下一步：**把它接到你的真實工作流程裡**
 
 #### [continuedev/continue](https://github.com/continuedev/continue) ⭐⭐⭐⭐
 ★ 33k+ — 把 AI checks 接到 CI，可在 PR pipeline 強制執行。
-> 完整介紹見 [`branches/for-developer.md`](/branches/for-developer/)。
+> 完整介紹見 [`branches/for-developer.md`](/zh-tw/branches/for-developer/)。
 
 ---
 
@@ -92,14 +95,14 @@ CLI 跑得順了之後，下一步：**把它接到你的真實工作流程裡**
 
 #### [langfuse/langfuse](https://github.com/langfuse/langfuse) ⭐⭐⭐⭐⭐
 ★ 26k+ — open source LLM observability。把 trace、cost、session 都接起來。
-> 詳見 [Stage 7 Observability](/stages/07-multi-agent-production/#observability)。
+> 詳見 [Stage 7 Observability](/zh-tw/stages/07-multi-agent-production/#observability)。
 
 #### [Helicone](https://github.com/Helicone/helicone) ⭐⭐⭐⭐
 ★ 5k+ — proxy-based 監控。改 base_url 就有 logging + caching。
 
 #### [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) ⭐⭐⭐⭐⭐
 ★ 20k+ — eval framework。CLI workflow 升級到 production 前用這個跑回歸測試。
-> 詳見 [Stage 7 Eval](/stages/07-multi-agent-production/#evaluation-frameworks)。
+> 詳見 [Stage 7 Eval](/zh-tw/stages/07-multi-agent-production/#evaluation-frameworks)。
 
 ---
 
@@ -120,9 +123,9 @@ CLI 跑得順了之後，下一步：**把它接到你的真實工作流程裡**
 - [ ] 把你的 CLAUDE.md / commands 打包過至少一次（即使只有自己用）
 - [ ] 知道什麼任務值得加 observability、什麼不值得
 
-如果都可以 → **Track A 完整通關**。挑一個 [specialized branch](/#️-學習地圖兩條軌道) 繼續走（researcher / developer / teacher / knowledge-worker / everyday-users）。
+如果都可以 → **Track A 完整通關**。挑一個 [specialized branch](/zh-tw#️-學習地圖兩條軌道) 繼續走（researcher / developer / teacher / knowledge-worker / everyday-users）。
 
-如果想再深入「**怎麼寫自己的 CLI agent**」（不是用現有的）→ 跳到 [Track B Stage 3](/stages/03-tool-use-and-hello-agent/) 開始。Track A 跟 Track B 互補。
+如果想再深入「**怎麼寫自己的 CLI agent**」（不是用現有的）→ 跳到 [Track B Stage 3](/zh-tw/stages/03-tool-use-and-hello-agent/) 開始。Track A 跟 Track B 互補。
 
 ## 💡 接下來
 
@@ -130,7 +133,7 @@ CLI 跑得順了之後，下一步：**把它接到你的真實工作流程裡**
 
 1. **加深 CLI workflow**（持續優化你的 setup）
    - 訂閱 Anthropic / OpenAI changelog
-   - 每季 review 一次 [`resources/cli-agents-guide.md`](/resources/cli-agents-guide/) 看新工具
+   - 每季 review 一次 [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) 看新工具
    - 跟你 team 分享 CLAUDE.md / skills
 
 2. **跨到 Track B**（學怎麼寫自己的 agent）

@@ -3,14 +3,17 @@ title: "給日常使用者 — 專業分支"
 description: "按「**動手願意度**」分 4 層，從低到高："
 section: "Branch"
 sourcePath: "branches/for-everyday-users.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "for-everyday-users"
 ---# 給日常使用者 — 專業分支
 
-> **繁體中文** | [简体中文](/branches/for-everyday-users-zh-cn/) | [English](/branches/for-everyday-users-en/)
+> **繁體中文** | [简体中文](/branches/for-everyday-users/) | [English](/en/branches/for-everyday-users/)
 
-> [← 回主路線 README](/) · 你**不一定要走完整條主幹**才能從這裡開始——這條分支是給「**只想 USE AI、不一定要 BUILD agent**」的人。
+> [← 回主路線 README](/zh-tw) · 你**不一定要走完整條主幹**才能從這裡開始——這條分支是給「**只想 USE AI、不一定要 BUILD agent**」的人。
 
 ## 使用情境
 
@@ -70,11 +73,11 @@ ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 Ap
 
 > 這些工具雖然定位給開發者，但**日常使用者也能用**——例如批次重新命名檔案、整理下載資料夾、自動寫每週回顧、把 PDF 摘要存成 Markdown。
 >
-> 想看詳細比較？見 [`resources/cli-agents-guide.md`](/resources/cli-agents-guide/)（6 個主流 CLI agent 並列、依 use case 推薦、常見坑、實用搭配）。
+> 想看詳細比較？見 [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)（6 個主流 CLI agent 並列、依 use case 推薦、常見坑、實用搭配）。
 >
-> 想要 step-by-step 上手？見 [`tracks/cli/A1-cli-intro.md`](/tracks/a1-cli-intro/)（Track A 第一站，從安裝到第一個任務）。
+> 想要 step-by-step 上手？見 [`tracks/cli/A1-cli-intro.md`](/zh-tw/tracks/cli-a1-cli-intro/)（Track A 第一站，從安裝到第一個任務）。
 >
-> 想把 CLI agent 接到你的 Notion / Obsidian / Excel / Google 文件等日常工具？見 [`resources/mcp-skills-catalog.md`](/resources/mcp-skills-catalog/)（按分類整理 62 個 MCP server / Skill）。
+> 想把 CLI agent 接到你的 Notion / Obsidian / Excel / Google 文件等日常工具？見 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)（按分類整理 62 個 MCP server / Skill）。
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
 ★ 120k+ — Anthropic 官方的 CLI agent。能讀寫檔案、執行指令、做多步驟任務。**日常使用者最容易上手的 CLI 工具**。
@@ -117,7 +120,7 @@ ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 Ap
 ### Tier 3 — 本地 LLM（隱私 / 離線 / 省錢）
 
 #### [Ollama](https://github.com/ollama/ollama) ⭐⭐⭐⭐⭐
-★ 170k+ — 一行指令跑本地 LLM。隱私敏感資料（病歷、合約、家人對話）不適合送去雲端時用這個。詳見 [Stage 1 — Local LLM 執行](/stages/01-llm-basics/)。
+★ 170k+ — 一行指令跑本地 LLM。隱私敏感資料（病歷、合約、家人對話）不適合送去雲端時用這個。詳見 [Stage 1 — Local LLM 執行](/zh-tw/stages/01-llm-basics/)。
 
 #### [LM Studio](https://lmstudio.ai/)
 非開源但對非開發者最友善——拖拉介面、不用 command line。Mac / Windows / Linux 都有。
@@ -137,7 +140,7 @@ ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 Ap
 2. [**OpenAI — Prompting Guide**](https://platform.openai.com/docs/guides/prompt-engineering) — 對位的官方文件
 3. [**ChatGPT 怎麼用得最好（中文）**](https://www.runoob.com/) — 各家中文部落格的整理（runoob 等等）
 
-如果有興趣再深入，看 [Stage 2 — Prompt 設計](/stages/02-prompt-engineering/)，那邊有正式系統性教學。
+如果有興趣再深入，看 [Stage 2 — Prompt 設計](/zh-tw/stages/02-prompt-engineering/)，那邊有正式系統性教學。
 
 ## 可以建的流程
 

@@ -3,19 +3,22 @@ title: "Stage 1 — LLM 基礎"
 description: "⏱ **時間估算**：1 週（約 5-8 小時）"
 section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "01-llm-basics"
 order: 1
 ---# Stage 1 — LLM 基礎
 
-> **繁體中文** | [English](/stages/01-llm-basics-en/)
+> **繁體中文** | [English](/en/stages/01-llm-basics/)
 
 ⏱ **時間估算**：1 週（約 5-8 小時）
 
-> 👋 **從 [Stage 0](/stages/00-foundations/) 來的**：好，環境已經夠用——這 5-8 小時：第一次成功呼叫 Claude / GPT / Gemini API、搞懂 token / context window / temperature 怎麼影響輸出、用 per-token 計算實際成本。**直接從這裡開始的**：先確認你能跑 Python script、有任一家供應商的 API key——做不到請先回 [Stage 0](/stages/00-foundations/)。
+> 👋 **從 [Stage 0](/zh-tw/stages/00-foundations/) 來的**：好，環境已經夠用——這 5-8 小時：第一次成功呼叫 Claude / GPT / Gemini API、搞懂 token / context window / temperature 怎麼影響輸出、用 per-token 計算實際成本。**直接從這裡開始的**：先確認你能跑 Python script、有任一家供應商的 API key——做不到請先回 [Stage 0](/zh-tw/stages/00-foundations/)。
 
-> 💡 **看不懂某個詞**（LLM / token / context window / temperature / RAG / agent⋯）→ 先翻 [`resources/glossary.md`](/resources/glossary/) 查 30 秒再回來。
+> 💡 **看不懂某個詞**（LLM / token / context window / temperature / RAG / agent⋯）→ 先翻 [`resources/glossary.md`](/zh-tw/resources/glossary/) 查 30 秒再回來。
 
 ## 📌 學習目標
 
@@ -393,6 +396,6 @@ ollama serve             # 啟動 API server
 - [ ] 大致說出 Claude Sonnet vs Opus 的 per-token 價格
 - [ ] 各說出 Claude / GPT / Gemini / Llama 的一個強項
 
-如果可以 → 進 [Stage 2 — Prompt Engineering](/stages/02-prompt-engineering/)。
+如果可以 → 進 [Stage 2 — Prompt Engineering](/zh-tw/stages/02-prompt-engineering/)。
 
 如果不行 → 重看 Anthropic Quickstart + 把上面 3 個 hello-X 都跑一次。

@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import manifest from '../data/sync-manifest.json';
+import { createSectionLanguageLinks, type SiteLang } from '../lib/i18n';
+
+interface Props {
+  lang: SiteLang;
+}
+
+const { lang } = Astro.props;
+const labels = {
+  'zh-cn': {
+    eyebrow: 'Sync Status',
+    title: '内容同步状态',
+    intro: '这个页面用于展示当前网站内容来自哪个仓库、哪个提交，以及最近一次同步时间。',
+    repo: '来源仓库',
+    branch: '分支',
+    commit: '提交',
+    syncedAt: '同步时间',
+    counts: '内容计数'
+  },
+  'zh-tw': {
+    eyebrow: 'Sync Status',
+    title: '內容同步狀態',
+    intro: '這個頁面用來展示目前網站內容來自哪個倉庫、哪個提交，以及最近一次同步時間。',
+    repo: '來源倉庫',
+    branch: '分支',
+    commit: '提交',
+    syncedAt: '同步時間',
+    counts: '內容計數'
+  },
+  en: {
+    eyebrow: 'Sync Status',
+    title: 'Content Sync Status',
+    intro: 'This page shows which repository and commit the site content comes from, plus the latest sync time.',
+    repo: 'Source repo',
+    branch: 'Branch',
+    commit: 'Commit',
+    syncedAt: 'Synced at',
+    counts: 'Content counts'
+  }
+}[lang];
+---
+<BaseLayout
+  title={`${labels.title} · Awesome Agentic AI 学习站`}
+  description={labels.intro}
+  lang={lang}
+  currentPath="/updates/"
+  languageLinks={createSectionLanguageLinks('/updates/')}
+>
+  <section class="panel">
+    <span class="eyebrow">{labels.eyebrow}</span>
+    <h1>{labels.title}</h1>
+    <p class="muted">{labels.intro}</p>
+    <ul>
+      <li><strong>{labels.repo}：</strong><a href={manifest.repoUrl} target="_blank" rel="noreferrer">{manifest.repoUrl}</a></li>
+      <li><strong>{labels.branch}：</strong>{manifest.repoRef}</li>
+      <li><strong>{labels.commit}：</strong>{manifest.repoCommit}</li>
+      <li><strong>{labels.syncedAt}：</strong>{manifest.syncedAt}</li>
+    </ul>
+  </section>
+
+  <section class="panel" style="margin-top: 1.5rem;">
+    <h2>{labels.counts}</h2>
+    <ul>
+      <li>Stages：{manifest.counts.stages}</li>
+      <li>Tracks：{manifest.counts.tracks}</li>
+      <li>Branches：{manifest.counts.branches}</li>
+      <li>Resources：{manifest.counts.resources}</li>
+      <li>Walkthroughs：{manifest.counts.walkthroughs}</li>
+    </ul>
+  </section>
+</BaseLayout>

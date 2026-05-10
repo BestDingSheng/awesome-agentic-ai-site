@@ -3,10 +3,13 @@ title: "`awesome-agentic-ai-zh` Style Guide"
 description: "This is the **single source of truth** for the catalog: terminology, entry schema, license notation, writing style, banned words."
 section: "Resource"
 sourcePath: "resources/style-guide.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
----> [繁體中文](/resources/style-guide/) | [简体中文](/resources/style-guide-zh-cn/) | **English**
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "style-guide"
+---> [繁體中文](/zh-tw/resources/style-guide/) | [简体中文](/resources/style-guide/) | **English**
 
 # `awesome-agentic-ai-zh` Style Guide
 
@@ -169,7 +172,7 @@ Every stage (except Stage 0) should have:
 ```markdown
 # Stage N — Topic
 
-> **English** | [繁體中文](/resources/0n-slug/)
+> **English** | [繁體中文](/zh-tw/resources/0n-slug/)
 
 ⏱ **Time estimate**: N-M weeks (~X-Y hours)
 
@@ -221,9 +224,9 @@ If no → ...
 ```markdown
 # For [audience] — Specialized Branch
 
-> **English** | [繁體中文](/resources/for-x/)
+> **English** | [繁體中文](/zh-tw/resources/for-x/)
 
-> [← Back to main path README](../README.en.md) · Branching from end of Stage 7
+> [← Back to main path README](/en) · Branching from end of Stage 7
 
 ## Use Cases
 - bullet 1
@@ -275,8 +278,8 @@ Branch entries can be more concise than stage entries (full schema table optiona
 ## 9. Links and citations
 
 ### Internal links
-- Between stages: relative path `[Stage 4](/resources/04-agent-frameworks-en/)`
-- Branch ↔ README: `[← Back to main path](../README.en.md)`
+- Between stages: relative path `[Stage 4](/en/resources/04-agent-frameworks/)`
+- Branch ↔ README: `[← Back to main path](/en)`
 - Cross-stage repo references: full name + link, not just "as cited earlier"
 
 ### External links
@@ -295,9 +298,9 @@ Branch entries can be more concise than stage entries (full schema table optiona
 
 This style guide covers "how to write an entry." For **design rationale** — why these 5 branches, why 7 stages — see:
 
-- [`branches/DESIGN.md`](/branches/design/) — Branch design notes (why these audiences, where entries belong) (zh)
-- [`stages/DESIGN.md`](/stages/design/) — Stage design notes (why this structure, how exercises are chosen) (zh)
-- [`cli-agents-guide.en.md`](/resources/cli-agents-guide-en/) — Cross-cutting CLI agent comparison
+- [`branches/DESIGN.md`](/zh-tw/branches/design/) — Branch design notes (why these audiences, where entries belong) (zh)
+- [`stages/DESIGN.md`](/zh-tw/stages/design/) — Stage design notes (why this structure, how exercises are chosen) (zh)
+- [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) — Cross-cutting CLI agent comparison
 
 ## Modifying this guide
 

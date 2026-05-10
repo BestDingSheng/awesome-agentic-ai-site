@@ -3,14 +3,17 @@ title: "給知識工作者 — 專業分支"
 description: "可自架的工作流自動化平台，內建 AI 整合，採用視覺化節點式編輯器。"
 section: "Branch"
 sourcePath: "branches/for-knowledge-worker.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "for-knowledge-worker"
 ---# 給知識工作者 — 專業分支
 
-> **繁體中文** | [简体中文](/branches/for-knowledge-worker-zh-cn/) | [English](/branches/for-knowledge-worker-en/)
+> **繁體中文** | [简体中文](/branches/for-knowledge-worker/) | [English](/en/branches/for-knowledge-worker/)
 
-> [← 回主路線 README](/) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到辦公室 / 知識工作上。
+> [← 回主路線 README](/zh-tw) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到辦公室 / 知識工作上。
 
 ## 使用情境
 
@@ -22,7 +25,7 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 
 ## 精選 Projects
 
-> 💡 **想把 AI agent 接到 Notion / Gmail / Outlook / Slack / Excel / 飛書？** 62 個常用 MCP server / Skill 整合在 [`resources/mcp-skills-catalog.md`](/resources/mcp-skills-catalog/)（按使用情境分類）。下面這節保留 workflow / 整合平台級的工具。
+> 💡 **想把 AI agent 接到 Notion / Gmail / Outlook / Slack / Excel / 飛書？** 62 個常用 MCP server / Skill 整合在 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)（按使用情境分類）。下面這節保留 workflow / 整合平台級的工具。
 
 ### 工作流工具
 

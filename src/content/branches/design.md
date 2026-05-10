@@ -3,9 +3,12 @@ title: "Branch 設計筆記"
 description: "5 條 branch 設計成 **兩條軌道走完都接得上**："
 section: "Branch"
 sourcePath: "branches/DESIGN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/DESIGN.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/branches/DESIGN.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "design"
 ---# Branch 設計筆記
 
 > 這份是給 maintainer 看的內部文件，**不是讀者面向的內容**。
@@ -76,7 +79,7 @@ audience 切太細會：
 
 ### 灰色地帶處理（同一 repo 出現在多 branch）
 
-**規則**：同一 repo 可以在多 branch 出現，但每處要有不同的 **framing**（適合誰、教什麼）。**推薦星等預設一致**——同一個工具的客觀價值不會因 audience 改變；除非有明確的 audience-specific 理由（譬如「進階度差太多」），且寫進 Notes 解釋。詳見 [`resources/style-guide.md`](/resources/style-guide/) §2。
+**規則**：同一 repo 可以在多 branch 出現，但每處要有不同的 **framing**（適合誰、教什麼）。**推薦星等預設一致**——同一個工具的客觀價值不會因 audience 改變；除非有明確的 audience-specific 理由（譬如「進階度差太多」），且寫進 Notes 解釋。詳見 [`resources/style-guide.md`](/zh-tw/resources/style-guide/) §2。
 
 **範例**：
 - `obra/superpowers` 出現在 Stage 5、for-developer、for-knowledge-worker、for-teacher
@@ -179,5 +182,5 @@ Tier 0 → Tier 1 → Tier 2 → Tier 3
 ## 不在這份的內容
 
 - **個別 branch 的 entry 詳細**：見 `for-X.md` 本身
-- **stage 設計理由**：見 [`../stages/DESIGN.md`](/stages/design/)
-- **entry schema / 用詞規範**：見 [`../resources/style-guide.md`](/resources/style-guide/)
+- **stage 設計理由**：見 [`../stages/DESIGN.md`](/zh-tw/stages/design/)
+- **entry schema / 用詞規範**：見 [`../resources/style-guide.md`](/zh-tw/resources/style-guide/)

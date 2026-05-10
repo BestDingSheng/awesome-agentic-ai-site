@@ -3,10 +3,13 @@ title: "`awesome-agentic-ai-zh` 风格指南"
 description: "这份指南是这份 catalog 的**单一真实来源**——术语、entry 结构、license 标注、写作风格、禁用词，全部以这份文件为准。"
 section: "Resource"
 sourcePath: "resources/style-guide.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.zh-CN.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
----> [繁體中文](/resources/style-guide/) | **简体中文** | [English](/resources/style-guide-en/)
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/style-guide.zh-CN.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "style-guide"
+---> [繁體中文](/zh-tw/resources/style-guide/) | **简体中文** | [English](/en/resources/style-guide/)
 
 # `awesome-agentic-ai-zh` 风格指南
 
@@ -206,7 +209,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 ```markdown
 # Stage N — 主题
 
-> [English](/resources/0n-slug-en/) | **简体中文**
+> [English](/en/resources/0n-slug/) | **简体中文**
 
 ⏱ **时间估算**：N-M 周（约 X-Y 小时）
 
@@ -259,7 +262,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 ```markdown
 # 给 [audience] — 专业分支
 
-> [English](/resources/for-x-en/) | **简体中文**
+> [English](/en/resources/for-x/) | **简体中文**
 
 > [← 回主路线 README](/) · 从 Stage 7 结尾分支出来
 
@@ -318,7 +321,7 @@ Branch 的 entry 格式可以比 stage 简洁（不一定要完整 schema 表格
 ## 9. 链接与引用
 
 ### 内部链接
-- Stage 之间：相对路径 `[Stage 4](/resources/04-agent-frameworks-zh-cn/)`
+- Stage 之间：相对路径 `[Stage 4](/resources/04-agent-frameworks/)`
 - Branch ↔ README：`[← 回主路线](/)`
 - 跨 stage 引用同一 repo：用全名 + 链接，不要只写「之前提过」
 
@@ -338,9 +341,9 @@ Branch 的 entry 格式可以比 stage 简洁（不一定要完整 schema 表格
 
 这份 style-guide 讲「entry 怎么写」。为什么分这 5 个 branch、为什么是 7 个 stage 这类**设计理由**，见：
 
-- [`branches/DESIGN.md`](/branches/design/)—branch 设计笔记（为什么这样切、entry 该放哪）
-- [`stages/DESIGN.md`](/stages/design/)—stage 设计笔记（为什么这结构、动手练习 怎么挑）
-- [`cli-agents-guide.zh-CN.md`](/resources/cli-agents-guide-zh-cn/)—cross-cutting CLI agent 比较指南
+- [`branches/DESIGN.md`](/zh-tw/branches/design/)—branch 设计笔记（为什么这样切、entry 该放哪）
+- [`stages/DESIGN.md`](/zh-tw/stages/design/)—stage 设计笔记（为什么这结构、动手练习 怎么挑）
+- [`cli-agents-guide.zh-CN.md`](/resources/cli-agents-guide/)—cross-cutting CLI agent 比较指南
 
 ## 修改本指南
 

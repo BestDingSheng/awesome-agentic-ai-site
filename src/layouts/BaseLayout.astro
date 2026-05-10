@@ -1,15 +1,35 @@
 ---
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import { LANG_CONFIG, buildLangPath, createSectionLanguageLinks, type SiteLang } from '../lib/i18n';
+
 interface Props {
   title?: string;
   description?: string;
+  lang?: SiteLang;
+  currentPath?: string;
+  languageLinks?: Array<{ lang: SiteLang; label: string; href: string }>;
 }
 const {
-  title = 'Awesome Agentic AI 中文学习站',
-  description = '基于 awesome-agentic-ai-zh 构建的 Astro 学习地图网站。'
+  title = 'Awesome Agentic AI 学习站',
+  description = '基于 awesome-agentic-ai-zh 构建的 Astro 学习地图网站。',
+  lang = 'zh-cn',
+  currentPath = '/',
+  languageLinks = createSectionLanguageLinks(currentPath)
 } = Astro.props;
+
+const navItems = [
+  { label: '首页', path: '/' },
+  { label: '路线图', path: '/roadmap/' },
+  { label: 'Stages', path: '/stages/' },
+  { label: 'Tracks', path: '/tracks/' },
+  { label: 'Branches', path: '/branches/' },
+  { label: 'Resources', path: '/resources/' },
+  { label: 'Walkthroughs', path: '/walkthroughs/' },
+  { label: '同步状态', path: '/updates/' }
+].map((item) => ({ ...item, href: buildLangPath(lang, item.path) }));
 ---
 <!doctype html>
-<html lang="zh-CN">
+<html lang={LANG_CONFIG[lang].htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,16 +40,15 @@ const {
   <body>
     <header class="site-header">
       <div class="shell header-inner">
-        <a class="brand" href="/">Awesome Agentic AI 中文学习站</a>
-        <nav class="nav">
-          <a href="/roadmap">Roadmap</a>
-          <a href="/stages">Stages</a>
-          <a href="/tracks">Tracks</a>
-          <a href="/branches">Branches</a>
-          <a href="/resources">Resources</a>
-          <a href="/walkthroughs">Walkthroughs</a>
-          <a href="/updates">Updates</a>
-        </nav>
+        <a class="brand" href={buildLangPath(lang, '/')}>Awesome Agentic AI 学习站</a>
+        <div class="header-actions">
+          <nav class="nav">
+            {navItems.map((item) => (
+              <a href={item.href}>{item.label}</a>
+            ))}
+          </nav>
+          <LanguageSwitcher currentLang={lang} links={languageLinks} />
+        </div>
       </div>
     </header>
     <main class="shell">
@@ -65,8 +84,9 @@ const {
   .shell { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
   .site-header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(11, 16, 32, 0.82); border-bottom: 1px solid rgba(39, 50, 75, 0.8); }
   .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 72px; }
+  .header-actions { display: flex; flex-direction: column; align-items: flex-end; gap: .75rem; }
   .brand { font-weight: 800; color: var(--text); }
-  .nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 1rem; }
   .nav a { color: var(--muted); }
   .nav a:hover { color: var(--text); }
   main.shell { padding: 2rem 0 4rem; }
@@ -107,7 +127,9 @@ const {
   .small { font-size: .92rem; }
   @media (max-width: 960px) {
     .hero, .doc, .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
-    .header-inner { align-items: start; flex-direction: column; padding: .9rem 0; }
+    .header-inner, .header-actions { align-items: start; }
+    .header-inner { flex-direction: column; padding: .9rem 0; }
+    .nav { justify-content: flex-start; }
     .toc, .meta { position: static; }
   }
 </style>

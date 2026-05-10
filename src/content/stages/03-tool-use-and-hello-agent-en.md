@@ -3,18 +3,21 @@ title: "Stage 3 — Tool Use & Agent Intro ⭐"
 description: "⏱ **Time estimate**: 2-3 weeks (~10-20 hours)"
 section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "03-tool-use-and-hello-agent"
 order: 3
 ---# Stage 3 — Tool Use & Agent Intro ⭐
 
-> [繁體中文](/stages/03-tool-use-and-hello-agent/) | **English**
+> [繁體中文](/zh-tw/stages/03-tool-use-and-hello-agent/) | **English**
 
 
 ⏱ **Time estimate**: 2-3 weeks (~10-20 hours)
 
-> 💡 Term-dense stage (agent / tool use / function calling / ReAct / structured output / …) → see [`resources/glossary.en.md` §2](/resources/glossary-en/#2-agents--tool-use).
+> 💡 Term-dense stage (agent / tool use / function calling / ReAct / structured output / …) → see [`resources/glossary.en.md` §2](/en/resources/glossary/#2-agents--tool-use).
 
 This is the most important stage. **You don't understand agents until you've built one.** No skipping the hello-X demos.
 
@@ -65,7 +68,7 @@ Make a tool fail (network error, invalid input). Watch how the agent recovers (o
 - Collapse fuzzy fields with `enum` (e.g. `unit: "celsius" | "fahrenheit"` instead of `unit: string`)
 - Make errors recoverable: return `{"error": "...", "retry_hint": "..."}` so the LLM can retry intelligently
 
-> 💡 Detailed cheatsheet: [`resources/schema-design-cheatsheet.en.md`](/resources/schema-design-cheatsheet-en/) — 5 golden rules + 5 common anti-patterns.
+> 💡 Detailed cheatsheet: [`resources/schema-design-cheatsheet.en.md`](/en/resources/schema-design-cheatsheet/) — 5 golden rules + 5 common anti-patterns.
 
 ## 🎯 Curated Projects
 
@@ -273,6 +276,6 @@ Can you:
 - [ ] Compare CodeAct (code as action) vs JSON-tool approach
 - [ ] Identify when a problem doesn't need an agent
 
-If yes → proceed to [Stage 4 — Agent Frameworks](/stages/04-agent-frameworks/).
+If yes → proceed to [Stage 4 — Agent Frameworks](/zh-tw/stages/04-agent-frameworks/).
 
 If no → run Exercise 3 again. Don't skip it. The frameworks in Stage 4 will mystify you if you don't understand what they're abstracting.

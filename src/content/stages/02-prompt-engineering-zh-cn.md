@@ -3,17 +3,20 @@ title: "Stage 2 — Prompt Engineering"
 description: "⏱ **时间估算**：1-2 周（约 5-12 小时）"
 section: "Stage"
 sourcePath: "stages/02-prompt-engineering.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.zh-CN.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.zh-CN.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "02-prompt-engineering"
 order: 2
 ---# Stage 2 — Prompt Engineering
 
-> [繁體中文](/stages/02-prompt-engineering/) | **简体中文** | [English](/stages/02-prompt-engineering-en/)
+> [繁體中文](/zh-tw/stages/02-prompt-engineering/) | **简体中文** | [English](/en/stages/02-prompt-engineering/)
 
 ⏱ **时间估算**：1-2 周（约 5-12 小时）
 
-> 💡 用语不熟（prompt / few-shot / CoT / system prompt⋯）→ 翻 [`resources/glossary.zh-CN.md`](/resources/glossary-zh-cn/)。
+> 💡 用语不熟（prompt / few-shot / CoT / system prompt⋯）→ 翻 [`resources/glossary.zh-CN.md`](/resources/glossary/)。
 
 ## 📌 学习目标
 
@@ -173,8 +176,8 @@ Stage 1 已经提过。这里特别推 `misc/prompt_caching.ipynb` 跟 `multimod
 
 **这个 stage 不用学完它**，只是给个方向性提示：
 
-- 在 [Stage 6（Memory · RAG）](/stages/06-memory-rag-zh-cn/) 会碰到（什么数据塞进 prompt）
-- 在 [Stage 7（Multi-Agent · Production）](/stages/07-multi-agent-production-zh-cn/) 完整面对（context window 预算、memory 阶层、observability）
+- 在 [Stage 6（Memory · RAG）](/stages/06-memory-rag/) 会碰到（什么数据塞进 prompt）
+- 在 [Stage 7（Multi-Agent · Production）](/stages/07-multi-agent-production/) 完整面对（context window 预算、memory 阶层、observability）
 
 延伸阅读（不必修、未来想深挖时看）：
 
@@ -189,4 +192,4 @@ Stage 1 已经提过。这里特别推 `misc/prompt_caching.ipynb` 跟 `multimod
 - [ ] 反复 refine 一个 prompt 5 次，每一版都留下記录
 - [ ] 看出 prompt 不是对的工具的时候（这时要用 tool use）
 
-如果可以 → 进 [Stage 3 — Tool Use & Agent 入门](/stages/03-tool-use-and-hello-agent-zh-cn/)。这是最重要的一个阶段——prompt 不要急着跳过去，但也不要卡在这里。
+如果可以 → 进 [Stage 3 — Tool Use & Agent 入门](/stages/03-tool-use-and-hello-agent/)。这是最重要的一个阶段——prompt 不要急着跳过去，但也不要卡在这里。

@@ -3,19 +3,22 @@ title: "Stage 1 - LLM 基础"
 description: "完成本阶段后，你将能够："
 section: "Stage"
 sourcePath: "stages/01-llm-basics.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.zh-CN.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.zh-CN.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "01-llm-basics"
 order: 1
 ---# Stage 1 - LLM 基础
 
-> [繁體中文](/stages/01-llm-basics/) | **简体中文** | [English](/stages/01-llm-basics-en/)
+> [繁體中文](/zh-tw/stages/01-llm-basics/) | **简体中文** | [English](/en/stages/01-llm-basics/)
 
 > **预计学习时间**： 5-8 小时
 
-> 👋 **从 [Stage 0](/stages/00-foundations-zh-cn/) 来的**：好，环境已经够用——这 5-8 小时：第一次成功调用 Claude / GPT / Gemini API、搞懂 token / context window / temperature 怎么影响输出、用 per-token 计算实际成本。**直接从这里开始的**：先确认你能跑 Python script、有任一家供应商的 API key——做不到请先回 [Stage 0](/stages/00-foundations-zh-cn/)。
+> 👋 **从 [Stage 0](/stages/00-foundations/) 来的**：好，环境已经够用——这 5-8 小时：第一次成功调用 Claude / GPT / Gemini API、搞懂 token / context window / temperature 怎么影响输出、用 per-token 计算实际成本。**直接从这里开始的**：先确认你能跑 Python script、有任一家供应商的 API key——做不到请先回 [Stage 0](/stages/00-foundations/)。
 
-> 掌握 **核心概念**：LLM / token / context window / temperature / RAG / agent，请先阅读 [`resources/glossary.zh-CN.md`](/resources/glossary-zh-cn/)（约 30 分钟）。
+> 掌握 **核心概念**：LLM / token / context window / temperature / RAG / agent，请先阅读 [`resources/glossary.zh-CN.md`](/resources/glossary/)（约 30 分钟）。
 
 ## 学习目标
 
@@ -393,6 +396,6 @@ ollama serve             # 暴露 API server
 - [ ] 比较 Claude Sonnet vs Opus 的 per-token 价格。
 - [ ] 体验至少 2 个不同的 LLM（Claude / GPT / Gemini / Llama）。
 
-如果都完成了，恭喜，进入 [Stage 2 - Prompt Engineering](/stages/02-prompt-engineering-zh-cn/)。
+如果都完成了，恭喜，进入 [Stage 2 - Prompt Engineering](/stages/02-prompt-engineering/)。
 
 如果卡住了，回到 Anthropic Quickstart + 完成至少 3 个 hello-X 脚本。

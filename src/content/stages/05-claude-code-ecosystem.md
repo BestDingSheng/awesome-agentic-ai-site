@@ -3,17 +3,20 @@ title: "Stage 5 — Claude Code 生態系 ⭐⭐"
 description: "⏱ **時間估算**：3-4 週（約 15-25 小時）"
 section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "05-claude-code-ecosystem"
 order: 5
 ---# Stage 5 — Claude Code 生態系 ⭐⭐
 
-> **繁體中文** | [English](/stages/05-claude-code-ecosystem-en/)
+> **繁體中文** | [English](/en/stages/05-claude-code-ecosystem/)
 
 ⏱ **時間估算**：3-4 週（約 15-25 小時）
 
-> 💡 整個 stage 圍繞 4 個關鍵詞（**MCP / Skills / Plugins / Marketplace**）展開 → 不熟先翻 [`resources/glossary.md` §5](/resources/glossary/#5-claude-code-生態)。
+> 💡 整個 stage 圍繞 4 個關鍵詞（**MCP / Skills / Plugins / Marketplace**）展開 → 不熟先翻 [`resources/glossary.md` §5](/zh-tw/resources/glossary/#5-claude-code-生態)。
 
 > 📌 **這個 stage 兩條軌都用**：
 > - **Track A（CLI Power User）**：A2 用 [5.1（Claude Code 基礎）](#51--claude-code-基礎)；A3 用 [5.2（MCP）](#52--mcpmodel-context-protocol-基礎) + 選擇性用到 [5.3（Skills）](#53--skillsclaude-code-的行為層) 跟 [5.4（Plugins）](#54--plugins-與-marketplaces)（A3 的 動手練習 CLI-12 會教把 CLAUDE.md 跟 commands 打包成 plugin）。讀的角度是「**怎麼用 Claude Code 把工作做好**」
@@ -84,13 +87,13 @@ order: 5
 
 ### 動手練習
 - **練習：MCP client** — 安裝 `modelcontextprotocol/servers/filesystem`，從 Claude Desktop 連上去。看著 Claude 讀你的檔案。
-- **練習：MCP server** — 寫一個 Python MCP server，提供一個 tool（例如「換算溫度」）。從 Claude Code 連過去。**step-by-step 怎麼做** → [`resources/cookbook.md` §2](/resources/cookbook/#2-寫你的第一個-mcp-server)
+- **練習：MCP server** — 寫一個 Python MCP server，提供一個 tool（例如「換算溫度」）。從 Claude Code 連過去。**step-by-step 怎麼做** → [`resources/cookbook.md` §2](/zh-tw/resources/cookbook/#2-寫你的第一個-mcp-server)
 - **練習：MCP in production** — 在同一個 Claude session 裡同時連 2-3 個 MCP server，看它們互相搭配。
 
 ### 精選 Projects
 
 > 💡 **找日常工具的 MCP（Notion / Obsidian / Excel / Postgres / Playwright / Figma 等）？**
-> 看 [`resources/mcp-skills-catalog.md`](/resources/mcp-skills-catalog/)——按 14 個分類整理 62 個常用 MCP server / Skill，每個都附 stars / license / 適合誰。下面這節保留的是「**寫自己 MCP server 時的 reference**」性質的官方 server / SDK。
+> 看 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)——按 14 個分類整理 62 個常用 MCP server / Skill，每個都附 stars / license / 適合誰。下面這節保留的是「**寫自己 MCP server 時的 reference**」性質的官方 server / SDK。
 
 
 #### [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) ⭐ 官方
@@ -213,14 +216,14 @@ pip install mcp
 4. [**Hello-Agents — Extra05 Agent Skills 與 MCP 對比解讀**](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra05-AgentSkills解读.md) — Skills vs MCP 概念對比
 
 ### 動手練習
-- **練習：SKILL.md** — 寫一份 200 字的 skill，解決你日常工作中的某一件事。**step-by-step 怎麼做** → [`resources/cookbook.md` §1](/resources/cookbook/#1-寫你的第一個-skill)
+- **練習：SKILL.md** — 寫一份 200 字的 skill，解決你日常工作中的某一件事。**step-by-step 怎麼做** → [`resources/cookbook.md` §1](/zh-tw/resources/cookbook/#1-寫你的第一個-skill)
 - **練習：SKILL with references** — 加一份 `references/` markdown 讓 skill 可以引用
 - **練習：SKILL eval** — 加 `evals/evals.json`，放 3-5 個自我測試
 
 ### 精選 Projects
 
 > 💡 **找日常用 Skill（NotebookLM、Excalidraw、Office docs 等）？**
-> 看 [`resources/mcp-skills-catalog.md`](/resources/mcp-skills-catalog/)——按使用情境分類，含 Anthropic 官方 + 社群 Skill。下面這節保留的是「**寫自己 Skill 時的 reference**」性質的 spec / showcase。
+> 看 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)——按使用情境分類，含 Anthropic 官方 + 社群 Skill。下面這節保留的是「**寫自己 Skill 時的 reference**」性質的 spec / showcase。
 
 #### [anthropics/skills](https://github.com/anthropics/skills) ⭐ 官方 spec
 
@@ -350,7 +353,7 @@ pip install mcp
 
 ### 精選 Projects
 
-> 💡 **想看別人的 plugin 怎麼包**：[`resources/mcp-skills-catalog.md`](/resources/mcp-skills-catalog/) 的開發協作 / 設計 / 監控分類底下不少都附 plugin 包裝（例如 `timescale/pg-aiguide` 同時是 MCP 跟 plugin）。下面這節保留的是「**marketplace 結構範本**」性質的 reference。
+> 💡 **想看別人的 plugin 怎麼包**：[`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/) 的開發協作 / 設計 / 監控分類底下不少都附 plugin 包裝（例如 `timescale/pg-aiguide` 同時是 MCP 跟 plugin）。下面這節保留的是「**marketplace 結構範本**」性質的 reference。
 
 #### [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) ⭐ 官方
 
@@ -440,7 +443,7 @@ pip install mcp
 - [ ] 把 skill 打包成 plugin，再用 `marketplace.json` 發佈
 - [ ] 從角色分工說出 MCP / Skills / Plugins / SDK 各自的位置
 
-如果都可以 → 前往 [Stage 6 — Memory & RAG](/stages/06-memory-rag/)。
+如果都可以 → 前往 [Stage 6 — Memory & RAG](/zh-tw/stages/06-memory-rag/)。
 
 ## 💡 Bonus：完成這個階段之後
 

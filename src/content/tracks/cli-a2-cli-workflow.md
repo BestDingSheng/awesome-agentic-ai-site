@@ -3,15 +3,18 @@ title: "A2 — CLI Workflow Patterns"
 description: "⏱ **時間估算**：1-2 週（約 8-15 小時）"
 section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "cli-a2-cli-workflow"
 order: 2
 ---# A2 — CLI Workflow Patterns
 
-> **繁體中文** | [简体中文](/tracks/a2-cli-workflow-zh-cn/) | [English](/tracks/a2-cli-workflow-en/)
+> **繁體中文** | [简体中文](/tracks/cli-a2-cli-workflow/) | [English](/en/tracks/cli-a2-cli-workflow/)
 
-> [← A1 — CLI 入門](/tracks/a1-cli-intro/) · **Track A: CLI Power User** 第 2 站
+> [← A1 — CLI 入門](/zh-tw/tracks/cli-a1-cli-intro/) · **Track A: CLI Power User** 第 2 站
 
 ⏱ **時間估算**：1-2 週（約 8-15 小時）
 
@@ -27,9 +30,9 @@ order: 2
 ## 📚 必修閱讀
 
 1. [**Anthropic — CLAUDE.md best practices**](https://docs.anthropic.com/en/docs/claude-code/memory) ⭐
-2. [**Stage 2 — Prompt 設計**](/stages/02-prompt-engineering/) — workflow design 跟 prompt design 是同一件事的兩面
-3. [**Stage 5.1 — Claude Code 基礎**](/stages/05-claude-code-ecosystem/#51--claude-code-基礎) — slash commands 細節
-4. [**`resources/cli-agents-guide.md`** §「跨 CLI 都通用的 prompt 寫法」](/resources/cli-agents-guide/) — portable prompt 原則
+2. [**Stage 2 — Prompt 設計**](/zh-tw/stages/02-prompt-engineering/) — workflow design 跟 prompt design 是同一件事的兩面
+3. [**Stage 5.1 — Claude Code 基礎**](/zh-tw/stages/05-claude-code-ecosystem/#51--claude-code-基礎) — slash commands 細節
+4. [**`resources/cli-agents-guide.md`** §「跨 CLI 都通用的 prompt 寫法」](/zh-tw/resources/cli-agents-guide/) — portable prompt 原則
 
 ## 🛠 動手練習
 
@@ -86,7 +89,7 @@ description: Review staged changes for security + style
 #### [mattpocock/skills](https://github.com/mattpocock/skills) ⭐⭐⭐⭐
 ★ 59k+ — 工程師日常用的 skill 庫。`.claude/` 結構是好參考。
 
-> 更多 skill / SKILL.md 範例見 [Stage 5.3 — Skills](/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層)。
+> 更多 skill / SKILL.md 範例見 [Stage 5.3 — Skills](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層)。
 
 ---
 
@@ -106,13 +109,13 @@ description: Review staged changes for security + style
 ★ 161k+ — 雖然是 ChatGPT 起家，prompt 寫法 90% 在 CLI 上也通。
 
 #### Stage 2 — Prompt Engineering 全部 entry
-[完整列表](/stages/02-prompt-engineering/#-精選-projects) — DSPy、Prompt-Engineering-Guide 等。
+[完整列表](/zh-tw/stages/02-prompt-engineering/#-精選-projects) — DSPy、Prompt-Engineering-Guide 等。
 
 ---
 
 ### 多 CLI 並用 pattern
 
-#### [`resources/cli-agents-guide.md`](/resources/cli-agents-guide/) §「3 個常見搭配」
+#### [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) §「3 個常見搭配」
 看 Setup A / B / C，挑一個合的試。
 
 ## ✅ 進 A3 前的自我檢查
@@ -123,7 +126,7 @@ description: Review staged changes for security + style
 - [ ] 把同一個 prompt 在 2 個不同 CLI 上跑過、知道差異
 - [ ] 講得出「什麼任務該拆、什麼任務不該拆」的判準
 
-如果可以 → 進 [A3 — Integration & Production](/tracks/a3-cli-production/)。
+如果可以 → 進 [A3 — Integration & Production](/zh-tw/tracks/cli-a3-cli-production/)。
 
 如果不行 → CLAUDE.md 一直 demo 等於白寫；先去你真實 repo 寫一份再回來。
 

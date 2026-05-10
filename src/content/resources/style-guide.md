@@ -3,10 +3,13 @@ title: "`awesome-agentic-ai-zh` 風格指南"
 description: "這份指南是這份 catalog 的**單一真實來源**——術語、entry 結構、license 標註、寫作風格、禁用詞，全部以這份文件為準。"
 section: "Resource"
 sourcePath: "resources/style-guide.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
----> **繁體中文** | [简体中文](/resources/style-guide-zh-cn/) | [English](/resources/style-guide-en/)
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/style-guide.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "style-guide"
+---> **繁體中文** | [简体中文](/resources/style-guide/) | [English](/en/resources/style-guide/)
 
 # `awesome-agentic-ai-zh` 風格指南
 
@@ -203,7 +206,7 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 ```markdown
 # Stage N — 主題
 
-> [English](/resources/0n-slug-en/) | **繁體中文**
+> [English](/en/resources/0n-slug/) | **繁體中文**
 
 ⏱ **時間估算**：N-M 週（約 X-Y 小時）
 
@@ -256,9 +259,9 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 ```markdown
 # 給 [audience] — 專業分支
 
-> [English](/resources/for-x-en/) | **繁體中文**
+> [English](/en/resources/for-x/) | **繁體中文**
 
-> [← 回主路線 README](/) · 從 Stage 7 結尾分支出來
+> [← 回主路線 README](/zh-tw) · 從 Stage 7 結尾分支出來
 
 ## 使用情境
 - bullet 1
@@ -315,8 +318,8 @@ Branch 的 entry 格式可以比 stage 簡潔（不一定要完整 schema 表格
 ## 9. 連結與引用
 
 ### 內部連結
-- Stage 之間：相對路徑 `[Stage 4](/resources/04-agent-frameworks/)`
-- Branch ↔ README：`[← 回主路線](/)`
+- Stage 之間：相對路徑 `[Stage 4](/zh-tw/resources/04-agent-frameworks/)`
+- Branch ↔ README：`[← 回主路線](/zh-tw)`
 - 跨 stage 引用同一 repo：用全名 + 連結，不要只寫「之前提過」
 
 ### 外部連結
@@ -335,9 +338,9 @@ Branch 的 entry 格式可以比 stage 簡潔（不一定要完整 schema 表格
 
 這份 style-guide 講「entry 怎麼寫」。為什麼分這 5 個 branch、為什麼是 7 個 stage 這類**設計理由**，見：
 
-- [`branches/DESIGN.md`](/branches/design/)——branch 設計筆記（為什麼這樣切、entry 該放哪）
-- [`stages/DESIGN.md`](/stages/design/)——stage 設計筆記（為什麼這結構、動手練習 怎麼挑）
-- [`cli-agents-guide.md`](/resources/cli-agents-guide/)——cross-cutting CLI agent 比較指南
+- [`branches/DESIGN.md`](/zh-tw/branches/design/)——branch 設計筆記（為什麼這樣切、entry 該放哪）
+- [`stages/DESIGN.md`](/zh-tw/stages/design/)——stage 設計筆記（為什麼這結構、動手練習 怎麼挑）
+- [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)——cross-cutting CLI agent 比較指南
 
 ## 修改本指南
 

@@ -3,48 +3,84 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CollectionGrid from '../components/CollectionGrid.astro';
 import RouteTimeline from '../components/RouteTimeline.astro';
 import manifest from '../data/sync-manifest.json';
-import { getCollection } from 'astro:content';
+import { getHomeData } from '../lib/content';
+import { createSectionLanguageLinks, type SiteLang } from '../lib/i18n';
 
-const [stages, tracks, branches] = await Promise.all([
-  getCollection('stages'),
-  getCollection('tracks'),
-  getCollection('branches')
-]);
+interface Props {
+  lang?: SiteLang;
+}
 
-const featuredStages = stages
-  .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
-  .slice(0, 6)
-  .map((entry) => ({
-    title: entry.data.title,
-    href: `/stages/${entry.slug}/`,
-    description: entry.data.description,
-    meta: `Stage ${entry.data.order ?? '-'} · ${entry.data.section}`
-  }));
+const { lang = 'zh-cn' } = Astro.props;
+const { featuredStages, trackSteps, branchSteps } = await getHomeData(lang);
+const labels = {
+  'zh-cn': {
+    eyebrow: '默认语言：简体中文',
+    title: '把 awesome-agentic-ai-zh 做成更清晰的多语言学习网站',
+    intro: '现在站点已经按语言拆分：默认展示简体中文，并提供繁体中文与 English 切换，避免不同语言内容混在一起。',
+    roadmap: '查看学习路线',
+    updates: '查看同步状态',
+    source: '原始仓库',
+    gettingStarted: '推荐起步',
+    gettingStartedDesc: '优先浏览阶段内容，再按目标选择 Track 或 Branch。',
+    allStages: '查看全部 Stages →',
+    trackTitle: 'Track 路线',
+    branchTitle: 'Branch 人群路线',
+    syncedAt: '最近同步',
+    commit: '提交',
+    notSynced: '尚未执行同步'
+  },
+  'zh-tw': {
+    eyebrow: '預設語言：簡體中文',
+    title: '把 awesome-agentic-ai-zh 做成更清晰的多語言學習網站',
+    intro: '現在站點已按語言拆分：預設展示簡體中文，並提供繁體中文與 English 切換，避免不同語言內容混在一起。',
+    roadmap: '查看學習路線',
+    updates: '查看同步狀態',
+    source: '原始倉庫',
+    gettingStarted: '推薦起步',
+    gettingStartedDesc: '優先瀏覽階段內容，再按目標選擇 Track 或 Branch。',
+    allStages: '查看全部 Stages →',
+    trackTitle: 'Track 路線',
+    branchTitle: 'Branch 人群路線',
+    syncedAt: '最近同步',
+    commit: '提交',
+    notSynced: '尚未執行同步'
+  },
+  en: {
+    eyebrow: 'Default language: Simplified Chinese',
+    title: 'A cleaner multilingual learning site for awesome-agentic-ai-zh',
+    intro: 'The site now separates content by language: Simplified Chinese is the default, with Traditional Chinese and English switches to avoid mixed-language pages.',
+    roadmap: 'View Roadmap',
+    updates: 'Sync Status',
+    source: 'Source Repo',
+    gettingStarted: 'Recommended Start',
+    gettingStartedDesc: 'Start with stages first, then pick a Track or Branch based on your goal.',
+    allStages: 'View all Stages →',
+    trackTitle: 'Track Paths',
+    branchTitle: 'Audience Branches',
+    syncedAt: 'Last Synced',
+    commit: 'Commit',
+    notSynced: 'Not synced yet'
+  }
+}[lang];
 
-const trackSteps = tracks.slice(0, 3).map((entry) => ({
-  title: entry.data.title,
-  href: `/tracks/${entry.slug}/`,
-  subtitle: entry.data.description
-}));
-const branchSteps = branches.slice(0, 5).map((entry) => ({
-  title: entry.data.title,
-  href: `/branches/${entry.slug}/`,
-  subtitle: entry.data.description
-}));
+const currentPath = '/';
 ---
-<BaseLayout>
+<BaseLayout
+  title="Awesome Agentic AI 学习站"
+  description="基于 awesome-agentic-ai-zh 构建的多语言 Astro 学习地图网站。默认简体中文。"
+  lang={lang}
+  currentPath={currentPath}
+  languageLinks={createSectionLanguageLinks(currentPath)}
+>
   <section class="hero">
     <div class="hero-card">
-      <span class="eyebrow">Astro MVP</span>
-      <h1>把 awesome-agentic-ai-zh 做成可持续同步的学习网站</h1>
-      <p>
-        这是一个基于 Astro 构建的内容站骨架：支持从上游仓库同步 Markdown、生成阶段/路线/资源页面，
-        并为后续搜索、国际化、可视化学习地图预留结构。
-      </p>
+      <span class="eyebrow">{labels.eyebrow}</span>
+      <h1>{labels.title}</h1>
+      <p>{labels.intro}</p>
       <div class="button-row">
-        <a class="button primary" href="/roadmap">查看学习路线</a>
-        <a class="button" href="/updates">查看同步状态</a>
-        <a class="button" href={manifest.repoUrl} target="_blank" rel="noreferrer">原始仓库</a>
+        <a class="button primary" href={lang === 'zh-cn' ? '/roadmap/' : `/${lang}/roadmap/`}>{labels.roadmap}</a>
+        <a class="button" href={lang === 'zh-cn' ? '/updates/' : `/${lang}/updates/`}>{labels.updates}</a>
+        <a class="button" href={manifest.repoUrl} target="_blank" rel="noreferrer">{labels.source}</a>
       </div>
     </div>
 
@@ -55,24 +91,24 @@ const branchSteps = branches.slice(0, 5).map((entry) => ({
         <div class="stat"><span class="muted">Branches</span><strong>{manifest.counts.branches}</strong></div>
         <div class="stat"><span class="muted">Resources</span><strong>{manifest.counts.resources}</strong></div>
       </div>
-      <p class="muted small">最近同步：{manifest.syncedAt === 'pending-sync' ? '尚未执行同步' : new Date(manifest.syncedAt).toLocaleString('zh-CN', { hour12: false })}</p>
-      <p class="muted small">提交：{manifest.repoCommit}</p>
+      <p class="muted small">{labels.syncedAt}：{manifest.syncedAt === 'pending-sync' ? labels.notSynced : new Date(manifest.syncedAt).toLocaleString('zh-CN', { hour12: false })}</p>
+      <p class="muted small">{labels.commit}：{manifest.repoCommit}</p>
     </div>
   </section>
 
   <section>
     <div class="section-head">
       <div>
-        <h2>推荐起步</h2>
-        <p class="muted">优先浏览阶段内容，再按目标选择 Track 或 Branch。</p>
+        <h2>{labels.gettingStarted}</h2>
+        <p class="muted">{labels.gettingStartedDesc}</p>
       </div>
-      <a href="/stages">查看全部 Stages →</a>
+      <a href={lang === 'zh-cn' ? '/stages/' : `/${lang}/stages/`}>{labels.allStages}</a>
     </div>
     <CollectionGrid items={featuredStages} />
   </section>
 
   <section class="grid cols-2" style="margin-top:2rem;">
-    <RouteTimeline title="Track 路线" steps={trackSteps} />
-    <RouteTimeline title="Branch 人群路线" steps={branchSteps} />
+    <RouteTimeline title={labels.trackTitle} steps={trackSteps} />
+    <RouteTimeline title={labels.branchTitle} steps={branchSteps} />
   </section>
 </BaseLayout>

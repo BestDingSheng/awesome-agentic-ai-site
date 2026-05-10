@@ -3,18 +3,21 @@ title: "Stage 4 — Agent Frameworks"
 description: "⏱ **Time estimate**: 2-3 weeks (~10-15 hours)"
 section: "Stage"
 sourcePath: "stages/04-agent-frameworks.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "04-agent-frameworks"
 order: 4
 ---# Stage 4 — Agent Frameworks
 
-> [繁體中文](/stages/04-agent-frameworks/) | **English**
+> [繁體中文](/zh-tw/stages/04-agent-frameworks/) | **English**
 
 
 ⏱ **Time estimate**: 2-3 weeks (~10-15 hours)
 
-> 💡 Term-unfamiliar? (framework / supervisor / worker / handoff / …) → [`resources/glossary.en.md`](/resources/glossary-en/).
+> 💡 Term-unfamiliar? (framework / supervisor / worker / handoff / …) → [`resources/glossary.en.md`](/en/resources/glossary/).
 
 You've built a ReAct agent from scratch (Stage 3). Now learn what frameworks do for you. **Pick one to deeply learn**, browse the others to know when to switch.
 
@@ -33,7 +36,7 @@ You should already:
 - Have built ReAct from scratch (Exercise 3)
 - Be comfortable with async Python (frameworks lean on async)
 
-⚠️ **Memory primer (peek ahead if needed)**: Some framework features rely on memory concepts — LangGraph uses checkpointing (state persistence), CrewAI passes task results between agents (lightweight memory). [Stage 6 — Memory & RAG](/stages/06-memory-rag/) covers these properly. You don't need to read it first, but if a framework feature feels mysterious, that's where the answer is.
+⚠️ **Memory primer (peek ahead if needed)**: Some framework features rely on memory concepts — LangGraph uses checkpointing (state persistence), CrewAI passes task results between agents (lightweight memory). [Stage 6 — Memory & RAG](/zh-tw/stages/06-memory-rag/) covers these properly. You don't need to read it first, but if a framework feature feels mysterious, that's where the answer is.
 
 ## 📚 Required Reading
 
@@ -281,7 +284,7 @@ Can you:
 - [ ] Identify when CodeAct (Smolagents) is better than JSON-tool
 - [ ] Decide when to drop frameworks and use raw API
 
-If yes → proceed to [Stage 5 — Claude Code Ecosystem](/stages/05-claude-code-ecosystem/).
+If yes → proceed to [Stage 5 — Claude Code Ecosystem](/zh-tw/stages/05-claude-code-ecosystem/).
 
 ## 💡 Strategic note
 

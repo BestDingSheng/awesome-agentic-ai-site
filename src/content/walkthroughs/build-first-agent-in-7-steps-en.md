@@ -3,17 +3,20 @@ title: "Build Your First AI Agent in 7 Steps"
 description: "This is a **concrete cross-stage walkthrough** — the same agent, traced from Stage 1 through Stage 7, with executable code skeletons at each stage."
 section: "Walkthrough"
 sourcePath: "walkthroughs/build-first-agent-in-7-steps.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/walkthroughs/build-first-agent-in-7-steps.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
----> [繁體中文](/walkthroughs/build-first-agent-in-7-steps/) | **English**
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/walkthroughs/build-first-agent-in-7-steps.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "build-first-agent-in-7-steps"
+---> [繁體中文](/zh-tw/walkthroughs/build-first-agent-in-7-steps/) | **English**
 
 # Build Your First AI Agent in 7 Steps
 
-> [← Back to main path README](../README.en.md)
+> [← Back to main path README](/en)
 
 > 📌 **This is for Track B (Agent Builder)** — teaches you to **write an agent from scratch**.
-> [Track A (CLI Power User)](/tracks/a1-cli-intro-en/) learners **do not need to run this**; but reading it gives deeper understanding of "**how an agent gets composed step-by-step from LLM API to production**" — optional advanced supplement.
+> [Track A (CLI Power User)](/en/tracks/cli-a1-cli-intro/) learners **do not need to run this**; but reading it gives deeper understanding of "**how an agent gets composed step-by-step from LLM API to production**" — optional advanced supplement.
 
 This is a **concrete cross-stage walkthrough** — the same agent, traced from Stage 1 through Stage 7, with executable code skeletons at each stage.
 
@@ -347,7 +350,7 @@ To verify it works: paste `https://arxiv.org/abs/2210.03629` in a Claude Code se
 
 **What you learn**: the difference between project skills and plugin marketplace skills (this one is project-level, active as soon as you're in the repo; plugins are a separate distribution layer); `description` is the discovery mechanism (not a magic `trigger_phrases` field); how `references/` extends a skill with longer examples.
 
-**Going further**: if you want to package this skill as a shareable plugin (so others can install it in their own Claude Code), see [Stage 5.4 Plugins & Marketplaces](/stages/05-claude-code-ecosystem-en/#54--plugins--marketplaces). This walkthrough doesn't cover plugin packaging.
+**Going further**: if you want to package this skill as a shareable plugin (so others can install it in their own Claude Code), see [Stage 5.4 Plugins & Marketplaces](/en/stages/05-claude-code-ecosystem/#54--plugins--marketplaces). This walkthrough doesn't cover plugin packaging.
 
 ---
 

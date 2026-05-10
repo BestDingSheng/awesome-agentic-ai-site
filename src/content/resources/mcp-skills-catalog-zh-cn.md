@@ -3,12 +3,15 @@ title: "MCP / Skills 集成目录"
 description: "| 栏位 | 内容 | |---|---| | Stars | ★ 4k+ | | License | NOASSERTION |"
 section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-CN.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-CN.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "mcp-skills-catalog"
 ---# MCP / Skills 集成目录
 
-> [繁體中文](/resources/mcp-skills-catalog/) | **简体中文** | [English](/resources/mcp-skills-catalog-en/)
+> [繁體中文](/zh-tw/resources/mcp-skills-catalog/) | **简体中文** | [English](/en/resources/mcp-skills-catalog/)
 
 > 把 Claude Code（或其他 CLI agent）接到你已经正在用的工具，不用反复切换视窗。本页是 62 个分类整理过的 MCP server / Claude Skill / 集成范例（含研究工作流 + multi-LLM delegation 两个专属区）。
 
@@ -17,8 +20,8 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 ## 怎么用这份目录
 
 - **想找特定工具的 MCP**：直接看下面分类目录
-- **想看 MCP / Skills / Plugins 是什么**：先看 [README 三个核心用语](/#三个核心用语mcp--skills--plugins)，再看 [Stage 5 — Claude Code 生态系](/stages/05-claude-code-ecosystem/)
-- **想看 动手练习 怎么装、怎么测**：看 [Stage 5.2 (MCP)](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) 跟 [Stage 5.3 (Skills)](/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層)
+- **想看 MCP / Skills / Plugins 是什么**：先看 [README 三个核心用语](/#三个核心用语mcp--skills--plugins)，再看 [Stage 5 — Claude Code 生态系](/zh-tw/stages/05-claude-code-ecosystem/)
+- **想看 动手练习 怎么装、怎么测**：看 [Stage 5.2 (MCP)](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) 跟 [Stage 5.3 (Skills)](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層)
 
 ### 收录原则
 
@@ -871,7 +874,7 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 2. 或直接送 PR：在对应分类下加一个 entry，按上面的格式写（Stars/License/推荐度 + 教什么/适合谁/备注）
 3. **stars < 100 且非官方**通常会被退；除非你能说明 niche use case 强到可以例外
 
-PR 送出前看一下 [`resources/style-guide.md`](/resources/style-guide/) 跟 [`CONTRIBUTING.md`](../CONTRIBUTING.md)。
+PR 送出前看一下 [`resources/style-guide.md`](/zh-tw/resources/style-guide/) 跟 [`CONTRIBUTING.md`](../CONTRIBUTING.md)。
 
 ---
 

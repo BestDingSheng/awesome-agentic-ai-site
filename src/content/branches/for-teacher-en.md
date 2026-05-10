@@ -3,15 +3,18 @@ title: "For Teachers — Specialized Branch"
 description: "Teacher-facing AI use cases can first be read as three branches: **lesson prep and class material creation**, **classroom and learning support**, and **other use cases**. This grou"
 section: "Branch"
 sourcePath: "branches/for-teacher.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/branches/for-teacher.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "for-teacher"
 ---# For Teachers — Specialized Branch
 
-> [繁體中文](/branches/for-teacher/) | [简体中文](/branches/for-teacher-zh-cn/) | **English**
+> [繁體中文](/zh-tw/branches/for-teacher/) | [简体中文](/branches/for-teacher/) | **English**
 
 
-> [← Back to main path README](../README.en.md) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to teaching workflows.
+> [← Back to main path README](/en) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to teaching workflows.
 
 ## Use Cases
 
@@ -209,15 +212,15 @@ Most teachers should stay at **Tier 0 (browser chat)** or **Tier 1 (Claude Deskt
   - Example: every week 30 student submissions → auto-generated draft feedback
   - Non-coder teachers: **ask the school IT or a student RA** to set up; you only use the output
 
-> Once you're at Tier 2+, follow [Track A — CLI Power User](/tracks/a1-cli-intro-en/).
+> Once you're at Tier 2+, follow [Track A — CLI Power User](/en/tracks/cli-a1-cli-intro/).
 
 ## Other Branches Also Apply
 
 Many teachers are also researchers / knowledge workers. These branches overlap:
 
-- **Also doing research** (lit review, paper writing, references) → [Researcher branch](/branches/for-researcher-en/)
-- **Reports / meeting notes / cross-tool integration** (Notion, Excel, email) → [Knowledge Worker branch](/branches/for-knowledge-worker-en/)
-- **Connect AI to Notion / Obsidian / Lark / etc.** → [`resources/mcp-skills-catalog.en.md`](/resources/mcp-skills-catalog-en/)
+- **Also doing research** (lit review, paper writing, references) → [Researcher branch](/en/branches/for-researcher/)
+- **Reports / meeting notes / cross-tool integration** (Notion, Excel, email) → [Knowledge Worker branch](/en/branches/for-knowledge-worker/)
+- **Connect AI to Notion / Obsidian / Lark / etc.** → [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/)
 
 ## Community Note
 

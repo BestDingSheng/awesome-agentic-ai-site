@@ -3,17 +3,20 @@ title: "Stage 7 — Multi-Agent · Production"
 description: "⏱ **時間估算**：2-4 週（約 15-30 小時）"
 section: "Stage"
 sourcePath: "stages/07-multi-agent-production.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "07-multi-agent-production"
 order: 7
 ---# Stage 7 — Multi-Agent · Production
 
-> **繁體中文** | [English](/stages/07-multi-agent-production-en/)
+> **繁體中文** | [English](/en/stages/07-multi-agent-production/)
 
 ⏱ **時間估算**：2-4 週（約 15-30 小時）
 
-> 💡 用語密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.md` §4 + §6](/resources/glossary/#4-multi-agent)。
+> 💡 用語密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.md` §4 + §6](/zh-tw/resources/glossary/#4-multi-agent)。
 
 最後一個階段。你正從「我會做 agent」走向「我能在 production 跑起來，多個 agent 協作、有 eval、有 observability、會 deploy」。
 
@@ -362,7 +365,7 @@ npx promptfoo eval
 - [ ] 在真實 workload 上量測 prompt caching 前後的成本差異
 - [ ] 把 agent deploy 到雲端（任何 provider）
 
-如果都可以 → 你已經跑完主路線。挑一個[特化分支](/#️-7-階段學習地圖)，或回過頭來貢獻這份 repo。
+如果都可以 → 你已經跑完主路線。挑一個[特化分支](/zh-tw#️-7-階段學習地圖)，或回過頭來貢獻這份 repo。
 
 ## 💡 接下來
 

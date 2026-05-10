@@ -14,6 +14,12 @@ const PUBLIC_ROOT = path.join(PROJECT_ROOT, 'public');
 const DEFAULT_REPO_URL = process.env.REPO_URL || 'https://github.com/WenyuChiou/awesome-agentic-ai-zh.git';
 const REPO_REF = process.env.REPO_REF || 'main';
 const REPO_WEB_URL = DEFAULT_REPO_URL.replace(/\.git$/, '');
+const DEFAULT_LANG = 'zh-cn';
+const LANG_META = {
+  'zh-cn': { label: '简体中文', suffix: '.zh-CN.md', routePrefix: '' },
+  'zh-tw': { label: '繁體中文', suffix: '.md', routePrefix: '/zh-tw' },
+  en: { label: 'English', suffix: '.en.md', routePrefix: '/en' }
+};
 const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'awesome-agentic-ai-site-'));
 const repoDir = path.join(tempDir, 'repo');
 
@@ -42,6 +48,23 @@ const emptyDir = async (target) => {
 };
 
 const slugify = (value) => value.toLowerCase().replace(/\.md$/i, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+const parseLanguage = (filePath) => {
+  if (filePath.endsWith('.zh-CN.md')) return { language: 'zh-cn', extension: '.zh-CN.md' };
+  if (filePath.endsWith('.en.md')) return { language: 'en', extension: '.en.md' };
+  return { language: 'zh-tw', extension: '.md' };
+};
+
+const getBaseSlugFromRelativePath = (relativePath) => {
+  const { extension } = parseLanguage(relativePath);
+  return slugify(relativePath.slice(0, -extension.length));
+};
+
+const buildLangPath = (language, pathName) => {
+  const prefix = LANG_META[language].routePrefix;
+  const normalized = pathName === '/' ? '/' : pathName.startsWith('/') ? pathName : `/${pathName}`;
+  return prefix ? `${prefix}${normalized === '/' ? '' : normalized}` : normalized;
+};
 
 const firstHeading = (content) => {
   const match = content.match(/^#\s+(.+)$/m);
@@ -78,7 +101,7 @@ const computeOrder = (relativePath) => {
   return undefined;
 };
 
-const rewriteLinks = (content, currentRelativeDir, collectionKey) => {
+const rewriteLinks = (content, currentRelativeDir, language) => {
   return content
     .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (full, alt, rawTarget) => {
       if (/^(https?:|data:|#)/.test(rawTarget)) return full;
@@ -89,22 +112,23 @@ const rewriteLinks = (content, currentRelativeDir, collectionKey) => {
       if (/^https?:/i.test(rawTarget)) return full;
       const [targetPath, hash = ''] = rawTarget.split('#');
       const normalized = path.posix.normalize(path.posix.join(currentRelativeDir, targetPath));
-      const route = resolveMarkdownRoute(normalized);
+      const route = resolveMarkdownRoute(normalized, language);
       if (!route) return full;
       return `[${text}](${route}${hash ? `#${hash}` : ''})`;
     });
 };
 
-const resolveMarkdownRoute = (normalized) => {
+const resolveMarkdownRoute = (normalized, currentLanguage) => {
   const clean = normalized.replace(/^\.\//, '').replace(/^\//, '');
-  if (clean === 'README.md') return '/';
+  if (clean === 'README.md' || clean === 'README.zh-CN.md' || clean === 'README.en.md') {
+    return buildLangPath(currentLanguage, '/');
+  }
   const parts = clean.split('/');
-  if (parts[0] === 'stages') return `/stages/${slugify(parts.at(-1))}/`;
-  if (parts[0] === 'branches') return `/branches/${slugify(parts.at(-1))}/`;
-  if (parts[0] === 'walkthroughs') return `/walkthroughs/${slugify(parts.at(-1))}/`;
-  if (parts[0] === 'resources') return `/resources/${slugify(parts.at(-1))}/`;
-  if (parts[0] === 'tracks') return `/tracks/${slugify(parts.at(-1))}/`;
-  return null;
+  const collection = parts[0];
+  if (!['stages', 'branches', 'walkthroughs', 'resources', 'tracks'].includes(collection)) return null;
+  const { language } = parseLanguage(clean);
+  const baseSlug = getBaseSlugFromRelativePath(parts.slice(1).join('/'));
+  return buildLangPath(language, `/${collection}/${baseSlug}/`);
 };
 
 try {
@@ -140,11 +164,13 @@ try {
         if (!entry.name.endsWith('.md')) continue;
 
         const raw = await fs.readFile(sourcePath, 'utf8');
+        const { language } = parseLanguage(relativePath);
         const title = firstHeading(raw) || entry.name.replace(/\.md$/i, '');
         const description = firstParagraph(raw) || `${section.label} 内容页面`;
         const slug = slugify(relativePath);
+        const baseSlug = getBaseSlugFromRelativePath(relativePath);
         const currentRelativeDir = path.posix.dirname(path.posix.join(section.dir, relativePath));
-        const rewritten = rewriteLinks(raw, currentRelativeDir, section.key);
+        const rewritten = rewriteLinks(raw, currentRelativeDir, language);
         const frontmatter = [
           '---',
           `title: ${JSON.stringify(title)}`,
@@ -154,6 +180,9 @@ try {
           `sourceUrl: ${JSON.stringify(`${REPO_WEB_URL}/blob/${REPO_REF}/${path.posix.join(section.dir, relativePath)}`)}`,
           `sourceRepo: ${JSON.stringify(REPO_WEB_URL)}`,
           `syncedAt: ${JSON.stringify(syncedAt)}`,
+          `language: ${JSON.stringify(language)}`,
+          `languageLabel: ${JSON.stringify(LANG_META[language].label)}`,
+          `baseSlug: ${JSON.stringify(baseSlug)}`,
           computeOrder(relativePath) !== undefined ? `order: ${computeOrder(relativePath)}` : null,
           '---',
           ''
@@ -177,6 +206,7 @@ try {
     repoRef: REPO_REF,
     repoCommit,
     syncedAt,
+    defaultLanguage: DEFAULT_LANG,
     counts
   };
 

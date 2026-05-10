@@ -3,14 +3,17 @@ title: "給研究者 — 專業分支"
 description: "給博士研究者的 Claude Code 基礎建設——學術流程用的 skill、agent、hook、規則。LaTeX / 文獻管理為主。"
 section: "Branch"
 sourcePath: "branches/for-researcher.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/branches/for-researcher.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "for-researcher"
 ---# 給研究者 — 專業分支
 
-> **繁體中文** | [简体中文](/branches/for-researcher-zh-cn/) | [English](/branches/for-researcher-en/)
+> **繁體中文** | [简体中文](/branches/for-researcher/) | [English](/en/branches/for-researcher/)
 
-> [← 回主路線 README](/) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到研究流程上。
+> [← 回主路線 README](/zh-tw) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到研究流程上。
 
 ## 使用情境
 
@@ -22,7 +25,7 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 
 ## 精選 Projects
 
-> 💡 **想把 Claude Code 接到 NotebookLM、Obsidian、Notion、Excel、PDF、Excalidraw 等研究常用工具？** 62 個整合在 [`resources/mcp-skills-catalog.md`](/resources/mcp-skills-catalog/)（按使用情境分類）。下面這節保留「研究專屬」的工具與 marketplace。
+> 💡 **想把 Claude Code 接到 NotebookLM、Obsidian、Notion、Excel、PDF、Excalidraw 等研究常用工具？** 62 個整合在 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)（按使用情境分類）。下面這節保留「研究專屬」的工具與 marketplace。
 
 ### 研究流程 Marketplace
 
@@ -112,7 +115,7 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 
 ### 研究工作流 Skills（本 repo 維護者出品）
 
-> 這幾個是本 repo 維護者 [@WenyuChiou](https://github.com/WenyuChiou)（Lehigh CEE PhD candidate）日常在用的研究 skill / workspace。一併放到這裡讓其他研究者直接用。完整 entry 內容在 [`resources/mcp-skills-catalog.md` §13-§14](/resources/mcp-skills-catalog/#13-研究工作流-skills學術--paper--文獻)。
+> 這幾個是本 repo 維護者 [@WenyuChiou](https://github.com/WenyuChiou)（Lehigh CEE PhD candidate）日常在用的研究 skill / workspace。一併放到這裡讓其他研究者直接用。完整 entry 內容在 [`resources/mcp-skills-catalog.md` §13-§14](/zh-tw/resources/mcp-skills-catalog/#13-研究工作流-skills學術--paper--文獻)。
 
 #### [WenyuChiou/ai-research-skills](https://github.com/WenyuChiou/ai-research-skills) ⭐⭐⭐⭐⭐
 

@@ -3,18 +3,21 @@ title: "Stage 2 — Prompt Engineering"
 description: "⏱ **Time estimate**: 1-2 weeks (~5-12 hours)"
 section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "02-prompt-engineering"
 order: 2
 ---# Stage 2 — Prompt Engineering
 
-> [繁體中文](/stages/02-prompt-engineering/) | **English**
+> [繁體中文](/zh-tw/stages/02-prompt-engineering/) | **English**
 
 
 ⏱ **Time estimate**: 1-2 weeks (~5-12 hours)
 
-> 💡 Term-unfamiliar? (prompt / few-shot / CoT / system prompt / …) → see [`resources/glossary.en.md`](/resources/glossary-en/).
+> 💡 Term-unfamiliar? (prompt / few-shot / CoT / system prompt / …) → see [`resources/glossary.en.md`](/en/resources/glossary/).
 
 ## 📌 Learning Goals
 
@@ -172,8 +175,8 @@ When you find that **a single prompt can no longer cover the problem** — and y
 
 **Don't try to learn it now**, just know the direction:
 
-- You'll first hit it in [Stage 6 (Memory · RAG)](/stages/06-memory-rag-en/) (what data goes into the prompt)
-- You'll fully face it in [Stage 7 (Multi-Agent · Production)](/stages/07-multi-agent-production-en/) (context window budget, memory layering, observability)
+- You'll first hit it in [Stage 6 (Memory · RAG)](/en/stages/06-memory-rag/) (what data goes into the prompt)
+- You'll fully face it in [Stage 7 (Multi-Agent · Production)](/en/stages/07-multi-agent-production/) (context window budget, memory layering, observability)
 
 Further reading (optional, for when you want to dig deeper):
 
@@ -188,4 +191,4 @@ Can you:
 - [ ] Iteratively refine a prompt 5 times tracking each version
 - [ ] Identify when prompting is the wrong tool (and tool use is needed)
 
-If yes → proceed to [Stage 3 — Tool Use & Agent Intro](/stages/03-tool-use-and-hello-agent-en/). This is the most important stage — don't rush past prompts but also don't get stuck here.
+If yes → proceed to [Stage 3 — Tool Use & Agent Intro](/en/stages/03-tool-use-and-hello-agent/). This is the most important stage — don't rush past prompts but also don't get stuck here.

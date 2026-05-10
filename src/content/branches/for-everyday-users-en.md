@@ -3,14 +3,17 @@ title: "For Everyday Users — Specialized Branch"
 description: "Tier 0: Web / Mobile App  (recommended starting point)"
 section: "Branch"
 sourcePath: "branches/for-everyday-users.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "for-everyday-users"
 ---# For Everyday Users — Specialized Branch
 
-> [繁體中文](/branches/for-everyday-users/) | [简体中文](/branches/for-everyday-users-zh-cn/) | **English**
+> [繁體中文](/zh-tw/branches/for-everyday-users/) | [简体中文](/branches/for-everyday-users/) | **English**
 
-> [← Back to main path README](../README.en.md) · You **don't have to walk the full main path** to start here — this branch is for people who **just want to USE AI, not build agents**.
+> [← Back to main path README](/en) · You **don't have to walk the full main path** to start here — this branch is for people who **just want to USE AI, not build agents**.
 
 ## Use Cases
 
@@ -68,11 +71,11 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 
 > These tools are positioned for developers but **everyday users can use them too** — e.g. batch-rename files, organize the Downloads folder, auto-write weekly reviews, summarize PDFs into Markdown.
 >
-> Want a detailed comparison? See [`resources/cli-agents-guide.en.md`](/resources/cli-agents-guide-en/) — six major CLI agents side by side, recommendations by use case, common pitfalls, real-world setups.
+> Want a detailed comparison? See [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) — six major CLI agents side by side, recommendations by use case, common pitfalls, real-world setups.
 >
-> Want step-by-step onboarding? See [`tracks/cli/A1-cli-intro.en.md`](/tracks/a1-cli-intro-en/) — Track A first stop, from install to your first task.
+> Want step-by-step onboarding? See [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) — Track A first stop, from install to your first task.
 >
-> Want to wire your CLI agent to Notion / Obsidian / Excel / Google docs / etc.? See [`resources/mcp-skills-catalog.en.md`](/resources/mcp-skills-catalog-en/) — 62 MCP servers / Skills grouped by use case.
+> Want to wire your CLI agent to Notion / Obsidian / Excel / Google docs / etc.? See [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) — 62 MCP servers / Skills grouped by use case.
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
 ★ 120k+ — Anthropic's official CLI agent. Reads/writes files, runs commands, handles multi-step tasks. **The most beginner-friendly CLI tool for everyday users.**
@@ -115,7 +118,7 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 ### Tier 3 — Local LLM (privacy / offline / cost)
 
 #### [Ollama](https://github.com/ollama/ollama) ⭐⭐⭐⭐⭐
-★ 170k+ — One command to run a local LLM. Use this when privacy-sensitive data (medical records, contracts, family conversations) shouldn't leave your machine. See [Stage 1 — Local LLM](/stages/01-llm-basics-en/).
+★ 170k+ — One command to run a local LLM. Use this when privacy-sensitive data (medical records, contracts, family conversations) shouldn't leave your machine. See [Stage 1 — Local LLM](/en/stages/01-llm-basics/).
 
 #### [LM Studio](https://lmstudio.ai/)
 Closed-source but the most beginner-friendly option — drag-and-drop UI, no command line. Mac / Windows / Linux.
@@ -134,7 +137,7 @@ Closed-source but the most beginner-friendly option — drag-and-drop UI, no com
 1. [**Anthropic — How to write effective prompts**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — readable without code
 2. [**OpenAI — Prompting Guide**](https://platform.openai.com/docs/guides/prompt-engineering) — the parallel official doc
 
-If you want to go deeper, see [Stage 2 — Prompt Engineering](/stages/02-prompt-engineering-en/), which has a more systematic treatment.
+If you want to go deeper, see [Stage 2 — Prompt Engineering](/en/stages/02-prompt-engineering/), which has a more systematic treatment.
 
 ## Workflows You Can Build
 

@@ -3,15 +3,18 @@ title: "For Developers — Specialized Branch"
 description: "Editor-integrated AI pair programmer. Industry standard for AI-assisted coding."
 section: "Branch"
 sourcePath: "branches/for-developer.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/branches/for-developer.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "for-developer"
 ---# For Developers — Specialized Branch
 
-> [繁體中文](/branches/for-developer/) | [简体中文](/branches/for-developer-zh-cn/) | **English**
+> [繁體中文](/zh-tw/branches/for-developer/) | [简体中文](/branches/for-developer/) | **English**
 
 
-> [← Back to main path README](../README.en.md) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to coding workflows.
+> [← Back to main path README](/en) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to coding workflows.
 
 ## Use Cases
 
@@ -23,7 +26,7 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 
 ## Curated Projects
 
-> Six major CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider) compared side-by-side in [`resources/cli-agents-guide.en.md`](/resources/cli-agents-guide-en/). New to CLI agents and want step-by-step onboarding → [`tracks/cli/A1-cli-intro.en.md`](/tracks/a1-cli-intro-en/) (Track A first stop). Looking for MCP / Skill integrations to wire CLI into daily tools (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.en.md`](/resources/mcp-skills-catalog-en/) (62 entries by category). Below lists only the key entries developers should know.
+> Six major CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider) compared side-by-side in [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/). New to CLI agents and want step-by-step onboarding → [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) (Track A first stop). Looking for MCP / Skill integrations to wire CLI into daily tools (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (62 entries by category). Below lists only the key entries developers should know.
 
 ### Coding Agents
 
@@ -123,7 +126,7 @@ Reference: official [`anthropics/claude-code-action`](https://github.com/anthrop
 - **Tier 0**: Cursor / Claude Desktop — IDE chat, no agents
 - **Tier 1**: Claude Code / Cline / OpenCode — CLI with file-system access and CLAUDE.md, still human-in-the-loop
 - **Tier 2**: Author your own Skills + MCP servers — package your dev workflow as shared team skills
-- **Tier 3**: Auto-running agents in CI + production observability — graduates to [Stage 7](/stages/07-multi-agent-production-en/) territory
+- **Tier 3**: Auto-running agents in CI + production observability — graduates to [Stage 7](/en/stages/07-multi-agent-production/) territory
 
 > Tier 0-1 covers ~90% of developers. **Validate ROI before going Tier 2+**: only worth the investment if your team is large, flows are repetitive, and incidents are irreversible.
 
@@ -131,11 +134,11 @@ Reference: official [`anthropics/claude-code-action`](https://github.com/anthrop
 
 Branches that overlap heavily with developers:
 
-- **Doing ML research / writing papers** → [Researcher branch](/branches/for-researcher-en/)
-- **Wire Notion / Linear / Atlassian / Postgres / Figma into your CLI** → [`resources/mcp-skills-catalog.en.md`](/resources/mcp-skills-catalog-en/)
-- **Author your own Skill / MCP server** → [Stage 5](/stages/05-claude-code-ecosystem-en/) + [`resources/cookbook.en.md`](/resources/cookbook-en/)
-- **Schema design details** → [`resources/schema-design-cheatsheet.en.md`](/resources/schema-design-cheatsheet-en/)
-- **CLI from zero** → [Track A](/tracks/a1-cli-intro-en/) (A1 → A2 → A3)
+- **Doing ML research / writing papers** → [Researcher branch](/en/branches/for-researcher/)
+- **Wire Notion / Linear / Atlassian / Postgres / Figma into your CLI** → [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/)
+- **Author your own Skill / MCP server** → [Stage 5](/en/stages/05-claude-code-ecosystem/) + [`resources/cookbook.en.md`](/en/resources/cookbook/)
+- **Schema design details** → [`resources/schema-design-cheatsheet.en.md`](/en/resources/schema-design-cheatsheet/)
+- **CLI from zero** → [Track A](/en/tracks/cli-a1-cli-intro/) (A1 → A2 → A3)
 
 ## Community Note
 

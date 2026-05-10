@@ -3,15 +3,18 @@ title: "For Researchers — Specialized Branch"
 description: "Claude Code infrastructure for PhD researchers — skills, agents, hooks, rules for academic workflows. Strong LaTeX/bibliography focus."
 section: "Branch"
 sourcePath: "branches/for-researcher.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/branches/for-researcher.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "for-researcher"
 ---# For Researchers — Specialized Branch
 
-> [繁體中文](/branches/for-researcher/) | [简体中文](/branches/for-researcher-zh-cn/) | **English**
+> [繁體中文](/zh-tw/branches/for-researcher/) | [简体中文](/branches/for-researcher/) | **English**
 
 
-> [← Back to main path README](../README.en.md) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to research workflows.
+> [← Back to main path README](/en) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to research workflows.
 
 ## Use Cases
 
@@ -23,7 +26,7 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 
 ## Curated Projects
 
-> 💡 **Want to wire Claude Code into NotebookLM, Obsidian, Notion, Excel, PDF, Excalidraw, and other research tools?** 62 integrations in [`resources/mcp-skills-catalog.en.md`](/resources/mcp-skills-catalog-en/) (grouped by use case). The section below keeps research-specific tools and marketplaces.
+> 💡 **Want to wire Claude Code into NotebookLM, Obsidian, Notion, Excel, PDF, Excalidraw, and other research tools?** 62 integrations in [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (grouped by use case). The section below keeps research-specific tools and marketplaces.
 
 ### Research Workflow Marketplaces
 
@@ -113,7 +116,7 @@ Claude Code infrastructure for PhD researchers — skills, agents, hooks, rules 
 
 ### Research Workflow Skills (by the repo maintainer)
 
-> Skills / workspaces the repo maintainer [@WenyuChiou](https://github.com/WenyuChiou) (Lehigh CEE PhD candidate) uses daily for research. Listed here so other researchers can pick them up directly. Full entries in [`resources/mcp-skills-catalog.en.md` §13-§14](/resources/mcp-skills-catalog-en/#13-research-workflow-skills-academic--paper--lit).
+> Skills / workspaces the repo maintainer [@WenyuChiou](https://github.com/WenyuChiou) (Lehigh CEE PhD candidate) uses daily for research. Listed here so other researchers can pick them up directly. Full entries in [`resources/mcp-skills-catalog.en.md` §13-§14](/en/resources/mcp-skills-catalog/#13-research-workflow-skills-academic--paper--lit).
 
 #### [WenyuChiou/ai-research-skills](https://github.com/WenyuChiou/ai-research-skills) ⭐⭐⭐⭐⭐
 

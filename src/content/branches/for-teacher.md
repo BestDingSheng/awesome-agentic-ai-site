@@ -3,14 +3,17 @@ title: "給教師 — 專業分支"
 description: "教師使用 AI 的情境可以先看成三個分支：**備課與上課素材製作**、**教學現場與學習輔助**，以及**其他應用場景**。這樣的分類參考 AI in Education 文獻中常見的行政、教學與學習應用脈絡，也加入生成式 AI 在教材生成、回饋與互動支援上的近期討論（Chen et al., 2020；Mittal et al., 2024）。閱讀時建議先"
 section: "Branch"
 sourcePath: "branches/for-teacher.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/branches/for-teacher.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "for-teacher"
 ---# 給教師 — 專業分支
 
-> **繁體中文** | [简体中文](/branches/for-teacher-zh-cn/) | [English](/branches/for-teacher-en/)
+> **繁體中文** | [简体中文](/branches/for-teacher/) | [English](/en/branches/for-teacher/)
 
-> [← 回主路線 README](/) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到教學流程上。
+> [← 回主路線 README](/zh-tw) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到教學流程上。
 
 ## 使用情境
 
@@ -206,15 +209,15 @@ AI 可以幫忙準備和輔助，但不應該直接取代教師判斷。近期 A
   - 例子：每週固定收 30 份作業 → 自動生成回饋初稿
   - 不熟程式的老師可以**找學校的 IT 同事 / 學生 RA 幫忙**設定，自己只用結果
 
-> 升級到 Tier 2+ 就建議走 [Track A — CLI Power User](/tracks/a1-cli-intro/)。
+> 升級到 Tier 2+ 就建議走 [Track A — CLI Power User](/zh-tw/tracks/cli-a1-cli-intro/)。
 
 ## 也適用其他分支
 
 很多老師同時是研究員 / 知識工作者，這幾個分支重疊：
 
-- **也做研究**（找文獻、寫 paper、整理 references）→ [研究員分支](/branches/for-researcher/)
-- **要寫報告 / 整理會議記錄 / 跨工具整合**（Notion、Excel、Email）→ [知識工作者分支](/branches/for-knowledge-worker/)
-- **要把 AI 接到 Notion / Obsidian / 飛書** 等日常工具 → [`resources/mcp-skills-catalog.md`](/resources/mcp-skills-catalog/)
+- **也做研究**（找文獻、寫 paper、整理 references）→ [研究員分支](/zh-tw/branches/for-researcher/)
+- **要寫報告 / 整理會議記錄 / 跨工具整合**（Notion、Excel、Email）→ [知識工作者分支](/zh-tw/branches/for-knowledge-worker/)
+- **要把 AI 接到 Notion / Obsidian / 飛書** 等日常工具 → [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)
 
 ## 社群備註
 

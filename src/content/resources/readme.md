@@ -3,9 +3,12 @@ title: "`resources/` 索引"
 description: "| 檔案 | 角色 | 什麼時候看 | 行數 | |---|---|---|---|"
 section: "Resource"
 sourcePath: "resources/README.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/README.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "readme"
 ---# `resources/` 索引
 
 > 本 repo 的「**reference 區**」——非主路線、需要時來查的補充材料。每份檔案有明確角色，不重複。
@@ -16,12 +19,12 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 
 | 檔案 | 角色 | 什麼時候看 | 行數 |
 |---|---|---|---|
-| [`glossary.md`](/resources/glossary/) | **30 秒查詞典** | 看 stage 內文時遇到 LLM / RAG / token / agent / vector DB / streaming / batch API 不知道什麼意思 | ~210 |
-| [`cli-agents-guide.md`](/resources/cli-agents-guide/) | **6 個 CLI agent 比較** | 第一次選 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider）不知道挑哪個 | ~134 |
-| [`mcp-skills-catalog.md`](/resources/mcp-skills-catalog/) | **62 個整合 catalog** | 想把 Claude Code 接 Notion / Obsidian / Excel / Postgres / Slack / 等等實際工具 | ~775 |
-| [`schema-design-cheatsheet.md`](/resources/schema-design-cheatsheet/) | **function schema 設計 5 規則 + 5 anti-pattern** | 寫 tool schema / MCP server schema / function calling，發現 LLM 選錯 tool / 傳錯參數 | ~159 |
-| [`cookbook.md`](/resources/cookbook/) | **5 個 step-by-step recipe** | 想 30-50 分鐘做出第一個 Skill / MCP server / 接 Office / 接 NotebookLM / 接 Zotero | ~510 |
-| [`style-guide.md`](/resources/style-guide/) | **送 PR 前的格式 / 用詞規範** | 要對 repo 貢獻、寫 entry / 翻譯 | ~338 |
+| [`glossary.md`](/zh-tw/resources/glossary/) | **30 秒查詞典** | 看 stage 內文時遇到 LLM / RAG / token / agent / vector DB / streaming / batch API 不知道什麼意思 | ~210 |
+| [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) | **6 個 CLI agent 比較** | 第一次選 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider）不知道挑哪個 | ~134 |
+| [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/) | **62 個整合 catalog** | 想把 Claude Code 接 Notion / Obsidian / Excel / Postgres / Slack / 等等實際工具 | ~775 |
+| [`schema-design-cheatsheet.md`](/zh-tw/resources/schema-design-cheatsheet/) | **function schema 設計 5 規則 + 5 anti-pattern** | 寫 tool schema / MCP server schema / function calling，發現 LLM 選錯 tool / 傳錯參數 | ~159 |
+| [`cookbook.md`](/zh-tw/resources/cookbook/) | **5 個 step-by-step recipe** | 想 30-50 分鐘做出第一個 Skill / MCP server / 接 Office / 接 NotebookLM / 接 Zotero | ~510 |
+| [`style-guide.md`](/zh-tw/resources/style-guide/) | **送 PR 前的格式 / 用詞規範** | 要對 repo 貢獻、寫 entry / 翻譯 | ~338 |
 
 合計 ~2100 行 reference。看起來不少，但**每份檔案讀的時機不同**——你不會一次全讀，只在對應情境查 30 秒到 5 分鐘。
 
@@ -31,31 +34,31 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 
 ### 🆕 我剛開始學 AI agent
 
-不需要先讀任何 reference。**直接從主路線 [README](/) → [Stage 0](/stages/00-foundations/) 開始**。遇到不懂的詞回來查 [`glossary.md`](/resources/glossary/) 就好。
+不需要先讀任何 reference。**直接從主路線 [README](/zh-tw) → [Stage 0](/zh-tw/stages/00-foundations/) 開始**。遇到不懂的詞回來查 [`glossary.md`](/zh-tw/resources/glossary/) 就好。
 
 ### 🛠 我要選 CLI agent
 
-→ [`cli-agents-guide.md`](/resources/cli-agents-guide/)（6 個 CLI 比較 + 依 use case 推薦）
+→ [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)（6 個 CLI 比較 + 依 use case 推薦）
 
 ### 🔌 我要把 Claude Code 接 X 工具（Notion / Excel / Postgres 等）
 
-→ [`mcp-skills-catalog.md`](/resources/mcp-skills-catalog/)（62 個整合分 14 類）
+→ [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)（62 個整合分 14 類）
 
 ### 🍳 我想動手寫第一個 Skill / MCP server / 接 Word 等
 
-→ [`cookbook.md`](/resources/cookbook/)（5 個 step-by-step recipe）
+→ [`cookbook.md`](/zh-tw/resources/cookbook/)（5 個 step-by-step recipe）
 
 ### 📐 我寫 tool schema 但 LLM 不照我意思做
 
-→ [`schema-design-cheatsheet.md`](/resources/schema-design-cheatsheet/)（5 規則 + 5 anti-pattern）
+→ [`schema-design-cheatsheet.md`](/zh-tw/resources/schema-design-cheatsheet/)（5 規則 + 5 anti-pattern）
 
 ### 📚 我看 stage 內文遇到不懂的詞
 
-→ [`glossary.md`](/resources/glossary/)（每詞 30-80 字解釋 + 哪 stage 講細）
+→ [`glossary.md`](/zh-tw/resources/glossary/)（每詞 30-80 字解釋 + 哪 stage 講細）
 
 ### 🤝 我想送 PR / 翻譯 / 加新 entry
 
-→ [`style-guide.md`](/resources/style-guide/) + [`../CONTRIBUTING.md`](../CONTRIBUTING.md)
+→ [`style-guide.md`](/zh-tw/resources/style-guide/) + [`../CONTRIBUTING.md`](../CONTRIBUTING.md)
 
 ---
 
@@ -92,8 +95,8 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 3. **預期會被 ≥ 3 個 stage 或 branch cross-ref**——只服務一個 stage 的內容，放那個 stage 就好
 
 近期考慮過、但**沒加**的（可選 future work）：
-- `cost-calculator-guide.md`（cross-provider 計價）—— 現在 [Stage 1](/stages/01-llm-basics/) 有提到，等需求明顯再開
+- `cost-calculator-guide.md`（cross-provider 計價）—— 現在 [Stage 1](/zh-tw/stages/01-llm-basics/) 有提到，等需求明顯再開
 - `troubleshooting-guide.md`（常見錯誤 runbook）—— 現有資料夠應付，等社群回報多了再開
-- `prompt-patterns-guide.md`（CoT / few-shot 範本庫）—— 現在 [Stage 2](/stages/02-prompt-engineering/) 有，深度版等社群 PR
+- `prompt-patterns-guide.md`（CoT / few-shot 範本庫）—— 現在 [Stage 2](/zh-tw/stages/02-prompt-engineering/) 有，深度版等社群 PR
 
 社群想加可以開 issue 討論。

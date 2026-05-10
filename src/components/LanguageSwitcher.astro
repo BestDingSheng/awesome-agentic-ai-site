@@ -1,0 +1,53 @@
+---
+import type { SiteLang } from '../lib/i18n';
+
+interface LinkItem {
+  lang: SiteLang;
+  label: string;
+  href: string;
+}
+
+interface Props {
+  currentLang: SiteLang;
+  links: LinkItem[];
+}
+
+const { currentLang, links } = Astro.props;
+---
+<div class="lang-switcher" aria-label="Language switcher">
+  {links.map((item) => (
+    <a class:list={["lang-link", item.lang === currentLang && 'active']} href={item.href} hreflang={item.lang}>
+      {item.label}
+    </a>
+  ))}
+</div>
+
+<style>
+  .lang-switcher {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-items: center;
+  }
+  .lang-link {
+    display: inline-flex;
+    align-items: center;
+    padding: .45rem .75rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.03);
+    color: var(--muted);
+    font-size: .9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .lang-link:hover {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .lang-link.active {
+    background: rgba(124, 156, 255, 0.18);
+    color: var(--text);
+    border-color: rgba(124, 156, 255, 0.45);
+  }
+</style>

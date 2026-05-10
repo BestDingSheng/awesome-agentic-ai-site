@@ -3,15 +3,18 @@ title: "A2 — CLI Workflow Patterns"
 description: "⏱ **时间估算**：1-2 週（约 8-15 小时）"
 section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.zh-CN.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.zh-CN.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "cli-a2-cli-workflow"
 order: 2
 ---# A2 — CLI Workflow Patterns
 
-> [繁體中文](/tracks/a2-cli-workflow/) | **简体中文** | [English](/tracks/a2-cli-workflow-en/)
+> [繁體中文](/zh-tw/tracks/cli-a2-cli-workflow/) | **简体中文** | [English](/en/tracks/cli-a2-cli-workflow/)
 
-> [← A1 — CLI 入门](/tracks/a1-cli-intro-zh-cn/) · **Track A: CLI Power User** 第 2 站
+> [← A1 — CLI 入门](/tracks/cli-a1-cli-intro/) · **Track A: CLI Power User** 第 2 站
 
 ⏱ **时间估算**：1-2 週（约 8-15 小时）
 
@@ -27,9 +30,9 @@ order: 2
 ## 📚 必修阅读
 
 1. [**Anthropic — CLAUDE.md best practices**](https://docs.anthropic.com/en/docs/claude-code/memory) ⭐
-2. [**Stage 2 — Prompt 设计**](/stages/02-prompt-engineering-zh-cn/) — workflow design 跟 prompt design 是同一件事的两面
-3. [**Stage 5.1 — Claude Code 基础**](/stages/05-claude-code-ecosystem-zh-cn/#51--claude-code-基础) — slash commands 细节
-4. [**`resources/cli-agents-guide.zh-CN.md`** §“跨 CLI 都通用的 prompt 写法”](/resources/cli-agents-guide-zh-cn/) — portable prompt 原则
+2. [**Stage 2 — Prompt 设计**](/stages/02-prompt-engineering/) — workflow design 跟 prompt design 是同一件事的两面
+3. [**Stage 5.1 — Claude Code 基础**](/stages/05-claude-code-ecosystem/#51--claude-code-基础) — slash commands 细节
+4. [**`resources/cli-agents-guide.zh-CN.md`** §“跨 CLI 都通用的 prompt 写法”](/resources/cli-agents-guide/) — portable prompt 原则
 
 ## 🛠 动手练习
 
@@ -86,7 +89,7 @@ official — Claude Code memory / CLAUDE.md 编写的官方说明，含 best pra
 #### [mattpocock/skills](https://github.com/mattpocock/skills) ⭐⭐⭐⭐
 ★ 59k+ — 工程师日常用的 skill 库。`.claude/` structure 是好参考。
 
-> 更多 skill / SKILL.md 范例见 [Stage 5.3 — Skills](/stages/05-claude-code-ecosystem-zh-cn/#53--skillsclaude-code-的行为层)。
+> 更多 skill / SKILL.md 范例见 [Stage 5.3 — Skills](/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行为层)。
 
 ---
 
@@ -106,13 +109,13 @@ official — Claude Code memory / CLAUDE.md 编写的官方说明，含 best pra
 ★ 161k+ — 虽然是 ChatGPT 起家，prompt 写法 90% 在 CLI 上也通。
 
 #### Stage 2 — Prompt Engineering 全部 entry
-[完整列表](/stages/02-prompt-engineering-zh-cn/) — DSPy、Prompt-Engineering-Guide 等。
+[完整列表](/stages/02-prompt-engineering/) — DSPy、Prompt-Engineering-Guide 等。
 
 ---
 
 ### 多 CLI 并用 pattern
 
-#### [`resources/cli-agents-guide.zh-CN.md`](/resources/cli-agents-guide-zh-cn/) §“3 个常见搭配”
+#### [`resources/cli-agents-guide.zh-CN.md`](/resources/cli-agents-guide/) §“3 个常见搭配”
 看 Setup A / B / C，挑一个合的试。
 
 ## ✅ 进 A3 前的自我检查
@@ -123,7 +126,7 @@ official — Claude Code memory / CLAUDE.md 编写的官方说明，含 best pra
 - [ ] 把同一个 prompt 在 2 个不同 CLI 上跑过、知道差异
 - [ ] 讲得出「什么任务该拆、什么任务不该拆」的判准
 
-如果可以 → 进 [A3 — Integration & Production](/tracks/a3-cli-production-zh-cn/)。
+如果可以 → 进 [A3 — Integration & Production](/tracks/cli-a3-cli-production/)。
 
 如果不行 → CLAUDE.md 一直 demo 等于白写；先去你真实 repo 写一份再回来。
 

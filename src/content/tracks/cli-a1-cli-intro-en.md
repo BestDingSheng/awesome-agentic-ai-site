@@ -3,15 +3,18 @@ title: "A1 — CLI Agent Intro & Selection"
 description: "⏱ **Time estimate**: 1 week (~5-10 hours)"
 section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "cli-a1-cli-intro"
 order: 1
 ---# A1 — CLI Agent Intro & Selection
 
-> [繁體中文](/tracks/a1-cli-intro/) | [简体中文](/tracks/a1-cli-intro-zh-cn/) | **English**
+> [繁體中文](/zh-tw/tracks/cli-a1-cli-intro/) | [简体中文](/tracks/cli-a1-cli-intro/) | **English**
 
-> [← Back to main path README](../../README.en.md) · **Track A: CLI Power User** — Stop 1
+> [← Back to main path README](/en) · **Track A: CLI Power User** — Stop 1
 
 ⏱ **Time estimate**: 1 week (~5-10 hours)
 
@@ -33,7 +36,7 @@ You should already:
 
 ## 📚 Required Reading
 
-1. [**`resources/cli-agents-guide.en.md`**](/resources/cli-agents-guide-en/) ⭐ — the core reference for this track. 6 mainstream CLI agents side by side, use-case picks, real-world setups
+1. [**`resources/cli-agents-guide.en.md`**](/en/resources/cli-agents-guide/) ⭐ — the core reference for this track. 6 mainstream CLI agents side by side, use-case picks, real-world setups
 2. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — official install
 3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex install + auth
 
@@ -60,7 +63,7 @@ Deliberately break your API key (one wrong character) and see how the CLI errors
 
 ### 6 Mainstream CLI Agents
 
-Detailed comparison (stars, license, strengths, recommended use cases) in [`resources/cli-agents-guide.en.md`](/resources/cli-agents-guide-en/). Quick entry points here:
+Detailed comparison (stars, license, strengths, recommended use cases) in [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/). Quick entry points here:
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
 ★ 120k+ — Recommended first CLI agent. Built-in SKILL / plugin ecosystem, CLAUDE.md prompt system, most complete community resources.
@@ -88,7 +91,7 @@ Detailed comparison (stars, license, strengths, recommended use cases) in [`reso
 Closed-source desktop app — drag-and-drop UI for local LLMs. Try this first if you're on Windows / Mac and want local LLM without command line.
 
 #### [Ollama](https://github.com/ollama/ollama)
-★ 170k+ — Local LLM runner; pairs well with OpenCode / goose (and any tool with OpenAI-compatible base_url). See [Stage 1 — Local LLM section](/stages/01-llm-basics-en/).
+★ 170k+ — Local LLM runner; pairs well with OpenCode / goose (and any tool with OpenAI-compatible base_url). See [Stage 1 — Local LLM section](/en/stages/01-llm-basics/).
 
 ## ✅ Self-Check Before A2
 
@@ -98,7 +101,7 @@ Can you:
 - [ ] Written your own `CLAUDE.md` / `AGENTS.md` / `GEMINI.md`
 - [ ] Run a second CLI at least once, know the style differences
 
-If yes → proceed to [A2 — CLI Workflow Patterns](/tracks/a2-cli-workflow-en/).
+If yes → proceed to [A2 — CLI Workflow Patterns](/en/tracks/cli-a2-cli-workflow/).
 
 If no → don't skip. Sloppy CLI usage isn't productive CLI usage; do Exercises CLI-1/2 at least 3 more times.
 

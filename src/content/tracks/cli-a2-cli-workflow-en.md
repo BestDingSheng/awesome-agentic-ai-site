@@ -3,15 +3,18 @@ title: "A2 — CLI Workflow Patterns"
 description: "⏱ **Time estimate**: 1-2 weeks (~8-15 hours)"
 section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "cli-a2-cli-workflow"
 order: 2
 ---# A2 — CLI Workflow Patterns
 
-> [繁體中文](/tracks/a2-cli-workflow/) | [简体中文](/tracks/a2-cli-workflow-zh-cn/) | **English**
+> [繁體中文](/zh-tw/tracks/cli-a2-cli-workflow/) | [简体中文](/tracks/cli-a2-cli-workflow/) | **English**
 
-> [← A1 — CLI Intro](/tracks/a1-cli-intro-en/) · **Track A: CLI Power User** — Stop 2
+> [← A1 — CLI Intro](/en/tracks/cli-a1-cli-intro/) · **Track A: CLI Power User** — Stop 2
 
 ⏱ **Time estimate**: 1-2 weeks (~8-15 hours)
 
@@ -27,9 +30,9 @@ After installing a CLI and running first tasks, the next question: **how do I ma
 ## 📚 Required Reading
 
 1. [**Anthropic — CLAUDE.md best practices**](https://docs.anthropic.com/en/docs/claude-code/memory) ⭐
-2. [**Stage 2 — Prompt Engineering**](/stages/02-prompt-engineering-en/) — workflow design and prompt design are two sides of the same coin
-3. [**Stage 5.1 — Claude Code Basics**](/stages/05-claude-code-ecosystem-en/#51--claude-code-basics) — slash command details
-4. [**`resources/cli-agents-guide.en.md`** §"Cross-CLI portable prompt patterns"](/resources/cli-agents-guide-en/) — portable prompt principles
+2. [**Stage 2 — Prompt Engineering**](/en/stages/02-prompt-engineering/) — workflow design and prompt design are two sides of the same coin
+3. [**Stage 5.1 — Claude Code Basics**](/en/stages/05-claude-code-ecosystem/#51--claude-code-basics) — slash command details
+4. [**`resources/cli-agents-guide.en.md`** §"Cross-CLI portable prompt patterns"](/en/resources/cli-agents-guide/) — portable prompt principles
 
 ## 🛠 Hands-on Exercises
 
@@ -86,7 +89,7 @@ official — Claude Code memory / CLAUDE.md authoring docs, including best pract
 #### [mattpocock/skills](https://github.com/mattpocock/skills) ⭐⭐⭐⭐
 ★ 59k+ — A practitioner's daily skill library. The `.claude/` structure is a great reference.
 
-> More skill / SKILL.md examples in [Stage 5.3 — Skills](/stages/05-claude-code-ecosystem-en/#53--skills-claude-code-behavior-layer).
+> More skill / SKILL.md examples in [Stage 5.3 — Skills](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer).
 
 ---
 
@@ -106,13 +109,13 @@ Community-curated Claude Code resources. Browse the slash command examples.
 ★ 161k+ — Started for ChatGPT but ~90% of patterns work in CLIs.
 
 #### Stage 2 — Prompt Engineering full list
-[Full list](/stages/02-prompt-engineering-en/#-curated-projects) — DSPy, Prompt-Engineering-Guide, etc.
+[Full list](/en/stages/02-prompt-engineering/#-curated-projects) — DSPy, Prompt-Engineering-Guide, etc.
 
 ---
 
 ### Multi-CLI Patterns
 
-#### [`resources/cli-agents-guide.en.md`](/resources/cli-agents-guide-en/) §"Three common combinations"
+#### [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) §"Three common combinations"
 Look at Setup A / B / C and try one that fits.
 
 ## ✅ Self-Check Before A3
@@ -123,7 +126,7 @@ Can you:
 - [ ] Run the same prompt across 2 different CLIs and know the differences
 - [ ] Articulate "what tasks should be decomposed vs not"
 
-If yes → proceed to [A3 — Integration & Production](/tracks/a3-cli-production-en/).
+If yes → proceed to [A3 — Integration & Production](/en/tracks/cli-a3-cli-production/).
 
 If no → CLAUDE.md only on demo repos is wasted; go write one for your real repo first.
 

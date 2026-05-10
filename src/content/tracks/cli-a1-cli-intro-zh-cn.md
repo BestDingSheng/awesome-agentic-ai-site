@@ -3,15 +3,18 @@ title: "A1 — CLI Agent 入门 + 选择"
 description: "⏱ **时间估算**：1 周（约 5-10 小时）"
 section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.zh-CN.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.zh-CN.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "cli-a1-cli-intro"
 order: 1
 ---# A1 — CLI Agent 入门 + 选择
 
-> [繁體中文](/tracks/a1-cli-intro/) | **简体中文** | [English](/tracks/a1-cli-intro-en/)
+> [繁體中文](/zh-tw/tracks/cli-a1-cli-intro/) | **简体中文** | [English](/en/tracks/cli-a1-cli-intro/)
 
-> [← 回主线路 README](../../README.zh-CN.md) · **Track A: CLI Power User** 第 1 站
+> [← 回主线路 README](/) · **Track A: CLI Power User** 第 1 站
 
 ⏱ **时间估算**：1 周（约 5-10 小时）
 
@@ -35,7 +38,7 @@ order: 1
 
 ## 📚 必修阅读
 
-1. [**`resources/cli-agents-guide.zh-CN.md`**](/resources/cli-agents-guide-zh-cn/) ⭐ — 本轨的核心参考。6 个主流 CLI agent 并列比较、依 use case 推荐、实用搭配
+1. [**`resources/cli-agents-guide.zh-CN.md`**](/resources/cli-agents-guide/) ⭐ — 本轨的核心参考。6 个主流 CLI agent 并列比较、依 use case 推荐、实用搭配
 2. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — 官方安装指南
 3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex 安装跟认证流程
 
@@ -62,7 +65,7 @@ order: 1
 
 ### 6 个主流 CLI agent
 
-详细比较（star、license、强弱项、推荐场景）见 [`resources/cli-agents-guide.zh-CN.md`](/resources/cli-agents-guide-zh-cn/)。这里只给快速 entry point：
+详细比较（star、license、强弱项、推荐场景）见 [`resources/cli-agents-guide.zh-CN.md`](/resources/cli-agents-guide/)。这里只给快速 entry point：
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
 ★ 120k+ — 第一个 CLI agent 推荐。内建 SKILL / plugin 生态、CLAUDE.md prompt 系统、最完整的中文社群资源。
@@ -90,7 +93,7 @@ order: 1
 非开源 desktop app——拖拉界面跑本地 LLM。如果你是 Windows / Mac 用户不想学 command line 但想跑 local LLM，先试这个。
 
 #### [Ollama](https://github.com/ollama/ollama)
-★ 170k+ — 本地 LLM runner，跟 OpenCode / goose 搭配很好（也能单独给 IDE 接 OpenAI 相容 API）。详见 [Stage 1 — Local LLM 执行](/stages/01-llm-basics-zh-cn/#-本地端执行-llm不用付-api-费用)。
+★ 170k+ — 本地 LLM runner，跟 OpenCode / goose 搭配很好（也能单独给 IDE 接 OpenAI 相容 API）。详见 [Stage 1 — Local LLM 执行](/stages/01-llm-basics/#-本地端执行-llm不用付-api-费用)。
 
 ## ✅ 进 A2 前的自我检查
 
@@ -100,7 +103,7 @@ order: 1
 - [ ] 写过你自己的 `CLAUDE.md` / `AGENTS.md` / `GEMINI.md`
 - [ ] 至少跑过第二个 CLI 一次，知道两个的风格差异
 
-如果可以 → 进 [A2 — CLI Workflow Patterns](/tracks/a2-cli-workflow-zh-cn/)。
+如果可以 → 进 [A2 — CLI Workflow Patterns](/tracks/cli-a2-cli-workflow/)。
 
 如果不行 → 别跳。CLI 工具会用得 sloppy 不会用得 productive；A1 的 动手练习 CLI-1/2 至少各跑 3 次再走。
 

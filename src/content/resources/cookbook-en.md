@@ -3,14 +3,17 @@ title: "Cookbook — Turn Concepts into Executable Recipes"
 description: "The difference between writing a Skill and adding a few instructions within a prompt lies in:"
 section: "Resource"
 sourcePath: "resources/cookbook.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "cookbook"
 ---# Cookbook — Turn Concepts into Executable Recipes
 
-> [繁體中文](/resources/cookbook/) | **English**
+> [繁體中文](/zh-tw/resources/cookbook/) | **English**
 
-> Stage 5 (Claude Code Ecosystem) talks about "Concepts" and "Available Tools" with [`mcp-skills-catalog.md`](/resources/mcp-skills-catalog/). This cookbook fills in the gap in between: "**How to build it**". Each recipe is a step-by-step guide + sample code + common pitfalls, designed to be completed in about 30-50 minutes.
+> Stage 5 (Claude Code Ecosystem) talks about "Concepts" and "Available Tools" with [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/). This cookbook fills in the gap in between: "**How to build it**". Each recipe is a step-by-step guide + sample code + common pitfalls, designed to be completed in about 30-50 minutes.
 >
 > This is not a reference or a tutorial—it's a recipe. Pick the one you need and start cooking.
 
@@ -143,9 +146,9 @@ You can then use tools like promptfoo for batch testing.
 
 ### Further Reading
 
-- See [Stage 5.3](/stages/05-claude-code-ecosystem-en/#53--skills-claude-code-behavior-layer) for a detailed explanation of Skill anatomy.
+- See [Stage 5.3](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer) for a detailed explanation of Skill anatomy.
 - Refer to the official skill templates in [`anthropics/skills`](https://github.com/anthropics/skills) (for docx / xlsx / pptx, etc.) for examples.
-- Package multiple skills into a plugin → [Stage 5.4](/stages/05-claude-code-ecosystem-en/#54--plugins--marketplaces)
+- Package multiple skills into a plugin → [Stage 5.4](/en/stages/05-claude-code-ecosystem/#54--plugins--marketplaces)
 
 ---
 
@@ -246,15 +249,15 @@ Claude replies (with a tool call icon): Echo: hello world
 | Symptom | Cause | Solution |
 |---|---|---|
 | Claude Desktop doesn't see the tool | `server.py` failed to start | Run `python server.py` directly in the terminal and check `stderr` for errors |
-| Tool is listed but call fails | Incorrect `inputSchema` format (missing `required` fields, wrong `type`) | Refer to [`schema-design-cheatsheet.md`](/resources/schema-design-cheatsheet-en/) |
+| Tool is listed but call fails | Incorrect `inputSchema` format (missing `required` fields, wrong `type`) | Refer to [`schema-design-cheatsheet.md`](/en/resources/schema-design-cheatsheet/) |
 | Claude doesn't proactively call the tool | `description` is too generic | Refine `description` to be specific trigger phrases like "When the user asks X, use this tool" |
 | stdio vs. SSE? | `stdio` is for local desktop integration; `SSE` is for remote/web | Always use `stdio` for the first server. |
 
 ### Further Reading
 
-- See [Stage 5.2](/stages/05-claude-code-ecosystem-en/#52--mcp-model-context-protocol-foundation) for a full introduction to MCP.
+- See [Stage 5.2](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol-foundation) for a full introduction to MCP.
 - Refer to the official examples in [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) (e.g., filesystem, github, sqlite, time).
-- For production servers, see [Stage 5.2 "Practice: MCP in production"](/stages/05-claude-code-ecosystem-en/#52--mcp-model-context-protocol-foundation) and the `~/.claude/skills/` examples in [`anthropics/claude-code`](https://github.com/anthropics/claude-code).
+- For production servers, see [Stage 5.2 "Practice: MCP in production"](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol-foundation) and the `~/.claude/skills/` examples in [`anthropics/claude-code`](https://github.com/anthropics/claude-code).
 
 ---
 
@@ -335,7 +338,7 @@ and write each into separate markdown sections in ./notes/research-summary.md.
 
 ### Further Reading
 
-- Catalog §2 [`mcp-skills-catalog.en.md` §2 Office Documents](/resources/mcp-skills-catalog-en/#2-office-documents-word--excel--powerpoint--pdf): Enhanced office skills / dedicated MCP for Excel / PPT.
+- Catalog §2 [`mcp-skills-catalog.en.md` §2 Office Documents](/en/resources/mcp-skills-catalog/#2-office-documents-word--excel--powerpoint--pdf): Enhanced office skills / dedicated MCP for Excel / PPT.
 - Office workflow in Chinese: [`leemysw/feishu-docx`](https://github.com/leemysw/feishu-docx) for Feishu / Lark docs ↔ Markdown.
 
 ---
@@ -420,7 +423,7 @@ print(answer.citations)
 
 ### Further Reading
 
-- Catalog §1 [`mcp-skills-catalog.en.md` §1 Notes / Knowledge Base](/resources/mcp-skills-catalog-en/#1-notes--knowledge-base)
+- Catalog §1 [`mcp-skills-catalog.en.md` §1 Notes / Knowledge Base](/en/resources/mcp-skills-catalog/#1-notes--knowledge-base)
 - Complete research workspace: Integrate NotebookLM + Zotero + Obsidian using [`WenyuChiou/research-hub`](https://github.com/WenyuChiou/research-hub).
 
 ---
@@ -508,9 +511,9 @@ and export any missing BibTeX entries as a .bib file for me.
 
 ## Can't Find the Recipe You Need?
 
-- See [Stage 5](/stages/05-claude-code-ecosystem/) for the full concept.
-- See [`mcp-skills-catalog.md`](/resources/mcp-skills-catalog-en/) for a comprehensive list of tools.
-- See [`schema-design-cheatsheet.md`](/resources/schema-design-cheatsheet-en/) for details on writing tool schemas.
-- See [`cli-agents-guide.md`](/resources/cli-agents-guide-en/) for a comparison of 6 popular CLI agents.
+- See [Stage 5](/zh-tw/stages/05-claude-code-ecosystem/) for the full concept.
+- See [`mcp-skills-catalog.md`](/en/resources/mcp-skills-catalog/) for a comprehensive list of tools.
+- See [`schema-design-cheatsheet.md`](/en/resources/schema-design-cheatsheet/) for details on writing tool schemas.
+- See [`cli-agents-guide.md`](/en/resources/cli-agents-guide/) for a comparison of 6 popular CLI agents.
 
 Want a new recipe? Open an issue or submit a PR. Recipe format: **Why + Steps + Sample Prompt + Common Pitfalls + Further Reading**.

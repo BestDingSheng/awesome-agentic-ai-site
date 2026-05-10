@@ -3,17 +3,20 @@ title: "Stage 6 — Memory · RAG · 進階"
 description: "⏱ **時間估算**：2 週（約 10 小時）"
 section: "Stage"
 sourcePath: "stages/06-memory-rag.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "06-memory-rag"
 order: 6
 ---# Stage 6 — Memory · RAG · 進階
 
-> **繁體中文** | [English](/stages/06-memory-rag-en/)
+> **繁體中文** | [English](/en/stages/06-memory-rag/)
 
 ⏱ **時間估算**：2 週（約 10 小時）
 
-> 💡 這 stage 用語密度高（**RAG / 向量資料庫 / embedding / chunking / hybrid search / reranking⋯**）→ 不熟先翻 [`resources/glossary.md` §3](/resources/glossary/#3-memory--retrieval--rag)。
+> 💡 這 stage 用語密度高（**RAG / 向量資料庫 / embedding / chunking / hybrid search / reranking⋯**）→ 不熟先翻 [`resources/glossary.md` §3](/zh-tw/resources/glossary/#3-memory--retrieval--rag)。
 
 不會記住過去互動的 agent 沒什麼用。RAG（Retrieval-Augmented Generation）是目前的標準做法。這一章兩個都會講到。
 
@@ -327,4 +330,4 @@ results = collection.query(query_texts=["query"], n_results=1)
 - [ ] 在某個規模下，能在 Chroma、Qdrant、pgvector 之間做出選擇
 - [ ] 區分「給 agent memory」跟「用 RAG」這兩件事
 
-如果都可以 → 前往 [Stage 7 — Multi-Agent · Production](/stages/07-multi-agent-production/)。
+如果都可以 → 前往 [Stage 7 — Multi-Agent · Production](/zh-tw/stages/07-multi-agent-production/)。

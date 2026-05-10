@@ -3,15 +3,18 @@ title: "For Knowledge Workers — Specialized Branch"
 description: "Self-hostable workflow automation platform with built-in AI integration; visual node-based editor."
 section: "Branch"
 sourcePath: "branches/for-knowledge-worker.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "for-knowledge-worker"
 ---# For Knowledge Workers — Specialized Branch
 
-> [繁體中文](/branches/for-knowledge-worker/) | [简体中文](/branches/for-knowledge-worker-zh-cn/) | **English**
+> [繁體中文](/zh-tw/branches/for-knowledge-worker/) | [简体中文](/branches/for-knowledge-worker/) | **English**
 
 
-> [← Back to main path README](../README.en.md) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to office / knowledge work.
+> [← Back to main path README](/en) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to office / knowledge work.
 
 ## Use Cases
 
@@ -23,7 +26,7 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 
 ## Curated Projects
 
-> 💡 **Want to wire your AI agent to Notion / Gmail / Outlook / Slack / Excel / Lark?** 57 commonly-used MCP server / Skill integrations in [`resources/mcp-skills-catalog.en.md`](/resources/mcp-skills-catalog-en/) (grouped by use case). The section below stays focused on workflow / integration-platform-level tools.
+> 💡 **Want to wire your AI agent to Notion / Gmail / Outlook / Slack / Excel / Lark?** 57 commonly-used MCP server / Skill integrations in [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (grouped by use case). The section below stays focused on workflow / integration-platform-level tools.
 
 ### Workflow Tools
 

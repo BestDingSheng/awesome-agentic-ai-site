@@ -3,12 +3,15 @@ title: "Glossary"
 description: "GPT, Claude, Gemini — models that take text in and produce text out. Fundamentally a pure function: input prompt → output text. **They don't browse the web, they don't remember pas"
 section: "Resource"
 sourcePath: "resources/glossary.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "glossary"
 ---# Glossary
 
-> [繁體中文](/resources/glossary/) | [简体中文](/resources/glossary-zh-cn/) | **English**
+> [繁體中文](/zh-tw/resources/glossary/) | [简体中文](/resources/glossary/) | **English**
 
 > The roadmap leans heavily on terms like LLM, RAG, MCP, agent. Look up unfamiliar ones here in 30 seconds, then go back to reading the stage.
 >
@@ -22,13 +25,13 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 
 GPT, Claude, Gemini — models that take text in and produce text out. Fundamentally a pure function: input prompt → output text. **They don't browse the web, they don't remember past conversations** — those need to be wired up externally.
 
-📍 Detail: [Stage 1](/stages/01-llm-basics-en/)
+📍 Detail: [Stage 1](/en/stages/01-llm-basics/)
 
 ### Token
 
 LLMs see **tokens** (sub-word units), not characters. Roughly 1 English word ≈ 1.3 tokens, 1 Chinese character ≈ 1.5–2 tokens. LLM pricing and context windows are measured in tokens. "1M-token context" ≈ 750k English words.
 
-📍 Detail: [Stage 1](/stages/01-llm-basics-en/)
+📍 Detail: [Stage 1](/en/stages/01-llm-basics/)
 
 ### Context Window
 
@@ -38,7 +41,7 @@ The maximum tokens an LLM can "see" in one call. Claude 200k, GPT-4o 128k, Gemin
 
 The text you feed an LLM. **Prompt engineering** = designing that text to get good answers. Basic structure: system prompt (role/rules) + user prompt (the actual ask).
 
-📍 Detail: [Stage 2](/stages/02-prompt-engineering-en/)
+📍 Detail: [Stage 2](/en/stages/02-prompt-engineering/)
 
 ### Few-shot / Zero-shot
 
@@ -57,20 +60,20 @@ Make the LLM "think before answering" — add "Let's think step by step" so it p
 
 A system that lets the LLM **call external functions, see results, and decide what to do next**. Core topic of this roadmap. The difference: a pure LLM is Q&A, an agent is "LLM + tools + loop".
 
-📍 Detail: [Stage 3](/stages/03-tool-use-and-hello-agent-en/)
+📍 Detail: [Stage 3](/en/stages/03-tool-use-and-hello-agent/)
 
 ### Tool Use / Function Calling
 
 Lets the LLM call functions you defined (DB lookup, math, browser, …). Instead of plain text, the LLM returns `{"function": "search", "args": {…}}`. Your code executes it and feeds the result back to the LLM.
 
-📍 Detail: [Stage 3](/stages/03-tool-use-and-hello-agent-en/)
-📍 How to write good schemas: [Function Schema Design cheatsheet](/resources/schema-design-cheatsheet-en/)
+📍 Detail: [Stage 3](/en/stages/03-tool-use-and-hello-agent/)
+📍 How to write good schemas: [Function Schema Design cheatsheet](/en/resources/schema-design-cheatsheet/)
 
 ### ReAct (Reasoning + Acting)
 
 The classic agent pattern: **Thought → Action (call tool) → Observation (see result) → Thought ...** loop until done. Most agent frameworks implement this internally.
 
-📍 Detail: [Stage 3](/stages/03-tool-use-and-hello-agent-en/)
+📍 Detail: [Stage 3](/en/stages/03-tool-use-and-hello-agent/)
 
 ### Structured Output
 
@@ -88,13 +91,13 @@ The "LLM → tool → result → LLM" repeated cycle. Termination: LLM says "don
 
 "Retrieve first, then generate." Flow: user question → embedding search for top-K relevant chunks → stuff those K chunks into the prompt → LLM answers. **Solves the LLM-doesn't-know-your-private-data and stale-knowledge problems.**
 
-📍 Detail: [Stage 6](/stages/06-memory-rag-en/)
+📍 Detail: [Stage 6](/en/stages/06-memory-rag/)
 
 ### Vector DB / Embedding
 
 Convert text (or images) into a vector of numbers so that **semantically similar things sit close** in vector space. Vector DBs (Pinecone, Chroma, Qdrant, etc.) store and efficiently query these vectors. Core RAG component.
 
-📍 Detail: [Stage 6](/stages/06-memory-rag-en/)
+📍 Detail: [Stage 6](/en/stages/06-memory-rag/)
 
 ### Semantic Search
 
@@ -116,7 +119,7 @@ After first-pass retrieval pulls top-50, use a more expensive but more accurate 
 
 Anthropic 2024 method — embed each chunk together with a summary of the document it came from, so "this chunk taken alone makes no sense" doesn't break retrieval.
 
-📍 Detail: [Stage 6](/stages/06-memory-rag-en/)
+📍 Detail: [Stage 6](/en/stages/06-memory-rag/)
 
 ---
 
@@ -130,7 +133,7 @@ Multiple agents collaborating on one task. Common patterns:
 - **Swarm**: peer agents, no fixed supervisor.
 - **Debate**: agents argue different positions, then form consensus.
 
-📍 Detail: [Stage 7](/stages/07-multi-agent-production-en/)
+📍 Detail: [Stage 7](/en/stages/07-multi-agent-production/)
 
 ### Handoff
 
@@ -148,19 +151,19 @@ Google's protocol for agent ↔ agent communication. Sibling to MCP, but for age
 
 Anthropic's open protocol that lets any LLM host (Claude Code, Cursor, your own agent) call any external tool server through one interface. Think "**USB for LLMs**".
 
-📍 Detail: [Stage 5.2](/stages/05-claude-code-ecosystem-en/#52--mcp-model-context-protocol-foundation)
+📍 Detail: [Stage 5.2](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol-foundation)
 
 ### Skills / SKILL.md
 
 Claude Code's "behavior bundles". A Skill is a folder with a `SKILL.md` that says "in what context, do what, can call which tools". Claude Code auto-loads matching skills based on the situation.
 
-📍 Detail: [Stage 5.3](/stages/05-claude-code-ecosystem-en/#53--skills-claude-code-behavior-layer)
+📍 Detail: [Stage 5.3](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer)
 
 ### Plugin / Marketplace
 
 Package multiple Skills + slash commands + hooks + MCP configs into one shippable unit. A **Marketplace** is a catalog of plugins; users `claude plugin install` to grab community-built ones.
 
-📍 Detail: [Stage 5.4](/stages/05-claude-code-ecosystem-en/#54--plugins--marketplaces)
+📍 Detail: [Stage 5.4](/en/stages/05-claude-code-ecosystem/#54--plugins--marketplaces)
 
 ### Slash Command
 
@@ -186,13 +189,13 @@ A spawned agent from the main Claude Code session, with its own context window, 
 
 Run a test set against your agent and quantify accuracy / latency / cost. **A production agent without eval has no tests.** Common: promptfoo, LangSmith, langfuse evals.
 
-📍 Detail: [Stage 7](/stages/07-multi-agent-production-en/)
+📍 Detail: [Stage 7](/en/stages/07-multi-agent-production/)
 
 ### Observability
 
 Capture every internal step (which LLM call, which tool, what result). Lets you replay when bugs hit. Common: langfuse, Helicone, weave.
 
-📍 Detail: [Stage 7](/stages/07-multi-agent-production-en/)
+📍 Detail: [Stage 7](/en/stages/07-multi-agent-production/)
 
 ### Prompt Caching
 
@@ -222,7 +225,7 @@ Rule layer that prevents the LLM from doing bad things — block prompt injectio
 
 Agents that run in a terminal (Claude Code, Codex, Aider, Gemini CLI, etc.). Versus IDE-bound (Cursor, Continue) or web-based (ChatGPT, Claude.ai).
 
-📍 Detail: [Track A A1](/tracks/a1-cli-intro-en/), [`resources/cli-agents-guide.en.md`](/resources/cli-agents-guide-en/)
+📍 Detail: [Track A A1](/en/tracks/cli-a1-cli-intro/), [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/)
 
 ### BYO API Key (Bring Your Own)
 
@@ -232,7 +235,7 @@ Tool that supports user-provided API keys instead of bundled subscriptions. Aide
 
 Models running on your own hardware (Ollama, llama.cpp, MLX, LocalAI, etc.). Data stays local — privacy-friendly but capabilities lag frontier models.
 
-📍 Detail: [Stage 1](/stages/01-llm-basics-en/)
+📍 Detail: [Stage 1](/en/stages/01-llm-basics/)
 
 ### Quantization
 
@@ -250,20 +253,20 @@ The current top tier (GPT-5, Claude Sonnet 4.5, Gemini 2.5 Pro, etc.). Use front
 
 When designing one prompt sentence stops being enough, and you need to dynamically assemble **system prompt + tool definitions + memory + retrieved chunks + multi-turn history** — that is the design discipline for the whole stack. **The next layer above prompt engineering.**
 
-📍 Detail: [Stage 2 closing](/stages/02-prompt-engineering-en/) / [Stage 6](/stages/06-memory-rag-en/) / [Stage 7](/stages/07-multi-agent-production-en/)
+📍 Detail: [Stage 2 closing](/en/stages/02-prompt-engineering/) / [Stage 6](/en/stages/06-memory-rag/) / [Stage 7](/en/stages/07-multi-agent-production/)
 📍 Further: [`Meirtz/Awesome-Context-Engineering`](https://github.com/Meirtz/Awesome-Context-Engineering)
 
 ### Harness Engineering
 
 The toolchain design for wrapping an agent into a production system — permissions, tool registry, memory layer, eval, observability, retry / circuit breaker. Claude Code, Cursor, OpenCode, etc. are all "harnesses". **A framework wraps an LLM into an agent; a harness wraps an agent into a product.**
 
-📍 Detail: [Stage 7](/stages/07-multi-agent-production-en/) required reading
+📍 Detail: [Stage 7](/en/stages/07-multi-agent-production/) required reading
 📍 Further: [`ai-boost/awesome-harness-engineering`](https://github.com/ai-boost/awesome-harness-engineering), [`ZhangHanDong/harness-engineering-from-cc-to-ai-coding`](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)
 
 ---
 
 ## Term not here?
 
-- Read the actual stage content: [Stage 5.2 MCP](/stages/05-claude-code-ecosystem-en/#52--mcp-model-context-protocol-foundation) / [5.3 Skills](/stages/05-claude-code-ecosystem-en/#53--skills-claude-code-behavior-layer) / [5.4 Plugins](/stages/05-claude-code-ecosystem-en/#54--plugins--marketplaces)
-- Required reading lists in [Stage 1](/stages/01-llm-basics-en/) / [Stage 6](/stages/06-memory-rag-en/) / [Stage 7](/stages/07-multi-agent-production-en/)
+- Read the actual stage content: [Stage 5.2 MCP](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol-foundation) / [5.3 Skills](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer) / [5.4 Plugins](/en/stages/05-claude-code-ecosystem/#54--plugins--marketplaces)
+- Required reading lists in [Stage 1](/en/stages/01-llm-basics/) / [Stage 6](/en/stages/06-memory-rag/) / [Stage 7](/en/stages/07-multi-agent-production/)
 - Missing? Open an issue or PR a new entry.

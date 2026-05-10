@@ -3,17 +3,20 @@ title: "Stage 0 — 基礎準備"
 description: "⏱ **時間估算**：1-2 週（約 5-15 小時，已具備可跳過）"
 section: "Stage"
 sourcePath: "stages/00-foundations.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/00-foundations.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "00-foundations"
 order: 0
 ---# Stage 0 — 基礎準備
 
-> **繁體中文** | [English](/stages/00-foundations-en/)
+> **繁體中文** | [English](/en/stages/00-foundations/)
 
 ⏱ **時間估算**：1-2 週（約 5-15 小時，已具備可跳過）
 
-> 💡 **看不懂某個詞**？翻 [`resources/glossary.md`](/resources/glossary/) 查 30 秒再回來。Stage 0 還不會碰太多 jargon，但接下來幾 stage 會。
+> 💡 **看不懂某個詞**？翻 [`resources/glossary.md`](/zh-tw/resources/glossary/) 查 30 秒再回來。Stage 0 還不會碰太多 jargon，但接下來幾 stage 會。
 
 ## 何時可以跳過這個階段
 
@@ -23,7 +26,7 @@ order: 0
 - 在自己的作業系統上使用命令列（cd、ls、mkdir、執行 script）
 - 看懂 YAML / JSON 檔案
 
-→ **直接跳到 [Stage 1](/stages/01-llm-basics/)**。
+→ **直接跳到 [Stage 1](/zh-tw/stages/01-llm-basics/)**。
 
 如果做不到，就把這個階段走完。不要跳——後面每個階段都會預設你已經會這些。
 
@@ -78,4 +81,4 @@ order: 0
 
 ---
 
-> ✅ **走完 Stage 0 了？** 接下來 [**Stage 1 — LLM 基礎**](/stages/01-llm-basics/) 會用 5-8 小時帶你做完第一次 LLM API 呼叫、認識 token / context window / temperature，以及用 per-token 計價估算實際任務成本。**繼續往下走 →**
+> ✅ **走完 Stage 0 了？** 接下來 [**Stage 1 — LLM 基礎**](/zh-tw/stages/01-llm-basics/) 會用 5-8 小時帶你做完第一次 LLM API 呼叫、認識 token / context window / temperature，以及用 per-token 計價估算實際任務成本。**繼續往下走 →**

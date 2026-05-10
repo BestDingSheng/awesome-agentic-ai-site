@@ -3,20 +3,23 @@ title: "Stage 1 — LLM Fundamentals"
 description: "⏱ **Time estimate**: 1 week (~5-8 hours)"
 section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "en"
+languageLabel: "English"
+baseSlug: "01-llm-basics"
 order: 1
 ---# Stage 1 — LLM Fundamentals
 
-> [繁體中文](/stages/01-llm-basics/) | **English**
+> [繁體中文](/zh-tw/stages/01-llm-basics/) | **English**
 
 
 ⏱ **Time estimate**: 1 week (~5-8 hours)
 
-> 👋 **Coming from [Stage 0](/stages/00-foundations-en/)?** Nice — your toolchain is set. The next 5-8 hours: your first working call to Claude / GPT / Gemini, how token / context window / temperature shape the output, and per-token cost estimation. **Jumped straight here?** Make sure you can run a Python script and have an API key from one provider — if not, head back to [Stage 0](/stages/00-foundations-en/).
+> 👋 **Coming from [Stage 0](/en/stages/00-foundations/)?** Nice — your toolchain is set. The next 5-8 hours: your first working call to Claude / GPT / Gemini, how token / context window / temperature shape the output, and per-token cost estimation. **Jumped straight here?** Make sure you can run a Python script and have an API key from one provider — if not, head back to [Stage 0](/en/stages/00-foundations/).
 
-> 💡 **Don't recognize a term?** (LLM / token / context window / temperature / RAG / agent / …) → check [`resources/glossary.en.md`](/resources/glossary-en/) for 30-second definitions.
+> 💡 **Don't recognize a term?** (LLM / token / context window / temperature / RAG / agent / …) → check [`resources/glossary.en.md`](/en/resources/glossary/) for 30-second definitions.
 
 ## 📌 Learning Goals
 
@@ -394,6 +397,6 @@ Can you:
 - [ ] Quote roughly the per-token price for Claude Sonnet vs Opus
 - [ ] Name one strength of Claude vs GPT vs Gemini vs Llama
 
-If yes → proceed to [Stage 2 — Prompt Engineering](/stages/02-prompt-engineering/).
+If yes → proceed to [Stage 2 — Prompt Engineering](/zh-tw/stages/02-prompt-engineering/).
 
 If no → re-read the Anthropic Quickstart + run all 3 hello-X projects above.

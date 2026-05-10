@@ -3,17 +3,20 @@ title: "CLI Agents 比較指南"
 description: "跨 5 個 branch + Track A 共用的參考——**Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider 之間怎麼挑？** Track A（A1-A3）的 CLI workflow 設計、5 條 branch 內的 CLI 引用都連到這份；每個 branch 都會用到 CLI ag"
 section: "Resource"
 sourcePath: "resources/cli-agents-guide.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.md"
-sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-10T03:55:52.446Z"
----> **繁體中文** | [简体中文](/resources/cli-agents-guide-zh-cn/) | [English](/resources/cli-agents-guide-en/)
+sourceUrl: "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.md"
+sourceRepo: "https://github.com/WenyuChiou/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T04:28:48.844Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "cli-agents-guide"
+---> **繁體中文** | [简体中文](/resources/cli-agents-guide/) | [English](/en/resources/cli-agents-guide/)
 
 # CLI Agents 比較指南
 
-> [← 回主路線 README](/)
+> [← 回主路線 README](/zh-tw)
 
 > 📌 **這份是 reference doc**（深度比較、選擇邏輯、坑、推薦搭配）。
-> 第一次接觸 CLI agent、想要 step-by-step 上手 → 看 [`tracks/cli/A1-cli-intro.md`](/tracks/a1-cli-intro/)（Track A 第一站）。
+> 第一次接觸 CLI agent、想要 step-by-step 上手 → 看 [`tracks/cli/A1-cli-intro.md`](/zh-tw/tracks/cli-a1-cli-intro/)（Track A 第一站）。
 > 已經在用、想決定 / 比較 / 升級 → 留在這份。
 
 跨 5 個 branch + Track A 共用的參考——**Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider 之間怎麼挑？** Track A（A1-A3）的 CLI workflow 設計、5 條 branch 內的 CLI 引用都連到這份；每個 branch 都會用到 CLI agent，但沒有一個 branch 真的「擁有」這份比較，所以放在 `resources/`。
@@ -22,7 +25,7 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 
 ## 📋 6 個主流 CLI agent
 
-只列在 terminal 跑的（IDE-based 如 Cursor / Cline / Continue 不在這份；那些放在 [for-developer](/branches/for-developer/)）。所有數字 `gh api` 驗證於 2026-05-06。
+只列在 terminal 跑的（IDE-based 如 Cursor / Cline / Continue 不在這份；那些放在 [for-developer](/zh-tw/branches/for-developer/)）。所有數字 `gh api` 驗證於 2026-05-06。
 
 | 工具 | 提供者 | License | 主推 LLM | 認證 / 計費 | Stars |
 |---|---|---|---|---|---|
@@ -125,11 +128,11 @@ syncedAt: "2026-05-10T03:55:52.446Z"
 
 不同 audience 對 CLI 的需求不一樣：
 
-- **[for-developer](/branches/for-developer/)**：除了 CLI，也看 IDE-based agents（Cursor、Cline、Continue）
-- **[for-everyday-users](/branches/for-everyday-users/)** Tier 2：CLI 是進階選項，先試 Tier 0 / 1 的 Web / Desktop App
-- **[for-researcher](/branches/for-researcher/)**：除了 CLI，也看 paper-specific 工具（paper-qa、gpt-researcher、ChatPaper）
-- **[for-knowledge-worker](/branches/for-knowledge-worker/)**：除了 CLI，也看 workflow 自動化（n8n、Make）
-- **[for-teacher](/branches/for-teacher/)**：CLI 對教師偏進階；建議先看 prompt 素材庫
+- **[for-developer](/zh-tw/branches/for-developer/)**：除了 CLI，也看 IDE-based agents（Cursor、Cline、Continue）
+- **[for-everyday-users](/zh-tw/branches/for-everyday-users/)** Tier 2：CLI 是進階選項，先試 Tier 0 / 1 的 Web / Desktop App
+- **[for-researcher](/zh-tw/branches/for-researcher/)**：除了 CLI，也看 paper-specific 工具（paper-qa、gpt-researcher、ChatPaper）
+- **[for-knowledge-worker](/zh-tw/branches/for-knowledge-worker/)**：除了 CLI，也看 workflow 自動化（n8n、Make）
+- **[for-teacher](/zh-tw/branches/for-teacher/)**：CLI 對教師偏進階；建議先看 prompt 素材庫
 
 ---
 

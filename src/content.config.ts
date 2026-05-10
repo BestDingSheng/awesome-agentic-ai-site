@@ -9,6 +9,9 @@ const baseSchema = z.object({
   sourceRepo: z.string(),
   syncedAt: z.string(),
   order: z.number().optional(),
+  language: z.enum(['zh-cn', 'zh-tw', 'en']),
+  languageLabel: z.string(),
+  baseSlug: z.string(),
   draft: z.boolean().optional().default(false)
 });
 
