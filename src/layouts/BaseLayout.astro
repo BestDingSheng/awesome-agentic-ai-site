@@ -1,0 +1,113 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Awesome Agentic AI 中文学习站',
+  description = '基于 awesome-agentic-ai-zh 构建的 Astro 学习地图网站。'
+} = Astro.props;
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="/">Awesome Agentic AI 中文学习站</a>
+        <nav class="nav">
+          <a href="/roadmap">Roadmap</a>
+          <a href="/stages">Stages</a>
+          <a href="/tracks">Tracks</a>
+          <a href="/branches">Branches</a>
+          <a href="/resources">Resources</a>
+          <a href="/walkthroughs">Walkthroughs</a>
+          <a href="/updates">Updates</a>
+        </nav>
+      </div>
+    </header>
+    <main class="shell">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <p>Content source: <a href="https://github.com/WenyuChiou/awesome-agentic-ai-zh" target="_blank" rel="noreferrer">WenyuChiou/awesome-agentic-ai-zh</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #0b1020;
+    --panel: #121a2d;
+    --panel-soft: #18233c;
+    --line: #27324b;
+    --text: #edf2ff;
+    --muted: #a5b2cf;
+    --brand: #7c9cff;
+    --brand-2: #91f2c3;
+    --max: 1180px;
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; }
+  html { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+  body { margin: 0; }
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  img { max-width: 100%; height: auto; }
+  .shell { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
+  .site-header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(11, 16, 32, 0.82); border-bottom: 1px solid rgba(39, 50, 75, 0.8); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 72px; }
+  .brand { font-weight: 800; color: var(--text); }
+  .nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .nav a { color: var(--muted); }
+  .nav a:hover { color: var(--text); }
+  main.shell { padding: 2rem 0 4rem; }
+  .site-footer { border-top: 1px solid var(--line); color: var(--muted); padding: 1.5rem 0 3rem; }
+  h1, h2, h3 { line-height: 1.15; }
+  p, li { line-height: 1.75; }
+  .hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; align-items: center; padding: 2rem 0 2.5rem; }
+  .hero-card, .panel { background: linear-gradient(180deg, rgba(24, 35, 60, 0.95), rgba(18, 26, 45, 0.98)); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); }
+  .eyebrow { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .7rem; border-radius: 999px; background: rgba(124, 156, 255, 0.12); color: var(--brand); font-size: .875rem; font-weight: 700; }
+  .hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); margin: 1rem 0; }
+  .hero p { font-size: 1.05rem; color: var(--muted); }
+  .button-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
+  .button { display: inline-flex; align-items: center; justify-content: center; padding: .8rem 1.1rem; border-radius: 999px; border: 1px solid var(--line); color: var(--text); background: rgba(255,255,255,.03); font-weight: 700; }
+  .button.primary { background: linear-gradient(90deg, var(--brand), #5f7dff); border-color: transparent; }
+  .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
+  .stat { padding: 1rem; border-radius: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,.05); }
+  .stat strong { display: block; font-size: 1.6rem; }
+  .section-head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin: 2.5rem 0 1rem; }
+  .muted { color: var(--muted); }
+  .grid { display: grid; gap: 1rem; }
+  .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem; }
+  .card h3 { margin-top: 0; }
+  .badge { display: inline-flex; padding: .22rem .6rem; border-radius: 999px; background: rgba(145, 242, 195, .12); color: var(--brand-2); font-size: .8rem; font-weight: 700; }
+  .doc { display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem; }
+  .toc, .meta { position: sticky; top: 96px; align-self: start; }
+  .meta ul, .toc ul { list-style: none; margin: 0; padding: 0; }
+  .meta li, .toc li { margin: .55rem 0; }
+  .markdown { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; }
+  .markdown table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  .markdown th, .markdown td { border: 1px solid var(--line); padding: .7rem; text-align: left; vertical-align: top; }
+  .markdown code { background: rgba(255,255,255,.06); padding: .15rem .35rem; border-radius: .35rem; }
+  .markdown pre { padding: 1rem; overflow: auto; border-radius: 14px; background: #09111f; }
+  .markdown blockquote { margin: 1rem 0; border-left: 4px solid var(--brand); padding: .5rem 1rem; color: var(--muted); background: rgba(124, 156, 255, 0.05); }
+  .route-list { display: grid; gap: .9rem; }
+  .route-item { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.1rem; border-radius: 14px; border: 1px solid var(--line); background: var(--panel); }
+  .small { font-size: .92rem; }
+  @media (max-width: 960px) {
+    .hero, .doc, .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
+    .header-inner { align-items: start; flex-direction: column; padding: .9rem 0; }
+    .toc, .meta { position: static; }
+  }
+</style>

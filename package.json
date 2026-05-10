@@ -1,0 +1,15 @@
+{
+  "name": "awesome-agentic-ai-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync:content": "node scripts/sync-content.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.7.7"
+  }
+}

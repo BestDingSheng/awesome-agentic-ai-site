@@ -1,0 +1,26 @@
+---
+interface Step {
+  title: string;
+  href?: string;
+  subtitle?: string;
+}
+interface Props {
+  title: string;
+  steps: Step[];
+}
+const { title, steps } = Astro.props;
+---
+<section class="panel">
+  <h2>{title}</h2>
+  <div class="route-list">
+    {steps.map((step, index) => (
+      <div class="route-item">
+        <div>
+          <div class="badge">Step {index + 1}</div>
+          <h3>{step.href ? <a href={step.href}>{step.title}</a> : step.title}</h3>
+          {step.subtitle && <p class="muted small">{step.subtitle}</p>}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

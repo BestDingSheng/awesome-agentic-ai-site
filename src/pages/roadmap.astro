@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const [stages, tracks] = await Promise.all([getCollection('stages'), getCollection('tracks')]);
+const orderedStages = stages.sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
+---
+<BaseLayout title="Roadmap · Awesome Agentic AI 中文学习站">
+  <section class="panel">
+    <span class="eyebrow">Learning Roadmap</span>
+    <h1>学习地图总览</h1>
+    <p class="muted">这里把 Stage、Track 拆成适合网站浏览的路线视图。后续你可以进一步做成流程图或交互地图。</p>
+  </section>
+
+  <section class="section-head"><div><h2>共用基础 + 进阶主线</h2></div></section>
+  <div class="route-list">
+    {orderedStages.map((entry) => (
+      <a class="route-item" href={`/stages/${entry.slug}/`}>
+        <div>
+          <div class="badge">Stage {entry.data.order ?? '-'}</div>
+          <h3>{entry.data.title}</h3>
+          {entry.data.description && <p class="muted small">{entry.data.description}</p>}
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <section class="section-head"><div><h2>补充 Track</h2></div></section>
+  <div class="grid cols-2">
+    {tracks.map((entry) => (
+      <a class="card" href={`/tracks/${entry.slug}/`}>
+        <div class="badge">{entry.data.section}</div>
+        <h3>{entry.data.title}</h3>
+        {entry.data.description && <p class="muted">{entry.data.description}</p>}
+      </a>
+    ))}
+  </div>
+</BaseLayout>

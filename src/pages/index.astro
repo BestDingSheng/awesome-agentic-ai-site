@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CollectionGrid from '../components/CollectionGrid.astro';
+import RouteTimeline from '../components/RouteTimeline.astro';
+import manifest from '../data/sync-manifest.json';
+import { getCollection } from 'astro:content';
+
+const [stages, tracks, branches] = await Promise.all([
+  getCollection('stages'),
+  getCollection('tracks'),
+  getCollection('branches')
+]);
+
+const featuredStages = stages
+  .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
+  .slice(0, 6)
+  .map((entry) => ({
+    title: entry.data.title,
+    href: `/stages/${entry.slug}/`,
+    description: entry.data.description,
+    meta: `Stage ${entry.data.order ?? '-'} · ${entry.data.section}`
+  }));
+
+const trackSteps = tracks.slice(0, 3).map((entry) => ({
+  title: entry.data.title,
+  href: `/tracks/${entry.slug}/`,
+  subtitle: entry.data.description
+}));
+const branchSteps = branches.slice(0, 5).map((entry) => ({
+  title: entry.data.title,
+  href: `/branches/${entry.slug}/`,
+  subtitle: entry.data.description
+}));
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="hero-card">
+      <span class="eyebrow">Astro MVP</span>
+      <h1>把 awesome-agentic-ai-zh 做成可持续同步的学习网站</h1>
+      <p>
+        这是一个基于 Astro 构建的内容站骨架：支持从上游仓库同步 Markdown、生成阶段/路线/资源页面，
+        并为后续搜索、国际化、可视化学习地图预留结构。
+      </p>
+      <div class="button-row">
+        <a class="button primary" href="/roadmap">查看学习路线</a>
+        <a class="button" href="/updates">查看同步状态</a>
+        <a class="button" href={manifest.repoUrl} target="_blank" rel="noreferrer">原始仓库</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="stats">
+        <div class="stat"><span class="muted">Stages</span><strong>{manifest.counts.stages}</strong></div>
+        <div class="stat"><span class="muted">Tracks</span><strong>{manifest.counts.tracks}</strong></div>
+        <div class="stat"><span class="muted">Branches</span><strong>{manifest.counts.branches}</strong></div>
+        <div class="stat"><span class="muted">Resources</span><strong>{manifest.counts.resources}</strong></div>
+      </div>
+      <p class="muted small">最近同步：{manifest.syncedAt === 'pending-sync' ? '尚未执行同步' : new Date(manifest.syncedAt).toLocaleString('zh-CN', { hour12: false })}</p>
+      <p class="muted small">提交：{manifest.repoCommit}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div>
+        <h2>推荐起步</h2>
+        <p class="muted">优先浏览阶段内容，再按目标选择 Track 或 Branch。</p>
+      </div>
+      <a href="/stages">查看全部 Stages →</a>
+    </div>
+    <CollectionGrid items={featuredStages} />
+  </section>
+
+  <section class="grid cols-2" style="margin-top:2rem;">
+    <RouteTimeline title="Track 路线" steps={trackSteps} />
+    <RouteTimeline title="Branch 人群路线" steps={branchSteps} />
+  </section>
+</BaseLayout>

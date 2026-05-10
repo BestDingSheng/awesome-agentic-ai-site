@@ -1,0 +1,38 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  collectionLabel: string;
+  sourceUrl: string;
+  sourcePath: string;
+  syncedAt: string;
+  headings?: Heading[];
+}
+
+const { title, description, collectionLabel, sourceUrl, sourcePath, syncedAt, headings = [] } = Astro.props;
+---
+<BaseLayout title={`${title} · Awesome Agentic AI 中文学习站`} description={description}>
+  <section class="doc">
+    <aside class="meta panel">
+      <span class="badge">{collectionLabel}</span>
+      <h3>{title}</h3>
+      {description && <p class="muted small">{description}</p>}
+      <ul class="small muted">
+        <li><strong>源文件：</strong>{sourcePath}</li>
+        <li><strong>同步时间：</strong>{new Date(syncedAt).toLocaleString('zh-CN', { hour12: false })}</li>
+        <li><a href={sourceUrl} target="_blank" rel="noreferrer">查看原仓库</a></li>
+      </ul>
+    </aside>
+    <article class="markdown">
+      <slot />
+    </article>
+  </section>
+</BaseLayout>
