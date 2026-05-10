@@ -1,0 +1,112 @@
+---
+title: "A1 — CLI Agent 入门 + 选择"
+description: "⏱ **时间估算**：1 周（约 5-10 小时）"
+section: "Track"
+sourcePath: "tracks/cli/A1-cli-intro.zh-CN.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.zh-CN.md"
+sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T03:55:52.446Z"
+order: 1
+---# A1 — CLI Agent 入门 + 选择
+
+> [繁體中文](/tracks/a1-cli-intro/) | **简体中文** | [English](/tracks/a1-cli-intro-en/)
+
+> [← 回主线路 README](../../README.zh-CN.md) · **Track A: CLI Power User** 第 1 站
+
+⏱ **时间估算**：1 周（约 5-10 小时）
+
+读完 Stage 0-2 之后，你想直接用现成的 CLI agent 把工作做完，不打算自己从零写 ReAct loop？这条轨就是给你的。第一站：**选一个 CLI agent，跑起来**。
+
+## 📌 学习目标
+
+完成后你会：
+
+- 知道 6 个主流 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider）的差别
+- 依自己的场景挑出第一个 CLI 工具
+- 完成安装 + 认证 + 第一个真正的任务（不是 hello world）
+- 知道什么 时候该换 / 加第二个 CLI
+
+## 🚪 进入条件
+
+你应该已经：
+- 跑过 Stage 0 的 练习：CLI（会用命令列）
+- 有 Claude / OpenAI / Google 任一个 账号（不一定是付费）
+- 对 prompt 写法基本上手（Stage 2）
+
+## 📚 必修阅读
+
+1. [**`resources/cli-agents-guide.zh-CN.md`**](/resources/cli-agents-guide-zh-cn/) ⭐ — 本轨的核心参考。6 个主流 CLI agent 并列比较、依 use case 推荐、实用搭配
+2. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — 官方安装指南
+3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex 安装跟认证流程
+
+## 🛠 动手练习（必跑、不是看就好）
+
+### 动手练习 CLI-1：安装 + 第一次跑
+照你选的 CLI 的 quickstart 安装。第一个 prompt 不要写「hello world」——直接给它一个你今天本来就要做的事，譬如：「整理我 Downloads 数据夹，把 PDF 全部 move 到 ~/Documents/PDFs」。观察它怎么分解任务、要哪些确认。
+
+### 动手练习 CLI-2：CLI 内建的 system prompt 文件
+- Claude Code → 写一个 `CLAUDE.md` 在 repo 根目录
+- Codex → 写 `AGENTS.md`
+- Gemini CLI → 写 `GEMINI.md`
+- goose / OpenCode → 看各自的设置
+
+写进去 3 件事：你的个性 / 偏好的 code style / 不能做的事。再跑一个任务，观察行为差异。
+
+### 动手练习 CLI-3：第二个 CLI 并用
+装第二个 CLI（建议 Codex 或 OpenCode 当 backup）。用同一个 prompt 跑，比较输出风格、速度、cost。**不是要选一个赢家——是要学「不同 CLI 解同一个问题的角度不同」**。
+
+### 动手练习 CLI-4：认证细节
+故意把 API key 弄错一个字元，看 CLI 怎么报错。再做一次「正确 key 但 model 名称错」的实验。Production 用一定 会遇到 auth 问题，先在这里踩过。
+
+## 🎯 精选 Projects
+
+### 6 个主流 CLI agent
+
+详细比较（star、license、强弱项、推荐场景）见 [`resources/cli-agents-guide.zh-CN.md`](/resources/cli-agents-guide-zh-cn/)。这里只给快速 entry point：
+
+#### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
+★ 120k+ — 第一个 CLI agent 推荐。内建 SKILL / plugin 生态、CLAUDE.md prompt 系统、最完整的中文社群资源。
+
+#### [openai/codex](https://github.com/openai/codex) ⭐⭐⭐⭐⭐
+★ 80k+ — 已订 ChatGPT Plus / Pro 的人很合适；用同一个 账号就能在终端机跑。
+
+#### [sst/opencode](https://github.com/sst/opencode) ⭐⭐⭐⭐⭐
+★ 155k+ — 开源、不绑 LLM provider、社群迭代最快。要 self-host / 不想 vendor lock-in 选这个。
+
+#### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) ⭐⭐⭐⭐
+★ 103k+ — 想要 1M token 长 context 处理大 codebase / 大 PDF 时用。
+
+#### [block/goose](https://github.com/block/goose) ⭐⭐⭐⭐
+★ 43k+ — 15+ provider 支援（含 Ollama）、可用既有 Claude / ChatGPT / Gemini 订阅。已迁至 `aaif-goose/goose`（AAIF / Linux Foundation）。
+
+#### [Aider-AI/aider](https://github.com/Aider-AI/aider) ⭐⭐⭐⭐⭐
+★ 44k+ — git-native，自动 commit / branch。要写 code 想要 git 流程干净的人用这个。
+
+---
+
+### 进阶：跟主流 CLI 互补的工具
+
+#### [LM Studio](https://lmstudio.ai/)
+非开源 desktop app——拖拉界面跑本地 LLM。如果你是 Windows / Mac 用户不想学 command line 但想跑 local LLM，先试这个。
+
+#### [Ollama](https://github.com/ollama/ollama)
+★ 170k+ — 本地 LLM runner，跟 OpenCode / goose 搭配很好（也能单独给 IDE 接 OpenAI 相容 API）。详见 [Stage 1 — Local LLM 执行](/stages/01-llm-basics-zh-cn/#-本地端执行-llm不用付-api-费用)。
+
+## ✅ 进 A2 前的自我检查
+
+你能不能：
+- [ ] 讲得出 6 个主流 CLI 的核心差别（不查表就答得出 3-4 个）
+- [ ] 你已经選定一个主用 CLI，并有 working setup（装好、认证好、跑过至少 5 个非 hello-world 任务）
+- [ ] 写过你自己的 `CLAUDE.md` / `AGENTS.md` / `GEMINI.md`
+- [ ] 至少跑过第二个 CLI 一次，知道两个的风格差异
+
+如果可以 → 进 [A2 — CLI Workflow Patterns](/tracks/a2-cli-workflow-zh-cn/)。
+
+如果不行 → 别跳。CLI 工具会用得 sloppy 不会用得 productive；A1 的 动手练习 CLI-1/2 至少各跑 3 次再走。
+
+## 💡 给 Track A 学习者的提醒
+
+CLI agent 跟 web 版（Claude.ai / ChatGPT）的差别不是「一样的东西换界面」——CLI 能读写你电脑上的文件、执行 shell 指令、改 git。这个能力差异**先了解再用**：
+- 第一周：每个任务都加 `--dry-run` 或先 review 计划再执行
+- 不要直接让 CLI 对 production codebase 做 commit
+- 重要数据（key、合约、病历）放在 `.cursorignore` / `.claudeignore` 排除

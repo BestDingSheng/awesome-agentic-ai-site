@@ -1,0 +1,135 @@
+---
+title: "A2 — CLI Workflow Patterns"
+description: "⏱ **Time estimate**: 1-2 weeks (~8-15 hours)"
+section: "Track"
+sourcePath: "tracks/cli/A2-cli-workflow.en.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.en.md"
+sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T03:55:52.446Z"
+order: 2
+---# A2 — CLI Workflow Patterns
+
+> [繁體中文](/tracks/a2-cli-workflow/) | [简体中文](/tracks/a2-cli-workflow-zh-cn/) | **English**
+
+> [← A1 — CLI Intro](/tracks/a1-cli-intro-en/) · **Track A: CLI Power User** — Stop 2
+
+⏱ **Time estimate**: 1-2 weeks (~8-15 hours)
+
+After installing a CLI and running first tasks, the next question: **how do I make the CLI consistent, repeatable, shareable?** This stop covers workflow patterns — turning "I retype the same prompt every time" into "set it up once, the CLI does the right thing automatically".
+
+## 📌 Learning Goals
+
+- Write a production-grade `CLAUDE.md` / `AGENTS.md` (not a 1-line note — a 30-50 line working spec)
+- Design repeatable slash commands / custom prompts
+- Decompose multi-step tasks into ones the CLI can execute end-to-end
+- Design prompts portable across CLIs
+
+## 📚 Required Reading
+
+1. [**Anthropic — CLAUDE.md best practices**](https://docs.anthropic.com/en/docs/claude-code/memory) ⭐
+2. [**Stage 2 — Prompt Engineering**](/stages/02-prompt-engineering-en/) — workflow design and prompt design are two sides of the same coin
+3. [**Stage 5.1 — Claude Code Basics**](/stages/05-claude-code-ecosystem-en/#51--claude-code-basics) — slash command details
+4. [**`resources/cli-agents-guide.en.md`** §"Cross-CLI portable prompt patterns"](/resources/cli-agents-guide-en/) — portable prompt principles
+
+## 🛠 Hands-on Exercises
+
+### Exercise CLI-5: Write production CLAUDE.md
+Your CLAUDE.md should at minimum contain:
+- **Persona**: "You're a senior Python engineer / academic writing assistant / etc."
+- **Repo context**: what project, what stack, what conventions
+- **Don't do**: don't touch main, don't move secrets, don't auto-commit
+- **How to do things**: plan first, run tests before commit, use type hints
+- **Common commands**: how to run tests, lint, deploy
+
+Commit it to git. Next time a teammate clones the repo, their Claude Code auto-loads your conventions.
+
+### Exercise CLI-6: First slash command
+Write `.claude/commands/review.md` (or your CLI's equivalent):
+```markdown
+---
+name: review
+description: Review staged changes for security + style
+---
+
+Run this flow:
+1. `git diff --cached` to get staged changes
+2. Look for: hard-coded secrets, SQL injection, type errors
+3. Check against the style rules in CLAUDE.md
+4. Output: PASS / or list of specific changes needed
+```
+After this, every `/review` runs the same flow.
+
+### Exercise CLI-7: Multi-step task decomposition
+Give the CLI a complex task ("translate these 50 markdown files to English + add frontmatter + move to en/ subdirectory").
+- First time: throw the whole task at it → observe how it does it, where it errs
+- Second time: pre-decompose into 5 sub-tasks, give them one by one → observe the difference
+- Lesson: the CLI is like you — too-big tasks need decomposition; too-small tasks lead to over-orchestration
+
+### Exercise CLI-8: Portable prompt
+Write a prompt that works in Claude Code. **Run the same prompt in Codex / OpenCode / Gemini CLI** — what needs to change? Common discoveries:
+- file path conventions differ (cwd vs absolute)
+- shell execution permission defaults differ
+- "plan-first" prompting needs explicit instructions in some, default in others
+
+Compile these into your own cheat sheet.
+
+## 🎯 Curated Projects
+
+### CLAUDE.md Examples
+
+#### [Anthropic official docs](https://docs.anthropic.com/en/docs/claude-code/memory)
+official — Claude Code memory / CLAUDE.md authoring docs, including best practices.
+
+#### [obra/superpowers](https://github.com/obra/superpowers) ⭐⭐⭐⭐
+★ 178k+ — Not just a skill collection but also a production CLAUDE.md template. Read the full `.claude/` structure.
+
+#### [mattpocock/skills](https://github.com/mattpocock/skills) ⭐⭐⭐⭐
+★ 59k+ — A practitioner's daily skill library. The `.claude/` structure is a great reference.
+
+> More skill / SKILL.md examples in [Stage 5.3 — Skills](/stages/05-claude-code-ecosystem-en/#53--skills-claude-code-behavior-layer).
+
+---
+
+### Slash Commands / Custom Prompts
+
+#### [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) ⭐ Official
+★ 18k+ — Official plugin marketplace. Each plugin's commands / skills serve as slash command examples.
+
+#### [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)
+Community-curated Claude Code resources. Browse the slash command examples.
+
+---
+
+### Prompt Design References
+
+#### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) ⭐⭐⭐⭐
+★ 161k+ — Started for ChatGPT but ~90% of patterns work in CLIs.
+
+#### Stage 2 — Prompt Engineering full list
+[Full list](/stages/02-prompt-engineering-en/#-curated-projects) — DSPy, Prompt-Engineering-Guide, etc.
+
+---
+
+### Multi-CLI Patterns
+
+#### [`resources/cli-agents-guide.en.md`](/resources/cli-agents-guide-en/) §"Three common combinations"
+Look at Setup A / B / C and try one that fits.
+
+## ✅ Self-Check Before A3
+
+Can you:
+- [ ] Written at least 1 CLAUDE.md for a production / work repo (not a demo repo)
+- [ ] Written at least 2 slash commands you actually use
+- [ ] Run the same prompt across 2 different CLIs and know the differences
+- [ ] Articulate "what tasks should be decomposed vs not"
+
+If yes → proceed to [A3 — Integration & Production](/tracks/a3-cli-production-en/).
+
+If no → CLAUDE.md only on demo repos is wasted; go write one for your real repo first.
+
+## 💡 Common Pitfalls
+
+- **CLAUDE.md too long**: over 100 lines and the CLI auto-truncates / ignores the back half. Sweet spot: 30-60 lines.
+- **Slash command written as "do X, Y, Z, A, B" in one sentence**: CLIs skip steps. Rewrite as numbered list with a success criterion per step.
+- **Over-portable**: each CLI has its own strengths; don't strip a prompt of specifics just to make it cross-CLI.
+- **"I already know all this, I don't need to write it"**: CLAUDE.md is for future you (and new team members), not for current you.

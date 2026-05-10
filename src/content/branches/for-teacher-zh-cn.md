@@ -1,0 +1,228 @@
+---
+title: "给教师 — 专业分支"
+description: "教师使用 AI 的场景可以先看成三个分支：**备课与上课素材制作**、**教学现场与学习辅助**，以及**其他应用场景**。这样的分类参考 AI in Education 文献中常见的行政、教学与学习应用脉络，也加入生成式 AI 在教材生成、反馈与互动支援上的近期讨论（Chen et al., 2020；Mittal et al., 2024）。阅读时建议先"
+section: "Branch"
+sourcePath: "branches/for-teacher.zh-CN.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.zh-CN.md"
+sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
+syncedAt: "2026-05-10T03:55:52.446Z"
+---# 给教师 — 专业分支
+
+> [繁體中文](/branches/for-teacher/) | **简体中文** | [English](/branches/for-teacher-en/)
+
+> [← 回主路线 README](../README.zh-CN.md) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 后从这里接续。把 agentic AI 应用到教学流程上。
+
+## 使用场景
+
+教师使用 AI 的场景可以先看成三个分支：**备课与上课素材制作**、**教学现场与学习辅助**，以及**其他应用场景**。这样的分类参考 AI in Education 文献中常见的行政、教学与学习应用脉络，也加入生成式 AI 在教材生成、反馈与互动支援上的近期讨论（Chen et al., 2020；Mittal et al., 2024）。阅读时建议先理解教师把关与使用边界，再依自己的教学需求挑一个分支深入。
+
+![教师与 AI agent 使用场景总览](/upstream/resources/diagrams/teacher-ai-use-cases-overview.jpg)
+
+### 教师使用 AI 辅助时要注意什么
+
+AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 AI in Education 与生成式 AI 教育研究也提醒，教师设计 AI agent 时要保留清楚的教学目标、安全边界与人工把关（Chen et al., 2020；Mittal et al., 2024）。
+
+- **保留教师最后判断**：牵涉学生数据、成绩、教学决策等重大判断时，教师仍要负责最后确认。
+- **避免直接给答案**：如果要让学生与 AI agent 互动，可以设计成苏格拉底式对话，在多轮互动中引导学生说出理由。
+- **贴合教学目标**：用 prompt、skill 或固定流程限制 agent 的角色与任务，避免学生互动脱离课程目标。
+- **调整学生提问**：如果学生年龄较低，例如小学或初中，可以把学生问题先改写成更清楚的提问，再交给 agent 回答。
+
+### 备课与上课素材制作
+
+这类场景偏向「帮老师准备材料」，输出通常会被老师再改写、挑选、检查。
+
+- **教案生成**：依课纲、单元目标与学生程度，整理课程大纲、时间分配、活动设计、讨论提示与补充学习指南。
+- **Quiz / 评分量表（rubric）建立**：依文本、课文或学术文章，产生选择题、简答题、申论题、参考答案与评分规准。
+- **幻灯片准备、课程地图、多媒体与可视化素材**：把课本章节或教师笔记转成幻灯片大纲、讲义架构、周次安排、先备知识、评估节点、图像、3D 物件、视频脚本、GIF 或课堂展示素材。
+- **学生反馈整理分析**：汇整学生作答、作业或课堂反应，找出常见迷思、需要补救的概念与下一步练习。
+- **多语系教材翻译与转化**：把教材改写或翻译成不同语言版本，也可以产生语音合成素材。
+- **互动式游戏与活动、虚拟模拟场景的素材**：准备教学游戏、押韵儿歌、任务卡、角色卡、情境文本或模拟场景背景；若要设计实际互动流程或课堂活动，请参考下一节「教学现场与学习辅助」。
+
+### 教学现场与学习辅助
+
+![教学现场与学习辅助应用场景](/upstream/resources/diagrams/teacher-ai-classroom-use-cases.jpg)
+
+这类场景偏向「帮学生理解、练习、互动」，AI 比较像教学助教或活动辅助工具。特别注意：不需要在单一教学活动中加入所有要素，而是挑选适合的环节加入 AI agent 设计。
+
+- **沉浸式学习体验与真实情境演练**：用真实情境模拟、角色扮演或外语口说模拟，让学生在接近实作的情境中练习，降低认知负荷与退缩感。
+- **激发好奇心与提问能力**：透过苏格拉底式追问与多轮互动，引导学生提出更清楚的问题、说明理由，进一步训练批判性思考与后设认知。
+- **即时批改与深度反馈**：让学生从错误中学习，AI 可以指出错误、说明原因、建议修正方向，而不是只给分数或答案。
+- **智慧家教与虚拟助教**：协助回答提问、解释术语、给提示，让学生在课堂内外都能获得适度支援。
+- **适性教学与动态路径**：依学生程度提供对应难度内容，并透过学习表现推测近侧发展区，提供合适的鹰架与补救素材。
+
+### 其他应用场景
+
+这类场景不一定直接发生在课堂中，但会影响教师工作、学生支援与教育系统运作。
+
+- **特殊教育支援**：透过语音转文字、文字转语音等方式，协助不同需求的学生参与课程。
+- **亲师沟通与家庭教育**：整理学生进度报告，并提供家庭可延伸的辅助学习活动建议。
+- **行政管理与学术诚信**：整理学习轨迹、产生报告，或协助进行抄袭与作弊风险检查。
+- **职涯与技能发展辅导**：协助职涯探索、培训清单规划，并依弱点推荐练习题。
+- **教师专业发展**：摘要教学方法、教育科技趋势与研究重点，协助教师持续更新。
+- **高阶研究分析**：辅助文献分析、快速理解论文研究中提出的教学法或教育心理学。
+- **隐私保护与合成数据**：在不直接使用真实个资的前提下，产生匿名合成数据。
+
+### 参考文献
+
+- Chen, L., Chen, P., & Lin, Z. (2020). [Artificial Intelligence in Education: A Review](https://doi.org/10.1109/ACCESS.2020.2988510). *IEEE Access*, 8, 75264-75278.
+- Mittal, U., Sai, S., Chamola, V., & Sangwan, D. (2024). [A Comprehensive Review on Generative AI for Education](https://doi.org/10.1109/ACCESS.2024.3468368). *IEEE Access*, 12, 142733-142759.
+
+## 精选 Projects
+
+### 教学流程 Skills
+
+（大多数还没有做成 skill marketplace。这个分支最有社群贡献空间——见 CONTRIBUTING.md。）
+
+### 可用的基础组件
+
+#### [obra/superpowers](https://github.com/obra/superpowers) ⭐⭐⭐⭐
+通用的写作 / 头脑风暴 skill。可改用在备课上。
+
+#### [Claude Code](https://github.com/anthropics/claude-code)（搭配自定义 CLAUDE.md）⭐⭐⭐⭐⭐
+★ 120k+ — 教师很适合先从这里开始。低门槛先用 Claude.ai（网页版）试水温；如果是会重复的流程，再升级到 Claude Code。
+
+### 教学课程素材（给教师备课用）
+
+#### [huggingface/agents-course](https://github.com/huggingface/agents-course) ⭐⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| Stars | ★ 28k+ |
+| License | Apache-2.0 |
+
+**教什么**：Hugging Face 官方的 agent 课程——notebook、练习、结业认证。是一份**现成的「AI agent 教学」素材**。
+
+**适合谁**：要在学校 / 工作坊开「AI agent 入门」课程的老师，可以直接拿来当教材或改编。
+
+**备注**：注意这是「教 AI agent 怎么建」的教材，不是「老师用 AI 教书」的工具。
+
+---
+
+#### [datawhalechina/llm-universe](https://github.com/datawhalechina/llm-universe) ⭐⭐⭐⭐（中文）
+
+| 栏位 | 内容 |
+|---|---|
+| 语言 | 中文（zh-CN） |
+| Stars | ★ 13k+ |
+| License | NOASSERTION |
+
+**教什么**：Datawhale 出品的中文 LLM 应用开发课程——含 RAG、agent、章节练习。中文教师备课的现成模板。
+
+**适合谁**：中文教师想找现成可改的 LLM 教材底稿、再针对自己学生程度调整。
+
+**备注**：跟 hf agents-course 一样，是「教学生建 LLM 应用」的教材，不是「教师端的 AI 助教」。
+
+---
+
+### Prompt 素材库
+
+#### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) ⭐⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| Stars | ★ 161k+ |
+| License | NOASSERTION（CC0 / public domain 风格，但未提供 SPDX） |
+
+**教什么**：社群维护的 prompt 大全——「act as X」型模板涵盖几百种角色（老师、面试官、stand-up comedian、辩论者⋯）。教师可以拿来当「prompt engineering 写法示例」教给学生，或直接借用其中合适的当作课堂示范。
+
+**适合谁**：要教学生「prompt engineering」的老师，找现成例子比较不同写法的差异。
+
+**备注**：品质不一致——当作素材库挑选用，不是「全部直接拿去教」。
+
+---
+
+### 阅读材料
+
+#### [The Effortless Academic — Beginner Guides](https://effortlessacademic.com/claude-code-and-cowork-for-academics-beginner-guide-part-1/)
+写给学术工作者导入 Claude Code 的多篇指南，教师也适用。
+
+## 可以建的流程
+
+这些是模板——配合你的学科自行调整：
+
+- **教案生成器**：用课纲 + 主题提示 → 大纲 → 幻灯片 → 评估
+- **Rubric 建立**：学生作业样本 + 学习目标 → rubric 草稿
+- **个性化反馈**：学生作业 + rubric → 个性化文字反馈（要人工把关）
+- **情境模拟活动**：教学目标 + 角色设定 → 对话脚本 → 课堂演练 → 反思问题
+- **课后补救教材**：常见错误 + 学生程度 → 小练习 → 提示 → 延伸挑战
+
+### 3 个可直接复制的 prompt 范本
+
+**1. 教案大纲生成**（复制到 Claude.ai 即可用）：
+```
+你是一位 [学科] 老师。我要给 [年级] 学生上一堂 [时长] 分钟的课，主题是「[主题]」。
+学生先备知识：[简述]。请产出：
+1. 学习目标（3-4 条，用 Bloom's taxonomy 动词）
+2. 课程大纲（含时间分配）
+3. 1 个课堂活动 / 讨论题
+4. 1 个课后评估题
+不要产生超出我给的主题范围的内容。
+```
+
+**2. Rubric 草稿生成**：
+```
+我有一份 [作业类型] 作业，学生年级 [年级]，主题 [主题]。
+学习目标：[列 2-3 条]。
+请产出一份 4 级 rubric（卓越 / 熟练 / 发展中 / 待改进），
+每级在「内容深度」「组织结构」「论证 / 计算」「表达清晰度」4 个面向各给一段描述。
+描述要具体可观察，不用「质量好」这种模糊词。
+```
+
+**3. 学生反馈整理**：
+```
+以下是 [N] 份学生作业片段：
+[贴上文本]
+
+请：
+1. 摘要这批作业共同的 3 个强项
+2. 摘要 3 个共同弱点
+3. 针对最常见弱点，建议 1-2 个下次上课该加强的环节
+不要做个人化评语——我会自己针对个人写。
+```
+
+## 隐私 + 伦理（重要）
+
+教师端用 LLM 跟一般 user 不同，**牵涉学生数据**——以下是 hard rule：
+
+- **不要把学生个资丢进公开 LLM**（姓名、学号、联系方式、成绩）。需要的话先匿名化（用「学生 A / B / C」）
+- **AI 辅助 ≠ AI 评分**：用 LLM 草拟反馈 / rubric 没问题，但**最终评分一定要人工把关**——LLM 对复杂思考的评估还不可靠
+- **告知学生**：如果课堂材料是 AI 辅助生成，建议向学生揭露（比照论文揭露 AI 工具使用）。教学诚信很重要
+- **检查事实**：LLM 会编造引用、学者名字、研究数据。专业领域内容**必须核对**才能上课
+- **学生作品的著作权**：不要把学生作品用 LLM 大量分析后上传到第三方 service，可能踩 FERPA / GDPR / 个资法
+
+如果你的学校 / 机构有 AI 使用政策，**那份比这份优先**。
+
+## 给教师的层级建议
+
+大多数教师应该停在 **Tier 0（浏览器聊天）**或 **Tier 1（Claude Desktop）**：
+
+- **Tier 0**：Claude.ai 网页版聊天——复制粘贴 prompt，免安装
+  - 适合：偶尔备课、单次任务、出题、写信
+  - 例子：复制上面的「教案大纲生成」prompt，填入主题就跑
+- **Tier 1**：Claude Desktop / [NotebookLM](https://notebooklm.google.com/)——可上传文件、保留对话历史
+  - 适合：批改 / 整理一整学期数据、做课程地图、整批导入课本 PDF 后问问题
+  - 例子：上传整门课的 reading list PDF 到 NotebookLM，学期中可以随时 query
+- **Tier 2+ (CLI / SDK)**：只有当你开始**自动化重复流程**才需要
+  - 例子：每周固定收 30 份作业 → 自动生成反馈初稿
+  - 不熟程序的老师可以**找学校的 IT 同事 / 学生 RA 帮忙**设置，自己只用结果
+
+> 升级到 Tier 2+ 就建议走 [Track A — CLI Power User](/tracks/a1-cli-intro-zh-cn/)。
+
+## 也适用其他分支
+
+很多老师同时是研究员 / 知识工作者，这几个分支重叠：
+
+- **也做研究**（找文献、写 paper、整理 references）→ [研究员分支](/branches/for-researcher-zh-cn/)
+- **要写报告 / 整理会议记录 / 跨工具集成**（Notion、Excel、Email）→ [知识工作者分支](/branches/for-knowledge-worker-zh-cn/)
+- **要把 AI 接到 Notion / Obsidian / 飞书** 等日常工具 → [`resources/mcp-skills-catalog.zh-CN.md`](/resources/mcp-skills-catalog-zh-cn/)
+
+## 社群备注
+
+这个分支目前是精选内容最少的一块。特别欢迎以下贡献：
+
+- 教案生成 skill
+- 学科专属的 prompt library（语文老师的 prompts、数学老师的 prompts、英文老师的 prompts ⋯）
+- 教师专属的 MCP server（成绩册集成、LMS 串接如 Canvas / Moodle / Google Classroom）
+- **某学科 + 某年级的完整 case study**（例如「我用 AI 带初中数学一个学期，这是我的 workflow」）
+
+请见 [CONTRIBUTING.md](../CONTRIBUTING.md)。
