@@ -5,18 +5,19 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
-language: "zh-tw"
-languageLabel: "繁體中文"
-baseSlug: "04-agent-frameworks-zh-hans"
+syncedAt: "2026-05-11T15:27:41.289Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "04-agent-frameworks"
 order: 4
----> [繁體中文](/zh-tw/stages/04-agent-frameworks/) | **简体中文** | [English](/en/stages/04-agent-frameworks/)
+---
+> [繁體中文](/zh-tw/stages/04-agent-frameworks/) | **简体中文** | [English](/en/stages/04-agent-frameworks/)
 
 # 第 4 阶段 — Agent 框架
 
 ⏱ **时间估算**：2-3 周（约 10-15 小时）
 
-> 💡 用语不熟（framework / supervisor / worker / handoff⋯）→ 翻 [`resources/glossary.zh-Hans.md`](/zh-tw/resources/glossary-zh-hans/)。
+> 💡 用语不熟（framework / supervisor / worker / handoff⋯）→ 翻 [`resources/glossary.zh-Hans.md`](/resources/glossary/)。
 
 你已经从零打造过一个 ReAct agent（第 3 阶段）。现在来看 framework 到底帮你做了什么。**挑一个深入学**，其他的浏览过去就好，知道什么时候该换。
 
@@ -35,7 +36,7 @@ order: 4
 - 从零写过 ReAct（练习 3）
 - 对 async Python 上手（框架大量依赖 async）
 
-⚠️ **内存预备（需要时偷看一下）**：有些框架功能会用到内存的概念 — LangGraph 用 checkpointing（状态持久化），CrewAI 在 agent 之间传递任务结果（轻量内存）。这些东西在 [第 6 阶段 — 内存 & RAG](/zh-tw/stages/06-memory-rag-zh-hans/) 会讲清楚。你不必先读完那篇，只是当某个框架功能让你看不懂的时候，去那边找答案就对了。
+⚠️ **内存预备（需要时偷看一下）**：有些框架功能会用到内存的概念 — LangGraph 用 checkpointing（状态持久化），CrewAI 在 agent 之间传递任务结果（轻量内存）。这些东西在 [第 6 阶段 — 内存 & RAG](/stages/06-memory-rag/) 会讲清楚。你不必先读完那篇，只是当某个框架功能让你看不懂的时候，去那边找答案就对了。
 
 ## 📚 必修阅读
 
@@ -283,7 +284,7 @@ pip install langgraph langchain-anthropic
 - [ ] 看出什么时候 CodeAct（Smolagents）比 JSON-tool 更好
 - [ ] 判断什么时候该丢掉框架、直接用 raw API
 
-如果可以 → 进 [第 5 阶段 — Claude Code Ecosystem](/zh-tw/stages/05-claude-code-ecosystem-zh-hans/)。
+如果可以 → 进 [第 5 阶段 — Claude Code Ecosystem](/stages/05-claude-code-ecosystem/)。
 
 ## 💡 策略提示
 

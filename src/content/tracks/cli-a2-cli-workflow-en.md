@@ -5,14 +5,15 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a2-cli-workflow"
 order: 2
----# A2 — CLI Workflow Patterns
+---
+# A2 — CLI Workflow Patterns
 
-> [繁體中文](/zh-tw/tracks/cli-a2-cli-workflow/) | [简体中文](/zh-tw/tracks/cli-a2-cli-workflow-zh-hans/) | **English**
+> [繁體中文](/zh-tw/tracks/cli-a2-cli-workflow/) | [简体中文](/tracks/cli-a2-cli-workflow/) | **English**
 
 > [← A1 — CLI Intro](/en/tracks/cli-a1-cli-intro/) · **Track A: CLI Power User** — Stop 2
 

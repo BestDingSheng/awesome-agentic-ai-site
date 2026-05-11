@@ -5,25 +5,26 @@ section: "Resource"
 sourcePath: "resources/cli-agents-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
-language: "zh-tw"
-languageLabel: "繁體中文"
-baseSlug: "cli-agents-guide-zh-hans"
----> [繁體中文](/zh-tw/resources/cli-agents-guide/) | **简体中文** | [English](/en/resources/cli-agents-guide/)
+syncedAt: "2026-05-11T15:27:41.289Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "cli-agents-guide"
+---
+> [繁體中文](/zh-tw/resources/cli-agents-guide/) | **简体中文** | [English](/en/resources/cli-agents-guide/)
 
 # CLI Agents 比较指南
 
-> [← 回主路线 README](/zh-tw)
+> [← 回主路线 README](/)
 
 > 📌 **这份是 reference doc**（深度比较、选择逻辑、坑、推荐搭配）。
-> 第一次接触 CLI agent、想要 step-by-step 上手 → 看 [`tracks/cli/A1-cli-intro.zh-Hans.md`](/zh-tw/tracks/cli-a1-cli-intro-zh-hans/)（Track A 第一站）。
+> 第一次接触 CLI agent、想要 step-by-step 上手 → 看 [`tracks/cli/A1-cli-intro.zh-Hans.md`](/tracks/cli-a1-cli-intro/)（Track A 第一站）。
 > 已经在用、想决定 / 比较 / 升级 → 留在这份。
 
 跨 5 个 branch + Track A 共用的参考——**Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent 之间怎么挑？** Track A（A1-A3）的 CLI workflow 设计、5 条 branch 内的 CLI 引用都连到这份；每个 branch 都会用到 CLI agent，但没有一个 branch 真的「拥有」这份比较，所以放在 `resources/`。
 
 ## 📋 7 个主流 CLI agent
 
-只列在 terminal 跑的（IDE-based 如 Cursor / Cline / Continue 不在这份；那些放在 [for-developer](/zh-tw/branches/for-developer-zh-hans/)）。前 6 个数字 `gh api` 验证于 2026-05-06；Hermes Agent 验证于 2026-05-10。
+只列在 terminal 跑的（IDE-based 如 Cursor / Cline / Continue 不在这份；那些放在 [for-developer](/branches/for-developer/)）。前 6 个数字 `gh api` 验证于 2026-05-06；Hermes Agent 验证于 2026-05-10。
 
 | 工具 | 提供者 | License | 主推 LLM | 认证 / 计费 | Stars |
 |---|---|---|---|---|---|
@@ -133,7 +134,7 @@ baseSlug: "cli-agents-guide-zh-hans"
 - **LLM endpoint** 用 Ollama（`http://localhost:11434/v1`），也可以改接 z.ai GLM / Kimi 等 provider
 - **聊天入口** 用 Telegram / Slack / Discord；Hermes 负责把平台消息转进 agent workflow
 - **完全不想接 Anthropic / OpenAI** 时，这条路线适合做离线、隐私资料、低成本重复实验
-- Step-by-step 做法看 [`resources/cookbook.md` Recipe 6](/zh-tw/resources/cookbook-zh-hans/#6-本地-llm--cli-agent-快速-walkthrough)
+- Step-by-step 做法看 [`resources/cookbook.md` Recipe 6](/resources/cookbook/#6-本地-llm--cli-agent-快速-walkthrough)
 
 ---
 
@@ -141,11 +142,11 @@ baseSlug: "cli-agents-guide-zh-hans"
 
 不同 audience 对 CLI 的需求不一样：
 
-- **[for-developer](/zh-tw/branches/for-developer-zh-hans/)**：除了 CLI，也看 IDE-based agents（Cursor、Cline、Continue）
-- **[for-everyday-users](/zh-tw/branches/for-everyday-users-zh-hans/)** Tier 2：CLI 是进阶选项，先试 Tier 0 / 1 的 Web / Desktop App
-- **[for-researcher](/zh-tw/branches/for-researcher-zh-hans/)**：除了 CLI，也看 paper-specific 工具（paper-qa、gpt-researcher、ChatPaper）
-- **[for-knowledge-worker](/zh-tw/branches/for-knowledge-worker-zh-hans/)**：除了 CLI，也看 workflow 自动化（n8n、Make）
-- **[for-teacher](/zh-tw/branches/for-teacher-zh-hans/)**：CLI 对教师偏进阶；建议先看 prompt 素材库
+- **[for-developer](/branches/for-developer/)**：除了 CLI，也看 IDE-based agents（Cursor、Cline、Continue）
+- **[for-everyday-users](/branches/for-everyday-users/)** Tier 2：CLI 是进阶选项，先试 Tier 0 / 1 的 Web / Desktop App
+- **[for-researcher](/branches/for-researcher/)**：除了 CLI，也看 paper-specific 工具（paper-qa、gpt-researcher、ChatPaper）
+- **[for-knowledge-worker](/branches/for-knowledge-worker/)**：除了 CLI，也看 workflow 自动化（n8n、Make）
+- **[for-teacher](/branches/for-teacher/)**：CLI 对教师偏进阶；建议先看 prompt 素材库
 
 ---
 

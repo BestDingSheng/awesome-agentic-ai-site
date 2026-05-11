@@ -5,13 +5,14 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "mcp-skills-catalog"
----# MCP / Skills 整合目錄
+---
+# MCP / Skills 整合目錄
 
-> **繁體中文** | [简体中文](/zh-tw/resources/mcp-skills-catalog-zh-hans/) | [English](/en/resources/mcp-skills-catalog/)
+> **繁體中文** | [简体中文](/resources/mcp-skills-catalog/) | [English](/en/resources/mcp-skills-catalog/)
 
 > 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 62 個分類整理過的 MCP server / Claude Skill / 整合範例（含研究工作流 + multi-LLM delegation 兩個專屬區）。
 

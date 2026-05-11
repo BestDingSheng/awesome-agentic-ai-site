@@ -5,14 +5,15 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
 order: 1
----# Stage 1 — LLM 基礎
+---
+# Stage 1 — LLM 基礎
 
-> **繁體中文** | [简体中文](/zh-tw/stages/01-llm-basics-zh-hans/) | [English](/en/stages/01-llm-basics/)
+> **繁體中文** | [简体中文](/stages/01-llm-basics/) | [English](/en/stages/01-llm-basics/)
 
 ⏱ **時間估算**：1 週（約 5-8 小時）
 

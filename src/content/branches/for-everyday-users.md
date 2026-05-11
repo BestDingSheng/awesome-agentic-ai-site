@@ -5,13 +5,14 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-everyday-users"
----# 給日常使用者 — 專業分支
+---
+# 給日常使用者 — 專業分支
 
-> **繁體中文** | [简体中文](/zh-tw/branches/for-everyday-users-zh-hans/) | [English](/en/branches/for-everyday-users/)
+> **繁體中文** | [简体中文](/branches/for-everyday-users/) | [English](/en/branches/for-everyday-users/)
 
 > 🚀 **完全沒寫過 code / 沒裝過 Python？** 先看 [`resources/setup-guide.md` §A-C](/zh-tw/resources/setup-guide/)（30 分鐘從零裝好）再回來。已經會 Python 跟有 API key 就跳過。
 

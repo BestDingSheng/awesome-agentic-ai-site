@@ -5,14 +5,15 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
 order: 2
----# Stage 2 — Prompt Engineering
+---
+# Stage 2 — Prompt Engineering
 
-> [繁體中文](/zh-tw/stages/02-prompt-engineering/) | [简体中文](/zh-tw/stages/02-prompt-engineering-zh-hans/) | **English**
+> [繁體中文](/zh-tw/stages/02-prompt-engineering/) | [简体中文](/stages/02-prompt-engineering/) | **English**
 
 
 ⏱ **Time estimate**: 1-2 weeks (~5-12 hours)

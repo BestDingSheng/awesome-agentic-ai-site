@@ -5,18 +5,19 @@ section: "Stage"
 sourcePath: "stages/00-foundations.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
-language: "zh-tw"
-languageLabel: "繁體中文"
-baseSlug: "00-foundations-zh-hans"
+syncedAt: "2026-05-11T15:27:41.289Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "00-foundations"
 order: 0
----# Stage 0 — 基础准备
+---
+# Stage 0 — 基础准备
 
 > [繁體中文](/zh-tw/stages/00-foundations/) | **简体中文** | [English](/en/stages/00-foundations/)
 
 ⏱ **时间估算**：1-2 周（约 5-15 小时，已具备可跳过）
 
-> 💡 **看不懂某个词**？翻 [`resources/glossary.zh-Hans.md`](/zh-tw/resources/glossary-zh-hans/) 查 30 秒再回来。Stage 0 还不会碰太多 jargon，但接下来几 stage 会。
+> 💡 **看不懂某个词**？翻 [`resources/glossary.zh-Hans.md`](/resources/glossary/) 查 30 秒再回来。Stage 0 还不会碰太多 jargon，但接下来几 stage 会。
 
 ## 何时可以跳过这个阶段
 
@@ -26,7 +27,7 @@ order: 0
 - 在自己的操作系统上使用命令行（cd、ls、mkdir、执行 script）
 - 看懂 YAML / JSON 文件
 
-→ **直接跳到 [Stage 1](/zh-tw/stages/01-llm-basics-zh-hans/)**。
+→ **直接跳到 [Stage 1](/stages/01-llm-basics/)**。
 
 如果做不到，就把这个阶段走完。不要跳——后面每个阶段都会预设你已经会这些。
 
@@ -81,4 +82,4 @@ order: 0
 
 ---
 
-> ✅ **走完 Stage 0 了？** 接下来 [**Stage 1 — LLM 基础**](/zh-tw/stages/01-llm-basics-zh-hans/) 会用 5-8 小时带你做完第一次 LLM API 调用、认识 token / context window / temperature，以及用 per-token 计价估算实际任务成本。**继续往下走 →**
+> ✅ **走完 Stage 0 了？** 接下来 [**Stage 1 — LLM 基础**](/stages/01-llm-basics/) 会用 5-8 小时带你做完第一次 LLM API 调用、认识 token / context window / temperature，以及用 per-token 计价估算实际任务成本。**继续往下走 →**

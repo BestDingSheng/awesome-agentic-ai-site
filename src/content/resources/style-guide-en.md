@@ -5,11 +5,12 @@ section: "Resource"
 sourcePath: "resources/style-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "style-guide"
----> [繁體中文](/zh-tw/resources/style-guide/) | [简体中文](/zh-tw/resources/style-guide-zh-hans/) | **English**
+---
+> [繁體中文](/zh-tw/resources/style-guide/) | [简体中文](/resources/style-guide/) | **English**
 
 # `awesome-agentic-ai-zh` Style Guide
 

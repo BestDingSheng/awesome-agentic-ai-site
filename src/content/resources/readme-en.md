@@ -5,11 +5,12 @@ section: "Resource"
 sourcePath: "resources/README.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "readme"
----# `resources/` Index
+---
+# `resources/` Index
 
 <div align="right">
   <a href="./README.md">繁體中文</a> | <a href="./README.zh-Hans.md">简体中文</a> | <strong>English</strong>

@@ -5,11 +5,12 @@ section: "Resource"
 sourcePath: "resources/setup-guide.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "setup-guide"
----> **繁體中文** | [简体中文](/zh-tw/resources/setup-guide-zh-hans/) | [English](/en/resources/setup-guide/)
+---
+> **繁體中文** | [简体中文](/resources/setup-guide/) | [English](/en/resources/setup-guide/)
 
 # 🚀 從零開始 — 給沒有開發背景的設定指南
 

@@ -5,17 +5,18 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
-language: "zh-tw"
-languageLabel: "繁體中文"
-baseSlug: "for-everyday-users-zh-hans"
----# 给日常用户 — 专业分支
+syncedAt: "2026-05-11T15:27:41.289Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "for-everyday-users"
+---
+# 给日常用户 — 专业分支
 
 > [繁體中文](/zh-tw/branches/for-everyday-users/) | **简体中文** | [English](/en/branches/for-everyday-users/)
 
-> 🚀 **完全没写过 code / 没装过 Python？** 先看 [`resources/setup-guide.zh-Hans.md` §A-C](/zh-tw/resources/setup-guide-zh-hans/)（30 分钟从零装好）再回来。已经会 Python 和有 API key 就跳过。
+> 🚀 **完全没写过 code / 没装过 Python？** 先看 [`resources/setup-guide.zh-Hans.md` §A-C](/resources/setup-guide/)（30 分钟从零装好）再回来。已经会 Python 和有 API key 就跳过。
 
-> [← 回主路线 README](../README.zh-Hans.md) · 你**不一定要走完主干**才能从这里开始——这条分支是给「**只想 USE AI、不一定要 BUILD agent**」的人。
+> [← 回主路线 README](/) · 你**不一定要走完主干**才能从这里开始——这条分支是给「**只想 USE AI、不一定要 BUILD agent**」的人。
 
 ## 使用场景
 
@@ -75,11 +76,11 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 
 > 这些工具虽然定位给开发者，但**日常用户也能用**——例如批量重命名文件、整理下载文件夹、自动写每周回顾、把 PDF 摘要存成 Markdown。
 >
-> 想看详细比较？见 [`resources/cli-agents-guide.zh-Hans.md`](/zh-tw/resources/cli-agents-guide-zh-hans/)（7 个主流 CLI agent 并列、依 use case 推荐、常见坑、实用搭配）。
+> 想看详细比较？见 [`resources/cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/)（7 个主流 CLI agent 并列、依 use case 推荐、常见坑、实用搭配）。
 >
-> 想要 step-by-step 上手？见 [`tracks/cli/A1-cli-intro.zh-Hans.md`](/zh-tw/tracks/cli-a1-cli-intro-zh-hans/)（Track A 第一站，从安装到第一个任务）。
+> 想要 step-by-step 上手？见 [`tracks/cli/A1-cli-intro.zh-Hans.md`](/tracks/cli-a1-cli-intro/)（Track A 第一站，从安装到第一个任务）。
 >
-> 想把 CLI agent 接到你的 Notion / Obsidian / Excel / Google 文件等日常工具？见 [`resources/mcp-skills-catalog.zh-Hans.md`](/zh-tw/resources/mcp-skills-catalog-zh-hans/)（按分类整理 62 个 MCP server / Skill）。
+> 想把 CLI agent 接到你的 Notion / Obsidian / Excel / Google 文件等日常工具？见 [`resources/mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（按分类整理 62 个 MCP server / Skill）。
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
 ★ 120k+ — Anthropic 官方的 CLI agent。能读写文件、执行指令、做多步骤任务。**日常用户最容易上手的 CLI 工具**。
@@ -122,7 +123,7 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 ### Tier 3 — 本地 LLM（隐私 / 离线 / 省钱）
 
 #### [Ollama](https://github.com/ollama/ollama) ⭐⭐⭐⭐⭐
-★ 170k+ — 一行指令跑本地 LLM。隐私敏感数据（病历、合约、家人对话）不适合送去云端时用这个。详见 [Stage 1 — Local LLM 执行](/zh-tw/stages/01-llm-basics-zh-hans/)。
+★ 170k+ — 一行指令跑本地 LLM。隐私敏感数据（病历、合约、家人对话）不适合送去云端时用这个。详见 [Stage 1 — Local LLM 执行](/stages/01-llm-basics/)。
 
 #### [LM Studio](https://lmstudio.ai/)
 非开源但对非开发者最友好——拖拉界面、不用 command line。Mac / Windows / Linux 都有。
@@ -142,7 +143,7 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 2. [**OpenAI — Prompting Guide**](https://platform.openai.com/docs/guides/prompt-engineering) — 对称的官方文件
 3. [**ChatGPT 怎么用得最好（中文）**](https://www.runoob.com/) — 各家中文博客的整理（runoob 等等）
 
-如果有兴趣再深入，看 [Stage 2 — Prompt 设计](/zh-tw/stages/02-prompt-engineering-zh-hans/)，那边有正式系统性教学。
+如果有兴趣再深入，看 [Stage 2 — Prompt 设计](/stages/02-prompt-engineering/)，那边有正式系统性教学。
 
 ## 可以建的流程
 

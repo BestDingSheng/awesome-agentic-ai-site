@@ -5,11 +5,12 @@ section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
-language: "zh-tw"
-languageLabel: "繁體中文"
-baseSlug: "schema-design-cheatsheet-zh-hans"
----# Function Schema 设计 Cheatsheet
+syncedAt: "2026-05-11T15:27:41.289Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "schema-design-cheatsheet"
+---
+# Function Schema 设计 Cheatsheet
 
 > [繁體中文](/zh-tw/resources/schema-design-cheatsheet/) | **简体中文** | [English](/en/resources/schema-design-cheatsheet/)
 

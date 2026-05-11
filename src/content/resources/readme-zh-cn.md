@@ -5,11 +5,12 @@ section: "Resource"
 sourcePath: "resources/README.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
-language: "zh-tw"
-languageLabel: "繁體中文"
-baseSlug: "readme-zh-hans"
----# `resources/` 索引
+syncedAt: "2026-05-11T15:27:41.289Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "readme"
+---
+# `resources/` 索引
 
 <div align="right">
   <a href="./README.md">繁體中文</a> | <strong>简体中文</strong> | <a href="./README.en.md">English</a>
@@ -23,13 +24,13 @@ baseSlug: "readme-zh-hans"
 
 | 文件 | 角色 | 什么时候看 | 行数 |
 |---|---|---|---|
-| [`glossary.zh-Hans.md`](/zh-tw/resources/glossary-zh-hans/) | **30 秒查词典** | 看 stage 内容时遇到 LLM / RAG / token / agent / vector DB / streaming / batch API 不知道什么意思 | ~210 |
-| [`cli-agents-guide.zh-Hans.md`](/zh-tw/resources/cli-agents-guide-zh-hans/) | **7 个 CLI agent 比较** | 第一次选 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent）不知道挑哪个 | ~134 |
-| [`mcp-skills-catalog.zh-Hans.md`](/zh-tw/resources/mcp-skills-catalog-zh-hans/) | **62 个集成 catalog** | 想把 Claude Code 接 Notion / Obsidian / Excel / Postgres / Slack / 等实际工具 | ~775 |
-| [`schema-design-cheatsheet.zh-Hans.md`](/zh-tw/resources/schema-design-cheatsheet-zh-hans/) | **function schema 设计 5 规则 + 5 anti-pattern** | 写 tool schema / MCP server schema / function calling，发现 LLM 选错 tool / 传错参数 | ~159 |
-| [`cookbook.zh-Hans.md`](/zh-tw/resources/cookbook-zh-hans/) | **6 个 step-by-step recipe** | 想 30-50 分钟做出第一个 Skill / MCP server / 接 Office / 接 NotebookLM / 接 Zotero / 接本机 LLM | ~620 |
-| [`setup-guide.zh-Hans.md`](/zh-tw/resources/setup-guide-zh-hans/) | **从零开始的 setup 指南** | 完全没有 dev 背景、第一次申请 API key / 装 Python / 用 Claude Code | ~400 |
-| [`style-guide.zh-Hans.md`](/zh-tw/resources/style-guide-zh-hans/) | **送 PR 前的格式 / 用词规范** | 要对 repo 贡献、写 entry / 翻译 | ~338 |
+| [`glossary.zh-Hans.md`](/resources/glossary/) | **30 秒查词典** | 看 stage 内容时遇到 LLM / RAG / token / agent / vector DB / streaming / batch API 不知道什么意思 | ~210 |
+| [`cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/) | **7 个 CLI agent 比较** | 第一次选 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent）不知道挑哪个 | ~134 |
+| [`mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/) | **62 个集成 catalog** | 想把 Claude Code 接 Notion / Obsidian / Excel / Postgres / Slack / 等实际工具 | ~775 |
+| [`schema-design-cheatsheet.zh-Hans.md`](/resources/schema-design-cheatsheet/) | **function schema 设计 5 规则 + 5 anti-pattern** | 写 tool schema / MCP server schema / function calling，发现 LLM 选错 tool / 传错参数 | ~159 |
+| [`cookbook.zh-Hans.md`](/resources/cookbook/) | **6 个 step-by-step recipe** | 想 30-50 分钟做出第一个 Skill / MCP server / 接 Office / 接 NotebookLM / 接 Zotero / 接本机 LLM | ~620 |
+| [`setup-guide.zh-Hans.md`](/resources/setup-guide/) | **从零开始的 setup 指南** | 完全没有 dev 背景、第一次申请 API key / 装 Python / 用 Claude Code | ~400 |
+| [`style-guide.zh-Hans.md`](/resources/style-guide/) | **送 PR 前的格式 / 用词规范** | 要对 repo 贡献、写 entry / 翻译 | ~338 |
 
 合计约 ~2500 行 reference。看起来不少，但**每份文件阅读的时机不同**——你不会一次全读，只在对应场景查 30 秒到 45 分钟。
 
@@ -39,35 +40,35 @@ baseSlug: "readme-zh-hans"
 
 ### 🆕 我完全没写过 code / 第一次接触 AI agent
 
-→ [`setup-guide.zh-Hans.md`](/zh-tw/resources/setup-guide-zh-hans/)（30-45 分钟从零装好）
+→ [`setup-guide.zh-Hans.md`](/resources/setup-guide/)（30-45 分钟从零装好）
 
 ### 🆕 我刚开始学 AI agent
 
-不需要先读任何 reference。**直接从主路线 [README](../README.zh-Hans.md) → [Stage 0](/zh-tw/stages/00-foundations-zh-hans/) 开始**。遇到不懂的词回来查 [`glossary.zh-Hans.md`](/zh-tw/resources/glossary-zh-hans/) 就好。
+不需要先读任何 reference。**直接从主路线 [README](/) → [Stage 0](/stages/00-foundations/) 开始**。遇到不懂的词回来查 [`glossary.zh-Hans.md`](/resources/glossary/) 就好。
 
 ### 🛠 我要选 CLI agent
 
-→ [`cli-agents-guide.zh-Hans.md`](/zh-tw/resources/cli-agents-guide-zh-hans/)（CLI 比较 + 按 use case 推荐）
+→ [`cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/)（CLI 比较 + 按 use case 推荐）
 
 ### 🔌 我要把 Claude Code 接 X 工具（Notion / Excel / Postgres 等）
 
-→ [`mcp-skills-catalog.zh-Hans.md`](/zh-tw/resources/mcp-skills-catalog-zh-hans/)（62 个集成分 14 类）
+→ [`mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（62 个集成分 14 类）
 
 ### 🍳 我想动手写第一个 Skill / MCP server / 接 Word 等
 
-→ [`cookbook.zh-Hans.md`](/zh-tw/resources/cookbook-zh-hans/)（6 个 step-by-step recipe）
+→ [`cookbook.zh-Hans.md`](/resources/cookbook/)（6 个 step-by-step recipe）
 
 ### 📐 我写 tool schema 但 LLM 不照我意思做
 
-→ [`schema-design-cheatsheet.zh-Hans.md`](/zh-tw/resources/schema-design-cheatsheet-zh-hans/)（5 规则 + 5 anti-pattern）
+→ [`schema-design-cheatsheet.zh-Hans.md`](/resources/schema-design-cheatsheet/)（5 规则 + 5 anti-pattern）
 
 ### 📚 我看 stage 内容遇到不懂的词
 
-→ [`glossary.zh-Hans.md`](/zh-tw/resources/glossary-zh-hans/)（每个词 30-80 字解释 + 哪个 stage 讲细）
+→ [`glossary.zh-Hans.md`](/resources/glossary/)（每个词 30-80 字解释 + 哪个 stage 讲细）
 
 ### 🤝 我想送 PR / 翻译 / 加新 entry
 
-→ [`style-guide.zh-Hans.md`](/zh-tw/resources/style-guide-zh-hans/) + [`../CONTRIBUTING.md`](../CONTRIBUTING.md)
+→ [`style-guide.zh-Hans.md`](/resources/style-guide/) + [`../CONTRIBUTING.md`](../CONTRIBUTING.md)
 
 ---
 

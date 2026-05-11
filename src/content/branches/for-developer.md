@@ -5,13 +5,14 @@ section: "Branch"
 sourcePath: "branches/for-developer.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-developer"
----# 給開發者 — 專業分支
+---
+# 給開發者 — 專業分支
 
-> **繁體中文** | [简体中文](/zh-tw/branches/for-developer-zh-hans/) | [English](/en/branches/for-developer/)
+> **繁體中文** | [简体中文](/branches/for-developer/) | [English](/en/branches/for-developer/)
 
 > 🚀 **第一次裝 Claude Code / 寫 `CLAUDE.md` / `SKILL.md`？** 快速 setup 指南在 [`resources/setup-guide.md` §D-E](/zh-tw/resources/setup-guide/)。已經熟可以跳過。
 

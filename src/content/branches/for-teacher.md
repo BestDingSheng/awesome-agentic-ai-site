@@ -5,13 +5,14 @@ section: "Branch"
 sourcePath: "branches/for-teacher.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-teacher"
----# 給教師 — 專業分支
+---
+# 給教師 — 專業分支
 
-> **繁體中文** | [简体中文](/zh-tw/branches/for-teacher-zh-hans/) | [English](/en/branches/for-teacher/)
+> **繁體中文** | [简体中文](/branches/for-teacher/) | [English](/en/branches/for-teacher/)
 
 > 🚀 **第一次接觸 AI agent / 沒寫過 code？** 先看 [`resources/setup-guide.md` §A-C](/zh-tw/resources/setup-guide/)（30 分鐘從零裝好需要的東西）。Tier 0 跟 Tier 1 不需要寫 code，可以先跳過；Tier 2 之後會用到。
 

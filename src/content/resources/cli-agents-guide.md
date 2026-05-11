@@ -5,11 +5,12 @@ section: "Resource"
 sourcePath: "resources/cli-agents-guide.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-agents-guide"
----> **繁體中文** | [简体中文](/zh-tw/resources/cli-agents-guide-zh-hans/) | [English](/en/resources/cli-agents-guide/)
+---
+> **繁體中文** | [简体中文](/resources/cli-agents-guide/) | [English](/en/resources/cli-agents-guide/)
 
 # CLI Agents 比較指南
 

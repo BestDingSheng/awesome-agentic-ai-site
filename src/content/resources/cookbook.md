@@ -5,13 +5,14 @@ section: "Resource"
 sourcePath: "resources/cookbook.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cookbook"
----# Cookbook — 把概念變成可執行 recipe
+---
+# Cookbook — 把概念變成可執行 recipe
 
-> **繁體中文** | [简体中文](/zh-tw/resources/cookbook-zh-hans/) | [English](/en/resources/cookbook/)
+> **繁體中文** | [简体中文](/resources/cookbook/) | [English](/en/resources/cookbook/)
 
 > Stage 5（Claude Code 生態）跟 [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/) 講「概念」跟「有哪些工具」。這份 cookbook 補中間缺的：「**怎麼動手做出來**」。每個 recipe 是一份 step-by-step + sample code + 常見 pitfall，~30-50 分鐘做完一個。
 >

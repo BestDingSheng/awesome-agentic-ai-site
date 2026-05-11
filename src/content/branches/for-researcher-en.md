@@ -5,13 +5,14 @@ section: "Branch"
 sourcePath: "branches/for-researcher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-researcher"
----# For Researchers — Specialized Branch
+---
+# For Researchers — Specialized Branch
 
-> [繁體中文](/zh-tw/branches/for-researcher/) | [简体中文](/zh-tw/branches/for-researcher-zh-hans/) | **English**
+> [繁體中文](/zh-tw/branches/for-researcher/) | [简体中文](/branches/for-researcher/) | **English**
 
 > 🚀 **First time installing Python or creating an API key?** Start with [`resources/setup-guide.en.md` §A-C](/en/resources/setup-guide/). This branch assumes you can run Python scripts, have an API key, and can use git.
 

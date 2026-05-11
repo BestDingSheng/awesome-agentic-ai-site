@@ -5,14 +5,15 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
 order: 3
----# A3 — Integration & Production
+---
+# A3 — Integration & Production
 
-> [繁體中文](/zh-tw/tracks/cli-a3-cli-production/) | [简体中文](/zh-tw/tracks/cli-a3-cli-production-zh-hans/) | **English**
+> [繁體中文](/zh-tw/tracks/cli-a3-cli-production/) | [简体中文](/tracks/cli-a3-cli-production/) | **English**
 
 > [← A2 — CLI Workflow Patterns](/en/tracks/cli-a2-cli-workflow/) · **Track A: CLI Power User** — Stop 3 (final)
 

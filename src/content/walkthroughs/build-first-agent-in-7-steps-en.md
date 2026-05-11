@@ -5,11 +5,12 @@ section: "Walkthrough"
 sourcePath: "walkthroughs/build-first-agent-in-7-steps.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/walkthroughs/build-first-agent-in-7-steps.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "build-first-agent-in-7-steps"
----> [繁體中文](/zh-tw/walkthroughs/build-first-agent-in-7-steps/) | [简体中文](/zh-tw/walkthroughs/build-first-agent-in-7-steps-zh-hans/) | **English**
+---
+> [繁體中文](/zh-tw/walkthroughs/build-first-agent-in-7-steps/) | [简体中文](/walkthroughs/build-first-agent-in-7-steps/) | **English**
 
 # Build Your First AI Agent in 7 Steps
 

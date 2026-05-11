@@ -5,14 +5,15 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a1-cli-intro"
 order: 1
----# A1 — CLI Agent 入門 + 選擇
+---
+# A1 — CLI Agent 入門 + 選擇
 
-> **繁體中文** | [简体中文](/zh-tw/tracks/cli-a1-cli-intro-zh-hans/) | [English](/en/tracks/cli-a1-cli-intro/)
+> **繁體中文** | [简体中文](/tracks/cli-a1-cli-intro/) | [English](/en/tracks/cli-a1-cli-intro/)
 
 > [← 回主路線 README](/zh-tw) · **Track A: CLI Power User** 第 1 站
 

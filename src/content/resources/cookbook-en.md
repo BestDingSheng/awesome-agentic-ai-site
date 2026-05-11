@@ -5,13 +5,14 @@ section: "Resource"
 sourcePath: "resources/cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cookbook"
----# Cookbook — Turn Concepts into Executable Recipes
+---
+# Cookbook — Turn Concepts into Executable Recipes
 
-> [繁體中文](/zh-tw/resources/cookbook/) | [简体中文](/zh-tw/resources/cookbook-zh-hans/) | **English**
+> [繁體中文](/zh-tw/resources/cookbook/) | [简体中文](/resources/cookbook/) | **English**
 
 > Stage 5 (Claude Code Ecosystem) talks about "Concepts" and "Available Tools" with [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/). This cookbook fills in the gap in between: "**How to build it**". Each recipe is a step-by-step guide + sample code + common pitfalls, designed to be completed in about 30-50 minutes.
 >

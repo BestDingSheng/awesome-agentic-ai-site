@@ -5,14 +5,15 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a1-cli-intro"
 order: 1
----# A1 — CLI Agent Intro & Selection
+---
+# A1 — CLI Agent Intro & Selection
 
-> [繁體中文](/zh-tw/tracks/cli-a1-cli-intro/) | [简体中文](/zh-tw/tracks/cli-a1-cli-intro-zh-hans/) | **English**
+> [繁體中文](/zh-tw/tracks/cli-a1-cli-intro/) | [简体中文](/tracks/cli-a1-cli-intro/) | **English**
 
 > [← Back to main path README](/en) · **Track A: CLI Power User** — Stop 1
 

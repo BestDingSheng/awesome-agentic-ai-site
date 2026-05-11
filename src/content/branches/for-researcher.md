@@ -5,13 +5,14 @@ section: "Branch"
 sourcePath: "branches/for-researcher.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-researcher"
----# 給研究者 — 專業分支
+---
+# 給研究者 — 專業分支
 
-> **繁體中文** | [简体中文](/zh-tw/branches/for-researcher-zh-hans/) | [English](/en/branches/for-researcher/)
+> **繁體中文** | [简体中文](/branches/for-researcher/) | [English](/en/branches/for-researcher/)
 
 > 🚀 **第一次裝 Python / 申請 API key？** 先看 [`resources/setup-guide.md` §A-C](/zh-tw/resources/setup-guide/)。本分支預設你會跑 Python script、有 API key、會用 git。
 

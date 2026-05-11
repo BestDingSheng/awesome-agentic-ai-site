@@ -5,17 +5,18 @@ section: "Branch"
 sourcePath: "branches/for-researcher.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
-language: "zh-tw"
-languageLabel: "繁體中文"
-baseSlug: "for-researcher-zh-hans"
----# 给研究者 — 专业分支
+syncedAt: "2026-05-11T15:27:41.289Z"
+language: "zh-cn"
+languageLabel: "简体中文"
+baseSlug: "for-researcher"
+---
+# 给研究者 — 专业分支
 
 > [繁體中文](/zh-tw/branches/for-researcher/) | **简体中文** | [English](/en/branches/for-researcher/)
 
-> 🚀 **第一次装 Python / 申请 API key？** 先看 [`resources/setup-guide.zh-Hans.md` §A-C](/zh-tw/resources/setup-guide-zh-hans/)。本分支默认你会跑 Python script、有 API key、会用 git。
+> 🚀 **第一次装 Python / 申请 API key？** 先看 [`resources/setup-guide.zh-Hans.md` §A-C](/resources/setup-guide/)。本分支默认你会跑 Python script、有 API key、会用 git。
 
-> [← 回主路线 README](../README.zh-Hans.md) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 后从这里接续。把 agentic AI 应用到研究流程上。
+> [← 回主路线 README](/) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 后从这里接续。把 agentic AI 应用到研究流程上。
 
 ## 使用场景
 
@@ -27,7 +28,7 @@ baseSlug: "for-researcher-zh-hans"
 
 ## 精选 Projects
 
-> 💡 **想把 Claude Code 接到 NotebookLM、Obsidian、Notion、Excel、PDF、Excalidraw 等研究常用工具？** 62 个集成在 [`resources/mcp-skills-catalog.zh-Hans.md`](/zh-tw/resources/mcp-skills-catalog-zh-hans/)（按使用场景分类）。下面这节保留「研究专属」的工具与 marketplace。
+> 💡 **想把 Claude Code 接到 NotebookLM、Obsidian、Notion、Excel、PDF、Excalidraw 等研究常用工具？** 62 个集成在 [`resources/mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（按使用场景分类）。下面这节保留「研究专属」的工具与 marketplace。
 
 ### 研究流程 Marketplace
 
@@ -117,7 +118,7 @@ baseSlug: "for-researcher-zh-hans"
 
 ### 研究工作流 Skills（本 repo 维护者出品）
 
-> 这几个是本 repo 维护者 [@WenyuChiou](https://github.com/WenyuChiou)（Lehigh CEE PhD candidate）日常在用的研究 skill / workspace。一并放到这里让其他研究者直接用。完整 entry 内容在 [`resources/mcp-skills-catalog.zh-Hans.md` §13-§14](/zh-tw/resources/mcp-skills-catalog-zh-hans/#13-研究工作流-skills学术--paper--文献)。
+> 这几个是本 repo 维护者 [@WenyuChiou](https://github.com/WenyuChiou)（Lehigh CEE PhD candidate）日常在用的研究 skill / workspace。一并放到这里让其他研究者直接用。完整 entry 内容在 [`resources/mcp-skills-catalog.zh-Hans.md` §13-§14](/resources/mcp-skills-catalog/#13-研究工作流-skills学术--paper--文献)。
 
 #### [WenyuChiou/ai-research-skills](https://github.com/WenyuChiou/ai-research-skills) ⭐⭐⭐⭐⭐
 

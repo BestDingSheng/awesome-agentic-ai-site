@@ -51,6 +51,8 @@ const slugify = (value) => value.toLowerCase().replace(/\.md$/i, '').replace(/[^
 
 const parseLanguage = (filePath) => {
   if (filePath.endsWith('.zh-CN.md')) return { language: 'zh-cn', extension: '.zh-CN.md' };
+  if (filePath.endsWith('.zh-Hans.md')) return { language: 'zh-cn', extension: '.zh-Hans.md' };
+  if (filePath.endsWith('.zh-hans.md')) return { language: 'zh-cn', extension: '.zh-hans.md' };
   if (filePath.endsWith('.en.md')) return { language: 'en', extension: '.en.md' };
   return { language: 'zh-tw', extension: '.md' };
 };
@@ -58,6 +60,14 @@ const parseLanguage = (filePath) => {
 const getBaseSlugFromRelativePath = (relativePath) => {
   const { extension } = parseLanguage(relativePath);
   return slugify(relativePath.slice(0, -extension.length));
+};
+
+const getOutputSlug = (relativePath) => {
+  const { language } = parseLanguage(relativePath);
+  const baseSlug = getBaseSlugFromRelativePath(relativePath);
+  if (language === 'zh-cn') return `${baseSlug}-zh-cn`;
+  if (language === 'en') return `${baseSlug}-en`;
+  return baseSlug;
 };
 
 const buildLangPath = (language, pathName) => {
@@ -120,7 +130,7 @@ const rewriteLinks = (content, currentRelativeDir, language) => {
 
 const resolveMarkdownRoute = (normalized, currentLanguage) => {
   const clean = normalized.replace(/^\.\//, '').replace(/^\//, '');
-  if (clean === 'README.md' || clean === 'README.zh-CN.md' || clean === 'README.en.md') {
+  if (clean === 'README.md' || clean === 'README.zh-CN.md' || clean === 'README.zh-Hans.md' || clean === 'README.en.md') {
     return buildLangPath(currentLanguage, '/');
   }
   const parts = clean.split('/');
@@ -167,7 +177,7 @@ try {
         const { language } = parseLanguage(relativePath);
         const title = firstHeading(raw) || entry.name.replace(/\.md$/i, '');
         const description = firstParagraph(raw) || `${section.label} 内容页面`;
-        const slug = slugify(relativePath);
+        const slug = getOutputSlug(relativePath);
         const baseSlug = getBaseSlugFromRelativePath(relativePath);
         const currentRelativeDir = path.posix.dirname(path.posix.join(section.dir, relativePath));
         const rewritten = rewriteLinks(raw, currentRelativeDir, language);
@@ -187,7 +197,7 @@ try {
           '---',
           ''
         ].filter(Boolean).join('\n');
-        await fs.writeFile(path.join(targetDir, `${slug}.md`), `${frontmatter}${rewritten}`);
+        await fs.writeFile(path.join(targetDir, `${slug}.md`), `${frontmatter}\n${rewritten}`);
         counts[section.key] += 1;
       }
     };

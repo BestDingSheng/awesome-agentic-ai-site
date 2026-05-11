@@ -5,13 +5,14 @@ section: "Branch"
 sourcePath: "branches/for-teacher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-teacher"
----# For Teachers — Specialized Branch
+---
+# For Teachers — Specialized Branch
 
-> [繁體中文](/zh-tw/branches/for-teacher/) | [简体中文](/zh-tw/branches/for-teacher-zh-hans/) | **English**
+> [繁體中文](/zh-tw/branches/for-teacher/) | [简体中文](/branches/for-teacher/) | **English**
 
 > 🚀 **First time with AI agents, or never written code?** Start with [`resources/setup-guide.en.md` §A-C](/en/resources/setup-guide/) (about 30 minutes to install what you need). Tier 0 and Tier 1 do not require code, so you can skip this at first; Tier 2 and later will use it.
 

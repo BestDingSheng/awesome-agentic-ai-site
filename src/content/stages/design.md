@@ -5,11 +5,12 @@ section: "Stage"
 sourcePath: "stages/DESIGN.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/DESIGN.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "design"
----# Stage 設計筆記
+---
+# Stage 設計筆記
 
 > 給 maintainer 的內部文件，不是讀者面向的內容。
 >

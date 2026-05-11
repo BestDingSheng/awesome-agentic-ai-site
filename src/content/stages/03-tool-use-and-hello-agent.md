@@ -5,14 +5,15 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "03-tool-use-and-hello-agent"
 order: 3
----# Stage 3 — Tool Use & Agent 入門 ⭐
+---
+# Stage 3 — Tool Use & Agent 入門 ⭐
 
-> **繁體中文** | [简体中文](/zh-tw/stages/03-tool-use-and-hello-agent-zh-hans/) | [English](/en/stages/03-tool-use-and-hello-agent/)
+> **繁體中文** | [简体中文](/stages/03-tool-use-and-hello-agent/) | [English](/en/stages/03-tool-use-and-hello-agent/)
 
 ⏱ **時間估算**：2-3 週（約 10-20 小時）
 

@@ -5,14 +5,15 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T15:23:42.672Z"
+syncedAt: "2026-05-11T15:27:41.289Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "05-claude-code-ecosystem"
 order: 5
----# Stage 5 — Claude Code 生態系 ⭐⭐
+---
+# Stage 5 — Claude Code 生態系 ⭐⭐
 
-> **繁體中文** | [简体中文](/zh-tw/stages/05-claude-code-ecosystem-zh-hans/) | [English](/en/stages/05-claude-code-ecosystem/)
+> **繁體中文** | [简体中文](/stages/05-claude-code-ecosystem/) | [English](/en/stages/05-claude-code-ecosystem/)
 
 ⏱ **時間估算**：3-4 週（約 15-25 小時）
 
