@@ -7,15 +7,57 @@ interface Item {
 }
 interface Props {
   items: Item[];
+  variant?: 'default' | 'feature';
 }
-const { items } = Astro.props;
+const { items, variant = 'default' } = Astro.props;
 ---
-<div class="grid cols-2">
+<div class:list={["grid", variant === 'feature' ? 'cols-3' : 'cols-2']}>
   {items.map((item) => (
-    <a class="card" href={item.href}>
-      <div class="badge">{item.meta ?? '内容'}</div>
+    <a class:list={["card", "collection-card", variant === 'feature' && 'feature-card']} href={item.href}>
+      <div class="collection-card-top">
+        <div class="badge">{item.meta ?? '内容'}</div>
+        <span class="collection-arrow">→</span>
+      </div>
       <h3>{item.title}</h3>
-      {item.description && <p class="muted">{item.description}</p>}
+      {item.description && <p class="muted collection-desc">{item.description}</p>}
     </a>
   ))}
 </div>
+
+<style>
+  .collection-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    min-height: 180px;
+    color: var(--text);
+  }
+  .collection-card:hover {
+    text-decoration: none;
+  }
+  .collection-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .collection-card h3 {
+    font-size: 1.15rem;
+    margin: 0;
+  }
+  .collection-desc {
+    margin: 0;
+  }
+  .collection-arrow {
+    color: var(--muted);
+    font-weight: 800;
+    transition: transform 160ms ease, color 160ms ease;
+  }
+  .collection-card:hover .collection-arrow {
+    transform: translateX(3px);
+    color: var(--text);
+  }
+  .feature-card {
+    min-height: 200px;
+  }
+</style>

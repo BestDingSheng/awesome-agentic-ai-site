@@ -14,56 +14,113 @@ const { lang = 'zh-cn' } = Astro.props;
 const { featuredStages, trackSteps, branchSteps } = await getHomeData(lang);
 const labels = {
   'zh-cn': {
-    eyebrow: '默认语言：简体中文',
-    title: '把 awesome-agentic-ai-zh 做成更清晰的多语言学习网站',
-    intro: '现在站点已经按语言拆分：默认展示简体中文，并提供繁体中文与 English 切换，避免不同语言内容混在一起。',
-    roadmap: '查看学习路线',
-    updates: '查看同步状态',
-    source: '原始仓库',
-    gettingStarted: '推荐起步',
-    gettingStartedDesc: '优先浏览阶段内容，再按目标选择 Track 或 Branch。',
-    allStages: '查看全部 Stages →',
+    eyebrow: '多语言教程文档站',
+    title: '更适合长期学习的 Agentic AI 文档 UI',
+    intro: '把 awesome-agentic-ai-zh 整理成一个更像 GitBook / Mintlify 风格的学习入口：默认简体中文，支持繁体中文与 English 切换，并按阶段、目标、人群组织内容。',
+    primaryCta: '从 Stages 开始',
+    secondaryCta: '查看路线图',
+    tertiaryCta: '同步状态',
+    source: '内容源仓库',
+    quickStartTitle: 'Start here',
+    quickStartDesc: '如果你是第一次来，建议先看阶段，再按目标和人群细分学习路径。',
+    stagePath: '按阶段学习',
+    stagePathDesc: '从基础到实战，逐步建立 Agentic AI 知识体系。',
+    trackPath: '按目标学习',
+    trackPathDesc: '围绕真实任务选择更贴近实践的学习路线。',
+    branchPath: '按人群学习',
+    branchPathDesc: '按开发者、产品、研究等角色选择更适合的内容。',
+    featuredTitle: '推荐起步内容',
+    featuredDesc: '优先阅读这些阶段内容，能更快建立整体认知。',
+    allStages: '查看全部 Stages',
     trackTitle: 'Track 路线',
     branchTitle: 'Branch 人群路线',
+    syncedTitle: '内容同步状态',
+    syncedDesc: '站点内容由 fork 仓库自动同步生成，下面是当前同步快照。',
     syncedAt: '最近同步',
-    commit: '提交',
+    commit: '提交哈希',
+    repo: '内容来源',
     notSynced: '尚未执行同步'
   },
   'zh-tw': {
-    eyebrow: '預設語言：簡體中文',
-    title: '把 awesome-agentic-ai-zh 做成更清晰的多語言學習網站',
-    intro: '現在站點已按語言拆分：預設展示簡體中文，並提供繁體中文與 English 切換，避免不同語言內容混在一起。',
-    roadmap: '查看學習路線',
-    updates: '查看同步狀態',
-    source: '原始倉庫',
-    gettingStarted: '推薦起步',
-    gettingStartedDesc: '優先瀏覽階段內容，再按目標選擇 Track 或 Branch。',
-    allStages: '查看全部 Stages →',
+    eyebrow: '多語言教學文件站',
+    title: '更適合長期學習的 Agentic AI 文件 UI',
+    intro: '把 awesome-agentic-ai-zh 整理成一個更像 GitBook / Mintlify 風格的學習入口：預設簡體中文，支援繁體中文與 English 切換，並按階段、目標、人群組織內容。',
+    primaryCta: '從 Stages 開始',
+    secondaryCta: '查看路線圖',
+    tertiaryCta: '同步狀態',
+    source: '內容源倉庫',
+    quickStartTitle: 'Start here',
+    quickStartDesc: '如果你是第一次來，建議先看階段，再按目標和人群細分學習路線。',
+    stagePath: '按階段學習',
+    stagePathDesc: '從基礎到實戰，逐步建立 Agentic AI 知識體系。',
+    trackPath: '按目標學習',
+    trackPathDesc: '圍繞真實任務選擇更貼近實作的學習路線。',
+    branchPath: '按人群學習',
+    branchPathDesc: '按開發者、產品、研究等角色選擇更適合的內容。',
+    featuredTitle: '推薦起步內容',
+    featuredDesc: '優先閱讀這些階段內容，能更快建立整體認知。',
+    allStages: '查看全部 Stages',
     trackTitle: 'Track 路線',
     branchTitle: 'Branch 人群路線',
+    syncedTitle: '內容同步狀態',
+    syncedDesc: '站點內容由 fork 倉庫自動同步生成，下面是目前同步快照。',
     syncedAt: '最近同步',
-    commit: '提交',
+    commit: '提交哈希',
+    repo: '內容來源',
     notSynced: '尚未執行同步'
   },
   en: {
-    eyebrow: 'Default language: Simplified Chinese',
-    title: 'A cleaner multilingual learning site for awesome-agentic-ai-zh',
-    intro: 'The site now separates content by language: Simplified Chinese is the default, with Traditional Chinese and English switches to avoid mixed-language pages.',
-    roadmap: 'View Roadmap',
-    updates: 'Sync Status',
-    source: 'Source Repo',
-    gettingStarted: 'Recommended Start',
-    gettingStartedDesc: 'Start with stages first, then pick a Track or Branch based on your goal.',
-    allStages: 'View all Stages →',
-    trackTitle: 'Track Paths',
-    branchTitle: 'Audience Branches',
-    syncedAt: 'Last Synced',
-    commit: 'Commit',
+    eyebrow: 'Multilingual tutorial docs',
+    title: 'A cleaner docs UI for learning Agentic AI over time',
+    intro: 'This site reshapes awesome-agentic-ai-zh into a more GitBook/Mintlify-like learning portal: Simplified Chinese by default, with Traditional Chinese and English versions, organized by stages, goals, and audience paths.',
+    primaryCta: 'Start with Stages',
+    secondaryCta: 'View Roadmap',
+    tertiaryCta: 'Sync Status',
+    source: 'Content Repo',
+    quickStartTitle: 'Start here',
+    quickStartDesc: 'If this is your first visit, start with stages, then narrow down by goals and audience-specific paths.',
+    stagePath: 'Learn by stage',
+    stagePathDesc: 'Move from foundations to practical execution step by step.',
+    trackPath: 'Learn by goal',
+    trackPathDesc: 'Choose a route based on the kind of real-world outcome you want.',
+    branchPath: 'Learn by audience',
+    branchPathDesc: 'Pick content that fits developers, product people, researchers, and more.',
+    featuredTitle: 'Recommended starting points',
+    featuredDesc: 'These stage entries are the best way to build a solid mental model quickly.',
+    allStages: 'View all Stages',
+    trackTitle: 'Track paths',
+    branchTitle: 'Audience branches',
+    syncedTitle: 'Content sync status',
+    syncedDesc: 'Site content is generated from your fork automatically. Here is the current sync snapshot.',
+    syncedAt: 'Last synced',
+    commit: 'Commit hash',
+    repo: 'Source repo',
     notSynced: 'Not synced yet'
   }
 }[lang];
 
 const currentPath = '/';
+const prefix = lang === 'zh-cn' ? '' : `/${lang}`;
+const quickStarts = [
+  {
+    title: labels.stagePath,
+    description: labels.stagePathDesc,
+    href: `${prefix}/stages/`,
+    meta: 'Stages'
+  },
+  {
+    title: labels.trackPath,
+    description: labels.trackPathDesc,
+    href: `${prefix}/tracks/`,
+    meta: 'Tracks'
+  },
+  {
+    title: labels.branchPath,
+    description: labels.branchPathDesc,
+    href: `${prefix}/branches/`,
+    meta: 'Branches'
+  }
+];
 ---
 <BaseLayout
   title="Awesome Agentic AI 学习站"
@@ -73,42 +130,80 @@ const currentPath = '/';
   languageLinks={createSectionLanguageLinks(currentPath)}
 >
   <section class="hero">
-    <div class="hero-card">
+    <div class="hero-card primary">
       <span class="eyebrow">{labels.eyebrow}</span>
-      <h1>{labels.title}</h1>
-      <p>{labels.intro}</p>
+      <h1 style="margin-top: 1rem; max-width: 13ch;">{labels.title}</h1>
+      <p class="hero-lead">{labels.intro}</p>
       <div class="button-row">
-        <a class="button primary" href={lang === 'zh-cn' ? '/roadmap/' : `/${lang}/roadmap/`}>{labels.roadmap}</a>
-        <a class="button" href={lang === 'zh-cn' ? '/updates/' : `/${lang}/updates/`}>{labels.updates}</a>
-        <a class="button" href={manifest.repoUrl} target="_blank" rel="noreferrer">{labels.source}</a>
+        <a class="button primary" href={`${prefix}/stages/`}>{labels.primaryCta}</a>
+        <a class="button" href={`${prefix}/roadmap/`}>{labels.secondaryCta}</a>
+        <a class="button" href={`${prefix}/updates/`}>{labels.tertiaryCta}</a>
       </div>
     </div>
 
     <div class="hero-card">
+      <p class="panel-title">Learning snapshot</p>
       <div class="stats">
-        <div class="stat"><span class="muted">Stages</span><strong>{manifest.counts.stages}</strong></div>
-        <div class="stat"><span class="muted">Tracks</span><strong>{manifest.counts.tracks}</strong></div>
-        <div class="stat"><span class="muted">Branches</span><strong>{manifest.counts.branches}</strong></div>
-        <div class="stat"><span class="muted">Resources</span><strong>{manifest.counts.resources}</strong></div>
+        <div class="stat"><span>Stages</span><strong>{manifest.counts.stages}</strong></div>
+        <div class="stat"><span>Tracks</span><strong>{manifest.counts.tracks}</strong></div>
+        <div class="stat"><span>Branches</span><strong>{manifest.counts.branches}</strong></div>
+        <div class="stat"><span>Resources</span><strong>{manifest.counts.resources}</strong></div>
       </div>
-      <p class="muted small">{labels.syncedAt}：{manifest.syncedAt === 'pending-sync' ? labels.notSynced : new Date(manifest.syncedAt).toLocaleString('zh-CN', { hour12: false })}</p>
-      <p class="muted small">{labels.commit}：{manifest.repoCommit}</p>
+      <div class="hero-meta-list" style="margin-top: 1rem;">
+        <div class="mini-item" style="padding: 0.9rem 1rem;">
+          <div class="small muted">{labels.syncedAt}</div>
+          <div class="small"><strong>{manifest.syncedAt === 'pending-sync' ? labels.notSynced : new Date(manifest.syncedAt).toLocaleString('zh-CN', { hour12: false })}</strong></div>
+        </div>
+        <div class="mini-item" style="padding: 0.9rem 1rem;">
+          <div class="small muted">{labels.commit}</div>
+          <div class="small" style="word-break: break-all;"><strong>{manifest.repoCommit}</strong></div>
+        </div>
+        <div class="mini-item" style="padding: 0.9rem 1rem;">
+          <div class="small muted">{labels.repo}</div>
+          <a class="small" href={manifest.repoUrl} target="_blank" rel="noreferrer">{manifest.repoUrl}</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section>
+  <section class="section">
     <div class="section-head">
       <div>
-        <h2>{labels.gettingStarted}</h2>
-        <p class="muted">{labels.gettingStartedDesc}</p>
+        <p class="section-kicker">{labels.quickStartTitle}</p>
+        <h2>{labels.quickStartTitle}</h2>
+        <p class="section-copy">{labels.quickStartDesc}</p>
       </div>
-      <a href={lang === 'zh-cn' ? '/stages/' : `/${lang}/stages/`}>{labels.allStages}</a>
+    </div>
+    <CollectionGrid items={quickStarts} variant="feature" />
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <p class="section-kicker">Featured</p>
+        <h2>{labels.featuredTitle}</h2>
+        <p class="section-copy">{labels.featuredDesc}</p>
+      </div>
+      <a class="section-link" href={`${prefix}/stages/`}>{labels.allStages} →</a>
     </div>
     <CollectionGrid items={featuredStages} />
   </section>
 
-  <section class="grid cols-2" style="margin-top:2rem;">
+  <section class="section grid cols-2">
     <RouteTimeline title={labels.trackTitle} steps={trackSteps} />
     <RouteTimeline title={labels.branchTitle} steps={branchSteps} />
+  </section>
+
+  <section class="section">
+    <div class="panel" style="padding: 1.4rem;">
+      <div class="section-head" style="margin-bottom: 0.6rem;">
+        <div>
+          <p class="section-kicker">Sync</p>
+          <h2>{labels.syncedTitle}</h2>
+          <p class="section-copy">{labels.syncedDesc}</p>
+        </div>
+        <a class="section-link" href={`${prefix}/updates/`}>Updates →</a>
+      </div>
+    </div>
   </section>
 </BaseLayout>

@@ -10,11 +10,15 @@ interface Props {
 }
 const { title, steps } = Astro.props;
 ---
-<section class="panel">
-  <h2>{title}</h2>
+<section class="panel timeline-panel">
+  <div class="timeline-head">
+    <p class="section-kicker">Learning path</p>
+    <h2>{title}</h2>
+  </div>
   <div class="route-list">
     {steps.map((step, index) => (
-      <div class="route-item">
+      <div class="route-item timeline-item">
+        <div class="timeline-index">{index + 1}</div>
         <div>
           <div class="badge">Step {index + 1}</div>
           <h3>{step.href ? <a href={step.href}>{step.title}</a> : step.title}</h3>
@@ -24,3 +28,34 @@ const { title, steps } = Astro.props;
     ))}
   </div>
 </section>
+
+<style>
+  .timeline-panel {
+    padding: 1.35rem;
+  }
+  .timeline-head {
+    margin-bottom: 1rem;
+  }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: .9rem;
+    align-items: start;
+  }
+  .timeline-item h3 {
+    margin: .5rem 0 0;
+  }
+  .timeline-item p {
+    margin: .4rem 0 0;
+  }
+  .timeline-index {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: rgba(124,156,255,0.14);
+    color: var(--text);
+    font-weight: 800;
+  }
+</style>

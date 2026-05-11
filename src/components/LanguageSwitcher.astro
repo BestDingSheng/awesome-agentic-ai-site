@@ -26,28 +26,35 @@ const { currentLang, links } = Astro.props;
   .lang-switcher {
     display: inline-flex;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: .4rem;
     align-items: center;
+    padding: .25rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(148,163,184,0.12);
   }
   .lang-link {
     display: inline-flex;
     align-items: center;
-    padding: .45rem .75rem;
+    padding: .5rem .78rem;
     border-radius: 999px;
-    border: 1px solid var(--line);
-    background: rgba(255,255,255,0.03);
+    border: 1px solid transparent;
+    background: transparent;
     color: var(--muted);
-    font-size: .9rem;
-    font-weight: 700;
+    font-size: .88rem;
+    font-weight: 800;
     text-decoration: none;
+    transition: 160ms ease;
   }
   .lang-link:hover {
     color: var(--text);
     text-decoration: none;
+    background: rgba(255,255,255,0.04);
   }
   .lang-link.active {
     background: rgba(124, 156, 255, 0.18);
     color: var(--text);
-    border-color: rgba(124, 156, 255, 0.45);
+    border-color: rgba(124, 156, 255, 0.35);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
   }
 </style>

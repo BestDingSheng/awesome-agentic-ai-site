@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import type { SiteLang } from '../lib/i18n';
+import { buildLangPath, type SiteLang } from '../lib/i18n';
 
 interface Heading {
   depth: number;
@@ -22,6 +22,8 @@ interface Props {
 }
 
 const { title, description, collectionLabel, sourceUrl, sourcePath, syncedAt, headings = [], lang, currentPath, languageLinks } = Astro.props;
+const docHeadings = headings.filter((item) => item.depth >= 2 && item.depth <= 4);
+const syncedText = new Date(syncedAt).toLocaleString('zh-CN', { hour12: false });
 ---
 <BaseLayout
   title={`${title} · Awesome Agentic AI 学习站`}
@@ -30,19 +32,61 @@ const { title, description, collectionLabel, sourceUrl, sourcePath, syncedAt, he
   currentPath={currentPath}
   languageLinks={languageLinks}
 >
-  <section class="doc">
-    <aside class="meta panel">
-      <span class="badge">{collectionLabel}</span>
-      <h3>{title}</h3>
-      {description && <p class="muted small">{description}</p>}
-      <ul class="small muted">
-        <li><strong>源文件：</strong>{sourcePath}</li>
-        <li><strong>同步时间：</strong>{new Date(syncedAt).toLocaleString('zh-CN', { hour12: false })}</li>
-        <li><a href={sourceUrl} target="_blank" rel="noreferrer">查看原仓库</a></li>
-      </ul>
-    </aside>
-    <article class="markdown">
-      <slot />
-    </article>
-  </section>
+  <div class="section" style="margin-top: 0;">
+    <div class="section-head" style="margin-bottom: 1.2rem; align-items: start;">
+      <div>
+        <p class="section-kicker">Documentation</p>
+        <div class="doc-breadcrumb small muted">
+          <a href={buildLangPath(lang, '/')}>Home</a>
+          <span>/</span>
+          <span>{collectionLabel}</span>
+        </div>
+        <h1 class="doc-title" style="font-size: clamp(2rem, 3vw, 3rem); margin-top: 0.55rem;">{title}</h1>
+        {description && <p class="hero-lead" style="margin-top: 0.75rem; max-width: 52rem;">{description}</p>}
+      </div>
+    </div>
+
+    <section class="doc">
+      <aside class="sidebar-panel surface">
+        <span class="badge">{collectionLabel}</span>
+        <div class="meta-list" style="margin-top: 1rem;">
+          <div class="doc-meta-item" style="padding: 0.9rem 1rem;">
+            <div class="small muted">语言版本</div>
+            <div class="small"><strong>{languageLinks.find((item) => item.lang === lang)?.label ?? lang}</strong></div>
+          </div>
+          <div class="doc-meta-item" style="padding: 0.9rem 1rem;">
+            <div class="small muted">同步时间</div>
+            <div class="small"><strong>{syncedText}</strong></div>
+          </div>
+          <div class="doc-meta-item" style="padding: 0.9rem 1rem;">
+            <div class="small muted">源文件</div>
+            <div class="small" style="word-break: break-word;">{sourcePath}</div>
+          </div>
+        </div>
+
+        <div class="mini-list" style="margin-top: 1rem;">
+          <a class="button" href={sourceUrl} target="_blank" rel="noreferrer">查看原仓库</a>
+        </div>
+      </aside>
+
+      <article class="markdown">
+        <slot />
+      </article>
+
+      <aside class="toc surface">
+        <div class="toc-title">On this page</div>
+        {docHeadings.length > 0 ? (
+          <ul>
+            {docHeadings.map((heading) => (
+              <li>
+                <a class:list={[`depth-${heading.depth}`]} href={`#${heading.slug}`}>{heading.text}</a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="empty-note">该页面暂时没有可展示的目录标题。</p>
+        )}
+      </aside>
+    </section>
+  </div>
 </BaseLayout>
