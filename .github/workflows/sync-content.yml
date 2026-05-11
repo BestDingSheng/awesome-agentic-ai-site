@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Sync content from fork or upstream
+      - name: Sync content from fork
         run: npm run sync:content
         env:
           REPO_URL: ${{ vars.CONTENT_REPO_URL }}
@@ -33,4 +33,4 @@ jobs:
       - name: Commit synced content
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore: sync upstream content'
+          commit_message: 'chore: sync content from fork'

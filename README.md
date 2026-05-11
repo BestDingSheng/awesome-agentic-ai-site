@@ -16,7 +16,7 @@
 - 内容集合：`stages`、`tracks`、`branches`、`resources`、`walkthroughs`
 - 首页、Roadmap、Updates、各内容列表页与详情页
 - 语言切换器（简中 / 繁中 / English）
-- 内容同步脚本：从上游或你的 fork 拉取 Markdown 与 `resources/` 静态资源
+- 内容同步脚本：默认从你的 fork 拉取 Markdown 与 `resources/` 静态资源
 - Markdown 相对链接重写为站内多语言路由
 - GitHub Actions：
   - 网站仓库定时同步内容
@@ -34,10 +34,10 @@ npm run dev
 
 默认内容源：
 
-- `https://github.com/WenyuChiou/awesome-agentic-ai-zh.git`
+- `https://github.com/BestDingSheng/awesome-agentic-ai-zh.git`
 - 分支：`main`
 
-你也可以改成自己的 fork：
+如果你想临时改成别的仓库，也可以覆盖：
 
 ```bash
 REPO_URL=https://github.com/<yourname>/awesome-agentic-ai-zh.git npm run sync:content
@@ -59,7 +59,7 @@ REPO_URL=https://github.com/<yourname>/awesome-agentic-ai-zh.git npm run sync:co
 工作流文件：[`.github/workflows/sync-content.yml`](./.github/workflows/sync-content.yml)
 
 建议在 GitHub 仓库 Variables 中设置：
-- `CONTENT_REPO_URL`：你的 fork 地址；如果不设置则回退到上游仓库
+- `CONTENT_REPO_URL`：你的 fork 地址，推荐固定为 `https://github.com/BestDingSheng/awesome-agentic-ai-zh.git`
 - `CONTENT_REPO_REF`：分支名，默认 `main`
 
 ### 2. fork 仓库同步上游
