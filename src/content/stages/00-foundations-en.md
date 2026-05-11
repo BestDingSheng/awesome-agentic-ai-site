@@ -5,14 +5,14 @@ section: "Stage"
 sourcePath: "stages/00-foundations.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "00-foundations"
 order: 0
 ---# Stage 0 — Foundations
 
-> [繁體中文](/zh-tw/stages/00-foundations/) | **English**
+> [繁體中文](/zh-tw/stages/00-foundations/) | [简体中文](/zh-tw/stages/00-foundations-zh-hans/) | **English**
 
 
 ⏱ **Time estimate**: 1-2 weeks (~5-15 hours, can skip if you have these)

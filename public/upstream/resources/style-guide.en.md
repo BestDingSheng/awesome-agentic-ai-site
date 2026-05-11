@@ -1,4 +1,4 @@
-> [繁體中文](./style-guide.md) | [简体中文](./style-guide.zh-CN.md) | **English**
+> [繁體中文](./style-guide.md) | [简体中文](./style-guide.zh-Hans.md) | **English**
 
 # `awesome-agentic-ai-zh` Style Guide
 
@@ -95,7 +95,9 @@ Example: an `Anthropic — Building Effective Agents` blog entry uses `Format = 
 
 ## 3. Banned words & alternatives
 
-This document is **Traditional Chinese (zh-TW, Taiwan)**. The Chinese-side guide enumerates the zh-CN slips to avoid. For the English companion files, the rules are simpler:
+This document is **Traditional Chinese (zh-TW, Taiwan)**. The Chinese-side guide enumerates the zh-Hans slips to avoid. For the English companion files, the rules are simpler:
+
+> 📌 **Language tag convention (BCP 47 / W3C i18n)**: this repo uses `.zh-Hans.md` (not `.zh-CN.md`) for the Simplified Chinese mirror. `Hans` / `Hant` are [BCP 47 script subtags](https://www.w3.org/International/articles/language-tags/), decoupled from region — Simplified Chinese is also used in Singapore and Malaysia, not only mainland China, so `Hans` is more accurate than `CN`. The canonical `README.md` content is **zh-Hant-TW** (Traditional Chinese, Taiwan conventions), kept unsuffixed as GitHub's default landing page. Region distinctions can be added later as `zh-Hans-CN` / `zh-Hant-HK` etc. Thanks to [@xfq](https://github.com/xfq) (W3C i18n lead) for flagging this in [#9](https://github.com/WenyuChiou/awesome-agentic-ai-zh/issues/9).
 
 ### Avoid overclaim phrases
 

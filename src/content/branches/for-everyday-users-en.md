@@ -5,13 +5,15 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-everyday-users"
 ---# For Everyday Users — Specialized Branch
 
-> [繁體中文](/zh-tw/branches/for-everyday-users/) | [简体中文](/branches/for-everyday-users/) | **English**
+> [繁體中文](/zh-tw/branches/for-everyday-users/) | [简体中文](/zh-tw/branches/for-everyday-users-zh-hans/) | **English**
+
+> 🚀 **Never written code or installed Python before?** Start with [`resources/setup-guide.en.md` §A-C](/en/resources/setup-guide/) (about 30 minutes from zero), then come back. If you already know Python and have an API key, skip it.
 
 > [← Back to main path README](/en) · You **don't have to walk the full main path** to start here — this branch is for people who **just want to USE AI, not build agents**.
 

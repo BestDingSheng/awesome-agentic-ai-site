@@ -1,6 +1,6 @@
 # Cookbook — 把概念變成可執行 recipe
 
-> **繁體中文** | [English](./cookbook.en.md)
+> **繁體中文** | [简体中文](./cookbook.zh-Hans.md) | [English](./cookbook.en.md)
 
 > Stage 5（Claude Code 生態）跟 [`mcp-skills-catalog.md`](mcp-skills-catalog.md) 講「概念」跟「有哪些工具」。這份 cookbook 補中間缺的：「**怎麼動手做出來**」。每個 recipe 是一份 step-by-step + sample code + 常見 pitfall，~30-50 分鐘做完一個。
 >
@@ -15,6 +15,7 @@
 3. [Word / Excel / PowerPoint workflow](#3-office-docs-workflow)
 4. [NotebookLM workflow](#4-notebooklm-workflow)
 5. [Zotero workflow](#5-zotero-workflow)
+6. [本機 LLM + CLI Agent 快速 walkthrough](#6-本機-llm--cli-agent-快速-walkthrough)
 
 ---
 
@@ -307,7 +308,7 @@ Claude 會根據 user query 自動載入合適的 skill。
 **改 docx**：
 ```
 讀 ./doc/draft.docx，把繁中詞彙轉成簡中（譬如「軟體」→「软件」），
-存成 ./doc/draft.zh-CN.docx，保留原本的 track changes。
+存成 ./doc/draft.zh-Hans.docx，保留原本的 track changes。
 ```
 
 **讀 PDF 提取資訊**：
@@ -499,11 +500,121 @@ git clone https://github.com/WenyuChiou/zotero-skills ~/.claude/skills/zotero-sk
 
 ---
 
+## 6. 本機 LLM + CLI Agent 快速 walkthrough
+
+> 30 分鐘把 Stage 1 的本機模型接到 Stage 5 的 CLI agent：離線、隱私資料、不想用 API 額度時，可以先用這條路線做 end-to-end 驗證。
+
+### 為什麼
+
+Stage 1 教你用 Ollama / llama.cpp / vLLM 跑本機 LLM；Stage 5 教 Claude Code、MCP、Skills、Plugins 的 agent 生態。中間常見的誤會是：**Claude Code 不是本機 LLM runner**。Claude Code 需要 Anthropic OAuth / API key，不能直接把 model endpoint 改成 Ollama 或其他本機 endpoint。
+
+如果目標是「本機 LLM + CLI agent」，選擇支援 BYO LLM 的 CLI 會更直接：**OpenCode / goose / Aider / Hermes Agent** 都能接 OpenAI-compatible endpoint 或 Ollama provider。這個 recipe 用一個短流程讓你先跑通 model、agent、任務三件事。
+
+### 步驟
+
+#### Step 1：Ollama + model（10 分鐘）
+
+```bash
+# 安裝 Ollama：https://ollama.com
+ollama pull qwen2.5:3b
+# RAM 16GB+ 可以改試：ollama pull qwen2.5:7b
+ollama serve
+```
+
+確認 OpenAI-compatible API 有回應：
+
+```bash
+curl http://localhost:11434/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{"model":"qwen2.5:3b","messages":[{"role":"user","content":"用 3 句話解釋 ReAct agent。"}]}'
+```
+
+#### Step 2：選一個 CLI agent 接 Ollama（10 分鐘）
+
+**OpenCode**：適合想切換多 provider、又要接本機模型的人。
+
+```bash
+npm install -g opencode-ai
+opencode auth login   # provider 選 Ollama，endpoint 設 http://localhost:11434/v1
+opencode
+```
+
+**goose**：內建 Ollama provider，適合先做本機 agent 試跑。
+
+```bash
+# 安裝方式看 https://block.github.io/goose
+goose configure       # provider 選 Ollama，model 設 qwen2.5:3b
+goose session start
+```
+
+**Aider**：git-native，適合在 repo 內做小型程式碼修改。
+
+```bash
+pip install aider-chat
+aider --model ollama/qwen2.5:3b --no-show-model-warnings
+```
+
+**Hermes Agent**：適合跑在 VPS，讓 Telegram / Slack / Discord 變成 agent 入口。
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+hermes model set ollama:qwen2.5:3b
+hermes
+```
+
+#### Step 3：跑一個真實小任務（10 分鐘）
+
+不要只問「hello world」。挑一個會碰到檔案、摘要、表格或搜尋的小任務：
+
+- 從 `~/Downloads` 找 5 個 PDF，抽出每篇 paper 的 1 句 summary 與 method。
+- 讀 `data.csv` 前 3 欄，輸出 Markdown table 並指出欄位問題。
+- 搜 `~/notes/` 裡 7 天內提到 `agent safety` 的段落，整理成 checklist。
+
+觀察三件事：
+
+- **Speed**：本機小模型常比 API 慢 2-5 倍。
+- **Quality**：3B / 7B 模型的 reasoning、長 context、複雜程式碼能力通常不如 Claude。
+- **Cost**：token 成本是 `$0`，但會吃本機 RAM / VRAM 與電力。
+
+#### Step 4：跟 Claude Code 的差異（5 分鐘）
+
+| 面向 | Claude Code | OpenCode + Ollama |
+|---|---|---|
+| LLM | Anthropic hosted | 本機模型 |
+| 成本 | 訂閱或 per-token | `$0` token cost |
+| 速度 | 通常較穩 | 看硬體，常慢 2-5 倍 |
+| 隱私 | 內容送 Anthropic | 內容留在本機 |
+| Reasoning 上限 | Claude 4.5+ 較強 | 取決於本機模型 |
+| 適合 use case | 複雜 codebase、長 context、可靠推理 | 隱私資料、離線 demo、低成本反覆試 |
+
+### 重要限制：Claude Code 不能直接用本機 LLM
+
+Claude Code 目前需要 Anthropic OAuth / API key，沒有官方設定可以把模型切成 Ollama 或本機 endpoint。網路上可能有 proxy 或 API shim 做實驗，但這不是官方支援路徑，穩定性與相容性要自己承擔。
+
+要用本機 LLM，建議把「Claude Code」跟「支援 BYO LLM 的 CLI agent」分開看：Claude Code 用在需要 Claude 品質的工作；OpenCode / goose / Aider / Hermes 用在本機、離線、隱私或低成本實驗。
+
+### 常見 pitfall
+
+| 問題 | 原因 | 解法 |
+|---|---|---|
+| `connection refused` | Ollama server 沒在背景跑 | 開另一個 terminal 跑 `ollama serve` |
+| model output 斷句怪、邏輯弱 | 3B 模型能力有限 | 改用 `qwen2.5:7b` 或 `deepseek-r1:7b` |
+| CLI agent 沒改到檔案 | 本機模型太弱，或 prompt 太模糊 | 縮小任務、指定檔案與成功條件 |
+| memory / OOM | 模型吃掉 RAM / VRAM | 先用 `qwen2.5:3b`，再升到 7B；必要時開 swap |
+
+### 進一步
+
+- Stage 1 [Local LLM 練習](../stages/01-llm-basics.md#練習local-llm)：Ollama / llama.cpp / vLLM 的差異
+- [`cli-agents-guide.md`](cli-agents-guide.md)：7 個 CLI agent 怎麼選
+- Hermes Agent README：多平台 gateway（Telegram / Discord / Slack）與 provider 設定
+
+---
+
 ## 找不到你要的 recipe？
 
 - 看 [Stage 5](../stages/05-claude-code-ecosystem.md) 完整概念
 - 看 [`mcp-skills-catalog.md`](mcp-skills-catalog.md) 完整工具清單
 - 看 [`schema-design-cheatsheet.md`](schema-design-cheatsheet.md) 寫 tool schema 的細節
-- 看 [`cli-agents-guide.md`](cli-agents-guide.md) 6 個主流 CLI agent 比較
+- 看 [`cli-agents-guide.md`](cli-agents-guide.md) 7 個主流 CLI agent 比較
 
 要新 recipe → 開 issue 或直接 PR 一份。recipe 格式：**為什麼 + 步驟 + 範本 prompt + 常見 pitfall + 進一步**。

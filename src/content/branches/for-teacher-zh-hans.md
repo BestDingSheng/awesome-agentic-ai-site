@@ -2,18 +2,20 @@
 title: "给教师 — 专业分支"
 description: "教师使用 AI 的场景可以先看成三个分支：**备课与上课素材制作**、**教学现场与学习辅助**，以及**其他应用场景**。这样的分类参考 AI in Education 文献中常见的行政、教学与学习应用脉络，也加入生成式 AI 在教材生成、反馈与互动支援上的近期讨论（Chen et al., 2020；Mittal et al., 2024）。阅读时建议先"
 section: "Branch"
-sourcePath: "branches/for-teacher.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.zh-CN.md"
+sourcePath: "branches/for-teacher.zh-Hans.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
-language: "zh-cn"
-languageLabel: "简体中文"
-baseSlug: "for-teacher"
+syncedAt: "2026-05-11T15:19:14.652Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "for-teacher-zh-hans"
 ---# 给教师 — 专业分支
 
 > [繁體中文](/zh-tw/branches/for-teacher/) | **简体中文** | [English](/en/branches/for-teacher/)
 
-> [← 回主路线 README](/) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 后从这里接续。把 agentic AI 应用到教学流程上。
+> 🚀 **第一次接触 AI agent / 没写过 code？** 先看 [`resources/setup-guide.zh-Hans.md` §A-C](/zh-tw/resources/setup-guide-zh-hans/)（30 分钟从零装好需要的东西）。Tier 0 和 Tier 1 不需要写 code，可以先跳过；Tier 2 之后会用到。
+
+> [← 回主路线 README](../README.zh-Hans.md) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 后从这里接续。把 agentic AI 应用到教学流程上。
 
 ## 使用场景
 
@@ -105,7 +107,7 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 
 | 栏位 | 内容 |
 |---|---|
-| 语言 | 中文（zh-CN） |
+| 语言 | 中文（zh-Hans） |
 | Stars | ★ 13k+ |
 | License | NOASSERTION |
 
@@ -209,15 +211,15 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
   - 例子：每周固定收 30 份作业 → 自动生成反馈初稿
   - 不熟程序的老师可以**找学校的 IT 同事 / 学生 RA 帮忙**设置，自己只用结果
 
-> 升级到 Tier 2+ 就建议走 [Track A — CLI Power User](/tracks/cli-a1-cli-intro/)。
+> 升级到 Tier 2+ 就建议走 [Track A — CLI Power User](/zh-tw/tracks/cli-a1-cli-intro-zh-hans/)。
 
 ## 也适用其他分支
 
 很多老师同时是研究员 / 知识工作者，这几个分支重叠：
 
-- **也做研究**（找文献、写 paper、整理 references）→ [研究员分支](/branches/for-researcher/)
-- **要写报告 / 整理会议记录 / 跨工具集成**（Notion、Excel、Email）→ [知识工作者分支](/branches/for-knowledge-worker/)
-- **要把 AI 接到 Notion / Obsidian / 飞书** 等日常工具 → [`resources/mcp-skills-catalog.zh-CN.md`](/resources/mcp-skills-catalog/)
+- **也做研究**（找文献、写 paper、整理 references）→ [研究员分支](/zh-tw/branches/for-researcher-zh-hans/)
+- **要写报告 / 整理会议记录 / 跨工具集成**（Notion、Excel、Email）→ [知识工作者分支](/zh-tw/branches/for-knowledge-worker-zh-hans/)
+- **要把 AI 接到 Notion / Obsidian / 飞书** 等日常工具 → [`resources/mcp-skills-catalog.zh-Hans.md`](/zh-tw/resources/mcp-skills-catalog-zh-hans/)
 
 ## 社群备注
 

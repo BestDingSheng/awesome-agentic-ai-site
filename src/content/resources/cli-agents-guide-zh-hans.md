@@ -1,29 +1,29 @@
 ---
 title: "CLI Agents 比较指南"
-description: "跨 5 个 branch + Track A 共用的参考——**Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider 之间怎么挑？** Track A（A1-A3）的 CLI workflow 设计、5 条 branch 内的 CLI 引用都连到这份；每个 branch 都会用到 CLI ag"
+description: "跨 5 个 branch + Track A 共用的参考——**Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent 之间怎么挑？** Track A（A1-A3）的 CLI workflow 设计、5 条 branch 内的 CLI 引用都连到这份；每个 bra"
 section: "Resource"
-sourcePath: "resources/cli-agents-guide.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.zh-CN.md"
+sourcePath: "resources/cli-agents-guide.zh-Hans.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
-language: "zh-cn"
-languageLabel: "简体中文"
-baseSlug: "cli-agents-guide"
+syncedAt: "2026-05-11T15:19:14.652Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "cli-agents-guide-zh-hans"
 ---> [繁體中文](/zh-tw/resources/cli-agents-guide/) | **简体中文** | [English](/en/resources/cli-agents-guide/)
 
 # CLI Agents 比较指南
 
-> [← 回主路线 README](/)
+> [← 回主路线 README](/zh-tw)
 
 > 📌 **这份是 reference doc**（深度比较、选择逻辑、坑、推荐搭配）。
-> 第一次接触 CLI agent、想要 step-by-step 上手 → 看 [`tracks/cli/A1-cli-intro.zh-CN.md`](/tracks/cli-a1-cli-intro/)（Track A 第一站）。
+> 第一次接触 CLI agent、想要 step-by-step 上手 → 看 [`tracks/cli/A1-cli-intro.zh-Hans.md`](/zh-tw/tracks/cli-a1-cli-intro-zh-hans/)（Track A 第一站）。
 > 已经在用、想决定 / 比较 / 升级 → 留在这份。
 
-跨 5 个 branch + Track A 共用的参考——**Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider 之间怎么挑？** Track A（A1-A3）的 CLI workflow 设计、5 条 branch 内的 CLI 引用都连到这份；每个 branch 都会用到 CLI agent，但没有一个 branch 真的「拥有」这份比较，所以放在 `resources/`。
+跨 5 个 branch + Track A 共用的参考——**Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent 之间怎么挑？** Track A（A1-A3）的 CLI workflow 设计、5 条 branch 内的 CLI 引用都连到这份；每个 branch 都会用到 CLI agent，但没有一个 branch 真的「拥有」这份比较，所以放在 `resources/`。
 
-## 📋 6 个主流 CLI agent
+## 📋 7 个主流 CLI agent
 
-只列在 terminal 跑的（IDE-based 如 Cursor / Cline / Continue 不在这份；那些放在 [for-developer](/branches/for-developer/)）。所有数字 `gh api` 验证于 2026-05-06。
+只列在 terminal 跑的（IDE-based 如 Cursor / Cline / Continue 不在这份；那些放在 [for-developer](/zh-tw/branches/for-developer-zh-hans/)）。前 6 个数字 `gh api` 验证于 2026-05-06；Hermes Agent 验证于 2026-05-10。
 
 | 工具 | 提供者 | License | 主推 LLM | 认证 / 计费 | Stars |
 |---|---|---|---|---|---|
@@ -33,6 +33,7 @@ baseSlug: "cli-agents-guide"
 | [Gemini CLI](https://github.com/google-gemini/gemini-cli) | Google（官方） | Apache-2.0 | Gemini | 免费额度宽，超出收费 | ★ 103k+ |
 | [goose](https://github.com/block/goose) | Agentic AI Foundation（repo 已迁至 `aaif-goose/goose`） | Apache-2.0 | 15+ provider（含 Ollama） | BYO API key 或既有 Claude / ChatGPT / Gemini 订阅（ACP） | ★ 43k+ |
 | [Aider](https://github.com/Aider-AI/aider) | Aider-AI（社群） | Apache-2.0 | BYO API key | ★ 44k+ |
+| [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research | MIT | 200+ via OpenRouter / NVIDIA NIM / 智谱 GLM / Kimi / 小米 MiMo / MiniMax / HF / OpenAI | BYO API key（多 provider） | ★ 142k+ |
 
 ---
 
@@ -58,6 +59,13 @@ baseSlug: "cli-agents-guide"
 
 ### 第一次装 CLI agent，先试手感
 **首推**：Claude Code。生态广泛、CLAUDE.md 机制让 prompt 可以版本控制、出问题时社群资源多。
+
+### 想跑在 cloud VM、用 Telegram / Slack 等多平台跟它聊 + 用中国大陆 LLM
+**首推**：Hermes Agent。差异化在三件事：
+- **不绑 laptop**——agent 跑在 $5 VPS / Modal serverless，你从 Telegram / Discord / Slack / WhatsApp / Signal 任一个介面对话
+- **多 LLM 中性**——支持 GLM / Kimi / 小米 MiMo / MiniMax，刚好对应 §11 中文圈生态
+- **内建 self-improving skill loop + cron 排程**——agent 跟你互动久了会自动生成 skill，跨 session 持续优化
+- ⚠️ skill 自动演化是 frontier feature，目前缺独立审计；对 production 任务建议先在低风险场景试
 
 ---
 
@@ -120,22 +128,29 @@ baseSlug: "cli-agents-guide"
 - 加 Aider 处理需要精确 git diff 的场景
 - 适合学者、知识工作者
 
+### Setup D：Hermes Agent + 本地 Ollama（多平台 + 中国大陆 LLM + offline）
+- **Hermes Agent** 跑在 $5 VPS 或自己的机器上，当作多平台 agent gateway
+- **LLM endpoint** 用 Ollama（`http://localhost:11434/v1`），也可以改接 z.ai GLM / Kimi 等 provider
+- **聊天入口** 用 Telegram / Slack / Discord；Hermes 负责把平台消息转进 agent workflow
+- **完全不想接 Anthropic / OpenAI** 时，这条路线适合做离线、隐私资料、低成本重复实验
+- Step-by-step 做法看 [`resources/cookbook.md` Recipe 6](/zh-tw/resources/cookbook-zh-hans/#6-本地-llm--cli-agent-快速-walkthrough)
+
 ---
 
 ## 从这份指南连回各 branch
 
 不同 audience 对 CLI 的需求不一样：
 
-- **[for-developer](/branches/for-developer/)**：除了 CLI，也看 IDE-based agents（Cursor、Cline、Continue）
-- **[for-everyday-users](/branches/for-everyday-users/)** Tier 2：CLI 是进阶选项，先试 Tier 0 / 1 的 Web / Desktop App
-- **[for-researcher](/branches/for-researcher/)**：除了 CLI，也看 paper-specific 工具（paper-qa、gpt-researcher、ChatPaper）
-- **[for-knowledge-worker](/branches/for-knowledge-worker/)**：除了 CLI，也看 workflow 自动化（n8n、Make）
-- **[for-teacher](/branches/for-teacher/)**：CLI 对教师偏进阶；建议先看 prompt 素材库
+- **[for-developer](/zh-tw/branches/for-developer-zh-hans/)**：除了 CLI，也看 IDE-based agents（Cursor、Cline、Continue）
+- **[for-everyday-users](/zh-tw/branches/for-everyday-users-zh-hans/)** Tier 2：CLI 是进阶选项，先试 Tier 0 / 1 的 Web / Desktop App
+- **[for-researcher](/zh-tw/branches/for-researcher-zh-hans/)**：除了 CLI，也看 paper-specific 工具（paper-qa、gpt-researcher、ChatPaper）
+- **[for-knowledge-worker](/zh-tw/branches/for-knowledge-worker-zh-hans/)**：除了 CLI，也看 workflow 自动化（n8n、Make）
+- **[for-teacher](/zh-tw/branches/for-teacher-zh-hans/)**：CLI 对教师偏进阶；建议先看 prompt 素材库
 
 ---
 
 ## 维护备注
 
-- 6 个 CLI 的 stars / license / pushed_at 每季用 `bash scripts/refresh-stars.py` 更新一次
+- 7 个 CLI 的 stars / license / pushed_at 每季用 `bash scripts/refresh-stars.py` 更新一次
 - CLI 工具市场变化快——新工具出现要评估是否加入这份比较（门槛：> 30k stars + 维护中 + 真的 CLI 不是 IDE）
 - 比较表格的「强项 / 弱项」栏位刻意没填——避免产生主观 bias，让 use case section 跟读者自己的判断做这件事

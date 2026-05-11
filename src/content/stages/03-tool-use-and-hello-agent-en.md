@@ -5,14 +5,14 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
 order: 3
 ---# Stage 3 — Tool Use & Agent Intro ⭐
 
-> [繁體中文](/zh-tw/stages/03-tool-use-and-hello-agent/) | **English**
+> [繁體中文](/zh-tw/stages/03-tool-use-and-hello-agent/) | [简体中文](/zh-tw/stages/03-tool-use-and-hello-agent-zh-hans/) | **English**
 
 
 ⏱ **Time estimate**: 2-3 weeks (~10-20 hours)
@@ -175,7 +175,7 @@ jupyter notebook customer_service_agent.ipynb
 
 | Field | Value |
 |---|---|
-| Language | 中文 (zh-CN) + Python |
+| Language | 中文 (zh-Hans) + Python |
 | License | CC BY-NC-SA 4.0 |
 | Recommendation | ⭐⭐⭐⭐⭐ for zh readers |
 
@@ -183,7 +183,7 @@ jupyter notebook customer_service_agent.ipynb
 
 **Best for**: Chinese-speaking learners. **Switch to the `learn_version` branch** for the tutorial-aligned version.
 
-**Notes**: License is CC BY-NC-SA — non-commercial. Tutorial content is in zh-CN; technical content transfers to zh-TW readers fine.
+**Notes**: License is CC BY-NC-SA — non-commercial. Tutorial content is in zh-Hans; technical content transfers to zh-TW readers fine.
 
 **Run it**:
 ```bash
@@ -197,7 +197,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 | Field | Value |
 |---|---|
-| Language | 中文 (zh-CN) |
+| Language | 中文 (zh-Hans) |
 | License | CC BY-NC-SA |
 | Recommendation | ⭐⭐⭐⭐⭐ for zh readers |
 

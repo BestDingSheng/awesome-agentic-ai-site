@@ -2,13 +2,13 @@
 title: "Stage 1 - LLM 基础"
 description: "完成本阶段后，你将能够："
 section: "Stage"
-sourcePath: "stages/01-llm-basics.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.zh-CN.md"
+sourcePath: "stages/01-llm-basics.zh-Hans.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
-language: "zh-cn"
-languageLabel: "简体中文"
-baseSlug: "01-llm-basics"
+syncedAt: "2026-05-11T15:19:14.652Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "01-llm-basics-zh-hans"
 order: 1
 ---# Stage 1 - LLM 基础
 
@@ -16,9 +16,9 @@ order: 1
 
 > **预计学习时间**： 5-8 小时
 
-> 👋 **从 [Stage 0](/stages/00-foundations/) 来的**：好，环境已经够用——这 5-8 小时：第一次成功调用 Claude / GPT / Gemini API、搞懂 token / context window / temperature 怎么影响输出、用 per-token 计算实际成本。**直接从这里开始的**：先确认你能跑 Python script、有任一家供应商的 API key——做不到请先回 [Stage 0](/stages/00-foundations/)。
+> 👋 **从 [Stage 0](/zh-tw/stages/00-foundations-zh-hans/) 来的**：好，环境已经够用——这 5-8 小时：第一次成功调用 Claude / GPT / Gemini API、搞懂 token / context window / temperature 怎么影响输出、用 per-token 计算实际成本。**直接从这里开始的**：先确认你能跑 Python script、有任一家供应商的 API key——做不到请先回 [Stage 0](/zh-tw/stages/00-foundations-zh-hans/)。
 
-> 掌握 **核心概念**：LLM / token / context window / temperature / RAG / agent，请先阅读 [`resources/glossary.zh-CN.md`](/resources/glossary/)（约 30 分钟）。
+> 掌握 **核心概念**：LLM / token / context window / temperature / RAG / agent，请先阅读 [`resources/glossary.zh-Hans.md`](/zh-tw/resources/glossary-zh-hans/)（约 30 分钟）。
 
 ## 学习目标
 
@@ -177,7 +177,7 @@ jupyter notebook guide.ipynb
 
 | 属性 | 值 |
 |---|---|
-| 语言 | 中文（zh-CN）|
+| 语言 | 中文（zh-Hans）|
 | Stars | 29k+ |
 | License | Custom |
 | 推荐指数 | ★★★★★ |
@@ -192,7 +192,7 @@ jupyter notebook guide.ipynb
 
 | 属性 | 值 |
 |---|---|
-| 语言 | 中文（zh-CN）|
+| 语言 | 中文（zh-Hans）|
 | Stars | 12k+ |
 | License | NOASSERTION |
 | 推荐指数 | ★★★★☆ |
@@ -222,7 +222,7 @@ jupyter notebook guide.ipynb
 
 | 属性 | 值 |
 |---|---|
-| 语言 | 中文（zh-CN）|
+| 语言 | 中文（zh-Hans）|
 | Stars | 23k+ |
 | 最后更新 | 注意，项目已归档，最后更新于 2025 年 6 月 1 日 |
 | License | Custom (CC BY-NC-SA) |
@@ -232,7 +232,7 @@ jupyter notebook guide.ipynb
 
 **适合谁**：如果你没时间看视频，想快速了解 LLM 应用开发的基础。
 
-**怎么用**：浏览一遍 zh-CN（Datawhale 的系列）项目，你会发现大部分内容是重复的，选一个你喜欢的风格，然后深入进去，不要贪多。
+**怎么用**：浏览一遍 zh-Hans（Datawhale 的系列）项目，你会发现大部分内容是重复的，选一个你喜欢的风格，然后深入进去，不要贪多。
 
 ---
 
@@ -396,6 +396,10 @@ ollama serve             # 暴露 API server
 - [ ] 比较 Claude Sonnet vs Opus 的 per-token 价格。
 - [ ] 体验至少 2 个不同的 LLM（Claude / GPT / Gemini / Llama）。
 
-如果都完成了，恭喜，进入 [Stage 2 - Prompt Engineering](/stages/02-prompt-engineering/)。
+如果都完成了，恭喜，进入 [Stage 2 - Prompt Engineering](/zh-tw/stages/02-prompt-engineering-zh-hans/)。
 
 如果卡住了，回到 Anthropic Quickstart + 完成至少 3 个 hello-X 脚本。
+
+---
+
+> ✅ **Stage 1 完成？** 接下来 [**Stage 2 — Prompt Engineering**](/zh-tw/stages/02-prompt-engineering-zh-hans/) 会用 5-12 小时带你写出可重用的结构化 prompt、用 few-shot 跟 chain-of-thought 解推理题、并学会用 eval 量化 prompt 改善幅度。**继续往下走 →**

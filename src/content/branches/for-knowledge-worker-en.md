@@ -5,14 +5,15 @@ section: "Branch"
 sourcePath: "branches/for-knowledge-worker.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-knowledge-worker"
 ---# For Knowledge Workers — Specialized Branch
 
-> [繁體中文](/zh-tw/branches/for-knowledge-worker/) | [简体中文](/branches/for-knowledge-worker/) | **English**
+> [繁體中文](/zh-tw/branches/for-knowledge-worker/) | [简体中文](/zh-tw/branches/for-knowledge-worker-zh-hans/) | **English**
 
+> 🚀 **No development background at all?** Start with [`resources/setup-guide.en.md` §A-D](/en/resources/setup-guide/) (30-45 minutes from zero). Later mentions of "Claude Code", "MCP", and "Skills" in this branch all rely on the §D setup.
 
 > [← Back to main path README](/en) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to office / knowledge work.
 

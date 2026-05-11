@@ -2,18 +2,18 @@
 title: "Cookbook — 把概念变成可执行的 recipe"
 description: "写 Skill 跟“在 prompt 里加几段 instruction”差别在于："
 section: "Resource"
-sourcePath: "resources/cookbook.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.zh-CN.md"
+sourcePath: "resources/cookbook.zh-Hans.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
-language: "zh-cn"
-languageLabel: "简体中文"
-baseSlug: "cookbook"
+syncedAt: "2026-05-11T15:19:14.652Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "cookbook-zh-hans"
 ---# Cookbook — 把概念变成可执行的 recipe
 
 > [繁體中文](/zh-tw/resources/cookbook/) | **简体中文** | [English](/en/resources/cookbook/)
 
-> Stage 5（Claude Code 生态）跟 [`mcp-skills-catalog.md`](/resources/mcp-skills-catalog/) 讲“概念”跟“有哪些工具”。这份 cookbook 补中间缺的：“**怎么动手做出来**”。每个 recipe 是一份 step-by-step + sample code + 常见 pitfall，~30-50 分钟做完一个。
+> Stage 5（Claude Code 生态）跟 [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog-zh-hans/) 讲“概念”跟“有哪些工具”。这份 cookbook 补中间缺的：“**怎么动手做出来**”。每个 recipe 是一份 step-by-step + sample code + 常见 pitfall，~30-50 分钟做完一个。
 >
 > 不是 reference 也不是 tutorial——是 recipe，挑你需要的那道煮就好。
 
@@ -26,6 +26,7 @@ baseSlug: "cookbook"
 3. [Word / Excel / PowerPoint workflow](#3-office-docs-workflow)
 4. [NotebookLM workflow](#4-notebooklm-workflow)
 5. [Zotero workflow](#5-zotero-workflow)
+6. [本地 LLM + CLI Agent 快速 walkthrough](#6-本地-llm--cli-agent-快速-walkthrough)
 
 ---
 
@@ -148,9 +149,9 @@ from mypackage import foo",
 
 ### 进一步
 
-- 看 [Stage 5.3](/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行为层) 的 Skill anatomy 详解
+- 看 [Stage 5.3](/zh-tw/stages/05-claude-code-ecosystem-zh-hans/#53--skillsclaude-code-的行为层) 的 Skill anatomy 详解
 - 看 [`anthropics/skills`](https://github.com/anthropics/skills) 官方 skill 模板（docx / xlsx / pptx 等）的写法
-- 多个 skill 打包成 plugin → [Stage 5.4](/stages/05-claude-code-ecosystem/#54--plugins-与-marketplaces)
+- 多个 skill 打包成 plugin → [Stage 5.4](/zh-tw/stages/05-claude-code-ecosystem-zh-hans/#54--plugins-与-marketplaces)
 
 ---
 
@@ -251,15 +252,15 @@ Claude 回（会显示 tool call icon）：Echo: hello world
 | 症状 | 原因 | 解法 |
 |---|---|---|
 | Claude Desktop 没看到 tool | server.py 启动失败 | 终端直接 `python server.py` 跑、看 stderr 哪里爆 |
-| tool 列出但 call 失败 | inputSchema 格式错（required 漏写、type 写错） | 看 [`schema-design-cheatsheet.md`](/resources/schema-design-cheatsheet/) |
+| tool 列出但 call 失败 | inputSchema 格式错（required 漏写、type 写错） | 看 [`schema-design-cheatsheet.md`](/zh-tw/resources/schema-design-cheatsheet-zh-hans/) |
 | Claude 不主动叫 tool | description 太笼统 | description 改成“When the user asks X, use this tool”式的具体 trigger |
 | stdio 跟 SSE 哪个用？ | local desktop integration 用 stdio；remote / web 用 SSE | 第一个 server 一律用 stdio |
 
 ### 进一步
 
-- 看 [Stage 5.2](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) 的 MCP 完整介绍
+- 看 [Stage 5.2](/zh-tw/stages/05-claude-code-ecosystem-zh-hans/#52--mcpmodel-context-protocol-基础) 的 MCP 完整介绍
 - 看 [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) 官方示例（filesystem、github、sqlite、time 等）
-- 写 production server 看 [Stage 5.2“练习：MCP in production”](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) 跟 [`anthropics/claude-code`](https://github.com/anthropics/claude-code) 的 `~/.claude/skills/`
+- 写 production server 看 [Stage 5.2“练习：MCP in production”](/zh-tw/stages/05-claude-code-ecosystem-zh-hans/#52--mcpmodel-context-protocol-基础) 跟 [`anthropics/claude-code`](https://github.com/anthropics/claude-code) 的 `~/.claude/skills/`
 
 ---
 
@@ -320,7 +321,7 @@ Claude 会根据 user query 自动加载合适的 skill。
 **改 docx**：
 ```
 读 ./doc/draft.docx，把繁中词汇转成简中（譬如“软体”→“软件”），
-存成 ./doc/draft.zh-CN.docx，保留原本的 track changes。
+存成 ./doc/draft.zh-Hans.docx，保留原本的 track changes。
 ```
 
 **读 PDF 提取信息**：
@@ -340,7 +341,7 @@ Claude 会根据 user query 自动加载合适的 skill。
 
 ### 进一步
 
-- catalog §2 [`mcp-skills-catalog.md` §2 办公文件](/resources/mcp-skills-catalog/#2-办公文件word--excel--powerpoint--pdf)：补强版 office skill / Excel / PPT 专用 MCP
+- catalog §2 [`mcp-skills-catalog.md` §2 办公文件](/zh-tw/resources/mcp-skills-catalog-zh-hans/#2-办公文件word--excel--powerpoint--pdf)：补强版 office skill / Excel / PPT 专用 MCP
 - 中文圈 office workflow：[`leemysw/feishu-docx`](https://github.com/leemysw/feishu-docx) 飞书 / Lark docs ↔ Markdown
 
 ---
@@ -425,7 +426,7 @@ print(answer.citations)
 
 ### 进一步
 
-- catalog §1 [`mcp-skills-catalog.md` §1 笔记 / 知识库](/resources/mcp-skills-catalog/#1-笔记--知识库)
+- catalog §1 [`mcp-skills-catalog.md` §1 笔记 / 知识库](/zh-tw/resources/mcp-skills-catalog-zh-hans/#1-笔记--知识库)
 - 完整 research workspace：用 [`WenyuChiou/research-hub`](https://github.com/WenyuChiou/research-hub) 集成 NotebookLM + Zotero + Obsidian
 
 ---
@@ -512,11 +513,121 @@ git clone https://github.com/WenyuChiou/zotero-skills ~/.claude/skills/zotero-sk
 
 ---
 
+## 6. 本地 LLM + CLI Agent 快速 walkthrough
+
+> 30 分钟把 Stage 1 的本地模型接到 Stage 5 的 CLI agent：离线、隐私资料、不想用 API 额度时，可以先用这条路线做 end-to-end 验证。
+
+### 为什么
+
+Stage 1 教你用 Ollama / llama.cpp / vLLM 跑本地 LLM；Stage 5 教 Claude Code、MCP、Skills、Plugins 的 agent 生态。中间常见的误会是：**Claude Code 不是本地 LLM runner**。Claude Code 需要 Anthropic OAuth / API key，不能直接把 model endpoint 改成 Ollama 或其他本地 endpoint。
+
+如果目标是“本地 LLM + CLI agent”，选择支持 BYO LLM 的 CLI 会更直接：**OpenCode / goose / Aider / Hermes Agent** 都能接 OpenAI-compatible endpoint 或 Ollama provider。这个 recipe 用一个短流程让你先跑通 model、agent、任务三件事。
+
+### 步骤
+
+#### Step 1：Ollama + model（10 分钟）
+
+```bash
+# 安装 Ollama：https://ollama.com
+ollama pull qwen2.5:3b
+# RAM 16GB+ 可以改试：ollama pull qwen2.5:7b
+ollama serve
+```
+
+确认 OpenAI-compatible API 有响应：
+
+```bash
+curl http://localhost:11434/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{"model":"qwen2.5:3b","messages":[{"role":"user","content":"用 3 句话解释 ReAct agent。"}]}'
+```
+
+#### Step 2：选一个 CLI agent 接 Ollama（10 分钟）
+
+**OpenCode**：适合想切换多 provider、又要接本地模型的人。
+
+```bash
+npm install -g opencode-ai
+opencode auth login   # provider 选 Ollama，endpoint 设 http://localhost:11434/v1
+opencode
+```
+
+**goose**：内置 Ollama provider，适合先做本地 agent 试跑。
+
+```bash
+# 安装方式看 https://block.github.io/goose
+goose configure       # provider 选 Ollama，model 设 qwen2.5:3b
+goose session start
+```
+
+**Aider**：git-native，适合在 repo 内做小型代码修改。
+
+```bash
+pip install aider-chat
+aider --model ollama/qwen2.5:3b --no-show-model-warnings
+```
+
+**Hermes Agent**：适合跑在 VPS，让 Telegram / Slack / Discord 变成 agent 入口。
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+hermes model set ollama:qwen2.5:3b
+hermes
+```
+
+#### Step 3：跑一个真实小任务（10 分钟）
+
+不要只问“hello world”。挑一个会碰到文件、摘要、表格或搜索的小任务：
+
+- 从 `~/Downloads` 找 5 个 PDF，抽出每篇 paper 的 1 句 summary 与 method。
+- 读 `data.csv` 前 3 列，输出 Markdown table 并指出列问题。
+- 搜 `~/notes/` 里 7 天内提到 `agent safety` 的段落，整理成 checklist。
+
+观察三件事：
+
+- **Speed**：本地小模型常比 API 慢 2-5 倍。
+- **Quality**：3B / 7B 模型的 reasoning、长 context、复杂代码能力通常不如 Claude。
+- **Cost**：token 成本是 `$0`，但会吃本地 RAM / VRAM 与电力。
+
+#### Step 4：跟 Claude Code 的差异（5 分钟）
+
+| 面向 | Claude Code | OpenCode + Ollama |
+|---|---|---|
+| LLM | Anthropic hosted | 本地模型 |
+| 成本 | 订阅或 per-token | `$0` token cost |
+| 速度 | 通常较稳 | 看硬件，常慢 2-5 倍 |
+| 隐私 | 内容送 Anthropic | 内容留在本地 |
+| Reasoning 上限 | Claude 4.5+ 较强 | 取决于本地模型 |
+| 适合 use case | 复杂 codebase、长 context、可靠推理 | 隐私资料、离线 demo、低成本反复试 |
+
+### 重要限制：Claude Code 不能直接用本地 LLM
+
+Claude Code 目前需要 Anthropic OAuth / API key，没有官方设置可以把模型切成 Ollama 或本地 endpoint。网上可能有 proxy 或 API shim 做实验，但这不是官方支持路径，稳定性与兼容性要自己承担。
+
+要用本地 LLM，建议把“Claude Code”和“支持 BYO LLM 的 CLI agent”分开看：Claude Code 用在需要 Claude 品质的工作；OpenCode / goose / Aider / Hermes 用在本地、离线、隐私或低成本实验。
+
+### 常见 pitfall
+
+| 问题 | 原因 | 解法 |
+|---|---|---|
+| `connection refused` | Ollama server 没在后台跑 | 开另一个 terminal 跑 `ollama serve` |
+| model output 断句怪、逻辑弱 | 3B 模型能力有限 | 改用 `qwen2.5:7b` 或 `deepseek-r1:7b` |
+| CLI agent 没改到文件 | 本地模型太弱，或 prompt 太模糊 | 缩小任务、指定文件与成功条件 |
+| memory / OOM | 模型吃掉 RAM / VRAM | 先用 `qwen2.5:3b`，再升到 7B；必要时开 swap |
+
+### 进一步
+
+- Stage 1 [Local LLM 练习](/zh-tw/stages/01-llm-basics-zh-hans/#练习-6local-llm)：Ollama / llama.cpp / vLLM 的差异
+- [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide-zh-hans/)：7 个 CLI agent 怎么选
+- Hermes Agent README：多平台 gateway（Telegram / Discord / Slack）与 provider 设置
+
+---
+
 ## 找不到你要的 recipe？
 
-- 看 [Stage 5](/stages/05-claude-code-ecosystem/) 完整概念
-- 看 [`mcp-skills-catalog.md`](/resources/mcp-skills-catalog/) 完整工具清单
-- 看 [`schema-design-cheatsheet.md`](/resources/schema-design-cheatsheet/) 写 tool schema 的细节
-- 看 [`cli-agents-guide.md`](/resources/cli-agents-guide/) 6 个主流 CLI agent 比较
+- 看 [Stage 5](/zh-tw/stages/05-claude-code-ecosystem-zh-hans/) 完整概念
+- 看 [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog-zh-hans/) 完整工具清单
+- 看 [`schema-design-cheatsheet.md`](/zh-tw/resources/schema-design-cheatsheet-zh-hans/) 写 tool schema 的细节
+- 看 [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide-zh-hans/) 7 个主流 CLI agent 比较
 
 要新 recipe → 开 issue 或直接 PR 一份。recipe 格式：**为什么 + 步骤 + 范本 prompt + 常见 pitfall + 进一步**。

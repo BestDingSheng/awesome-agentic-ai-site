@@ -2,13 +2,13 @@
 title: "`awesome-agentic-ai-zh` 风格指南"
 description: "这份指南是这份 catalog 的**单一真实来源**——术语、entry 结构、license 标注、写作风格、禁用词，全部以这份文件为准。"
 section: "Resource"
-sourcePath: "resources/style-guide.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.zh-CN.md"
+sourcePath: "resources/style-guide.zh-Hans.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
-language: "zh-cn"
-languageLabel: "简体中文"
-baseSlug: "style-guide"
+syncedAt: "2026-05-11T15:19:14.652Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "style-guide-zh-hans"
 ---> [繁體中文](/zh-tw/resources/style-guide/) | **简体中文** | [English](/en/resources/style-guide/)
 
 # `awesome-agentic-ai-zh` 风格指南
@@ -106,11 +106,13 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 
 ## 3. 禁用词与替代
 
-这份文件以**简体中文（zh-CN，中国大陆惯例）** 为准。下表列出常见的 zh-TW 用词与替代。
+这份文件以**简体中文（zh-Hans，中国大陆惯例）** 为准。下表列出常见的 zh-TW 用词与替代。
+
+> 📌 **语言代码惯例（BCP 47 / W3C i18n）**：repo 用 `.zh-Hans.md`（不是 `.zh-CN.md`）标记简体中文档。`Hans` / `Hant` 是 [BCP 47 script subtag](https://www.w3.org/International/articles/language-tags/)，跟地区解耦——简体中文不只用在中国大陆（也用在新加坡、马来西亚），用 `Hans` 比 `CN` 更准确。canonical README 的内容是 **zh-Hant-TW**（繁体中文，台湾惯例），但档名保持无 suffix 的 `README.md` 作为 GitHub 默认首页。未来若要分地区可再扩成 `zh-Hans-CN` / `zh-Hant-HK` 等。感谢 [@xfq](https://github.com/xfq)（W3C i18n lead）在 [#9](https://github.com/WenyuChiou/awesome-agentic-ai-zh/issues/9) 指出这个问题。
 
 ### 繁简用词替换
 
-| 禁用（zh-TW） | 改用（zh-CN） |
+| 禁用（zh-TW） | 改用（zh-Hans） |
 |---|---|
 | 使用者 | 用户 |
 | 軟體 | 软件 |
@@ -264,7 +266,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 
 > [English](/en/resources/for-x/) | **简体中文**
 
-> [← 回主路线 README](/) · 从 Stage 7 结尾分支出来
+> [← 回主路线 README](/zh-tw) · 从 Stage 7 结尾分支出来
 
 ## 使用情境
 - bullet 1
@@ -321,8 +323,8 @@ Branch 的 entry 格式可以比 stage 简洁（不一定要完整 schema 表格
 ## 9. 链接与引用
 
 ### 内部链接
-- Stage 之间：相对路径 `[Stage 4](/resources/04-agent-frameworks/)`
-- Branch ↔ README：`[← 回主路线](/)`
+- Stage 之间：相对路径 `[Stage 4](/zh-tw/resources/04-agent-frameworks-zh-hans/)`
+- Branch ↔ README：`[← 回主路线](/zh-tw)`
 - 跨 stage 引用同一 repo：用全名 + 链接，不要只写「之前提过」
 
 ### 外部链接
@@ -343,7 +345,7 @@ Branch 的 entry 格式可以比 stage 简洁（不一定要完整 schema 表格
 
 - [`branches/DESIGN.md`](/zh-tw/branches/design/)—branch 设计笔记（为什么这样切、entry 该放哪）
 - [`stages/DESIGN.md`](/zh-tw/stages/design/)—stage 设计笔记（为什么这结构、动手练习 怎么挑）
-- [`cli-agents-guide.zh-CN.md`](/resources/cli-agents-guide/)—cross-cutting CLI agent 比较指南
+- [`cli-agents-guide.zh-Hans.md`](/zh-tw/resources/cli-agents-guide-zh-hans/)—cross-cutting CLI agent 比较指南
 
 ## 修改本指南
 

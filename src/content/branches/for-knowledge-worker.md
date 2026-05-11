@@ -5,13 +5,15 @@ section: "Branch"
 sourcePath: "branches/for-knowledge-worker.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-knowledge-worker"
 ---# 給知識工作者 — 專業分支
 
-> **繁體中文** | [简体中文](/branches/for-knowledge-worker/) | [English](/en/branches/for-knowledge-worker/)
+> **繁體中文** | [简体中文](/zh-tw/branches/for-knowledge-worker-zh-hans/) | [English](/en/branches/for-knowledge-worker/)
+
+> 🚀 **完全沒開發背景？** 先看 [`resources/setup-guide.md` §A-D](/zh-tw/resources/setup-guide/)（30-45 分鐘從零）。本分支後面提到的「Claude Code」「MCP」「Skills」都會用到 §D 那個 setup。
 
 > [← 回主路線 README](/zh-tw) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到辦公室 / 知識工作上。
 

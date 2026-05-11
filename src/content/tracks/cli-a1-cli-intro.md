@@ -5,14 +5,14 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a1-cli-intro"
 order: 1
 ---# A1 — CLI Agent 入門 + 選擇
 
-> **繁體中文** | [简体中文](/tracks/cli-a1-cli-intro/) | [English](/en/tracks/cli-a1-cli-intro/)
+> **繁體中文** | [简体中文](/zh-tw/tracks/cli-a1-cli-intro-zh-hans/) | [English](/en/tracks/cli-a1-cli-intro/)
 
 > [← 回主路線 README](/zh-tw) · **Track A: CLI Power User** 第 1 站
 
@@ -24,7 +24,7 @@ order: 1
 
 完成這一節後你會：
 
-- 知道 6 個主流 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider）的差別
+- 知道 7 個主流 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent）的差別
 - 依自己的場景挑出第一個 CLI 工具
 - 完成安裝 + 認證 + 第一個真正的任務（不是 hello world）
 - 知道什麼時候該換 / 加第二個 CLI
@@ -38,7 +38,7 @@ order: 1
 
 ## 📚 必修閱讀
 
-1. [**`resources/cli-agents-guide.md`**](/zh-tw/resources/cli-agents-guide/) ⭐ — 本軌的核心參考。6 個主流 CLI agent 並列比較、依 use case 推薦、實用搭配
+1. [**`resources/cli-agents-guide.md`**](/zh-tw/resources/cli-agents-guide/) ⭐ — 本軌的核心參考。7 個主流 CLI agent 並列比較、依 use case 推薦、實用搭配
 2. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — 官方安裝指南
 3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex 安裝跟認證流程
 
@@ -63,7 +63,7 @@ order: 1
 
 ## 🎯 精選 Projects
 
-### 6 個主流 CLI agent
+### 7 個主流 CLI agent
 
 詳細比較（star、license、強弱項、推薦場景）見 [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)。這裡只給快速 entry point：
 
@@ -85,6 +85,9 @@ order: 1
 #### [Aider-AI/aider](https://github.com/Aider-AI/aider) ⭐⭐⭐⭐⭐
 ★ 44k+ — git-native，自動 commit / branch。「要寫 code 想要 git 流程乾淨」的人用這個。
 
+#### [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) ⭐⭐⭐⭐⭐
+★ 142k+ — Nous Research 出的 self-improving agent。差異化在三件事：(1) agent 跑 cloud VM，從 Telegram / Discord / Slack 任一介面跟它聊；(2) 多 LLM 中性，支援 GLM / Kimi / 小米 MiMo / MiniMax 等中文圈生態；(3) 內建 cron 排程 + skill 自動演化迴圈。⚠️ self-improving skill 是 frontier feature，目前缺獨立審計，production 任務先在低風險場景試。
+
 ---
 
 ### 進階：跟主流 CLI 互補的工具
@@ -98,7 +101,7 @@ order: 1
 ## ✅ 進 A2 前的自我檢查
 
 你能不能：
-- [ ] 講得出 6 個主流 CLI 的核心差別（不查表就答得出 3-4 個）
+- [ ] 講得出 7 個主流 CLI 的核心差別（不查表就答得出 3-4 個）
 - [ ] 你已經選定一個主用 CLI，並有 working setup（裝好、認證好、跑過至少 5 個非 hello-world 任務）
 - [ ] 寫過你自己的 `CLAUDE.md` / `AGENTS.md` / `GEMINI.md`
 - [ ] 至少跑過第二個 CLI 一次，知道兩個的風格差異

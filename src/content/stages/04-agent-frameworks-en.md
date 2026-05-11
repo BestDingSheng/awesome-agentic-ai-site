@@ -5,14 +5,14 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "04-agent-frameworks"
 order: 4
 ---# Stage 4 — Agent Frameworks
 
-> [繁體中文](/zh-tw/stages/04-agent-frameworks/) | **English**
+> [繁體中文](/zh-tw/stages/04-agent-frameworks/) | [简体中文](/zh-tw/stages/04-agent-frameworks-zh-hans/) | **English**
 
 
 ⏱ **Time estimate**: 2-3 weeks (~10-15 hours)

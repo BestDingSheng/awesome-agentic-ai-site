@@ -1,15 +1,15 @@
 ---
 title: "CLI Agents Comparison Guide"
-description: "A cross-branch reference shared by Track A (A1-A3) + all 5 specialized branches: **how to choose between Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider?** Every branch"
+description: "A cross-branch reference shared by Track A (A1-A3) + all 5 specialized branches: **how to choose between Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent?"
 section: "Resource"
 sourcePath: "resources/cli-agents-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-agents-guide"
----> [繁體中文](/zh-tw/resources/cli-agents-guide/) | [简体中文](/resources/cli-agents-guide/) | **English**
+---> [繁體中文](/zh-tw/resources/cli-agents-guide/) | [简体中文](/zh-tw/resources/cli-agents-guide-zh-hans/) | **English**
 
 # CLI Agents Comparison Guide
 
@@ -19,13 +19,13 @@ baseSlug: "cli-agents-guide"
 > First time touching CLI agents, want step-by-step onboarding → see [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) (Track A first stop).
 > Already using one, want to decide / compare / upgrade → stay here.
 
-A cross-branch reference shared by Track A (A1-A3) + all 5 specialized branches: **how to choose between Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider?** Every branch references CLI agents but no single branch "owns" this comparison, so it lives in `resources/`.
+A cross-branch reference shared by Track A (A1-A3) + all 5 specialized branches: **how to choose between Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent?** Every branch references CLI agents but no single branch "owns" this comparison, so it lives in `resources/`.
 
 ---
 
-## 📋 6 Major Terminal CLI Agents
+## 📋 7 Major Terminal CLI Agents
 
-Only terminal-based CLI agents are included. IDE-based agents (Cursor / Cline / Continue) live in [for-developer](/en/branches/for-developer/). All numbers verified via `gh api` on 2026-05-06.
+Only terminal-based CLI agents are included. IDE-based agents (Cursor / Cline / Continue) live in [for-developer](/en/branches/for-developer/). The first 6 numbers verified via `gh api` on 2026-05-06; Hermes Agent verified on 2026-05-10.
 
 | Tool | Provider | License | Primary LLM | Auth / Pricing | Stars |
 |---|---|---|---|---|---|
@@ -35,6 +35,7 @@ Only terminal-based CLI agents are included. IDE-based agents (Cursor / Cline / 
 | [Gemini CLI](https://github.com/google-gemini/gemini-cli) | Google (official) | Apache-2.0 | Gemini | Generous free tier, paid above quota | ★ 103k+ |
 | [goose](https://github.com/block/goose) | Agentic AI Foundation (repo now at `aaif-goose/goose`) | Apache-2.0 | 15+ providers (incl. Ollama) | BYO API key, or existing Claude / ChatGPT / Gemini subscription via ACP | ★ 43k+ |
 | [Aider](https://github.com/Aider-AI/aider) | Aider-AI (community) | Apache-2.0 | Any | BYO API key | ★ 44k+ |
+| [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research | MIT | 200+ via OpenRouter / NVIDIA NIM / Zhipu GLM / Kimi / Xiaomi MiMo / MiniMax / HF / OpenAI | BYO API key (multi-provider) | ★ 142k+ |
 
 ---
 
@@ -60,6 +61,13 @@ Only terminal-based CLI agents are included. IDE-based agents (Cursor / Cline / 
 
 ### First time installing a CLI agent — wanting easiest start
 **Top pick**: Claude Code. Broad ecosystem, CLAUDE.md mechanism for version-controlled prompts, plenty of community resources when you hit issues.
+
+### Want it running on a cloud VM, talking to it via Telegram / Slack / Discord, with mainland China LLMs as primary
+**Top pick**: Hermes Agent. Three differentiators:
+- **Decoupled from your laptop** — agent runs on a $5 VPS / Modal serverless / Vercel Sandbox; you message it from Telegram / Discord / Slack / WhatsApp / Signal
+- **Model-neutral** — supports GLM / Kimi / Xiaomi MiMo / MiniMax, matching the §11 Chinese-ecosystem catalog entries
+- **Built-in self-improving skill loop + cron scheduler** — agent autonomously generates skills from interaction, refines them across sessions, runs scheduled jobs unattended
+- ⚠️ Self-evolving skills is a frontier feature with no independent audit yet; for production tasks, start with low-stakes experiments
 
 ---
 
@@ -122,6 +130,13 @@ Three common combinations; pick one that fits:
 - Add Aider for scenarios needing precise git diff
 - Fits scholars, knowledge workers
 
+### Setup D: Hermes Agent + Local Ollama (multi-platform + mainland China LLMs + offline)
+- **Hermes Agent** runs on a low-cost VPS or your own machine as a multi-platform agent gateway
+- **LLM endpoint** can be Ollama (`http://localhost:11434/v1`), or swapped to providers such as z.ai GLM / Kimi
+- **Chat entrypoint** can be Telegram / Slack / Discord; Hermes routes platform messages into the agent workflow
+- **When you want zero Anthropic / OpenAI dependency**, this setup fits offline, privacy-sensitive, and low-cost repeat experiments
+- Step-by-step walkthrough: [`resources/cookbook.md` Recipe 6](/en/resources/cookbook/#6-local-llm--cli-agent-quick-walkthrough)
+
 ---
 
 ## Linking Back to Branches
@@ -138,6 +153,6 @@ Different audiences have different CLI needs:
 
 ## Maintenance Notes
 
-- 6 CLI tools' stars / license / pushed_at refreshed quarterly via `bash scripts/refresh-stars.py`
+- 7 CLI tools' stars / license / pushed_at refreshed quarterly via `bash scripts/refresh-stars.py`
 - The CLI market moves fast — new tools require evaluation before inclusion (bar: 30k+ stars, actively maintained, true CLI not IDE)
 - The comparison table deliberately leaves out "strengths / weaknesses" columns — avoiding subjective bias and letting the use-case section + readers' own judgment do that work

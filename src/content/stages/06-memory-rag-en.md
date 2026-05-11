@@ -5,14 +5,14 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
 order: 6
 ---# Stage 6 — Memory · RAG · Advanced
 
-> [繁體中文](/zh-tw/stages/06-memory-rag/) | **English**
+> [繁體中文](/zh-tw/stages/06-memory-rag/) | [简体中文](/zh-tw/stages/06-memory-rag-zh-hans/) | **English**
 
 
 ⏱ **Time estimate**: 2 weeks (~10 hours)

@@ -5,13 +5,13 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
 ---# Glossary
 
-> [繁體中文](/zh-tw/resources/glossary/) | [简体中文](/resources/glossary/) | **English**
+> [繁體中文](/zh-tw/resources/glossary/) | [简体中文](/zh-tw/resources/glossary-zh-hans/) | **English**
 
 > The roadmap leans heavily on terms like LLM, RAG, MCP, agent. Look up unfamiliar ones here in 30 seconds, then go back to reading the stage.
 >

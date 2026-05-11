@@ -1,36 +1,45 @@
 ---
 title: "`resources/` 索引"
-description: "| 檔案 | 角色 | 什麼時候看 | 行數 | |---|---|---|---|"
+description: "<div align=\"right\"> <strong>繁體中文</strong> | <a href=\"./README.zh-Hans.md\">简体中文</a> | <a href=\"./README.en.md\">English</a>"
 section: "Resource"
 sourcePath: "resources/README.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "readme"
 ---# `resources/` 索引
 
+<div align="right">
+  <strong>繁體中文</strong> | <a href="./README.zh-Hans.md">简体中文</a> | <a href="./README.en.md">English</a>
+</div>
+
 > 本 repo 的「**reference 區**」——非主路線、需要時來查的補充材料。每份檔案有明確角色，不重複。
 
 ---
 
-## 6 份 reference + 各自的「什麼時候看」
+## 7 份 reference + 各自的「什麼時候看」
 
 | 檔案 | 角色 | 什麼時候看 | 行數 |
 |---|---|---|---|
 | [`glossary.md`](/zh-tw/resources/glossary/) | **30 秒查詞典** | 看 stage 內文時遇到 LLM / RAG / token / agent / vector DB / streaming / batch API 不知道什麼意思 | ~210 |
-| [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) | **6 個 CLI agent 比較** | 第一次選 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider）不知道挑哪個 | ~134 |
+| [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) | **7 個 CLI agent 比較** | 第一次選 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent）不知道挑哪個 | ~134 |
 | [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/) | **62 個整合 catalog** | 想把 Claude Code 接 Notion / Obsidian / Excel / Postgres / Slack / 等等實際工具 | ~775 |
 | [`schema-design-cheatsheet.md`](/zh-tw/resources/schema-design-cheatsheet/) | **function schema 設計 5 規則 + 5 anti-pattern** | 寫 tool schema / MCP server schema / function calling，發現 LLM 選錯 tool / 傳錯參數 | ~159 |
-| [`cookbook.md`](/zh-tw/resources/cookbook/) | **5 個 step-by-step recipe** | 想 30-50 分鐘做出第一個 Skill / MCP server / 接 Office / 接 NotebookLM / 接 Zotero | ~510 |
+| [`cookbook.md`](/zh-tw/resources/cookbook/) | **6 個 step-by-step recipe** | 想 30-50 分鐘做出第一個 Skill / MCP server / 接 Office / 接 NotebookLM / 接 Zotero / 接本機 LLM | ~620 |
+| [`setup-guide.md`](/zh-tw/resources/setup-guide/) | **從零開始的 setup 指南** | 完全沒 dev 背景、第一次申請 API key / 裝 Python / 用 Claude Code | ~400 |
 | [`style-guide.md`](/zh-tw/resources/style-guide/) | **送 PR 前的格式 / 用詞規範** | 要對 repo 貢獻、寫 entry / 翻譯 | ~338 |
 
-合計 ~2100 行 reference。看起來不少，但**每份檔案讀的時機不同**——你不會一次全讀，只在對應情境查 30 秒到 5 分鐘。
+合計 ~2500 行 reference。看起來不少，但**每份檔案讀的時機不同**——你不會一次全讀，只在對應情境查 30 秒到 45 分鐘。
 
 ---
 
 ## 怎麼進來：以「我現在要做什麼」分類
+
+### 🆕 我完全沒寫過 code / 第一次接觸 AI agent
+
+→ [`setup-guide.md`](/zh-tw/resources/setup-guide/)（30-45 分鐘從零裝好）
 
 ### 🆕 我剛開始學 AI agent
 
@@ -46,7 +55,7 @@ baseSlug: "readme"
 
 ### 🍳 我想動手寫第一個 Skill / MCP server / 接 Word 等
 
-→ [`cookbook.md`](/zh-tw/resources/cookbook/)（5 個 step-by-step recipe）
+→ [`cookbook.md`](/zh-tw/resources/cookbook/)（6 個 step-by-step recipe）
 
 ### 📐 我寫 tool schema 但 LLM 不照我意思做
 
@@ -75,13 +84,14 @@ baseSlug: "readme"
 
 ## 三語覆蓋
 
-| 檔案 | zh-TW（canonical） | zh-CN | English |
+| 檔案 | zh-TW（canonical） | zh-Hans | English |
 |---|---|---|---|
 | glossary | ✅ | ✅ | ✅ |
 | cli-agents-guide | ✅ | ✅ | ✅ |
 | mcp-skills-catalog | ✅ | ✅ | ✅ |
 | schema-design-cheatsheet | ✅ | ✅ | ✅ |
 | cookbook | ✅ | ✅ | ✅ |
+| setup-guide | ✅ | ✅ | ✅ |
 | style-guide | ✅ | ✅ | ✅ |
 
 ---

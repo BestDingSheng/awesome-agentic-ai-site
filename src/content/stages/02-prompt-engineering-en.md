@@ -5,17 +5,19 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
 order: 2
 ---# Stage 2 — Prompt Engineering
 
-> [繁體中文](/zh-tw/stages/02-prompt-engineering/) | **English**
+> [繁體中文](/zh-tw/stages/02-prompt-engineering/) | [简体中文](/zh-tw/stages/02-prompt-engineering-zh-hans/) | **English**
 
 
 ⏱ **Time estimate**: 1-2 weeks (~5-12 hours)
+
+> 👋 **Coming from [Stage 1](/en/stages/01-llm-basics/)?** Good — you can call an API. The next 5-12 hours: write reusable structured prompts, use few-shot and chain-of-thought for hard reasoning tasks, and quantify prompt improvement with evals. **Jumped straight here?** Make sure you can call an LLM API and estimate cost in tokens — if not, head back to [Stage 1](/en/stages/01-llm-basics/).
 
 > 💡 Term-unfamiliar? (prompt / few-shot / CoT / system prompt / …) → see [`resources/glossary.en.md`](/en/resources/glossary/).
 

@@ -5,13 +5,13 @@ section: "Resource"
 sourcePath: "resources/cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cookbook"
 ---# Cookbook — Turn Concepts into Executable Recipes
 
-> [繁體中文](/zh-tw/resources/cookbook/) | **English**
+> [繁體中文](/zh-tw/resources/cookbook/) | [简体中文](/zh-tw/resources/cookbook-zh-hans/) | **English**
 
 > Stage 5 (Claude Code Ecosystem) talks about "Concepts" and "Available Tools" with [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/). This cookbook fills in the gap in between: "**How to build it**". Each recipe is a step-by-step guide + sample code + common pitfalls, designed to be completed in about 30-50 minutes.
 >
@@ -26,6 +26,7 @@ baseSlug: "cookbook"
 3. [Office Docs Workflow](#3-office-docs-workflow)
 4. [NotebookLM Workflow](#4-notebooklm-workflow)
 5. [Zotero Workflow](#5-zotero-workflow)
+6. [Local LLM + CLI Agent Quick Walkthrough](#6-local-llm--cli-agent-quick-walkthrough)
 
 ---
 
@@ -317,8 +318,8 @@ and write it into ./output/q4-summary.md using a markdown table format.
 
 **Edit DOCX**:
 ```
-Read ./doc/draft.docx, change all instances of "使用者" to "用户" (zh-CN translation),
-and save as ./doc/draft.zh-CN.docx, preserving the original track changes.
+Read ./doc/draft.docx, change all instances of "使用者" to "用户" (zh-Hans translation),
+and save as ./doc/draft.zh-Hans.docx, preserving the original track changes.
 ```
 
 **Read PDF and Extract Information**:
@@ -509,11 +510,121 @@ and export any missing BibTeX entries as a .bib file for me.
 
 ---
 
+## 6. Local LLM + CLI Agent Quick Walkthrough
+
+> In about 30 minutes, connect Stage 1's local model setup to a Stage 5 CLI agent: useful for offline work, privacy-sensitive files, and experiments where you do not want to spend API quota.
+
+### Why
+
+Stage 1 teaches local LLM runtimes such as Ollama / llama.cpp / vLLM. Stage 5 teaches the Claude Code, MCP, Skills, and Plugins ecosystem. The common misunderstanding between them: **Claude Code is not a local LLM runner**. Claude Code requires Anthropic OAuth / API credentials; it cannot directly switch its model endpoint to Ollama or another local endpoint.
+
+If your goal is "local LLM + CLI agent", choose a CLI that supports BYO LLM instead. **OpenCode / goose / Aider / Hermes Agent** can connect to an OpenAI-compatible endpoint or an Ollama provider. This recipe gives you a short path to validate the model, the agent, and one real task.
+
+### Steps
+
+#### Step 1: Ollama + model (10 minutes)
+
+```bash
+# Install Ollama: https://ollama.com
+ollama pull qwen2.5:3b
+# On 16GB+ RAM, you can also try: ollama pull qwen2.5:7b
+ollama serve
+```
+
+Confirm the OpenAI-compatible API responds:
+
+```bash
+curl http://localhost:11434/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{"model":"qwen2.5:3b","messages":[{"role":"user","content":"Explain ReAct agents in 3 sentences."}]}'
+```
+
+#### Step 2: Pick one CLI agent and connect it to Ollama (10 minutes)
+
+**OpenCode**: good when you want provider switching plus local models.
+
+```bash
+npm install -g opencode-ai
+opencode auth login   # choose Ollama, set endpoint to http://localhost:11434/v1
+opencode
+```
+
+**goose**: has an Ollama provider and is straightforward for local-agent trials.
+
+```bash
+# Install instructions: https://block.github.io/goose
+goose configure       # choose Ollama, set model to qwen2.5:3b
+goose session start
+```
+
+**Aider**: git-native, useful for small code edits inside a repository.
+
+```bash
+pip install aider-chat
+aider --model ollama/qwen2.5:3b --no-show-model-warnings
+```
+
+**Hermes Agent**: useful on a VPS when Telegram / Slack / Discord should be the agent front door.
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+hermes model set ollama:qwen2.5:3b
+hermes
+```
+
+#### Step 3: Run one real small task (10 minutes)
+
+Do not stop at "hello world". Pick a task that touches files, summarization, tables, or search:
+
+- Find 5 PDFs in `~/Downloads`, then extract one-sentence summary and method for each paper.
+- Read the first 3 columns of `data.csv`, output a Markdown table, and flag column issues.
+- Search `~/notes/` for paragraphs from the last 7 days mentioning `agent safety`, then turn them into a checklist.
+
+Watch three things:
+
+- **Speed**: small local models are often 2-5x slower than API models.
+- **Quality**: 3B / 7B models usually trail Claude on reasoning, long context, and complex code.
+- **Cost**: token cost is `$0`, but you spend local RAM / VRAM and power.
+
+#### Step 4: Compare with Claude Code (5 minutes)
+
+| Dimension | Claude Code | OpenCode + Ollama |
+|---|---|---|
+| LLM | Anthropic hosted | Local model |
+| Cost | Subscription or per-token | `$0` token cost |
+| Speed | Usually steadier | Hardware-dependent, often 2-5x slower |
+| Privacy | Content goes to Anthropic | Content stays local |
+| Reasoning ceiling | Stronger with Claude 4.5+ | Depends on the local model |
+| Best use case | Complex codebases, long context, reliable reasoning | Private files, offline demos, low-cost repetition |
+
+### Important Limitation: Claude Code Cannot Directly Use a Local LLM
+
+Claude Code currently requires Anthropic OAuth / API credentials and has no official setting for replacing its model with Ollama or a local endpoint. You may see proxy or API-shim experiments online, but that is not the official supported path; stability and compatibility are yours to validate.
+
+For local LLM work, treat "Claude Code" and "BYO-LLM CLI agents" as separate tools: use Claude Code when you need Claude's quality; use OpenCode / goose / Aider / Hermes for local, offline, privacy-sensitive, or low-cost experiments.
+
+### Common Pitfalls
+
+| Problem | Cause | Fix |
+|---|---|---|
+| `connection refused` | Ollama server is not running in the background | Run `ollama serve` in another terminal |
+| Model output is fragmented or weak | The 3B model is too small | Try `qwen2.5:7b` or `deepseek-r1:7b` |
+| CLI agent does not edit files | Local model is too weak, or prompt is underspecified | Narrow the task, name the files, define success criteria |
+| Memory / OOM | Model exceeds RAM / VRAM | Start with `qwen2.5:3b`, then move to 7B; enable swap if needed |
+
+### Further Reading
+
+- Stage 1 [Local LLM exercise](/en/stages/01-llm-basics/#exercise-local-llm): Ollama / llama.cpp / vLLM tradeoffs
+- [`cli-agents-guide.md`](/en/resources/cli-agents-guide/): how to choose among 7 CLI agents
+- Hermes Agent README: multi-platform gateway setup for Telegram / Discord / Slack and providers
+
+---
+
 ## Can't Find the Recipe You Need?
 
 - See [Stage 5](/zh-tw/stages/05-claude-code-ecosystem/) for the full concept.
 - See [`mcp-skills-catalog.md`](/en/resources/mcp-skills-catalog/) for a comprehensive list of tools.
 - See [`schema-design-cheatsheet.md`](/en/resources/schema-design-cheatsheet/) for details on writing tool schemas.
-- See [`cli-agents-guide.md`](/en/resources/cli-agents-guide/) for a comparison of 6 popular CLI agents.
+- See [`cli-agents-guide.md`](/en/resources/cli-agents-guide/) for a comparison of 7 popular CLI agents.
 
 Want a new recipe? Open an issue or submit a PR. Recipe format: **Why + Steps + Sample Prompt + Common Pitfalls + Further Reading**.

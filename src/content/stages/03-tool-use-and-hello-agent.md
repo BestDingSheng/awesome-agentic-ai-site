@@ -5,14 +5,14 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "03-tool-use-and-hello-agent"
 order: 3
 ---# Stage 3 — Tool Use & Agent 入門 ⭐
 
-> **繁體中文** | [English](/en/stages/03-tool-use-and-hello-agent/)
+> **繁體中文** | [简体中文](/zh-tw/stages/03-tool-use-and-hello-agent-zh-hans/) | [English](/en/stages/03-tool-use-and-hello-agent/)
 
 ⏱ **時間估算**：2-3 週（約 10-20 小時）
 
@@ -174,7 +174,7 @@ jupyter notebook customer_service_agent.ipynb
 
 | 欄位 | 內容 |
 |---|---|
-| 語言 | 中文（zh-CN）+ Python |
+| 語言 | 中文（zh-Hans）+ Python |
 | License | CC BY-NC-SA 4.0 |
 | 推薦度 | ⭐⭐⭐⭐⭐（中文讀者） |
 
@@ -182,7 +182,7 @@ jupyter notebook customer_service_agent.ipynb
 
 **適合誰**：中文讀者。**請切到 `learn_version` 分支**，那才是對齊教材的版本。
 
-**備註**：License 是 CC BY-NC-SA — 非商用。教材是 zh-CN，但技術內容對 zh-TW 讀者沒障礙。
+**備註**：License 是 CC BY-NC-SA — 非商用。教材是 zh-Hans，但技術內容對 zh-TW 讀者沒障礙。
 
 **怎麼跑**：
 ```bash
@@ -196,7 +196,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 | 欄位 | 內容 |
 |---|---|
-| 語言 | 中文（zh-CN） |
+| 語言 | 中文（zh-Hans） |
 | License | CC BY-NC-SA |
 | 推薦度 | ⭐⭐⭐⭐⭐（中文讀者） |
 

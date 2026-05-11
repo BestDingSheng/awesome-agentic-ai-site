@@ -5,13 +5,13 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
 ---# MCP / Skills Integration Catalog
 
-> [繁體中文](/zh-tw/resources/mcp-skills-catalog/) | [简体中文](/resources/mcp-skills-catalog/) | **English**
+> [繁體中文](/zh-tw/resources/mcp-skills-catalog/) | [简体中文](/zh-tw/resources/mcp-skills-catalog-zh-hans/) | **English**
 
 > Connect Claude Code (or any other CLI agent) to the apps you already use, without window-hopping. This page is a curated index of 62 MCP servers / Claude Skills / integrations grouped by use case (incl. research-workflow + multi-LLM-delegation dedicated sections).
 

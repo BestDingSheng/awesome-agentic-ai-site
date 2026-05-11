@@ -5,14 +5,14 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
 order: 5
 ---# Stage 5 — Claude Code Ecosystem ⭐⭐
 
-> [繁體中文](/zh-tw/stages/05-claude-code-ecosystem/) | **English**
+> [繁體中文](/zh-tw/stages/05-claude-code-ecosystem/) | [简体中文](/zh-tw/stages/05-claude-code-ecosystem-zh-hans/) | **English**
 
 
 ⏱ **Time estimate**: 3-4 weeks (~15-25 hours)
@@ -22,6 +22,8 @@ order: 5
 > 📌 **This stage is used by both tracks**:
 > - **Track A (CLI Power User)**: A2 uses [5.1 (Claude Code basics)](#51--claude-code-basics); A3 uses [5.2 (MCP)](#52--mcp-model-context-protocol-foundation) + selectively [5.3 (Skills)](#53--skills-claude-code-behavior-layer) and [5.4 (Plugins)](#54--plugins--marketplaces) (A3's Exercise CLI-12 teaches packaging CLAUDE.md / commands into a plugin). Reading angle: "**how to use Claude Code well**"
 > - **Track B (Agent Builder)**: works through the full stage 5.1 → 5.4 as "**how Claude Code works internally**" deep dive
+
+> ⚠️ **This stage is not the path for a local LLM.** Claude Code requires Anthropic API / OAuth and cannot directly switch to Ollama or a local endpoint. For offline work, privacy-sensitive files, or avoiding API quota, use [`resources/cookbook.md` Recipe 6](/en/resources/cookbook/#6-local-llm--cli-agent-quick-walkthrough) with a BYO-LLM CLI agent such as OpenCode / goose / Aider / Hermes.
 
 ## Stack at a glance
 
@@ -60,7 +62,7 @@ After this stage you will be able to extend Claude Code, write your own MCP serv
 ### Required Reading
 1. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — official install guide
 2. [**Anthropic — CLAUDE.md best practices**](https://docs.anthropic.com/en/docs/claude-code/memory) — how to write project memory
-3. [**KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh**](https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh) — zh-CN beginner guide
+3. [**KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh**](https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh) — zh-Hans beginner guide
 
 ### Hands-on Exercises
 - **Exercise: Claude Code** — install, run first session, ask Claude to read a file and summarize
@@ -68,7 +70,7 @@ After this stage you will be able to extend Claude Code, write your own MCP serv
 
 ### Curated Projects
 - [**anthropics/claude-code**](https://github.com/anthropics/claude-code) — official repo (issues, releases)
-- [**KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh**](https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh) — zh-CN walkthrough
+- [**KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh**](https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh) — zh-Hans walkthrough
 - [**hesreallyhim/awesome-claude-code**](https://github.com/hesreallyhim/awesome-claude-code) — broader resource list (currently restructuring)
 
 ---

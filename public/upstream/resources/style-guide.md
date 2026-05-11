@@ -1,4 +1,4 @@
-> **繁體中文** | [简体中文](./style-guide.zh-CN.md) | [English](./style-guide.en.md)
+> **繁體中文** | [简体中文](./style-guide.zh-Hans.md) | [English](./style-guide.en.md)
 
 # `awesome-agentic-ai-zh` 風格指南
 
@@ -95,11 +95,13 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 
 ## 3. 禁用詞與替代
 
-這份文件以**繁體中文（zh-TW，台灣慣例）** 為準。下表列出常見的 zh-CN 用詞與替代。
+這份文件以**繁體中文（zh-TW，台灣慣例）** 為準。下表列出常見的 zh-Hans 用詞與替代。
+
+> 📌 **語言代碼慣例（BCP 47 / W3C i18n）**：repo 用 `.zh-Hans.md`（不是 `.zh-CN.md`）標記簡體中文檔。`Hans` / `Hant` 是 [BCP 47 script subtag](https://www.w3.org/International/articles/language-tags/)，跟地區解耦——簡體中文不只用在中國大陸（也用在新加坡、馬來西亞），用 `Hans` 比 `CN` 更準確。canonical README 的內容是 **zh-Hant-TW**（繁體中文，台灣慣例），但檔名保持無 suffix 的 `README.md` 作為 GitHub 預設首頁。未來若要分地區可再擴成 `zh-Hans-CN` / `zh-Hant-HK` 等。感謝 [@xfq](https://github.com/xfq)（W3C i18n lead）在 [#9](https://github.com/WenyuChiou/awesome-agentic-ai-zh/issues/9) 指出這個問題。
 
 ### 繁簡用詞替換
 
-| 禁用（zh-CN） | 改用（zh-TW） |
+| 禁用（zh-Hans） | 改用（zh-TW） |
 |---|---|
 | 教程 | 教學 / 課程 / 導讀 |
 | 視頻 | 影片 |

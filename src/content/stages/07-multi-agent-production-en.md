@@ -5,14 +5,14 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
 order: 7
 ---# Stage 7 — Multi-Agent · Production
 
-> [繁體中文](/zh-tw/stages/07-multi-agent-production/) | **English**
+> [繁體中文](/zh-tw/stages/07-multi-agent-production/) | [简体中文](/zh-tw/stages/07-multi-agent-production-zh-hans/) | **English**
 
 
 ⏱ **Time estimate**: 2-4 weeks (~15-30 hours)
@@ -261,7 +261,7 @@ Already cited. Specifically the `prompt_caching.ipynb`, `tool_use/`, and `multim
 
 | Field | Value |
 |---|---|
-| Language | 中文 (zh-CN) |
+| Language | 中文 (zh-Hans) |
 | Stars | ★ 30k+ |
 | License | Apache-2.0 |
 | Recommendation | ⭐⭐⭐⭐ |

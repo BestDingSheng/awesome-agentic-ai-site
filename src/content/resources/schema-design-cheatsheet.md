@@ -5,13 +5,13 @@ section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "schema-design-cheatsheet"
 ---# Function Schema 設計 Cheatsheet
 
-> **繁體中文** | [简体中文](/resources/schema-design-cheatsheet/) | [English](/en/resources/schema-design-cheatsheet/)
+> **繁體中文** | [简体中文](/zh-tw/resources/schema-design-cheatsheet-zh-hans/) | [English](/en/resources/schema-design-cheatsheet/)
 
 > [Stage 3 — Tool Use & Agent 入門](/zh-tw/stages/03-tool-use-and-hello-agent/) 的補充參考。寫 tool / function schema 時的 5 條黃金規則 + 5 個 anti-pattern。
 

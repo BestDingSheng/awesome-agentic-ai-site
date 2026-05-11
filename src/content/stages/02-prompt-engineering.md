@@ -5,16 +5,18 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
 order: 2
 ---# Stage 2 — Prompt Engineering
 
-> **繁體中文** | [English](/en/stages/02-prompt-engineering/)
+> **繁體中文** | [简体中文](/zh-tw/stages/02-prompt-engineering-zh-hans/) | [English](/en/stages/02-prompt-engineering/)
 
 ⏱ **時間估算**：1-2 週（約 5-12 小時）
+
+> 👋 **從 [Stage 1](/zh-tw/stages/01-llm-basics/) 來的**：好，你會呼叫 API 了——這 5-12 小時：寫出可重用的結構化 prompt、用 few-shot 跟 chain-of-thought 解難題、用 eval 量化 prompt 改善幅度。**直接從這裡開始的**：先確認你會呼叫 LLM API、會用 token 算成本——做不到請先回 [Stage 1](/zh-tw/stages/01-llm-basics/)。
 
 > 💡 用語不熟（prompt / few-shot / CoT / system prompt⋯）→ 翻 [`resources/glossary.md`](/zh-tw/resources/glossary/)。
 

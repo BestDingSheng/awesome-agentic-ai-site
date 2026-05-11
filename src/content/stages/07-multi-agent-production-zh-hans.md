@@ -2,13 +2,13 @@
 title: "Stage 7 — Multi-Agent · Production"
 description: "⏱ **时间估算**：2-4 周（约 15-30 小时）"
 section: "Stage"
-sourcePath: "stages/07-multi-agent-production.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.zh-CN.md"
+sourcePath: "stages/07-multi-agent-production.zh-Hans.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
-language: "zh-cn"
-languageLabel: "简体中文"
-baseSlug: "07-multi-agent-production"
+syncedAt: "2026-05-11T15:19:14.652Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "07-multi-agent-production-zh-hans"
 order: 7
 ---# Stage 7 — Multi-Agent · Production
 
@@ -16,7 +16,7 @@ order: 7
 
 ⏱ **时间估算**：2-4 周（约 15-30 小时）
 
-> 💡 用语密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.zh-CN.md`](/resources/glossary/#4-multi-agent)。
+> 💡 用语密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.zh-Hans.md`](/zh-tw/resources/glossary-zh-hans/#4-multi-agent)。
 
 最后一个阶段。你正从“我会做 agent”走向“我能在 production 跑起来，多个 agent 协作、有 eval、有 observability、会 deploy”。
 
@@ -262,7 +262,7 @@ npx promptfoo eval
 
 | 栏位 | 内容 |
 |---|---|
-| 语言 | 中文（zh-CN） |
+| 语言 | 中文（zh-Hans） |
 | Stars | ★ 30k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐ |
@@ -365,7 +365,7 @@ npx promptfoo eval
 - [ ] 在真实 workload 上量测 prompt caching 前后的成本差异
 - [ ] 把 agent deploy 到云端（任何 provider）
 
-如果都可以 → 你已经跑完主路线。挑一个[特化分支](/#️-7-阶段学习地图)，或回头来贡献这份 repo。
+如果都可以 → 你已经跑完主路线。挑一个[特化分支](../README.zh-Hans.md#️-7-阶段学习地图)，或回头来贡献这份 repo。
 
 ## 💡 接下来
 

@@ -5,13 +5,13 @@ section: "Resource"
 sourcePath: "resources/glossary.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "glossary"
 ---# 用語小辭典（Glossary）
 
-> **繁體中文** | [简体中文](/resources/glossary/) | [English](/en/resources/glossary/)
+> **繁體中文** | [简体中文](/zh-tw/resources/glossary-zh-hans/) | [English](/en/resources/glossary/)
 
 > 本路線圖會大量出現「LLM」、「RAG」、「MCP」、「agent」這類詞。讀到不懂的詞先在這裡查 30 秒，再回去讀 stage 內容。
 >

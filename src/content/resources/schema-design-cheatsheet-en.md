@@ -5,13 +5,13 @@ section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "schema-design-cheatsheet"
 ---# Function Schema Design Cheatsheet
 
-> [繁體中文](/zh-tw/resources/schema-design-cheatsheet/) | [简体中文](/resources/schema-design-cheatsheet/) | **English**
+> [繁體中文](/zh-tw/resources/schema-design-cheatsheet/) | [简体中文](/zh-tw/resources/schema-design-cheatsheet-zh-hans/) | **English**
 
 > Companion to [Stage 3 — Tool Use & Agent Intro](/en/stages/03-tool-use-and-hello-agent/). 5 golden rules + 5 common anti-patterns when writing tool / function schemas.
 

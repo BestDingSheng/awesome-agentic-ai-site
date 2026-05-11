@@ -5,13 +5,15 @@ section: "Branch"
 sourcePath: "branches/for-teacher.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-teacher"
 ---# 給教師 — 專業分支
 
-> **繁體中文** | [简体中文](/branches/for-teacher/) | [English](/en/branches/for-teacher/)
+> **繁體中文** | [简体中文](/zh-tw/branches/for-teacher-zh-hans/) | [English](/en/branches/for-teacher/)
+
+> 🚀 **第一次接觸 AI agent / 沒寫過 code？** 先看 [`resources/setup-guide.md` §A-C](/zh-tw/resources/setup-guide/)（30 分鐘從零裝好需要的東西）。Tier 0 跟 Tier 1 不需要寫 code，可以先跳過；Tier 2 之後會用到。
 
 > [← 回主路線 README](/zh-tw) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到教學流程上。
 
@@ -105,7 +107,7 @@ AI 可以幫忙準備和輔助，但不應該直接取代教師判斷。近期 A
 
 | 欄位 | 內容 |
 |---|---|
-| 語言 | 中文（zh-CN） |
+| 語言 | 中文（zh-Hans） |
 | Stars | ★ 13k+ |
 | License | NOASSERTION |
 

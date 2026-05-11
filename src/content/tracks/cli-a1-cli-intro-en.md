@@ -5,14 +5,14 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a1-cli-intro"
 order: 1
 ---# A1 — CLI Agent Intro & Selection
 
-> [繁體中文](/zh-tw/tracks/cli-a1-cli-intro/) | [简体中文](/tracks/cli-a1-cli-intro/) | **English**
+> [繁體中文](/zh-tw/tracks/cli-a1-cli-intro/) | [简体中文](/zh-tw/tracks/cli-a1-cli-intro-zh-hans/) | **English**
 
 > [← Back to main path README](/en) · **Track A: CLI Power User** — Stop 1
 
@@ -22,7 +22,7 @@ After Stages 0-2, you want to use existing CLI agents to get real work done — 
 
 ## 📌 Learning Goals
 
-- Know the differences between 6 mainstream CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider)
+- Know the differences between 7 mainstream CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent)
 - Pick a first CLI tool based on your scenario
 - Complete install + auth + your first real task (not a hello world)
 - Know when to switch / add a second CLI
@@ -36,7 +36,7 @@ You should already:
 
 ## 📚 Required Reading
 
-1. [**`resources/cli-agents-guide.en.md`**](/en/resources/cli-agents-guide/) ⭐ — the core reference for this track. 6 mainstream CLI agents side by side, use-case picks, real-world setups
+1. [**`resources/cli-agents-guide.en.md`**](/en/resources/cli-agents-guide/) ⭐ — the core reference for this track. 7 mainstream CLI agents side by side, use-case picks, real-world setups
 2. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — official install
 3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex install + auth
 
@@ -61,7 +61,7 @@ Deliberately break your API key (one wrong character) and see how the CLI errors
 
 ## 🎯 Curated Projects
 
-### 6 Mainstream CLI Agents
+### 7 Mainstream CLI Agents
 
 Detailed comparison (stars, license, strengths, recommended use cases) in [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/). Quick entry points here:
 
@@ -83,6 +83,9 @@ Detailed comparison (stars, license, strengths, recommended use cases) in [`reso
 #### [Aider-AI/aider](https://github.com/Aider-AI/aider) ⭐⭐⭐⭐⭐
 ★ 44k+ — git-native, auto commit / branch. Pick this when you want clean git workflow with code edits.
 
+#### [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) ⭐⭐⭐⭐⭐
+★ 142k+ — Nous Research's self-improving agent. Three differentiators: (1) the agent runs on a cloud VM and you message it from Telegram / Discord / Slack / WhatsApp / Signal; (2) model-neutral — supports GLM / Kimi / Xiaomi MiMo / MiniMax and other Chinese-ecosystem LLMs; (3) built-in cron scheduler + autonomous skill-evolution loop. ⚠️ Self-improving skills is a frontier feature with no independent audit yet — start in low-stakes contexts.
+
 ---
 
 ### Adjacent tools
@@ -96,7 +99,7 @@ Closed-source desktop app — drag-and-drop UI for local LLMs. Try this first if
 ## ✅ Self-Check Before A2
 
 Can you:
-- [ ] Articulate the core differences between the 6 mainstream CLIs (3-4 without checking the table)
+- [ ] Articulate the core differences between the 7 mainstream CLIs (3-4 without checking the table)
 - [ ] Have a working primary CLI (installed, authed, ran 5+ real tasks)
 - [ ] Written your own `CLAUDE.md` / `AGENTS.md` / `GEMINI.md`
 - [ ] Run a second CLI at least once, know the style differences

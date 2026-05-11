@@ -2,13 +2,13 @@
 title: "MCP / Skills 集成目录"
 description: "| 栏位 | 内容 | |---|---| | Stars | ★ 4k+ | | License | NOASSERTION |"
 section: "Resource"
-sourcePath: "resources/mcp-skills-catalog.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-CN.md"
+sourcePath: "resources/mcp-skills-catalog.zh-Hans.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
-language: "zh-cn"
-languageLabel: "简体中文"
-baseSlug: "mcp-skills-catalog"
+syncedAt: "2026-05-11T15:19:14.652Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "mcp-skills-catalog-zh-hans"
 ---# MCP / Skills 集成目录
 
 > [繁體中文](/zh-tw/resources/mcp-skills-catalog/) | **简体中文** | [English](/en/resources/mcp-skills-catalog/)
@@ -20,7 +20,7 @@ baseSlug: "mcp-skills-catalog"
 ## 怎么用这份目录
 
 - **想找特定工具的 MCP**：直接看下面分类目录
-- **想看 MCP / Skills / Plugins 是什么**：先看 [README 三个核心用语](/#三个核心用语mcp--skills--plugins)，再看 [Stage 5 — Claude Code 生态系](/zh-tw/stages/05-claude-code-ecosystem/)
+- **想看 MCP / Skills / Plugins 是什么**：先看 [README 三个核心用语](/zh-tw#三个核心用语mcp--skills--plugins)，再看 [Stage 5 — Claude Code 生态系](/zh-tw/stages/05-claude-code-ecosystem/)
 - **想看 动手练习 怎么装、怎么测**：看 [Stage 5.2 (MCP)](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) 跟 [Stage 5.3 (Skills)](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層)
 
 ### 收录原则

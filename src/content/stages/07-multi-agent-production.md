@@ -5,14 +5,14 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "07-multi-agent-production"
 order: 7
 ---# Stage 7 — Multi-Agent · Production
 
-> **繁體中文** | [English](/en/stages/07-multi-agent-production/)
+> **繁體中文** | [简体中文](/zh-tw/stages/07-multi-agent-production-zh-hans/) | [English](/en/stages/07-multi-agent-production/)
 
 ⏱ **時間估算**：2-4 週（約 15-30 小時）
 
@@ -262,7 +262,7 @@ npx promptfoo eval
 
 | 欄位 | 內容 |
 |---|---|
-| 語言 | 中文（zh-CN） |
+| 語言 | 中文（zh-Hans） |
 | Stars | ★ 30k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐⭐ |

@@ -5,14 +5,15 @@ section: "Branch"
 sourcePath: "branches/for-developer.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-developer"
 ---# For Developers — Specialized Branch
 
-> [繁體中文](/zh-tw/branches/for-developer/) | [简体中文](/branches/for-developer/) | **English**
+> [繁體中文](/zh-tw/branches/for-developer/) | [简体中文](/zh-tw/branches/for-developer-zh-hans/) | **English**
 
+> 🚀 **First time installing Claude Code or writing `CLAUDE.md` / `SKILL.md`?** The quick setup guide is [`resources/setup-guide.en.md` §D-E](/en/resources/setup-guide/). Skip it if you already know this.
 
 > [← Back to main path README](/en) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to coding workflows.
 
@@ -26,7 +27,7 @@ baseSlug: "for-developer"
 
 ## Curated Projects
 
-> Six major CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider) compared side-by-side in [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/). New to CLI agents and want step-by-step onboarding → [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) (Track A first stop). Looking for MCP / Skill integrations to wire CLI into daily tools (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (62 entries by category). Below lists only the key entries developers should know.
+> Six major CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent) compared side-by-side in [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/). New to CLI agents and want step-by-step onboarding → [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) (Track A first stop). Looking for MCP / Skill integrations to wire CLI into daily tools (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (62 entries by category). Below lists only the key entries developers should know.
 
 ### Coding Agents
 

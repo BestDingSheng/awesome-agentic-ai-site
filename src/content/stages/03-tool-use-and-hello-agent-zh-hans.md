@@ -2,13 +2,13 @@
 title: "Stage 3 — Tool Use 与 Agent 入门 ⭐"
 description: "⏱ **时间估算**：2-3 周（约 10-20 小时）"
 section: "Stage"
-sourcePath: "stages/03-tool-use-and-hello-agent.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-CN.md"
+sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
-language: "zh-cn"
-languageLabel: "简体中文"
-baseSlug: "03-tool-use-and-hello-agent"
+syncedAt: "2026-05-11T15:19:14.652Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "03-tool-use-and-hello-agent-zh-hans"
 order: 3
 ---# Stage 3 — Tool Use 与 Agent 入门 ⭐
 
@@ -16,7 +16,7 @@ order: 3
 
 ⏱ **时间估算**：2-3 周（约 10-20 小时）
 
-> 💡 用语密集（agent / tool use / function calling / ReAct / structured output⋯）→ 翻 [`resources/glossary.zh-CN.md` §2](/resources/glossary/#2-agent--工具使用)。
+> 💡 用语密集（agent / tool use / function calling / ReAct / structured output⋯）→ 翻 [`resources/glossary.zh-Hans.md` §2](/zh-tw/resources/glossary-zh-hans/#2-agent--工具使用)。
 
 这是整个学习路线最关键的一站。**你建过一个 agent 才算真懂 agent — 动手练习 不能跳。**
 
@@ -67,7 +67,7 @@ order: 3
 - 模糊边界用 enum 强制收敛（例如 `unit: "celsius" | "fahrenheit"` 而不是 `unit: string`）
 - error 回传要包 `{"error": "...", "retry_hint": "..."}` 让 LLM 能恢复
 
-> 💡 详细 cheatsheet 看 [`resources/schema-design-cheatsheet.zh-CN.md`](/resources/schema-design-cheatsheet/)——5 条黄金规则 + 5 个常见 anti-pattern。
+> 💡 详细 cheatsheet 看 [`resources/schema-design-cheatsheet.zh-Hans.md`](/zh-tw/resources/schema-design-cheatsheet-zh-hans/)——5 条黄金规则 + 5 个常见 anti-pattern。
 
 ## 🎯 精选 Projects
 
@@ -174,7 +174,7 @@ jupyter notebook customer_service_agent.ipynb
 
 | 字段 | 内容 |
 |---|---|
-| 语言 | 中文（zh-CN）+ Python |
+| 语言 | 中文（zh-Hans）+ Python |
 | License | CC BY-NC-SA 4.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（中文读者） |
 
@@ -182,7 +182,7 @@ jupyter notebook customer_service_agent.ipynb
 
 **适合谁**：中文读者。**请切到 `learn_version` 分支**，那才是对齐教材的版本。
 
-**备注**：License 是 CC BY-NC-SA — 非商用。教材是 zh-CN，但技术内容对 zh-TW 读者没障碍。
+**备注**：License 是 CC BY-NC-SA — 非商用。教材是 zh-Hans，但技术内容对 zh-TW 读者没障碍。
 
 **怎么跑**：
 ```bash
@@ -196,7 +196,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 | 字段 | 内容 |
 |---|---|
-| 语言 | 中文（zh-CN） |
+| 语言 | 中文（zh-Hans） |
 | License | CC BY-NC-SA |
 | 推荐度 | ⭐⭐⭐⭐⭐（中文读者） |
 
@@ -275,6 +275,6 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 - [ ] 比较 CodeAct（代码即 action）跟 JSON-tool 两种路线
 - [ ] 看出哪些问题其实不需要 agent
 
-如果可以 → 进 [Stage 4 — Agent Frameworks](/stages/04-agent-frameworks/)。
+如果可以 → 进 [Stage 4 — Agent Frameworks](/zh-tw/stages/04-agent-frameworks-zh-hans/)。
 
 如果不行 → 把 练习 3 再跑一次，不要跳过。如果你不懂 framework 在帮你抽象什么，Stage 4 的那些东西看起来会像黑魔法。

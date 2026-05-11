@@ -5,14 +5,15 @@ section: "Branch"
 sourcePath: "branches/for-researcher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
+syncedAt: "2026-05-11T15:19:14.652Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-researcher"
 ---# For Researchers — Specialized Branch
 
-> [繁體中文](/zh-tw/branches/for-researcher/) | [简体中文](/branches/for-researcher/) | **English**
+> [繁體中文](/zh-tw/branches/for-researcher/) | [简体中文](/zh-tw/branches/for-researcher-zh-hans/) | **English**
 
+> 🚀 **First time installing Python or creating an API key?** Start with [`resources/setup-guide.en.md` §A-C](/en/resources/setup-guide/). This branch assumes you can run Python scripts, have an API key, and can use git.
 
 > [← Back to main path README](/en) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to research workflows.
 

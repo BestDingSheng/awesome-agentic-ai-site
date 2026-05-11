@@ -2,18 +2,20 @@
 title: "给知识工作者 — 专业分支"
 description: "可自架的工作流自动化平台，内置 AI 集成，采用可视化节点式编辑器。"
 section: "Branch"
-sourcePath: "branches/for-knowledge-worker.zh-CN.md"
-sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.zh-CN.md"
+sourcePath: "branches/for-knowledge-worker.zh-Hans.md"
+sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-11T03:53:22.183Z"
-language: "zh-cn"
-languageLabel: "简体中文"
-baseSlug: "for-knowledge-worker"
+syncedAt: "2026-05-11T15:19:14.652Z"
+language: "zh-tw"
+languageLabel: "繁體中文"
+baseSlug: "for-knowledge-worker-zh-hans"
 ---# 给知识工作者 — 专业分支
 
 > [繁體中文](/zh-tw/branches/for-knowledge-worker/) | **简体中文** | [English](/en/branches/for-knowledge-worker/)
 
-> [← 回主路线 README](/) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 后从这里接续。把 agentic AI 应用到办公室 / 知识工作上。
+> 🚀 **完全没有开发背景？** 先看 [`resources/setup-guide.zh-Hans.md` §A-D](/zh-tw/resources/setup-guide-zh-hans/)（30-45 分钟从零）。本分支后面提到的“Claude Code”“MCP”“Skills”都会用到 §D 那个 setup。
+
+> [← 回主路线 README](../README.zh-Hans.md) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 后从这里接续。把 agentic AI 应用到办公室 / 知识工作上。
 
 ## 使用场景
 
@@ -25,7 +27,7 @@ baseSlug: "for-knowledge-worker"
 
 ## 精选 Projects
 
-> 💡 **想把 AI agent 接到 Notion / Gmail / Outlook / Slack / Excel / 飞书？** 62 个常用 MCP server / Skill 集成在 [`resources/mcp-skills-catalog.zh-CN.md`](/resources/mcp-skills-catalog/)（按使用场景分类）。下面这节保留 workflow / 集成平台级
+> 💡 **想把 AI agent 接到 Notion / Gmail / Outlook / Slack / Excel / 飞书？** 62 个常用 MCP server / Skill 集成在 [`resources/mcp-skills-catalog.zh-Hans.md`](/zh-tw/resources/mcp-skills-catalog-zh-hans/)（按使用场景分类）。下面这节保留 workflow / 集成平台级
 
 ### 工作流工具
 
