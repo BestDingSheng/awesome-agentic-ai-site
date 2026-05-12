@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { buildLangPath, type SiteLang } from '../lib/i18n';
+import { buildEntryRoute, buildLangPath, type CollectionKey, type SiteLang } from '../lib/i18n';
 
 interface Heading {
   depth: number;
@@ -8,10 +8,22 @@ interface Heading {
   text: string;
 }
 
+interface CollectionNavItem {
+  title: string;
+  href: string;
+  active: boolean;
+}
+
+interface AdjacentLink {
+  title: string;
+  href: string;
+}
+
 interface Props {
   title: string;
   description?: string;
   collectionLabel: string;
+  collection: CollectionKey;
   sourceUrl: string;
   sourcePath: string;
   syncedAt: string;
@@ -19,11 +31,31 @@ interface Props {
   lang: SiteLang;
   currentPath: string;
   languageLinks: Array<{ lang: SiteLang; label: string; href: string }>;
+  collectionItems: CollectionNavItem[];
+  previousLink?: AdjacentLink | null;
+  nextLink?: AdjacentLink | null;
 }
 
-const { title, description, collectionLabel, sourceUrl, sourcePath, syncedAt, headings = [], lang, currentPath, languageLinks } = Astro.props;
+const {
+  title,
+  description,
+  collectionLabel,
+  collection,
+  sourceUrl,
+  sourcePath,
+  syncedAt,
+  headings = [],
+  lang,
+  currentPath,
+  languageLinks,
+  collectionItems,
+  previousLink = null,
+  nextLink = null
+} = Astro.props;
+
 const docHeadings = headings.filter((item) => item.depth >= 2 && item.depth <= 4);
 const syncedText = new Date(syncedAt).toLocaleString('zh-CN', { hour12: false });
+const collectionHome = buildLangPath(lang, `/${collection}/`);
 ---
 <BaseLayout
   title={`${title} · Awesome Agentic AI 学习站`}
@@ -39,7 +71,7 @@ const syncedText = new Date(syncedAt).toLocaleString('zh-CN', { hour12: false })
         <div class="doc-breadcrumb small muted">
           <a href={buildLangPath(lang, '/')}>Home</a>
           <span>/</span>
-          <span>{collectionLabel}</span>
+          <a href={collectionHome}>{collectionLabel}</a>
         </div>
         <h1 class="doc-title" style="font-size: clamp(2rem, 3vw, 3rem); margin-top: 0.55rem;">{title}</h1>
         {description && <p class="hero-lead" style="margin-top: 0.75rem; max-width: 52rem;">{description}</p>}
@@ -48,29 +80,54 @@ const syncedText = new Date(syncedAt).toLocaleString('zh-CN', { hour12: false })
 
     <section class="doc">
       <aside class="sidebar-panel surface">
-        <span class="badge">{collectionLabel}</span>
+        <div class="panel-title">{collectionLabel}</div>
+        <nav class="collection-nav" aria-label={`${collectionLabel} navigation`}>
+          {collectionItems.map((item) => (
+            <a class:list={["collection-nav-link", item.active && 'active']} href={item.href}>{item.title}</a>
+          ))}
+        </nav>
+
         <div class="meta-list" style="margin-top: 1rem;">
-          <div class="doc-meta-item" style="padding: 0.9rem 1rem;">
+          <div class="doc-meta-item" style="padding: 0.85rem 0.95rem;">
             <div class="small muted">语言版本</div>
             <div class="small"><strong>{languageLinks.find((item) => item.lang === lang)?.label ?? lang}</strong></div>
           </div>
-          <div class="doc-meta-item" style="padding: 0.9rem 1rem;">
-            <div class="small muted">同步时间</div>
+          <div class="doc-meta-item" style="padding: 0.85rem 0.95rem;">
+            <div class="small muted">最近同步</div>
             <div class="small"><strong>{syncedText}</strong></div>
-          </div>
-          <div class="doc-meta-item" style="padding: 0.9rem 1rem;">
-            <div class="small muted">源文件</div>
-            <div class="small" style="word-break: break-word;">{sourcePath}</div>
           </div>
         </div>
 
         <div class="mini-list" style="margin-top: 1rem;">
           <a class="button" href={sourceUrl} target="_blank" rel="noreferrer">查看原仓库</a>
+          <details class="source-details">
+            <summary>查看源文件路径</summary>
+            <div class="small muted source-path">{sourcePath}</div>
+          </details>
         </div>
       </aside>
 
-      <article class="markdown">
-        <slot />
+      <article class="markdown doc-article">
+        <div class="doc-body">
+          <slot />
+        </div>
+
+        {(previousLink || nextLink) && (
+          <div class="doc-pagination">
+            {previousLink ? (
+              <a class="doc-page-link prev" href={previousLink.href}>
+                <span class="small muted">上一页</span>
+                <strong>{previousLink.title}</strong>
+              </a>
+            ) : <div></div>}
+            {nextLink ? (
+              <a class="doc-page-link next" href={nextLink.href}>
+                <span class="small muted">下一页</span>
+                <strong>{nextLink.title}</strong>
+              </a>
+            ) : <div></div>}
+          </div>
+        )}
       </article>
 
       <aside class="toc surface">
@@ -90,3 +147,76 @@ const syncedText = new Date(syncedAt).toLocaleString('zh-CN', { hour12: false })
     </section>
   </div>
 </BaseLayout>
+
+<style>
+  .collection-nav {
+    display: grid;
+    gap: .35rem;
+  }
+  .collection-nav-link {
+    display: block;
+    padding: .7rem .85rem;
+    border-radius: 12px;
+    color: var(--muted);
+    border: 1px solid transparent;
+    line-height: 1.45;
+    font-size: .92rem;
+  }
+  .collection-nav-link:hover {
+    color: var(--text);
+    background: rgba(255,255,255,0.04);
+  }
+  .collection-nav-link.active {
+    color: var(--text);
+    background: rgba(124,156,255,0.14);
+    border-color: rgba(124,156,255,0.22);
+  }
+  .source-details {
+    padding: .75rem .85rem;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(148,163,184,0.12);
+  }
+  .source-details summary {
+    cursor: pointer;
+    color: var(--text-soft);
+    font-weight: 700;
+  }
+  .source-path {
+    margin-top: .7rem;
+    word-break: break-word;
+  }
+  .doc-body > :first-child:is(h1) {
+    display: none;
+  }
+  .doc-pagination {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .9rem;
+    margin-top: 2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(148,163,184,0.1);
+  }
+  .doc-page-link {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(148,163,184,0.12);
+    background: rgba(255,255,255,0.03);
+    color: var(--text);
+  }
+  .doc-page-link:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(148,163,184,0.22);
+  }
+  .doc-page-link.next {
+    text-align: right;
+  }
+  @media (max-width: 960px) {
+    .doc-pagination {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

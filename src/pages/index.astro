@@ -15,87 +15,93 @@ const { featuredStages, trackSteps, branchSteps } = await getHomeData(lang);
 const labels = {
   'zh-cn': {
     eyebrow: '多语言教程文档站',
-    title: '更适合长期学习的 Agentic AI 文档 UI',
-    intro: '把 awesome-agentic-ai-zh 整理成一个更像 GitBook / Mintlify 风格的学习入口：默认简体中文，支持繁体中文与 English 切换，并按阶段、目标、人群组织内容。',
+    title: '系统学习 Agentic AI 的多语言路线图',
+    intro: '基于 awesome-agentic-ai-zh 构建，默认简体中文，支持繁体中文与 English 切换，并按阶段、目标、人群组织学习内容，适合持续阅读与长期进阶。',
     primaryCta: '从 Stages 开始',
     secondaryCta: '查看路线图',
-    tertiaryCta: '同步状态',
-    source: '内容源仓库',
-    quickStartTitle: 'Start here',
-    quickStartDesc: '如果你是第一次来，建议先看阶段，再按目标和人群细分学习路径。',
+    tertiaryCta: '查看更新',
+    quickStartTitle: '从这里开始',
+    quickStartDesc: '如果你是第一次来，建议先按阶段建立基础，再根据目标和人群选择更适合自己的学习路径。',
     stagePath: '按阶段学习',
-    stagePathDesc: '从基础到实战，逐步建立 Agentic AI 知识体系。',
+    stagePathDesc: '从基础概念到真实落地，逐步建立 Agentic AI 知识体系。',
     trackPath: '按目标学习',
-    trackPathDesc: '围绕真实任务选择更贴近实践的学习路线。',
+    trackPathDesc: '围绕真实任务与应用结果，选择更贴近实践的学习路线。',
     branchPath: '按人群学习',
-    branchPathDesc: '按开发者、产品、研究等角色选择更适合的内容。',
+    branchPathDesc: '按开发者、研究者、教师、知识工作者等角色选择内容。',
+    featuredKicker: '推荐内容',
     featuredTitle: '推荐起步内容',
-    featuredDesc: '优先阅读这些阶段内容，能更快建立整体认知。',
+    featuredDesc: '优先阅读这些阶段内容，能更快建立整体认知与学习节奏。',
     allStages: '查看全部 Stages',
-    trackTitle: 'Track 路线',
-    branchTitle: 'Branch 人群路线',
+    trackTitle: '目标路线',
+    branchTitle: '人群路线',
+    syncedKicker: '同步信息',
     syncedTitle: '内容同步状态',
-    syncedDesc: '站点内容由 fork 仓库自动同步生成，下面是当前同步快照。',
+    syncedDesc: '站点内容由 fork 仓库自动同步生成，可随时查看最新同步记录。',
     syncedAt: '最近同步',
     commit: '提交哈希',
     repo: '内容来源',
-    notSynced: '尚未执行同步'
+    notSynced: '尚未执行同步',
+    snapshotTitle: '学习概览'
   },
   'zh-tw': {
     eyebrow: '多語言教學文件站',
-    title: '更適合長期學習的 Agentic AI 文件 UI',
-    intro: '把 awesome-agentic-ai-zh 整理成一個更像 GitBook / Mintlify 風格的學習入口：預設簡體中文，支援繁體中文與 English 切換，並按階段、目標、人群組織內容。',
+    title: '系統學習 Agentic AI 的多語言路線圖',
+    intro: '基於 awesome-agentic-ai-zh 構建，預設簡體中文，支援繁體中文與 English 切換，並按階段、目標、人群組織學習內容，適合持續閱讀與長期進階。',
     primaryCta: '從 Stages 開始',
     secondaryCta: '查看路線圖',
-    tertiaryCta: '同步狀態',
-    source: '內容源倉庫',
-    quickStartTitle: 'Start here',
-    quickStartDesc: '如果你是第一次來，建議先看階段，再按目標和人群細分學習路線。',
+    tertiaryCta: '查看更新',
+    quickStartTitle: '從這裡開始',
+    quickStartDesc: '如果你是第一次來，建議先按階段建立基礎，再依照目標和人群選擇更適合自己的學習路線。',
     stagePath: '按階段學習',
-    stagePathDesc: '從基礎到實戰，逐步建立 Agentic AI 知識體系。',
+    stagePathDesc: '從基礎概念到真實落地，逐步建立 Agentic AI 知識體系。',
     trackPath: '按目標學習',
-    trackPathDesc: '圍繞真實任務選擇更貼近實作的學習路線。',
+    trackPathDesc: '圍繞真實任務與應用結果，選擇更貼近實作的學習路線。',
     branchPath: '按人群學習',
-    branchPathDesc: '按開發者、產品、研究等角色選擇更適合的內容。',
+    branchPathDesc: '按開發者、研究者、教師、知識工作者等角色選擇內容。',
+    featuredKicker: '推薦內容',
     featuredTitle: '推薦起步內容',
-    featuredDesc: '優先閱讀這些階段內容，能更快建立整體認知。',
+    featuredDesc: '優先閱讀這些階段內容，能更快建立整體認知與學習節奏。',
     allStages: '查看全部 Stages',
-    trackTitle: 'Track 路線',
-    branchTitle: 'Branch 人群路線',
+    trackTitle: '目標路線',
+    branchTitle: '人群路線',
+    syncedKicker: '同步資訊',
     syncedTitle: '內容同步狀態',
-    syncedDesc: '站點內容由 fork 倉庫自動同步生成，下面是目前同步快照。',
+    syncedDesc: '站點內容由 fork 倉庫自動同步生成，可隨時查看最新同步紀錄。',
     syncedAt: '最近同步',
     commit: '提交哈希',
     repo: '內容來源',
-    notSynced: '尚未執行同步'
+    notSynced: '尚未執行同步',
+    snapshotTitle: '學習概覽'
   },
   en: {
     eyebrow: 'Multilingual tutorial docs',
-    title: 'A cleaner docs UI for learning Agentic AI over time',
-    intro: 'This site reshapes awesome-agentic-ai-zh into a more GitBook/Mintlify-like learning portal: Simplified Chinese by default, with Traditional Chinese and English versions, organized by stages, goals, and audience paths.',
+    title: 'A multilingual roadmap for learning Agentic AI systematically',
+    intro: 'Built from awesome-agentic-ai-zh, this site uses Simplified Chinese by default, supports Traditional Chinese and English, and organizes learning by stage, goal, and audience for long-term study.',
     primaryCta: 'Start with Stages',
     secondaryCta: 'View Roadmap',
-    tertiaryCta: 'Sync Status',
-    source: 'Content Repo',
+    tertiaryCta: 'See Updates',
     quickStartTitle: 'Start here',
-    quickStartDesc: 'If this is your first visit, start with stages, then narrow down by goals and audience-specific paths.',
+    quickStartDesc: 'If this is your first visit, begin with stages to build foundations, then choose a path by goal or audience.',
     stagePath: 'Learn by stage',
-    stagePathDesc: 'Move from foundations to practical execution step by step.',
+    stagePathDesc: 'Move from core concepts to real implementation step by step.',
     trackPath: 'Learn by goal',
-    trackPathDesc: 'Choose a route based on the kind of real-world outcome you want.',
+    trackPathDesc: 'Choose routes shaped around practical outcomes and real tasks.',
     branchPath: 'Learn by audience',
-    branchPathDesc: 'Pick content that fits developers, product people, researchers, and more.',
+    branchPathDesc: 'Pick content for developers, researchers, teachers, knowledge workers, and more.',
+    featuredKicker: 'Featured',
     featuredTitle: 'Recommended starting points',
-    featuredDesc: 'These stage entries are the best way to build a solid mental model quickly.',
+    featuredDesc: 'These entries are the best way to build a strong mental model and momentum quickly.',
     allStages: 'View all Stages',
-    trackTitle: 'Track paths',
-    branchTitle: 'Audience branches',
+    trackTitle: 'Goal-based paths',
+    branchTitle: 'Audience-based paths',
+    syncedKicker: 'Sync info',
     syncedTitle: 'Content sync status',
-    syncedDesc: 'Site content is generated from your fork automatically. Here is the current sync snapshot.',
+    syncedDesc: 'Site content is generated from your fork automatically, and the latest sync record is always available.',
     syncedAt: 'Last synced',
     commit: 'Commit hash',
     repo: 'Source repo',
-    notSynced: 'Not synced yet'
+    notSynced: 'Not synced yet',
+    snapshotTitle: 'Learning snapshot'
   }
 }[lang];
 
@@ -132,7 +138,7 @@ const quickStarts = [
   <section class="hero">
     <div class="hero-card primary">
       <span class="eyebrow">{labels.eyebrow}</span>
-      <h1 style="margin-top: 1rem; max-width: 13ch;">{labels.title}</h1>
+      <h1 style="margin-top: 1rem; max-width: 12ch;">{labels.title}</h1>
       <p class="hero-lead">{labels.intro}</p>
       <div class="button-row">
         <a class="button primary" href={`${prefix}/stages/`}>{labels.primaryCta}</a>
@@ -142,7 +148,7 @@ const quickStarts = [
     </div>
 
     <div class="hero-card">
-      <p class="panel-title">Learning snapshot</p>
+      <p class="panel-title">{labels.snapshotTitle}</p>
       <div class="stats">
         <div class="stat"><span>Stages</span><strong>{manifest.counts.stages}</strong></div>
         <div class="stat"><span>Tracks</span><strong>{manifest.counts.tracks}</strong></div>
@@ -180,7 +186,7 @@ const quickStarts = [
   <section class="section">
     <div class="section-head">
       <div>
-        <p class="section-kicker">Featured</p>
+        <p class="section-kicker">{labels.featuredKicker}</p>
         <h2>{labels.featuredTitle}</h2>
         <p class="section-copy">{labels.featuredDesc}</p>
       </div>
@@ -195,10 +201,10 @@ const quickStarts = [
   </section>
 
   <section class="section">
-    <div class="panel" style="padding: 1.4rem;">
-      <div class="section-head" style="margin-bottom: 0.6rem;">
+    <div class="panel" style="padding: 1.1rem 1.4rem;">
+      <div class="section-head" style="margin-bottom: 0; align-items: center;">
         <div>
-          <p class="section-kicker">Sync</p>
+          <p class="section-kicker">{labels.syncedKicker}</p>
           <h2>{labels.syncedTitle}</h2>
           <p class="section-copy">{labels.syncedDesc}</p>
         </div>
