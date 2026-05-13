@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/00-foundations.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-12T14:33:25.228Z"
+syncedAt: "2026-05-13T03:45:13.798Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "00-foundations"
@@ -18,6 +18,7 @@ order: 0
 ⏱ **時間估算**：1-2 週（約 5-15 小時，已具備可跳過）
 
 > 💡 **看不懂某個詞**？翻 [`resources/glossary.md`](/zh-tw/resources/glossary/) 查 30 秒再回來。Stage 0 還不會碰太多 jargon，但接下來幾 stage 會。
+> 🗺️ **想先看 agent 的全景地圖**（為什麼有的 agent 在 terminal、有的在 Telegram、有的在 Jetson 板子）？→ [`resources/agent-paradigms.md`](/zh-tw/resources/agent-paradigms/)（5 種 agent 型態，10 min 讀完）
 
 ## 何時可以跳過這個階段
 

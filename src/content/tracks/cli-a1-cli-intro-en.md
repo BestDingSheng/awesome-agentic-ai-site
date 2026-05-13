@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-12T14:33:25.228Z"
+syncedAt: "2026-05-13T03:45:13.798Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a1-cli-intro"
@@ -37,9 +37,10 @@ You should already:
 
 ## 📚 Required Reading
 
-1. [**`resources/cli-agents-guide.en.md`**](/en/resources/cli-agents-guide/) ⭐ — the core reference for this track. 7 mainstream CLI agents side by side, use-case picks, real-world setups
-2. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — official install
-3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex install + auth
+1. [**`resources/agent-paradigms.en.md`**](/en/resources/agent-paradigms/) ⭐ — the 5-paradigm map of the agent landscape; read this first to see where CLI agents sit (Type 2 + Type 3) in the wider ecosystem
+2. [**`resources/cli-agents-guide.en.md`**](/en/resources/cli-agents-guide/) ⭐ — the core reference for this track. 7 mainstream CLI agents side by side, use-case picks, real-world setups
+3. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — official install
+4. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex install + auth
 
 ## 🛠 Hands-on Exercises (do them, not just read)
 

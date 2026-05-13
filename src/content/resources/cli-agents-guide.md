@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cli-agents-guide.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-12T14:33:25.228Z"
+syncedAt: "2026-05-13T03:45:13.798Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-agents-guide"
@@ -18,6 +18,7 @@ baseSlug: "cli-agents-guide"
 
 > 📌 **這份是 reference doc**（深度比較、選擇邏輯、坑、推薦搭配）。
 > 第一次接觸 CLI agent、想要 step-by-step 上手 → 看 [`tracks/cli/A1-cli-intro.md`](/zh-tw/tracks/cli-a1-cli-intro/)（Track A 第一站）。
+> 想先理解「為什麼有的 agent 在 terminal、有的在 Telegram、有的在 Jetson」這層 mental model → 看 [`resources/agent-paradigms.md`](/zh-tw/resources/agent-paradigms/)（5 種 agent 型態）。
 > 已經在用、想決定 / 比較 / 升級 → 留在這份。
 
 跨 5 個 branch + Track A 共用的參考——**Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent 之間怎麼挑？** Track A（A1-A3）的 CLI workflow 設計、5 條 branch 內的 CLI 引用都連到這份；每個 branch 都會用到 CLI agent，但沒有一個 branch 真的「擁有」這份比較，所以放在 `resources/`。

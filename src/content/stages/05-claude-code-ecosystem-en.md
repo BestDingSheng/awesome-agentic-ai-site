@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-12T14:33:25.228Z"
+syncedAt: "2026-05-13T03:45:13.798Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -23,6 +23,8 @@ order: 5
 > 📌 **This stage is used by both tracks**:
 > - **Track A (CLI Power User)**: A2 uses [5.1 (Claude Code basics)](#51--claude-code-basics); A3 uses [5.2 (MCP)](#52--mcp-model-context-protocol-foundation) + selectively [5.3 (Skills)](#53--skills-claude-code-behavior-layer) and [5.4 (Plugins)](#54--plugins--marketplaces) (A3's Exercise CLI-12 teaches packaging CLAUDE.md / commands into a plugin). Reading angle: "**how to use Claude Code well**"
 > - **Track B (Agent Builder)**: works through the full stage 5.1 → 5.4 as "**how Claude Code works internally**" deep dive
+
+> 🗺️ **Which agent paradigm does Claude Code fit?** → [`resources/agent-paradigms.en.md`](/en/resources/agent-paradigms/) §Type 1 (IDE-coupled) + §Type 2 (Terminal pair-programmer); start there for the full 5-paradigm comparison.
 
 > ⚠️ **This stage is not the path for a local LLM.** Claude Code requires Anthropic API / OAuth and cannot directly switch to Ollama or a local endpoint. For offline work, privacy-sensitive files, or avoiding API quota, use [`resources/cookbook.md` Recipe 6](/en/resources/cookbook/#6-local-llm--cli-agent-quick-walkthrough) with a BYO-LLM CLI agent such as OpenCode / goose / Aider / Hermes.
 

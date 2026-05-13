@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/00-foundations.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-12T14:33:25.228Z"
+syncedAt: "2026-05-13T03:45:13.798Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "00-foundations"
@@ -19,6 +19,7 @@ order: 0
 ⏱ **Time estimate**: 1-2 weeks (~5-15 hours, can skip if you have these)
 
 > 💡 **Don't recognize a term?** Check [`resources/glossary.en.md`](/en/resources/glossary/) for a 30-second definition. Stage 0 doesn't lean on much jargon, but the next stages do.
+> 🗺️ **Want the big picture of the agent landscape first** (why some agents live in a terminal, some in Telegram, some on a Jetson board)? → [`resources/agent-paradigms.en.md`](/en/resources/agent-paradigms/) (5 agent paradigms, ~10 min read)
 
 ## When to skip this stage
 

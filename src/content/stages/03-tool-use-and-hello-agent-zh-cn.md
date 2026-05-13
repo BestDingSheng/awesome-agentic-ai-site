@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-12T14:33:25.228Z"
+syncedAt: "2026-05-13T03:45:13.798Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -13,11 +13,12 @@ order: 3
 ---
 # Stage 3 — Tool Use 与 Agent 入门 ⭐
 
-> [繁體中文](/zh-tw/stages/03-tool-use-and-hello-agent/) | **简体中文** | [English](/en/stages/03-tool-use-and-hello-agent/)
+> [繁体中文](/zh-tw/stages/03-tool-use-and-hello-agent/) | **简体中文** | [English](/en/stages/03-tool-use-and-hello-agent/)
 
 ⏱ **时间估算**：2-3 周（约 10-20 小时）
 
 > 💡 用语密集（agent / tool use / function calling / ReAct / structured output⋯）→ 翻 [`resources/glossary.zh-Hans.md` §2](/resources/glossary/#2-agent--工具使用)。
+> 🗺️ **进 Track A（CLI Power User）还是 Track B（Agent Builder）前**，先看 [`resources/agent-paradigms.zh-Hans.md`](/resources/agent-paradigms/) — 5 种 agent 型态的全景图，帮你选轨。
 
 这是整个学习路线最关键的一站。**你建过一个 agent 才算真懂 agent — 动手练习 不能跳。**
 
@@ -46,20 +47,144 @@ order: 3
 
 ## 🛠 动手练习（不是看过就好）
 
+> 🦙 **本 stage 默认用 Ollama qwen2.5:3b**（成本考量、tool-use 支持稳定）。Stage 3 进到 tool calling / ReAct loop、`gemma4:e4b` 不够、改用 `qwen2.5:3b`（1.9 GB、`ollama pull qwen2.5:3b` 即装）。每个练习都有 Path A（Ollama、默认）+ Path B（Anthropic、选择性、想看 cloud 高品质 tool-use 时用）。
+>
+> 💰 **Stage 3 预算估算**（全 6 练习、tool use 较重）：**全本机 = $0**、**全 haiku ≈ $0.50**、**全 sonnet ≈ $1.50**。ReAct loop 练习单次 4-6 tool calls × 5 练习 × 5 reps ≈ $0.80 haiku。完整预算见 [`examples/README.zh-Hans.md#推荐-llm-清单`](../examples/README.zh-Hans.md#推荐-llm-清单本机--clouduser-视角)。
+>
+> 完整 3 路 trade-off 见 [`examples/README.zh-Hans.md`](../examples/README.zh-Hans.md#三条路径--默认用-ollama成本考量)。
+
 ### 练习 1：Function Calling（一个工具、一次调用）
-给 Claude 一个工具（假的天气 API）跟一个问题（「台北现在有下雨吗？」）。看 Claude 怎么调用工具、拿到结果、再回答你。
+给 Claude 一个工具（假的天气 API）跟一个問题（「台北现在有下雨吗？」）。看 Claude 怎么调用工具、拿到结果、再回答你。
+
+<details open>
+<summary>📋 <b>起手码 — Path A（本机 Ollama qwen2.5:3b、默认）</b>（複制到 <code>practice_1.py</code>）</summary>
+
+```python
+# 需要：pip install openai
+# 前置：ollama pull qwen2.5:3b && ollama serve
+# Note: Stage 3+ 用 qwen2.5:3b（tool-use 稳定）、不是 gemma4:e4b
+import sys, json
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from openai import OpenAI
+
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+# Step 1: 定义 tool schema — OpenAI-compatible 格式包一层 {"type":"function", "function":{...}}
+weather_tool = {
+    "type": "function",
+    "function": {
+        "name": "get_weather",
+        "description": "查詢城市目前天气（晴/雨/阴），回传一个短字串。",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "city": {"type": "string", "description": "城市名称（如「台北」）"},
+            },
+            "required": ["city"],
+        },
+    },
+}
+
+# Step 2: 問問题、让 LLM 自己決定要不要调用 tool
+resp = client.chat.completions.create(
+    model="qwen2.5:3b",
+    max_tokens=512,
+    tools=[weather_tool],
+    messages=[{"role": "user", "content": "台北现在有下雨吗？"}],
+)
+
+# === 自我验证 ===
+msg = resp.choices[0].message
+print("finish_reason:", resp.choices[0].finish_reason)
+print("tool_calls:", msg.tool_calls)
+
+assert msg.tool_calls, "预期 LLM 会选择调用 tool（而非直接回答）"
+tc = msg.tool_calls[0]
+assert tc.function.name == "get_weather", f"预期调用 get_weather、实际 {tc.function.name}"
+args = json.loads(tc.function.arguments)
+assert args.get("city"), "预期 city 参数有值"
+print(f"✅ 练习 1 通过 — qwen2.5:3b 正确选了 get_weather、带 city='{args['city']}' 参数")
+```
+
+**预期输出**（樣本）：
+```
+finish_reason: tool_calls
+tool_calls: [ChatCompletionMessageToolCall(id='call_xxx', function=Function(name='get_weather', arguments='{"city": "台北"}'), type='function')]
+✅ 练习 1 通过 — qwen2.5:3b 正确选了 get_weather、带 city='台北' 参数
+```
+
+**没裝 Ollama 也能验邏輯**：用 `unittest.mock.MagicMock` 取代 client、塞固定 response、assert 一樣 work。完整 mock 范例见 [`examples/stage-3/03-react-from-scratch/test.py`](../examples/stage-3/03-react-from-scratch/test.py)（pattern 跨 backend 通用）。
+
+</details>
+
+<details>
+<summary>📋 <b>起手码 — Path B（Anthropic API、选择性）</b>（複制到 <code>practice_1_anthropic.py</code>）</summary>
+
+```python
+# 需要：pip install anthropic
+# 环境變数：export ANTHROPIC_API_KEY=sk-ant-...
+import anthropic
+
+client = anthropic.Anthropic()
+
+# Anthropic native tool schema — 不用包 wrapper
+weather_tool = {
+    "name": "get_weather",
+    "description": "查詢城市目前天气（晴/雨/阴），回传一个短字串。",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "city": {"type": "string", "description": "城市名称（如「台北」）"},
+        },
+        "required": ["city"],
+    },
+}
+
+resp = client.messages.create(
+    model="claude-haiku-4-5",
+    max_tokens=512,
+    tools=[weather_tool],
+    messages=[{"role": "user", "content": "台北现在有下雨吗？"}],
+)
+
+# === 自我验证 ===
+assert resp.stop_reason == "tool_use", f"非预期 stop_reason: {resp.stop_reason}"
+tool_calls = [b for b in resp.content if b.type == "tool_use"]
+assert tool_calls[0].name == "get_weather"
+assert tool_calls[0].input.get("city")
+print(f"✅ 练习 1 通过（Anthropic）— Claude 选了 get_weather、city='{tool_calls[0].input['city']}'")
+```
+
+**3 个关鍵 SDK 差異**：
+- **Schema wrap**：Anthropic 直接 `tools=[{name, description, input_schema}]`；OpenAI/Ollama 要包 `[{"type":"function", "function":{...}}]`
+- **Response 路徑**：Anthropic 从 `resp.content[i].type=="tool_use"` 抓；OpenAI/Ollama 从 `resp.choices[0].message.tool_calls[i]`
+- **Args 格式**：Anthropic `.input` 是 dict（自動 parse）；OpenAI/Ollama `.function.arguments` 是 JSON string，要 `json.loads(...)`
+
+**成本**：1 次 ≈ $0.001。**Claude 的 tool-use 比 qwen2.5:3b 更稳**——複杂場景（5+ tools、模糊問题）gap 会明显。
+
+</details>
 
 ### 练习 2：多工具选择
 给 Claude 三个工具（搜索、计算机、行事历）跟一个任务。看 Claude 怎么挑工具，顺便注意它什么时候会挑错。
 
+→ **完整可跑版** → [`examples/stage-3/02-multi-tool-selection/`](../examples/stage-3/02-multi-tool-selection/)
+
 ### 练习 3：从零实现 ReAct（不用 framework）
 用 50-80 行 Python 把 Thought → Action → Observation 循环写出来。不要 LangChain、不要 LangGraph，就是纯 `while not done: thought; action; observation; ...`。
+
+→ **完整可跑版** → [`examples/stage-3/03-react-from-scratch/`](../examples/stage-3/03-react-from-scratch/)（含 mock-based test.py、不花 API 钱也能验）
 
 ### 练习 4：多步骤推理任务
 一个需要连续调用 3-5 次 tool 的任务。例如：「找出台北人口，除以纽约人口，再把比例换成百分比。」每一步用不同的工具。
 
+→ **完整可跑版** → [`examples/stage-3/04-multi-step-reasoning/`](../examples/stage-3/04-multi-step-reasoning/)
+
 ### 练习 5：错误处理
 让某个工具失败（网络错误、输入无效）。看看 agent 会怎么处理错误、能不能恢复，再加上 retry 机制。
+
+→ **完整可跑版** → [`examples/stage-3/05-error-handling/`](../examples/stage-3/05-error-handling/)
 
 ### 练习 6：Function schema 设计（坏 schema 修到好）
 **先给 LLM 一份故意写烂的 schema**——`description` 模糊（「处理数据」）、参数全用 `type: string`、没分 required / optional、enum 该用没用。观察 LLM 怎么选错 tool、传错参数。然后逐项修：
@@ -69,6 +194,8 @@ order: 3
 - error 回传要包 `{"error": "...", "retry_hint": "..."}` 让 LLM 能恢复
 
 > 💡 详细 cheatsheet 看 [`resources/schema-design-cheatsheet.zh-Hans.md`](/resources/schema-design-cheatsheet/)——5 条黄金规则 + 5 个常见 anti-pattern。
+
+→ **完整可跑版** → [`examples/stage-3/06-schema-design/`](../examples/stage-3/06-schema-design/)（含 bad schema vs good schema 两个版本对照）
 
 ## 🎯 精选 Projects
 
@@ -250,7 +377,7 @@ git clone -b learn_version https://github.com/jjyaoao/HelloAgents
 
 **教什么**：framework 怎么把 ReAct pattern 抽象化。LangGraph Studio 的范本。
 
-**适合谁**：练习 3 之后（先自己从零写过再來）。再來比较 framework 帮你做了哪些事。
+**适合谁**：练习 3 之后（先自己从零写过再来）。再来比较 framework 帮你做了哪些事。
 
 ---
 

@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-12T14:33:25.228Z"
+syncedAt: "2026-05-13T03:45:13.798Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a1-cli-intro"
@@ -39,9 +39,10 @@ order: 1
 
 ## 📚 必修閱讀
 
-1. [**`resources/cli-agents-guide.md`**](/zh-tw/resources/cli-agents-guide/) ⭐ — 本軌的核心參考。7 個主流 CLI agent 並列比較、依 use case 推薦、實用搭配
-2. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — 官方安裝指南
-3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex 安裝跟認證流程
+1. [**`resources/agent-paradigms.md`**](/zh-tw/resources/agent-paradigms/) ⭐ — 5 種 agent 型態的全景圖；先讀這份知道 CLI agent 在整個 agent 生態中的位置（Type 2 + Type 3）
+2. [**`resources/cli-agents-guide.md`**](/zh-tw/resources/cli-agents-guide/) ⭐ — 本軌的核心參考。7 個主流 CLI agent 並列比較、依 use case 推薦、實用搭配
+3. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — 官方安裝指南
+4. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex 安裝跟認證流程
 
 ## 🛠 動手練習（必跑、不是看就好）
 
