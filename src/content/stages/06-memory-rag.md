@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T03:45:13.798Z"
+syncedAt: "2026-05-13T14:43:12.237Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "06-memory-rag"
@@ -19,6 +19,9 @@ order: 6
 
 > 💡 這 stage 用語密度高（**RAG / 向量資料庫 / embedding / chunking / hybrid search / reranking⋯**）→ 不熟先翻 [`resources/glossary.md` §3](/zh-tw/resources/glossary/#3-memory--retrieval--rag)。
 
+> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 →〔可選 · 概念地圖：單元指引 + Chunking + Memory 設計三種 pattern〕→ 動手練習 → 精選 Projects → 自我檢查  
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md` §3](/zh-tw/resources/glossary/#3-memory--retrieval--rag)（memory / RAG / embedding / chunking / reranking）
+
 不會記住過去互動的 agent 沒什麼用。RAG（Retrieval-Augmented Generation）是目前的標準做法。這一章兩個都會講到。
 
 ## 📌 學習目標
@@ -28,6 +31,15 @@ order: 6
 - 建一條基本 RAG 流水線（chunk → embed → store → retrieve → generate）
 - 看出 RAG 不該用在哪些地方（以及該用在哪些地方）
 
+## 🚪 進入條件
+
+你應該已經：
+- 完成 Stage 3（會寫 tool use、會呼叫 LLM API、看得懂 ReAct loop）
+- 能跑 Python `pip install` 安裝 SDK（後面練習會用到 `chromadb`、`sentence-transformers` 等）
+- 對 list / dict / generator 等基礎 Python 結構上手
+
+沒到的話 → 回 [Stage 3](/zh-tw/stages/03-tool-use-and-hello-agent/) 或 [Stage 0 §環境設定](/zh-tw/stages/00-foundations/#環境設定)。
+
 ## 📚 必修閱讀
 
 1. [**LlamaIndex — RAG concepts**](https://docs.llamaindex.ai/en/stable/getting_started/concepts/) — 最清楚的入門
@@ -35,6 +47,8 @@ order: 6
 3. [**Pinecone — Learning Center**](https://www.pinecone.io/learn/) — vector DB 基礎
 4. [**Anthropic — Contextual Retrieval**](https://www.anthropic.com/news/contextual-retrieval) — Anthropic 搭配 prompt caching 的 RAG 寫法
 5. [**LangChain — Text splitters**](https://docs.langchain.com/oss/python/integrations/splitters/index) — chunking 策略入門
+
+> 🙏 **Memory 章節特別推薦 [`datawhalechina/hello-agents`](https://github.com/datawhalechina/hello-agents)**：本 stage 探討 memory 的概念跟初級實作、要 **chapter-length 深入版**請看 hello-agents 對應章節——short-term / long-term memory 的差異、context engineering 怎麼動態組裝、session 持久化、forgetting strategy 都講得最完整。本 stage 是路線圖、那邊是深度教材。
 
 ## 🧭 單元指引
 
@@ -118,7 +132,34 @@ Chunking 進階思考：
 - chunk size、overlap、top-k、reranker 會互相影響，不要只單看其中一個參數。
 - 想想看，如果今天要 RAG 的資料有含圖片的 PDF、會議字幕檔，要如何切割比較好？
 
-## 🛠 動手練習（不是看過就好）
+## 🧠 Memory 設計三種 pattern（什麼時候用什麼）⭐ Track B 必看
+
+**不是所有 agent 都需要 RAG。Memory 架構選錯會花十倍 token 達同樣效果。**
+
+這是進練習前要建立的 mental model——下面練習 1-5 跑的是「pattern 3 vector store」，但 production 你可能不需要這麼複雜。
+
+| Pattern | 適合場景 | 怎麼跑 | 成本 |
+|---|---|---|---|
+| **1. Naive buffer**<br>（全塞 context） | 短對話、≤ 10 turn、agent 不需要記跨 session 的東西 | 整段 history 每次都送進 prompt | 線性增長、token 燒得快 |
+| **2. Summary + recent**<br>（摘要遠的 + 保留近 N 輪） | 中長對話、~ 50 turn、想壓縮但別丟太多 | 每 N 輪叫 LLM 把舊 history 摘成 1 段；prompt = `summary + last N turns` | 中等、有 LLM 摘要成本 |
+| **3. Vector store + retrieval**<br>（外部 store + 每次 semantic search） | 跨 session、知識庫場景、agent 要「想起」久遠的事 | embed 過去 message → 存 vector DB → 每回合 query 相關片段拼進 prompt | 高（向量計算 + 儲存），但 token 用量穩定 |
+
+**怎麼選**：
+
+- 對話 chatbot 沒跨 session → **pattern 1**
+- agent + 長對話、要記今天聊過什麼 → **pattern 2**
+- agent + 跨 session + 知識庫（本 stage 練習場景）→ **pattern 3**
+- production 大型 agent → 通常**混用**：近期 pattern 1/2、長期 pattern 3
+
+**📚 深度資源**：
+- [**mem0ai/mem0**](https://github.com/mem0ai/mem0) ⭐ — production memory layer，自動分流近期 / 長期 / vector
+- [**Letta（前身 MemGPT）**](https://github.com/letta-ai/letta) — OS-style paging memory（把 context window 當 RAM、vector store 當 disk）
+- [**LangChain — Memory types**](https://python.langchain.com/docs/concepts/memory/) — framework 內各 memory class 對比表
+- [**Anthropic — Memory Tool (memory in agents)**](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) — Anthropic 官方 tool-based memory 寫法
+
+> 💡 **Track B 重點**：你 Stage 7 寫 multi-agent 時，每個 agent 都會有「自己的 memory」+「shared memory」雙層——需要的 pattern 通常是 **2 + 3 混用**。先在本 stage 把 3 種 pattern 跑透，到 Stage 7 才不會被 multi-agent memory 設計卡住。
+
+## 🛠 動手練習（基礎 illustrative 練習）
 
 ### 練習 1：Embeddings
 把 100 個句子做 embedding，找出某個 query 的最近鄰。理解 vector 之間的距離意義。
@@ -136,6 +177,24 @@ Chunking 進階思考：
 讓 agent 在多輪對話之間記得事情。可以用 `mem0` 或自己用 vector store 接。
 
 ## 🎯 精選 Projects
+
+按用途分 4 類。**先看分類表挑入口、再點下面 detail block 看適合誰 / 教什麼**：
+
+| 分類 | Project | 推薦 | 為什麼推薦 |
+|---|---|---|---|
+| **RAG framework**（完整流水線） | [LlamaIndex](https://github.com/run-llama/llama_index) | ⭐⭐⭐⭐⭐ | 以 RAG 為核心、document loader / chunking / retrieval / query engine 一條龍 |
+| **RAG framework**（agentic RAG） | [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | ⭐⭐⭐⭐⭐ | document parsing 強、企業級、含 Web UI |
+| **RAG framework**（graph-based）| [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | ⭐⭐⭐⭐ | knowledge graph + RAG、適合需要 entity-relation 推理 |
+| **Vector DB**（local-first）| [Chroma](https://github.com/chroma-core/chroma) | ⭐⭐⭐⭐⭐ | 練習默認、in-memory / SQLite 後端、零 ops cost |
+| **Vector DB**（production scale）| [Qdrant](https://github.com/qdrant/qdrant) | ⭐⭐⭐⭐⭐ | Rust 寫、production-grade、scale 大 |
+| **Vector DB**（hybrid）| [Weaviate](https://github.com/weaviate/weaviate) | ⭐⭐⭐⭐ | 內建 BM25 + vector hybrid、modular schema |
+| **Vector DB**（已有 Postgres）| [pgvector](https://github.com/pgvector/pgvector) | ⭐⭐⭐⭐ | Postgres 擴充、SQL + vector 一起、運維最簡 |
+| **Memory framework**（auto fact extraction）| [mem0ai/mem0](https://github.com/mem0ai/mem0) | ⭐⭐⭐⭐⭐ | production-grade memory、auto-extract / forgetting / namespace |
+| **Memory framework**（OS-paging）| [Letta（前身 MemGPT）](https://github.com/letta-ai/letta) | ⭐⭐⭐⭐ | working / archival 兩級 memory、long session 場景強 |
+| **Memory（in-framework）**| [LangChain — Memory](https://python.langchain.com/docs/concepts/memory/) | ⭐⭐⭐ | 4 種 memory 抽象、適合已用 LangChain 的人 |
+| **進階 RAG 技巧** | [Anthropic — Contextual Retrieval cookbook](https://platform.claude.com/cookbook/capabilities-contextual-embeddings-guide) | ⭐⭐⭐⭐⭐ | Claude 搭配 prompt caching 的 contextual chunking |
+| **中文 RAG 樣板** | [chatchat-space/Langchain-Chatchat](https://github.com/chatchat-space/Langchain-Chatchat) | ⭐⭐⭐⭐ | 中文圈最完整、跟本機 LLM 整合好 |
+| **教材合集** | [patchy631/ai-engineering-hub](https://github.com/patchy631/ai-engineering-hub) | ⭐⭐⭐⭐ | RAG + agent 教學 collection、Jupyter notebook 形式 |
 
 ### [LlamaIndex](https://github.com/run-llama/llama_index)
 

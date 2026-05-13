@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T03:45:13.798Z"
+syncedAt: "2026-05-13T14:43:12.237Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "01-llm-basics"
@@ -46,7 +46,7 @@ If not — go back to Stage 0 first.
 3. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face's intro
 4. [**Anthropic API Pricing**](https://www.anthropic.com/pricing#anthropic-api) — read the pricing table, calculate cost for 1k input + 1k output
 
-## 🛠 Hands-on Exercises (do them, not just read)
+## 🛠 Hands-on Exercises (foundational, illustrative)
 
 > 🦙 **This stage defaults to Ollama** (cost-driven; `gemma4:e4b` runs locally for $0/run). Every exercise has Path A (Ollama, default) + Path B (Anthropic, optional — use it when you want to see cloud-quality answers). Full three-path trade-off in [`examples/README.en.md`](../examples/README.en.md#three-paths--default-is-ollama-cost-driven).
 >
@@ -291,7 +291,7 @@ print(f"\n✅ Exercise 3 passed (Anthropic) — 1000 runs: haiku ≈ $0.25, sonn
 ### Exercise 4: Cross-Provider Comparison
 Send the same prompt to Claude, GPT, and Gemini simultaneously, compare their responses. Notice "why does the same input produce different answers" — answer style, length, and judgment all differ. Use the OpenAI, Anthropic, and Google SDKs side-by-side.
 
-→ **Full runnable version** → [`examples/stage-1/04-cross-provider/`](../examples/stage-1/04-cross-provider/) (parallel calls to all three SDKs + comparison table; missing keys are skipped gracefully)
+→ **Starter template** → [`examples/stage-1/04-cross-provider/`](../examples/stage-1/04-cross-provider/) (parallel calls to all three SDKs + comparison table; missing keys are skipped gracefully; illustrative, **not a chapter-length tutorial**)
 
 ### Exercise 5: Error Handling
 Trigger error conditions deliberately and write retry logic:
@@ -301,7 +301,7 @@ Trigger error conditions deliberately and write retry logic:
 
 This is foundational for Stage 3-7's production agent code.
 
-→ **Full runnable version** → [`examples/stage-1/05-error-handling/`](../examples/stage-1/05-error-handling/) (mock-based tests so you can verify the retry logic without unplugging your ethernet cable)
+→ **Starter template** → [`examples/stage-1/05-error-handling/`](../examples/stage-1/05-error-handling/) (mock-based tests so you can verify the retry logic without unplugging your ethernet cable; illustrative, **not a chapter-length tutorial**)
 
 ### Exercise 6: Local LLM
 **No API fees, runs on your machine**: use Ollama to pull a small model (recommend `llama3.2:3b` or `qwen2.5:3b`), call it via OpenAI-compatible API.

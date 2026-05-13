@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T03:45:13.798Z"
+syncedAt: "2026-05-13T14:43:12.237Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -26,6 +26,9 @@ order: 5
 > 🗺️ **Claude Code 屬於哪種 agent 型態**？→ [`resources/agent-paradigms.md`](/zh-tw/resources/agent-paradigms/) §Type 1（IDE-coupled）+ §Type 2（Terminal pair-programmer）；想看完整 5 種 paradigm 對照也從這份開始。
 
 > ⚠️ **想用本機 LLM？這個 stage 不是那條路線。** Claude Code 需要 Anthropic API / OAuth，不能直接改接 Ollama 或本機 endpoint。離線、隱私資料或不想用 API 額度時，請看 [`resources/cookbook.md` Recipe 6](/zh-tw/resources/cookbook/#6-本機-llm--cli-agent-快速-walkthrough)，用 OpenCode / goose / Aider / Hermes 這類支援 BYO LLM 的 CLI agent。
+
+> 📋 **本章組成**：6 個子章（5.1 基礎 / 5.2 MCP / 5.3 Skills / 5.4 Plugins / 5.5 Subagents / 5.6 Harness Internals），每個子章都有「學習目標 → 必修閱讀 → 動手練習 → 精選 Projects」 → 章末 自我檢查  
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md` §5](/zh-tw/resources/glossary/#5-claude-code-生態)
 
 ## Stack 一覽
 
@@ -224,6 +227,8 @@ pip install mcp
 - **練習：SKILL.md** — 寫一份 200 字的 skill，解決你日常工作中的某一件事。**step-by-step 怎麼做** → [`resources/cookbook.md` §1](/zh-tw/resources/cookbook/#1-寫你的第一個-skill)
 - **練習：SKILL with references** — 加一份 `references/` markdown 讓 skill 可以引用
 - **練習：SKILL eval** — 加 `evals/evals.json`，放 3-5 個自我測試
+
+> 📦 **本 repo 自帶 meta-example**：[`examples/stage-5/tool-calling-tutor/`](../examples/stage-5/tool-calling-tutor/) 是這個 stage 的對應 skill 範本——完整 frontmatter（含 trigger phrases + Do NOT use for）、3 份 `references/`、`evals/evals.json` 5 個 test case，**直接 fork 改成你自己的 skill**。雙重用途：(a) 學習者自用、卡在 tool calling 時讓它 auto-load 幫你 debug；(b) Stage 5 §5.3 SKILL.md 寫法的對照樣板。
 
 ### 精選 Projects
 
@@ -438,6 +443,163 @@ pip install mcp
 
 ---
 
+## 5.5 — Subagents（Claude Code 原生 multi-agent 機制）⭐ 2025 新功能
+
+到這裡為止你學了 MCP（工具層）/ Skills（行為層）/ Plugins（散佈層）。**Subagents 是 orchestration 層**——讓主 Claude session spawn 出有獨立 context 的子 agent、跑特定任務、回報結果。
+
+跟 Stage 4 的 framework-based multi-agent（LangGraph / CrewAI / AutoGen）對照：
+
+| 維度 | Framework path (Stage 4) | Claude Subagent path（本節） |
+|---|---|---|
+| 啟動方式 | `pip install crewai` + Python code | 寫一個 `.claude/agents/<name>.md` 即可 |
+| Runtime | 你自己的 Python process | Claude Code 內建 Task tool |
+| Context isolation | framework 自己管 | **天生** 各 subagent 獨立 window |
+| Provider lock-in | 中等（多 framework 支援 multi-LLM） | **強**（綁 Claude Code） |
+| 適合 | 跨 LLM provider 的 production system | 已 commit Claude Code 的工程團隊 |
+| 學習曲線 | 高（框架抽象 + async） | 低（寫 markdown）|
+
+### 學習目標
+
+- 講得出 subagent 跟 skill / MCP server 的差別（**subagent ≠ skill**：skill 是行為 prompt，subagent 是**另一個 Claude instance with isolated context**）
+- 寫一個 `.claude/agents/<name>.md` 自訂 subagent（frontmatter + system prompt + tool whitelist）
+- 從主 session 用 Task tool invoke subagent，觀察 context 隔離（parent 看不到 subagent 的中間 step、只看到最終 result）
+- 知道何時用 subagent（parallel research / large-context isolated task / specialized review），何時不用（小 query 用 skill 即可）
+
+### 必修閱讀
+
+1. [**Anthropic — Claude Code Subagents 官方文件**](https://docs.claude.com/en/docs/claude-code/sub-agents) ⭐ — `.claude/agents/` 結構、Task tool 介面、最佳實踐
+2. [**Anthropic — Building Effective Agents §orchestrator-workers**](https://www.anthropic.com/engineering/building-effective-agents) — Anthropic 自己對 orchestrator pattern 的看法（理論 + 實例）
+3. [**Anthropic Cookbook — customer_service_agent**](https://github.com/anthropics/anthropic-cookbook/tree/main/multimodal) — canonical multi-agent orchestration 範例（chapter-length 深度教材）
+
+### 動手練習
+
+- **練習：第一個 subagent** — 寫 `.claude/agents/code-reviewer.md`（前置 frontmatter 含 `description` 寫清楚何時 trigger、`tools` 限定 Read+Grep）+ system prompt 跑 staged diff review。從主 Claude session 跑 `/agents` list 確認載入、然後用 prompt「review staged changes」觀察 Task tool 怎麼 spawn subagent
+- **練習：parallel subagent crew** — 寫 3 個 subagent（`researcher.md` / `writer.md` / `critic.md`）做「研究某主題 → 寫 blog 草稿 → 審稿」pipeline、主 session 用 Task tool 串起來。**對照** [`examples/stage-4/02-multi-agent-roles/`](../examples/stage-4/02-multi-agent-roles/)（CrewAI 框架版同一個任務）、看「framework 路線 vs Claude 原生路線」程式碼差別
+- **練習：subagent 跟 skill 的決策練習** — 拿你自己日常工作流的 5 個常用任務、每個判斷該用 skill（行為層）還是 subagent（獨立 context 層）。寫成 1 頁 decision table
+
+> 📚 **想要 chapter-length 深入版**：subagent 進階 pattern（agent-as-skill composition、parallel-spawn、handoff between subagents）→ 看 [`wshobson/agents`](https://github.com/wshobson/agents) repo 整個結構 + [`obra/superpowers`](https://github.com/obra/superpowers) 的 subagent 用法。
+
+### 精選 Projects
+
+#### [anthropics/anthropic-cookbook](https://github.com/anthropics/anthropic-cookbook) ⭐ 官方 canonical reference
+
+| 欄位 | 內容 |
+|---|---|
+| 語言 | Python（Jupyter notebook） |
+| License | MIT |
+| 推薦度 | ⭐⭐⭐⭐⭐ |
+
+**教什麼**：Anthropic 官方多個 chapter-length multi-agent 範例。**`customer_service_agent`** 是 orchestrator-workers pattern 的 canonical reference；**`computer_use_demo`** 示範 Claude 操作螢幕的多 agent setup。
+
+**適合誰**：所有 Stage 5.5 完成後想看「production-grade 怎麼長」的人。本 stage 練習是 illustrative、cookbook 是 production reference。
+
+---
+
+#### [wshobson/agents](https://github.com/wshobson/agents) ⭐ subagent pattern canonical
+
+**教什麼**：把 subagent 跟 skill 組合成 production workflow 的 pattern collection。看 `.claude/agents/` 目錄結構、命名 convention、跨 agent handoff 寫法。
+
+**適合誰**：寫過自己 1-2 個 subagent 之後、想看「真實 team 怎麼用」的範本。
+
+---
+
+#### [obra/superpowers](https://github.com/obra/superpowers) ⭐ subagent + skill 整合 production
+
+**教什麼**：（在 Stage 5.3 已介紹）整套 production-ready skill collection。看裡面**怎麼把 skill 跟 subagent 混搭**——什麼任務歸 skill（行為 prompt）、什麼歸 subagent（獨立 context）。
+
+---
+
+#### [Anthropic Claude Code 官方 plugins 範本](https://github.com/anthropics/claude-plugins-official)
+
+**教什麼**：（在 Stage 5.4 已介紹）官方 plugin marketplace。**注意每個 plugin 是怎麼把 subagent + skill + slash command 打包**——subagent definition 通常在 `agents/` 子目錄裡。
+
+---
+
+> 💡 **Subagent 雖然強、不要無腦用**：每個 subagent invoke 都是一個新的 Claude inference call、有 token cost + latency。**簡單 query 用 skill（行為 prompt）即可、不必 spawn subagent**。Subagent 的甜蜜點是：(1) 任務 context 大、會吃光主 session 的 window（譬如 read 整個 codebase），(2) 任務跟主 session 邏輯獨立、隔離 context 有助 main flow，(3) 多 subagent 平行（research / write / critic）能省 wall-clock 時間。
+
+---
+
+## 5.6 — Harness Internals（agent runtime 的內部結構）⭐ Track B 必看
+
+到 5.5 為止你會**用** Subagent 了，但**沒看過 Claude Code 內部到底怎麼跑 agent loop**。本節打開引擎蓋——這節是 Track B（Agent Builder）的高潮章節：production agent 不是「LLM + tool」那麼簡單，中間還有一整套 runtime 層處理 dispatch / context / safety / retry / telemetry。
+
+### 學習目標
+
+完成本節後你會：
+- 講得出「agent harness 由哪些部分組成」（loop / tool registry / context manager / safety layer / telemetry）並對應到 Claude Code 哪裡
+- 看得懂 `claude-agent-sdk-python` source 的 main loop（不是逐行、是抓得到主幹）
+- 講得清楚 **framework（Stage 4）vs harness 差在哪**：framework 規範 **API**（你呼叫的介面），harness 規範 **runtime**（怎麼跑、怎麼 recovery、怎麼觀測）
+
+### 為什麼這節在這裡（不在 Stage 4 / Stage 7）
+
+- **Stage 4** 教你「用」framework（LangGraph / CrewAI etc.）——抽象層之上的視角
+- **Stage 7** 教你 production 的 eval / observability / deploy——抽象層之下的視角
+- **本節** 在中間：framework 之下、deploy 之上，**runtime 內部解剖**。Claude Code 本身就是一個高完成度的 reference harness，所以放在 Stage 5
+
+### 📚 必修閱讀
+
+1. [**Anthropic — Building Effective Agents**](https://www.anthropic.com/research/building-effective-agents) ⭐ — orchestrator / worker / handoff / reflection 等 pattern 的 canonical reference
+2. [**anthropics/claude-agent-sdk-python**](https://github.com/anthropics/claude-agent-sdk-python) — Claude Code 官方 Python SDK 的 source；**重點 file：`src/claude_agent_sdk/_internal/client.py`**（main loop 在這）+ `query.py`（單回合 API）
+3. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering) ⭐（★ 780+） — community curation：harness pattern / eval / memory / observability 整合
+4. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) — 中文圈最完整的 Claude Code 內部解讀
+
+### 🛠 動手練習 — 解剖 agent loop（閱讀題，非寫 code）
+
+這節**不是寫 code 練習，是閱讀練習**——production harness 不是抄 200 行範例能學的，是抄完還看不懂為什麼這樣寫，所以本練習要求你開 source、自己 trace。
+
+**步驟**：
+1. **clone**：`git clone https://github.com/anthropics/claude-agent-sdk-python`
+2. **定位 agent loop**：找出 `_internal/client.py` 裡實際發出 LLM call、收 tool_use response、dispatch 給 tool runner 的核心 loop。提示：找 `async def` 跟 `tool_use_id` 關鍵字
+3. **標出 5 個關鍵元件**在 source 裡的位置（檔名 + 行號）：
+   - (a) **Tool call dispatch**：LLM 回 tool_use → 怎麼 route 到對應 tool 實作
+   - (b) **Context append**：tool result 怎麼寫回 message history、變成下一輪的 input
+   - (c) **Safety check**：tool 執行前有沒有 permission gate / sandboxing
+   - (d) **Retry / error path**：tool fail 時怎麼處理（直接拋 exception 還是 LLM 自己看 error 反思）
+   - (e) **Telemetry hook**：metrics / logging / token counting 接在哪
+4. **寫一段 80-150 字摘要**：「Claude Code 的 agent loop 跟你 Stage 3 練習 3 from-scratch ReAct 差在哪」。重點不是「Claude Code 比較複雜」這種廢話，是**講得出多了哪些東西、為什麼那些是 production-grade 必須**
+
+**交付物**：一段筆記（寫在自己的 obsidian / notion / `.md` 都行），不必交。但**講不出來你就還沒懂**——這是進 Stage 7 production deploy 之前的必要 mental model。
+
+→ **基礎 starter 範本**：本練習**無 examples folder**——是 source-reading exercise，非 code-writing exercise。illustrative，深度教學見上方 📚。
+
+### 🎯 精選 Projects
+
+#### [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐⭐⭐⭐⭐
+
+**適合誰**：所有 Track B 學習者、想搞清楚「Claude Code 內部怎麼跑」的工程師。
+
+**教什麼**：canonical Python harness。本練習就是讀這個 repo。也是後面 Stage 7 deploy 時你會 import 的 SDK。
+
+---
+
+#### [ZhangHanDong/harness-engineering-from-cc-to-ai-coding](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) ⭐⭐⭐⭐
+
+**適合誰**：中文 reader 想看「為什麼 Claude Code 這樣設計」的高層 narrative，配合上面 SDK source 一起讀。
+
+**教什麼**：中文圈最完整的 Claude Code 內部解讀，從 harness 概念 → CC 實作 → 跟其他 AI coding tool 的對比都有。**配合 SDK source 看，互補**——一個告訴你「怎麼做」、一個告訴你「為什麼這麼做」。
+
+---
+
+#### [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) ⭐⭐⭐⭐
+
+**適合誰**：Stage 5.6 讀完想擴大視野的人。
+
+**教什麼**：community curation：30+ harness / eval / memory / observability / MCP 相關 project。**廣度資源庫，不是教程**——挑你感興趣的 sub-topic 鑽進去。
+
+---
+
+#### [wshobson/agents](https://github.com/wshobson/agents)（在 5.5 已介紹、本節 cross-ref）
+
+**適合誰**：寫完 §5.5 自己的 subagent 後想看更多 production-grade subagent 設計範本的人。
+
+**教什麼**：50+ 個 subagent definition 的 ergonomic 設計 — 包括 description 怎麼寫、tool list 怎麼選、system prompt 怎麼分層。**讀 source 比讀文件學得多**——本節練習做完應該已經有能力看懂為什麼某個 subagent 這樣寫。
+
+---
+
+> 💡 **本節跟 Stage 7 的差別**：本節學「Claude Code 這個 harness 怎麼跑」（具體 reference）；Stage 7 學「production harness 一般要有什麼」（抽象 pattern）。先具體後抽象，看完本節再進 Stage 7 會輕鬆很多。
+
+---
+
 ## ✅ 進入 Stage 6 前的自我檢查
 
 你能不能：
@@ -446,7 +608,9 @@ pip install mcp
 - [ ] 用 Python 寫自己的 MCP server，提供 1 個能用的 tool
 - [ ] 寫一份能在特定觸發詞自動載入的 `SKILL.md`
 - [ ] 把 skill 打包成 plugin，再用 `marketplace.json` 發佈
-- [ ] 從角色分工說出 MCP / Skills / Plugins / SDK 各自的位置
+- [ ] **寫過 `.claude/agents/` 自訂 subagent 並從 Task tool invoke 過**
+- [ ] **讀過 `claude-agent-sdk-python` 的 main loop、能講出 5 個關鍵元件位置**（§5.6 練習）
+- [ ] 從角色分工說出 MCP / Skills / Plugins / Subagents / SDK 各自的位置
 
 如果都可以 → 前往 [Stage 6 — Memory & RAG](/zh-tw/stages/06-memory-rag/)。
 

@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T03:45:13.798Z"
+syncedAt: "2026-05-13T14:43:12.237Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a1-cli-intro"
@@ -42,7 +42,7 @@ You should already:
 3. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — official install
 4. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex install + auth
 
-## 🛠 Hands-on Exercises (do them, not just read)
+## 🛠 Hands-on Exercises (foundational, illustrative)
 
 ### Exercise CLI-1: Install + first run
 Follow your chosen CLI's quickstart. **Don't write "hello world"** — give it a real task you were going to do today, e.g. "organize my Downloads folder, move all PDFs to ~/Documents/PDFs". Watch how it decomposes the task and what confirmations it asks for.

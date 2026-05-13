@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T03:45:13.798Z"
+syncedAt: "2026-05-13T14:43:12.237Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
@@ -115,7 +115,7 @@ Advanced chunking questions:
 - Chunk size, overlap, top-k, and reranking affect each other. Do not inspect only one parameter.
 - Think about mixed data types: if your RAG source includes image-heavy PDFs and meeting transcripts, how should the chunking strategy change?
 
-## 🛠 Hands-on Exercises (do them, not just read)
+## 🛠 Hands-on Exercises (foundational, illustrative)
 
 ### Exercise 1: Embeddings
 Embed 100 sentences, find nearest neighbors of one query. Build intuition for what "vector distance" means.

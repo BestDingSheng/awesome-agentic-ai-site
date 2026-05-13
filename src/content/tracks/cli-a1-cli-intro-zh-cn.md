@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T03:45:13.798Z"
+syncedAt: "2026-05-13T14:43:12.237Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a1-cli-intro"
@@ -44,7 +44,7 @@ order: 1
 3. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — 官方安装指南
 4. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex 安装跟认证流程
 
-## 🛠 动手练习（必跑、不是看就好）
+## 🛠 动手练习（基础 illustrative 练习）
 
 ### 动手练习 CLI-1：安装 + 第一次跑
 照你选的 CLI 的 quickstart 安装。第一个 prompt 不要写「hello world」——直接给它一个你今天本来就要做的事，譬如：「整理我 Downloads 数据夹，把 PDF 全部 move 到 ~/Documents/PDFs」。观察它怎么分解任务、要哪些确认。

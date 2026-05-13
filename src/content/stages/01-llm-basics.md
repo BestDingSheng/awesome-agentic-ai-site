@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T03:45:13.798Z"
+syncedAt: "2026-05-13T14:43:12.237Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -20,6 +20,9 @@ order: 1
 > 👋 **從 [Stage 0](/zh-tw/stages/00-foundations/) 來的**：好，環境已經夠用——這 5-8 小時：第一次成功呼叫 Claude / GPT / Gemini API、搞懂 token / context window / temperature 怎麼影響輸出、用 per-token 計算實際成本。**直接從這裡開始的**：先確認你能跑 Python script、有任一家供應商的 API key——做不到請先回 [Stage 0](/zh-tw/stages/00-foundations/)。
 
 > 💡 **看不懂某個詞**（LLM / token / context window / temperature / RAG / agent⋯）→ 先翻 [`resources/glossary.md`](/zh-tw/resources/glossary/) 查 30 秒再回來。
+
+> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 →〔可選 · 概念地圖〕→ 動手練習 → 精選 Projects → 自我檢查  
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md`](/zh-tw/resources/glossary/)（每 stage 用到的術語都收在那裡）
 
 ## 📌 學習目標
 
@@ -45,7 +48,7 @@ order: 1
 3. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face 的入門
 4. [**Anthropic API Pricing**](https://www.anthropic.com/pricing#anthropic-api) — 把計價表看完，算一下 1k input + 1k output 的成本
 
-## 🛠 動手練習（必做練習，不是看過就好）
+## 🛠 動手練習（基礎 illustrative 練習）
 
 > 🦙 **本 stage 默認用 Ollama**（成本考量、本機 `gemma4:e4b` 跑得動、$0/run）。每個練習都有 Path A（Ollama、默認）+ Path B（Anthropic、選擇性、想看 cloud 高品質時用）。完整 3 路 trade-off 見 [`examples/README.md`](../examples/README.md#三條路徑--默認用-ollama成本考量)。
 >
@@ -340,7 +343,7 @@ single: input=14 output=48 → $0.000254
 ### 練習 4：Cross-Provider 比較
 同一個 prompt 同時送給 Claude、GPT、Gemini，比較三家的回應差異。觀察「同一句話為什麼產生不同答案」——回答風格、長度、判斷取捨都不一樣。建議用 OpenAI、Anthropic、Google 三家 SDK 各一段程式呼叫。
 
-→ **完整可跑版** → [`examples/stage-1/04-cross-provider/`](../examples/stage-1/04-cross-provider/)（含三家 SDK 並行呼叫 + table 對照、缺哪家 key 就 skip 哪家）
+→ **基礎 starter 範本** → [`examples/stage-1/04-cross-provider/`](../examples/stage-1/04-cross-provider/)（含三家 SDK 並行呼叫 + table 對照、缺哪家 key 就 skip 哪家；illustrative，**不是 chapter-length 完整教程**）
 
 ### 練習 5：Error Handling
 故意觸發錯誤情境並寫 retry：
@@ -350,7 +353,7 @@ single: input=14 output=48 → $0.000254
 
 這是後面 Stage 3-7 寫 production agent 一定會用到的基礎。
 
-→ **完整可跑版** → [`examples/stage-1/05-error-handling/`](../examples/stage-1/05-error-handling/)（含 mock-based test、不用真的斷網就能驗證 retry 邏輯）
+→ **基礎 starter 範本** → [`examples/stage-1/05-error-handling/`](../examples/stage-1/05-error-handling/)（含 mock-based test、不用真的斷網就能驗證 retry 邏輯；illustrative，**不是 chapter-length 完整教程**）
 
 ### 練習 6：Local LLM
 **不付 API 費用、跑在自己電腦上**：用 Ollama 下載一個小模型（建議 `llama3.2:3b` 或 `qwen2.5:3b`），用 OpenAI-相容 API 呼叫它。
@@ -406,6 +409,30 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 </details>
 
 ## 🎯 精選 Projects
+
+按用途分 5 類。**先看分類表挑入口、再點下面 detail block 看適合誰 / 教什麼**：
+
+| 分類 | Project | 推薦 | 為什麼推薦 |
+|---|---|---|---|
+| **官方 cookbook / 入門** | [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook) | ⭐⭐⭐⭐⭐ | Claude API 全功能 notebook、tool use / batch / prompt cache 都有 |
+| | [Anthropic Courses](https://github.com/anthropics/courses) | ⭐⭐⭐⭐⭐ | Anthropic 自家完整 5 課程、prompt engineering 章節最強 |
+| | [OpenAI Cookbook](https://github.com/openai/openai-cookbook) | ⭐⭐⭐⭐⭐ | OpenAI 全功能 notebook、本 stage 多個練習有對應實作 |
+| | [Anthropic Claude API Quickstart](https://docs.anthropic.com/en/docs/get-started) | ⭐⭐⭐⭐ | 官方 5 分鐘 quickstart |
+| **中文教材**（章節式） | [datawhalechina/happy-llm](https://github.com/datawhalechina/happy-llm) | ⭐⭐⭐⭐⭐ | LLM 原理 + 應用、中文最完整入門 |
+| | [datawhalechina/llm-universe](https://github.com/datawhalechina/llm-universe) | ⭐⭐⭐⭐⭐ | LLM 應用開發實戰、章節式 |
+| | [datawhalechina/llm-cookbook](https://github.com/datawhalechina/llm-cookbook) | ⭐⭐⭐⭐ | 吳恩達 LLM 課程中文翻譯 |
+| | [jingyaogong/minimind](https://github.com/jingyaogong/minimind) | ⭐⭐⭐⭐ | 從零訓練 mini LLM、26M 參數 |
+| **英文 course**（系統式） | [HuggingFace — LLM Course](https://huggingface.co/learn/llm-course) | ⭐⭐⭐⭐⭐ | 含 transformer 原理 + 應用 |
+| | [LangChain Academy](https://academy.langchain.com/) | ⭐⭐⭐⭐ | LangChain 官方課程、免費 |
+| **本地端執行**（不付 API 費）| [ollama/ollama](https://github.com/ollama/ollama) | ⭐⭐⭐⭐⭐ | 本 repo Path A 默認、OpenAI-compatible |
+| | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | ⭐⭐⭐⭐⭐ | C++ inference engine、Ollama 底層 |
+| | [mudler/LocalAI](https://github.com/mudler/LocalAI) | ⭐⭐⭐⭐ | self-hosted OpenAI-compat API server |
+| | [ml-explore/mlx](https://github.com/ml-explore/mlx) | ⭐⭐⭐⭐ | Apple Silicon 專用、Metal 加速 |
+| **從零打造**（理解原理）| [karpathy — Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY) | ⭐⭐⭐⭐⭐ | Karpathy 2h video、最清楚的 transformer 教學 |
+| | [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | ⭐⭐⭐⭐⭐ | 書搭 code、從零實作 GPT-2 |
+| | [karpathy/LLM101n](https://github.com/karpathy/LLM101n) | ⭐⭐ | ⚠️ 已封存（大綱、未完）、留作 reference |
+
+---
 
 ### [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
 

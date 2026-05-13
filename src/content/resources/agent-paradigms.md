@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/agent-paradigms.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T03:45:13.798Z"
+syncedAt: "2026-05-13T14:43:12.237Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "agent-paradigms"
@@ -142,6 +142,27 @@ baseSlug: "agent-paradigms"
 
 **適合**：隱私敏感資料；offline-first；家用 AI box（smart home）；physical AI（robot）；長期持有、不想付 API recurring cost。
 **不適合**：不會 Linux / NVIDIA 環境；需要前沿 model（GPT-5 / Claude Opus）；不想花 €549。
+
+---
+
+## Subagent — 「在 agent runtime 裡再 spawn agent」
+
+上面 5 個 type 講的是 **agent 跑在哪裡**（IDE / Terminal / 任意 CLI / Cloud / Edge）。**Subagent** 是另一個維度：**一個 agent 在執行任務時、spawn 出另一個 agent 跑子任務**。
+
+主要兩種實作路徑：
+
+| 路徑 | 怎麼啟動 | 代表 |
+|---|---|---|
+| **Framework-based**（Stage 4） | `pip install langgraph / crewai / autogen` + Python orchestration code | LangGraph / CrewAI / AutoGen / Swarm / Strands |
+| **Claude Code 原生**（Stage 5.5） | 寫 `.claude/agents/<name>.md`、主 session 用 Task tool invoke | Claude Code subagent + Claude Agent SDK |
+
+**差別在 runtime ownership**：
+- Framework path：你自己的 Python process 跑 orchestrator、各 sub-agent 是程式內的物件
+- Claude path：Claude Code 自己 spawn 新 agent instance、parent / child 共用 Claude runtime、parent 只看到 child 的最終 result（context 自動隔離）
+
+**選哪個**：要跨 LLM provider（GPT + Claude + Gemini 混用）或要把 multi-agent 包進別的應用程式 → framework path。已 commit Claude Code、只在 Claude 生態 → subagent path（少很多 boilerplate）。
+
+完整對照表見 [Stage 5.5 開頭](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制)。
 
 ---
 

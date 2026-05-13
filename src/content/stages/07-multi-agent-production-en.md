@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T03:45:13.798Z"
+syncedAt: "2026-05-13T14:43:12.237Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -39,7 +39,7 @@ The final stage. You're moving from "I can build agents" to "I can run them in p
 5. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering) (* 780+) — agent harness toolkit / patterns / eval / memory / MCP / observability all in one. **Frameworks wrap LLMs into agents; harnesses wrap agents into production systems** — that is exactly what this stage is about.
 6. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) (* 1.3k+) — harness design lessons from reading Claude Code source (Chinese)
 
-## 🛠 Hands-on Exercises (do them, not just read)
+## 🛠 Hands-on Exercises (foundational, illustrative)
 
 ### Exercise 1: Multi-Agent debate
 Two agents debate a topic (e.g. "Python vs Rust for backend"), a third agent judges. Watch for convergence vs divergence patterns.

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/00-foundations.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T03:45:13.798Z"
+syncedAt: "2026-05-13T14:43:12.237Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "00-foundations"
@@ -19,6 +19,9 @@ order: 0
 
 > 💡 **看不懂某個詞**？翻 [`resources/glossary.md`](/zh-tw/resources/glossary/) 查 30 秒再回來。Stage 0 還不會碰太多 jargon，但接下來幾 stage 會。
 > 🗺️ **想先看 agent 的全景地圖**（為什麼有的 agent 在 terminal、有的在 Telegram、有的在 Jetson 板子）？→ [`resources/agent-paradigms.md`](/zh-tw/resources/agent-paradigms/)（5 種 agent 型態，10 min 讀完）
+
+> 📋 **本章組成**：跳過條件檢查 → 環境設定步驟 → 進入 Stage 1（foundation stage，無「學習目標 / 進入條件」框架）  
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md`](/zh-tw/resources/glossary/)（每 stage 用到的術語都收在那裡）
 
 ## 何時可以跳過這個階段
 
