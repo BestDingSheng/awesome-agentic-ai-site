@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T14:43:12.237Z"
+syncedAt: "2026-05-14T03:43:31.962Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -20,8 +20,100 @@ order: 3
 > 💡 用語密集（agent / tool use / function calling / ReAct / structured output⋯）→ 翻 [`resources/glossary.md` §2](/zh-tw/resources/glossary/#2-agent--工具使用)。
 > 🗺️ **進 Track A（CLI Power User）還是 Track B（Agent Builder）前**，先看 [`resources/agent-paradigms.md`](/zh-tw/resources/agent-paradigms/) — 5 種 agent 型態的全景圖，幫你選軌。
 
-> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 →〔可選 · 概念地圖〕→ 動手練習（含反思迴圈練習 7）→ 精選 Projects → 自我檢查  
+> 📋 **本章組成**：〔開場框景：AI/LLM/Agent 三者關係〕→ 學習目標 → 進入條件 → 必修閱讀 →〔可選 · 概念地圖〕→ 動手練習 → 反思（概念 + 路由）→ 精選 Projects → 自我檢查  
 > 🔑 **關鍵名詞**：見 [`resources/glossary.md` §2](/zh-tw/resources/glossary/#2-agent--工具使用)
+
+## 🤖 開始前：AI / LLM / Agent — 三者怎麼分？
+
+> **本節是「開場框景」（由大到小 pedagogy）**：先把學習者腦中的 mental hierarchy 建好，再進 §學習目標、§練習。這節只做**簡短說明 + 對照**，深度入門讀物已經是中英文圈各自的 canonical reference（見下方資源）。**不是重寫 hello-agents Ch1。**
+
+### 一張階層圖先建立認知
+
+```
+AI (Artificial Intelligence、人工智慧)
+ └── ML (Machine Learning、機器學習) ─ 用資料學
+      └── DL (Deep Learning、深度學習) ─ 用神經網路
+           └── LLM (Large Language Model、大型語言模型)
+                                    └─ 文字 in、文字 out 的超大神經網路
+
+   ┌──────────────────────────────────────────────────────────┐
+   │  Agent (智能體 / 代理人) = 跨層 system，把 LLM 包進          │
+   │  工具呼叫迴圈                                              │
+   │         = LLM（當大腦）+ Tools（手腳）+ Loop（心跳）       │
+   └──────────────────────────────────────────────────────────┘
+                          ▲
+                          │ 用 LLM 當其中一個元件
+                          │（不是 LLM 的「子類型」）
+```
+
+→ **「Agent」不是「比 LLM 更厲害的模型」，也不是 LLM 樹狀分類底下的一個分支**。Agent 是個**跨層抽象的系統**，把 LLM 當作其中一個元件來用。Cursor / Claude Code / Hermes Agent 內部都還是同一批 LLM（Claude / GPT / Gemini）—— 差別是怎麼把 LLM 包進工具呼叫迴圈裡。
+
+### 三行對照（最快版）
+
+| 詞 | 是什麼 | 你給它什麼、它回什麼 | 例子 |
+|---|---|---|---|
+| **AI** | 整個學科 | 太抽象、不能直接「用」 | ML、DL、LLM、RL 都是 AI 子領域 |
+| **LLM** | 把文字映射到文字的單一模型 | 給 prompt → 回字 | GPT-5、Claude、Llama 3、Qwen |
+| **Agent** | LLM + 工具 + loop 的**系統** | 給任務 → 自己跑多步驟達成 | Cursor、Claude Code、Hermes Agent |
+
+**一句 punchline**：LLM 是個會說話的腦袋；agent 是大腦 + 手腳 + 完整工作流程的 worker。
+
+### Agent 的 3 個**最小必要**部件（這就是 agent vs LLM 的核心差別）
+
+| 部件 | 角色 | 在哪學 |
+|---|---|---|
+| 🧠 **LLM**（brain） | 推理 / 決策 / 自然語言 | Stage 1 已學 |
+| 🔧 **Tools**（hands） | 對世界做事（call API、跑 code、查資料） | **本 stage** |
+| 🔁 **Loop**（heartbeat） | 想 → 做 → 看結果 → 再想（ReAct） | **本 stage 練習 3** |
+
+→ **這 3 個合在一起就是 agent 的最低定義**。沒有 tools / loop，那只是「LLM + 你寫 retry」，不算 agent。
+
+### Agent 的經典範式（thinking patterns）
+
+學完最小 3 部件後、下一層是「**LLM 怎麼想**」。hello-agents Ch4「智能體經典範式構建」整章在講這個。簡短對照：
+
+| 範式 | 是什麼 | 在哪學 |
+|---|---|---|
+| **CoT**（Chain-of-Thought、思維鏈） | LLM 寫出推理過程再給答案、不只給結論——是個 **prompting 技巧**、不是 agent 結構 | **Stage 2** §學習目標 + §動手練習（推理任務 CoT） |
+| **ReAct**（Reasoning + Acting） | 在 Loop 裡套 CoT：Thought（想）→ Action（呼叫 tool）→ Observation（看結果）→ Thought ...，是 **Loop 部件最常見的實作** | **本 stage §練習 3** + [ReAct paper (Yao 2022)](https://arxiv.org/abs/2210.03629) |
+| **Reflection** | 跑完一輪後讓 LLM 批改自己、根據 feedback 重答 | **本 stage §反思**（concept + 路由） |
+| **Planning**（任務分解） | 把大任務拆成子任務、可分給多個 agent 各做 | **Stage 4** §什麼是 multi-agent framework |
+
+→ 這些範式都是「**LLM 自我引導**」的不同變化、堆疊在 3 部件（LLM + Tools + Loop）之上。**「Agent 是什麼」用 3 部件就講完了；「Agent 怎麼想」需要這 4 個範式才講得完整**。
+
+> 💡 **延伸組件**（agent 變強的 infrastructure、但**不是「是不是 agent」的判準**）：
+> - **記憶 / RAG**（agent 能跨對話記住東西）→ **Stage 6** 完整教
+> - **反思 / self-critique**（agent 看自己答案、發現問題、回頭改）→ 基本版見 **本 stage §反思**（concept + paper routing）；帶持久 memory 的進階版見 **Stage 6 §Reflexion with Memory**
+> - **Production harness**（telemetry / safety / retry / orchestration）→ **Stage 5 §5.6**
+>
+> 這些都是 advanced pattern——Stage 3 教最小可行 agent、後面 stage 教怎麼變強。
+
+### 📚 深度入門資源（中英文 / 影片優先）
+
+**🀄 中文**：
+1. [**李宏毅 — 生成式 AI 導論（2024 春台大課程）**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — 中文圈最高品質的 AI / LLM / agent 學術級導論。每集 30-60 分鐘、台大授課、官方頁含投影片 + YouTube 連結。LLM / agent 概念都涵蓋。最新整合版見 [**GenAI-ML 2025 秋**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)、YouTube 主頻道 [**@HungyiLeeNTU**](https://www.youtube.com/@HungyiLeeNTU)
+2. [**datawhalechina/hello-agents** Ch1「初識智能體」](https://github.com/datawhalechina/hello-agents) ⭐ — 文字版最完整中文 agent 導論
+3. [**datawhalechina/hello-agents** Ch2「智能體發展史」](https://github.com/datawhalechina/hello-agents) — BabyAGI → AutoGPT → Claude Code 演化脈絡
+4. [**3Blue1Brown 中文配音版**](https://www.youtube.com/@3Blue1BrownCN) — LLM / Transformer 視覺化解說（中文配音）
+
+**🇺🇸 English**：
+1. [**Andrej Karpathy — "Intro to Large Language Models"**](https://www.youtube.com/watch?v=zjkBMFhNj_g) ⭐⭐⭐（1hr）— LLM 從零開始 visual intro（ex-OpenAI / ex-Tesla AI Director、英文圈最重視的 LLM 入門影片）
+2. [**Andrej Karpathy — "Let's build GPT from scratch"**](https://www.youtube.com/watch?v=kCc8FmEb1nY) ⭐⭐（2hr）— 想看 LLM 內部到代碼級的人
+3. [**3Blue1Brown — "But what is a Transformer?"**](https://www.youtube.com/watch?v=wjZofJX0v4M) ⭐⭐⭐ — visual 解釋 LLM，英文圈最被推薦的視覺化教材
+4. [**Lilian Weng — "LLM Powered Autonomous Agents"**](https://lilianweng.github.io/posts/2023-06-23-agent/) ⭐⭐⭐ — canonical 1-page agent anatomy（Planning / Memory / Tool use / Action）、英文圈被引用最多的 agent 解剖文
+5. [**Anthropic — "Building Effective Agents"**](https://www.anthropic.com/research/building-effective-agents) ⭐ — Anthropic 觀點：何時該用 agent、何時 workflow 就夠
+6. [**Chip Huyen — "Agents"**](https://huyenchip.com/2025/01/07/agents.html) — practitioner 視角，full chapter 級深度
+
+**選讀 / 進階補充**：
+- [**Simon Willison — "I think 'agent' may finally have a widely enough agreed upon definition"**](https://simonwillison.net/2025/Sep/18/agents/) — working definition：「agent runs tools in a loop to achieve a goal」、含對照 OpenAI 等不同定義的爭議（**給已有基礎的人**）
+- [**DeepLearning.AI Short Courses**](https://www.deeplearning.ai/short-courses/)：「AI Agents in LangGraph」/「Multi AI Agent Systems with crewAI」/「Functions, Tools and Agents with LangChain」（**API 多數是 2023-2024 舊版**、看概念為主、寫 code 對照官方最新 docs）
+- [**liyupi/ai-guide**](https://github.com/liyupi/ai-guide) — 中文圈最大 AI 資源**聚合**型 repo（不是原創教材、適合廣度延伸）
+
+> 📌 **資源清單上限規則**：本 section 是 router 不是 tutorial。主清單合計上限 **10 條**（中 4 + 英 6），要加新資源前**必須先移除一條**。選讀區不計入主清單上限。
+
+> 💡 **推薦學習路徑**：先看 1-2 個影片（中：李宏毅、英：Karpathy / 3Blue1Brown）建立 visual mental model → 再讀 1-2 個 blog（Lilian Weng / Anthropic）拿到 working definition → 再回本 stage 動手練習。**不必全部看完**，這是 reference library 不是 reading list。
+
+---
 
 這是整個學習路線最關鍵的一站。**你建過一個 agent 才算真懂 agent**——本 stage 的基礎練習建議至少實際手寫一次、再依需求往 [hello-agents](https://github.com/datawhalechina/hello-agents) 或本 stage 精選 projects 找深度教材。
 
@@ -52,7 +144,7 @@ order: 3
 
 > 🦙 **本 stage 默認用 Ollama qwen2.5:3b**（成本考量、tool-use 支援穩定）。Stage 3 進到 tool calling / ReAct loop、`gemma4:e4b` 不夠、改用 `qwen2.5:3b`（1.9 GB、`ollama pull qwen2.5:3b` 即裝）。每個練習都有 Path A（Ollama、默認）+ Path B（Anthropic、選擇性、想看 cloud 高品質 tool-use 時用）。
 >
-> 💰 **Stage 3 預算估算**（全 6 練習、tool use 較重）：**全本機 = $0**、**全 haiku ≈ $0.50**、**全 sonnet ≈ $1.50**。ReAct loop 練習單次 4-6 tool calls × 5 練習 × 5 reps ≈ $0.80 haiku。完整預算見 [`examples/README.md#推薦-llm-清單`](../examples/README.md#推薦-llm-清單本機--clouduser-視角)。
+> 💰 **Stage 3 預算估算**（全 6 練習、tool use 較重）：**全本機 = $0**、**全 haiku ≈ $0.50**、**全 sonnet ≈ $1.50**。ReAct loop 練習單次 4-6 tool calls × 5 練習 × 5 reps ≈ $0.80 haiku。完整預算見 [`examples/README.md#推薦-llm-清單`](../examples/README.md#推薦-llm-清單)。
 >
 > 完整 3 路 trade-off 見 [`examples/README.md`](../examples/README.md#三條路徑--默認用-ollama成本考量)。
 >
@@ -353,272 +445,59 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 
 → **基礎 starter 範本** → [`examples/stage-3/06-schema-design/`](../examples/stage-3/06-schema-design/)（含 bad schema vs good schema 兩個版本對照；illustrative，**不是 chapter-length 完整教程**——深度章節見 stage 開頭 📚 hello-agents callout）
 
-### 練習 7：反思迴圈（Reflexion 模式）⭐ Track B 必看
+## 🪞 反思（Reflexion / Self-Refine）— 概念 + 路由
 
-**前置概念**：練習 5 的 error handling 是「LLM 出錯 → 你（外部）catch + retry」；**反思**是「LLM 觀察自己出錯 → 自己改」。差別是 agency 在哪一邊——這是 production agent（Cursor / Cline / Claude Code）每天都在跑的迴圈。
+> **本節是 concept + routing、不是練習**。沒有 verified working solution、不掛「練習 N」label、不給 success criteria——遵守本 repo「沒驗證答案不寫練習、頂多 routing」原則。想動手做？直接讀下方 paper / project。
 
-**為什麼這在 Stage 3**：你已經會 ReAct（練習 3）。反思就是 ReAct 的 sibling pattern——同樣是 LLM 自我引導的多輪迴圈，只是「下一輪要做什麼」從「呼叫 tool」換成「批改自己」。
+**反思是什麼**：練習 5 的 error handling 是「LLM 出錯 → 你（外部）catch + retry」；**反思**是「LLM 觀察自己出錯 → 自己改」。差別是 agency 在哪一邊——這是 production agent（Cursor / Cline / Claude Code）每天都在跑的迴圈。
 
-**題目**：寫一個雙 LLM call loop —
+**為什麼這節在 Stage 3 而不是 Stage 6**：反思在學術（Reflexion paper Shinn 2023、Self-Refine Madaan 2023）跟 production（Cursor / Claude Code）上都被歸類在 **planning / reasoning loop** 機制——是 ReAct（練習 3）的 sibling pattern，**不是 memory pattern**。同樣是 LLM 自我引導的多輪迴圈，只是「下一輪要做什麼」從「呼叫 tool」換成「批改自己」。
 
-1. **Actor call**：拿 user prompt 產生答案（system prompt = 「你是 X，回答這個問題」）
-2. **Critic call**：拿 Actor 上一回合答案 + 原 prompt，回 JSON `{"ok": bool, "feedback": str}`（system prompt = 「你是嚴格的審稿人，找出答案的問題；沒問題就回 ok=true、有問題就回 ok=false 加具體 feedback」）
-3. **Loop**：若 `ok=false` → Actor 拿 critic feedback 作為新 context 再答一次（最多 3 輪），直到 `ok=true` 或達上限
+**進階版（帶 persistent memory 的 Reflexion 完整版）→ [Stage 6 §進階：Reflexion with Memory](/zh-tw/stages/06-memory-rag/#-進階反思帶持久記憶的-reflexion-完整版-track-b-選讀)**——當反思要跨 session、把過去失敗存起來當下一輪 context，這個版本才真的需要 memory 層。
 
-**Success criteria**：
-- Actor 第一次刻意給「3 + 4 = 6」這種錯答（用 prompt 誘導），3 輪內被改正到 7
-- Critic feedback 是有意義的 text，不是「ok」「good」這種敷衍
-- Loop 在 `ok=true` 時提早結束，不是硬跑 3 輪
+### 一張對照圖
 
-<details>
-<summary>👉 點開看核心 loop pseudo-code（Path A Ollama + Path B Anthropic 共用結構）</summary>
+| Pattern | 形式 | 需要 memory？ | 在哪學 |
+|---|---|---|---|
+| **Error handling**（練習 5） | 外部 catch + retry | 不需 | **本 stage 練習 5** |
+| **ReAct loop**（練習 3） | LLM → tool → 結果 → LLM | 不需 | **本 stage 練習 3** |
+| **基本反思 / Self-Refine** | Actor → Critic → Actor，single session | 不需 | **本節 routing（下方）** |
+| **完整 Reflexion**（含 episodic memory） | 上面 + 把失敗反思存起來、跨 session 累積 | **需要** | **Stage 6 §進階：Reflexion with Memory** |
 
-```python
-def reflexion_loop(user_prompt, max_rounds=3):
-    answer = actor_call(user_prompt, feedback=None)
-    for i in range(max_rounds):
-        critique = critic_call(user_prompt, answer)
-        if critique["ok"]:
-            return answer  # critic 通過、提早收斂
-        answer = actor_call(user_prompt, feedback=critique["feedback"])
-    return answer  # 跑滿上限、回最後一版
+### 📚 想動手 / 想深入？直接讀這些
 
-# actor_call / critic_call：用練習 1-3 同一個 client、改 system prompt 而已
-# critic_call 要求 JSON 輸出 → 用練習 6 學到的 schema 設計
-```
-
-**4 個地方會踩**：
-1. Critic 過嚴 → 永遠 `ok=false`、永遠跑滿 3 輪。對策：critic system prompt 加上「only flag substantive errors」
-2. Critic 過鬆 → 第一輪就 `ok=true`、沒在反思。對策：用練習 6 的 schema 強制 `feedback` 至少 20 字
-3. Actor 不看 feedback → 死循環同樣錯答。對策：feedback 用 user role 餵進去、不要塞在 system
-4. JSON parse fail → 練習 5 的 error handling 派上用場
-</details>
-
-→ **基礎 starter 範本**：本練習**無 examples folder**——是「組合練習 1+3+5+6 的 capstone」，建議自己寫。illustrative concept exercise，深度教學見下方 📚 資源。
-
-**📚 深度資源**：
+**Paper**：
 - [**Reflexion (Shinn et al. 2023)**](https://arxiv.org/abs/2303.11366) ⭐ — 原 paper，定義「verbal reinforcement learning」
-- [**Self-Refine (Madaan et al. 2023)**](https://arxiv.org/abs/2303.17651) — single-agent self-critique，更接近本練習設定
-- [**LangChain — Reflection Agents**](https://blog.langchain.dev/reflection-agents/) — framework 實作參考
-- [**hello-agents**](https://github.com/datawhalechina/hello-agents) — 對應章節（自我反思 / Self-Refine 段落）
+- [**Self-Refine (Madaan et al. 2023)**](https://arxiv.org/abs/2303.17651) — single-agent self-critique，是「基本反思」的學術定義
 
-> 💡 **為什麼 Track B 學習者一定要做這題**：你後面 Stage 7 學 multi-agent 時，「reviewer / critic agent」就是這個 pattern 放大版（多了多個 actor）。Stage 5.6 解剖 Claude Code 內部時也會看到變種反思——agent 跑完 tool call 後自我評估 patch、有問題回頭改。**這是現代 production agent 的核心 building block 之一**。
+**Reference 實作**：
+- [**arunpshankar/react-from-scratch**](https://github.com/arunpshankar/react-from-scratch) — 已在本 stage 精選 Projects 列出，含 Reflection 實作可直接讀
+- [**LangChain — Reflection Agents（blog）**](https://blog.langchain.dev/reflection-agents/) — framework 實作參考 + 完整 working notebook
+- [**datawhalechina/hello-agents**](https://github.com/datawhalechina/hello-agents) — 對應章節（自我反思 / Self-Refine 段落、中文完整教學）
+
+> 💡 **想看反思怎麼長進 production agent**：[Stage 5 §5.6 Harness Internals](/zh-tw/stages/05-claude-code-ecosystem/#56--claude-code-source-解剖reference-harness-implementation-track-b-必看) 解剖 Claude Code source 時可以看到——agent 跑完 tool call 後自我評估 patch、有問題回頭改、修正後再 commit。**這是現代 production agent 的核心 building block 之一**。
 
 ## 🎯 精選 Projects
 
-按用途分 4 類。**先看分類表挑入口、再點下面 detail block 看適合誰 / 教什麼**：
+按用途分 4 類、12 個項目一張表搞定。**挑入口看「適合誰」、想深入點連結看 repo README**。
+
+| 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
+|---|---|---|---|---|
+| **官方 cookbook**<br>（先看這個） | [Anthropic — Tool Use Cookbook](https://github.com/anthropics/claude-cookbooks/tree/main/tool_use) | ⭐⭐⭐⭐⭐ | 練習 1 / 練習 2 入手 | 單工具 → 多工具 → parallel → structured output 全部 notebook（重點看 `tool_use/customer_service_agent.ipynb`） |
+| | [Anthropic — Quickstarts](https://github.com/anthropics/claude-quickstarts) | ⭐⭐⭐⭐⭐ | 練習 1/2 跑完想看「真的應用長什麼樣」 | 3 個 deploy-ready 範本（financial / customer-support / computer-use）、★ 16k+。比社群實作更 canonical |
+| | [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) | ⭐⭐⭐⭐⭐ | 練習 3 寫完、進 Stage 4 之前**必讀** | 部落格文章：何時用 agent vs workflow / 常見 pattern / 容易踩的坑——Anthropic 官方觀念框架 |
+| **從零實作 ReAct**<br>（理解原理） | [pguso/ai-agents-from-scratch](https://github.com/pguso/ai-agents-from-scratch) | ⭐⭐⭐⭐⭐ | 練習 3（從零寫 ReAct） | 用本機 Ollama 從零打造、zero framework、章節結構好。**最乾淨的「不靠 framework」參考實作** |
+| | [arunpshankar/react-from-scratch](https://github.com/arunpshankar/react-from-scratch) | ⭐⭐⭐⭐ | 練習 3 替代（偏好 Gemini）+ 想看反思變體 | ReAct + Reflection + Self-consistency、Gemini 最佳化（⚠️ 2025-05 後更新放緩、Apache-2.0） |
+| | [mattambrogi/agent-implementation](https://github.com/mattambrogi/agent-implementation) | ⭐⭐⭐ | 練習 3 卡住時逐行對照 | ~150 行最精簡 ReAct（⚠️ 已停滯 2024-01、留作教學玩具參考） |
+| | [lsdefine/GenericAgent](https://github.com/lsdefine/GenericAgent) | ⭐⭐⭐⭐ | 練習 3/4，想看「精簡但完整」framework | 自我演化 framework、~3K 行、★ 9k+、支援 Claude / Gemini / Kimi / MiniMax。介於玩具版與 LangGraph 之間 |
+| **CodeAct 路線**<br>（agent 寫程式碼當 action） | [HuggingFace Smolagents](https://github.com/huggingface/smolagents) | ⭐⭐⭐⭐ | 練習 5 替代方案、本地 LLM 實驗 | ≤1000 LOC、CodeAct pattern 代表、★ 27k+。HF 立場：agent 應該要小 |
+| | [QuantaLogic/quantalogic](https://github.com/quantalogic/quantalogic) | ⭐⭐⭐ | 練習 3 後想比較 CodeAct vs JSON-tool | 另一條 CodeAct 路線、agent 直接寫 Python 程式碼當 action、Apache-2.0 |
+| **中文章節式深度教材**<br>（chapter-length） | [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents) ⭐ **本 stage 推薦** | ⭐⭐⭐⭐⭐ | 中文讀者想要結構化教學 + 完整覆蓋 | **16 種能力**含 tool use / ReAct / context engineering / sub-agents / circuit breaker / observability。中文圈最完整章節式（CC BY-NC-SA、非商用） |
+| | [HelloAgents (jjyaoao)](https://github.com/jjyaoao/HelloAgents) | ⭐⭐⭐⭐⭐ | 中文讀者、想跑上面教材的 code | 上面教材 code repo、**請切 `learn_version` 分支**對齊章節（`pip install hello-agents`、CC BY-NC-SA） |
+| **Framework 對照**<br>（看 framework 怎麼藏掉 ReAct loop） | [LangChain — ReAct Agent Template](https://github.com/langchain-ai/react-agent) | ⭐⭐⭐ | 練習 3 自己寫完後再來 | LangGraph Studio 範本、framework 怎麼把 ReAct 抽象化 |
+
+> 💡 **建議閱讀路徑**：練習 1-2 跑 Anthropic Cookbook → 練習 3 跑 pguso/ai-agents-from-scratch → 練習 3 後讀 Building Effective Agents → 中文章節式教材就 hello-agents + jjyaoao 配對 → 進 Stage 4 前看 LangChain ReAct template 對照 framework 抽象。
 
-| 分類 | Project | 推薦 | 為什麼推薦 |
-|---|---|---|---|
-| **官方 cookbook**（先看這個）| [Anthropic — Tool Use Cookbook](https://github.com/anthropics/anthropic-cookbook/tree/main/tool_use) | ⭐⭐⭐⭐⭐ | 單工具 → 多工具 → parallel → structured output 全部 notebook |
-| | [Anthropic — Quickstarts](https://github.com/anthropics/anthropic-quickstarts) | ⭐⭐⭐⭐⭐ | 3 個 deploy-ready agent 範本（financial / customer-support / computer-use） |
-| | [Anthropic — Building Effective Agents（部落格）](https://www.anthropic.com/engineering/building-effective-agents) | ⭐⭐⭐⭐⭐ | 什麼時候該用 agent / 常見 pattern / 容易踩的坑、Stage 4 前必讀 |
-| **從零實作 ReAct**（理解原理）| [pguso/ai-agents-from-scratch](https://github.com/pguso/ai-agents-from-scratch) | ⭐⭐⭐⭐⭐ | 用本機 LLM 從零打造 agent、zero framework |
-| | [arunpshankar/react-from-scratch](https://github.com/arunpshankar/react-from-scratch) | ⭐⭐⭐⭐ | ReAct 變體 + Reflection + Self-consistency、Gemini 最佳化 |
-| | [mattambrogi/agent-implementation](https://github.com/mattambrogi/agent-implementation) | ⭐⭐⭐ | ~150 行最精簡 ReAct、⚠️ 已停滯（2024-01）但可逐行讀 |
-| | [lsdefine/GenericAgent](https://github.com/lsdefine/GenericAgent) | ⭐⭐⭐⭐ | 自我演化 agent framework、~3K 行精簡完整、支援 Claude / Gemini / Kimi |
-| **CodeAct 路線**（agent 寫程式碼當 action）| [HuggingFace Smolagents](https://github.com/huggingface/smolagents) | ⭐⭐⭐⭐ | ≤1000 LOC、CodeAct pattern 代表 |
-| | [QuantaLogic/quantalogic](https://github.com/quantalogic/quantalogic) | ⭐⭐⭐ | 另一條 CodeAct 路線、跟 JSON tool 路線對照 |
-| **中文章節式深度教材**（chapter-length）| [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents) ⭐ 本 stage 推薦 | ⭐⭐⭐⭐⭐ | **16 種能力**含 tool use / ReAct / context engineering / sub-agents / circuit breaker / observability。中文圈最完整、章節式 |
-| | [HelloAgents (jjyaoao)](https://github.com/jjyaoao/HelloAgents) `learn_version` | ⭐⭐⭐⭐⭐ | 上面教材的 code repo、`learn_version` 分支對齊章節 |
-| **Framework 對照**（看 framework 怎麼藏掉 ReAct loop）| [LangChain — ReAct Agent Template](https://github.com/langchain-ai/react-agent) | ⭐⭐⭐ | 練習 3 自己寫完後、再來看 framework 抽象做了什麼 |
-
----
-
-### [Anthropic — Tool Use Cookbook](https://github.com/anthropics/anthropic-cookbook/tree/main/tool_use)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | Python |
-| License | MIT |
-| 推薦度 | ⭐⭐⭐⭐⭐ |
-
-**教什麼**：Claude 支援的所有 tool use 模式 — 單工具、多工具、平行呼叫、結構化輸出抽取。
-
-**適合誰**：練習 1 跟 練習 2，從這裡開始。
-
-**怎麼跑**：
-```bash
-git clone https://github.com/anthropics/anthropic-cookbook
-cd anthropic-cookbook/tool_use
-jupyter notebook customer_service_agent.ipynb
-```
-
----
-
-### [Anthropic — Quickstarts](https://github.com/anthropics/anthropic-quickstarts)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | Python / TypeScript |
-| Stars | ★ 16k+ |
-| License | MIT |
-| 推薦度 | ⭐⭐⭐⭐⭐ |
-
-**教什麼**：Anthropic 官方的 動手練習 起手包。三個可直接 deploy 的 agent 範本：`financial-data-analyst`（資料分析 agent）、`customer-support-agent`（客服 agent）、`computer-use-demo`（讓 Claude 操作螢幕）。
-
-**適合誰**：跑完 練習 1 / 練習 2 之後，想看「真的應用會長什麼樣子」的官方參考。比社群實作更 canonical，部署設定也比較完整。
-
-**備註**：每個範本都是獨立 sub-folder，挑一個有興趣的跑就好。Computer use demo 特別值得看 — 是少數示範 agent 操作 GUI 的官方範例。
-
----
-
-### [pguso/ai-agents-from-scratch](https://github.com/pguso/ai-agents-from-scratch)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | Python |
-| License | MIT |
-| 推薦度 | ⭐⭐⭐⭐⭐ |
-
-**教什麼**：用本地 LLM 從零打造 agent，零 framework。ReAct、function calling、memory，全部自己寫。設計目的就是把 framework 幫你藏起來的東西攤開給你看。
-
-**適合誰**：練習 3（從零寫 ReAct）。這是最乾淨的「不靠 framework」參考實作。
-
-**備註**：用本地 Ollama，不用花 API 錢。README 值得仔細讀，章節結構安排得很好。
-
----
-
-### [arunpshankar/react-from-scratch](https://github.com/arunpshankar/react-from-scratch)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | Python |
-| License | Apache-2.0 |
-| 最後更新 | ⚠️ 2025 年 5 月（更新放緩） |
-| 推薦度 | ⭐⭐⭐⭐ |
-
-**教什麼**：ReAct pattern 的多種變體與實作，針對 Gemini 最佳化。
-
-**適合誰**：練習 3 的替代方案，如果你偏好 Gemini。涵蓋 ReAct + Reflection + Self-consistency 等變體。
-
----
-
-### [mattambrogi/agent-implementation](https://github.com/mattambrogi/agent-implementation)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | Python |
-| License | MIT |
-| 最後更新 | ⚠️ 已停滯（2024 年 1 月）— 留作教學玩具參考 |
-| 推薦度 | ⭐⭐⭐ |
-
-**教什麼**：最精簡的 ReAct agent 實作。為了學習而砍到只剩約 150 行程式碼。
-
-**適合誰**：逐行讀程式碼。練習 3 卡住時可以拿來對照。
-
----
-
-### [lsdefine/GenericAgent](https://github.com/lsdefine/GenericAgent)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | 中文 + Python |
-| Stars | ★ 9k+ |
-| License | MIT |
-| 推薦度 | ⭐⭐⭐⭐ |
-
-**教什麼**：最精簡的自我演化 agent framework — 核心約 3K 行程式碼，agent 從 seed 自己長出技能樹。支援 Claude / Gemini / Kimi / MiniMax。仍在持續開發。
-
-**適合誰**：練習 3 / 練習 4 的替代方案，給想看「精簡但完整」framework 的讀者。介於 mattambrogi 的玩具版跟完整 LangGraph 之間的中間點。
-
----
-
-### [HelloAgents (jjyaoao)](https://github.com/jjyaoao/HelloAgents) — `learn_version` 分支
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | 中文（zh-Hans）+ Python |
-| License | CC BY-NC-SA 4.0 |
-| 推薦度 | ⭐⭐⭐⭐⭐（中文讀者） |
-
-**教什麼**：教學導向的多 agent 練習框架，章節式教學，搭配 [Datawhale 的 Hello-Agents 教學](https://github.com/datawhalechina/hello-agents)。涵蓋 16 種能力（tool response、context engineering、session 持久化、sub-agents、circuit breaker、observability 等），用來學 production pattern 的教材，不是直接拿來上 production 的成品。
-
-**適合誰**：中文讀者。**請切到 `learn_version` 分支**，那才是對齊教材的版本。
-
-**備註**：License 是 CC BY-NC-SA — 非商用。教材是 zh-Hans，但技術內容對 zh-TW 讀者沒障礙。
-
-**怎麼跑**：
-```bash
-pip install hello-agents
-git clone -b learn_version https://github.com/jjyaoao/HelloAgents
-```
-
----
-
-### [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | 中文（zh-Hans） |
-| License | CC BY-NC-SA |
-| 推薦度 | ⭐⭐⭐⭐⭐（中文讀者） |
-
-**教什麼**：HelloAgents 的搭配教學。多章節導讀，從「什麼是 agent」一路講到 production 的實務 pattern。
-
-**適合誰**：想要結構化教學加程式碼的中文讀者。
-
-**備註**：請搭配上面 HelloAgents repo 的 `learn_version` 分支一起看。
-
----
-
-### [QuantaLogic/quantalogic](https://github.com/quantalogic/quantalogic)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | Python |
-| License | Apache-2.0 |
-| 推薦度 | ⭐⭐⭐ |
-
-**教什麼**：產生 Python 程式碼（而不是 JSON tool call）的 ReAct agent。設計選擇不同 — agent 直接寫程式碼當作 action。
-
-**適合誰**：跑完 練習 3 之後。比較 CodeAct（程式碼即 action）與 JSON tool call 的差別。
-
----
-
-### [HuggingFace Smolagents](https://github.com/huggingface/smolagents)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | Python |
-| Stars | ★ 27k+ |
-| License | Apache 2.0 |
-| 推薦度 | ⭐⭐⭐⭐ |
-
-**教什麼**：Smol agents（≤1000 LOC）。會寫程式碼的 agent — 執行 Python 而不是 JSON tool call。
-
-**適合誰**：練習 5 的替代方案。特別適合本地 LLM 實驗。
-
-**備註**：HF 的立場：agent 應該要小。他們的 code-action 路線跟 JSON-tool 路線在思路上很不一樣，值得對照來看。
-
----
-
-### [LangChain — ReAct Agent Template](https://github.com/langchain-ai/react-agent)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | Python |
-| License | MIT |
-| 推薦度 | ⭐⭐⭐ |
-
-**教什麼**：framework 怎麼把 ReAct pattern 抽象化。LangGraph Studio 的範本。
-
-**適合誰**：練習 3 之後（先自己從零寫過再來）。再來比較 framework 幫你做了哪些事。
-
----
-
-### [Anthropic — Building Effective Agents（部落格文章）](https://www.anthropic.com/engineering/building-effective-agents)
-
-| 欄位 | 內容 |
-|---|---|
-| 形式 | 文章 |
-| 推薦度 | ⭐⭐⭐⭐⭐ |
-
-**教什麼**：Anthropic 自己寫的指南 — 什麼時候該用 agent（vs. workflow）、常見 pattern、容易踩的坑。Stage 4 之前必讀。
-
-**適合誰**：建立觀念框架。練習 3 寫完之後、學 framework 之前讀。
-
----
 
 ## ✅ 進 Stage 4 前的自我檢查
 

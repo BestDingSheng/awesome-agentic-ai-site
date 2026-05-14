@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T14:43:12.237Z"
+syncedAt: "2026-05-14T03:43:31.962Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a2-cli-workflow"
@@ -19,6 +19,9 @@ order: 2
 
 ⏱ **時間估算**：1-2 週（約 8-15 小時）
 
+> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 → 動手練習 → 精選 Projects → 自我檢查  
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md` §5](/zh-tw/resources/glossary/#5-claude-code-生態)（CLAUDE.md / slash command / SKILL.md / plugin / portable prompt）
+
 裝好 CLI、跑過第一個任務之後，下一個問題：**怎麼讓 CLI 一致地、可重複地、可分享地做事**？這節講 workflow pattern——把「我每次都要重打一遍 prompt」變成「設好一次後 CLI 自己會用對方法」。
 
 ## 📌 學習目標
@@ -27,6 +30,15 @@ order: 2
 - 設計可重複的 slash command / custom prompt
 - 把多步驟任務拆成 CLI 能跑完的小步驟
 - 設計 prompt 讓任務在不同 CLI 上 portable
+
+## 🚪 進入條件
+
+你應該已經：
+- 完成 [A1](/zh-tw/tracks/cli-a1-cli-intro/)：選定主用 CLI、裝好、認證好、跑過至少 5 個非 hello-world 任務
+- 寫過 1 份 `CLAUDE.md` / `AGENTS.md` / `GEMINI.md`（即使只是試水溫）
+- 對 Stage 2 prompt engineering 基礎上手
+
+沒到的話 → 先回 [A1](/zh-tw/tracks/cli-a1-cli-intro/) 把 CLI-1/2 練熟。
 
 ## 📚 必修閱讀
 
@@ -69,6 +81,13 @@ description: Review staged changes for security + style
 - 第二次：你先拆成 5 個 sub-task，逐一給 CLI → 觀察結果差別
 - 學到：CLI 跟你一樣，太大的任務要拆；給太小的任務又會 over-orchestrate
 
+> ⭐ **進階：Claude Code 3 種原生 multi-agent 機制**（Track A 用 CLI 高頻時值得學）：CLI-7 教的「手動拆 sub-task」其實 Claude Code 有 3 個原生工具可以自動化：
+> 1. **Subagent** — 寫 `.claude/agents/<name>.md`、Claude 自動 delegate 大 context 任務（讀整個 codebase / 並行 research）到隔離 session、回主 session 摘要、省 context window。**完整講解 + 動手練習見 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制)**
+> 2. **Agent team** — 多 sessions 之間互相溝通（譬如 reviewer agent ↔ implementer agent 來回交流）。詳見 [Anthropic 官方 — agent teams](https://docs.claude.com/en/docs/claude-code/agent-teams)
+> 3. **Background agent** — 多 session 背景跑、單一介面監控（一次 spawn 3 個 PR review 同時跑）。詳見 [Anthropic 官方 — agent view](https://docs.claude.com/en/docs/claude-code/agent-view)
+>
+> 這 3 個機制都不需要 framework、不寫 Python orchestration code、直接 Claude Code 內建。**Subagent 是進入點**——先把 Stage 5.5 跑完再評估要不要碰另外兩個。
+
 ### 動手練習 CLI-8：Portable prompt
 寫一個 prompt 給 Claude Code 跑成功了。**換到 Codex / OpenCode / Gemini CLI 跑同一個 prompt**——什麼地方需要改？通常會發現：
 - file path convention 不同（cwd vs absolute）
@@ -79,45 +98,19 @@ description: Review staged changes for security + style
 
 ## 🎯 精選 Projects
 
-### CLAUDE.md 範例庫
+按用途分 4 類、7 個項目一張表搞定。**挑入口看「適合誰」、想深入細節點連結看 repo**。
 
-#### [Anthropic 官方範例](https://github.com/anthropics/claude-code/blob/main/CLAUDE.md)
-★ official — Claude Code repo 自己的 CLAUDE.md，看官方怎麼寫。
+| 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
+|---|---|---|---|---|
+| **CLAUDE.md 範例庫** | [Anthropic 官方範例](https://github.com/anthropics/claude-code/blob/main/CLAUDE.md) | ⭐⭐⭐⭐⭐ | 第一份 CLAUDE.md 從這抄結構 | Claude Code repo 自己的 CLAUDE.md、官方寫法 |
+| | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看 production-grade `.claude/` 完整目錄結構 | 不只是 skill collection、也是 CLAUDE.md 範本（★ 178k+） |
+| | [mattpocock/skills](https://github.com/mattpocock/skills) | ⭐⭐⭐⭐ | 想看工程師日常用的 skill 庫 | `.claude/` 結構是好參考（★ 59k+）。**更多 skill 範例見 [Stage 5.3](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層)** |
+| **Slash Commands / Custom Prompts** | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | ⭐⭐⭐⭐⭐ | 找官方 plugin 範本 | 官方 plugin marketplace、每個 plugin 內的 commands / skills 是 slash command 範例（★ 18k+） |
+| | [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | ⭐⭐⭐ | 想逛社群 slash command 範例 | 社群整理的 Claude Code 資源清單 |
+| **Prompt 設計參考** | [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) | ⭐⭐⭐⭐ | 卡關時找 CLI 通用的 prompt 模式 | ChatGPT 起家、prompt 寫法 90% 在 CLI 上也通（★ 161k+、CC0）。完整 prompt engineering 進階見 [Stage 2 §精選 Projects](/zh-tw/stages/02-prompt-engineering/#-精選-projects)（DSPy、dair-ai 等） |
+| **多 CLI 並用 pattern** | [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) §「3 個常見搭配」 | ⭐⭐⭐⭐ | 想試多 CLI 配對策略 | 本 repo 內部資源、看 Setup A / B / C 挑一個合的試 |
 
-#### [obra/superpowers](https://github.com/obra/superpowers) ⭐⭐⭐⭐
-★ 178k+ — 不只是 skill collection，也是 production CLAUDE.md 範本。看 `.claude/` 整個目錄結構。
-
-#### [mattpocock/skills](https://github.com/mattpocock/skills) ⭐⭐⭐⭐
-★ 59k+ — 工程師日常用的 skill 庫。`.claude/` 結構是好參考。
-
-> 更多 skill / SKILL.md 範例見 [Stage 5.3 — Skills](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層)。
-
----
-
-### Slash Commands / Custom Prompts
-
-#### [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) ⭐ 官方
-★ 18k+ — 官方 plugin marketplace。每個 plugin 內部的 commands / skills 是 slash command 範例。
-
-#### [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)
-社群整理的 Claude Code 資源清單。逛裡面的 slash command 範例。
-
----
-
-### Prompt 設計參考
-
-#### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) ⭐⭐⭐⭐
-★ 161k+ — 雖然是 ChatGPT 起家，prompt 寫法 90% 在 CLI 上也通。
-
-#### Stage 2 — Prompt Engineering 全部 entry
-[完整列表](/zh-tw/stages/02-prompt-engineering/#-精選-projects) — DSPy、Prompt-Engineering-Guide 等。
-
----
-
-### 多 CLI 並用 pattern
-
-#### [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) §「3 個常見搭配」
-看 Setup A / B / C，挑一個合的試。
+> 💡 **建議入手路徑**：先抄 Anthropic 官方 CLAUDE.md 結構 → 加自己的 repo context → 看 obra/superpowers 看「完整 `.claude/` 長什麼樣」→ 然後寫 1-2 個 slash command（從 hesreallyhim awesome 列表撈靈感）。
 
 ## ✅ 進 A3 前的自我檢查
 

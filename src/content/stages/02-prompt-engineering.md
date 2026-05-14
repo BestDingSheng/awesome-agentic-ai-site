@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T14:43:12.237Z"
+syncedAt: "2026-05-14T03:43:31.962Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
@@ -45,6 +45,10 @@ order: 2
 2. [**OpenAI Prompt Engineering**](https://platform.openai.com/docs/guides/prompt-engineering) — OpenAI 觀點
 3. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — 學術風，深入
 4. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — 直接清楚
+
+**🎥 中文影片補充（強烈推薦）**：
+- [**李宏毅 — 生成式 AI 導論（2024 春台大課程）**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — 中後段集數講 prompt engineering（few-shot、CoT、in-context learning）+ 對應 lab。中文圈最完整的 prompting 學術級教學。最新整合版見 [**GenAI-ML 2025 秋**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
+- [**李宏毅 — 機器學習 2025 春（含 prompt + LLM 章節）**](https://speech.ee.ntu.edu.tw/~hylee/ml/2025-spring.php) — 適合想看 ML 完整背景的人
 
 ## 🛠 動手練習
 
@@ -426,125 +430,37 @@ text = msg.content[0].text
 
 ## 🎯 精選 Projects
 
-### [dair-ai/Prompt-Engineering-Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)
+按用途分 4 類、9 個項目一張表搞定。**挑入口看「適合誰」、想深入點連結看 repo / 網站**。
 
-| 欄位 | 內容 |
-|---|---|
-| Stars | ★ 60k+ |
-| License | MIT |
-| 推薦度 | ⭐⭐⭐⭐⭐ |
+| 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
+|---|---|---|---|---|
+| **學術 / 教學風 guide**<br>（先看這個） | [dair-ai/Prompt-Engineering-Guide](https://github.com/dair-ai/Prompt-Engineering-Guide) | ⭐⭐⭐⭐⭐ | 當參考書、需要某技巧再來查 | 從基礎到進階（CoT / ToT / ReAct / RAG）端到端，★ 60k+、MIT |
+| | [PromptingGuide.ai](https://www.promptingguide.ai/) | ⭐⭐⭐⭐ | 手機閱讀、想要可跑範例 | 跟 dair-ai GitHub 同樣內容、做成網站 + 可跑範例 |
+| | [NirDiamant/Prompt_Engineering](https://github.com/NirDiamant/Prompt_Engineering) | ⭐⭐⭐⭐ | 偏好「邊跑邊學」 | 22 種技巧（zero-shot → CoT → ReAct → constitutional）獨立 notebook，★ 7k+。比 dair-ai 更動手（⚠️ NOASSERTION 自訂條款、研究/非商用為主）|
+| **官方 cookbook** | [Anthropic Cookbook — Prompt patterns](https://github.com/anthropics/claude-cookbooks) | ⭐⭐⭐⭐⭐ | Claude 進階 prompting（含 prompt caching / multimodal）| Stage 1 已介紹、本 stage 重點看 `misc/prompt_caching.ipynb` 跟 `multimodal/` |
+| | [GoogleCloudPlatform/generative-ai](https://github.com/GoogleCloudPlatform/generative-ai) | ⭐⭐⭐ | 用 Google 技術棧（PaLM / Gemini）| Google Cloud 的 prompting cookbook、跨廠商觀點 |
+| **靈感 collection**<br>（找模式、不要照抄）| [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) | ⭐⭐⭐ | 卡關時找靈感 | 上百個「Act as a [角色]...」prompt，★ 130k+、CC0。**把模式拿出來改寫、不要照抄** |
+| **Production 管理**<br>（規模化）| [microsoft/prompt-engine](https://github.com/microsoft/prompt-engine) | ⭐⭐⭐ | production 要管很多 prompt 時 | TypeScript library、管理樣板 + 對話歷史 |
+| | [microsoft/promptflow](https://github.com/microsoft/promptflow) | ⭐⭐⭐ | 團隊型應用、需要 eval | 視覺化 prompt 設計 + 評估工具，★ 10k+ |
+| | [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy) ⭐ **Stage 2 → 3 橋** | ⭐⭐⭐⭐⭐ | 跑完 dair-ai 想規模化 prompt | 把 prompt 當 code 寫——define signature / module、用 compiler 自動最佳化，★ 34k+、MIT。**framework 非 tutorial、門檻較高、搭配 dspy.ai 官方 tutorial 讀** |
 
-**教什麼**：從基礎到進階（CoT、ToT、ReAct、RAG）的端到端 prompt engineering。學術風但實用。
+> 💡 **建議閱讀路徑**：dair-ai guide 入手（理論） → Anthropic Cookbook 看 Claude 實作 → NirDiamant 邊跑邊學 → 進 production 時讀 dspy。
 
-**適合誰**：當參考用。先大致掃過一次，需要某個技巧時再回來查。
-
----
-
-### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts)
-
-| 欄位 | 內容 |
-|---|---|
-| Stars | ★ 130k+ |
-| License | CC0 |
-| 推薦度 | ⭐⭐⭐ |
-
-**教什麼**：上百個角色型 prompt。「Act as a [角色]...」的模式。
-
-**適合誰**：卡關時找靈感。不要照抄——把模式拿出來改寫。
-
----
-
-### [PromptingGuide.ai](https://www.promptingguide.ai/)
-
-**教什麼**：跟 dair-ai GitHub 同樣的內容，但做成網站、有可以跑的範例。
-
-**適合誰**：手機閱讀。
-
----
-
-### [microsoft/prompt-engine](https://github.com/microsoft/prompt-engine)
-
-| 欄位 | 內容 |
-|---|---|
-| 推薦度 | ⭐⭐⭐ |
-
-**教什麼**：管理大量 prompt 的 TypeScript library（樣板、對話歷史）。
-
-**適合誰**：開始要在 production 管很多 prompt 時。
-
----
-
-### [microsoft/promptflow](https://github.com/microsoft/promptflow)
-
-| 欄位 | 內容 |
-|---|---|
-| Stars | ★ 10k+ |
-| 推薦度 | ⭐⭐⭐ |
-
-**教什麼**：視覺化 prompt 設計 + 評估工具。
-
-**適合誰**：以 prompt 為主、需要 eval 的團隊型應用。
-
----
-
-### [GoogleCloudPlatform/generative-ai](https://github.com/GoogleCloudPlatform/generative-ai)
-
-| 欄位 | 內容 |
-|---|---|
-| 推薦度 | ⭐⭐⭐ |
-
-**教什麼**：Google Cloud 的 prompting cookbook（notebook，PaLM/Gemini 為主）。
-
-**適合誰**：用 Google 技術棧時的跨廠商觀點。
-
----
-
-### [Anthropic Cookbook — Prompt patterns](https://github.com/anthropics/anthropic-cookbook)
-
-Stage 1 已經提過。這裡特別推 `misc/prompt_caching.ipynb` 跟 `multimodal/` 系列 notebook，會教進階 prompting 模式。
-
----
-
-### [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | Python |
-| Stars | ★ 34k+ |
-| License | MIT |
-| 推薦度 | ⭐⭐⭐⭐⭐ |
-
-**教什麼**：把 prompt 當 code 寫——定義 signature 跟 module、用 compiler / teleprompter 自動最佳化 prompt，不用手刻 f-string。Stanford NLP 出品，是 Stage 2 → Stage 3 的橋。
-
-**適合誰**：跑完 dair-ai 的指南、開始問「我要怎麼把 prompt 規模化（不是再多 hard-code）」的人。
-
-**備註**：是 framework 不是 tutorial，學習門檻比 prompt-engineering-guide 高。建議搭配官方 tutorial 網站 dspy.ai 一起讀。
-
----
-
-### [NirDiamant/Prompt_Engineering](https://github.com/NirDiamant/Prompt_Engineering)
-
-| 欄位 | 內容 |
-|---|---|
-| 語言 | Python / Jupyter |
-| Stars | ★ 7k+ |
-| License | NOASSERTION（自訂條款，研究 / 非商用為主，使用前讀條款） |
-| 推薦度 | ⭐⭐⭐⭐ |
-
-**教什麼**：22 種 prompt engineering 技巧的可執行 Jupyter notebook（zero-shot → CoT → ReAct → constitutional），2025 年的更新內容，比 dair-ai 更動手。
-
-**適合誰**：偏好「邊跑邊學」的人。每個技巧都有獨立 notebook，挑感興趣的看。
-
----
-
-## 🔭 進階：context engineering（不是 prompt engineering 了）
+## 🔭 進階：prompt → context → harness 三層 engineering
 
 當你發現「**單一 prompt 已經 cover 不了**」——要動態組 system prompt + 拉 memory + 塞 retrieved chunks + 接多個 tool definitions——這已經不叫 prompt engineering，叫 **context engineering**。是 prompt engineering 的下一層。
 
-**這個 stage 不用學完它**，只是給個方向性提示：
+再往上一層、把多個 LLM call + tool 包成 production runtime 系統時、就到了 **harness engineering**（2025 後段業界正式詞彙）。
 
-- 在 [Stage 6（Memory · RAG）](/zh-tw/stages/06-memory-rag/) 會碰到（什麼資料塞進 prompt）
-- 在 [Stage 7（Multi-Agent · Production）](/zh-tw/stages/07-multi-agent-production/) 完整面對（context window 預算、memory 階層、observability）
+**完整三層 lineage（本路線的學習進度）**：
+
+| Discipline | 解決什麼 | 在哪一 stage 完整學 |
+|---|---|---|
+| **1. Prompt Engineering** | 單次 LLM call 怎麼問才準 | **本 stage（Stage 2）** |
+| **2. Context Engineering** | 跨多次 call 怎麼動態組 prompt | [Stage 6 — Memory · RAG](/zh-tw/stages/06-memory-rag/) |
+| **3. Harness Engineering** | 把多個 LLM call 包成 production runtime | [**Stage 7 §Harness Engineering**](/zh-tw/stages/07-multi-agent-production/#-harness-engineering--production-agent-runtime-的工程學--本-stage-核心概念) ⭐ 完整對照表 |
+
+**這個 stage 不用學完後兩層**，只是給方向性提示——進入 Stage 6 / 7 時會接續這個 lineage。
 
 延伸閱讀（不必修、未來想深挖時看）：
 

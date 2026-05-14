@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/00-foundations.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-13T14:43:12.237Z"
+syncedAt: "2026-05-14T03:43:31.962Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "00-foundations"
@@ -52,33 +52,28 @@ order: 0
 
 ## 🎯 精選資源（不是完整 Project，只是學習素材）
 
-### Python
-- [**Python Crash Course**](https://github.com/ehmatthes/pcc_3e) — 書 + 練習（書要付費，練習免費）
-- [**Real Python tutorials**](https://realpython.com/) — 高品質免費文章
-- [**Corey Schafer YouTube**](https://www.youtube.com/c/Coreyms) — 影片教學，從基礎到進階，講解清楚
-- [**Boot.dev**](https://www.boot.dev/) — 互動式 Python 課程（部分免費）
-- [**runoob.com Python 教學**](https://www.runoob.com/python3/python3-tutorial.html) — 中文 Python 入門參考
+按 5 個 prereq 主題分類、18 個資源一張表搞定。**挑入口看「適合誰」、想深入點連結看 repo / 網站**。
 
-### Git
-- [**Pro Git book**](https://git-scm.com/book/en/v2) — 免費完整參考書
-- [**Atlassian Git Tutorials**](https://www.atlassian.com/git/tutorials) — 以 workflow 為主
-- [**Oh Shit, Git!?!**](https://ohshitgit.com/) — 出包時的救命手冊
-- [**git-flight-rules**](https://github.com/k88hudson/git-flight-rules) — 「我搞砸了 X，怎麼救？」高人氣 cheat sheet
-
-### CLI / Shell
-- [**The Art of Command Line**](https://github.com/jlevy/the-art-of-command-line) — 涵蓋從新手到進階的命令列技巧（180k+ stars，多語言版）
-- [**Learn Shell**](https://www.learnshell.org/) — 互動式 Bash 教學
-- [**explainshell.com**](https://explainshell.com/) — 把任何 shell 指令拆解講解（debug 救星）
-
-### REST API
-- [**MDN — HTTP**](https://developer.mozilla.org/en-US/docs/Web/HTTP) — 協定基礎
-- [**Postman Learning Center**](https://learning.postman.com/) — API 探索工具
-- [**HTTPie**](https://github.com/httpie/cli) — 比 `curl` 友善的命令列 HTTP client
-
-### YAML / JSON
-- [**YAML 官網**](https://yaml.org/) — 規格
-- [**JSON crash course**](https://www.json.org/json-en.html) — 官方快速指南
-- [**jq**](https://github.com/jqlang/jq) — 命令列 JSON 處理工具（agent 工作中常用）
+| 主題 | 資源 | 適合誰 | 為什麼推薦 / 備註 |
+|---|---|---|---|
+| **Python** | [Python Crash Course](https://github.com/ehmatthes/pcc_3e) | 從零學 Python | 書 + 練習；書付費、練習免費 |
+| | [Real Python](https://realpython.com/) | 已會基礎、想深入單一主題 | 高品質免費文章、Google 搜尋常出現 |
+| | [Corey Schafer YouTube](https://www.youtube.com/c/Coreyms) | 喜歡英文影片學習者 | 從基礎到進階、講解清楚 |
+| | [Boot.dev](https://www.boot.dev/) | 想要互動式練習 | 部分免費、付費含完整 backend 路線 |
+| | [runoob.com Python 教學](https://www.runoob.com/python3/python3-tutorial.html) | 中文讀者快速查語法 | 中文 Python 入門參考 |
+| **Git** | [Pro Git book](https://git-scm.com/book/en/v2) | 想徹底搞懂 Git | 免費完整參考書、官方推薦 |
+| | [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials) | 想學 workflow（branch / merge / rebase）| 以 workflow 為主、視覺化好 |
+| | [Oh Shit, Git!?!](https://ohshitgit.com/) | 出包時急救 | 「我搞砸了 X、怎麼救」cheat sheet |
+| | [git-flight-rules](https://github.com/k88hudson/git-flight-rules) | 想要更深的急救手冊 | 高人氣 cheat sheet、覆蓋場景更廣 |
+| **CLI / Shell** | [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line) | 想系統性學命令列 | ★ 180k+、多語言版、新手到進階都涵蓋 |
+| | [Learn Shell](https://www.learnshell.org/) | 喜歡互動式練習 | 互動式 Bash 教學、瀏覽器內跑 |
+| | [explainshell.com](https://explainshell.com/) | debug shell 指令 | 把任何 shell 指令拆解講解（debug 救星）|
+| **REST API** | [MDN — HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) | 想搞懂 HTTP 協定 | 最 canonical 的 web reference |
+| | [Postman Learning Center](https://learning.postman.com/) | 用 GUI 探索 API | API 探索工具、視覺化好 |
+| | [HTTPie](https://github.com/httpie/cli) | 偏好 CLI、`curl` 太醜 | 比 `curl` 友善的命令列 HTTP client |
+| **YAML / JSON** | [YAML 官網](https://yaml.org/) | 需要查語法規格 | YAML 規格文件 |
+| | [JSON crash course](https://www.json.org/json-en.html) | 第一次接觸 JSON | 官方快速指南 |
+| | [jq](https://github.com/jqlang/jq) | 命令列處理 JSON | agent 工作中常用、處理 API response 必備 |
 
 ## 為什麼有這個階段
 

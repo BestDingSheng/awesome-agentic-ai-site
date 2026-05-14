@@ -1,11 +1,11 @@
 {
   "repoUrl": "https://github.com/BestDingSheng/awesome-agentic-ai-zh",
   "repoRef": "main",
-  "repoCommit": "92066d4ae9d59b80a07b5f62a56fac8c36593228",
-  "syncedAt": "2026-05-13T14:43:12.237Z",
+  "repoCommit": "47301bb9c66b4807080e8637c59234966238a062",
+  "syncedAt": "2026-05-14T03:43:31.962Z",
   "defaultLanguage": "zh-cn",
   "counts": {
-    "stages": 25,
+    "stages": 26,
     "tracks": 9,
     "branches": 16,
     "resources": 27,
