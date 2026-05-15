@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { buildEntryRoute, buildLangPath, type CollectionKey, type SiteLang } from '../lib/i18n';
+import { buildLangPath, type CollectionKey, type SiteLang } from '../lib/i18n';
 
 interface Heading {
   depth: number;
@@ -53,6 +53,60 @@ const {
   nextLink = null
 } = Astro.props;
 
+const ui = {
+  'zh-cn': {
+    doc: 'Documentation',
+    home: 'Home',
+    langVersion: '语言版本',
+    syncedAt: '最近同步',
+    sourceRepo: '查看原仓库',
+    sourcePath: '查看源文件路径',
+    prev: '上一页',
+    next: '下一页',
+    onThisPage: '本页目录',
+    emptyToc: '该页面暂时没有可展示的目录标题。',
+    backToTop: '返回顶部',
+    copy: '复制',
+    copied: '已复制',
+    failed: '失败',
+    link: '复制标题链接'
+  },
+  'zh-tw': {
+    doc: 'Documentation',
+    home: 'Home',
+    langVersion: '語言版本',
+    syncedAt: '最近同步',
+    sourceRepo: '查看原倉庫',
+    sourcePath: '查看原始檔案路徑',
+    prev: '上一頁',
+    next: '下一頁',
+    onThisPage: '本頁目錄',
+    emptyToc: '此頁暫時沒有可顯示的目錄標題。',
+    backToTop: '返回頂部',
+    copy: '複製',
+    copied: '已複製',
+    failed: '失敗',
+    link: '複製標題連結'
+  },
+  en: {
+    doc: 'Documentation',
+    home: 'Home',
+    langVersion: 'Language',
+    syncedAt: 'Last synced',
+    sourceRepo: 'View source repo',
+    sourcePath: 'View source file path',
+    prev: 'Previous',
+    next: 'Next',
+    onThisPage: 'On this page',
+    emptyToc: 'This page does not have navigable headings yet.',
+    backToTop: 'Back to top',
+    copy: 'Copy',
+    copied: 'Copied',
+    failed: 'Failed',
+    link: 'Copy heading link'
+  }
+}[lang];
+
 const docHeadings = headings.filter((item) => item.depth >= 2 && item.depth <= 4);
 const syncedText = new Date(syncedAt).toLocaleString('zh-CN', { hour12: false });
 const collectionHome = buildLangPath(lang, `/${collection}/`);
@@ -64,12 +118,13 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
   currentPath={currentPath}
   languageLinks={languageLinks}
 >
+  <div class="reading-progress" data-reading-progress></div>
   <div class="section" style="margin-top: 0;">
     <div class="section-head" style="margin-bottom: 1.2rem; align-items: start;">
       <div>
-        <p class="section-kicker">Documentation</p>
+        <p class="section-kicker">{ui.doc}</p>
         <div class="doc-breadcrumb small muted">
-          <a href={buildLangPath(lang, '/')}>Home</a>
+          <a href={buildLangPath(lang, '/')}>{ui.home}</a>
           <span>/</span>
           <a href={collectionHome}>{collectionLabel}</a>
         </div>
@@ -89,25 +144,25 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
 
         <div class="meta-list" style="margin-top: 1rem;">
           <div class="doc-meta-item" style="padding: 0.85rem 0.95rem;">
-            <div class="small muted">语言版本</div>
+            <div class="small muted">{ui.langVersion}</div>
             <div class="small"><strong>{languageLinks.find((item) => item.lang === lang)?.label ?? lang}</strong></div>
           </div>
           <div class="doc-meta-item" style="padding: 0.85rem 0.95rem;">
-            <div class="small muted">最近同步</div>
+            <div class="small muted">{ui.syncedAt}</div>
             <div class="small"><strong>{syncedText}</strong></div>
           </div>
         </div>
 
         <div class="mini-list" style="margin-top: 1rem;">
-          <a class="button" href={sourceUrl} target="_blank" rel="noreferrer">查看原仓库</a>
+          <a class="button" href={sourceUrl} target="_blank" rel="noreferrer">{ui.sourceRepo}</a>
           <details class="source-details">
-            <summary>查看源文件路径</summary>
+            <summary>{ui.sourcePath}</summary>
             <div class="small muted source-path">{sourcePath}</div>
           </details>
         </div>
       </aside>
 
-      <article class="markdown doc-article">
+      <article class="markdown doc-article" data-doc-article>
         <div class="doc-body">
           <slot />
         </div>
@@ -116,13 +171,13 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
           <div class="doc-pagination">
             {previousLink ? (
               <a class="doc-page-link prev" href={previousLink.href}>
-                <span class="small muted">上一页</span>
+                <span class="small muted">{ui.prev}</span>
                 <strong>{previousLink.title}</strong>
               </a>
             ) : <div></div>}
             {nextLink ? (
               <a class="doc-page-link next" href={nextLink.href}>
-                <span class="small muted">下一页</span>
+                <span class="small muted">{ui.next}</span>
                 <strong>{nextLink.title}</strong>
               </a>
             ) : <div></div>}
@@ -131,7 +186,7 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
       </article>
 
       <aside class="toc surface">
-        <div class="toc-title">On this page</div>
+        <div class="toc-title">{ui.onThisPage}</div>
         {docHeadings.length > 0 ? (
           <ul>
             {docHeadings.map((heading) => (
@@ -141,14 +196,28 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
             ))}
           </ul>
         ) : (
-          <p class="empty-note">该页面暂时没有可展示的目录标题。</p>
+          <p class="empty-note">{ui.emptyToc}</p>
         )}
       </aside>
     </section>
   </div>
+
+  <button class="back-to-top" type="button" data-back-to-top>{ui.backToTop}</button>
+
+  <script type="application/json" id="doc-ui-labels" set:html={JSON.stringify(ui)} />
 </BaseLayout>
 
 <style>
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    z-index: 60;
+    background: linear-gradient(90deg, var(--brand), #80e2b6);
+    box-shadow: 0 0 16px rgba(124,156,255,.55);
+  }
   .collection-nav {
     display: grid;
     gap: .35rem;
@@ -189,6 +258,24 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
   .doc-body > :first-child:is(h1) {
     display: none;
   }
+  .doc-body :global(h2),
+  .doc-body :global(h3),
+  .doc-body :global(h4) {
+    position: relative;
+  }
+  .doc-body :global(.heading-anchor) {
+    opacity: 0;
+    margin-left: .45rem;
+    color: var(--muted);
+    font-size: .85em;
+    transition: 140ms ease;
+  }
+  .doc-body :global(h2:hover .heading-anchor),
+  .doc-body :global(h3:hover .heading-anchor),
+  .doc-body :global(h4:hover .heading-anchor),
+  .doc-body :global(.heading-anchor:focus-visible) {
+    opacity: 1;
+  }
   .doc-pagination {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -217,6 +304,19 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
   .doc-article :global(pre) {
     position: relative;
   }
+  .doc-article :global(.code-language-badge) {
+    position: absolute;
+    top: .75rem;
+    left: .75rem;
+    padding: .32rem .5rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    color: var(--text-soft);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
   .doc-article :global(.copy-code-button) {
     position: absolute;
     top: .75rem;
@@ -241,37 +341,80 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
     border-color: rgba(128,226,182,0.28);
     background: rgba(27,61,46,0.92);
   }
+  .back-to-top {
+    position: fixed;
+    right: 1.4rem;
+    bottom: 1.4rem;
+    z-index: 50;
+    border: 1px solid rgba(148,163,184,0.16);
+    background: rgba(10,16,30,0.92);
+    color: var(--text-soft);
+    border-radius: 999px;
+    padding: .78rem 1rem;
+    font: inherit;
+    font-size: .88rem;
+    font-weight: 800;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: 180ms ease;
+    box-shadow: var(--shadow-md);
+  }
+  .back-to-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
   @media (max-width: 960px) {
     .doc-pagination {
       grid-template-columns: 1fr;
+    }
+    .back-to-top {
+      right: 1rem;
+      bottom: 1rem;
     }
   }
 </style>
 
 <script>
+  const labelsEl = document.getElementById('doc-ui-labels');
+  const labels = labelsEl ? JSON.parse(labelsEl.textContent || '{}') : {};
+
   const setupCopyButtons = () => {
     document.querySelectorAll('article.doc-article pre').forEach((pre) => {
-      if (pre.querySelector('.copy-code-button')) return;
       const code = pre.querySelector('code');
       if (!code) return;
+
+      if (!pre.querySelector('.code-language-badge')) {
+        const lang = (pre.getAttribute('data-language') || code.getAttribute('data-language') || '').trim();
+        if (lang) {
+          const badge = document.createElement('span');
+          badge.className = 'code-language-badge';
+          badge.textContent = lang;
+          pre.appendChild(badge);
+        }
+      }
+
+      if (pre.querySelector('.copy-code-button')) return;
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'copy-code-button';
-      button.textContent = 'Copy';
+      button.textContent = labels.copy || 'Copy';
       button.addEventListener('click', async () => {
         const text = code.textContent ?? '';
         try {
           await navigator.clipboard.writeText(text);
-          button.textContent = 'Copied';
+          button.textContent = labels.copied || 'Copied';
           button.dataset.copied = 'true';
           window.setTimeout(() => {
-            button.textContent = 'Copy';
+            button.textContent = labels.copy || 'Copy';
             delete button.dataset.copied;
           }, 1600);
         } catch {
-          button.textContent = 'Failed';
+          button.textContent = labels.failed || 'Failed';
           window.setTimeout(() => {
-            button.textContent = 'Copy';
+            button.textContent = labels.copy || 'Copy';
           }, 1600);
         }
       });
@@ -279,9 +422,58 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
     });
   };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupCopyButtons, { once: true });
-  } else {
+  const setupHeadingAnchors = () => {
+    document.querySelectorAll('.doc-body h2[id], .doc-body h3[id], .doc-body h4[id]').forEach((heading) => {
+      if (heading.querySelector('.heading-anchor')) return;
+      const anchor = document.createElement('a');
+      anchor.className = 'heading-anchor';
+      anchor.href = `#${heading.id}`;
+      anchor.textContent = '#';
+      anchor.setAttribute('aria-label', labels.link || 'Copy heading link');
+      anchor.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const href = `${window.location.origin}${window.location.pathname}#${heading.id}`;
+        history.replaceState(null, '', `#${heading.id}`);
+        try {
+          await navigator.clipboard.writeText(href);
+        } catch {}
+      });
+      heading.appendChild(anchor);
+    });
+  };
+
+  const setupReadingProgress = () => {
+    const progress = document.querySelector('[data-reading-progress]');
+    const article = document.querySelector('[data-doc-article]');
+    const backToTop = document.querySelector('[data-back-to-top]');
+    if (!(progress instanceof HTMLElement) || !(article instanceof HTMLElement)) return;
+
+    const update = () => {
+      const rect = article.getBoundingClientRect();
+      const articleTop = window.scrollY + rect.top;
+      const articleHeight = Math.max(article.offsetHeight - window.innerHeight, 1);
+      const scrolled = Math.min(Math.max((window.scrollY - articleTop) / articleHeight, 0), 1);
+      progress.style.width = `${scrolled * 100}%`;
+      if (backToTop instanceof HTMLButtonElement) {
+        backToTop.classList.toggle('is-visible', window.scrollY > articleTop + 320);
+      }
+    };
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    update();
+  };
+
+  const boot = () => {
     setupCopyButtons();
+    setupHeadingAnchors();
+    setupReadingProgress();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
+  } else {
+    boot();
   }
 </script>
