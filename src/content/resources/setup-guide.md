@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/setup-guide.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-15T15:58:59.418Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "setup-guide"
@@ -183,7 +183,7 @@ ANTHROPIC_API_KEY=sk-ant-...貼上你剛才複製的 key
 
 同一個資料夾建立 `.gitignore`：
 
-```gitignore
+```plaintext
 .env
 __pycache__/
 *.pyc
