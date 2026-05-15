@@ -34,6 +34,7 @@ const xDefaultHref = new URL(buildLangPath('zh-cn', currentPath), SITE_URL).toSt
 
 const navItems = [
   { label: '首页', path: '/' },
+  { label: '搜索', path: '/search/' },
   { label: '路线图', path: '/roadmap/' },
   { label: 'Stages', path: '/stages/' },
   { label: 'Tracks', path: '/tracks/' },
@@ -107,6 +108,7 @@ const navItems = [
           <p class="footer-copy">基于 fork 内容自动同步生成的多语言学习文档站，默认简体中文。</p>
         </div>
         <div class="footer-links">
+          <a href={buildLangPath(lang, '/search/')}>搜索内容</a>
           <a href={buildLangPath(lang, '/updates/')}>同步状态</a>
           <a href="https://github.com/BestDingSheng/awesome-agentic-ai-site" target="_blank" rel="noreferrer">网站仓库</a>
           <a href="https://github.com/BestDingSheng/awesome-agentic-ai-zh" target="_blank" rel="noreferrer">内容仓库</a>
