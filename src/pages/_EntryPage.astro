@@ -2,7 +2,7 @@
 import ContentLayout from '../layouts/ContentLayout.astro';
 import { render } from 'astro:content';
 import { getEntryForLang } from '../lib/content';
-import { buildEntryRoute, type CollectionKey, type SiteLang } from '../lib/i18n';
+import { buildEntryRoute, getCollectionLabel, type CollectionKey, type SiteLang } from '../lib/i18n';
 
 interface Props {
   collection: CollectionKey;
@@ -29,6 +29,12 @@ const previousLink = previousEntry
 const nextLink = nextEntry
   ? { title: nextEntry.data.title, href: buildEntryRoute(collection, nextEntry) }
   : null;
+const taxonomy = {
+  collectionLabel: getCollectionLabel(collection, lang),
+  sectionLabel: entry.data.section,
+  orderLabel: entry.data.order !== undefined ? `${entry.data.section} ${entry.data.order}` : entry.data.section,
+  languageLabel: entry.data.languageLabel
+};
 ---
 <ContentLayout
   title={entry.data.title}
@@ -45,6 +51,7 @@ const nextLink = nextEntry
   collectionItems={collectionItems}
   previousLink={previousLink}
   nextLink={nextLink}
+  taxonomy={taxonomy}
 >
   <Content />
 </ContentLayout>
