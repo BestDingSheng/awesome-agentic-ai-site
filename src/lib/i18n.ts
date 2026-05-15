@@ -37,6 +37,28 @@ export const collectionLabelMap: Record<CollectionKey, string> = {
   walkthroughs: 'Walkthroughs'
 };
 
+export function getCollectionLabel(collection: CollectionKey, lang: SiteLang) {
+  const labels = {
+    'zh-cn': {
+      stages: 'Stages',
+      tracks: 'Tracks',
+      branches: 'Branches',
+      resources: 'Resources',
+      walkthroughs: 'Walkthroughs'
+    },
+    'zh-tw': {
+      stages: 'Stages',
+      tracks: 'Tracks',
+      branches: 'Branches',
+      resources: 'Resources',
+      walkthroughs: 'Walkthroughs'
+    },
+    en: collectionLabelMap
+  } satisfies Record<SiteLang, Record<CollectionKey, string>>;
+
+  return labels[lang][collection];
+}
+
 export function buildEntryRoute(collection: CollectionKey, entry: { data: { baseSlug: string; language: SiteLang } }) {
   return buildCollectionRoute(collection, entry.data.baseSlug, entry.data.language);
 }
