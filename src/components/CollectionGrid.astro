@@ -4,6 +4,7 @@ interface Item {
   href: string;
   description?: string;
   meta?: string;
+  detail?: string;
 }
 interface Props {
   items: Item[];
@@ -20,6 +21,7 @@ const { items, variant = 'default' } = Astro.props;
       </div>
       <h3>{item.title}</h3>
       {item.description && <p class="muted collection-desc">{item.description}</p>}
+      {item.detail && <div class="collection-detail small">{item.detail}</div>}
     </a>
   ))}
 </div>
@@ -47,6 +49,12 @@ const { items, variant = 'default' } = Astro.props;
   }
   .collection-desc {
     margin: 0;
+  }
+  .collection-detail {
+    margin-top: auto;
+    color: var(--text-soft);
+    padding-top: .35rem;
+    border-top: 1px solid rgba(148,163,184,0.1);
   }
   .collection-arrow {
     color: var(--muted);
