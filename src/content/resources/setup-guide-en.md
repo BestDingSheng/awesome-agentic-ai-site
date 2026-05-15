@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/setup-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-15T15:58:59.418Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "setup-guide"
@@ -183,7 +183,7 @@ ANTHROPIC_API_KEY=sk-ant-...paste the key you copied
 
 In the same folder, create `.gitignore`:
 
-```gitignore
+```plaintext
 .env
 __pycache__/
 *.pyc
