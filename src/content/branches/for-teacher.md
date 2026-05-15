@@ -1,26 +1,28 @@
 ---
-title: "給教師 — 專業分支"
-description: "教師使用 AI 的情境可以先看成三個分支：**備課與上課素材製作**、**教學現場與學習輔助**，以及**其他應用場景**。這樣的分類參考 AI in Education 文獻中常見的行政、教學與學習應用脈絡，也加入生成式 AI 在教材生成、回饋與互動支援上的近期討論（Chen et al., 2020；Mittal et al., 2024）。閱讀時建議先"
+title: "教師延伸路線（For Teachers / Educators）"
+description: "教師使用 AI 的情境可以先看成三個分支：備課與上課素材製作、教學現場與學習輔助、以及其他應用場景。"
 section: "Branch"
 sourcePath: "branches/for-teacher.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-teacher"
 ---
-# 給教師 — 專業分支
+# 教師延伸路線（For Teachers / Educators）
 
 > **繁體中文** | [简体中文](/branches/for-teacher/) | [English](/en/branches/for-teacher/)
 
-> 🚀 **第一次接觸 AI agent / 沒寫過 code？** 先看 [`resources/setup-guide.md` §A-C](/zh-tw/resources/setup-guide/)（30 分鐘從零裝好需要的東西）。Tier 0 跟 Tier 1 不需要寫 code，可以先跳過；Tier 2 之後會用到。
+> 🚀 **大多數教師可直接從 Claude.ai（網頁版）+ NotebookLM 開始、不需要任何 setup**。只有當你要自動化重複流程（Tier 2+、例如每週生成 50 份家長信）時、才需要看 [`resources/setup-guide.md` A-C](/zh-tw/resources/setup-guide/)（30 分鐘從零裝好需要的東西）。
 
 > [← 回主路線 README](/zh-tw) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到教學流程上。
 
 ## 使用情境
 
-教師使用 AI 的情境可以先看成三個分支：**備課與上課素材製作**、**教學現場與學習輔助**，以及**其他應用場景**。這樣的分類參考 AI in Education 文獻中常見的行政、教學與學習應用脈絡，也加入生成式 AI 在教材生成、回饋與互動支援上的近期討論（Chen et al., 2020；Mittal et al., 2024）。閱讀時建議先理解教師把關與使用邊界，再依自己的教學需求挑一個分支深入。
+教師使用 AI 的情境可以先看成三個分支：**備課與上課素材製作**、**教學現場與學習輔助**、以及**其他應用場景**。
+
+這樣的分類參考 AI in Education 文獻中常見的行政、教學與學習應用脈絡、也加入生成式 AI 在教材生成、回饋與互動支援上的近期討論（Chen et al., 2020；Mittal et al., 2024）。閱讀時建議先理解教師把關原則與使用邊界、再依自己的教學需求挑一個分支深入。
 
 ![教師與 AI agent 使用情境總覽](/upstream/resources/diagrams/teacher-ai-use-cases-overview.jpg)
 
@@ -30,7 +32,7 @@ AI 可以幫忙準備和輔助，但不應該直接取代教師判斷。近期 A
 
 - **保留教師最後判斷**：牽涉學生資料、成績、教學決策等重大判斷時，教師仍要負責最後確認。
 - **避免直接給答案**：如果要讓學生與 AI agent 互動，可以設計成蘇格拉底式對話，在多輪互動中引導學生說出理由。
-- **貼合教學目標**：用 prompt、skill 或固定流程限制 agent 的角色與任務，避免學生互動脫離課程目標。
+- **貼合教學目標**：用固定提示詞、檢查清單、或學校核准的工具設定、限制 AI 的角色與任務、避免學生互動脫離課程目標。
 - **調整學生提問**：如果學生年齡較低，例如國小或國中，可以把學生問題先改寫成更清楚的提問，再交給 agent 回答。
 
 ### 備課與上課素材製作
@@ -84,8 +86,8 @@ AI 可以幫忙準備和輔助，但不應該直接取代教師判斷。近期 A
 #### [obra/superpowers](https://github.com/obra/superpowers) ⭐⭐⭐⭐
 通用的寫作 / 腦力激盪 skill。可改用在備課上。
 
-#### [Claude Code](https://github.com/anthropics/claude-code)（搭配自訂 CLAUDE.md）⭐⭐⭐⭐⭐
-★ 120k+ — 教師很適合先從這裡開始。低門檻先用 Claude.ai（網頁版）試水溫；如果是會重複的流程，再升級到 Claude Code。
+#### 進階自動化：[Claude Code](https://github.com/anthropics/claude-code)（搭配自訂 CLAUDE.md）⭐⭐⭐⭐⭐
+★ 120k+ — **教師的基礎工具是 Claude.ai（網頁版）+ NotebookLM + Google Classroom / LMS 整合**、先從這裡開始。**只有當你已有會重複跑的批次流程**（如每週生成 50 份家長信、每學期跑學生反饋分析）才升級到 Claude Code、需要學一點 CLI。
 
 ### 教學課程素材（給教師備課用）
 
@@ -142,15 +144,19 @@ AI 可以幫忙準備和輔助，但不應該直接取代教師判斷。近期 A
 #### [The Effortless Academic — Beginner Guides](https://effortlessacademic.com/claude-code-and-cowork-for-academics-beginner-guide-part-1/)
 寫給學術工作者導入 Claude Code 的多篇指南，教師也適用。
 
-## 可以建的流程
+## 可以建的流程（按教學階段）
 
-這些是模板——配合你的學科自行調整：
+下表 5 條是模板——配合你的學科自行調整：
 
-- **教案生成器**：用課綱 + 主題提示 → 大綱 → 投影片 → 評量
-- **Rubric 建立**：學生作業樣本 + 學習目標 → rubric 草稿
-- **個別化回饋**：學生作業 + rubric → 個別化文字回饋（要人工把關）
-- **情境模擬活動**：教學目標 + 角色設定 → 對話腳本 → 課堂演練 → 反思問題
-- **課後補救教材**：常見錯誤 + 學生程度 → 小練習 → 提示 → 延伸挑戰
+| 階段 | 流程 | 怎麼做（≤ 3 步） | 推薦工具 | 注意 |
+|---|---|---|---|---|
+| **備課前** | 教案生成器 | (1) 課綱 + 主題提示 → 大綱<br>(2) 大綱 → 投影片<br>(3) 投影片 → 評量題目 | Claude.ai / NotebookLM | 教師最後審 |
+| **備課中** | Rubric 建立 | (1) 給學生作業樣本 + 學習目標<br>(2) 請 AI 草擬 4 級 rubric<br>(3) 教師調整級距 | Claude.ai | 避免「品質好」這種模糊詞 |
+| **改作業** | 個別化回饋 | (1) 學生作業 + rubric → AI 寫回饋初稿<br>(2) 教師逐份審 + 改<br>(3) 寄回 | Claude.ai | **AI 輔助 ≠ AI 評分**，最終分數一定人工 |
+| **課堂活動** | 情境模擬 | (1) 教學目標 + 角色設定 → 對話腳本<br>(2) 課堂演練<br>(3) 反思問題 | Claude.ai | 蘇格拉底式追問、不直接給答案；學生輸入**不含個資** |
+| **課後補救** | 個別化補救教材 | (1) 整理學生常見錯誤<br>(2) 依學生程度 → 小練習 + 提示<br>(3) 延伸挑戰題 | Claude.ai | 注意學生個資匿名化 |
+
+> 💡 **新手起手式**：先做「備課前的教案生成器」一個學期、習慣後再加 rubric / 回饋流程。⚠️ 所有跟學生個資 / 評分相關的步驟都要回頭看下面的 §隱私 + 倫理（重要）章節。
 
 ### 3 個可直接複製的 prompt 範本
 
@@ -194,25 +200,21 @@ AI 可以幫忙準備和輔助，但不應該直接取代教師判斷。近期 A
 - **AI 輔助 ≠ AI 評分**：用 LLM 草擬回饋 / rubric 沒問題，但**最終評分一定要人工把關**——LLM 對複雜思考的評估還不可靠
 - **告知學生**：如果課堂材料是 AI 輔助生成，建議向學生揭露（比照論文揭露 AI 工具使用）。教學誠信很重要
 - **檢查事實**：LLM 會編造引用、學者名字、研究資料。專業領域內容**必須核對**才能上課
-- **學生作品的著作權**：不要把學生作品用 LLM 大量分析後上傳到第三方 service，可能踩 FERPA / GDPR / 個資法
+- **學生作品的著作權**：不要把學生作品用 LLM 大量分析後上傳到第三方 service、**可能涉及所在地個資法、學校政策、第三方服務條款**——在**美國**另需留意 FERPA（學生紀錄保護法）、在**歐盟**需留意 GDPR、在**台灣**則需注意《個資法》與校方公告。實際適用範圍請以該地法規與學校 IT 政策為準
 
 如果你的學校 / 機構有 AI 使用政策，**那份比這份優先**。
 
 ## 給教師的層級建議
 
-大多數教師應該停在 **Tier 0（瀏覽器聊天）**或 **Tier 1（Claude Desktop）**：
+下表是建議的進階路徑——大多數教師應該停在 Tier 0-1：
 
-- **Tier 0**：Claude.ai 網頁版聊天——複製貼上 prompt，免安裝
-  - 適合：偶爾備課、單次任務、出題、寫信
-  - 例子：複製上面的「教案大綱生成」prompt，填入主題就跑
-- **Tier 1**：Claude Desktop / [NotebookLM](https://notebooklm.google.com/)——可上傳檔案、保留對話歷史
-  - 適合：批改 / 整理一整學期資料、做課程地圖、整批匯入課本 PDF 後問問題
-  - 例子：上傳整門課的 reading list PDF 到 NotebookLM，學期中可以隨時 query
-- **Tier 2+ (CLI / SDK)**：只有當你開始**自動化重複流程**才需要
-  - 例子：每週固定收 30 份作業 → 自動生成回饋初稿
-  - 不熟程式的老師可以**找學校的 IT 同事 / 學生 RA 幫忙**設定，自己只用結果
+| Tier | 工具 | 適合誰 | 學習成本 |
+|---|---|---|---|
+| **Tier 0** | Claude.ai 網頁版聊天 | 偶爾備課、單次任務、出題、寫信。複製上面的 prompt 範本填入主題即可 | 0（會用瀏覽器就行） |
+| **Tier 1** | Claude Desktop / [NotebookLM](https://notebooklm.google.com/) | 批改 / 整理一整學期資料、做課程地圖、整批匯入課本 PDF 後問問題 | 半小時裝好 |
+| **Tier 2+** | Claude Code / CLI / SDK | 有重複自動化需求（例：每週收 30 份作業 → 自動生成回饋初稿） | 1 週上手；不熟程式可找學校 IT / 學生 RA 幫忙設定 |
 
-> 升級到 Tier 2+ 就建議走 [Track A — CLI Power User](/zh-tw/tracks/cli-a1-cli-intro/)。
+> **多數教師停在 Tier 0-1 就夠了**。升級到 Tier 2+ 就建議走 [Track A — CLI Power User](/zh-tw/tracks/cli-a1-cli-intro/)。
 
 ## 也適用其他分支
 

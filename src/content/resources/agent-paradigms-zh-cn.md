@@ -1,11 +1,11 @@
 ---
 title: "Agent 5 种型态 — 你的 agent 跑在哪、为谁服务？"
-description: "「Agent」一词被用得很泛。Cursor 是 agent、Claude Code 是 agent、Telegram 上跟你聊天的 Hermes 也是 agent、家里 Jetson 板子跑的 OpenClaw 也是 agent。但这 4 个东西用起来完全不同感受 —— 因为它们属于**不同 paradigm**。差别不在 LLM 是哪家、而在 **agen"
+description: "「Agent」一词被用得很泛。Cursor 是 agent、Claude Code 是 agent、Telegram 上跟你聊天的 Hermes 也是 agent、家里 Jetson 板子跑的 OpenClaw 也是 agent。但这 4 个东西用起来完全不同感受 —— 因为它们属于不同 paradigm。差别不在 LLM 是哪家、而在 agent 跑在哪、你用什么界面跟它互动、需不需要联网。"
 section: "Resource"
 sourcePath: "resources/agent-paradigms.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "agent-paradigms"
@@ -142,6 +142,27 @@ baseSlug: "agent-paradigms"
 
 **适合**:隐私敏感资料;offline-first;家用 AI box（smart home）;physical AI（robot）;长期持有、不想付 API recurring cost。
 **不适合**:不会 Linux / NVIDIA 环境;需要前沿 model（GPT-5 / Claude Opus）;不想花 €549。
+
+---
+
+## Subagent — “在 agent runtime 里再 spawn agent”
+
+上面 5 个 type 讲的是 **agent 跑在哪里**（IDE / Terminal / 任意 CLI / Cloud / Edge）。**Subagent** 是另一个维度：**一个 agent 在执行任务时，spawn 出另一个 agent 跑子任务**。
+
+主要两种实作路径：
+
+| 路径 | 怎么启动 | 代表 |
+|---|---|---|
+| **Framework-based**（Stage 4） | `pip install langgraph / crewai / autogen` + Python orchestration code | LangGraph / CrewAI / AutoGen / Swarm / Strands |
+| **Claude Code 原生**（Stage 5.5） | 写 `.claude/agents/<name>.md`，主 session 用 Task tool invoke | Claude Code subagent + Claude Agent SDK |
+
+**差别在 runtime ownership**：
+- Framework path：你自己的 Python process 跑 orchestrator，各 sub-agent 是程序内的对象
+- Claude path：Claude Code 自己 spawn 新 agent instance，parent / child 共用 Claude runtime，parent 只看到 child 的最终 result（context 自动隔离）
+
+**选哪个**：要跨 LLM provider（GPT + Claude + Gemini 混用）或要把 multi-agent 包进别的应用程序 → framework path。已 commit Claude Code、只在 Claude 生态 → subagent path（少很多 boilerplate）。
+
+完整对照表见 [Stage 5.5 开头](/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-机制-2025-新功能)；**想直接看 15 个 daily dispatch recipe** → [`subagent-cookbook.zh-Hans.md`](/resources/subagent-cookbook/)（每个含场景 + 用哪个 subagent + 复制即用的 prompt 模板）。
 
 ---
 

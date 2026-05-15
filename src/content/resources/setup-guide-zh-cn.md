@@ -1,11 +1,11 @@
 ---
 title: "🚀 从零开始 — 给没有开发背景的设置指南"
-description: "按「想花多少时间 setup」由浅到深排序。**完全没接触过 LLM 直接从 1️⃣ 开始就好**。"
+description: "按「想花多少时间 setup」由浅到深排序。完全没接触过 LLM 直接从 1️⃣ 开始就好。"
 section: "Resource"
 sourcePath: "resources/setup-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "setup-guide"
@@ -63,7 +63,7 @@ baseSlug: "setup-guide"
 
 ### 4️⃣ CLI Agent（terminal，能读写文件、跑指令、操作 git）
 
-装在 terminal 的 agent——你下一个 prompt（譬如「重构这个 module」），agent 自己读文件、改文件、跑指令、commit。**比 IDE 模式更自主、可以处理多步骤任务**，但 setup 稍复杂（需要先有 Node.js 或 Python，看下面 §B / §D）。
+装在 terminal 的 agent——你下一个 prompt（譬如「重构这个 module」），agent 自己读文件、改文件、跑指令、commit。**比 IDE 模式更自主、可以处理多步骤任务**，但 setup 稍复杂（需要先有 Node.js 或 Python，看下面 B / D）。
 
 | CLI Agent | 安装 / 文档 | 主要 LLM |
 |---|---|---|
@@ -76,19 +76,19 @@ baseSlug: "setup-guide"
 | **Hermes Agent** | https://github.com/NousResearch/hermes-agent | 200+（model-neutral） |
 
 → 想看 7 个 CLI 完整比较 → [`cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/)
-→ Claude Code 第一次装的详细步骤 → 本指南 §D
+→ Claude Code 第一次装的详细步骤 → 本指南 D
 
 > 💡 **IDE-based 跟 CLI agent 怎么选？** 边写 code 边要 AI 帮忙 → IDE；下单一 prompt 让 agent 自己跑完一整个任务 → CLI。两个可以并用。
 
 ### 5️⃣ API + 自己写 code（最进阶，能 batch、集成任何工具）
 
-想自己写 Python script、跑 batch job、把 LLM 接到自己的 app／automation？接下来的 §A-C 就是给你的。
+想自己写 Python script、跑 batch job、把 LLM 接到自己的 app／automation？接下来的 A-C 就是给你的。
 
 > 💡 **API key 是什么**：简单讲就是「让程序调用模型的密码」。请把它当成信用卡资料一样保管。
 
 ---
 
-## §A — 申请第一个 API key（约 10 分钟）
+## A — 申请第一个 API key（约 10 分钟）
 
 ### Anthropic Claude（推荐第一次）
 
@@ -142,7 +142,7 @@ baseSlug: "setup-guide"
 
 ---
 
-## §B — 装本机环境（约 10 分钟）
+## B — 装本机环境（约 10 分钟）
 
 ### 装 Python 3.10+
 
@@ -193,7 +193,7 @@ __pycache__/
 
 ---
 
-## §C — 跑第一个 `hello-claude.py`（约 5 分钟）
+## C — 跑第一个 `hello-claude.py`（约 5 分钟）
 
 建立 `hello-claude.py`：
 
@@ -202,7 +202,7 @@ from anthropic import Anthropic
 from dotenv import load_dotenv
 
 load_dotenv()
-client = Anthropic()  # 自动读取 ANTHROPIC_API_KEY
+client = Anthropic() # 自动读取 ANTHROPIC_API_KEY
 
 msg = client.messages.create(
     model="claude-sonnet-4-5",
@@ -225,16 +225,18 @@ uv run --with anthropic --with python-dotenv python hello-claude.py
 
 | 错误信息 | 常见原因 | 解法 |
 |---|---|---|
-| `401 Unauthorized` | API key 没读到或打错 | 回 §A 重新复制，确认 `.env` 文件名和内容 |
+| `401 Unauthorized` | API key 没读到或打错 | 回 A 重新复制，确认 `.env` 文件名和内容 |
 | `429 Rate limit` | 太快发太多请求 | 等几秒或几分钟再跑 |
 | `connection refused` | 网络或防火墙问题 | 确认网络、公司或学校防火墙 |
 | `ModuleNotFoundError` | 包没有被安装 | 确认执行的是上面的 `uv run --with ...` 命令 |
 
 ---
 
-## §D — 第一次装 Claude Code（约 10 分钟；Stage 5 / for-developer 会用到）
+## D — 第一次装 Claude Code（约 10 分钟；Stage 5 / for-developer 会用到）
 
 ### 先装 Node.js
+
+> 💡 **Node.js 是什么**：跑 JavaScript 的 runtime（类似 Python interpreter 但是给 JS 用）。**`npm`** 是它附带的“包管理器”（package manager）——跟 Python 的 `pip` 同角色、用来安装别人写好的工具（如下面的 Claude Code）。`npm install -g X` 表示“全局安装 X，之后在任何文件夹都能用”。
 
 - **macOS / Linux**：`brew install node`，或从 https://nodejs.org 下载。
 - **Windows**：从 https://nodejs.org 下载安装包。
@@ -255,7 +257,7 @@ claude
 第一次启动时通常会让你选：
 
 - **Claude subscription**：用 Claude.ai 账号登录，对初学者最省事。
-- **API key**：贴上 §A 申请到的 key。
+- **API key**：贴上 A 申请到的 key。
 
 ### 建立第一份 `CLAUDE.md`
 
@@ -278,7 +280,7 @@ claude
 
 ---
 
-## §E — 第一个 Skill 示例（约 5 分钟；Stage 5.3 会用到）
+## E — 第一个 Skill 示例（约 5 分钟；Stage 5.3 会用到）
 
 Skill 是 Claude Code 的“可复用 prompt 包”。当你的消息符合描述，Claude Code 会自动加载那份指示。
 

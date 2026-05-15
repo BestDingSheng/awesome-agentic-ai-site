@@ -1,17 +1,17 @@
 ---
-title: "Stage 2 — Prompt Engineering"
-description: "⏱ **时间估算**：1-2 周（约 5-12 小时）"
+title: "Stage 2 — Prompt 设计（Prompt Engineering）"
+description: "📋 起手码 — Path A（本机 Ollama gemma4:e4b、默认） （复制到 practice1.py ）"
 section: "Stage"
 sourcePath: "stages/02-prompt-engineering.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "02-prompt-engineering"
 order: 2
 ---
-# Stage 2 — Prompt Engineering
+# Stage 2 — Prompt 设计（Prompt Engineering）
 
 > [繁体中文](/zh-tw/stages/02-prompt-engineering/) | **简体中文** | [English](/en/stages/02-prompt-engineering/)
 
@@ -38,18 +38,20 @@ order: 2
 
 ## 📚 必修阅读
 
-1. [**Anthropic Prompt Engineering Guide**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — 官方，整理得不错
-2. [**OpenAI Prompt Engineering**](https://platform.openai.com/docs/guides/prompt-engineering) — OpenAI 观点
-3. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — 学术风，深入
-4. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — 直接清楚
+1. [**anthropics/prompt-eng-interactive-tutorial**](https://github.com/anthropics/prompt-eng-interactive-tutorial) ⭐⭐⭐⭐⭐ ★ 35k+ — **Anthropic 官方互动教程**、9 章 Jupyter notebook（basic / intermediate / advanced + appendix），含 playground 跟 answer key。用 Claude 3 Haiku（最便宜）跑得起来、**Stage 2 的 canonical 动手教材**。也是 [**anthropics/courses**](https://github.com/anthropics/courses) 5 course umbrella 的 module 2，想看更广（含 API Fundamentals / Real World Prompting / Eval / Tool Use）直接看 umbrella
+2. [**anthropics/courses — Real World Prompting**](https://github.com/anthropics/courses) ⭐⭐⭐⭐ ★ 21k+ — 同 umbrella 的 module 3，**「真实情境下怎么用 prompting」**：chatbot / legal / financial / coding 案例 walk-through。看完 #1 再来看 #2
+3. [**Anthropic Prompt Engineering Guide**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — 官方 docs、配合上面 #1 一起读
+3. [**OpenAI Prompt Engineering**](https://platform.openai.com/docs/guides/prompt-engineering) — OpenAI 观点
+4. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — 学术风，深入
+5. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — 直接清楚
 
 ## 🛠 动手练习
 
 > 🦙 **本 stage 默认用 Ollama gemma4:e4b**（成本考量、$0/run）。Prompt engineering 对小 model 更有教学价值——小 model 对 prompt 质量敏感、能让你看清楚 system prompt / few-shot / CoT / refinement 各自带来多少改善。每个练习都有 Path A（Ollama、默认）+ Path B（Anthropic、选择性）。
 >
-> 💰 **Stage 2 预算估算**（全 4 练习各跑 3-5 次）：**全本机 = $0**、**全 haiku ≈ $0.20**、**全 sonnet ≈ $0.60**。Few-shot 分类任务的 12 calls × 5 reps ≈ $0.30 haiku / $0.90 sonnet。完整预算见 [`examples/README.zh-Hans.md#推荐-llm-清单`](../examples/README.zh-Hans.md#推荐-llm-清单本机--clouduser-视角)。
+> 💰 **Stage 2 预算估算**（全 4 练习各跑 3-5 次）：**全本机 = $0**、**全 haiku ≈ $0.20**、**全 sonnet ≈ $0.60**。Few-shot 分类任务的 12 calls × 5 reps ≈ $0.30 haiku / $0.90 sonnet。完整预算见 [`examples/README.zh-Hans.md#推荐-llm-清单`](/#推荐-llm-清单本机--clouduser-视角)。
 >
-> 完整 3 路 trade-off 见 [`examples/README.zh-Hans.md`](../examples/README.zh-Hans.md#三条路径--默认用-ollama成本考量)。
+> 完整 3 路 trade-off 见 [`examples/README.zh-Hans.md`](/#三条路径--默认用-ollama成本考量)。
 
 ### 练习 1：System Prompt
 同样的 user message，三个不同的 system prompt。观察人格 / 输出格式怎么变。
@@ -534,14 +536,29 @@ Stage 1 已经提过。这里特别推 `misc/prompt_caching.ipynb` 跟 `multimod
 
 ---
 
-## 🔭 进阶：context engineering（不是 prompt engineering 了）
+## 🔭 进阶：prompt → context → harness 三层 engineering
 
-当你发现“**单一 prompt 已经 cover 不了**”——要动态组 system prompt + 拉 memory + 塞 retrieved chunks + 接多个 tool definitions——这已经不叫 prompt engineering，叫 **context engineering**。是 prompt engineering 的下一层。
+LLM-powered system 的工程实践可以拆成 **3 层 stack**。这不是 1 次 call vs N 次 call 的区别，而是每一层工程的对象 **不一样**：
 
-**这个 stage 不用学完它**，只是给个方向性提示：
+- **Prompt Engineering**（本 stage）= 工程 **送进模型的那段字符串**
+- **Context Engineering**（Stage 6）= 工程 **每次 call 时，context window 里装什么信息**——动态组装 RAG retrieve 结果、memory、tool definitions、对话 history
+- **Harness Engineering**（Stage 7）= 工程 **模型外围的执行与控制层**——agent loop、retry、sandbox、observability、deployment 等所有非 LLM 代码
 
-- 在 [Stage 6（Memory · RAG）](/stages/06-memory-rag/) 会碰到（什么数据塞进 prompt）
-- 在 [Stage 7（Multi-Agent · Production）](/stages/07-multi-agent-production/) 完整面对（context window 预算、memory 阶层、observability）
+→ 三层 **正交**：一次 call 的 RAG app 也在做 context engineering（重点是组 context，不是 call 几次）；50 次 call 但没做 retrieval 的 chatbot 仍然只是在做 prompt engineering。
+
+**这条路线里的完整三层 lineage**：
+
+| Discipline | 工程“什么” | 在哪一 stage 完整学 |
+|---|---|---|
+| **1. Prompt Engineering** | 送进 LLM 的字符串本身（system prompt / few-shot / format） | **本 stage（Stage 2）** |
+| **2. Context Engineering** | context window 里装什么信息（RAG / memory / tool defs / history） | [Stage 6 — Context Engineering：RAG 与 Memory](/stages/06-memory-rag/) |
+| **3. Harness Engineering** | 模型外围的执行与控制层（agent loop / retry / sandbox / observability） | [Stage 7 — Multi-Agent · Production 化](/stages/07-multi-agent-production/) |
+
+> 💡 **Karpathy 2025-06**：context engineering 是把 **刚好对下一步有用的信息** 填进 context window 的精细艺术。
+>
+> 💡 **Simon Willison / Addy Osmani**：“coding agent = LLM + harness”；harness = 所有不是 model 本身的代码。[OpenAI 也在 2026-02 使用了 "Harness Engineering" 这个说法](https://openai.com/index/harness-engineering)。
+
+**这个 stage 不用学完后两层**，这里只是给你一个方向。等你进入 Stage 6 / 7，会发现它们是在接着这条 lineage 往上走。
 
 延伸阅读（不必修、未来想深挖时看）：
 

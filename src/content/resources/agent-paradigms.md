@@ -1,11 +1,11 @@
 ---
 title: "Agent 5 種型態 — 你的 agent 跑在哪、為誰服務？"
-description: "「Agent」一詞被用得很泛。Cursor 是 agent、Claude Code 是 agent、Telegram 上跟你聊天的 Hermes 也是 agent、家裡 Jetson 板子跑的 OpenClaw 也是 agent。但這 4 個東西用起來完全不同感受 —— 因為它們屬於**不同 paradigm**。差別不在 LLM 是哪家、而在 **agen"
+description: "「Agent」一詞被用得很泛。Cursor 是 agent、Claude Code 是 agent、Telegram 上跟你聊天的 Hermes 也是 agent、家裡 Jetson 板子跑的 OpenClaw 也是 agent。但這 4 個東西用起來完全不同感受 —— 因為它們屬於不同 paradigm。差別不在 LLM 是哪家、而在 agent 跑在哪、你用什麼介面跟它互動、需不需要連網。"
 section: "Resource"
 sourcePath: "resources/agent-paradigms.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "agent-paradigms"
@@ -74,7 +74,7 @@ baseSlug: "agent-paradigms"
 **代表**：[Aider](https://aider.chat) / [OpenCode](https://github.com/sst/opencode) / [goose](https://block.github.io/goose) / [Hermes Agent](https://github.com/NousResearch/hermes-agent)*
 
 **Hero example**：
-你想用 DeepSeek-R1 寫 code（比 Claude Opus 便宜 10×）。Aider 設 `--model deepseek/deepseek-reasoner` + `OPENROUTER_API_KEY` 就能跑、git-aware、commit message 自動寫。
+你想用 DeepSeek-V4-Pro（2026-04 preview、開源 MIT、前身 R1 reasoning lineage 已併入主線）寫 code（比 Claude Opus 便宜 10×）。Aider 設 `--model deepseek/deepseek-reasoner` + `OPENROUTER_API_KEY` 就能跑、git-aware、commit message 自動寫。
 
 **跟 Type 2 的差別**：Type 2 綁特定家、Type 3 你帶 API key、任何 OpenAI-compatible endpoint 都行。
 
@@ -162,7 +162,7 @@ baseSlug: "agent-paradigms"
 
 **選哪個**：要跨 LLM provider（GPT + Claude + Gemini 混用）或要把 multi-agent 包進別的應用程式 → framework path。已 commit Claude Code、只在 Claude 生態 → subagent path（少很多 boilerplate）。
 
-完整對照表見 [Stage 5.5 開頭](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制)。
+完整對照表見 [Stage 5.5 開頭](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)；**想直接看 15 個 daily dispatch recipe** → [`subagent-cookbook.md`](/zh-tw/resources/subagent-cookbook/)（每個含情境 + 用哪個 subagent + 複製即用的 prompt 範本）。
 
 ---
 

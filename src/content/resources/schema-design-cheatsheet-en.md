@@ -1,11 +1,11 @@
 ---
 title: "Function Schema Design Cheatsheet"
-description: "How well an LLM uses your tool **is 80% determined by schema quality** — vague schemas defeat even strong models."
+description: "How well an LLM uses your tool is 80% determined by schema quality — vague schemas defeat even strong models."
 section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "schema-design-cheatsheet"

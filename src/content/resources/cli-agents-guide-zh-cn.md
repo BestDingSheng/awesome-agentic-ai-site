@@ -1,11 +1,11 @@
 ---
 title: "CLI Agents 比较指南"
-description: "跨 5 个 branch + Track A 共用的参考——**Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent 之间怎么挑？** Track A（A1-A3）的 CLI workflow 设计、5 条 branch 内的 CLI 引用都连到这份；每个 bra"
+description: "跨 5 个 branch + Track A 共用的参考——Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent 之间怎么挑？ Track A（A1-A3）的 CLI workflow 设计、5 条 branch 内的 CLI 引用都连到这份；每个 branch 都会用到 CLI agent，但没有一个 branch 真的「拥有」这份比较，所"
 section: "Resource"
 sourcePath: "resources/cli-agents-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-agents-guide"
@@ -65,7 +65,7 @@ baseSlug: "cli-agents-guide"
 ### 想跑在 cloud VM、用 Telegram / Slack 等多平台跟它聊 + 用中国大陆 LLM
 **首推**：Hermes Agent。差异化在三件事：
 - **不绑 laptop**——agent 跑在 $5 VPS / Modal serverless，你从 Telegram / Discord / Slack / WhatsApp / Signal 任一个介面对话
-- **多 LLM 中性**——支持 GLM / Kimi / 小米 MiMo / MiniMax，刚好对应 §11 中文圈生态
+- **多 LLM 中性**——支持 GLM / Kimi / 小米 MiMo / MiniMax，刚好对应 11 中文圈生态
 - **内建 self-improving skill loop + cron 排程**——agent 跟你互动久了会自动生成 skill，跨 session 持续优化
 - ⚠️ skill 自动演化是 frontier feature，目前缺独立审计；对 production 任务建议先在低风险场景试
 

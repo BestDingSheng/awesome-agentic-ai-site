@@ -1,11 +1,11 @@
 ---
 title: "Stage 0 — Foundations"
-description: "⏱ **Time estimate**: 1-2 weeks (~5-15 hours, can skip if you have these)"
+description: "⏱ Time estimate: 1-2 weeks (5-15 hours, can skip if you have these)"
 section: "Stage"
 sourcePath: "stages/00-foundations.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "00-foundations"

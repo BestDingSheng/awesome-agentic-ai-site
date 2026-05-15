@@ -1,11 +1,11 @@
 ---
 title: "🚀 From Zero — Setup Guide for People Without a Dev Background"
-description: "Ordered shallow → deep by setup effort. **Never touched an LLM? Just start with 1️⃣**."
+description: "Ordered shallow → deep by setup effort. Never touched an LLM? Just start with 1️⃣."
 section: "Resource"
 sourcePath: "resources/setup-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "setup-guide"
@@ -63,7 +63,7 @@ Lives inside a code editor — you write code normally, AI suggests / edits / an
 
 ### 4️⃣ CLI agent (terminal, can read/write files, run shell, manage git)
 
-Agents that live in your terminal — you give one prompt (e.g. "refactor this module"), the agent reads files, edits them, runs commands, commits. **More autonomous than the IDE mode and handles multi-step tasks**, but setup is heavier (requires Node.js or Python; see §B / §D below).
+Agents that live in your terminal — you give one prompt (e.g. "refactor this module"), the agent reads files, edits them, runs commands, commits. **More autonomous than the IDE mode and handles multi-step tasks**, but setup is heavier (requires Node.js or Python; see B / D below).
 
 | CLI Agent | Install / Docs | Primary LLM |
 |---|---|---|
@@ -76,19 +76,19 @@ Agents that live in your terminal — you give one prompt (e.g. "refactor this m
 | **Hermes Agent** | https://github.com/NousResearch/hermes-agent | 200+ (model-neutral) |
 
 → Full 7-CLI comparison → [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/)
-→ Detailed Claude Code first install → [§D](#d--install-claude-code-for-the-first-time-about-10-minutes-needed-for-stage-5--for-developer) below
+→ Detailed Claude Code first install → [D](#d--install-claude-code-for-the-first-time-about-10-minutes-needed-for-stage-5--for-developer) below
 
 > 💡 **IDE vs CLI — how to pick?** Want AI alongside you while you code → IDE. Want to give one prompt and let the agent run a multi-step task → CLI. Many people use both.
 
 ### 5️⃣ API + write your own code (most advanced)
 
-Want to script with Python, run batch jobs, integrate LLMs into your own app/automation? §A-C below are for you.
+Want to script with Python, run batch jobs, integrate LLMs into your own app/automation? A-C below are for you.
 
 > 💡 **What's an API key?** A password that lets a program call a model. Treat it like payment information.
 
 ---
 
-## §A — Get Your First API Key (About 10 Minutes)
+## A — Get Your First API Key (About 10 Minutes)
 
 ### Anthropic Claude (Recommended First)
 
@@ -142,7 +142,7 @@ Want to script with Python, run batch jobs, integrate LLMs into your own app/aut
 
 ---
 
-## §B — Install Your Local Environment (About 10 Minutes)
+## B — Install Your Local Environment (About 10 Minutes)
 
 ### Install Python 3.10+
 
@@ -193,7 +193,7 @@ This keeps git from recording your `.env` file.
 
 ---
 
-## §C — Run Your First `hello-claude.py` (About 5 Minutes)
+## C — Run Your First `hello-claude.py` (About 5 Minutes)
 
 Create `hello-claude.py`:
 
@@ -202,7 +202,7 @@ from anthropic import Anthropic
 from dotenv import load_dotenv
 
 load_dotenv()
-client = Anthropic()  # Automatically reads ANTHROPIC_API_KEY
+client = Anthropic() # Automatically reads ANTHROPIC_API_KEY
 
 msg = client.messages.create(
     model="claude-sonnet-4-5",
@@ -225,16 +225,18 @@ If Claude introduces itself, your API key, Python, and packages are working.
 
 | Error | Likely Cause | Fix |
 |---|---|---|
-| `401 Unauthorized` | API key is missing or mistyped | Copy it again from §A and check the `.env` filename and value |
+| `401 Unauthorized` | API key is missing or mistyped | Copy it again from A and check the `.env` filename and value |
 | `429 Rate limit` | Too many requests too quickly | Wait a few seconds or minutes, then retry |
 | `connection refused` | Network or firewall issue | Check your network, company firewall, or school firewall |
 | `ModuleNotFoundError` | A package was not installed | Make sure you ran the exact `uv run --with ...` command above |
 
 ---
 
-## §D — Install Claude Code for the First Time (About 10 Minutes; Needed for Stage 5 / for-developer)
+## D — Install Claude Code for the First Time (About 10 Minutes; Needed for Stage 5 / for-developer)
 
 ### Install Node.js First
+
+> 💡 **What is Node.js?** A runtime for running JavaScript, similar to a Python interpreter but for JS. **`npm`** is its bundled package manager, which plays the same role as Python's `pip`: installing tools other people wrote, including Claude Code below. `npm install -g X` means install X globally so you can use it from any folder.
 
 - **macOS / Linux**: run `brew install node`, or download from https://nodejs.org.
 - **Windows**: download the installer from https://nodejs.org.
@@ -255,7 +257,7 @@ claude
 On first launch, you will usually choose between:
 
 - **Claude subscription**: sign in with your Claude.ai account. This is the simplest path for beginners.
-- **API key**: paste the key you created in §A.
+- **API key**: paste the key you created in A.
 
 ### Create Your First `CLAUDE.md`
 
@@ -278,7 +280,7 @@ I am [your name], a [your field, such as teacher / researcher / writer].
 
 ---
 
-## §E — Your First Skill Example (About 5 Minutes; Needed for Stage 5.3)
+## E — Your First Skill Example (About 5 Minutes; Needed for Stage 5.3)
 
 A Skill is a reusable prompt package for Claude Code. When your message matches the description, Claude Code loads that instruction automatically.
 

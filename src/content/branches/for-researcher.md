@@ -1,30 +1,38 @@
 ---
-title: "給研究者 — 專業分支"
-description: "給博士研究者的 Claude Code 基礎建設——學術流程用的 skill、agent、hook、規則。LaTeX / 文獻管理為主。"
+title: "研究者延伸路線（For Researchers）"
+description: "研究者一天分成幾個階段、AI 在每個階段的角色不同。下表幫你定位："
 section: "Branch"
 sourcePath: "branches/for-researcher.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-researcher"
 ---
-# 給研究者 — 專業分支
+# 研究者延伸路線（For Researchers）
 
 > **繁體中文** | [简体中文](/branches/for-researcher/) | [English](/en/branches/for-researcher/)
 
-> 🚀 **第一次裝 Python / 申請 API key？** 先看 [`resources/setup-guide.md` §A-C](/zh-tw/resources/setup-guide/)。本分支預設你會跑 Python script、有 API key、會用 git。
+> 🚀 **計算型研究者**（會跑 Python script、有 API key、會用 git）可直接進階；**非程式背景研究者**（人文社科、臨床研究、文獻為主）可先從文獻 Q&A（NotebookLM）、Zotero AI 工具開始、需要時再看 [`resources/setup-guide.md` A-C](/zh-tw/resources/setup-guide/)。
 
 > [← 回主路線 README](/zh-tw) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到研究流程上。
 
-## 使用情境
+## 使用情境（研究階段 × AI 怎麼幫）
 
-- 文獻分流與比較矩陣建立
-- 論文記憶提取（claim、figure、citation）
-- Multi-agent 論文審查（peer review 模式）
-- NotebookLM brief 驗證
-- 文獻管理自動化
+研究者一天分成幾個階段、AI 在每個階段的角色不同。下表幫你定位：
+
+| 階段 | 你常遇到的痛點 | AI 能幫的部分 | 推薦工具（從輕到重） |
+|---|---|---|---|
+| **文獻探索** | 不知道某個領域有哪些經典 paper | 推薦 + 摘要 + 比較 | NotebookLM → paper-qa → gpt-researcher |
+| **文獻精讀** | PDF 翻一半就忘 / 抓不到 claim | 抓 claim、figure、citation、做筆記 | Zotero + zotero-gpt → zotero-skills |
+| **研究設計** | RQ 模糊、不知選哪個 method | 對話釐清、列出 trade-off | Claude.ai 對話 → ai-research-skills |
+| **實驗 / 寫程式** | 重複 boilerplate、寫 plot 浪費時間 | 寫 / 改 code、batch refactor | Claude Code → codex-delegate |
+| **論文撰寫** | 草稿卡關、句子不通 | 大綱 → 段落 → 潤色 | Claude.ai → gemini-delegate（長稿） |
+| **改稿 / 投稿** | 期刊規範一堆、容易漏 | banned-word / figure-text / submission checklist | academic-writing-skills |
+| **跨 paper synthesis** | 5 篇 paper 互相對話、context 爆 | 1M token 一次讀完 + 整理 | gemini-delegate |
+
+> 💡 **計算型 vs 非程式背景**：表中「推薦工具」由輕到重——非程式背景研究者先停在每行**第一個**就夠了；計算型研究者要自動化才往後挑。
 
 ## 精選 Projects
 
@@ -47,7 +55,7 @@ baseSlug: "for-researcher"
 | Stars | ★ 8k+ |
 | License | Apache-2.0 |
 
-**教什麼**：對 PDF 文件做高準確率的 RAG，每個答案都附 grounded citation（句子層級的引用）。
+**教什麼**：對 PDF 文件以 **citation-grounded Q&A** 為設計目標——每個答案附句子層級的引用、減少幻覺風險。實際準確率依文件類型而異、評測結果以官方 benchmark / paper 為準。
 
 **適合誰**：寫文獻回顧、需要「查文獻時答案要可追溯」的研究者。比一般 RAG 更嚴謹。
 
@@ -75,7 +83,7 @@ baseSlug: "for-researcher"
 | Stars | ★ 28k+ |
 | License | MIT |
 
-**教什麼**：multi-perspective outline-then-write pipeline——agent 從多個角度先產大綱、再展開成 Wikipedia-style 文章。Stanford OVAL 出品。
+**教什麼**：multi-perspective outline-then-write pipeline——**白話三步**：(1) 先模擬不同觀點提出問題、(2) 把問題整理成大綱、(3) 最後生成 Wikipedia-style 草稿。Stanford OVAL 出品。
 
 **適合誰**：想學「**outline-driven 寫作**」的人。從零產主題 brief 時的好工具，類似 NotebookLM structured report 流程的開源版。
 
@@ -116,29 +124,30 @@ baseSlug: "for-researcher"
 
 ---
 
-### 研究工作流 Skills（本 repo 維護者出品）
+### Multi-LLM 研究組合（本 repo 維護者的研究 setup）
 
-> 這幾個是本 repo 維護者 [@WenyuChiou](https://github.com/WenyuChiou)（Lehigh CEE PhD candidate）日常在用的研究 skill / workspace。一併放到這裡讓其他研究者直接用。完整 entry 內容在 [`resources/mcp-skills-catalog.md` §13-§14](/zh-tw/resources/mcp-skills-catalog/#13-研究工作流-skills學術--paper--文獻)。
+研究流程裡有些任務 Claude 一個就夠（對話、設計、review），有些 Claude 做會浪費 token（大批 code refactor、長稿 draft）。維護者實際用的搭配是 **Claude 當 planner / reviewer、Codex 跑程式、Gemini 跑長稿**——下表列何時用哪個：
 
-#### [WenyuChiou/ai-research-skills](https://github.com/WenyuChiou/ai-research-skills) ⭐⭐⭐⭐⭐
+| 任務類型 | 例子 | 用哪個 LLM | 為什麼 |
+|---|---|---|---|
+| 研究設計 / 假設討論 | 「這個 RQ 該用 logistic vs survival？」 | Claude.ai 對話 | 對話協作、context memory |
+| 寫 / 改 code | 「50 個 simulation script 都加 logging」 | codex-delegate | 機械式編輯快、不燒 Claude token |
+| 寫長稿（中英文） | 「draft 一個 8 頁 paper section」 | gemini-delegate | 1M context、長 prose 強項 |
+| Second opinion | 「請 Gemini 看我的 discussion 段落」 | gemini-delegate | LLM-vs-LLM 對照、容易看出 Claude 自身偏誤 |
+| 投稿前 audit | 「跑 banned-word + figure-text checklist」 | academic-writing-skills | structured audit、不靠 LLM 即興判斷 |
 
-★ 60 · MIT — 14 個 Claude Code skills 涵蓋研究全流程（文獻分流、研究設計、project context、論文撰寫、multi-AI delegation），打包成 5-plugin marketplace。一個指令裝整套。
+#### 維護者自用的 6 個研究 skill
 
-#### [WenyuChiou/research-hub](https://github.com/WenyuChiou/research-hub) ⭐⭐⭐⭐
+> ⚠️ **揭露**：以下 6 個工具是維護者 [@WenyuChiou](https://github.com/WenyuChiou)（Lehigh CEE PhD candidate）日常在用的研究 skills、公開讓有相似需求的人用。**未經第三方獨立評測**——適合 PhD 學位寫作 / 跨 paper 文獻整理這類流程；不一定適合你的領域。詳細 entry 看 [`resources/mcp-skills-catalog.md` 13 + 14](/zh-tw/resources/mcp-skills-catalog/#13-研究工作流-skills學術--paper--文獻)。
 
-★ 14 · MIT — Zotero + Obsidian + NotebookLM 三工具整合 workspace，提供 CLI / MCP / REST / dashboard 四種介面。同時用三個工具的研究者必看。
-
-#### [WenyuChiou/zotero-skills](https://github.com/WenyuChiou/zotero-skills) ⭐⭐⭐⭐
-
-★ 16 — Zotero CLI skill：搜 / 加 / 分類 / 標記。跟 zotero-gpt（在 Zotero 裡 chat）互補，這份是讓 Claude Code 從外部操作 Zotero。
-
-#### [WenyuChiou/academic-writing-skills](https://github.com/WenyuChiou/academic-writing-skills) ⭐⭐⭐
-
-★ 2 · MIT — 嚴謹學術論文撰寫 / 修改 / 投稿 skill。banned-word audit、figure-text coupling、submission checklist 自動化。Per-paper 的 journal_format / style_overrides 可客製。
-
-#### [WenyuChiou/codex-delegate](https://github.com/WenyuChiou/codex-delegate) ⭐⭐⭐⭐⭐ + [WenyuChiou/gemini-delegate-skill](https://github.com/WenyuChiou/gemini-delegate-skill) ⭐⭐⭐⭐
-
-★ 57 + ★ 34 · MIT — Multi-LLM delegation skill 對。研究場景：Claude planner + Codex 跑實作（程式 / 圖 / 表）+ Gemini 跑長文 draft（中文報告、英文 paper section）。是 Stage 7 multi-agent 的實戰版。
+| 工具 | 適合階段 | 一句話 |
+|---|---|---|
+| **[ai-research-skills](https://github.com/WenyuChiou/ai-research-skills)** ⭐⭐⭐⭐⭐ | 全流程 | 14 個研究 skill 打包成 5-plugin marketplace、一個指令裝整套 |
+| **[research-hub](https://github.com/WenyuChiou/research-hub)** ⭐⭐⭐⭐ | 文獻整理 | Zotero + Obsidian + NotebookLM 三工具整合 workspace、CLI / MCP / REST / dashboard 四介面 |
+| **[zotero-skills](https://github.com/WenyuChiou/zotero-skills)** ⭐⭐⭐⭐ | 文獻管理 | Zotero CLI skill（搜 / 加 / 分類 / 標記）——跟 zotero-gpt 互補（後者在 Zotero 裡 chat、這份從外部操作） |
+| **[academic-writing-skills](https://github.com/WenyuChiou/academic-writing-skills)** ⭐⭐⭐ | 投稿前 | banned-word audit、figure-text coupling、submission checklist；per-paper 可自訂 journal_format / style_overrides |
+| **[codex-delegate](https://github.com/WenyuChiou/codex-delegate)** ⭐⭐⭐⭐⭐ | 寫程式 | Claude planner + Codex executor 的標準 skill——batch refactor / boilerplate / migration |
+| **[gemini-delegate-skill](https://github.com/WenyuChiou/gemini-delegate-skill)** ⭐⭐⭐⭐ | 長稿 / synthesis | Claude planner + Gemini 寫 1M context 長文 / CJK / second-opinion |
 
 ---
 
@@ -181,9 +190,31 @@ baseSlug: "for-researcher"
 1. [The Effortless Academic — Claude Code beginner guides](https://effortlessacademic.com/claude-code-and-cowork-for-academics-beginner-guide-part-1/)
 2. [Pedro Sant'Anna — Researcher setup guide](https://paulgp.substack.com/p/getting-started-with-claude-code)
 
-## 必練流程
+## 必練流程（按使用頻率）
 
-- **文獻分流**：用 `paper-qa` 對 PDF 庫做 grounded Q&A，再用 `gpt-researcher` 自動產 brief，輸出到 Obsidian / Notion
-- **大綱驅動寫作**：用 `storm` 從主題自動產多角度大綱，再人工展開成正式段落
-- **中文 paper workflow**：用 `ChatPaper` 過總結 / 翻譯 / 潤色，再人工 review
-- **Zotero in-app AI**：裝 `zotero-gpt`，閱讀時直接對 selection 提問或總結
+研究者用 AI 的最大誤區是「只在卡關才打開 ChatGPT」。把 AI 變成日常工具的關鍵是**設好頻率**——下表 7 條都是維護者自己每週都在跑的、不是空想。
+
+| 頻率 | 流程 | 怎麼做（≤ 3 步） | 推薦工具 | 適合誰 |
+|---|---|---|---|---|
+| **每天** | 文獻 inbox 分流 | (1) 把昨天看到的 paper 丟 paper-qa<br>(2) 抓 claim + 4-5 行 summary<br>(3) 進 Zotero / Obsidian | paper-qa + zotero-gpt | 全研究者 |
+| **每天** | 寫作 sprint（25 min） | (1) 寫一段給 Claude.ai<br>(2) 跑 banned-word + figure-text audit<br>(3) 改完進 main draft | Claude.ai + academic-writing-skills | 寫 paper 階段 |
+| **每週** | 跨 paper synthesis | (1) 把 5-10 篇 PDF 餵 Gemini<br>(2) 問「這幾篇 disagree 在哪」<br>(3) 寫成 1 頁 brief | gemini-delegate（1M context） | 計算型 |
+| **每週** | Zotero 整理 | (1) 標未讀 / 已讀<br>(2) 重 tag<br>(3) 抓出該歸檔的 PDF | zotero-skills 或 zotero-gpt | 全研究者 |
+| **每月** | 研究進度 brief | (1) 從 Obsidian + Zotero + NotebookLM 抓近期筆記<br>(2) 整理出 5 個進度點<br>(3) 送指導教授 | research-hub | 同時用 3 工具的人 |
+| **Per paper** | 投稿前 final audit | (1) banned-word audit<br>(2) figure-text coupling check<br>(3) submission checklist | academic-writing-skills | 投稿前 1 週 |
+| **Per paper** | Multi-agent peer review | (1) Claude 看 logic / argument<br>(2) Codex 看 code / table 數字<br>(3) Gemini 看 prose / clarity | codex-delegate + gemini-delegate | 投稿前 second-opinion |
+
+> 💡 **新手起手式**：先做「每天 inbox 分流」+「寫作 sprint」兩條一個月、習慣後再加進階流程。一次裝太多會養不起來。
+
+## 層級建議
+
+研究者不需要一開始就裝 Claude Code。下表是建議的進階路徑：
+
+| Tier | 工具 | 適合誰 | 學習成本 |
+|---|---|---|---|
+| **Tier 0** | Claude.ai 網頁版 + NotebookLM | 非程式背景、人文社科、臨床研究 | 0（會用瀏覽器就行） |
+| **Tier 1** | Claude Desktop + Zotero MCP / Obsidian MCP | 已有 Zotero / Obsidian 習慣的研究者 | 半天裝好 |
+| **Tier 2** | Claude Code + ai-research-skills | 計算型研究者、寫 / 改程式為主 | 1-2 天上手 |
+| **Tier 3** | Claude Code + codex-delegate + gemini-delegate + research-hub | 想跑 multi-LLM 研究 pipeline、跨多工具整合 | 1 週 setup + 持續調 |
+
+**多數研究者停在 Tier 1-2 就夠了**——Tier 3 是有大量重複流程（譬如每週跑同樣的 paper synthesis）才值得。

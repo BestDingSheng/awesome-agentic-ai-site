@@ -62,7 +62,7 @@
 **代表**：[Aider](https://aider.chat) / [OpenCode](https://github.com/sst/opencode) / [goose](https://block.github.io/goose) / [Hermes Agent](https://github.com/NousResearch/hermes-agent)*
 
 **Hero example**：
-你想用 DeepSeek-R1 寫 code（比 Claude Opus 便宜 10×）。Aider 設 `--model deepseek/deepseek-reasoner` + `OPENROUTER_API_KEY` 就能跑、git-aware、commit message 自動寫。
+你想用 DeepSeek-V4-Pro（2026-04 preview、開源 MIT、前身 R1 reasoning lineage 已併入主線）寫 code（比 Claude Opus 便宜 10×）。Aider 設 `--model deepseek/deepseek-reasoner` + `OPENROUTER_API_KEY` 就能跑、git-aware、commit message 自動寫。
 
 **跟 Type 2 的差別**：Type 2 綁特定家、Type 3 你帶 API key、任何 OpenAI-compatible endpoint 都行。
 
@@ -150,7 +150,7 @@
 
 **選哪個**：要跨 LLM provider（GPT + Claude + Gemini 混用）或要把 multi-agent 包進別的應用程式 → framework path。已 commit Claude Code、只在 Claude 生態 → subagent path（少很多 boilerplate）。
 
-完整對照表見 [Stage 5.5 開頭](../stages/05-claude-code-ecosystem.md#55--subagentsclaude-code-原生-multi-agent-機制)。
+完整對照表見 [Stage 5.5 開頭](../stages/05-claude-code-ecosystem.md#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)；**想直接看 15 個 daily dispatch recipe** → [`subagent-cookbook.md`](./subagent-cookbook.md)（每個含情境 + 用哪個 subagent + 複製即用的 prompt 範本）。
 
 ---
 

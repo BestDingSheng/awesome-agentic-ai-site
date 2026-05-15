@@ -1,11 +1,11 @@
 ---
 title: "Function Schema 設計 Cheatsheet"
-description: "LLM 怎麼用你的 tool **80% 取決於 schema 寫得好不好**——schema 模糊，再強的模型也會選錯、傳錯。"
+description: "LLM 怎麼用你的 tool 80% 取決於 schema 寫得好不好——schema 模糊，再強的模型也會選錯、傳錯。"
 section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "schema-design-cheatsheet"

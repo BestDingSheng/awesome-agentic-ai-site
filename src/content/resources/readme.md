@@ -1,11 +1,11 @@
 ---
 title: "`resources/` 索引"
-description: "<div align=\"right\"> <strong>繁體中文</strong> | <a href=\"./README.zh-Hans.md\">简体中文</a> | <a href=\"./README.en.md\">English</a>"
+description: "| 檔案 | 角色 | 什麼時候看 | 行數 | |---|---|---|---| | glossary.md | 30 秒查詞典 | 看 stage 內文時遇到 LLM / RAG / token / agent / vector DB / streaming / batch API 不知道什麼意思 | 210 | | cli-agents-guide.md | 7 個 CLI agent 比較 | 第一次選 CLI agent（C"
 section: "Resource"
 sourcePath: "resources/README.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "readme"
@@ -77,9 +77,9 @@ baseSlug: "readme"
 刻意避免重複。每份 reference 跟主路線 / 其他 reference 的關係：
 
 - **glossary** 是「30 秒查」、stage 內文是「3-5 分鐘讀」、cookbook 是「30-50 分鐘做」——三層深度，不重疊
-- **schema-design-cheatsheet** 跟 cookbook §2（寫 MCP server）有交集——cheatsheet 講「**寫 schema 的規則**」、cookbook 講「**怎麼把 server 跑起來**」。看哪個取決於你卡在哪
+- **schema-design-cheatsheet** 跟 cookbook 2（寫 MCP server）有交集——cheatsheet 講「**寫 schema 的規則**」、cookbook 講「**怎麼把 server 跑起來**」。看哪個取決於你卡在哪
 - **cli-agents-guide** 是 reference table；catalog 是 plug-in tools——兩個層級不同
-- **跟 [Hello-Agents](https://github.com/datawhalechina/hello-agents) 的關係**：Hello-Agents 是中文圈最完整的 agent 教材，深度高。我們是「**roadmap + curated catalog + 動手 recipe**」的角度，不取代它。Stage 5.3 / cookbook §1 都明確 cross-ref Hello-Agents Extra08「如何寫出好的 Skill」當深度補充
+- **跟 [Hello-Agents](https://github.com/datawhalechina/hello-agents) 的關係**：Hello-Agents 是中文圈最完整的 agent 教材，深度高。我們是「**roadmap + curated catalog + 動手 recipe**」的角度，不取代它。Stage 5.3 / cookbook 1 都明確 cross-ref Hello-Agents Extra08「如何寫出好的 Skill」當深度補充
 
 ---
 

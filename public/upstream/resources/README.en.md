@@ -65,7 +65,7 @@ You do not need any reference first. **Start with the main [README](../README.en
 Duplication is intentional only where it helps navigation. The roles stay separate:
 
 - **glossary** is a 30-second lookup, stage text is a 3-5 minute read, and cookbook is a 30-50 minute build.
-- **schema-design-cheatsheet** overlaps with cookbook §2, but the cheatsheet explains schema rules while the cookbook gets a server running.
+- **schema-design-cheatsheet** overlaps with cookbook 2, but the cheatsheet explains schema rules while the cookbook gets a server running.
 - **cli-agents-guide** is a comparison reference; **mcp-skills-catalog** is a tool integration catalog.
 - **setup-guide** is for people starting from zero; Stage 0 assumes you are ready to follow a learning path.
 

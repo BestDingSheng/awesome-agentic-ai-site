@@ -1,17 +1,17 @@
 ---
-title: "Stage 0 — 基础准备"
-description: "⏱ **时间估算**：1-2 周（约 5-15 小时，已具备可跳过）"
+title: "Stage 0 — 基础准备（Foundations）"
+description: "⏱ 时间估算：1-2 周（约 5-15 小时，已具备可跳过）"
 section: "Stage"
 sourcePath: "stages/00-foundations.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "00-foundations"
 order: 0
 ---
-# Stage 0 — 基础准备
+# Stage 0 — 基础准备（Foundations）
 
 > [繁體中文](/zh-tw/stages/00-foundations/) | **简体中文** | [English](/en/stages/00-foundations/)
 

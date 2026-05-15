@@ -1,17 +1,17 @@
 ---
-title: "A2 — CLI Workflow Patterns"
-description: "⏱ **時間估算**：1-2 週（約 8-15 小時）"
+title: "A2 — 建立可重複使用的 CLI 工作流程（CLI Workflow Patterns）"
+description: "裝好 CLI、跑過第一個任務之後，下一個問題：怎麼讓 CLI 一致地、可重複地、可分享地做事？這節講 workflow pattern——把「我每次都要重打一遍 prompt」變成「設好一次後 CLI 自己會用對方法」。"
 section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a2-cli-workflow"
 order: 2
 ---
-# A2 — CLI Workflow Patterns
+# A2 — 建立可重複使用的 CLI 工作流程（CLI Workflow Patterns）
 
 > **繁體中文** | [简体中文](/tracks/cli-a2-cli-workflow/) | [English](/en/tracks/cli-a2-cli-workflow/)
 
@@ -19,14 +19,14 @@ order: 2
 
 ⏱ **時間估算**：1-2 週（約 8-15 小時）
 
-> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 → 動手練習 → 精選 Projects → 自我檢查  
-> 🔑 **關鍵名詞**：見 [`resources/glossary.md` §5](/zh-tw/resources/glossary/#5-claude-code-生態)（CLAUDE.md / slash command / SKILL.md / plugin / portable prompt）
+> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 → 動手練習 → 精選 Projects → 自我檢查
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md` 5](/zh-tw/resources/glossary/#5-claude-code-生態)（CLAUDE.md / slash command / SKILL.md / plugin / portable prompt）
 
 裝好 CLI、跑過第一個任務之後，下一個問題：**怎麼讓 CLI 一致地、可重複地、可分享地做事**？這節講 workflow pattern——把「我每次都要重打一遍 prompt」變成「設好一次後 CLI 自己會用對方法」。
 
 ## 📌 學習目標
 
-- 寫一份 production-grade 的 `CLAUDE.md` / `AGENTS.md`（不是 1 行說明，是 30-50 行的工作規範）
+- 寫一份 production-grade 的 `CLAUDE.md` / `AGENTS.md`——production-grade 的最低構成：**(1) 角色** + **(2) 專案背景** + **(3) 禁止事項** + **(4) 測試指令** + **(5) 交付格式**。實務上 30-50 行可同時涵蓋這 5 件事；超過 50 行通常該拆檔
 - 設計可重複的 slash command / custom prompt
 - 把多步驟任務拆成 CLI 能跑完的小步驟
 - 設計 prompt 讓任務在不同 CLI 上 portable
@@ -45,7 +45,7 @@ order: 2
 1. [**Anthropic — CLAUDE.md best practices**](https://docs.anthropic.com/en/docs/claude-code/memory) ⭐
 2. [**Stage 2 — Prompt 設計**](/zh-tw/stages/02-prompt-engineering/) — workflow design 跟 prompt design 是同一件事的兩面
 3. [**Stage 5.1 — Claude Code 基礎**](/zh-tw/stages/05-claude-code-ecosystem/#51--claude-code-基礎) — slash commands 細節
-4. [**`resources/cli-agents-guide.md`** §「跨 CLI 都通用的 prompt 寫法」](/zh-tw/resources/cli-agents-guide/) — portable prompt 原則
+4. [**`resources/cli-agents-guide.md`** 「跨 CLI 都通用的 prompt 寫法」](/zh-tw/resources/cli-agents-guide/) — portable prompt 原則
 
 ## 🛠 動手練習
 
@@ -81,12 +81,7 @@ description: Review staged changes for security + style
 - 第二次：你先拆成 5 個 sub-task，逐一給 CLI → 觀察結果差別
 - 學到：CLI 跟你一樣，太大的任務要拆；給太小的任務又會 over-orchestrate
 
-> ⭐ **進階：Claude Code 3 種原生 multi-agent 機制**（Track A 用 CLI 高頻時值得學）：CLI-7 教的「手動拆 sub-task」其實 Claude Code 有 3 個原生工具可以自動化：
-> 1. **Subagent** — 寫 `.claude/agents/<name>.md`、Claude 自動 delegate 大 context 任務（讀整個 codebase / 並行 research）到隔離 session、回主 session 摘要、省 context window。**完整講解 + 動手練習見 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制)**
-> 2. **Agent team** — 多 sessions 之間互相溝通（譬如 reviewer agent ↔ implementer agent 來回交流）。詳見 [Anthropic 官方 — agent teams](https://docs.claude.com/en/docs/claude-code/agent-teams)
-> 3. **Background agent** — 多 session 背景跑、單一介面監控（一次 spawn 3 個 PR review 同時跑）。詳見 [Anthropic 官方 — agent view](https://docs.claude.com/en/docs/claude-code/agent-view)
->
-> 這 3 個機制都不需要 framework、不寫 Python orchestration code、直接 Claude Code 內建。**Subagent 是進入點**——先把 Stage 5.5 跑完再評估要不要碰另外兩個。
+> ⭐ **進階補充：Claude Code 原生 multi-agent 機制**（這 1 句先看就好、不展開）：CLI-7 教的「手動拆 sub-task」其實 Claude Code 有 **Subagent / Agent team / Background agent** 三種原生工具可以自動化。完整 3 種機制 + 動手練習 + 何時不該用（團隊權限、上下文隔離、結果審查流程都要先想好）見 **[Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)**——在 A2 階段先知道有這層、不需要學細節。
 
 ### 動手練習 CLI-8：Portable prompt
 寫一個 prompt 給 Claude Code 跑成功了。**換到 Codex / OpenCode / Gemini CLI 跑同一個 prompt**——什麼地方需要改？通常會發現：
@@ -104,13 +99,17 @@ description: Review staged changes for security + style
 |---|---|---|---|---|
 | **CLAUDE.md 範例庫** | [Anthropic 官方範例](https://github.com/anthropics/claude-code/blob/main/CLAUDE.md) | ⭐⭐⭐⭐⭐ | 第一份 CLAUDE.md 從這抄結構 | Claude Code repo 自己的 CLAUDE.md、官方寫法 |
 | | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看 production-grade `.claude/` 完整目錄結構 | 不只是 skill collection、也是 CLAUDE.md 範本（★ 178k+） |
-| | [mattpocock/skills](https://github.com/mattpocock/skills) | ⭐⭐⭐⭐ | 想看工程師日常用的 skill 庫 | `.claude/` 結構是好參考（★ 59k+）。**更多 skill 範例見 [Stage 5.3](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層)** |
+| | [mattpocock/skills](https://github.com/mattpocock/skills) | ⭐⭐⭐⭐ | 想看工程師日常用的 skill 庫 | `.claude/` 結構是好參考。**更多 skill 範例見 [Stage 5.3](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層-claude-code-生態最關鍵的一層)** |
 | **Slash Commands / Custom Prompts** | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | ⭐⭐⭐⭐⭐ | 找官方 plugin 範本 | 官方 plugin marketplace、每個 plugin 內的 commands / skills 是 slash command 範例（★ 18k+） |
 | | [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | ⭐⭐⭐ | 想逛社群 slash command 範例 | 社群整理的 Claude Code 資源清單 |
-| **Prompt 設計參考** | [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) | ⭐⭐⭐⭐ | 卡關時找 CLI 通用的 prompt 模式 | ChatGPT 起家、prompt 寫法 90% 在 CLI 上也通（★ 161k+、CC0）。完整 prompt engineering 進階見 [Stage 2 §精選 Projects](/zh-tw/stages/02-prompt-engineering/#-精選-projects)（DSPy、dair-ai 等） |
-| **多 CLI 並用 pattern** | [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) §「3 個常見搭配」 | ⭐⭐⭐⭐ | 想試多 CLI 配對策略 | 本 repo 內部資源、看 Setup A / B / C 挑一個合的試 |
+| **Prompt 設計參考** | [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) | ⭐⭐⭐⭐ | 卡關時找 CLI 通用的 prompt 模式 | ChatGPT 起家、prompt 寫法 90% 在 CLI 上也通（★ 161k+、CC0）。完整 prompt engineering 進階見 [Stage 2 精選 Projects](/zh-tw/stages/02-prompt-engineering/#-精選-projects)（DSPy、dair-ai 等） |
+| **多 CLI 並用 pattern** | [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) 「3 個常見搭配」 | ⭐⭐⭐⭐ | 想試多 CLI 配對策略 | 本 repo 內部資源、看 Setup A / B / C 挑一個合的試 |
 
 > 💡 **建議入手路徑**：先抄 Anthropic 官方 CLAUDE.md 結構 → 加自己的 repo context → 看 obra/superpowers 看「完整 `.claude/` 長什麼樣」→ 然後寫 1-2 個 slash command（從 hesreallyhim awesome 列表撈靈感）。
+
+### 推薦工具
+
+- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 24k+ — 把整個 codebase packed 成單一 AI-friendly 檔案（XML / Markdown / JSON），方便 Claude Code / Codex 做 code review / refactoring。內建 MCP server mode + tree-sitter 壓縮（壓縮率依語言與檔案結構而異）+ secretlint 過濾敏感資訊。**Track A 很值得當 daily driver 的工具。**
 
 ## ✅ 進 A3 前的自我檢查
 

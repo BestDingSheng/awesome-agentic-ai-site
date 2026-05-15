@@ -1,11 +1,11 @@
 ---
 title: "A2 — CLI Workflow Patterns"
-description: "⏱ **Time estimate**: 1-2 weeks (~8-15 hours)"
+description: "⏱ Time estimate: 1-2 weeks (8-15 hours)"
 section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a2-cli-workflow"
@@ -19,11 +19,14 @@ order: 2
 
 ⏱ **Time estimate**: 1-2 weeks (~8-15 hours)
 
+> 📋 **Chapter structure**: Learning goals → Entry conditions → Required reading → Hands-on exercises → Curated Projects → Self-check
+> 🔑 **Key terms**: see [`resources/glossary.en.md` 5](/en/resources/glossary/#5-claude-code-ecosystem) (CLAUDE.md / slash command / SKILL.md / plugin / portable prompt)
+
 After installing a CLI and running first tasks, the next question: **how do I make the CLI consistent, repeatable, shareable?** This stop covers workflow patterns — turning "I retype the same prompt every time" into "set it up once, the CLI does the right thing automatically".
 
 ## 📌 Learning Goals
 
-- Write a production-grade `CLAUDE.md` / `AGENTS.md` (not a 1-line note — a 30-50 line working spec)
+- Write a production-grade `CLAUDE.md` / `AGENTS.md` — the minimum production-grade shape is **(1) role** + **(2) project context** + **(3) forbidden actions** + **(4) test commands** + **(5) delivery format**. In practice, 30-50 lines can usually cover those 5 things; beyond 50 lines, split the file
 - Design repeatable slash commands / custom prompts
 - Decompose multi-step tasks into ones the CLI can execute end-to-end
 - Design prompts portable across CLIs
@@ -33,7 +36,7 @@ After installing a CLI and running first tasks, the next question: **how do I ma
 1. [**Anthropic — CLAUDE.md best practices**](https://docs.anthropic.com/en/docs/claude-code/memory) ⭐
 2. [**Stage 2 — Prompt Engineering**](/en/stages/02-prompt-engineering/) — workflow design and prompt design are two sides of the same coin
 3. [**Stage 5.1 — Claude Code Basics**](/en/stages/05-claude-code-ecosystem/#51--claude-code-basics) — slash command details
-4. [**`resources/cli-agents-guide.en.md`** §"Cross-CLI portable prompt patterns"](/en/resources/cli-agents-guide/) — portable prompt principles
+4. [**`resources/cli-agents-guide.en.md`** "Cross-CLI portable prompt patterns"](/en/resources/cli-agents-guide/) — portable prompt principles
 
 ## 🛠 Hands-on Exercises
 
@@ -69,6 +72,8 @@ Give the CLI a complex task ("translate these 50 markdown files to English + add
 - Second time: pre-decompose into 5 sub-tasks, give them one by one → observe the difference
 - Lesson: the CLI is like you — too-big tasks need decomposition; too-small tasks lead to over-orchestration
 
+> ⭐ **Advanced note: Claude Code native multi-agent mechanisms** (read this one sentence for now; no need to expand it in A2): the manual sub-task splitting in CLI-7 can be automated with Claude Code's **Subagent / Agent team / Background agent** mechanisms. The full explanation, exercises, and when-not-to-use guidance (team permissions, context isolation, and result-review flow all matter) are in **[Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature)**.
+
 ### Exercise CLI-8: Portable prompt
 Write a prompt that works in Claude Code. **Run the same prompt in Codex / OpenCode / Gemini CLI** — what needs to change? Common discoveries:
 - file path conventions differ (cwd vs absolute)
@@ -88,9 +93,7 @@ official — Claude Code memory / CLAUDE.md authoring docs, including best pract
 ★ 178k+ — Not just a skill collection but also a production CLAUDE.md template. Read the full `.claude/` structure.
 
 #### [mattpocock/skills](https://github.com/mattpocock/skills) ⭐⭐⭐⭐
-★ 59k+ — A practitioner's daily skill library. The `.claude/` structure is a great reference.
-
-> More skill / SKILL.md examples in [Stage 5.3 — Skills](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer).
+A practitioner's daily skill library. The `.claude/` structure is a great reference. **More skill examples in [Stage 5.3 — Skills](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer).**
 
 ---
 
@@ -116,8 +119,12 @@ Community-curated Claude Code resources. Browse the slash command examples.
 
 ### Multi-CLI Patterns
 
-#### [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) §"Three common combinations"
+#### [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) "Three common combinations"
 Look at Setup A / B / C and try one that fits.
+
+### Recommended Tools
+
+- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 24k+ — Packs your entire codebase into a single AI-friendly file (XML / Markdown / JSON) for Claude Code / Codex code review / refactoring. Includes MCP server mode + tree-sitter compression (compression varies by language and file structure) + secretlint for secret filtering. **A must-have, daily-driver-grade tool for Track A.**
 
 ## ✅ Self-Check Before A3
 

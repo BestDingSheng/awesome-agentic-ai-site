@@ -1,11 +1,11 @@
 ---
 title: "Cookbook — 把概念變成可執行 recipe"
-description: "寫 Skill 跟「在 prompt 裡加幾段 instruction」差別在於："
+description: "兩個位置可以放（看你要 user 級還是 project 級）："
 section: "Resource"
 sourcePath: "resources/cookbook.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cookbook"
@@ -148,7 +148,7 @@ When the user wants Python imports cleaned up:
 
 ### 進一步
 
-- 看 [Stage 5.3](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層) 的 Skill anatomy 詳解
+- 看 [Stage 5.3](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層-claude-code-生態最關鍵的一層) 的 Skill anatomy 詳解
 - 看 [`anthropics/skills`](https://github.com/anthropics/skills) 官方 skill 範本（docx / xlsx / pptx 等）的寫法
 - 多個 skill 打包成 plugin → [Stage 5.4](/zh-tw/stages/05-claude-code-ecosystem/#54--plugins-與-marketplaces)
 
@@ -340,7 +340,7 @@ Claude 會根據 user query 自動載入合適的 skill。
 
 ### 進一步
 
-- catalog §2 [`mcp-skills-catalog.md` §2 辦公文件](/zh-tw/resources/mcp-skills-catalog/#2-辦公文件word--excel--powerpoint--pdf)：補強版 office skill / Excel / PPT 專用 MCP
+- catalog 2 [`mcp-skills-catalog.md` 2 辦公文件](/zh-tw/resources/mcp-skills-catalog/#2-辦公文件word--excel--powerpoint--pdf)：補強版 office skill / Excel / PPT 專用 MCP
 - 中文圈 office workflow：[`leemysw/feishu-docx`](https://github.com/leemysw/feishu-docx) 飛書 / Lark docs ↔ Markdown
 
 ---
@@ -400,7 +400,7 @@ pip install notebooklm-py
 
 ```python
 from notebooklm import NotebookLM
-nlm = NotebookLM()  # OAuth 流程
+nlm = NotebookLM() # OAuth 流程
 
 # 建一個 notebook
 nb = nlm.create_notebook("My Research")
@@ -425,7 +425,7 @@ print(answer.citations)
 
 ### 進一步
 
-- catalog §1 [`mcp-skills-catalog.md` §1 筆記 / 知識庫](/zh-tw/resources/mcp-skills-catalog/#1-筆記--知識庫)
+- catalog 1 [`mcp-skills-catalog.md` 1 筆記 / 知識庫](/zh-tw/resources/mcp-skills-catalog/#1-筆記--知識庫)
 - 完整 research workspace：用 [`WenyuChiou/research-hub`](https://github.com/WenyuChiou/research-hub) 整合 NotebookLM + Zotero + Obsidian
 
 ---
@@ -547,7 +547,7 @@ curl http://localhost:11434/v1/chat/completions \
 
 ```bash
 npm install -g opencode-ai
-opencode auth login   # provider 選 Ollama，endpoint 設 http://localhost:11434/v1
+opencode auth login # provider 選 Ollama，endpoint 設 http://localhost:11434/v1
 opencode
 ```
 
@@ -555,7 +555,7 @@ opencode
 
 ```bash
 # 安裝方式看 https://block.github.io/goose
-goose configure       # provider 選 Ollama，model 設 qwen2.5:3b
+goose configure # provider 選 Ollama，model 設 qwen2.5:3b
 goose session start
 ```
 
@@ -616,7 +616,7 @@ Claude Code 目前需要 Anthropic OAuth / API key，沒有官方設定可以把
 
 ### 進一步
 
-- Stage 1 [Local LLM 練習](/zh-tw/stages/01-llm-basics/#練習local-llm)：Ollama / llama.cpp / vLLM 的差異
+- Stage 1 [Local LLM 練習](/zh-tw/stages/01-llm-basics/#練習-6local-llm)：Ollama / llama.cpp / vLLM 的差異
 - [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)：7 個 CLI agent 怎麼選
 - Hermes Agent README：多平台 gateway（Telegram / Discord / Slack）與 provider 設定
 

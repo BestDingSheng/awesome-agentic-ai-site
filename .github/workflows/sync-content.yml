@@ -22,13 +22,16 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Sync content from fork
         run: npm run sync:content
         env:
           REPO_URL: ${{ vars.CONTENT_REPO_URL }}
           REPO_REF: ${{ vars.CONTENT_REPO_REF || 'main' }}
+
+      - name: Validate generated site build
+        run: npm run build
 
       - name: Commit synced content
         uses: stefanzweifel/git-auto-commit-action@v5

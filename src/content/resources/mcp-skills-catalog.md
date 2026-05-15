@@ -1,11 +1,11 @@
 ---
 title: "MCP / Skills 整合目錄"
-description: "| 欄位 | 內容 | |---|---| | Stars | ★ 4k+ | | License | NOASSERTION |"
+description: "| 欄位 | 內容 | |---|---| | Stars | ★ 4k+ | | License | NOASSERTION | | 推薦度 | ⭐⭐⭐⭐⭐（官方） |"
 section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "mcp-skills-catalog"
@@ -21,8 +21,8 @@ baseSlug: "mcp-skills-catalog"
 ## 怎麼用這份目錄
 
 - **想找特定工具的 MCP**：直接看下面分類目錄
-- **想看 MCP / Skills / Plugins 是什麼**：先看 [README 三個核心用語](/zh-tw#三個核心用語mcp--skills--plugins)，再看 [Stage 5 — Claude Code 生態系](/zh-tw/stages/05-claude-code-ecosystem/)
-- **想看 動手練習 怎麼裝、怎麼測**：看 [Stage 5.2 (MCP)](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) 跟 [Stage 5.3 (Skills)](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層)
+- **想看 MCP / Skills / Plugins 是什麼**：先看 [README 三個核心用語](/zh-tw#-快速開始)，再看 [Stage 5 — Claude Code 生態系](/zh-tw/stages/05-claude-code-ecosystem/)
+- **想看 動手練習 怎麼裝、怎麼測**：看 [Stage 5.2 (MCP)](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) 跟 [Stage 5.3 (Skills)](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層-claude-code-生態最關鍵的一層)
 
 ### 收錄方向（不是死規則）
 
@@ -43,7 +43,7 @@ baseSlug: "mcp-skills-catalog"
 8. [設計（Figma / Excalidraw）](#8-設計figma--excalidraw)（3）
 9. [監控 / Observability](#9-監控--observability)（3）
 10. [媒體 / 串流（YouTube / Spotify）](#10-媒體--串流youtube--spotify)（3）
-11. [中文圈專用](#11-中文圈專用)（7）
+11. [中文圈專用](#11-中文圈專用)（9）
 12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（2）
 13. [研究工作流 Skills（學術 / paper / 文獻）](#13-研究工作流-skills學術--paper--文獻)（4）
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills)（3）
@@ -728,6 +728,30 @@ baseSlug: "mcp-skills-catalog"
 **適合誰**：想做 RAG 又不想全部自己刻的中文團隊；要本地部署（不能用雲端 LLM）的場景。
 **備註**：★ 37k 是中文圈最熱門的 RAG 實作之一；維護節奏放緩（last commit 2025-11）。新專案建議先 fork 後評估，當參考實作用。
 
+### [usewhale/whale](https://github.com/usewhale/whale) ⭐⭐⭐
+
+| 欄位 | 內容 |
+|---|---|
+| Stars | ★ 117 |
+| License | MIT |
+| 推薦度 | ⭐⭐⭐ |
+
+**教什麼**：專為 DeepSeek 模型優化的終端 AI 編碼助手——支援 MCP server 接入、Claude-style Skills、對話快取優化，Go 實作。
+**適合誰**：以 DeepSeek 為主力 LLM 的中文開發者；想用終端工具但不需要 Claude Code 全家桶的人。
+**備註**：開源同類中少見的 DeepSeek 專屬優化；MCP + Skills 雙支援讓它可以逐步擴充能力。
+
+### [simonlin1212/a-stock-data](https://github.com/simonlin1212/a-stock-data) ⭐⭐⭐⭐
+
+| 欄位 | 內容 |
+|---|---|
+| Stars | ★ 492 |
+| License | Apache-2.0 |
+| 推薦度 | ⭐⭐⭐⭐ |
+
+**教什麼**：A 股全棧資料工具包——單一 SKILL.md 檔案封裝 8 個資料源（mootdx、東財、akshare、iwencai 等）21 個端點，AI 編碼助手直接可用。
+**適合誰**：用 Claude Code / Codex / OpenClaw 做投研或量化分析的中文開發者；不想自己刻資料抓取邏輯的人。
+**備註**：一條 `curl` + `pip install` 即可啟用；中國 A 股資料類 Skill 中星星數最高的社群實作。相容 Claude Code、Codex、OpenClaw。
+
 > 想找微信 / 釘釘整合？目前主流是用 chat bot framework（如 zhayujie/CowAgent）而不是純 MCP server。等正規 MCP 出現再加進來。
 
 ---
@@ -816,16 +840,16 @@ baseSlug: "mcp-skills-catalog"
 
 ## 14. Multi-LLM Delegation Skills
 
-> ⚠️ **maintainer 自家專案區**：跟 §13 一樣，以下是維護者把自己 daily workflow 抽出來公開的 delegation skills。star 門檻放寬，選收標準是「真的能讓 Claude planner + Codex/Gemini 執行者組合穩定跑下去」。Multi-LLM 領域變化快，建議跟其他 multi-agent framework（Stage 7 列的）一起評估後再選。
+> ⚠️ **maintainer 自家專案區**：跟 13 一樣，以下是維護者把自己 daily workflow 抽出來公開的 delegation skills。star 門檻放寬，選收標準是「真的能讓 Claude planner + Codex/Gemini 執行者組合穩定跑下去」。Multi-LLM 領域變化快，建議跟其他 multi-agent framework（Stage 7 列的）一起評估後再選。
 
 ### 三個 skill 的組合（composition）
 
 底下 3 個 skill 是**設計成一起用**的，不是獨立工具：
 
 ```
-                    ┌─ codex-delegate     →  跑 code-heavy
-Claude（planner +   ├─ gemini-delegate    →  跑 long-form / CJK / 1M 長 context
-        reviewer）  └─ agent-collab-skills →  splitter + reconciler + acceptance gate
+                    ┌─ codex-delegate → 跑 code-heavy
+Claude（planner + ├─ gemini-delegate → 跑 long-form / CJK / 1M 長 context
+        reviewer） └─ agent-collab-skills → splitter + reconciler + acceptance gate
                                               （多個 delegate 平行跑時用）
 ```
 

@@ -133,6 +133,27 @@ You run a law firm. You need AI to help organize a client's medical records + me
 
 ---
 
+## Subagent — “Spawning an Agent Inside an Agent Runtime”
+
+The 5 types above describe **where the agent runs** (IDE / Terminal / any CLI / Cloud / Edge). A **subagent** is another dimension: **while an agent is executing a task, it spawns another agent to handle a subtask**.
+
+There are two main implementation paths:
+
+| Path | How it starts | Examples |
+|---|---|---|
+| **Framework-based** (Stage 4) | `pip install langgraph / crewai / autogen` + Python orchestration code | LangGraph / CrewAI / AutoGen / Swarm / Strands |
+| **Claude Code native** (Stage 5.5) | Write `.claude/agents/<name>.md`; invoke it from the main session with the Task tool | Claude Code subagents + Claude Agent SDK |
+
+**The difference is runtime ownership**:
+- Framework path: your own Python process runs the orchestrator, and each sub-agent is an object inside your program
+- Claude path: Claude Code spawns a new agent instance itself; parent / child share the Claude runtime, and the parent only sees the child’s final result (context is isolated automatically)
+
+**Which should you choose?** If you need to mix LLM providers (GPT + Claude + Gemini) or embed multi-agent orchestration into another application, choose the framework path. If you are already committed to Claude Code and staying inside the Claude ecosystem, choose the subagent path (much less boilerplate).
+
+See the full comparison table at the [start of Stage 5.5](../stages/05-claude-code-ecosystem.en.md#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature); **to jump straight into 15 daily dispatch recipes** → [`subagent-cookbook.en.md`](./subagent-cookbook.en.md) (each includes a scenario + which subagent to use + a copy-paste prompt template).
+
+---
+
 ## Cross-paradigm combinations (the power-user pattern)
 
 Real power users often run **2 or 3 types simultaneously**, each handling what it's best at:

@@ -1,11 +1,11 @@
 ---
 title: "`awesome-agentic-ai-zh` 风格指南"
-description: "这份指南是这份 catalog 的**单一真实来源**——术语、entry 结构、license 标注、写作风格、禁用词，全部以这份文件为准。"
+description: "这份指南是这份 catalog 的单一真实来源——术语、entry 结构、license 标注、写作风格、禁用词，全部以这份文件为准。"
 section: "Resource"
 sourcePath: "resources/style-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "style-guide"
@@ -63,8 +63,8 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 ### 必填字段（GitHub repo entry）
 对「真实 GitHub repo」的 entry：
 - `Stars`（★ Xk+ 格式，无千位逗号）
-- `License`（SPDX ID 或标注例外，见 §5）
-- `推荐度`（⭐ × N，见 §2）
+- `License`（SPDX ID 或标注例外，见 5）
+- `推荐度`（⭐ × N，见 2）
 - `教什么`、`适合谁`
 
 ### 必填字段（非 repo entry：article / course / video / protocol / documentation）
@@ -82,7 +82,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 - `备注`、`怎么跑`
 
 ### 标题格式
-- Stage 1-4 / 6 用 `### [Repo](url)` 
+- Stage 1-4 / 6 用 `### [Repo](url)`
 - Stage 5 / 7 / branches 用 `#### [Repo](url)`（已有上层 H3 分类时）
 - 标题后可接星等：`### [Repo](url) ⭐⭐⭐⭐⭐` 或副标题：`### [Repo](url) ⭐ 官方`
 
@@ -96,7 +96,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 | ⭐⭐⭐⭐ | 强烈建议 | 深入学该主题的好材料 |
 | ⭐⭐⭐ | 扎实范例 | 值得跑一遍、互相对照 |
 | ⭐⭐ | 有用参考 | 有兴趣再看 |
-| ⭐ | 利基 / 进阶 /  C 完整性 | 多数学者可跳 |
+| ⭐ | 利基 / 进阶 / C 完整性 | 多数学者可跳 |
 
 **准则**：
 - 同一个 repo 出现在不同 stage / branch 时，**星等应一致**（除非有明确 audience-specific 理由，且注明在备注）
@@ -171,7 +171,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 - `streaming`、`async`、`batch`、`webhook`
 - `marketplace`、`plugin`、`skill`、`hook`
 - `project`、`repo` （可保留也可改用「项目」）
-- `production`（指「正式环境」时）— 但本 catalog 多数场合刻意避免（见 §3）
+- `production`（指「正式环境」时）— 但本 catalog 多数场合刻意避免（见 3）
 - `动手练习`、`hello-world` — 保留
 
 **判准**：技术文件圈读者习惯的英文术语就保留，避免「太政治正确的中文化」。
@@ -241,7 +241,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 ## 🎯 精选 Projects
 
 ### [Project Name](url) ⭐⭐⭐⭐
-[entry schema 见 §1]
+[entry schema 见 1]
 
 [N 个 entries]
 

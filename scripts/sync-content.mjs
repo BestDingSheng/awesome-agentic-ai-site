@@ -20,6 +20,8 @@ const LANG_META = {
   'zh-tw': { label: '繁體中文', suffix: '.md', routePrefix: '/zh-tw' },
   en: { label: 'English', suffix: '.en.md', routePrefix: '/en' }
 };
+const COLLECTION_KEYS = new Set(['stages', 'branches', 'walkthroughs', 'resources', 'tracks']);
+const README_BASENAME_RE = /^readme(?:\.[a-z0-9_-]+)?\.md$/i;
 const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'awesome-agentic-ai-site-'));
 const repoDir = path.join(tempDir, 'repo');
 
@@ -49,12 +51,21 @@ const emptyDir = async (target) => {
 
 const slugify = (value) => value.toLowerCase().replace(/\.md$/i, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
+const normalizeRelativePath = (value) => value.replace(/\\/g, '/');
+
 const parseLanguage = (filePath) => {
-  if (filePath.endsWith('.zh-CN.md')) return { language: 'zh-cn', extension: '.zh-CN.md' };
-  if (filePath.endsWith('.zh-Hans.md')) return { language: 'zh-cn', extension: '.zh-Hans.md' };
-  if (filePath.endsWith('.zh-hans.md')) return { language: 'zh-cn', extension: '.zh-hans.md' };
-  if (filePath.endsWith('.en.md')) return { language: 'en', extension: '.en.md' };
-  return { language: 'zh-tw', extension: '.md' };
+  const normalized = normalizeRelativePath(filePath);
+  const lower = normalized.toLowerCase();
+  if (lower.endsWith('.en.md') || lower.endsWith('.english.md')) return { language: 'en', extension: normalized.slice(normalized.length - '.en.md'.length) };
+  if (/(\.zh[-_.]?(cn|hans)|\.zh[-_.]?sg)\.md$/i.test(normalized)) {
+    const match = normalized.match(/(\.zh[-_.]?(?:cn|hans|sg)\.md)$/i);
+    return { language: 'zh-cn', extension: match ? match[1] : '.md' };
+  }
+  if (/(\.zh[-_.]?(tw|hant|hk)|\.zh[-_.]?mo)\.md$/i.test(normalized)) {
+    const match = normalized.match(/(\.zh[-_.]?(?:tw|hant|hk|mo)\.md)$/i);
+    return { language: 'zh-tw', extension: match ? match[1] : '.md' };
+  }
+  return { language: 'zh-tw', extension: normalized.match(/\.md$/i)?.[0] || '.md' };
 };
 
 const getBaseSlugFromRelativePath = (relativePath) => {
@@ -81,26 +92,34 @@ const firstHeading = (content) => {
   return match ? match[1].trim() : null;
 };
 
+const stripMarkdown = (value) => value
+  .replace(/```[\s\S]*?```/g, ' ')
+  .replace(/`([^`]+)`/g, '$1')
+  .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '$1')
+  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')
+  .replace(/<[^>]+>/g, ' ')
+  .replace(/^>\s?/gm, '')
+  .replace(/^[-*+]\s+/gm, '')
+  .replace(/^\d+\.\s+/gm, '')
+  .replace(/^#{1,6}\s+/gm, '')
+  .replace(/[*_~]+/g, '')
+  .replace(/\s+/g, ' ')
+  .trim();
+
 const firstParagraph = (content) => {
-  const lines = content.split(/\r?\n/).map((line) => line.trim());
-  const paragraphs = [];
-  let bucket = [];
-  for (const line of lines) {
-    if (!line) {
-      if (bucket.length) {
-        paragraphs.push(bucket.join(' '));
-        bucket = [];
-      }
-      continue;
-    }
-    if (/^(#|>|```|!\[|\[!|\-|\*\s|\d+\.)/.test(line)) continue;
-    bucket.push(line);
-    if (bucket.join(' ').length > 40) {
-      paragraphs.push(bucket.join(' '));
-      break;
-    }
+  const chunks = content
+    .split(/\r?\n\r?\n+/)
+    .map((chunk) => chunk.trim())
+    .filter(Boolean);
+
+  for (const chunk of chunks) {
+    if (/^(#|>|```|!\[|\[!|[-*]\s|\d+\.)/m.test(chunk)) continue;
+    const cleaned = stripMarkdown(chunk);
+    if (cleaned.length >= 30) return cleaned.slice(0, 220);
   }
-  return paragraphs[0]?.slice(0, 180);
+
+  const fallback = stripMarkdown(content);
+  return fallback ? fallback.slice(0, 220) : undefined;
 };
 
 const computeOrder = (relativePath) => {
@@ -130,12 +149,13 @@ const rewriteLinks = (content, currentRelativeDir, language) => {
 
 const resolveMarkdownRoute = (normalized, currentLanguage) => {
   const clean = normalized.replace(/^\.\//, '').replace(/^\//, '');
-  if (clean === 'README.md' || clean === 'README.zh-CN.md' || clean === 'README.zh-Hans.md' || clean === 'README.en.md') {
+  const basename = path.posix.basename(clean);
+  if (README_BASENAME_RE.test(basename)) {
     return buildLangPath(currentLanguage, '/');
   }
   const parts = clean.split('/');
   const collection = parts[0];
-  if (!['stages', 'branches', 'walkthroughs', 'resources', 'tracks'].includes(collection)) return null;
+  if (!COLLECTION_KEYS.has(collection)) return null;
   const { language } = parseLanguage(clean);
   const baseSlug = getBaseSlugFromRelativePath(parts.slice(1).join('/'));
   return buildLangPath(language, `/${collection}/${baseSlug}/`);

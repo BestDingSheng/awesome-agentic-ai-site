@@ -1,25 +1,87 @@
 ---
-title: "Stage 7 — Multi-Agent · Production"
-description: "⏱ **时间估算**：2-4 周（约 15-30 小时）"
+title: "Stage 7 — 多 Agent 系统与稳定运作（Multi-Agent & Production）"
+description: "最后一个阶段。你正从“我会做 agent”走向“我能让 agent 真的给人稳定用——多个 agent 协作、有 eval、有 observability、能部署到可用环境”。“Production 化” ≠ enterprise scale——只要 agent 能稳定产出 + 能让别人使用，就算进入这 stage 范围。"
 section: "Stage"
 sourcePath: "stages/07-multi-agent-production.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "07-multi-agent-production"
 order: 7
 ---
-# Stage 7 — Multi-Agent · Production
+# Stage 7 — 多 Agent 系统与稳定运作（Multi-Agent & Production）
 
 > [繁體中文](/zh-tw/stages/07-multi-agent-production/) | **简体中文** | [English](/en/stages/07-multi-agent-production/)
 
 ⏱ **时间估算**：2-4 周（约 15-30 小时）
 
-> 💡 用语密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.zh-Hans.md`](/resources/glossary/#4-multi-agent)。
+> 💡 用语密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.md` 4 + 6](/zh-tw/resources/glossary/#4-multi-agent)。
 
-最后一个阶段。你正从“我会做 agent”走向“我能在 production 跑起来，多个 agent 协作、有 eval、有 observability、会 deploy”。
+> 📋 **本章组成**：〔Multi-Agent · Production 化 是什么（先定位）+ 三层工程分工 + 何时用 multi-agent〕→ 学习目标 → 进入条件 → 必修阅读 → Harness Engineering（**8 个核心元件含 Cost/Latency**）→ 动手练习（含练习 6 Cost Optimization）→ **Agent Benchmark Landscape：怎么看，不要只看排行榜** → 常用工具推荐 → 精选 Projects → 自我检查
+> 🔑 **关键名词**：见 [`resources/glossary.md` 4 + 6](/zh-tw/resources/glossary/#4-multi-agent)（multi-agent / orchestration / handoff / eval / observability / harness（模型外围的执行与控制层））
+
+最后一个阶段。你正从“我会做 agent”走向“我能让 agent **真的给人稳定用**——多个 agent 协作、有 eval、有 observability、能部署到可用环境”。**“Production 化” ≠ enterprise scale**——只要 agent 能稳定产出 + 能让别人使用，就算进入这 stage 范围。
+
+## 🎯 Multi-Agent · Production 化 是什么（先定位）
+
+**本 stage = 多 agent 怎么协作 + 把 agent 从 prototype 推到能稳定给人用的程度**。三句话厘清范围：
+
+- **不是只学 framework**——Stage 4 已教 framework 怎么挑
+- **不一定要 enterprise scale**——只要 agent 能让别人用，就算 Production 化
+- **核心是 harness engineering**——8 个核心元件 + eval + observability + cost / latency 控制
+
+**跟前后 stage 的分工**：
+
+- **Stage 4** = 单 agent framework 怎么挑、ReAct / Plan-Execute 等 pattern
+- **本 stage** = **多 agent 协作** + **harness engineering**（执行系统工程）+ **部署到可用环境 / observability / eval**
+
+### 三层工程分工：Prompt → Context → Harness
+
+工程分工可以分成三层，对应 stack 的不同位置（不是 call 一次 vs 多次的差别）：
+
+| 层级 | 概念 | 核心问题 | 关注单位 | 对应 stage |
+|---|---|---|---|---|
+| 1 | **Prompt Engineering** | 这一次要怎么问？ | **单次 LLM call** | [Stage 2](/zh-tw/stages/02-prompt-engineering/) |
+| 2 | **Context Engineering** | 这次该给模型哪些信息？ | **多次互动中的上下文** | [Stage 6](/zh-tw/stages/06-memory-rag/) |
+| **3** | **Harness Engineering**<br>（**本 stage**） | 整个流程怎么跑起来？ | **可执行的 LLM workflow / system** | **本 stage** |
+
+**白话差异**：
+- **Prompt** = 设计一个好的问法，让模型这次回答准
+- **Context** = 动态决定要放入哪些背景、记忆、文件、工具结果，让模型知道当前情境
+- **Harness** = 把 prompt、context、tools、state、流程控制、错误处理串成一套真的能跑的系统
+
+**本 stage 三个核心问题**：
+
+1. **Multi-agent 协作** — debate / planner-executor / peer review / handoff / supervisor-worker pattern
+2. **Harness Engineering** — agent loop / tool registry（agent 可调用工具的清单 + 接口定义）/ context manager / safety / retry / telemetry / eval / cost（8 个核心元件、下面详述）
+3. **Production 化** — eval harness / observability / cost & latency 优化 / 部署到可用环境
+
+**跟 Stage 5 的分工**（避免混淆）：
+
+| 跟谁比 | 那边讲什么 | 本 stage 讲什么 |
+|---|---|---|
+| **Stage 5.5 Subagents** | Claude Code 原生 subagent 机制（markdown-based、不写程序）| 通用 multi-agent framework（autogen / crewAI / langgraph、跨 vendor）|
+| **Stage 5.6 Claude Code source** | Claude Code source 解剖（reference implementation case study）| Harness engineering 通则（不绑特定 vendor）|
+
+### ⚠ 但你真的需要 multi-agent 吗？
+
+**Multi-agent 不是 default，而是任务真的需要时才上的设计**。多数场景应先尝试 simple workflow 或 single agent；**只有在任务天然可分解、需要平行探索、单一 context 不够、或需要明确角色分工时，multi-agent 才值得引入**。硬上会付 **3-10× token、debug 困难、context fragmentation（context 被切散在多个 agent、彼此看不到全貌）严重**。
+
+| 立场 | 来源 | 核心论点 |
+|---|---|---|
+| **Anthropic** | [Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents)、[How we built our multi-agent research system (2025)](https://www.anthropic.com/engineering/built-multi-agent-research-system) | multi-agent 适合**高价值、可平行探索、需要大量工具或超出单一 context 的任务**；token 用量可能比 single chat 高很多倍 |
+| **Cognition** | [Don't Build Multi-Agents (2025)](https://cognition.ai/blog/dont-build-multi-agents) | multi-agent 的 context fragmentation 严重、shared state 维护痛苦；先穷尽 single-agent + long-context 才考虑 |
+
+**4 个明确信号**才上 multi-agent（详见 [Stage 4 什么时候真的需要 multi-agent](/zh-tw/stages/04-agent-frameworks/#什么时候真的需要-multi-agent不要硬上)）：
+
+1. **任务天然分解** — 大任务有清楚子步骤、能 step-by-step 完成 → Sequential / Planner-Executor
+2. **Token explosion** — single agent prompt 塞不下所有 tool description / context → Supervisor-Worker
+3. **角色冲突** — 同一个 LLM 既当 writer 又当 critic 会 self-justify → Debate / Peer review
+4. **平行加速** — 3 个 research 子任务同时跑、wall-clock 1/3 → Parallel / Map-Reduce
+
+**4 个信号都不在？** → single agent + 好 prompt + tool use 就够，别硬上 multi-agent。**本 stage 的 harness engineering 部分（8 个元件 / eval / observability）即使你最后用 single agent 也都会用到**——所以即使你决定不走 multi-agent，本 stage 仍是必修。
 
 ## 📌 学习目标
 
@@ -29,14 +91,103 @@ order: 7
 - 用 Anthropic SDK / OpenAI SDK 做 production deploy（进阶功能：streaming、prompt caching、batching）
 - 把 agent deploy 到 production（Docker、serverless、monitoring）
 
+## 🚪 进入条件
+
+你应该已经：
+- 完成 Stage 4（用过至少一个 agent framework 跑 multi-agent demo）
+- 完成 Stage 5（懂 MCP / Skills / Plugins / Subagents 各自角色，并用 5.6 解剖过 harness 内部）
+- 完成 Stage 6（会基本 RAG，能讲出 memory pattern 差异）
+- 对 Docker / git / CI 基础熟悉（production deploy 会用到）
+
+没到的话 → 补完前面几个 stage。本 stage 是“组合所有前面学到的东西 → 跑 production”，缺一块都会卡。
+
 ## 📚 必修阅读
 
 1. [**Anthropic — Building Effective Agents**](https://www.anthropic.com/engineering/building-effective-agents) — 用 production 的角度再读一次
 2. [**Anthropic — Prompt Caching**](https://www.anthropic.com/news/prompt-caching) — 90% 成本下降的技巧
 3. [**Anthropic — Message Batches API**](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) — 异步 batch job
-4. **任一 eval framework 的文件** — promptfoo 或 LangSmith 或 weave
-5. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering)（★ 780+）— agent harness 的工具 / pattern / eval / memory / MCP / observability 全集合。**framework 把 LLM 包成 agent；harness 把 agent 包成 production system**——这个 stage 学的就是 harness。
-6. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)（★ 1.3k+）— 从 Claude Code 源码学 harness 设计（中文）
+4. [**anthropics/courses — Prompt Evaluations**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic 官方 5 course umbrella、**module 4「Prompt Evaluations」对应本 stage eval / observability 部分**。Jupyter notebook、教怎么系统化评估 prompt 跟 agent 行为。
+5. **任一 eval framework 的文件** — promptfoo 或 LangSmith 或 weave
+6. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering)（★ 780+）— agent harness 的工具 / pattern / eval / memory / MCP / observability 全集合
+7. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)（★ 1.3k+）— 从 Claude Code 源码学 harness 设计（中文）
+
+## 🏗 Harness Engineering — production agent runtime 的工程设计 ⭐ 本 stage 核心概念
+
+### 定位：模型外围的执行与控制层
+
+要把 LLM 变成可用的 agent，通常会碰到三层工程问题。这三层对应的是不同工程位置，不是单纯用“一次 call”或“多次 call”来区分。
+
+> 💡 **Simon Willison 2025**：“coding agent = LLM + harness”；harness = 所有**不是 model 本身**的代码。
+>
+> 💡 **OpenAI 2026 也使用 "Harness Engineering" 这个说法**（见 [OpenAI Harness Engineering article](https://openai.com/index/harness-engineering)、2026-02 发布）。
+
+| 层级 | 工程的对象 | 在哪学 |
+|---|---|---|
+| **1. Prompt Engineering** | 送进 LLM 的**字符串**（system prompt / few-shot / 格式） | [Stage 2](/zh-tw/stages/02-prompt-engineering/) |
+| **2. Context Engineering** | 窗口里装的**信息**（RAG / memory / tool defs / history 组装） | [Stage 6](/zh-tw/stages/06-memory-rag/) |
+| **3. Harness Engineering**<br>（**本节**） | 模型**外围的执行与控制层**（loop / retry / sandbox / observability / 部署） | 本 stage |
+
+**怎么分辨自己在做哪一层？问**：
+
+1. 我改的是**字符串本身**吗？→ Prompt engineering
+2. 我改的是**塞进窗口的信息**吗？→ Context engineering
+3. 我改的是**调用模型的外围程序**吗？→ Harness engineering
+
+→ 三层**正交**：1 次 call 的 RAG app 也在做 context engineering（重点是怎么组窗口）；50 次 call 但没做 retrieval 的 chatbot，仍然只是在做 prompt engineering。
+
+### Harness 的 8 个核心元件
+
+**Harness Engineering（Agent 执行系统设计）= 把 LLM、tools、memory、state、workflow control、错误处理、eval、observability 与 deployment 串成一套可执行、可观测、可维护的 agent 系统。**
+
+→ 所有**不属于 model weights、也不只是 prompt string 本身**的工程元件都算 harness 范围。一个 production-grade agent runtime 包含这 8 个核心元件（前 6 个是 runtime 内建、第 7 个 eval 是外挂工具、第 8 个 cost / latency 是跨层议题）：
+
+| 元件 | 做什么 | 对应本 stage 练习 |
+|---|---|---|
+| **Agent loop** | “LLM → tool → result → LLM”循环、稳定处理多轮 | 练习 1 multi-agent 辩论 |
+| **Tool registry** | 动态 tool dispatch、permission gate、sandboxing | （在每个 framework / SDK 都有）|
+| **Context manager** | message history 管理、context window 控制、auto-compact | Stage 6 + 本 stage 练习 4 SDK |
+| **Safety layer** | permission prompts、sandboxed exec、destructive op 拦截 | （Claude Code 内建、SDK 可自定义）|
+| **Retry / recovery** | tool fail 怎么处理（exception vs LLM 自己看 error 反思） | 练习 4 SDK 进阶 |
+| **Telemetry / Observability** | metrics、logging、token counting、trace export | **练习 3 Observability** |
+| **Eval harness** | regression test、quality gate、A/B test | **练习 2 Eval** |
+| **Cost / Latency optimization** ⭐ 2024-2026 必修 | prompt caching、model routing、thinking budget、batching、semantic cache | **练习 6 Cost optimization**（新加）|
+
+**Framework vs Harness 关键差别**：
+- **Framework**（[Stage 4](/zh-tw/stages/04-agent-frameworks/)）规范 **API** — 你调用的接口长什么样
+- **Harness**（本节）规范 **runtime** — 怎么跑、怎么 recovery、怎么观测
+
+### 参考实现
+
+想看 production-grade harness 长什么样？两个 reference：
+
+- **Claude Code 整个 runtime** — 是 reference harness 实现。**读 source 练习见 [Stage 5.6](/zh-tw/stages/05-claude-code-ecosystem/#56--claude-code-source-解剖reference-harness-implementation-track-b-必看)**（clone `claude-agent-sdk-python` 解剖 main loop + 上表前 6 个 runtime 元件位置；第 7 个 Eval harness 是外挂、第 8 个 Cost / Latency 是 cross-cutting、见下方深入段）
+- **`anthropics/claude-agent-sdk-python`** source — 上面练习用的具体 repo
+
+→ 本 stage 剩下的 6 个练习（multi-agent / eval / observability / SDK / deploy / cost）每个都是 harness 的一个面向。学完整 stage = 拼出完整的 harness engineering mental model。
+
+### 第 8 个核心元件深入 — Cost / Latency Optimization（2024-2026 Production 化必修）
+
+Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算与用户体验**。2024-2026 前沿模型都把这当 first-class API feature——**会用 = 省 50-90% cost / latency**。
+
+| 技巧 | 怎么省 | 2026 状态 |
+|---|---|---|
+| **Prompt caching** | 重复 prefix（system prompt、long context）一次计费、后续 cache hit 折扣 ~90% | Anthropic / OpenAI / Gemini 全支持、自动或手动标记 |
+| **Model routing / cascade** | 简单 query → 小 model、难 query → frontier model | [RouteLLM](https://github.com/lm-sys/RouteLLM) / [OpenRouter](https://openrouter.ai/) production 内建 |
+| **Thinking budget** | reasoning model 可控 thinking token 上限、trade latency / quality | Claude / Gemini API 参数、o-series 默认高 |
+| **Speculative decoding** | 小 model 预测 N token、大 model 一次验证、单 model 速度 ×2-3 | vLLM / TGI 内建、推理层自动 |
+| **Batching** | 多 query 并行处理、GPU 利用率高 | vLLM、production inference layer |
+| **Semantic caching** | 相似 query 共享回答（不只 exact match）| [GPTCache](https://github.com/zilliztech/GPTCache) / Helicone 内建 |
+
+**Track A 怎么用**（用 CLI agent 的人）：
+- 在 Claude Code / Cursor 设置 prompt caching，daily session 省 50-90% cost
+- 用 [RouteLLM](https://github.com/lm-sys/RouteLLM) / [OpenRouter](https://openrouter.ai/) 动态切换 model（简单问题用 Haiku / Flash，困难问题用 Opus / Pro）
+- Claude API 用 `thinking_budget` 参数控 reasoning model 的 token 上限
+
+**Track B 怎么 build**（自己写 agent 的人）：
+- 自架 cascade router，把 query embedding → classifier → model 对应起来
+- 在 agent loop 内监控 token cost，超 budget 自动降级
+- 在部署到可用环境时整合 semantic cache 层
+- [Helicone](https://github.com/Helicone/helicone) / [langfuse](https://github.com/langfuse/langfuse) 等 observability 平台都已内建这些能力，不用自己写
 
 ## 🛠 动手练习（基础 illustrative 练习）
 
@@ -55,307 +206,110 @@ order: 7
 ### 练习 5：Deploy
 把一个 agent 包进 Docker，deploy 到云端（任何 provider 都行）。学会把 prototype 变成可以给别人跑的东西。
 
-## 🎯 精选 Projects
+### 练习 6：Cost Optimization（新加）⭐
+量你前面任一个练习 agent 的 token cost、加上 prompt caching、再量一次。观察 cache hit rate 跟 cost 下降的对应关系。**Bonus**：接 [RouteLLM](https://github.com/lm-sys/RouteLLM) 或 [OpenRouter](https://openrouter.ai/)、做 cascade routing（简单 query → Haiku / 难 query → Opus），量平均 cost。
 
-### Multi-Agent Orchestration
+## 📊 Agent Benchmark Landscape：怎么看，不要只看排行榜 + ⚠ Reward-Hacking 警告
 
-#### [microsoft/autogen](https://github.com/microsoft/autogen)
+挑 model / build agent 之前，你会想看 benchmark 数字——但 **2026-04 UC Berkeley 发现 8 个主流 agent benchmark 全部可被 reward-hack 到 ~100%**。下面是 2026 leaderboard 现况 + 怎么看不被骗。
 
-Stage 4 已提过。在 production 场景下，AutoGen 的 GroupChat 协作模式是 multi-agent 辩论 / brainstorming 的好参考。
+### 主流 Agent Benchmark 2026-05 SOTA
 
----
+| Benchmark | 领域 | 2026-05 SOTA | 领先 Model |
+|---|---|---|---|
+| [**SWE-bench Verified**](https://www.swebench.com/) | 软工 / code agent | **87.6%** | Claude Opus 4.7 |
+| [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal 任务 | 领先 | Claude Opus 4.5 / 4.7 |
+| **GAIA** | general assistant | **74.6%** | Claude Sonnet 4.5（Princeton HAL）|
+| [**WebArena**](https://github.com/web-arena-x/webarena) | web 导航 | **68.7%** | Claude Mythos Preview |
+| [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level 桌面控制 | **76.26%**（SOTA、superhuman vs human 72.36%）| OpenAI CUA 38%、多数 frontier 仍卡 50% 以下 |
+| [**τ-bench**](https://github.com/sierra-research/tau-bench) | tool use 多轮对话 | （较难 hack）| Anthropic / OpenAI 领先 |
+| **RE-bench** | research engineering | （较难 hack、接近人类 baseline）| Frontier model |
 
-#### [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI)
+→ 详细排行 + 即时更新：[Agent Benchmark Leaderboard 2026](https://benchmarkingagents.com/agent-benchmarks/)、[Rapid Claw AI Agent Framework Scorecard 2026](https://rapidclaw.dev/blog/ai-agent-benchmarks-2026)
 
-Stage 4 已提过。要做角色式的 multi-agent（例如 research → writer → reviewer 流水线），CrewAI 是最简单的 production pattern。
+### ⚠ Berkeley 2026-04 Reward-Hacking 警告
 
----
+[**UC Berkeley RDI 2026-04-12 报告**](https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/)：用 automated scanning agent 系统性 audit **8 个主流 benchmark**（SWE-bench / WebArena / OSWorld / GAIA / Terminal-Bench / FieldWorkArena / CAR-bench 等）、**每个都能 reward-hack 到接近 100%、agent 一个 task 都不用真正解**。
 
-#### [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
+意思：leaderboard 上“Claude 87.6% / GPT 85.0%”这种数字、可能其中 X% 是 hack 出来的、不是真的解 task。
 
-Stage 4 已提过。要 production 加上 audit trail、checkpoint、human-in-the-loop，LangGraph 领先。
+### 怎么看 benchmark 不被骗
 
----
-
-### Evaluation Frameworks
-
-#### [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo)
-
-| 栏位 | 内容 |
+| 看数字方式 | 推荐 |
 |---|---|
-| Stars | ★ 20k+ |
-| License | MIT |
-| 推荐度 | ⭐⭐⭐⭐⭐ |
-
-**教什么**：以 YAML 为基础的 prompt 跟 agent eval harness。可以跨模型比较、在 CI 跑回归测试。
-
-**适合谁**：把 eval 流程标准化。取代“我用眼睛看一下就好”。
-
-**怎么跑**：
-```bash
-npx promptfoo init
-# 编辑 promptfooconfig.yaml
-npx promptfoo eval
-```
-
----
-
-#### [EleutherAI/lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
-
-| 栏位 | 内容 |
-|---|---|
-| Stars | ★ 12k+ |
-| License | MIT |
-| 推荐度 | ⭐⭐⭐⭐ |
-
-**教什么**：学术等级的 eval framework，内置几百个标准 benchmark（MMLU、HellaSwag、GSM8K）。
-
-**适合谁**：你需要主张“我们在 benchmark Y 上拿到 X%”的时候。比较研究风格。
-
----
-
-#### [openai/evals](https://github.com/openai/evals)
-
-| 栏位 | 内容 |
-|---|---|
-| Stars | ★ 18k+ |
-| 推荐度 | ⭐⭐⭐⭐ |
-
-**教什么**：OpenAI 的 eval framework。可以针对特定 use case 写客制 eval。
-
-**适合谁**：你需要 OpenAI 专属 eval、或想回馈上游时。
-
----
-
-### Observability
-
-#### [langfuse/langfuse](https://github.com/langfuse/langfuse)
-
-| 栏位 | 内容 |
-|---|---|
-| Stars | ★ 26k+ |
-| License | MIT（开源）+ 付费云端 |
-| 推荐度 | ⭐⭐⭐⭐⭐ |
-
-**教什么**：开源的 LLM observability——traces、sessions、evals、prompt management。
-
-**适合谁**：自架的 production observability。LangSmith 的开源替代方案，实力很强。
-
----
-
-#### [LangSmith](https://www.langchain.com/langsmith)（商业）
-
-**教什么**：LangChain 的 observability 平台。Trace、eval、prompt 迭代。
-
-**适合谁**：整套 stack 都在 LangChain / LangGraph 上面。只有 hosted 版。
-
----
-
-#### [Helicone](https://github.com/Helicone/helicone)
-
-| 栏位 | 内容 |
-|---|---|
-| Stars | ★ 5k+ |
-| License | Apache 2.0（开源）+ 付费云端 |
-| 推荐度 | ⭐⭐⭐⭐ |
-
-**教什么**：用 proxy 做 LLM observability——当作 OpenAI/Anthropic client 的替身，顺便拿到 logging + caching。
-
-**适合谁**：不想改程式、想快速上 instrumentation 时。
-
----
-
-#### [weave（Weights & Biases 出品）](https://github.com/wandb/weave)
-
-| 栏位 | 内容 |
-|---|---|
-| 推荐度 | ⭐⭐⭐⭐ |
-
-**教什么**：W&B 出的 tracing + eval framework。跟他们的 ML 平台集成。
-
-**适合谁**：团队已经在用 W&B 做 ML 实验追踪。
-
----
-
-### Anthropic SDK 进阶
-
-#### [anthropics/anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python)
-
-| 栏位 | 内容 |
-|---|---|
-| 推荐度 | ⭐⭐⭐⭐⭐ |
-
-**教什么**：官方 Python SDK（基础 API 层）。streaming、async、tool use、prompt caching、batches、files API。
-
-**适合谁**：直接基于 Claude API 做应用。
-
----
-
-#### [anthropics/anthropic-sdk-typescript](https://github.com/anthropics/anthropic-sdk-typescript)
-
-**教什么**：Python SDK 的 TS 版本。
-
-**适合谁**：TypeScript / Node / web app。
-
----
-
-#### [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ agent 专用
-
-| 栏位 | 内容 |
-|---|---|
-| Stars | ★ 6k+ |
-| License | MIT |
-| 推荐度 | ⭐⭐⭐⭐⭐ |
-
-**教什么**：Anthropic 在 2025 年中释出的 **agent 专用 SDK**，跟基础 `anthropic-sdk-python` 不同——这个内置 tool use loop、file access、sandbox 执行、subagent 编排，把 Claude Code 用的 agent capabilities 开放给 Python 应用直接用。
-
-**适合谁**：要打造 Claude-based agent 而不是只呼叫 API 的开发者。比起手刻 ReAct loop、自己管 tool execution，这个 SDK 把这些抽象都做好了。
-
-**备注**：跟 Claude Code 共用同一套 agent runtime；想理解 Claude Code 内部怎么运作的，读这个 SDK 的源码是最快的路径。
-
----
-
-#### [anthropics/claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript)
-
-| 栏位 | 内容 |
-|---|---|
-| Stars | ★ 1.4k+ |
-| License | NOASSERTION |
-| 推荐度 | ⭐⭐⭐⭐ |
-
-**教什么**：Claude Agent SDK 的 TypeScript 版。
-
-**适合谁**：要在 Node / web app 环境打造 Claude agent 的开发者。
-
----
-
-#### [Anthropic Cookbook — Advanced patterns](https://github.com/anthropics/anthropic-cookbook)
-
-之前已提过。特别是 `prompt_caching.ipynb`、`tool_use/`、`multimodal/` 三个 notebook，教进阶 SDK 用法。
-
----
-
-### Deployment
-
-#### [BentoML/BentoML](https://github.com/bentoml/BentoML)
-
-| 栏位 | 内容 |
-|---|---|
-| Stars | ★ 8k+ |
-| License | Apache 2.0 |
-| 推荐度 | ⭐⭐⭐⭐ |
-
-**教什么**：把任何 ML/LLM model 包成 production API。Docker + serving framework。
-
-**适合谁**：把 agent 包成可 deploy 的 service。
-
----
-
-#### [LangServe](https://github.com/langchain-ai/langserve)
-
-**教什么**：把 LangChain app deploy 成 REST API。底层用 FastAPI。
-
-**适合谁**：以 LangChain 为基础的 agent 想快速 deploy。
-
----
-
-#### [datawhalechina/self-llm](https://github.com/datawhalechina/self-llm)
-
-| 栏位 | 内容 |
-|---|---|
-| 语言 | 中文（zh-Hans） |
-| Stars | ★ 30k+ |
-| License | Apache-2.0 |
-| 推荐度 | ⭐⭐⭐⭐ |
-
-**教什么**：开源大模型食用指南——一份完整的中文指南，讲怎么在 Linux 上 fine-tune 跟 deploy 开源 LLM。涵盖 Qwen / Llama / GLM / 多模态模型，全参数 + LoRA + deployment 都有。
-
-**适合谁**：要自架开源 LLM 的中文团队。training-to-deployment 整个流程的 production 等级中文教学。
-
----
-
-#### [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)
-
-| 栏位 | 内容 |
-|---|---|
-| 语言 | Python |
-| Stars | ★ 70k+ |
-| License | Apache-2.0 |
-| 推荐度 | ⭐⭐⭐⭐⭐ |
-
-**教什么**：中文社群最广泛使用的 LLM fine-tuning framework——统一 100+ 个开源模型（Llama / Qwen / DeepSeek / Yi / Mistral 等）的 SFT、DPO、PPO、GRPO 训练流程。Web UI 可以零代码跑 fine-tuning。
-
-**适合谁**：要 fine-tune 开源 LLM（不只是 prompt-engineering）的人。比 self-llm 范围更聚焦在“训练”本身。
-
-**备注**：搭配前面 Stage 1 的 Ollama / llama.cpp，能完整跑“fine-tune → quantize → 本地 deploy”的闭环。
-
----
-
-### [vLLM](https://github.com/vllm-project/vllm)
-
-| 栏位 | 内容 |
-|---|---|
-| Stars | ★ 79k+ |
-| License | Apache 2.0 |
-| 推荐度 | ⭐⭐⭐⭐ |
-
-**教什么**：高吞吐量的 LLM serving。可以在 production 跑开源模型。
-
-**适合谁**：自架开源 LLM（Llama、Qwen 等等）取代付费 API 的场景。
-
----
-
-### Multi-Agent 案例研究
-
-#### [geekan/MetaGPT](https://github.com/geekan/MetaGPT)
-
-| 栏位 | 内容 |
-|---|---|
-| Stars | ★ 67k+ |
-| License | MIT |
-| 推荐度 | ⭐⭐⭐⭐⭐ |
-
-**教什么**：以 SOP（Standard Operating Procedure）为核心的多 agent 软件开发 team——PM / Architect / Engineer 各自有角色，从 PRD → 设计 → 代码一路产出 artifact 交接给下一棒。
-
-**适合谁**：想看“**角色分工 + artifact 交接**”这种 pattern 怎么实作的人。跟 LangGraph 的 state machine 路线不同，是另一条 multi-agent 设计思路。
-
-**备注**：中文团队维护，docs site 有 zh 内容。值得拿来跟 AutoGen 的 free-form group chat 对比。
-
----
-
-#### [OpenBMB/ChatDev](https://github.com/OpenBMB/ChatDev)
-
-| 栏位 | 内容 |
-|---|---|
-| 语言 | Python |
-| Stars | ★ 33k+ |
-| License | Apache-2.0 |
-| 推荐度 | ⭐⭐⭐⭐ |
-
-**教什么**：“对话式”软件开发 pattern——agents 在 design / code / test 各阶段互相辩论才推进。这是 **agent debate / peer-review pattern** 最标准的开源案例，背后有论文。
-
-**适合谁**：要打造“两个 agent 互相挑战才产出结论”这种 workflow 的人。比 AutoGen 更聚焦在 debate 机制。
-
-**备注**：有 `README-zh.md`，中文读者友善。
-
----
-
-#### [princeton-nlp/SWE-agent](https://github.com/princeton-nlp/SWE-agent)
-
-| 栏位 | 内容 |
-|---|---|
-| 语言 | Python |
-| Stars | ★ 19k+ |
-| License | MIT |
-| 推荐度 | ⭐⭐⭐⭐ |
-
-**教什么**：**Agent-Computer Interface (ACI)** 的设计思路——tool 介面的形状（不是 prompt）决定 agent 在 SWE-Bench 上的成绩。Princeton NLP 的论文成果。
-
-**适合谁**：在 Stage 3-4 学完 tool use 之后，想理解“**为什么 tool 设计比 prompt tuning 重要**”的人。
-
-**备注**：论文 + 实作开源，是学术 multi-agent 研究的好参考。
-
----
+| 只看 leaderboard top | ❌ 上面 8 个都被证实可 hack |
+| 看 task-level success rate breakdown | ✅ 多数 hack 集中少数 task |
+| 跑你自己的 hold-out test set | ✅✅ 最可靠、production agent 必做 |
+| 看 trajectory / log 是否真的解 task | ✅ 区分 reward hacking vs genuine solve |
+| 看多个 benchmark + 自己 use case | ✅ 不依赖单一指标 |
+
+**哪些 benchmark 较难 hack（2026-05）**：
+- **τ-bench** — 多轮对话 + tool use、reward function 较密集
+- **RE-bench** — research engineering 真实任务
+- **你自己的 production eval set** ⭐ 永远是最可靠的
+
+> 💡 **production agent 的 eval 纪律**：
+> - 不要把外部 benchmark 数字当 ground truth、它告诉你“上限”不是“真实表现”
+> - 你自己的 eval set（内部 hold-out test）才是上线决策的依据
+> - 每次 model upgrade → 跑内部 eval set 验证、不只看厂商公布的 benchmark 提升
+> - 接 [langfuse](https://github.com/langfuse/langfuse) / [promptfoo](https://github.com/promptfoo/promptfoo) 把 eval 自动化、每次 deploy 都跑
+
+## 🎯 常用 Multi-Agent / Production 工具推荐（按用途分类）
+
+不知道从哪挑工具？下面是 2025-2026 业界常用搭配——**挑入口看“场景”、想深入点链接看 repo**：
+
+| 场景 | 推荐工具 | 为什么 |
+|---|---|---|
+| **第一次写 multi-agent**（最快上手）| [crewAI](https://github.com/crewAIInc/crewAI) | role-based、几行 code 跑起来、production pattern 直接 |
+| **想要 group debate / brainstorm pattern** | [AutoGen](https://github.com/microsoft/autogen) | GroupChat 自由辩论、Microsoft 出品 |
+| **production 要 audit trail / checkpoint / human-in-loop** | [LangGraph](https://github.com/langchain-ai/langgraph) | state machine、控制最完整 |
+| **eval 标准化**（CI / regression 必装）| [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config、跨模型比较、★ 20k+ |
+| **eval + observability 同平台** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS、tracing + eval + prompt mgmt、★ 26k+ |
+| **不改程序、快速 instrumentation** | [Helicone](https://github.com/Helicone/helicone) | proxy 中介、不绑 framework |
+| **全 stack 在 LangChain** | [LangSmith](https://www.langchain.com/langsmith)（商业）| LangChain 官方 observability |
+| **打造 Claude agent**（programmatic）| [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | Anthropic 官方 agent SDK、跟 Claude Code 同 runtime |
+| **Deploy agent 成 API service** | [BentoML](https://github.com/bentoml/BentoML) | 最完整、Docker + serving |
+| **自架开源 LLM**（取代付费 API）| [vLLM](https://github.com/vllm-project/vllm) | 高吞吐量、★ 79k+ |
+| **Fine-tune 开源 LLM** | [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | 100+ 模型统一 SFT/DPO/PPO/GRPO、Web UI 零 code、中文社群最广、★ 70k+ |
+
+**建议入手顺序**：
+1. 第一个 multi-agent：**crewAI**（role-based、最简单）
+2. 加 eval：**promptfoo**（YAML、CI 整合）
+3. 加 observability：**langfuse**（OSS、完整）
+4. Production 升级：换 **LangGraph**（control 强）+ **BentoML**（deploy）
+5. 进阶：自架 LLM 接 **vLLM**、fine-tune 用 **LLaMA-Factory**
+
+## 🎯 精选 Projects（范本 / SDK / 工具 collection）
+
+按用途分类、22 个项目一张表搞定。**挑入口看“适合谁”、想深入点链接看 repo**。
+
+| 分类 | Project | ⭐ | 适合谁 | 为什么推荐 / 备注 |
+|---|---|---|---|---|
+| **Multi-Agent Orchestration** | [microsoft/autogen](https://github.com/microsoft/autogen) | ⭐⭐⭐⭐⭐ | 想要 GroupChat 自由 debate pattern | Stage 4 介绍过、production 场景再回头看 multi-agent 辩论 / brainstorming 模式 |
+| | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | 想要 role-based 流水线 | 角色式 multi-agent（research → writer → reviewer），最简单 production pattern |
+| | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | 需要 audit trail / checkpoint / human-in-the-loop | state machine 路线、production 控制最强 |
+| **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | 把 eval 流程标准化、CI 整合 | YAML config、跨模型比较。★ 20k+、MIT |
+| | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | 学术 benchmark 主张（MMLU / HellaSwag / GSM8K）| 学术等级。★ 12k+、MIT |
+| | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | OpenAI 专属 eval / 想回馈上游 | ★ 18k+ |
+| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | 自架 production observability | OSS LangSmith 替代、traces + sessions + evals + prompt mgmt。★ 26k+、MIT |
+| | [LangSmith](https://www.langchain.com/langsmith)（商业）| ⭐⭐⭐⭐ | 全 stack 在 LangChain / LangGraph 上 | LangChain 官方、只有 hosted 版 |
+| | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | 不想改程序、快速上 instrumentation | proxy 中介、顺便拿到 logging + caching。★ 5k+、Apache 2.0 |
+| | [weave (W&B)](https://github.com/wandb/weave) | ⭐⭐⭐⭐ | 团队已在用 W&B 做 ML 实验追踪 | W&B tracing + eval、跟 wandb 整合 |
+| **Anthropic SDK 进阶** | [anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) | ⭐⭐⭐⭐⭐ | 直接基于 Claude API 做应用 | 官方 Python SDK：streaming / async / tool use / prompt caching / batches / files |
+| | [anthropic-sdk-typescript](https://github.com/anthropics/anthropic-sdk-typescript) | ⭐⭐⭐⭐ | TypeScript / Node / web app | Python SDK 的 TS 版 |
+| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | ⭐⭐⭐⭐⭐ | 打造 Claude-based agent 而非只 API | 内建 tool use loop / file access / sandbox / subagent 编排；跟 Claude Code 同 runtime、想看内部运作直接读 source。★ 6k+、MIT |
+| | [claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript) | ⭐⭐⭐⭐ | Node / web app 环境 Claude agent | Claude Agent SDK TS 版。★ 1.4k+ |
+| | [Anthropic Cookbook（进阶）](https://github.com/anthropics/anthropic-cookbook) | ⭐⭐⭐⭐ | 想看官方进阶 SDK pattern | 特别是 `prompt_caching.ipynb` / `tool_use/` / `multimodal/` 三个 notebook |
+| **Deployment** | [BentoML](https://github.com/bentoml/BentoML) | ⭐⭐⭐⭐ | 把 agent 包成 production API service | Docker + serving framework。★ 8k+、Apache 2.0 |
+| | [LangServe](https://github.com/langchain-ai/langserve) | ⭐⭐⭐⭐ | LangChain agent 快速 deploy | 底层 FastAPI |
+| | [vLLM](https://github.com/vllm-project/vllm) | ⭐⭐⭐⭐ | 自架开源 LLM 取代付费 API | 高吞吐量 LLM serving、Llama / Qwen 等。★ 79k+、Apache 2.0 |
+| **中文 deploy / fine-tune** | [datawhalechina/self-llm](https://github.com/datawhalechina/self-llm) | ⭐⭐⭐⭐ | 中文团队要自架开源 LLM | training-to-deployment 完整中文指南、Qwen / Llama / GLM / 多模态。★ 30k+、Apache 2.0 |
+| | [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | ⭐⭐⭐⭐⭐ | 要 fine-tune 开源 LLM（不只 prompt eng）| 100+ 模型统一 SFT/DPO/PPO/GRPO、Web UI 零 code、中文社群最广。★ 70k+、Apache 2.0 |
+| **Multi-Agent 案例研究** | [geekan/MetaGPT](https://github.com/geekan/MetaGPT) | ⭐⭐⭐⭐⭐ | 想看角色分工 + artifact 交接 pattern | SOP-based PM / Architect / Engineer multi-agent team、PRD → 设计 → code 一路产出。★ 67k+、MIT |
+| | [OpenBMB/ChatDev](https://github.com/OpenBMB/ChatDev) | ⭐⭐⭐⭐ | 想看 agent debate / peer-review pattern | 对话式软件开发、agents 在 design / code / test 互相辩论。★ 33k+、Apache 2.0、有 zh README |
+| | [princeton-nlp/SWE-agent](https://github.com/princeton-nlp/SWE-agent) | ⭐⭐⭐⭐ | 理解为什么 tool 设计 > prompt tuning | Agent-Computer Interface (ACI) 设计思路、Princeton paper-backed、SWE-Bench 领先方法。★ 19k+、MIT |
+
+> 🌳 **Claude 原生 subagent 机制**（不用 framework 也能 multi-agent）见 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制)。本 stage 重 framework / production；Stage 5.5 重 markdown-based subagent 编排。
 
 ## ✅ Stage 7 之后的自我检查
 
@@ -366,7 +320,7 @@ npx promptfoo eval
 - [ ] 在真实 workload 上量测 prompt caching 前后的成本差异
 - [ ] 把 agent deploy 到云端（任何 provider）
 
-如果都可以 → 你已经跑完主路线。挑一个[特化分支](/#️-7-阶段学习地图)，或回头来贡献这份 repo。
+如果都可以 → 进 [**Stage 8 — Agent Interfaces**](/zh-tw/stages/08-agent-interfaces/)（**两 track 共用 hub**）学 agent 怎么跟非 API 世界互动（Computer Use / Browser Use / Sandbox）。或挑一个[特化分支](/#️-7-阶段学习地图)、或回头来贡献这份 repo。
 
 ## 💡 接下来
 

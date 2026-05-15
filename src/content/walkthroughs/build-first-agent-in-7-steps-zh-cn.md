@@ -1,11 +1,11 @@
 ---
 title: "7 步打造你的第一个 AI Agent"
-description: "这是一份**跨 7 个 stage 的具体 walkthrough**——同一个 agent，从 Stage 1 写到 Stage 7，每个 stage 都附可执行的代码骨架。"
+description: "这是一份跨 7 个 stage 的具体 walkthrough——同一个 agent，从 Stage 1 写到 Stage 7，每个 stage 都附可执行的代码骨架。"
 section: "Walkthrough"
 sourcePath: "walkthroughs/build-first-agent-in-7-steps.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/walkthroughs/build-first-agent-in-7-steps.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "build-first-agent-in-7-steps"

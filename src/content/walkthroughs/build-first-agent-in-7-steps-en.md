@@ -1,11 +1,11 @@
 ---
 title: "Build Your First AI Agent in 7 Steps"
-description: "This is a **concrete cross-stage walkthrough** — the same agent, traced from Stage 1 through Stage 7, with executable code skeletons at each stage."
+description: "This is a concrete cross-stage walkthrough — the same agent, traced from Stage 1 through Stage 7, with executable code skeletons at each stage."
 section: "Walkthrough"
 sourcePath: "walkthroughs/build-first-agent-in-7-steps.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/walkthroughs/build-first-agent-in-7-steps.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "build-first-agent-in-7-steps"

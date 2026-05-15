@@ -1,11 +1,11 @@
 ---
 title: "`resources/` 索引"
-description: "<div align=\"right\"> <a href=\"./README.md\">繁體中文</a> | <strong>简体中文</strong> | <a href=\"./README.en.md\">English</a>"
+description: "| 文件 | 角色 | 什么时候看 | 行数 | |---|---|---|---| | glossary.zh-Hans.md | 30 秒查词典 | 看 stage 内容时遇到 LLM / RAG / token / agent / vector DB / streaming / batch API 不知道什么意思 | 210 | | cli-agents-guide.zh-Hans.md | 7 个 CLI agent 比较 | "
 section: "Resource"
 sourcePath: "resources/README.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "readme"
@@ -77,7 +77,7 @@ baseSlug: "readme"
 只在有助于导航时保留少量重叠，各文件角色仍然分开：
 
 - **glossary** 是“30 秒查”，stage 内容是“3-5 分钟读”，cookbook 是“30-50 分钟做”。
-- **schema-design-cheatsheet** 跟 cookbook §2 有交集，但 cheatsheet 讲 schema 规则，cookbook 讲怎么把 server 跑起来。
+- **schema-design-cheatsheet** 跟 cookbook 2 有交集，但 cheatsheet 讲 schema 规则，cookbook 讲怎么把 server 跑起来。
 - **cli-agents-guide** 是比较 reference；**mcp-skills-catalog** 是工具集成目录。
 - **setup-guide** 给从零开始的人；Stage 0 默认你已经准备好进入学习路线。
 

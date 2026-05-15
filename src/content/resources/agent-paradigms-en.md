@@ -1,11 +1,11 @@
 ---
 title: "5 Agent Paradigms — Where does your agent live, and who does it serve?"
-description: "The word \"agent\" gets used loosely. Cursor is an agent. Claude Code is an agent. Hermes Agent — the one chatting with you on Telegram — is an agent. OpenClaw running on a Jetson bo"
+description: "The word \"agent\" gets used loosely. Cursor is an agent. Claude Code is an agent. Hermes Agent — the one chatting with you on Telegram — is an agent. OpenClaw running on a Jetson board in your apartment is also an agent. "
 section: "Resource"
 sourcePath: "resources/agent-paradigms.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "agent-paradigms"
@@ -142,6 +142,27 @@ You run a law firm. You need AI to help organize a client's medical records + me
 
 **Good for**: privacy-sensitive data; offline-first; home AI box (smart home); physical AI (robots); long-term ownership without recurring API bills.
 **Not for**: people uncomfortable with Linux / NVIDIA tooling; needing frontier models (GPT-5 / Claude Opus); unwilling to spend €549.
+
+---
+
+## Subagent — “Spawning an Agent Inside an Agent Runtime”
+
+The 5 types above describe **where the agent runs** (IDE / Terminal / any CLI / Cloud / Edge). A **subagent** is another dimension: **while an agent is executing a task, it spawns another agent to handle a subtask**.
+
+There are two main implementation paths:
+
+| Path | How it starts | Examples |
+|---|---|---|
+| **Framework-based** (Stage 4) | `pip install langgraph / crewai / autogen` + Python orchestration code | LangGraph / CrewAI / AutoGen / Swarm / Strands |
+| **Claude Code native** (Stage 5.5) | Write `.claude/agents/<name>.md`; invoke it from the main session with the Task tool | Claude Code subagents + Claude Agent SDK |
+
+**The difference is runtime ownership**:
+- Framework path: your own Python process runs the orchestrator, and each sub-agent is an object inside your program
+- Claude path: Claude Code spawns a new agent instance itself; parent / child share the Claude runtime, and the parent only sees the child’s final result (context is isolated automatically)
+
+**Which should you choose?** If you need to mix LLM providers (GPT + Claude + Gemini) or embed multi-agent orchestration into another application, choose the framework path. If you are already committed to Claude Code and staying inside the Claude ecosystem, choose the subagent path (much less boilerplate).
+
+See the full comparison table at the [start of Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature); **to jump straight into 15 daily dispatch recipes** → [`subagent-cookbook.en.md`](/en/resources/subagent-cookbook/) (each includes a scenario + which subagent to use + a copy-paste prompt template).
 
 ---
 

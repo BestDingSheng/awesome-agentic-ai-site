@@ -1,26 +1,28 @@
 ---
-title: "For Teachers — Specialized Branch"
-description: "Teacher-facing AI use cases can first be read as three branches: **lesson prep and class material creation**, **classroom and learning support**, and **other use cases**. This grou"
+title: "Extension Path: For Teachers / Educators"
+description: "Teacher-facing AI use cases can first be read as three branches: lesson prep and class material creation, classroom and learning support, and other use cases."
 section: "Branch"
 sourcePath: "branches/for-teacher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-teacher"
 ---
-# For Teachers — Specialized Branch
+# Extension Path: For Teachers / Educators
 
 > [繁體中文](/zh-tw/branches/for-teacher/) | [简体中文](/branches/for-teacher/) | **English**
 
-> 🚀 **First time with AI agents, or never written code?** Start with [`resources/setup-guide.en.md` §A-C](/en/resources/setup-guide/) (about 30 minutes to install what you need). Tier 0 and Tier 1 do not require code, so you can skip this at first; Tier 2 and later will use it.
+> 🚀 **Most teachers can start directly with Claude.ai (web) + NotebookLM, without any setup**. Only read [`resources/setup-guide.en.md` A-C](/en/resources/setup-guide/) (about 30 minutes to install what you need) when you need to automate repeated workflows (Tier 2+, such as generating 50 parent letters every week).
 
 > [← Back to main path README](/en) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to teaching workflows.
 
 ## Use Cases
 
-Teacher-facing AI use cases can first be read as three branches: **lesson prep and class material creation**, **classroom and learning support**, and **other use cases**. This grouping follows common AI in Education discussions around administration, instruction, and learning, while also reflecting recent work on generative AI for material creation, feedback, and interactive support (Chen et al., 2020; Mittal et al., 2024). Start with teacher oversight and boundaries, then choose the branch that best matches your teaching need.
+Teacher-facing AI use cases can first be read as three branches: **lesson prep and class material creation**, **classroom and learning support**, and **other use cases**.
+
+This grouping follows common AI in Education discussions around administration, instruction, and learning, while also reflecting recent work on generative AI for material creation, feedback, and interactive support (Chen et al., 2020; Mittal et al., 2024). Start with teacher oversight principles and boundaries, then choose the branch that best matches your teaching need.
 
 ![Teacher and AI agent use-case overview](/upstream/resources/diagrams/teacher-ai-use-cases-overview.jpg)
 
@@ -30,7 +32,7 @@ AI can prepare and assist, but it should not replace teacher judgment. Recent AI
 
 - **Keep teacher judgment in the loop**: when student data, grades, or teaching decisions are involved, teachers remain responsible for final review.
 - **Avoid giving answers too quickly**: if students interact with an AI agent, design the flow as Socratic dialogue so students explain their reasoning across multiple turns.
-- **Align with learning goals**: use prompts, skills, or fixed workflows to constrain the agent's role and task, so student interaction stays tied to the lesson.
+- **Align with learning goals**: use fixed prompts, checklists, or school-approved tools to constrain the AI's role and task, so student interaction stays tied to the lesson.
 - **Rewrite student questions when needed**: for younger students, such as elementary or middle-school learners, rewrite unclear questions before sending them to the agent.
 
 ### Lesson Prep and Class Material Creation
@@ -84,8 +86,8 @@ These use cases may not happen directly inside a lesson, but they shape teacher 
 #### [obra/superpowers](https://github.com/obra/superpowers) ⭐⭐⭐⭐
 General writing / brainstorming skills. Adaptable for lesson prep.
 
-#### [Claude Code](https://github.com/anthropics/claude-code) (with custom CLAUDE.md) ⭐⭐⭐⭐⭐
-★ 120k+ — A good place for teachers to start. Use Claude.ai (web) for low-barrier exploration; upgrade to Claude Code when a workflow becomes repeatable.
+#### Advanced automation: [Claude Code](https://github.com/anthropics/claude-code) (with custom CLAUDE.md) ⭐⭐⭐⭐⭐
+★ 120k+ — **The basic teacher stack is Claude.ai (web) + NotebookLM + Google Classroom / LMS integrations**; start there. **Upgrade to Claude Code only when you already have repeatable batch workflows** (such as generating 50 parent letters every week or analyzing student feedback every semester), and expect to learn some CLI.
 
 ### Teaching Course Materials (for teachers preparing classes)
 
@@ -142,15 +144,19 @@ General writing / brainstorming skills. Adaptable for lesson prep.
 #### [The Effortless Academic — Beginner Guides](https://effortlessacademic.com/claude-code-and-cowork-for-academics-beginner-guide-part-1/)
 Multi-part guide for academics adopting Claude Code, applicable to teachers.
 
-## Workflows To Build
+## Workflows You Can Build (by teaching stage)
 
-These are templates — adapt to your subject:
+Use these 5 templates as starting points and adapt them to your subject:
 
-- **Lesson plan generator**: Prompt with curriculum + topic → outline → slides → assessment
-- **Rubric creation**: Sample student work + learning objective → rubric draft
-- **Personalized feedback**: Student submission + rubric → individualized written feedback (with human review)
-- **Scenario simulation activity**: learning goal + role setup → dialogue script → class practice → reflection questions
-- **Remediation material generator**: common errors + student level → short practice → hints → extension challenge
+| Stage | Workflow | Steps (≤3) | Recommended tools | Caveat |
+|---|---|---|---|---|
+| **Before prep** | Lesson plan generator | (1) Curriculum + topic prompt → outline<br>(2) Outline → slides<br>(3) Slides → assessment items | Claude.ai / NotebookLM | Teacher final review |
+| **During prep** | Rubric creation | (1) Provide student work samples + learning goals<br>(2) Ask AI for a 4-level rubric draft<br>(3) Teacher adjusts level boundaries | Claude.ai | Avoid vague terms like "high quality" |
+| **Grading work** | Personalized feedback | (1) Student work + rubric → AI feedback draft<br>(2) Teacher reviews and edits each one<br>(3) Send back | Claude.ai | **AI assistance ≠ AI grading**; final grades must be human |
+| **Class activity** | Scenario simulation | (1) Learning goal + role setup → dialogue script<br>(2) Run class practice<br>(3) Ask reflection questions | Claude.ai | Socratic follow-up, no direct answers; student input must contain **no PII** |
+| **After class** | Personalized remediation material | (1) Summarize common student errors<br>(2) Generate short practice + hints by student level<br>(3) Add extension challenges | Claude.ai | Anonymize student data |
+
+> 💡 **Starter habit**: run the "before-prep lesson plan generator" for one semester first, then add rubric / feedback workflows. ⚠️ Any step involving student data or grading should be checked against the §Privacy + Ethics (Important) section below.
 
 ### 3 Copy-Paste Prompt Templates
 
@@ -196,25 +202,21 @@ Teachers using LLMs are different from regular users — **student data is invol
 - **AI assistance ≠ AI grading**: drafting feedback / rubrics with LLM is fine, but **final grades require human judgment** — LLMs aren't reliable on complex evaluation yet
 - **Disclose to students**: if class material is AI-assisted, disclose it (similar to declaring AI tool use in papers). Teaching integrity matters
 - **Fact-check**: LLMs hallucinate citations, scholar names, research data. Domain content **must be verified** before class
-- **Student work copyright**: don't bulk-upload student writing to third-party services for analysis — risks FERPA / GDPR violations
+- **Student work copyright**: don't bulk-upload student writing to third-party services for analysis — it may involve local privacy law, school policy, and third-party service terms. In the **United States**, also consider FERPA (student record protection); in the **European Union**, GDPR; and in **Taiwan**, the Personal Data Protection Act and school notices. Actual applicability depends on local law and school IT policy
 
 If your school / institution has an AI policy, **that takes priority** over this guide.
 
 ## Tier Recommendations for Teachers
 
-Most teachers should stay at **Tier 0 (browser chat)** or **Tier 1 (Claude Desktop)**:
+Recommended progression. Most teachers should stay at Tier 0-1:
 
-- **Tier 0**: Claude.ai web chat — copy/paste prompts, no install
-  - Good for: occasional lesson prep, one-off tasks, item generation, writing emails
-  - Example: copy the lesson-outline prompt above, fill in topic, run
-- **Tier 1**: Claude Desktop / [NotebookLM](https://notebooklm.google.com/) — file uploads, conversation history
-  - Good for: grading / organizing a semester's data, course mapping, bulk-importing reading list PDFs and querying them
-  - Example: upload your full course reading list to NotebookLM; query throughout the semester
-- **Tier 2+ (CLI / SDK)**: only if you're **automating a recurring flow**
-  - Example: every week 30 student submissions → auto-generated draft feedback
-  - Non-coder teachers: **ask the school IT or a student RA** to set up; you only use the output
+| Tier | Tools | Best for | Learning cost |
+|---|---|---|---|
+| **Tier 0** | Claude.ai web chat | Occasional lesson prep, one-off tasks, item generation, writing emails. Copy the prompt template above and fill in the topic. | 0 (if you can use a browser) |
+| **Tier 1** | Claude Desktop / [NotebookLM](https://notebooklm.google.com/) | Grading / organizing a semester's data, course mapping, bulk-importing reading list PDFs and querying them | 30 minutes |
+| **Tier 2+** | Claude Code / CLI / SDK | Repeated automation, such as 30 student submissions every week → auto-generated draft feedback | 1 week; non-coders can ask school IT / a student RA to set it up |
 
-> Once you're at Tier 2+, follow [Track A — CLI Power User](/en/tracks/cli-a1-cli-intro/).
+> **Most teachers can stop at Tier 0-1**. Once you're at Tier 2+, follow [Track A — CLI Power User](/en/tracks/cli-a1-cli-intro/).
 
 ## Other Branches Also Apply
 

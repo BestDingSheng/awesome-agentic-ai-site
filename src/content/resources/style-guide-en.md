@@ -1,11 +1,11 @@
 ---
 title: "`awesome-agentic-ai-zh` Style Guide"
-description: "This is the **single source of truth** for the catalog: terminology, entry schema, license notation, writing style, banned words."
+description: "This is the single source of truth for the catalog: terminology, entry schema, license notation, writing style, banned words."
 section: "Resource"
 sourcePath: "resources/style-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "style-guide"
@@ -63,8 +63,8 @@ Every project entry uses this structure:
 ### Required fields (GitHub repo entry)
 For entries that are real GitHub repos:
 - `Stars` (`★ Xk+` format, no thousands separator)
-- `License` (SPDX ID or annotated exception, see §5)
-- `Recommendation` (⭐ × N, see §2)
+- `License` (SPDX ID or annotated exception, see 5)
+- `Recommendation` (⭐ × N, see 2)
 - `What it teaches`, `Best for`
 
 ### Required fields (non-repo entry: article / course / video / protocol / documentation)
@@ -134,7 +134,7 @@ Technical writing has terms that **read more naturally in English** than transla
 - `RAG`, `embedding`, `vector DB`, `retrieval`, `chunk`, `token`
 - `streaming`, `async`, `batch`, `webhook`
 - `marketplace`, `plugin`, `skill`, `hook`
-- `production` (when meaning "production environment") — but the catalog deliberately avoids it in many places (see Chinese §3)
+- `production` (when meaning "production environment") — but the catalog deliberately avoids it in many places (see Chinese 3)
 - `hello-world`, `hands-on exercise` — keep (zh-TW canonical uses `動手練習`; en mirror translates as `hands-on exercise(s)`)
 
 **Test**: Would a technical reader pause at the translated form? If yes, keep English.
@@ -203,7 +203,7 @@ Description.
 ## 🎯 Curated Projects
 
 ### [Project Name](url) ⭐⭐⭐⭐
-[entry schema per §1]
+[entry schema per 1]
 
 [N entries]
 

@@ -1,11 +1,11 @@
 ---
 title: "Branch 設計筆記"
-description: "5 條 branch 設計成 **兩條軌道走完都接得上**："
+description: "例外：for-everyday-users branch 可以直接進入——不一定要走完軌道。這條 branch 的目標讀者是「Claude.ai / ChatGPT 重度使用者，想用 AI 但不一定想 build」，他們可能根本不需要碰 Track A 或 B；branch 內也明確標示「不一定要走完整條主幹」。其他 4 條 branch（researcher / developer / teacher / knowledge-work"
 section: "Branch"
 sourcePath: "branches/DESIGN.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/DESIGN.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "design"
@@ -80,7 +80,7 @@ audience 切太細會：
 
 ### 灰色地帶處理（同一 repo 出現在多 branch）
 
-**規則**：同一 repo 可以在多 branch 出現，但每處要有不同的 **framing**（適合誰、教什麼）。**推薦星等預設一致**——同一個工具的客觀價值不會因 audience 改變；除非有明確的 audience-specific 理由（譬如「進階度差太多」），且寫進 Notes 解釋。詳見 [`resources/style-guide.md`](/zh-tw/resources/style-guide/) §2。
+**規則**：同一 repo 可以在多 branch 出現，但每處要有不同的 **framing**（適合誰、教什麼）。**推薦星等預設一致**——同一個工具的客觀價值不會因 audience 改變；除非有明確的 audience-specific 理由（譬如「進階度差太多」），且寫進 Notes 解釋。詳見 [`resources/style-guide.md`](/zh-tw/resources/style-guide/) 2。
 
 **範例**：
 - `obra/superpowers` 出現在 Stage 5、for-developer、for-knowledge-worker、for-teacher

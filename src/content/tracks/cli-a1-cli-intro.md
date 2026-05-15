@@ -1,17 +1,17 @@
 ---
-title: "A1 — CLI Agent 入門 + 選擇"
-description: "⏱ **時間估算**：1 週（約 5-10 小時）"
+title: "A1 — 選一個 CLI Agent，開始用它做事（CLI Agent Intro & Selection）"
+description: "讀完 Stage 0-2 之後、你想直接用現成的 CLI agent 把工作做完、不打算自己寫 agent 程式、只想先用現成工具完成任務？這條軌就是給你的。第一站：選一個 CLI agent、跑起來。"
 section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a1-cli-intro"
 order: 1
 ---
-# A1 — CLI Agent 入門 + 選擇
+# A1 — 選一個 CLI Agent，開始用它做事（CLI Agent Intro & Selection）
 
 > **繁體中文** | [简体中文](/tracks/cli-a1-cli-intro/) | [English](/en/tracks/cli-a1-cli-intro/)
 
@@ -19,10 +19,10 @@ order: 1
 
 ⏱ **時間估算**：1 週（約 5-10 小時）
 
-> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 → 動手練習 → 精選 Projects → 自我檢查  
-> 🔑 **關鍵名詞**：見 [`resources/glossary.md`](/zh-tw/resources/glossary/)（CLI agent / MCP / skill / plugin 等收在 §5）
+> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 → 動手練習 → 精選 Projects → 自我檢查
+> 🔑 **關鍵名詞**：本頁只用到 **CLI agent**（在終端機跑的 AI 工具）。MCP / Skill / plugin 等其他生態名詞會在 A2 / A3 第一次使用時再解釋。完整詞表見 [`resources/glossary.md`](/zh-tw/resources/glossary/)。
 
-讀完 Stage 0-2 之後，你想直接用現成的 CLI agent 把工作做完，不打算自己從零寫 ReAct loop？這條軌就是給你的。第一站：**選一個 CLI agent，跑起來**。
+讀完 Stage 0-2 之後、你想直接用現成的 CLI agent 把工作做完、**不打算自己寫 agent 程式、只想先用現成工具完成任務**？這條軌就是給你的。第一站：**選一個 CLI agent、跑起來**。
 
 ## 📌 學習目標
 
@@ -50,7 +50,14 @@ order: 1
 ## 🛠 動手練習（基礎 illustrative 練習）
 
 ### 動手練習 CLI-1：安裝 + 第一次跑
-照你選的 CLI 的 quickstart 安裝。第一個 prompt 不要寫「hello world」——直接給它一個你今天本來就要做的事，譬如：「整理我 Downloads 資料夾，把 PDF 全部 move 到 ~/Documents/PDFs」。觀察它怎麼分解任務、要哪些確認。
+
+**3 步走完**：
+
+1. **裝**：照你選的 CLI 的 quickstart 安裝（每個 CLI 官網都有 ≤ 5 分鐘的安裝指南）
+2. **挑一個低風險真實任務**：不要寫「hello world」——挑一件你今天本來就要做的事（例：「整理我 Downloads 資料夾、把 PDF 全部 move 到 ~/Documents/PDFs」）
+3. **觀察 3 件事**：它怎麼分解任務、何時要求確認、輸出格式如何
+
+→ 用真任務跑、才能感受 agent 跟 chatbot 的差別。
 
 ### 動手練習 CLI-2：CLI 內建的 system prompt 檔
 - Claude Code → 寫一個 `CLAUDE.md` 在 repo 根目錄
@@ -78,7 +85,7 @@ order: 1
 | | [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | ⭐⭐⭐⭐ | 處理大 codebase / 大 PDF | 1M token 長 context（★ 103k+） |
 | | [block/goose](https://github.com/block/goose) | ⭐⭐⭐⭐ | 想用既有 Claude/ChatGPT/Gemini 訂閱 + Ollama 本機 | 15+ provider 支援（含 Ollama），★ 43k+。**已遷至 `aaif-goose/goose`（AAIF / Linux Foundation）** |
 | | [Aider-AI/aider](https://github.com/Aider-AI/aider) | ⭐⭐⭐⭐⭐ | 要寫 code、想要 git 流程乾淨 | git-native、自動 commit / branch（★ 44k+） |
-| | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | ⭐⭐⭐⭐⭐ | 想要 cloud-deployed agent（Telegram / Discord / Slack 介面）+ 中文 LLM 生態 | self-improving agent、200+ provider routing、含 GLM / Kimi / 小米 MiMo / MiniMax、內建 cron + skill 自動演化迴圈（★ 142k+）。⚠️ self-improving skill 是 frontier feature、缺獨立審計、production 先在低風險場景試 |
+| | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | ⭐⭐⭐⭐⭐ | 想要 cloud-deployed agent（Telegram / Discord / Slack 介面）+ 中文 LLM 生態 | 自動演化型 agent、200+ provider routing、含 GLM / Kimi / 小米 MiMo / MiniMax、內建 cron + skill 自動演化迴圈（★ 數據截至 2026-05；以官方 GitHub 為準）。⚠️ 自動演化 skill 是實驗性功能、缺第三方獨立審計、production 用前請自行驗證安全性與維護狀態、先在低風險場景試 |
 | **進階：互補工具**<br>（不是 CLI、但常搭配） | [LM Studio](https://lmstudio.ai/) | ⭐⭐⭐ | Windows / Mac 不想學 command line、想跑本機 LLM | 非開源 desktop app、拖拉介面跑本地 LLM |
 | | [Ollama](https://github.com/ollama/ollama) | ⭐⭐⭐⭐⭐ | 想本機跑 LLM 給 CLI agent 用 | 本地 LLM runner、跟 OpenCode / goose 搭配（★ 170k+）。詳見 [Stage 1 — Local LLM 執行](/zh-tw/stages/01-llm-basics/#-精選-projects) |
 

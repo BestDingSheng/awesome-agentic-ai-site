@@ -1,17 +1,17 @@
 ---
-title: "Stage 4 — Agent Frameworks"
-description: "⏱ **時間估算**：2-3 週（約 10-15 小時）"
+title: "Stage 4 — Agent 框架（Agent Frameworks）"
+description: "你已經從零打造過一個 ReAct agent（Stage 3）。現在來看 framework 到底幫你做了什麼。挑一個深入學，其他的瀏覽過去就好，知道什麼時候該換。"
 section: "Stage"
 sourcePath: "stages/04-agent-frameworks.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "04-agent-frameworks"
 order: 4
 ---
-# Stage 4 — Agent Frameworks
+# Stage 4 — Agent 框架（Agent Frameworks）
 
 > **繁體中文** | [简体中文](/stages/04-agent-frameworks/) | [English](/en/stages/04-agent-frameworks/)
 
@@ -19,8 +19,8 @@ order: 4
 
 > 💡 用語不熟（framework / supervisor / worker / handoff⋯）→ 翻 [`resources/glossary.md`](/zh-tw/resources/glossary/)。
 
-> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 →〔可選 · 概念地圖：multi-agent intro + 進階 tool patterns〕→ 動手練習 → 精選 Projects → 自我檢查  
-> 🔑 **關鍵名詞**：見 [`resources/glossary.md`](/zh-tw/resources/glossary/)（framework / agent loop / handoff / supervisor 等收在 §2、§4）
+> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 →〔可選 · 概念地圖：multi-agent intro + 進階 tool patterns〕→ 動手練習 → 精選 Projects → 自我檢查
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md`](/zh-tw/resources/glossary/)（framework / agent loop / handoff / supervisor 等收在 2、4）
 
 你已經從零打造過一個 ReAct agent（Stage 3）。現在來看 framework 到底幫你做了什麼。**挑一個深入學**，其他的瀏覽過去就好，知道什麼時候該換。
 
@@ -52,14 +52,14 @@ order: 4
 
 要看懂 multi-agent framework 之前、有一個有用的釐清方式——把 **workflow vs agent** 跟 **single vs multi LLM** 當成兩個正交維度。Anthropic「Building Effective Agents」原文的核心區分是 workflow（固定 code path）vs agent（LLM 自主決定 next step）；我們把它跟 single/multi 疊起來看 4 個象限：
 
-|  | **Workflow**<br>（你寫好的 code path） | **Agent**<br>（LLM 動態決定下一步） |
+| | **Workflow**<br>（你寫好的 code path） | **Agent**<br>（LLM 動態決定下一步） |
 |---|---|---|
 | **Single LLM** | 線性 pipeline、無分支判斷 | 一個 LLM + ReAct loop、自己 plan + adapt<br>（**Stage 3 寫的就是這個**） |
 | **Multi LLM** | 預設 routing（譬如「銷售問題 → agent A、技術問題 → agent B」） | 2+ agent 互相 handoff、orchestrator 動態分配<br>（**本 stage 主題**） |
 
 **為什麼這個區分有用**：production 場景大多落在「single agent workflow」+「single agent」象限——多數任務根本不需要 multi-agent。**真正需要 multi-agent framework 的是右下角象限**——LLM 自主性高 + 多角色協作。但實作上四個象限的邊界有時模糊（LangGraph 的 conditional edge 可以同時看成 workflow routing 跟 agent 動態決策）、不要把這個 matrix 當互斥分類。
 
-→ 本 stage 後續討論都假設你已經知道：**multi-agent framework 解決的是右下角象限的 orchestration boilerplate**。
+→ 本 stage 後續討論都假設你已經知道：**Multi-agent framework 主要幫你處理多個 agent 之間的協調、交接、狀態管理與重複性程式碼，讓你不用從零寫整套協作流程**（右下角象限的 orchestration boilerplate）。
 
 ### Single-agent vs multi-agent — 一張對照表先看清楚差異
 
@@ -75,7 +75,7 @@ order: 4
 
 ### 什麼時候**真的**需要 multi-agent（不要硬上）
 
-**Multi-agent 不是 default、是 last resort**。**Anthropic 跟 Cognition 兩家 frontier lab 在 2024-2025 都明白寫過：90% 用例其實不該用 multi-agent**——硬上會付 **3-10× token、debug 痛苦、context fragmentation 嚴重**。
+**Multi-agent 不是 default、是 last resort**。**Anthropic 跟 Cognition 兩家 frontier lab 在 2024-2025 都明白寫過：90% 用例其實不該用 multi-agent**——硬上會付 **3-10× token、debug 痛苦、context fragmentation（context 被切散在多個 agent、彼此看不到全貌）嚴重**。
 
 | 立場 | 來源 | 核心論點 |
 |---|---|---|
@@ -93,11 +93,11 @@ order: 4
 
 **4 個信號都不在？** → single agent + 好 prompt + tool use 就夠。**硬上 multi-agent 會付 3-10x token、debug 痛苦、其實不會比較準**。
 
-> 💡 **後續閱讀**：到 [Stage 7 §但你真的需要 multi-agent 嗎？](/zh-tw/stages/07-multi-agent-production/#-但你真的需要-multi-agent-嗎) 會再帶 production 視角的決策——本節是設計階段的決策、那邊是 deploy 前的最後一次回頭檢查。
+> 💡 **後續閱讀**：到 [Stage 7 但你真的需要 multi-agent 嗎？](/zh-tw/stages/07-multi-agent-production/#-但你真的需要-multi-agent-嗎) 會再帶 production 視角的決策——本節是設計階段的決策、那邊是 deploy 前的最後一次回頭檢查。
 
 ### Multi-agent 經典 pattern（按複雜度排序）
 
-> 📝 **跟 Stage 3 §經典範式怎麼分**：[Stage 3 的 4 個 paradigm](/zh-tw/stages/03-tool-use-and-hello-agent/#agent-的經典範式thinking-patterns)（CoT / ReAct / Reflection / Planning）是**單一 agent 內部怎麼想**；本節這 5 個 pattern 是**多個 agent 之間怎麼協作**——正交的兩個層。
+> 📝 **跟 Stage 3 經典範式怎麼分**：[Stage 3 的 4 個 paradigm](/zh-tw/stages/03-tool-use-and-hello-agent/#agent-的經典範式thinking-patterns)（CoT / ReAct / Reflection / Planning）是**單一 agent 內部怎麼想**；本節這 5 個 pattern 是**多個 agent 之間怎麼協作**——正交的兩個層。
 
 | Pattern | 複雜度 | 什麼樣 | 經典場景 | 代表 framework / paper |
 |---|---|---|---|---|
@@ -111,14 +111,14 @@ order: 4
 
 > **這節跟上面的 5 個 pattern 不同層**：上面 5 個 pattern 是 framework / 自己 code 都能實作的設計選擇；本節介紹的 **Claude Code subagent 是另一個 execution model**（runtime 內建的 orchestration、不寫 framework code）。讀完 5 個 pattern 後、本節讓你知道「multi-agent 還有第二條路」。
 
-**Multi-agent 不只有 framework 這條路**。Anthropic 自家的 Claude Code 提供另一個 abstraction 層：[subagent](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制) — 寫一個 `.claude/agents/<name>.md` 檔就是一個 subagent，**不需要 framework**。
+**Multi-agent 不只有 framework 這條路**。Anthropic 自家的 Claude Code 提供另一個 abstraction 層：[subagent](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能) — 寫一個 `.claude/agents/<name>.md` 檔就是一個 subagent，**不需要 framework**。
 
 跟 framework 路線的根本差異：
 
 | 維度 | Framework 路線（本 stage 主題） | Claude Code subagent |
 |---|---|---|
 | **跑哪** | 多數 framework 跨 LLM provider（LangGraph / CrewAI / AutoGen）；OpenAI Agents SDK 跟 Strands Agents 例外、綁定自家生態 | 只在 Claude Code runtime 內 |
-| **怎麼寫** | Python code + `langgraph.graph()` / `Crew(agents=...)` 之類 | `.claude/agents/X.md` markdown + frontmatter |
+| **怎麼寫** | Python code + `langgraph.graph()` / `Crew(agents=...)` 之類 | `.claude/agents/X.md` markdown + frontmatter（檔案開頭的 YAML metadata） |
 | **適合誰** | 跨 LLM provider production system | 已 commit Claude Code 的工程團隊 |
 | **核心 benefit** | **checkpointing + state persistence**（LangGraph）、**audit trail / time-travel debug**（production 稽核必備）、orchestration 控制、跨 provider 可攜 | context preservation + 角色 specialization + tool constraint + cost control（route 到便宜 model）|
 
@@ -128,7 +128,7 @@ order: 4
 - 多 subagent 平行（research / write / critic）省 wall-clock 時間
 - 不需要跨 provider migration
 
-詳細寫法 + 動手練習見 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制)（**建議先完成 Stage 5.1 Claude Code 基礎再回來看 5.5**——subagent 是 Claude Code 生態的進階功能、需要先熟悉基礎用法）。
+詳細寫法 + 動手練習見 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)（**建議先完成 Stage 5.1 Claude Code 基礎再回來看 5.5**——subagent 是 Claude Code 生態的進階功能、需要先熟悉基礎用法）。
 
 ### Framework 的工作
 
@@ -157,7 +157,7 @@ Framework 把上面這 5 個 pattern 的 orchestration boilerplate（roles、han
 > 2. **跑 1 個 framework quickstart**（2-3 hr）— LangGraph 或 CrewAI 二選一、跑官方多 agent 教學
 > 3. **對照 Anthropic Cookbook `customer_service_agent`**（1 hr）— production-style routing + handoff 範例
 > 4. *(可選)* **深入學術側**：挑 paper 1-2 篇看（AutoGen / CAMEL / ChatDev / Generative Agents）
-> 5. *(Claude 用戶可選)* **寫一個 subagent 對照**：見 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制)、跟 framework 路線比較
+> 5. *(Claude 用戶可選)* **寫一個 subagent 對照**：見 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)、跟 framework 路線比較
 >
 > **不必把 5 個 paper 全讀完**、挑跟你場景最近的 1-2 個。
 
@@ -209,7 +209,7 @@ Stage 3 教你寫 single tool / multi-tool selection（手寫 `if/elif/else` 路
 | | [agno-agi/agno](https://github.com/agno-agi/agno) | ⭐⭐⭐⭐ | 要「build + serve + monitor」一條龍但不想全套 LangGraph + LangSmith | multi-modal agent runtime + control plane，★ 39k+、Apache-2.0。Stage 4 學 API、Stage 7 用 runtime |
 | **快速雛形 / 多 agent**<br>（role-based / handoff） | [CrewAI](https://github.com/crewAIInc/crewAI) ⭐ **本 stage 推薦 #2** | ⭐⭐⭐⭐ | 快速雛形「researcher → writer → critic」pipeline | ~20 行寫完 crew、學習曲線最低，★ 50k+、MIT。⚠️ 長 workflow 沒 checkpointing；雛形用 CrewAI、production 用 LangGraph |
 | | [Microsoft AutoGen / AG2](https://github.com/microsoft/autogen) | ⭐⭐⭐⭐ | 多 agent 辯論 / 腦力激盪 / peer review pattern | 對話式多 agent、group-chat 強，★ 57k+、CC-BY-4.0（文件 license）。⚠️ AG2 v0.4 重寫成 async-first、多數教學還在 v0.2、留意版本分支 |
-| | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐ | 已 commit OpenAI 生態 | OpenAI 官方、agent hand-off + 結構化輸出、API 乾淨、MIT。2025 下半年才出、實戰歷練不如 LangGraph |
+| | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | 已 commit OpenAI 生態 | OpenAI 官方、agent hand-off + 結構化輸出、API 乾淨、MIT。**2026-04 重大升級**：內建 sandbox（7 個 provider）+ harness 抽象層、production coding agent 首次 architecturally sound（[詳見 Stage 8](/zh-tw/stages/08-agent-interfaces/#openai-agents-sdk-april-2026-更新--why-是-milestone)）|
 | | [OpenAI Swarm](https://github.com/openai/swarm) | ⭐⭐⭐⭐ 教育用<br>⭐⭐⭐ production | 想理解 multi-agent **核心 mental model** 但不想學整套 framework | ~200 LOC、只有 Agent + handoff 兩個觀念、MIT。⚠️ OpenAI 自己標 experimental / educational、不是 production tool。**讀 source 當 chapter-length 教材** |
 | | [Strands Agents (AWS)](https://github.com/strands-agents/sdk-python) | ⭐⭐⭐⭐ | 已 commit AWS 雲、Bedrock-native | model-driven 設計（LLM 自己 plan、無 explicit graph）、Apache 2.0。2025 後段推出、AWS Lambda / Step Functions / Bedrock Agents 整合 |
 | **特殊路線**<br>（CodeAct / typed / memory-first） | [Hugging Face Smolagents](https://github.com/huggingface/smolagents) | ⭐⭐⭐⭐ | 本地 LLM 生態、HF 整合場景 | CodeAct pattern 代表（agent 寫 Python 程式碼當 action、非 JSON tool call），★ 27k+、Apache 2.0、≤1000 LOC |

@@ -51,7 +51,7 @@
 
 ### 4️⃣ CLI Agent（terminal，能讀寫檔案、跑指令、操作 git）
 
-裝在 terminal 的 agent——你下一個 prompt（譬如「重構這個 module」），agent 自己讀檔、改檔、跑指令、commit。**比 IDE 模式更自主、可以處理多步驟任務**，但 setup 稍複雜（需要先有 Node.js 或 Python，看下面 §B / §D）。
+裝在 terminal 的 agent——你下一個 prompt（譬如「重構這個 module」），agent 自己讀檔、改檔、跑指令、commit。**比 IDE 模式更自主、可以處理多步驟任務**，但 setup 稍複雜（需要先有 Node.js 或 Python，看下面 B / D）。
 
 | CLI Agent | 安裝 / 文件 | 主要 LLM |
 |---|---|---|
@@ -64,19 +64,19 @@
 | **Hermes Agent** | https://github.com/NousResearch/hermes-agent | 200+（model-neutral） |
 
 → 想看 7 個 CLI 完整比較 → [`cli-agents-guide.md`](cli-agents-guide.md)
-→ Claude Code 第一次裝的詳細步驟 → 本指南 [§D](#d--第一次裝-claude-code約-10-分鐘stage-5--for-developer-會用到)
+→ Claude Code 第一次裝的詳細步驟 → 本指南 [D](#d--第一次裝-claude-code約-10-分鐘stage-5--for-developer-會用到)
 
 > 💡 **IDE-based 跟 CLI agent 怎麼選？** 邊寫 code 邊要 AI 幫忙 → IDE；下單一 prompt 讓 agent 自己跑完一整個任務 → CLI。兩個可以並用。
 
 ### 5️⃣ API + 自己寫 code（最進階，能 batch、整合任何工具）
 
-想自己寫 Python script、跑 batch job、把 LLM 接到自己的 app／automation？接下來的 §A-C 就是給你的。
+想自己寫 Python script、跑 batch job、把 LLM 接到自己的 app／automation？接下來的 A-C 就是給你的。
 
 > 💡 **API key 是什麼**：簡單講就是「讓程式呼叫模型的密碼」。請把它當成信用卡資料一樣保管。
 
 ---
 
-## §A — 申請第一個 API key（約 10 分鐘）
+## A — 申請第一個 API key（約 10 分鐘）
 
 ### Anthropic Claude（推薦第一次）
 
@@ -100,7 +100,7 @@
 - **Google AI Studio**：https://aistudio.google.com/
   適合先試 Gemini API，免費額度會依地區和帳號狀態不同。
 - **NVIDIA NIM**：https://build.nvidia.com/
-  **托管多個開源 model（Llama / Mistral / DeepSeek-R1 / Qwen / Gemma 等）、OpenAI-compatible API、新帳號送 1000 credits**。適合「想試多個 open-source model 但沒 GPU」的情境。`base_url=https://integrate.api.nvidia.com/v1`。
+  **托管多個開源 model（Llama / Mistral / DeepSeek-R1 + R2 lineage / Qwen / Gemma 等）、OpenAI-compatible API、新帳號送 1000 credits**。適合「想試多個 open-source model 但沒 GPU」的情境。`base_url=https://integrate.api.nvidia.com/v1`。
 
 #### 中國 / 中文場景（地區友善、價格極便宜）
 
@@ -120,7 +120,7 @@
 #### 本機（不付 API 費、完全 offline）
 
 - **Ollama 本機模型**：不用 API key。走本機路線請看 [Cookbook Recipe 6](cookbook.md#6-本機-llm--cli-agent-快速-walkthrough)。
-  本 repo 的「Path A」默認就是 Ollama；所有 Stage 1-7 練習都能用 `gemma4:e4b`（Stage 1-2）或 `qwen2.5:3b`（Stage 3+）跑通、$0/run。
+  本 repo 的「Path A」預設就是 Ollama；所有 Stage 1-7 練習都能用 `gemma4:e4b`（Stage 1-2）或 `qwen2.5:3b`（Stage 3+）跑通、$0/run。
 
 > 💡 **怎麼挑第一個**：
 > - 想學 agent / production、**美區帳號OK** → **Anthropic Claude**（curriculum canonical）
@@ -130,7 +130,7 @@
 
 ---
 
-## §B — 裝本機環境（約 10 分鐘）
+## B — 裝本機環境（約 10 分鐘）
 
 ### 裝 Python 3.10+
 
@@ -181,7 +181,7 @@ __pycache__/
 
 ---
 
-## §C — 跑第一個 `hello-claude.py`（約 5 分鐘）
+## C — 跑第一個 `hello-claude.py`（約 5 分鐘）
 
 建立 `hello-claude.py`：
 
@@ -190,7 +190,7 @@ from anthropic import Anthropic
 from dotenv import load_dotenv
 
 load_dotenv()
-client = Anthropic()  # 自動讀取 ANTHROPIC_API_KEY
+client = Anthropic() # 自動讀取 ANTHROPIC_API_KEY
 
 msg = client.messages.create(
     model="claude-sonnet-4-5",
@@ -213,16 +213,18 @@ uv run --with anthropic --with python-dotenv python hello-claude.py
 
 | 錯誤訊息 | 常見原因 | 解法 |
 |---|---|---|
-| `401 Unauthorized` | API key 沒讀到或打錯 | 回 §A 重新複製，確認 `.env` 檔名和內容 |
+| `401 Unauthorized` | API key 沒讀到或打錯 | 回 A 重新複製，確認 `.env` 檔名和內容 |
 | `429 Rate limit` | 太快送太多請求 | 等幾秒或幾分鐘再跑 |
 | `connection refused` | 連線或防火牆問題 | 確認網路、公司或學校防火牆 |
 | `ModuleNotFoundError` | 套件沒有被安裝 | 確認執行的是上面的 `uv run --with ...` 指令 |
 
 ---
 
-## §D — 第一次裝 Claude Code（約 10 分鐘；Stage 5 / for-developer 會用到）
+## D — 第一次裝 Claude Code（約 10 分鐘；Stage 5 / for-developer 會用到）
 
 ### 先裝 Node.js
+
+> 💡 **Node.js 是什麼**：跑 JavaScript 的 runtime（類似 Python interpreter 但是給 JS 用）。**`npm`** 是它附帶的「套件管理器」（package manager）—— 跟 Python 的 `pip` 同角色、用來安裝別人寫好的工具（如下面的 Claude Code）。`npm install -g X` 表示「全域裝 X、之後在任何資料夾都能用」。
 
 - **macOS / Linux**：`brew install node`，或從 https://nodejs.org 下載。
 - **Windows**：從 https://nodejs.org 下載 installer。
@@ -243,7 +245,7 @@ claude
 第一次啟動時通常會讓你選：
 
 - **Claude subscription**：用 Claude.ai 帳號登入，對初學者最省事。
-- **API key**：貼上 §A 申請到的 key。
+- **API key**：貼上 A 申請到的 key。
 
 ### 建立第一份 `CLAUDE.md`
 
@@ -266,7 +268,7 @@ claude
 
 ---
 
-## §E — 第一個 Skill 範例（約 5 分鐘；Stage 5.3 會用到）
+## E — 第一個 Skill 範例（約 5 分鐘；Stage 5.3 會用到）
 
 Skill 是 Claude Code 的「可重用 prompt 包」。當你的訊息符合描述，Claude Code 會自動載入那份指示。
 
@@ -287,7 +289,7 @@ description: 第一個 hello skill。當使用者說「請打招呼」或「say 
 
 跑 `claude`，輸入「請打招呼」。如果 Claude 回覆三件事，就代表 Skill 被載入了。
 
-> 想看更完整的 Skill 設計：看 [Stage 5.3 — Skills](../stages/05-claude-code-ecosystem.md#53--skillsclaude-code-的行為層)。
+> 想看更完整的 Skill 設計：看 [Stage 5.3 — Skills](../stages/05-claude-code-ecosystem.md#53--skillsclaude-code-的行為層-claude-code-生態最關鍵的一層)。
 > 想看可以照做的範例：看 [Cookbook](cookbook.md)。
 
 ---

@@ -1,41 +1,49 @@
 ---
-title: "For Everyday Users — Specialized Branch"
-description: "Tier 0: Web / Mobile App  (recommended starting point)"
+title: "Extension Path: For Everyday Users"
+description: "The table below splits everyday AI use into 7 common scenarios. Most of them are fully covered by web apps at Tier 0:"
 section: "Branch"
 sourcePath: "branches/for-everyday-users.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-everyday-users"
 ---
-# For Everyday Users — Specialized Branch
+# Extension Path: For Everyday Users
 
 > [繁體中文](/zh-tw/branches/for-everyday-users/) | [简体中文](/branches/for-everyday-users/) | **English**
 
-> 🚀 **Never written code or installed Python before?** Start with [`resources/setup-guide.en.md` §A-C](/en/resources/setup-guide/) (about 30 minutes from zero), then come back. If you already know Python and have an API key, skip it.
+> 🚀 **Everyday users can start directly at Tier 0** (web / mobile apps), **without any setup**. Only read [`resources/setup-guide.en.md` A-C](/en/resources/setup-guide/) (about 30 minutes from zero) when you want to run a local LLM (Tier 3) or use CLI automation (Tier 2).
 
 > [← Back to main path README](/en) · You **don't have to walk the full main path** to start here — this branch is for people who **just want to USE AI, not build agents**.
 
-## Use Cases
+## Use Cases (Life Scenarios × How AI Helps)
 
-- Writing email, organizing notes, polishing a cover letter
-- Learning new skills (reading English articles, picking up a language, reviewing material)
-- Research and comparison (travel, products, schools)
-- Daily life flow (recipes, schedules, todo lists)
-- Privacy-sensitive scenarios: medical records, personal finance (→ local LLM)
+The table below splits everyday AI use into 7 common scenarios. Most of them are fully covered by web apps at Tier 0:
+
+| Scenario | Pain point | How AI helps | Recommended tools |
+|---|---|---|---|
+| **Writing email / cover letters** | Getting stuck on how to start | Drafting + tone edits + version comparison | Claude.ai / ChatGPT |
+| **Learning new skills** | Materials feel formal; nobody is there to ask | Personalized tutoring, interruptible at any time | Claude.ai / ChatGPT |
+| **Language practice** | No conversation partner; unclear grammar mistakes | Voice conversation and instant correction | ChatGPT Voice / Gemini |
+| **Research / comparison** | Hard to know which source to trust | Multi-source search with citations | Perplexity |
+| **Organizing life workflows** | Recipes / trips / todo lists are scattered | Consolidation + structure | Claude.ai / ChatGPT |
+| **Batch file cleanup** | 100 PDFs / images with no clear grouping | Rename + classify + summarize | Claude Desktop / Claude Code |
+| **Privacy-sensitive chat** | Medical / legal / financial notes should not go to the cloud | Run a local LLM | Ollama + qwen2.5 |
+
+> 💡 **Do not rush upgrades**: the first 5 scenarios can stay at Tier 0 (web). You only need Tier 1-3 when you repeat the same flow often or data absolutely cannot leave your machine.
 
 ## Where to Start: 4 Tiers by "How Hands-On Are You?"
 
 ```
-Tier 0: Web / Mobile App  (recommended starting point)
+Tier 0: Web / Mobile App (recommended starting point)
    ↓
-Tier 1: Desktop App  (upgrade when you need to handle local files)
+Tier 1: Desktop App (upgrade when you need to handle local files)
    ↓
-Tier 2: CLI Agent  (willing to learn a bit of command line; automate daily flows)
+Tier 2: CLI Agent (willing to learn a bit of command line; automate daily flows)
    ↓
-Tier 3: Local LLM  (privacy-sensitive, cost-sensitive, want offline)
+Tier 3: Local LLM (privacy-sensitive, cost-sensitive, want offline)
 ```
 
 **Most people stay at Tier 0 / Tier 1** — Tiers 2-3 are for special needs or learners.
@@ -53,7 +61,7 @@ Anthropic's official interface. Best for long-form writing, in-depth discussion,
 OpenAI's official interface. Largest ecosystem (GPTs, Custom Instructions, Voice mode). The standard general-purpose pick.
 
 #### [Gemini](https://gemini.google.com) ⭐⭐⭐⭐
-Google's offering. Long context window (millions of tokens) — particularly good for dropping a whole PDF in to ask questions. Integrated with Google services (Gmail, Docs).
+Google's offering. Long context — enough to read very long documents, roughly a thick book — is particularly useful for dropping in a whole PDF and asking questions; still check whether citations and summaries are correct. Integrated with Google services (Gmail, Docs).
 
 #### [Perplexity](https://perplexity.ai) ⭐⭐⭐⭐
 Search engine × LLM — every answer cites sources. Better than ChatGPT for "needs current info" scenarios.
@@ -90,7 +98,7 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 | Stars | ★ 80k+ |
 | License | Apache-2.0 |
 
-**What it teaches**: OpenAI's lightweight terminal coding agent. Same category as Claude Code, but uses OpenAI models.
+**What it teaches**: OpenAI's terminal agent — it can help organize files, batch-process text, and run multi-step tasks from the command line; coding is only one use case. Same category as Claude Code, but uses OpenAI models.
 
 **Best for**: People who already subscribe to ChatGPT Plus / Pro and want to use the same account in the terminal.
 
@@ -142,25 +150,32 @@ Closed-source but the most beginner-friendly option — drag-and-drop UI, no com
 
 If you want to go deeper, see [Stage 2 — Prompt Engineering](/en/stages/02-prompt-engineering/), which has a more systematic treatment.
 
-## Workflows You Can Build
+## Workflows You Can Build (by frequency)
 
-These are templates — adapt to your situation:
+Use these 5 templates as starting points and adapt them to your own context:
 
-- **Weekly journal**: tell Claude.ai what you did this week, ask it to organize into a journal + key items for next week
-- **Email triage**: paste pending emails into Claude every morning, ask it to categorize as "reply now / today / this week / skip"
-- **Language learning**: voice-mode conversation with ChatGPT in your target language; have it flag grammar mistakes
-- **Batch file cleanup**: have Claude Code rename and reorganize all files in your Downloads folder by date + topic
-- **Local privacy chat**: Ollama running qwen2.5:7b — ask medical / legal / financial questions without sending data to the cloud
+| Frequency | Workflow | Steps (≤3) | Recommended tools |
+|---|---|---|---|
+| **Daily** | Email triage | (1) Paste pending emails into Claude in the morning<br>(2) Ask it to classify "reply now / today / this week / skip"<br>(3) Draft replies for your review | Claude.ai / ChatGPT |
+| **Daily** | Speaking practice | (1) Open ChatGPT Voice<br>(2) Practice English / Japanese conversation<br>(3) Ask it to flag grammar mistakes | ChatGPT Voice / Gemini |
+| **Weekly** | Weekly journal | (1) Tell Claude what you did this week<br>(2) Ask for a journal + next week's priorities<br>(3) Save it to Obsidian / Notion | Claude.ai |
+| **Occasional** | Batch file cleanup | (1) Run Claude Code in your Downloads folder<br>(2) Rename by date + topic<br>(3) Sort into subfolders | Claude Code |
+| **Privacy scenario** | Local medical / legal / financial notes | (1) Run qwen2.5:7b in Ollama<br>(2) Organize personal notes without sending data to the cloud<br>(3) ⚠️ It protects **privacy**, not **correctness**: specific diagnoses / legal judgments / investment decisions still require professionals | Ollama + qwen2.5 |
+
+> 💡 **Starter habit**: run "daily email triage" and "speaking practice" for a month first, then add other workflows.
 
 ## Tier Recommendations for Everyday Users
 
-90% of scenarios: **stay at Tier 0** — Claude.ai or ChatGPT web. No install, no payment needed (free tiers are rate-limited but enough for daily use).
+Recommended progression:
 
-5% upgrade to Tier 1: handling local files, retaining long conversation history, connecting MCP servers.
+| Tier | Tools | Best for | Learning cost |
+|---|---|---|---|
+| **Tier 0** | Claude.ai / ChatGPT / Gemini / Perplexity (web) | 90% of scenarios: no install, no payment required | 0 (if you can use a browser) |
+| **Tier 1** | Claude Desktop / ChatGPT Desktop + MCP | Local files, retained conversation history, Gmail / Notion integrations | 30 minutes |
+| **Tier 2** | Claude Code / opencode (CLI) | Repeated automation needs, such as doing the same task 100 times daily | 1-2 days |
+| **Tier 3** | Ollama local LLM | Privacy-sensitive data that cannot go to the cloud, API-cost sensitivity, offline use | Half a day |
 
-5% upgrade to Tier 2-3: real automation needs (e.g. doing the same thing 100 times daily) or privacy-sensitive data that can't go to the cloud.
-
-**Don't let anyone push you to upgrade prematurely** — Tier 0 is enough for most people. Tiers 2-3 are tools, not status symbols.
+> **Do not let anyone push you to upgrade prematurely**. Tier 0 is enough for most people. Tiers 2-3 are tools, not status symbols.
 
 ## Community Notes
 

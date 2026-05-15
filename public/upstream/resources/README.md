@@ -65,9 +65,9 @@
 刻意避免重複。每份 reference 跟主路線 / 其他 reference 的關係：
 
 - **glossary** 是「30 秒查」、stage 內文是「3-5 分鐘讀」、cookbook 是「30-50 分鐘做」——三層深度，不重疊
-- **schema-design-cheatsheet** 跟 cookbook §2（寫 MCP server）有交集——cheatsheet 講「**寫 schema 的規則**」、cookbook 講「**怎麼把 server 跑起來**」。看哪個取決於你卡在哪
+- **schema-design-cheatsheet** 跟 cookbook 2（寫 MCP server）有交集——cheatsheet 講「**寫 schema 的規則**」、cookbook 講「**怎麼把 server 跑起來**」。看哪個取決於你卡在哪
 - **cli-agents-guide** 是 reference table；catalog 是 plug-in tools——兩個層級不同
-- **跟 [Hello-Agents](https://github.com/datawhalechina/hello-agents) 的關係**：Hello-Agents 是中文圈最完整的 agent 教材，深度高。我們是「**roadmap + curated catalog + 動手 recipe**」的角度，不取代它。Stage 5.3 / cookbook §1 都明確 cross-ref Hello-Agents Extra08「如何寫出好的 Skill」當深度補充
+- **跟 [Hello-Agents](https://github.com/datawhalechina/hello-agents) 的關係**：Hello-Agents 是中文圈最完整的 agent 教材，深度高。我們是「**roadmap + curated catalog + 動手 recipe**」的角度，不取代它。Stage 5.3 / cookbook 1 都明確 cross-ref Hello-Agents Extra08「如何寫出好的 Skill」當深度補充
 
 ---
 

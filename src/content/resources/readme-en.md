@@ -1,11 +1,11 @@
 ---
 title: "`resources/` Index"
-description: "<div align=\"right\"> <a href=\"./README.md\">繁體中文</a> | <a href=\"./README.zh-Hans.md\">简体中文</a> | <strong>English</strong>"
+description: "| File | Role | When to Read | Lines | |---|---|---|---| | glossary.en.md | 30-second term lookup | You hit terms like LLM / RAG / token / agent / vector DB / streaming / batch API while reading a stage | 210 | | cli-age"
 section: "Resource"
 sourcePath: "resources/README.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "readme"
@@ -77,7 +77,7 @@ You do not need any reference first. **Start with the main [README](/en) → [St
 Duplication is intentional only where it helps navigation. The roles stay separate:
 
 - **glossary** is a 30-second lookup, stage text is a 3-5 minute read, and cookbook is a 30-50 minute build.
-- **schema-design-cheatsheet** overlaps with cookbook §2, but the cheatsheet explains schema rules while the cookbook gets a server running.
+- **schema-design-cheatsheet** overlaps with cookbook 2, but the cheatsheet explains schema rules while the cookbook gets a server running.
 - **cli-agents-guide** is a comparison reference; **mcp-skills-catalog** is a tool integration catalog.
 - **setup-guide** is for people starting from zero; Stage 0 assumes you are ready to follow a learning path.
 

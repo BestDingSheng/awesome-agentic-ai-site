@@ -1,11 +1,11 @@
 ---
 title: "Cookbook — Turn Concepts into Executable Recipes"
-description: "The difference between writing a Skill and adding a few instructions within a prompt lies in:"
+description: "You can place skills in two locations (depending on whether you want user-level or project-level scope):"
 section: "Resource"
 sourcePath: "resources/cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cookbook"
@@ -340,7 +340,7 @@ and write each into separate markdown sections in ./notes/research-summary.md.
 
 ### Further Reading
 
-- Catalog §2 [`mcp-skills-catalog.en.md` §2 Office Documents](/en/resources/mcp-skills-catalog/#2-office-documents-word--excel--powerpoint--pdf): Enhanced office skills / dedicated MCP for Excel / PPT.
+- Catalog 2 [`mcp-skills-catalog.en.md` 2 Office Documents](/en/resources/mcp-skills-catalog/#2-office-documents-word--excel--powerpoint--pdf): Enhanced office skills / dedicated MCP for Excel / PPT.
 - Office workflow in Chinese: [`leemysw/feishu-docx`](https://github.com/leemysw/feishu-docx) for Feishu / Lark docs ↔ Markdown.
 
 ---
@@ -359,8 +359,8 @@ NotebookLM's strengths:
 Its weakness: It's used via the NotebookLM web interface, disconnecting it from your other workflows (Claude Code, Obsidian, Zotero).
 
 Two solutions bridge this gap:
-1.  **PleasePrompto/notebooklm-skill** (Skill, browser automation)
-2.  **teng-lin/notebooklm-py** (Python API + CLI)
+1. **PleasePrompto/notebooklm-skill** (Skill, browser automation)
+2. **teng-lin/notebooklm-py** (Python API + CLI)
 
 ### Choosing Between the Two Solutions
 
@@ -400,7 +400,7 @@ Example:
 
 ```python
 from notebooklm import NotebookLM
-nlm = NotebookLM()  # OAuth flow
+nlm = NotebookLM() # OAuth flow
 
 # Create a notebook
 nb = nlm.create_notebook("My Research")
@@ -425,7 +425,7 @@ print(answer.citations)
 
 ### Further Reading
 
-- Catalog §1 [`mcp-skills-catalog.en.md` §1 Notes / Knowledge Base](/en/resources/mcp-skills-catalog/#1-notes--knowledge-base)
+- Catalog 1 [`mcp-skills-catalog.en.md` 1 Notes / Knowledge Base](/en/resources/mcp-skills-catalog/#1-notes--knowledge-base)
 - Complete research workspace: Integrate NotebookLM + Zotero + Obsidian using [`WenyuChiou/research-hub`](https://github.com/WenyuChiou/research-hub).
 
 ---
@@ -546,7 +546,7 @@ curl http://localhost:11434/v1/chat/completions \
 
 ```bash
 npm install -g opencode-ai
-opencode auth login   # choose Ollama, set endpoint to http://localhost:11434/v1
+opencode auth login # choose Ollama, set endpoint to http://localhost:11434/v1
 opencode
 ```
 
@@ -554,7 +554,7 @@ opencode
 
 ```bash
 # Install instructions: https://block.github.io/goose
-goose configure       # choose Ollama, set model to qwen2.5:3b
+goose configure # choose Ollama, set model to qwen2.5:3b
 goose session start
 ```
 

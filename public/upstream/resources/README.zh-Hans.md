@@ -65,7 +65,7 @@
 只在有助于导航时保留少量重叠，各文件角色仍然分开：
 
 - **glossary** 是“30 秒查”，stage 内容是“3-5 分钟读”，cookbook 是“30-50 分钟做”。
-- **schema-design-cheatsheet** 跟 cookbook §2 有交集，但 cheatsheet 讲 schema 规则，cookbook 讲怎么把 server 跑起来。
+- **schema-design-cheatsheet** 跟 cookbook 2 有交集，但 cheatsheet 讲 schema 规则，cookbook 讲怎么把 server 跑起来。
 - **cli-agents-guide** 是比较 reference；**mcp-skills-catalog** 是工具集成目录。
 - **setup-guide** 给从零开始的人；Stage 0 默认你已经准备好进入学习路线。
 

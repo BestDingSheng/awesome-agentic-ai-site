@@ -1,11 +1,11 @@
 ---
 title: "CLI Agents Comparison Guide"
-description: "A cross-branch reference shared by Track A (A1-A3) + all 5 specialized branches: **how to choose between Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent?"
+description: "A cross-branch reference shared by Track A (A1-A3) + all 5 specialized branches: how to choose between Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent? Every branch references CLI agents but no"
 section: "Resource"
 sourcePath: "resources/cli-agents-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-agents-guide"
@@ -67,7 +67,7 @@ Only terminal-based CLI agents are included. IDE-based agents (Cursor / Cline / 
 ### Want it running on a cloud VM, talking to it via Telegram / Slack / Discord, with mainland China LLMs as primary
 **Top pick**: Hermes Agent. Three differentiators:
 - **Decoupled from your laptop** — agent runs on a $5 VPS / Modal serverless / Vercel Sandbox; you message it from Telegram / Discord / Slack / WhatsApp / Signal
-- **Model-neutral** — supports GLM / Kimi / Xiaomi MiMo / MiniMax, matching the §11 Chinese-ecosystem catalog entries
+- **Model-neutral** — supports GLM / Kimi / Xiaomi MiMo / MiniMax, matching the 11 Chinese-ecosystem catalog entries
 - **Built-in self-improving skill loop + cron scheduler** — agent autonomously generates skills from interaction, refines them across sessions, runs scheduled jobs unattended
 - ⚠️ Self-evolving skills is a frontier feature with no independent audit yet; for production tasks, start with low-stakes experiments
 

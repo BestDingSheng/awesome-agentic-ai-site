@@ -1,376 +1,331 @@
 ---
-title: "Stage 7 — Multi-Agent · Production"
-description: "⏱ **Time estimate**: 2-4 weeks (~15-30 hours)"
+title: "Stage 7 — Multi-Agent · Productionization"
+description: "⏱ Estimated Time: 2-4 weeks (approx. 15-30 hours)"
 section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
 order: 7
 ---
-# Stage 7 — Multi-Agent · Production
+# Stage 7 — Multi-Agent · Productionization
 
 > [繁體中文](/zh-tw/stages/07-multi-agent-production/) | [简体中文](/stages/07-multi-agent-production/) | **English**
 
+⏱ **Estimated Time**: 2-4 weeks (approx. 15-30 hours)
 
-⏱ **Time estimate**: 2-4 weeks (~15-30 hours)
+> 💡 High density of terminology (multi-agent / handoff / eval / observability / guardrails...) → Refer to [`resources/glossary.md` 4 + 6](/zh-tw/resources/glossary/#4-multi-agent).
 
-> 💡 Term-dense (multi-agent / handoff / eval / observability / guardrails / …) → see [`resources/glossary.en.md` §4 + §6](/en/resources/glossary/#4-multi-agent).
+> 📋 **Chapter Composition**: [What is Multi-Agent · Productionization (Positioning) + Three-layer engineering split + When to use multi-agent] → Learning Objectives → Entry Conditions → Required Reading → Harness Engineering (**8 core components including Cost/Latency**) → Hands-on Exercises (including Exercise 6 Cost Optimization) → **Agent Benchmark Landscape: how to read it, not just the leaderboard** → Recommended Tools → Featured Projects → Self-Check
+> 🔑 **Key Terms**: See [`resources/glossary.md` 4 + 6](/zh-tw/resources/glossary/#4-multi-agent) (multi-agent / orchestration / handoff / eval / observability / harness (the execution and control layer around the model))
 
-The final stage. You're moving from "I can build agents" to "I can run them in production with multiple agents coordinating, evaluation, observability, and deployment."
+This is the final stage. You are moving from "I can build an agent" to "I can make an agent **truly stable for people to use**"—with multiple agents collaborating, with eval, with observability, and deployable to a usable environment. **"Productionization" ≠ enterprise scale**—as long as an agent can produce stable output and be used by others, it falls within the scope of this stage.
 
-## 📌 Learning Goals
+## 🎯 What Is Multi-Agent · Productionization (Positioning)
+
+**This stage = how multiple agents collaborate + how to push an agent from prototype to the point where others can use it stably.** Three sentences clarify the scope:
+
+- **It is not just about learning frameworks** — Stage 4 already taught how to choose frameworks
+- **It does not have to be enterprise scale** — as long as an agent can be used by others, it counts as productionization
+- **The core is harness engineering** — 8 core components + eval + observability + cost / latency control
+
+**Division of labor with adjacent stages**:
+
+- **Stage 4** = how to choose a single-agent framework, patterns like ReAct / Plan-Execute
+- **This stage** = **multi-agent collaboration** + **harness engineering** (execution-system engineering) + **deployment to a usable environment / observability / eval**
+
+### The three-layer engineering split: Prompt → Context → Harness
+
+Engineering work can be split into three layers, corresponding to different positions in the stack (not the difference between one call and many calls):
+
+| Layer | Concept | Core question | Unit of concern | Corresponding stage |
+|---|---|---|---|---|
+| 1 | **Prompt Engineering** | How should I ask this time? | **single LLM call** | [Stage 2](/zh-tw/stages/02-prompt-engineering/) |
+| 2 | **Context Engineering** | What information should the model receive this time? | **context across multiple interactions** | [Stage 6](/zh-tw/stages/06-memory-rag/) |
+| **3** | **Harness Engineering**<br>(**This stage**) | How does the whole workflow run? | **executable LLM workflow / system** | **This stage** |
+
+**Plain-language difference**:
+- **Prompt** = design a good way of asking so the model answers correctly this time
+- **Context** = dynamically decide which background, memory, documents, and tool results to include so the model understands the current situation
+- **Harness** = connect prompt, context, tools, state, flow control, and error handling into a system that can actually run
+
+**This stage's 3 core questions**:
+
+1. **Multi-agent collaboration** — debate / planner-executor / peer review / handoff / supervisor-worker patterns
+2. **Harness Engineering** — agent loop / tool registry (the list of tools an agent can call + interface definitions) / context manager / safety / retry / telemetry / eval / cost (8 core components, detailed below)
+3. **Productionization** — eval harness / observability / cost & latency optimization / deployment to a usable environment
+
+**Division of labor with Stage 5** (to avoid confusion):
+
+| Comparison | What's Covered There | What's Covered in This Stage |
+|---|---|---|
+| **Stage 5.5 Subagents** | Claude Code's native subagent mechanism (markdown-based, no coding) | General multi-agent frameworks (autogen / crewAI / langgraph, vendor-agnostic) |
+| **Stage 5.6 Claude Code source** | Claude Code source dissection (reference implementation case study) | General harness engineering principles (not tied to a specific vendor) |
+
+### ⚠ But do you really need multi-agent?
+
+**Multi-agent is not the default; it is a design you use only when the task truly needs it.** In most scenarios, you should first try a simple workflow or a single agent; **only when the task is naturally decomposable, needs parallel exploration, a single context is not enough, or explicit role separation is needed, is multi-agent worth introducing**. Forcing it brings **3-10× token cost, difficult debugging, and severe context fragmentation (context gets split across multiple agents, and no one sees the whole picture)**.
+
+| Stance | Source | Core argument |
+|---|---|---|
+| **Anthropic** | [Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents), [How we built our multi-agent research system (2025)](https://www.anthropic.com/engineering/built-multi-agent-research-system) | Multi-agent is suitable for **high-value tasks that benefit from parallel exploration, need many tools, or exceed a single context**; token usage can be many times higher than a single chat. |
+| **Cognition** | [Don't Build Multi-Agents (2025)](https://cognition.ai/blog/dont-build-multi-agents) | Context fragmentation is severe in multi-agent systems, and maintaining shared state is painful; only consider it after exhausting single-agent + long-context options. |
+
+Only use multi-agent when you see these **4 clear signals** (for details, see [Stage 4 When do you really need multi-agent](/zh-tw/stages/04-agent-frameworks/#when-do-you-really-need-multi-agent-dont-force-it)):
+
+1. **Natural Task Decomposition** — A large task has clear sub-steps and can be completed step by step → Sequential / Planner-Executor
+2. **Token Explosion** — A single-agent prompt cannot fit all tool descriptions / context → Supervisor-Worker
+3. **Role Conflict** — Using the same LLM as both writer and critic leads to self-justification → Debate / Peer review
+4. **Parallel Acceleration** — Running 3 research subtasks at the same time reduces wall-clock time to 1/3 → Parallel / Map-Reduce
+
+**None of these 4 signals present?** → A single agent + good prompts + tool use is enough. Don't force multi-agent. **The harness engineering part of this stage (8 components / eval / observability) still applies even if you end up using a single agent**—so this stage is still required reading even if you decide against multi-agent.
+
+## 📌 Learning Objectives
 
 - Design multi-agent orchestration patterns (debate, planner-executor, peer review)
-- Set up evaluation harness for agents
+- Build an evaluation harness for your agent
 - Add observability (tracing, logging, cost tracking)
-- Use Anthropic SDK / OpenAI SDK for production deployment (advanced features: streaming, prompt caching, batching)
-- Deploy agents to production (Docker, serverless, monitoring)
+- Use the Anthropic SDK / OpenAI SDK for production deployment (advanced features: streaming, prompt caching, batching)
+- Deploy an agent to production (Docker, serverless, monitoring)
+
+## 🚪 Entry Conditions
+
+You should already have:
+- Completed Stage 4 (used at least one agent framework to run a multi-agent demo)
+- Completed Stage 5 (understand the roles of MCP / Skills / Plugins / Subagents, and have dissected a harness internally in 5.6)
+- Completed Stage 6 (know basic RAG, can explain the differences between memory patterns)
+- Basic familiarity with Docker / git / CI (will be used in production deployment)
+
+If not, go back and complete the previous stages. This stage is about "combining everything you've learned → running in production," and any missing piece will be a blocker.
 
 ## 📚 Required Reading
 
-1. [**Anthropic — Building Effective Agents**](https://www.anthropic.com/engineering/building-effective-agents) — re-read with production lens
-2. [**Anthropic — Prompt Caching**](https://www.anthropic.com/news/prompt-caching) — 90% cost reduction technique
-3. [**Anthropic — Message Batches API**](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) — async batch jobs
-4. **One eval framework's docs** — promptfoo OR LangSmith OR weave
-5. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering) (* 780+) — agent harness toolkit / patterns / eval / memory / MCP / observability all in one. **Frameworks wrap LLMs into agents; harnesses wrap agents into production systems** — that is exactly what this stage is about.
-6. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) (* 1.3k+) — harness design lessons from reading Claude Code source (Chinese)
+1. [**Anthropic — Building Effective Agents**](https://www.anthropic.com/engineering/building-effective-agents) — Reread it from a production perspective
+2. [**Anthropic — Prompt Caching**](https://www.anthropic.com/news/prompt-caching) — A technique for 90% cost reduction
+3. [**Anthropic — Message Batches API**](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) — Asynchronous batch jobs
+4. [**anthropics/courses — Prompt Evaluations**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic's official 5-course umbrella; **module 4 "Prompt Evaluations" maps to this stage's eval / observability section**. Jupyter notebooks covering systematic evaluation of prompt and agent behavior.
+5. **Documentation for any eval framework** — promptfoo, LangSmith, or weave
+6. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering) (★ 780+) — A collection of tools / patterns / eval / memory / MCP / observability for agent harnesses
+7. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) (★ 1.3k+) — Learning harness design from Claude Code's source code (in Chinese)
 
-## 🛠 Hands-on Exercises (foundational, illustrative)
+## 🏗 Harness Engineering — Engineering Design for a Production Agent Runtime ⭐ Core Concept of This Stage
 
-### Exercise 1: Multi-Agent debate
-Two agents debate a topic (e.g. "Python vs Rust for backend"), a third agent judges. Watch for convergence vs divergence patterns.
+### Positioning: The execution and control layer around the model
+
+To turn an LLM into a usable agent, you usually run into three layers of engineering problems. These three layers correspond to different engineering positions, not simply "one call" versus "many calls."
+
+> 💡 **Simon Willison 2025**: "coding agent = LLM + harness"; harness = all the code **that is not the model itself**.
+>
+> 💡 **OpenAI also uses the term "Harness Engineering" in 2026** (see the [OpenAI Harness Engineering article](https://openai.com/index/harness-engineering), published 2026-02).
+
+| Layer | What you are engineering | Where to learn it |
+|---|---|---|
+| **1. Prompt Engineering** | The **string** sent into the LLM (system prompt / few-shot / format) | [Stage 2](/zh-tw/stages/02-prompt-engineering/) |
+| **2. Context Engineering** | The **information** placed inside the window (RAG / memory / tool defs / history assembly) | [Stage 6](/zh-tw/stages/06-memory-rag/) |
+| **3. Harness Engineering**<br>(**This section**) | The **execution and control layer around the model** (loop / retry / sandbox / observability / deployment) | This stage |
+
+**How do you tell which layer you are working on? Ask**:
+
+1. Am I changing the **string itself**? → Prompt engineering
+2. Am I changing the **information put into the window**? → Context engineering
+3. Am I changing the **surrounding program that calls the model**? → Harness engineering
+
+→ The three layers are **orthogonal**: a one-call RAG app is still doing context engineering (the key is how the window is assembled); a 50-call chatbot with no retrieval is still only doing prompt engineering.
+
+### The 8 Core Components of a Harness
+
+**Harness Engineering (agent runtime design) = connecting the LLM, tools, memory, state, workflow control, error handling, eval, observability, and deployment into an executable, observable, maintainable agent system.**
+
+→ Everything that is **not part of the model weights**, and is not just the prompt string itself, falls under harness. A production-grade agent runtime includes these 8 core components (the first 6 are built into the runtime, the 7th, eval, is a plug-in tool, and the 8th, cost / latency, is a cross-cutting concern):
+
+| Component | What it Does | Corresponding Exercise in this Stage |
+|---|---|---|
+| **Agent loop** | The "LLM → tool → result → LLM" loop, stably handling multiple turns | Exercise 1 Multi-agent debate |
+| **Tool registry** | Dynamic tool dispatch, permission gates, sandboxing | (Present in every framework / SDK) |
+| **Context manager** | Message history management, context window control, auto-compaction | Stage 6 + This stage's Exercise 4 SDK |
+| **Safety layer** | Permission prompts, sandboxed execution, interception of destructive ops | (Built into Claude Code, customizable in SDKs) |
+| **Retry / recovery** | How to handle tool failure (exception vs. the LLM reflecting on the error itself) | Exercise 4 SDK Advanced |
+| **Telemetry / Observability** | Metrics, logging, token counting, trace export | **Exercise 3 Observability** |
+| **Eval harness** | Regression testing, quality gates, A/B testing | **Exercise 2 Eval** |
+| **Cost / Latency optimization** ⭐ Required for 2024-2026 | Prompt caching, model routing, thinking budget, batching, semantic cache | **Exercise 6 Cost optimization** (New) |
+
+**Framework vs. Harness: key difference**:
+- **Framework** ([Stage 4](/zh-tw/stages/04-agent-frameworks/)) defines the **API** — what the interface you call looks like
+- **Harness** (this section) defines the **runtime** — how it runs, how it recovers, and how it is observed
+
+### Reference Implementations
+
+Want to see what a production-grade harness looks like? Two references:
+
+- **The entire Claude Code runtime** — is a reference harness implementation. **For a source-reading exercise, see [Stage 5.6](/zh-tw/stages/05-claude-code-ecosystem/#56--dissecting-claude-code-source-a-reference-harness-implementation-track-b-must-see)** (clone `claude-agent-sdk-python` and dissect the main loop + where the first 6 runtime components from the table above live; the 7th, Eval harness, is a plugin, and the 8th, Cost / Latency, is cross-cutting, see the deep-dive below)
+- **`anthropics/claude-agent-sdk-python`** source — the specific repo used in the exercise above
+
+→ The remaining 6 exercises in this stage (multi-agent / eval / observability / SDK / deploy / cost) each cover one facet of the harness. Completing the full stage = assembling a complete mental model of harness engineering.
+
+### Deep dive into the 8th core component — Cost / Latency Optimization (Required for 2024-2026 Productionization)
+
+When a production agent runs long enough, **cost and latency will eat up most of your budget and user experience**. From 2024-2026, frontier models have treated this as a first-class API feature—**knowing how to use it = saving 50-90% on cost / latency**.
+
+| Technique | How it Saves | 2026 Status |
+|---|---|---|
+| **Prompt caching** | Recurring prefixes (system prompt, long context) are billed once, subsequent cache hits get a ~90% discount | Fully supported by Anthropic / OpenAI / Gemini, automatic or manual tagging |
+| **Model routing / cascade** | Simple queries → smaller model, difficult queries → frontier model | Built into [RouteLLM](https://github.com/lm-sys/RouteLLM) / [OpenRouter](https://openrouter.ai/) for production |
+| **Thinking budget** | Controllable thinking token limit for reasoning models, trading off latency / quality | Claude / Gemini API parameter, high by default in o-series |
+| **Speculative decoding** | A smaller model predicts N tokens, a larger model validates them at once, ×2-3 speedup for a single model | Built into vLLM / TGI, automatic at the inference layer |
+| **Batching** | Processing multiple queries in parallel for higher GPU utilization | vLLM, production inference layer |
+| **Semantic caching** | Sharing answers for similar queries (not just exact matches) | Built into [GPTCache](https://github.com/zilliztech/GPTCache) / Helicone |
+
+**How Track A can use this** (for those using CLI agents):
+- Set up prompt caching in Claude Code / Cursor to save 50-90% on daily session costs
+- Use [RouteLLM](https://github.com/lm-sys/RouteLLM) / [OpenRouter](https://openrouter.ai/) to dynamically switch models (simple questions use Haiku / Flash, difficult ones use Opus / Pro)
+- Use the `thinking_budget` parameter in the Claude API to control the token limit for reasoning models
+
+**How Track B can build this** (for those writing their own agents):
+- Build a custom cascade router that maps query embeddings → classifier → model
+- Monitor token cost within the agent loop and automatically downgrade if the budget is exceeded
+- Integrate a semantic cache layer in the deployed environment
+- Observability platforms like [Helicone](https://github.com/Helicone/helicone) / [langfuse](https://github.com/langfuse/langfuse) already have these features built in, so you do not have to write them yourself
+
+## 🛠 Hands-on Exercises (Basic Illustrative Exercises)
+
+### Exercise 1: Multi-Agent Debate
+Have two agents debate a topic (e.g., "Should we use Python or Rust for the backend?"), with a third agent acting as a referee. Observe the patterns of convergence or divergence in the debate.
 
 ### Exercise 2: Eval
-Write an eval for one of your earlier agents, run it N times, measure success rate. Replace "I'll just eyeball it."
+Write an eval for your previous agent, run it N times, and measure the success rate. Replace the habit of "I'll just take a look" with a quantitative approach.
 
 ### Exercise 3: Observability
-Connect LangSmith / Helicone / weave to an agent, view the full trace. Understand: "agent debugging without observability = black box."
+Connect LangSmith, Helicone, or weave to an agent and view the full trace. Understand that "debugging an agent without observability = a black box".
 
-### Exercise 4: SDK advanced
-Use streaming + prompt caching + tool use in one call. Watch how cost drops.
+### Exercise 4: Advanced SDK
+Use streaming + prompt caching + tool use in a single call. See how the costs come down.
 
 ### Exercise 5: Deploy
-Package an agent in Docker, deploy to cloud (any provider). Learn to ship a prototype as something others can run.
+Package an agent into Docker and deploy it to the cloud (any provider will do). Learn to turn a prototype into something that can be run by others.
 
-## 🎯 Curated Projects
+### Exercise 6: Cost Optimization (New) ⭐
+Measure the token cost of any of your previous exercise agents, then add prompt caching and measure again. Observe the relationship between cache hit rate and cost reduction. **Bonus**: Connect to [RouteLLM](https://github.com/lm-sys/RouteLLM) or [OpenRouter](https://openrouter.ai/) and implement cascade routing (simple queries → Haiku / difficult queries → Opus), and measure the average cost.
 
-### Multi-Agent Orchestration
+## 📊 Agent Benchmark Landscape: How to read it, not just the leaderboard + ⚠ Reward-Hacking Warning
 
-#### [microsoft/autogen](https://github.com/microsoft/autogen)
+Before choosing a model or building an agent, you'll want to look at benchmark numbers—but in **April 2026, UC Berkeley discovered that all 8 major agent benchmarks can be reward-hacked to ~100%**. Below is the 2026 leaderboard status + how to read it without getting misled.
 
-Already cited in Stage 4. In production context, AutoGen's GroupChat coordination pattern is a strong reference for multi-agent debate / brainstorming.
+### Mainstream Agent Benchmark SOTA as of 2026-05
 
----
+| Benchmark | Domain | 2026-05 SOTA | Leading Model |
+|---|---|---|---|
+| [**SWE-bench Verified**](https://www.swebench.com/) | Software Engineering / code agent | **87.6%** | Claude Opus 4.7 |
+| [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal tasks | Leading | Claude Opus 4.5 / 4.7 |
+| **GAIA** | general assistant | **74.6%** | Claude Sonnet 4.5 (Princeton HAL) |
+| [**WebArena**](https://github.com/web-arena-x/webarena) | web navigation | **68.7%** | Claude Mythos Preview |
+| [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level desktop control | **76.26%** (SOTA, superhuman vs 72.36% human baseline) | OpenAI CUA 38%, most frontier models still under 50% |
+| [**τ-bench**](https://github.com/sierra-research/tau-bench) | multi-turn dialogue with tool use | (Harder to hack) | Anthropic / OpenAI leading |
+| **RE-bench** | research engineering | (Harder to hack, close to human baseline) | Frontier models |
 
-#### [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI)
+→ For detailed rankings + live updates: [Agent Benchmark Leaderboard 2026](https://benchmarkingagents.com/agent-benchmarks/), [Rapid Claw AI Agent Framework Scorecard 2026](https://rapidclaw.dev/blog/ai-agent-benchmarks-2026)
 
-Already cited in Stage 4. For role-based multi-agent (e.g., research → writer → reviewer pipelines), CrewAI is the simplest production pattern.
+### ⚠ Berkeley 2026-04 Reward-Hacking Warning
 
----
+[**UC Berkeley RDI Report 2026-04-12**](https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/): An automated scanning agent systematically audited **8 major benchmarks** (SWE-bench / WebArena / OSWorld / GAIA / Terminal-Bench / FieldWorkArena / CAR-bench, etc.) and found that **every single one could be reward-hacked to nearly 100% without the agent actually solving a single task**.
 
-#### [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
+This means that for numbers on the leaderboard like "Claude 87.6% / GPT 85.0%", some X% of that might be hacked, not from genuinely solving the task.
 
-Already cited in Stage 4. For production with audit trails, checkpointing, and human-in-the-loop, LangGraph leads.
+### How to Read Benchmarks Without Being Misled
 
----
-
-### Evaluation Frameworks
-
-#### [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo)
-
-| Field | Value |
+| Approach | Recommendation |
 |---|---|
-| Stars | ★ 20k+ |
-| License | MIT |
-| Recommendation | ⭐⭐⭐⭐⭐ |
-
-**What it teaches**: YAML-based eval harness for prompts and agents. Compare across models, run regression tests in CI.
-
-**Best for**: Standardized eval pipeline. Replaces "I'll just eyeball it."
-
-**Run it**:
-```bash
-npx promptfoo init
-# Edit promptfooconfig.yaml
-npx promptfoo eval
-```
-
----
-
-#### [EleutherAI/lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
-
-| Field | Value |
-|---|---|
-| Stars | ★ 12k+ |
-| License | MIT |
-| Recommendation | ⭐⭐⭐⭐ |
-
-**What it teaches**: Academic-grade eval framework with hundreds of standardized benchmarks (MMLU, HellaSwag, GSM8K).
-
-**Best for**: When you need to claim "we got X% on benchmark Y." Research-flavored.
-
----
-
-#### [openai/evals](https://github.com/openai/evals)
-
-| Field | Value |
-|---|---|
-| Stars | ★ 18k+ |
-| Recommendation | ⭐⭐⭐⭐ |
-
-**What it teaches**: OpenAI's eval framework. Custom evals for specific use cases.
-
-**Best for**: When you need OpenAI-specific evals or want to contribute back.
-
----
-
-### Observability
-
-#### [langfuse/langfuse](https://github.com/langfuse/langfuse)
-
-| Field | Value |
-|---|---|
-| Stars | ★ 26k+ |
-| License | MIT (open source) + paid cloud |
-| Recommendation | ⭐⭐⭐⭐⭐ |
-
-**What it teaches**: Open-source LLM observability — traces, sessions, evals, prompt management.
-
-**Best for**: Self-hosted production observability. Strong open-source alternative to LangSmith.
-
----
-
-#### [LangSmith](https://www.langchain.com/langsmith) (proprietary)
-
-**What it teaches**: LangChain's observability platform. Traces, evals, prompt iteration.
-
-**Best for**: If you're deep in LangChain/LangGraph stack. Hosted-only.
-
----
-
-#### [Helicone](https://github.com/Helicone/helicone)
-
-| Field | Value |
-|---|---|
-| Stars | ★ 5k+ |
-| License | Apache 2.0 (open source) + paid cloud |
-| Recommendation | ⭐⭐⭐⭐ |
-
-**What it teaches**: LLM observability via proxy — drop-in replacement for OpenAI/Anthropic clients, gets you logging + caching.
-
-**Best for**: Quick instrumentation without rewriting code.
-
----
-
-#### [weave (by Weights & Biases)](https://github.com/wandb/weave)
-
-| Recommendation | ⭐⭐⭐⭐ |
-|---|---|
-
-**What it teaches**: Tracing + eval framework from W&B. Integrates with their ML platform.
-
-**Best for**: Teams already on W&B for ML experiment tracking.
-
----
-
-### Anthropic SDK Advanced
-
-#### [anthropics/anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python)
-
-| Recommendation | ⭐⭐⭐⭐⭐ |
-|---|---|
-
-**What it teaches**: Official Python SDK (base API layer). Streaming, async, tool use, prompt caching, batches, files API.
-
-**Best for**: Building apps directly on the Claude API when you want raw API control rather than a higher-level agent runtime.
-
----
-
-#### [anthropics/anthropic-sdk-typescript](https://github.com/anthropics/anthropic-sdk-typescript)
-
-**What it teaches**: TS equivalent of the lower-level Python SDK.
-
-**Best for**: TypeScript / Node / web apps that want the base API layer.
-
----
-
-#### [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ agent-specific
-
-| Field | Value |
-|---|---|
-| Stars | ★ 6k+ |
-| License | MIT |
-| Recommendation | ⭐⭐⭐⭐⭐ |
-
-**What it teaches**: Anthropic's **agent-specific SDK** (released mid-2025) — distinct from the lower-level `anthropic-sdk-python`. Built-in tool use loop, file access, sandboxed execution, subagent orchestration. Exposes Claude Code's agent capabilities for Python apps to use directly.
-
-**Best for**: Developers building Claude-based agents rather than just calling the API. Saves you from hand-rolling a ReAct loop, managing tool execution, etc.
-
-**Notes**: Shares the same agent runtime as Claude Code; reading this SDK's source is the fastest path to understanding how Claude Code works internally.
-
----
-
-#### [anthropics/claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript)
-
-| Field | Value |
-|---|---|
-| Stars | ★ 1.4k+ |
-| License | NOASSERTION |
-| Recommendation | ⭐⭐⭐⭐ |
-
-**What it teaches**: TypeScript version of the Claude Agent SDK.
-
-**Best for**: Developers building Claude agents in Node / web app environments.
-
----
-
-#### [Anthropic Cookbook — Advanced patterns](https://github.com/anthropics/anthropic-cookbook)
-
-Already cited. Specifically the `prompt_caching.ipynb`, `tool_use/`, and `multimodal/` notebooks teach advanced SDK usage.
-
----
-
-### Deployment
-
-#### [BentoML/BentoML](https://github.com/bentoml/BentoML)
-
-| Field | Value |
-|---|---|
-| Stars | ★ 8k+ |
-| License | Apache 2.0 |
-| Recommendation | ⭐⭐⭐⭐ |
-
-**What it teaches**: Serve any ML/LLM model as a production API. Docker + serving framework.
-
-**Best for**: Wrapping your agent into a deployable service.
-
----
-
-#### [LangServe](https://github.com/langchain-ai/langserve)
-
-**What it teaches**: Deploy LangChain apps as REST APIs. FastAPI under the hood.
-
-**Best for**: Quick deployment of LangChain-based agents.
-
----
-
-#### [datawhalechina/self-llm](https://github.com/datawhalechina/self-llm)
-
-| Field | Value |
-|---|---|
-| Language | 中文 (zh-Hans) |
-| Stars | ★ 30k+ |
-| License | Apache-2.0 |
-| Recommendation | ⭐⭐⭐⭐ |
-
-**What it teaches**: A comprehensive Chinese-language guide for fine-tuning and deploying open-source LLMs in Linux environments. Covers Qwen / Llama / GLM / multimodal models, full-parameter + LoRA + deployment.
-
-**Best for**: Chinese-speaking teams self-hosting open-source LLMs. Comprehensive Chinese-language tutorial covering training, fine-tuning, and deployment.
-
----
-
-#### [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)
-
-| Field | Value |
-|---|---|
-| Language | Python |
-| Stars | ★ 70k+ |
-| License | Apache-2.0 |
-| Recommendation | ⭐⭐⭐⭐⭐ |
-
-**What it teaches**: The most widely used LLM fine-tuning framework in the Chinese community — unifies SFT / DPO / PPO / GRPO training across 100+ open-source models (Llama / Qwen / DeepSeek / Yi / Mistral, etc.). Web UI lets you fine-tune without writing code.
-
-**Best for**: Anyone fine-tuning open-source LLMs (not just prompt engineering). More focused on training itself than self-llm's broader scope.
-
-**Notes**: Combined with Stage 1's Ollama / llama.cpp, you get a complete "fine-tune → quantize → local deploy" loop.
-
----
-
-### [vLLM](https://github.com/vllm-project/vllm)
-
-| Field | Value |
-|---|---|
-| Stars | ★ 79k+ |
-| License | Apache 2.0 |
-| Recommendation | ⭐⭐⭐⭐ |
-
-**What it teaches**: High-throughput LLM serving. Run open-source models in production.
-
-**Best for**: Self-hosting open-source LLMs (Llama, Qwen, etc.) instead of paying API.
-
----
-
-### Multi-Agent Case Studies
-
-#### [geekan/MetaGPT](https://github.com/geekan/MetaGPT)
-
-| Field | Value |
-|---|---|
-| Stars | ★ 67k+ |
-| License | MIT |
-| Recommendation | ⭐⭐⭐⭐⭐ |
-
-**What it teaches**: SOP-driven multi-agent software development team — PM / Architect / Engineer roles each producing artifacts (PRD → design → code) and handing off to the next role.
-
-**Best for**: Seeing how the **role-specialization + artifact handoff** pattern is implemented. A different design path from LangGraph's state-machine approach.
-
-**Notes**: Maintained by a Chinese team; the docs site has zh content. Worth comparing against AutoGen's free-form group chat.
-
----
-
-#### [OpenBMB/ChatDev](https://github.com/OpenBMB/ChatDev)
-
-| Field | Value |
-|---|---|
-| Language | Python |
-| Stars | ★ 33k+ |
-| License | Apache-2.0 |
-| Recommendation | ⭐⭐⭐⭐ |
-
-**What it teaches**: "Communicative" software development pattern — agents debate at each phase (design / code / test) before advancing. The standard open-source case study for the **agent debate / peer-review pattern**, with an academic paper backing it.
-
-**Best for**: Building workflows where "two agents must challenge each other before producing a conclusion." More focused on the debate mechanism than AutoGen.
-
-**Notes**: Has `README-zh.md`, friendly to Chinese readers.
-
----
-
-#### [princeton-nlp/SWE-agent](https://github.com/princeton-nlp/SWE-agent)
-
-| Field | Value |
-|---|---|
-| Language | Python |
-| Stars | ★ 19k+ |
-| License | MIT |
-| Recommendation | ⭐⭐⭐⭐ |
-
-**What it teaches**: **Agent-Computer Interface (ACI)** design — the *shape* of the tool surface (not the prompt) determines agent performance on SWE-Bench. Princeton NLP's research output.
-
-**Best for**: After learning tool use in Stages 3-4, understand "**why tool design matters more than prompt tuning**."
-
-**Notes**: Paper + open-source code — a great reference for academic multi-agent research.
-
----
+| Only look at the leaderboard top | ❌ All 8 above have been proven hackable |
+| Look at task-level success rate breakdown | ✅ Most hacks are concentrated in a few tasks |
+| Run your own hold-out test set | ✅✅ The most reliable method, a must for production agents |
+| Check the trajectory / log to see if the task was really solved | ✅ Distinguishes reward hacking from a genuine solve |
+| Look at multiple benchmarks + your own use case | ✅ Don't rely on a single metric |
+
+**Which benchmarks are harder to hack (as of 2026-05)**:
+- **τ-bench** — Multi-turn dialogue + tool use, denser reward function
+- **RE-bench** — Real-world research engineering tasks
+- **Your own production eval set** ⭐ Always the most reliable
+
+> 💡 **The discipline of production agent eval**:
+> - Don't take external benchmark numbers as ground truth; they tell you the "upper limit," not "real-world performance."
+> - Your own eval set (internal hold-out test) is the basis for go-live decisions.
+> - Every time a model is upgraded → run it against your internal eval set for validation, don't just look at the vendor's published benchmark improvements.
+> - Connect to [langfuse](https://github.com/langfuse/langfuse) / [promptfoo](https://github.com/promptfoo/promptfoo) to automate eval and run it with every deployment.
+
+## 🎯 Recommended Tools for Multi-Agent / Production (by Use Case)
+
+Don't know where to start choosing tools? Below are the common pairings in the industry for 2025-2026—**use "Scenario" as your entry point, and click the repo link for a deeper dive**:
+
+| Scenario | Recommended Tool | Why |
+|---|---|---|
+| **Writing your first multi-agent** (fastest to get started) | [crewAI](https://github.com/crewAIInc/crewAI) | Role-based, get it running in a few lines of code, straightforward production patterns |
+| **Want a group debate / brainstorm pattern** | [AutoGen](https://github.com/microsoft/autogen) | GroupChat for free-form debate, from Microsoft |
+| **Need an audit trail / checkpoint / human-in-the-loop for production** | [LangGraph](https://github.com/langchain-ai/langgraph) | State machine approach, most complete control |
+| **Standardizing eval** (a must for CI / regression) | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config, cross-model comparison, ★ 20k+ |
+| **Eval + observability on the same platform** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS, tracing + eval + prompt mgmt, ★ 26k+ |
+| **Quick instrumentation without code changes** | [Helicone](https://github.com/Helicone/helicone) | Proxy-based, not tied to a framework |
+| **Entire stack is on LangChain** | [LangSmith](https://www.langchain.com/langsmith) (Commercial) | Official observability from LangChain |
+| **Building a Claude agent** (programmatically) | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | Official agent SDK from Anthropic, same runtime as Claude Code |
+| **Deploying an agent as an API service** | [BentoML](https://github.com/bentoml/BentoML) | The most complete, Docker + serving |
+| **Self-hosting an open-source LLM** (to replace paid APIs) | [vLLM](https://github.com/vllm-project/vllm) | High-throughput serving, ★ 79k+ |
+| **Fine-tuning an open-source LLM** | [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | Unified SFT/DPO/PPO/GRPO for 100+ models, no-code Web UI, widest Chinese community, ★ 70k+ |
+
+**Suggested adoption sequence**:
+1. First multi-agent: **crewAI** (role-based, simplest)
+2. Add eval: **promptfoo** (YAML, CI integration)
+3. Add observability: **langfuse** (OSS, complete)
+4. Production upgrade: Switch to **LangGraph** (stronger control) + **BentoML** (deploy)
+5. Advanced: Self-host LLMs with **vLLM**, fine-tune with **LLaMA-Factory**
+
+## 🎯 Featured Projects (Templates / SDKs / Tool Collections)
+
+Categorized by use case, a single table to get you started with 22 projects. **Use "Who is it for" as your entry point, and click the repo link for a deeper dive.**
+
+| Category | Project | ⭐ | Who is it for | Why it's recommended / Notes |
+|---|---|---|---|---|
+| **Multi-Agent Orchestration** | [microsoft/autogen](https://github.com/microsoft/autogen) | ⭐⭐⭐⭐⭐ | Those who want a GroupChat free-debate pattern | Introduced in Stage 4, revisit for multi-agent debate / brainstorming patterns in production scenarios |
+| | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | Those who want a role-based assembly line | Role-based multi-agent (research → writer → reviewer), the simplest production pattern |
+| | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | Those needing an audit trail / checkpoint / human-in-the-loop | State machine approach, strongest for production control |
+| **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | To standardize the eval process, CI integration | YAML config, cross-model comparison. ★ 20k+, MIT |
+| | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | For academic benchmarks (MMLU / HellaSwag / GSM8K) | Academic grade. ★ 12k+, MIT |
+| | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | For OpenAI-specific evals / want to contribute upstream | ★ 18k+ |
+| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | For self-hosting production observability | OSS LangSmith alternative, traces + sessions + evals + prompt mgmt. ★ 26k+, MIT |
+| | [LangSmith](https://www.langchain.com/langsmith) (Commercial) | ⭐⭐⭐⭐ | For those with their entire stack on LangChain / LangGraph | Official from LangChain, hosted version only |
+| | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | For quick instrumentation without code changes | Proxy-based, get logging + caching for free. ★ 5k+, Apache 2.0 |
+| | [weave (W&B)](https://github.com/wandb/weave) | ⭐⭐⭐⭐ | For teams already using W&B for ML experiment tracking | W&B tracing + eval, integrates with wandb |
+| **Advanced Anthropic SDK** | [anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) | ⭐⭐⭐⭐⭐ | For building applications directly on the Claude API | Official Python SDK: streaming / async / tool use / prompt caching / batches / files |
+| | [anthropic-sdk-typescript](https://github.com/anthropics/anthropic-sdk-typescript) | ⭐⭐⭐⭐ | For TypeScript / Node / web apps | The TS version of the Python SDK |
+| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | ⭐⭐⭐⭐⭐ | For building Claude-based agents, not just API calls | Built-in tool use loop / file access / sandbox / subagent orchestration; same runtime as Claude Code, read the source to see how it works internally. ★ 6k+, MIT |
+| | [claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript) | ⭐⭐⭐⭐ | For Claude agents in a Node / web app environment | The TS version of the Claude Agent SDK. ★ 1.4k+ |
+| | [Anthropic Cookbook (Advanced)](https://github.com/anthropics/anthropic-cookbook) | ⭐⭐⭐⭐ | For seeing official advanced SDK patterns | Especially the `prompt_caching.ipynb` / `tool_use/` / `multimodal/` notebooks |
+| **Deployment** | [BentoML](https://github.com/bentoml/BentoML) | ⭐⭐⭐⭐ | For packaging an agent into a production API service | Docker + serving framework. ★ 8k+, Apache 2.0 |
+| | [LangServe](https://github.com/langchain-ai/langserve) | ⭐⭐⭐⭐ | For quickly deploying a LangChain agent | Based on FastAPI |
+| | [vLLM](https://github.com/vllm-project/vllm) | ⭐⭐⭐⭐ | For self-hosting an open-source LLM to replace paid APIs | High-throughput LLM serving for Llama / Qwen, etc. ★ 79k+, Apache 2.0 |
+| **Chinese Deploy / Fine-tune** | [datawhalechina/self-llm](https://github.com/datawhalechina/self-llm) | ⭐⭐⭐⭐ | For Chinese teams wanting to self-host open-source LLMs | A complete Chinese guide from training-to-deployment, for Qwen / Llama / GLM / multimodal. ★ 30k+, Apache 2.0 |
+| | [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | ⭐⭐⭐⭐⭐ | For fine-tuning open-source LLMs (beyond just prompt eng) | Unified SFT/DPO/PPO/GRPO for 100+ models, no-code Web UI, widest Chinese community. ★ 70k+, Apache 2.0 |
+| **Multi-Agent Case Studies** | [geekan/MetaGPT](https://github.com/geekan/MetaGPT) | ⭐⭐⭐⭐⭐ | For seeing role division + artifact handoff patterns | An SOP-based multi-agent team of PM / Architect / Engineer, generating PRD → design → code. ★ 67k+, MIT |
+| | [OpenBMB/ChatDev](https://github.com/OpenBMB/ChatDev) | ⭐⭐⭐⭐ | For seeing agent debate / peer-review patterns | Conversational software development where agents debate each other on design / code / test. ★ 33k+, Apache 2.0, has a zh README |
+| | [princeton-nlp/SWE-agent](https://github.com/princeton-nlp/SWE-agent) | ⭐⭐⭐⭐ | To understand why tool design > prompt tuning | The Agent-Computer Interface (ACI) design philosophy, backed by a Princeton paper, a leading method on SWE-Bench. ★ 19k+, MIT |
+
+> 🌳 For **Claude's native subagent mechanism** (multi-agent without a framework), see [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism). This stage focuses on frameworks / production; Stage 5.5 focuses on markdown-based subagent orchestration.
 
 ## ✅ Self-Check After Stage 7
 
 Can you:
-- [ ] Design a multi-agent system with explicit coordination protocol
-- [ ] Set up automated eval pipeline running in CI
-- [ ] Connect observability (tracing) to a production agent
-- [ ] Measure and compare cost before/after prompt caching on a real workload
-- [ ] Deploy an agent to a cloud service (any provider)
+- [ ] Design a multi-agent system and clearly explain its collaboration protocol?
+- [ ] Run an automated eval pipeline in CI?
+- [ ] Connect observability (tracing) to a production agent?
+- [ ] Measure the cost difference before and after implementing prompt caching on a real workload?
+- [ ] Deploy an agent to the cloud (any provider)?
 
-If yes → you've completed the main path. Choose a [specialized branch](/en#the-7-stage-learning-map) or contribute to this repo.
+If you can do all of these → proceed to [**Stage 8 — Agent Interfaces**](/zh-tw/stages/08-agent-interfaces/) (**a shared hub for both tracks**) to learn how agents interact with the non-API world (Computer Use / Browser Use / Sandbox). Or, pick a [specialized branch](/en#️-7-stage-learning-map), or come back and contribute to this repo.
 
 ## 💡 What's Next
 
-You now have foundational competence. The next 6-12 months should be about:
-1. **Pick one production system** to take from prototype → production
-2. **Contribute to upstream** (LangGraph, AutoGen, MCP servers, Anthropic cookbook)
-3. **Read papers** — agent research is moving fast
-4. **Build something visible** — open source a real tool, not another tutorial
+You now have the foundational skills. For the next 6-12 months, you should focus on:
+1. **Picking one production system** and taking it from prototype to production.
+2. **Contributing upstream** (LangGraph, AutoGen, MCP servers, Anthropic cookbook).
+3. **Reading papers**—agent research is moving fast.
+4. **Making something tangible**—open-source a real tool, stop just writing tutorials.

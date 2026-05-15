@@ -133,6 +133,27 @@
 
 ---
 
+## Subagent — “在 agent runtime 里再 spawn agent”
+
+上面 5 个 type 讲的是 **agent 跑在哪里**（IDE / Terminal / 任意 CLI / Cloud / Edge）。**Subagent** 是另一个维度：**一个 agent 在执行任务时，spawn 出另一个 agent 跑子任务**。
+
+主要两种实作路径：
+
+| 路径 | 怎么启动 | 代表 |
+|---|---|---|
+| **Framework-based**（Stage 4） | `pip install langgraph / crewai / autogen` + Python orchestration code | LangGraph / CrewAI / AutoGen / Swarm / Strands |
+| **Claude Code 原生**（Stage 5.5） | 写 `.claude/agents/<name>.md`，主 session 用 Task tool invoke | Claude Code subagent + Claude Agent SDK |
+
+**差别在 runtime ownership**：
+- Framework path：你自己的 Python process 跑 orchestrator，各 sub-agent 是程序内的对象
+- Claude path：Claude Code 自己 spawn 新 agent instance，parent / child 共用 Claude runtime，parent 只看到 child 的最终 result（context 自动隔离）
+
+**选哪个**：要跨 LLM provider（GPT + Claude + Gemini 混用）或要把 multi-agent 包进别的应用程序 → framework path。已 commit Claude Code、只在 Claude 生态 → subagent path（少很多 boilerplate）。
+
+完整对照表见 [Stage 5.5 开头](../stages/05-claude-code-ecosystem.zh-Hans.md#55--subagentsclaude-code-原生-multi-agent-机制-2025-新功能)；**想直接看 15 个 daily dispatch recipe** → [`subagent-cookbook.zh-Hans.md`](./subagent-cookbook.zh-Hans.md)（每个含场景 + 用哪个 subagent + 复制即用的 prompt 模板）。
+
+---
+
 ## 跨型态组合（power user pattern）
 
 真实 user 常常**同时用 2-3 个 type**、各做擅长的事:

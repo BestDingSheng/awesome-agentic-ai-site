@@ -1,17 +1,17 @@
 ---
-title: "Stage 2 — Prompt Engineering"
-description: "⏱ **時間估算**：1-2 週（約 5-12 小時）"
+title: "Stage 2 — Prompt 設計（Prompt Engineering）"
+description: "📋 起手碼 — Path A（本機 Ollama gemma4:e4b、預設） （複製到 practice1.py ）"
 section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T14:15:34.889Z"
+syncedAt: "2026-05-15T15:16:25.456Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
 order: 2
 ---
-# Stage 2 — Prompt Engineering
+# Stage 2 — Prompt 設計（Prompt Engineering）
 
 > **繁體中文** | [简体中文](/stages/02-prompt-engineering/) | [English](/en/stages/02-prompt-engineering/)
 
@@ -21,7 +21,7 @@ order: 2
 
 > 💡 用語不熟（prompt / few-shot / CoT / system prompt⋯）→ 翻 [`resources/glossary.md`](/zh-tw/resources/glossary/)。
 
-> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 →〔可選 · 概念地圖〕→ 動手練習 → 精選 Projects → 自我檢查  
+> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 →〔可選 · 概念地圖〕→ 動手練習 → 精選 Projects → 自我檢查
 > 🔑 **關鍵名詞**：見 [`resources/glossary.md`](/zh-tw/resources/glossary/)（每 stage 用到的術語都收在那裡）
 
 ## 📌 學習目標
@@ -41,10 +41,12 @@ order: 2
 
 ## 📚 必修閱讀
 
-1. [**Anthropic Prompt Engineering Guide**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — 官方，整理得不錯
-2. [**OpenAI Prompt Engineering**](https://platform.openai.com/docs/guides/prompt-engineering) — OpenAI 觀點
-3. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — 學術風，深入
-4. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — 直接清楚
+1. [**anthropics/prompt-eng-interactive-tutorial**](https://github.com/anthropics/prompt-eng-interactive-tutorial) ⭐⭐⭐⭐⭐ ★ 35k+ — **Anthropic 官方互動教程**、9 章 Jupyter notebook（basic / intermediate / advanced + appendix），含 playground 跟 answer key。用 Claude 3 Haiku（最便宜）跑得起來、**Stage 2 的 canonical 動手教材**。也是 [**anthropics/courses**](https://github.com/anthropics/courses) 5 course umbrella 的 module 2，想看更廣（含 API Fundamentals / Real World Prompting / Eval / Tool Use）直接看 umbrella
+2. [**anthropics/courses — Real World Prompting**](https://github.com/anthropics/courses) ⭐⭐⭐⭐ ★ 21k+ — 同 umbrella 的 module 3，**「真實情境下怎麼用 prompting」**：chatbot / legal / financial / coding 案例 walk-through。看完 #1 再來看 #2
+3. [**Anthropic Prompt Engineering Guide**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — 官方 docs、配合上面 #1 一起讀
+3. [**OpenAI Prompt Engineering**](https://platform.openai.com/docs/guides/prompt-engineering) — OpenAI 觀點
+4. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — 學術風，深入
+5. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — 直接清楚
 
 **🎥 中文影片補充（強烈推薦）**：
 - [**李宏毅 — 生成式 AI 導論（2024 春台大課程）**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — 中後段集數講 prompt engineering（few-shot、CoT、in-context learning）+ 對應 lab。中文圈最完整的 prompting 學術級教學。最新整合版見 [**GenAI-ML 2025 秋**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
@@ -52,17 +54,17 @@ order: 2
 
 ## 🛠 動手練習
 
-> 🦙 **本 stage 默認用 Ollama gemma4:e4b**（成本考量、$0/run）。Prompt engineering 對小 model 更有教學價值——小 model 對 prompt 質量敏感、能讓你看清楚 system prompt / few-shot / CoT / refinement 各自帶來多少改善。每個練習都有 Path A（Ollama、默認）+ Path B（Anthropic、選擇性）。
+> 🦙 **本 stage 預設用 Ollama gemma4:e4b**（成本考量、$0/run）。Prompt engineering 對小 model 更有教學價值——小 model 對 prompt 質量敏感、能讓你看清楚 system prompt / few-shot / CoT / refinement 各自帶來多少改善。每個練習都有 Path A（Ollama、預設）+ Path B（Anthropic、選擇性）。
 >
-> 💰 **Stage 2 預算估算**（全 4 練習各跑 3-5 次）：**全本機 = $0**、**全 haiku ≈ $0.20**、**全 sonnet ≈ $0.60**。Few-shot 分類任務的 12 calls × 5 reps ≈ $0.30 haiku / $0.90 sonnet。完整預算見 [`examples/README.md#推薦-llm-清單`](../examples/README.md#推薦-llm-清單本機--clouduser-視角)。
+> 💰 **Stage 2 預算估算**（全 4 練習各跑 3-5 次）：**全本機 = $0**、**全 haiku ≈ $0.20**、**全 sonnet ≈ $0.60**。Few-shot 分類任務的 12 calls × 5 reps ≈ $0.30 haiku / $0.90 sonnet。完整預算見 [`examples/README.md#推薦-llm-清單`](/zh-tw#推薦-llm-清單)。
 >
-> 完整 3 路 trade-off 見 [`examples/README.md`](../examples/README.md#三條路徑--默認用-ollama成本考量)。
+> 完整 3 路 trade-off 見 [`examples/README.md`](/zh-tw#三條路徑--預設用-ollama成本考量)。
 
 ### 練習 1：System Prompt
 同樣的 user message，三個不同的 system prompt。觀察人格 / 輸出格式怎麼變。
 
 <details open>
-<summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、默認）</b>（複製到 <code>practice_1.py</code>）</summary>
+<summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、預設）</b>（複製到 <code>practice_1.py</code>）</summary>
 
 ```python
 # 需要：pip install openai
@@ -106,7 +108,7 @@ try:
     parsed = json.loads(json_output.strip().split("\n")[-1] if "\n" in json_output else json_output)
     assert "answer" in parsed, "JSON schema 應包含 answer 欄位"
 except json.JSONDecodeError:
-    pass  # 容許 model 回 JSON 含解釋文字、最後一筆才是 JSON
+    pass # 容許 model 回 JSON 含解釋文字、最後一筆才是 JSON
 print(f"\n✅ 練習 1 通過 — 同一個問題、3 種人格 / 格式 / 語氣")
 print("💡 觀察：律師長、老師短、JSON 機器一定是 {...}")
 ```
@@ -170,7 +172,7 @@ print(f"\n✅ 練習 1 通過（Anthropic）")
 挑一個分類任務。先用 0-shot 跑，再用 3-shot 跑。量一下準確率差多少。
 
 <details open>
-<summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、默認）</b>（複製到 <code>practice_2.py</code>）</summary>
+<summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、預設）</b>（複製到 <code>practice_2.py</code>）</summary>
 
 ```python
 # 需要：pip install openai
@@ -221,7 +223,7 @@ def evaluate(use_few_shot: bool) -> tuple[int, int]:
     for text, label in TEST_SET:
         pred = classify(text, use_few_shot=use_few_shot)
         ok = label in pred
-        print(f"  {'✓' if ok else '✗'} [{label}] {text[:30]}... → '{pred}'")
+        print(f" {'✓' if ok else '✗'} [{label}] {text[:30]}... → '{pred}'")
         if ok:
             correct += 1
     return correct, len(TEST_SET)
@@ -275,7 +277,7 @@ def classify(text: str, *, use_few_shot: bool) -> str:
 - 純 prompt + 一個展示 CoT 的範例
 
 <details open>
-<summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、默認）</b>（複製到 <code>practice_3.py</code>）</summary>
+<summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、預設）</b>（複製到 <code>practice_3.py</code>）</summary>
 
 ```python
 # 需要：pip install openai
@@ -289,7 +291,7 @@ from openai import OpenAI
 client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
 
 QUESTION = "小明有 3 顆蘋果。他給了小華 1 顆、又從媽媽那邊拿到 5 顆、然後吃了 2 顆。請問現在剩幾顆？"
-ANSWER = 5  # 3 - 1 + 5 - 2 = 5
+ANSWER = 5 # 3 - 1 + 5 - 2 = 5
 
 COT_EXAMPLE = """範例：
 Q: 一隻雞有 2 隻腳。3 隻雞跟 1 個人共有幾隻腳？
@@ -358,7 +360,7 @@ def ask(prompt: str) -> str:
 拿一個模糊的 prompt，refine 5 次。把每一輪記下來。觀察哪些改動會提升品質。
 
 <details open>
-<summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、默認）</b>（複製到 <code>practice_4.py</code>）— 這題沒有「對錯」、重點是觀察過程</summary>
+<summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、預設）</b>（複製到 <code>practice_4.py</code>）— 這題沒有「對錯」、重點是觀察過程</summary>
 
 ```python
 # 需要：pip install openai
@@ -426,7 +428,7 @@ text = msg.content[0].text
 
 </details>
 
-**進階做法**：把這 5 輪輸出全存進 csv、Stage 7 練習 2 會教怎麼把這變成 eval harness 量化「prompt 改善了多少」。
+**進階做法**：把這 5 輪輸出全存進 csv、Stage 7 練習 2 會教怎麼把這變成 eval harness（評估腳手架、即「跑評估用的外圍程式 / 控制層」、完整定義見下面 進階：prompt → context → harness 三層 engineering）量化「prompt 改善了多少」。
 
 ## 🎯 精選 Projects
 
@@ -448,17 +450,25 @@ text = msg.content[0].text
 
 ## 🔭 進階：prompt → context → harness 三層 engineering
 
-當你發現「**單一 prompt 已經 cover 不了**」——要動態組 system prompt + 拉 memory + 塞 retrieved chunks + 接多個 tool definitions——這已經不叫 prompt engineering，叫 **context engineering**。是 prompt engineering 的下一層。
+LLM-powered system 的工程實踐分成 **3 層 stack**（不是 1 次 call vs N 次 call）。每一層工程的對象**不一樣**：
 
-再往上一層、把多個 LLM call + tool 包成 production runtime 系統時、就到了 **harness engineering**（2025 後段業界正式詞彙）。
+- **Prompt Engineering**（本 stage）= 工程「**送進模型的那段字串**」
+- **Context Engineering**（Stage 6）= 工程「**每次 call 時、 context window 裡裝什麼資訊**」——把 RAG retrieve 結果、memory、tool definitions、對話 history 動態組裝
+- **Harness Engineering**（Stage 7）= 工程「**模型外面的 runtime / scaffolding**」——agent loop、retry、sandbox、observability、deployment 等所有非 LLM 程式碼
+
+→ 三層**正交**：一次 call 的 RAG app 也在做 context engineering（重點是組 context、不是 call 幾次）；50 次 call 但沒做 retrieval 的 chatbot 仍只在做 prompt engineering。
 
 **完整三層 lineage（本路線的學習進度）**：
 
-| Discipline | 解決什麼 | 在哪一 stage 完整學 |
+| Discipline | 工程「什麼」 | 在哪一 stage 完整學 |
 |---|---|---|
-| **1. Prompt Engineering** | 單次 LLM call 怎麼問才準 | **本 stage（Stage 2）** |
-| **2. Context Engineering** | 跨多次 call 怎麼動態組 prompt | [Stage 6 — Memory · RAG](/zh-tw/stages/06-memory-rag/) |
-| **3. Harness Engineering** | 把多個 LLM call 包成 production runtime | [**Stage 7 §Harness Engineering**](/zh-tw/stages/07-multi-agent-production/#-harness-engineering--production-agent-runtime-的工程學--本-stage-核心概念) ⭐ 完整對照表 |
+| **1. Prompt Engineering** | 送進 LLM 的字串本身（system prompt / few-shot / format） | **本 stage（Stage 2）** |
+| **2. Context Engineering** | context window 裡裝什麼資訊（RAG / memory / tool defs / history） | [Stage 6 — Memory · RAG · Context Engineering](/zh-tw/stages/06-memory-rag/) |
+| **3. Harness Engineering** | LLM 外面的 runtime scaffolding（agent loop / retry / sandbox / observability） | [**Stage 7 Harness Engineering**](/zh-tw/stages/07-multi-agent-production/#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念) ⭐ 完整對照表 |
+
+> 💡 **Karpathy 2025-06**：「context engineering 是把對下一步有用的資訊**剛好填進** context window 的精細藝術」（it's about *what goes in the window*）。
+>
+> 💡 **Simon Willison / Addy Osmani**：「coding agent = LLM + harness」、harness = 所有不是 model 本身的程式碼。[OpenAI 2026-02 也使用 "Harness Engineering" 這個說法](https://openai.com/index/harness-engineering)。
 
 **這個 stage 不用學完後兩層**，只是給方向性提示——進入 Stage 6 / 7 時會接續這個 lineage。
 
