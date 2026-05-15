@@ -214,9 +214,74 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
   .doc-page-link.next {
     text-align: right;
   }
+  .doc-article :global(pre) {
+    position: relative;
+  }
+  .doc-article :global(.copy-code-button) {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    border: 1px solid rgba(148,163,184,0.16);
+    background: rgba(9,16,29,0.86);
+    color: var(--text-soft);
+    border-radius: 10px;
+    padding: .42rem .65rem;
+    font-size: .78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 160ms ease;
+  }
+  .doc-article :global(.copy-code-button:hover) {
+    color: var(--text);
+    border-color: rgba(148,163,184,0.28);
+    background: rgba(18,27,47,0.96);
+  }
+  .doc-article :global(.copy-code-button[data-copied='true']) {
+    color: #d8ffe8;
+    border-color: rgba(128,226,182,0.28);
+    background: rgba(27,61,46,0.92);
+  }
   @media (max-width: 960px) {
     .doc-pagination {
       grid-template-columns: 1fr;
     }
   }
 </style>
+
+<script>
+  const setupCopyButtons = () => {
+    document.querySelectorAll('article.doc-article pre').forEach((pre) => {
+      if (pre.querySelector('.copy-code-button')) return;
+      const code = pre.querySelector('code');
+      if (!code) return;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'copy-code-button';
+      button.textContent = 'Copy';
+      button.addEventListener('click', async () => {
+        const text = code.textContent ?? '';
+        try {
+          await navigator.clipboard.writeText(text);
+          button.textContent = 'Copied';
+          button.dataset.copied = 'true';
+          window.setTimeout(() => {
+            button.textContent = 'Copy';
+            delete button.dataset.copied;
+          }, 1600);
+        } catch {
+          button.textContent = 'Failed';
+          window.setTimeout(() => {
+            button.textContent = 'Copy';
+          }, 1600);
+        }
+      });
+      pre.appendChild(button);
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupCopyButtons, { once: true });
+  } else {
+    setupCopyButtons();
+  }
+</script>
