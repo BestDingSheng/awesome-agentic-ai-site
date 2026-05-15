@@ -8,14 +8,29 @@ interface Props {
   lang?: SiteLang;
   currentPath?: string;
   languageLinks?: Array<{ lang: SiteLang; label: string; href: string }>;
+  image?: string;
+  noindex?: boolean;
 }
+const SITE_URL = 'https://awesome-agentic-ai-site.vercel.app';
+const DEFAULT_SOCIAL_IMAGE = '/favicon.svg';
 const {
   title = 'Awesome Agentic AI 学习站',
   description = '基于 awesome-agentic-ai-zh 构建的 Astro 学习地图网站。',
   lang = 'zh-cn',
   currentPath = '/',
-  languageLinks = createSectionLanguageLinks(currentPath)
+  languageLinks = createSectionLanguageLinks(currentPath),
+  image = DEFAULT_SOCIAL_IMAGE,
+  noindex = false
 } = Astro.props;
+
+const canonicalUrl = new URL(buildLangPath(lang, currentPath), SITE_URL).toString();
+const socialImageUrl = new URL(image, SITE_URL).toString();
+const alternateLinks = languageLinks.map((link) => ({
+  ...link,
+  absoluteHref: new URL(link.href, SITE_URL).toString(),
+  htmlLang: LANG_CONFIG[link.lang].htmlLang
+}));
+const xDefaultHref = new URL(buildLangPath('zh-cn', currentPath), SITE_URL).toString();
 
 const navItems = [
   { label: '首页', path: '/' },
@@ -34,6 +49,21 @@ const navItems = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="canonical" href={canonicalUrl} />
+    {alternateLinks.map((link) => <link rel="alternate" hreflang={link.htmlLang} href={link.absoluteHref} />)}
+    <link rel="alternate" hreflang="x-default" href={xDefaultHref} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Awesome Agentic AI 学习站" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={LANG_CONFIG[lang].htmlLang} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
     <link rel="icon" href="/favicon.svg" />
   </head>
   <body>
