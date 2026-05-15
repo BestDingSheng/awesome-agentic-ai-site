@@ -34,6 +34,12 @@ interface Props {
   collectionItems: CollectionNavItem[];
   previousLink?: AdjacentLink | null;
   nextLink?: AdjacentLink | null;
+  taxonomy?: {
+    collectionLabel: string;
+    sectionLabel: string;
+    orderLabel: string;
+    languageLabel: string;
+  };
 }
 
 const {
@@ -50,7 +56,8 @@ const {
   languageLinks,
   collectionItems,
   previousLink = null,
-  nextLink = null
+  nextLink = null,
+  taxonomy
 } = Astro.props;
 
 const ui = {
@@ -126,7 +133,14 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
         <div class="doc-breadcrumb small muted">
           <a href={buildLangPath(lang, '/')}>{ui.home}</a>
           <span>/</span>
-          <a href={collectionHome}>{collectionLabel}</a>
+          <a href={collectionHome}>{taxonomy?.collectionLabel ?? collectionLabel}</a>
+          <span>/</span>
+          <span>{taxonomy?.orderLabel ?? collectionLabel}</span>
+        </div>
+        <div class="doc-taxonomy-row">
+          <span class="doc-taxonomy-badge">{taxonomy?.collectionLabel ?? collectionLabel}</span>
+          <span class="doc-taxonomy-badge">{taxonomy?.sectionLabel ?? collectionLabel}</span>
+          <span class="doc-taxonomy-badge">{taxonomy?.languageLabel ?? lang}</span>
         </div>
         <h1 class="doc-title" style="font-size: clamp(2rem, 3vw, 3rem); margin-top: 0.55rem;">{title}</h1>
         {description && <p class="hero-lead" style="margin-top: 0.75rem; max-width: 52rem;">{description}</p>}
@@ -221,6 +235,24 @@ const collectionHome = buildLangPath(lang, `/${collection}/`);
   .collection-nav {
     display: grid;
     gap: .35rem;
+  }
+  .doc-taxonomy-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .55rem;
+    margin-top: .85rem;
+  }
+  .doc-taxonomy-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: .38rem .65rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148,163,184,0.14);
+    background: rgba(255,255,255,0.04);
+    color: var(--text-soft);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .02em;
   }
   .collection-nav-link {
     display: block;
