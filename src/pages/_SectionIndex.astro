@@ -21,7 +21,15 @@ const labels = {
     recommended: '推荐起步',
     recommendedDesc: '如果你不确定先读什么，可以先从下面这些代表性内容开始。',
     allItems: '全部内容',
-    allItemsDesc: '完整索引按当前语言展示，适合系统浏览与连续阅读。'
+    allItemsDesc: '完整索引按当前语言展示，适合系统浏览与连续阅读。',
+    searchTitle: '搜索与筛选',
+    searchPlaceholder: `搜索 ${title} 标题、摘要或关键词…`,
+    filterAll: '全部',
+    filterStart: '推荐起步',
+    filterRest: '继续探索',
+    results: '匹配结果',
+    noResults: '没有找到匹配内容',
+    noResultsDesc: '可以换个关键词，或者切回“全部”查看完整索引。'
   },
   'zh-tw': {
     overview: '內容概覽',
@@ -30,7 +38,15 @@ const labels = {
     recommended: '推薦起步',
     recommendedDesc: '如果你不確定先讀什麼，可以先從下面這些代表性內容開始。',
     allItems: '全部內容',
-    allItemsDesc: '完整索引按目前語言顯示，適合系統瀏覽與連續閱讀。'
+    allItemsDesc: '完整索引按目前語言顯示，適合系統瀏覽與連續閱讀。',
+    searchTitle: '搜尋與篩選',
+    searchPlaceholder: `搜尋 ${title} 標題、摘要或關鍵字…`,
+    filterAll: '全部',
+    filterStart: '推薦起步',
+    filterRest: '繼續探索',
+    results: '符合結果',
+    noResults: '找不到符合內容',
+    noResultsDesc: '可以換個關鍵字，或切回「全部」查看完整索引。'
   },
   en: {
     overview: 'Overview',
@@ -39,7 +55,15 @@ const labels = {
     recommended: 'Recommended starting points',
     recommendedDesc: 'If you are not sure where to begin, start with a few representative entries below.',
     allItems: 'All entries',
-    allItemsDesc: 'The full index is shown for the current language and works well for systematic reading.'
+    allItemsDesc: 'The full index is shown for the current language and works well for systematic reading.',
+    searchTitle: 'Search and filter',
+    searchPlaceholder: `Search ${title} titles, summaries, or keywords…`,
+    filterAll: 'All',
+    filterStart: 'Start here',
+    filterRest: 'Explore more',
+    results: 'Results',
+    noResults: 'No matching content found',
+    noResultsDesc: 'Try another keyword or switch back to “All” to browse the full index.'
   }
 }[lang];
 
@@ -48,7 +72,9 @@ const items = entries.map((entry, index) => ({
   href: buildEntryRoute(collection, entry),
   description: entry.data.description,
   meta: entry.data.order !== undefined ? `${entry.data.section} ${entry.data.order}` : entry.data.section,
-  detail: index === 0 ? undefined : undefined
+  detail: undefined,
+  category: index < 3 ? 'start' : 'explore',
+  searchText: [entry.data.title, entry.data.description ?? '', entry.data.baseSlug, entry.data.section, entry.data.languageLabel].join(' ')
 }));
 const featuredItems = items.slice(0, Math.min(3, items.length));
 const firstEntry = items[0];
@@ -101,7 +127,25 @@ const currentPath = `/${collection}/`;
     </section>
   )}
 
-  <section class="section">
+  <section class="section surface section-search-panel">
+    <div class="section-head" style="margin-bottom: 1rem; align-items: center;">
+      <div>
+        <p class="section-kicker">{labels.searchTitle}</p>
+        <h2>{labels.searchTitle}</h2>
+      </div>
+      <div class="small muted"><span data-results-count>{entries.length}</span> {labels.results}</div>
+    </div>
+    <div class="section-search-controls">
+      <input data-search-input class="section-search-input" type="search" placeholder={labels.searchPlaceholder} />
+      <div class="section-filter-row" role="tablist" aria-label={labels.searchTitle}>
+        <button type="button" class="section-filter-chip is-active" data-filter="all">{labels.filterAll}</button>
+        <button type="button" class="section-filter-chip" data-filter="start">{labels.filterStart}</button>
+        <button type="button" class="section-filter-chip" data-filter="explore">{labels.filterRest}</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-search-scope>
     <div class="section-head">
       <div>
         <p class="section-kicker">{labels.allItems}</p>
@@ -110,5 +154,102 @@ const currentPath = `/${collection}/`;
       </div>
     </div>
     <CollectionGrid items={items} />
+    <div class="search-empty" data-empty-state hidden>
+      <h3>{labels.noResults}</h3>
+      <p class="muted">{labels.noResultsDesc}</p>
+    </div>
   </section>
 </BaseLayout>
+
+<style>
+  .section-search-panel {
+    padding: 1.2rem 1.35rem;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, rgba(16, 24, 44, 0.88), rgba(11, 18, 34, 0.9));
+  }
+  .section-search-controls {
+    display: grid;
+    gap: .9rem;
+  }
+  .section-search-input {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 14px;
+    border: 1px solid rgba(148,163,184,0.14);
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    padding: 0 1rem;
+    font: inherit;
+  }
+  .section-search-input::placeholder {
+    color: var(--muted);
+  }
+  .section-filter-row {
+    display: flex;
+    gap: .65rem;
+    flex-wrap: wrap;
+  }
+  .section-filter-chip {
+    border: 1px solid rgba(148,163,184,0.14);
+    background: rgba(255,255,255,0.03);
+    color: var(--text-soft);
+    padding: .58rem .85rem;
+    border-radius: 999px;
+    font: inherit;
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 160ms ease;
+  }
+  .section-filter-chip:hover,
+  .section-filter-chip.is-active {
+    color: var(--text);
+    border-color: rgba(124,156,255,0.24);
+    background: rgba(124,156,255,0.14);
+  }
+  .search-empty {
+    margin-top: 1rem;
+    padding: 1.2rem 1.25rem;
+    border-radius: 16px;
+    border: 1px dashed rgba(148,163,184,0.18);
+    background: rgba(255,255,255,0.02);
+  }
+</style>
+
+<script>
+  const scope = document.querySelector('[data-search-scope]');
+  const input = document.querySelector('[data-search-input]');
+  const countEl = document.querySelector('[data-results-count]');
+  const emptyState = document.querySelector('[data-empty-state]');
+  const chips = Array.from(document.querySelectorAll('[data-filter]'));
+  const cards = scope ? Array.from(scope.querySelectorAll('.collection-card')) : [];
+  let activeFilter = 'all';
+
+  const applyFilters = () => {
+    const term = (input instanceof HTMLInputElement ? input.value : '').trim().toLowerCase();
+    let visible = 0;
+    cards.forEach((card) => {
+      const search = (card.getAttribute('data-search') || '').toLowerCase();
+      const category = card.getAttribute('data-category') || 'all';
+      const matchesTerm = !term || search.includes(term);
+      const matchesFilter = activeFilter === 'all' || category === activeFilter;
+      const show = matchesTerm && matchesFilter;
+      card.toggleAttribute('hidden', !show);
+      if (show) visible += 1;
+    });
+    if (countEl) countEl.textContent = String(visible);
+    if (emptyState) emptyState.hidden = visible > 0;
+  };
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      activeFilter = chip.getAttribute('data-filter') || 'all';
+      chips.forEach((el) => el.classList.toggle('is-active', el === chip));
+      applyFilters();
+    });
+  });
+
+  input?.addEventListener('input', applyFilters);
+  applyFilters();
+</script>
