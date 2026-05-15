@@ -1,6 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { CollectionKey, SiteLang } from './i18n';
-import { buildEntryRoute, createLanguageLinks, filterEntriesByLang } from './i18n';
+import { buildEntryRoute, createLanguageLinks, filterEntriesByLang, getCollectionLabel } from './i18n';
 
 function stripMarkdown(input?: string) {
   if (!input) return undefined;
@@ -81,6 +81,38 @@ export async function getEntryForLang(collection: CollectionKey, lang: SiteLang,
     summary: summarize(match.data.description),
     languageLinks: createLanguageLinks(collection, typedEntries, baseSlug)
   };
+}
+
+export async function getSearchData(lang: SiteLang) {
+  const collections: CollectionKey[] = ['stages', 'tracks', 'branches', 'resources', 'walkthroughs'];
+  const grouped = await Promise.all(collections.map(async (collection) => ({
+    collection,
+    entries: await getCollectionByLang(collection, lang)
+  })));
+
+  return grouped.flatMap(({ collection, entries }) =>
+    entries.map((entry) => ({
+      title: entry.data.title,
+      href: buildEntryRoute(collection, entry),
+      description: summarize(entry.data.description, 120) ?? '',
+      collection,
+      collectionLabel: getCollectionLabel(collection, lang),
+      section: entry.data.section,
+      language: entry.data.language,
+      languageLabel: entry.data.languageLabel,
+      meta: entry.data.order !== undefined
+        ? `${getCollectionLabel(collection, lang)} · ${entry.data.section} ${entry.data.order}`
+        : `${getCollectionLabel(collection, lang)} · ${entry.data.section}`,
+      searchText: [
+        entry.data.title,
+        entry.data.description ?? '',
+        entry.data.baseSlug,
+        entry.data.section,
+        entry.data.languageLabel,
+        getCollectionLabel(collection, lang)
+      ].join(' ')
+    }))
+  );
 }
 
 export { stripMarkdown, summarize };
