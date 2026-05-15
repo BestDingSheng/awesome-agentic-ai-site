@@ -130,6 +130,11 @@ const computeOrder = (relativePath) => {
   return undefined;
 };
 
+const normalizeCodeFences = (content) => content
+  .replace(/^```gitignore\s*$/gim, '```plaintext')
+  .replace(/^```hgignore\s*$/gim, '```plaintext')
+  .replace(/^```npmignore\s*$/gim, '```plaintext');
+
 const rewriteLinks = (content, currentRelativeDir, language) => {
   return content
     .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (full, alt, rawTarget) => {
@@ -194,13 +199,14 @@ try {
         if (!entry.name.endsWith('.md')) continue;
 
         const raw = await fs.readFile(sourcePath, 'utf8');
+        const normalizedRaw = normalizeCodeFences(raw);
         const { language } = parseLanguage(relativePath);
-        const title = firstHeading(raw) || entry.name.replace(/\.md$/i, '');
-        const description = firstParagraph(raw) || `${section.label} 内容页面`;
+        const title = firstHeading(normalizedRaw) || entry.name.replace(/\.md$/i, '');
+        const description = firstParagraph(normalizedRaw) || `${section.label} 内容页面`;
         const slug = getOutputSlug(relativePath);
         const baseSlug = getBaseSlugFromRelativePath(relativePath);
         const currentRelativeDir = path.posix.dirname(path.posix.join(section.dir, relativePath));
-        const rewritten = rewriteLinks(raw, currentRelativeDir, language);
+        const rewritten = rewriteLinks(normalizedRaw, currentRelativeDir, language);
         const frontmatter = [
           '---',
           `title: ${JSON.stringify(title)}`,
