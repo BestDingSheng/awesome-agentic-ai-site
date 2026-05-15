@@ -13,12 +13,45 @@ interface Props {
 
 const { lang, collection, title, description } = Astro.props;
 const entries = await getCollectionByLang(collection, lang);
-const items = entries.map((entry) => ({
+const labels = {
+  'zh-cn': {
+    overview: '内容概览',
+    total: '当前条目',
+    first: '首个入口',
+    recommended: '推荐起步',
+    recommendedDesc: '如果你不确定先读什么，可以先从下面这些代表性内容开始。',
+    allItems: '全部内容',
+    allItemsDesc: '完整索引按当前语言展示，适合系统浏览与连续阅读。'
+  },
+  'zh-tw': {
+    overview: '內容概覽',
+    total: '目前條目',
+    first: '第一個入口',
+    recommended: '推薦起步',
+    recommendedDesc: '如果你不確定先讀什麼，可以先從下面這些代表性內容開始。',
+    allItems: '全部內容',
+    allItemsDesc: '完整索引按目前語言顯示，適合系統瀏覽與連續閱讀。'
+  },
+  en: {
+    overview: 'Overview',
+    total: 'Entries',
+    first: 'First entry',
+    recommended: 'Recommended starting points',
+    recommendedDesc: 'If you are not sure where to begin, start with a few representative entries below.',
+    allItems: 'All entries',
+    allItemsDesc: 'The full index is shown for the current language and works well for systematic reading.'
+  }
+}[lang];
+
+const items = entries.map((entry, index) => ({
   title: entry.data.title,
   href: buildEntryRoute(collection, entry),
   description: entry.data.description,
-  meta: entry.data.section
+  meta: entry.data.order !== undefined ? `${entry.data.section} ${entry.data.order}` : entry.data.section,
+  detail: index === 0 ? undefined : undefined
 }));
+const featuredItems = items.slice(0, Math.min(3, items.length));
+const firstEntry = items[0];
 const currentPath = `/${collection}/`;
 ---
 <BaseLayout
@@ -28,6 +61,54 @@ const currentPath = `/${collection}/`;
   currentPath={currentPath}
   languageLinks={createSectionLanguageLinks(currentPath)}
 >
-  <section class="section-head"><div><h1>{title}</h1><p class="muted">{description}</p></div></section>
-  <CollectionGrid items={items} />
+  <section class="hero" style="grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);">
+    <div class="hero-card primary">
+      <span class="eyebrow">{labels.overview}</span>
+      <h1 style="margin-top: 1rem;">{title}</h1>
+      <p class="hero-lead">{description}</p>
+    </div>
+
+    <div class="hero-card">
+      <p class="panel-title">{labels.overview}</p>
+      <div class="stats">
+        <div class="stat">
+          <span>{labels.total}</span>
+          <strong>{entries.length}</strong>
+        </div>
+        <div class="stat">
+          <span>{labels.first}</span>
+          <strong style="font-size: 1rem; line-height: 1.4;">{firstEntry?.title ?? '—'}</strong>
+        </div>
+      </div>
+      {firstEntry && (
+        <div class="mini-list" style="margin-top: 1rem;">
+          <a class="button primary" href={firstEntry.href}>{firstEntry.title}</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  {featuredItems.length > 0 && (
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">{labels.recommended}</p>
+          <h2>{labels.recommended}</h2>
+          <p class="section-copy">{labels.recommendedDesc}</p>
+        </div>
+      </div>
+      <CollectionGrid items={featuredItems} variant="feature" />
+    </section>
+  )}
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <p class="section-kicker">{labels.allItems}</p>
+        <h2>{labels.allItems}</h2>
+        <p class="section-copy">{labels.allItemsDesc}</p>
+      </div>
+    </div>
+    <CollectionGrid items={items} />
+  </section>
 </BaseLayout>
