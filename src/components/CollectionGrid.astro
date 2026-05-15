@@ -5,6 +5,8 @@ interface Item {
   description?: string;
   meta?: string;
   detail?: string;
+  searchText?: string;
+  category?: string;
 }
 interface Props {
   items: Item[];
@@ -14,7 +16,12 @@ const { items, variant = 'default' } = Astro.props;
 ---
 <div class:list={["grid", variant === 'feature' ? 'cols-3' : 'cols-2']}>
   {items.map((item) => (
-    <a class:list={["card", "collection-card", variant === 'feature' && 'feature-card']} href={item.href}>
+    <a
+      class:list={["card", "collection-card", variant === 'feature' && 'feature-card']}
+      href={item.href}
+      data-search={item.searchText ?? `${item.title} ${item.description ?? ''} ${item.meta ?? ''} ${item.detail ?? ''}`}
+      data-category={item.category ?? 'all'}
+    >
       <div class="collection-card-top">
         <div class="badge">{item.meta ?? '内容'}</div>
         <span class="collection-arrow">→</span>
