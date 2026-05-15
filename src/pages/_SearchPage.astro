@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CollectionGrid from '../components/CollectionGrid.astro';
+import { getSearchData } from '../lib/content';
+import { createSectionLanguageLinks, type SiteLang } from '../lib/i18n';
+
+interface Props {
+  lang: SiteLang;
+}
+
+const { lang } = Astro.props;
+const results = await getSearchData(lang);
+const labels = {
+  'zh-cn': {
+    eyebrow: '全站搜索',
+    title: '跨 Stages / Tracks / Branches / Resources 搜索内容',
+    intro: '统一搜索当前语言下的全部学习内容，适合快速定位主题、概念、路径和参考资料。',
+    input: '搜索标题、摘要、section 或关键词…',
+    all: '全部',
+    results: '匹配结果',
+    empty: '没有找到匹配内容',
+    emptyDesc: '试试更短的关键词，或者切换到其他集合筛选。'
+  },
+  'zh-tw': {
+    eyebrow: '全站搜尋',
+    title: '跨 Stages / Tracks / Branches / Resources 搜尋內容',
+    intro: '統一搜尋目前語言下的全部學習內容，適合快速定位主題、概念、路線和參考資料。',
+    input: '搜尋標題、摘要、section 或關鍵字…',
+    all: '全部',
+    results: '符合結果',
+    empty: '找不到符合內容',
+    emptyDesc: '試試更短的關鍵字，或切換到其他集合篩選。'
+  },
+  en: {
+    eyebrow: 'Global search',
+    title: 'Search across Stages, Tracks, Branches, and Resources',
+    intro: 'Search all learning content in the current language to quickly find concepts, paths, and supporting materials.',
+    input: 'Search titles, summaries, sections, or keywords…',
+    all: 'All',
+    results: 'Results',
+    empty: 'No matching content found',
+    emptyDesc: 'Try a shorter keyword or switch to another collection filter.'
+  }
+}[lang];
+
+const currentPath = '/search/';
+const items = results.map((item) => ({
+  title: item.title,
+  href: item.href,
+  description: item.description,
+  meta: item.meta,
+  detail: item.collectionLabel,
+  category: item.collection,
+  searchText: item.searchText
+}));
+const collectionFilters = Array.from(new Set(results.map((item) => item.collection))).map((collection) => ({
+  value: collection,
+  label: results.find((item) => item.collection === collection)?.collectionLabel ?? collection
+}));
+---
+<BaseLayout
+  title="搜索 · Awesome Agentic AI 学习站"
+  description={labels.intro}
+  lang={lang}
+  currentPath={currentPath}
+  languageLinks={createSectionLanguageLinks(currentPath)}
+>
+  <section class="hero" style="grid-template-columns: 1fr;">
+    <div class="hero-card primary">
+      <span class="eyebrow">{labels.eyebrow}</span>
+      <h1 style="margin-top: 1rem; max-width: 15ch;">{labels.title}</h1>
+      <p class="hero-lead">{labels.intro}</p>
+    </div>
+  </section>
+
+  <section class="section surface search-panel">
+    <div class="search-controls">
+      <input data-global-search-input class="search-input" type="search" placeholder={labels.input} />
+      <div class="filter-row" role="tablist" aria-label={labels.eyebrow}>
+        <button type="button" class="filter-chip is-active" data-filter="all">{labels.all}</button>
+        {collectionFilters.map((filter) => (
+          <button type="button" class="filter-chip" data-filter={filter.value}>{filter.label}</button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-global-search-scope>
+    <div class="section-head" style="align-items:center;">
+      <div>
+        <p class="section-kicker">{labels.eyebrow}</p>
+        <h2>{labels.title}</h2>
+      </div>
+      <div class="small muted"><span data-results-count>{items.length}</span> {labels.results}</div>
+    </div>
+    <CollectionGrid items={items} />
+    <div class="search-empty" data-empty-state hidden>
+      <h3>{labels.empty}</h3>
+      <p class="muted">{labels.emptyDesc}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .search-panel {
+    padding: 1.2rem 1.35rem;
+    border: 1px solid rgba(148,163,184,0.12);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, rgba(16, 24, 44, 0.88), rgba(11, 18, 34, 0.9));
+  }
+  .search-controls { display: grid; gap: .9rem; }
+  .search-input {
+    width: 100%; min-height: 50px; border-radius: 14px; border: 1px solid rgba(148,163,184,0.14);
+    background: rgba(255,255,255,0.04); color: var(--text); padding: 0 1rem; font: inherit;
+  }
+  .search-input::placeholder { color: var(--muted); }
+  .filter-row { display:flex; flex-wrap:wrap; gap:.65rem; }
+  .filter-chip {
+    border: 1px solid rgba(148,163,184,0.14); background: rgba(255,255,255,0.03); color: var(--text-soft);
+    padding: .58rem .85rem; border-radius:999px; font:inherit; font-size:.9rem; font-weight:700; cursor:pointer; transition:160ms ease;
+  }
+  .filter-chip:hover, .filter-chip.is-active {
+    color: var(--text); border-color: rgba(124,156,255,0.24); background: rgba(124,156,255,0.14);
+  }
+  .search-empty {
+    margin-top: 1rem; padding: 1.2rem 1.25rem; border-radius: 16px; border: 1px dashed rgba(148,163,184,0.18); background: rgba(255,255,255,0.02);
+  }
+</style>
+
+<script>
+  const scope = document.querySelector('[data-global-search-scope]');
+  const input = document.querySelector('[data-global-search-input]');
+  const countEl = document.querySelector('[data-results-count]');
+  const emptyState = document.querySelector('[data-empty-state]');
+  const chips = Array.from(document.querySelectorAll('[data-filter]'));
+  const cards = scope ? Array.from(scope.querySelectorAll('.collection-card')) : [];
+  let activeFilter = 'all';
+
+  const applyFilters = () => {
+    const term = (input instanceof HTMLInputElement ? input.value : '').trim().toLowerCase();
+    let visible = 0;
+    cards.forEach((card) => {
+      const search = (card.getAttribute('data-search') || '').toLowerCase();
+      const category = card.getAttribute('data-category') || 'all';
+      const matchesTerm = !term || search.includes(term);
+      const matchesFilter = activeFilter === 'all' || category === activeFilter;
+      const show = matchesTerm && matchesFilter;
+      card.toggleAttribute('hidden', !show);
+      if (show) visible += 1;
+    });
+    if (countEl) countEl.textContent = String(visible);
+    if (emptyState) emptyState.hidden = visible > 0;
+  };
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      activeFilter = chip.getAttribute('data-filter') || 'all';
+      chips.forEach((el) => el.classList.toggle('is-active', el === chip));
+      applyFilters();
+    });
+  });
+
+  input?.addEventListener('input', applyFilters);
+  applyFilters();
+</script>
