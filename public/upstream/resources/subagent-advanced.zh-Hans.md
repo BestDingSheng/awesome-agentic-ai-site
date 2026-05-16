@@ -111,14 +111,6 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 
 ### Pattern A — 平行隔离（最常用、最简单）
 
-**架构**：
-```
-主 session ──┬─→ code-reviewer
-             ├─→ Explore
-             └─→ general-purpose
-3 个各跑各的，互不知道对方存在，结果各回主 session
-```
-
 **何时用**：3 个任务**独立**，不需要互相沟通。例：
 - 4 个 file 都要做同样的 audit（spawn 4 个 `general-purpose`）
 - 同时跑“code review”+“找相关 paper”+“写 changelog”3 个独立任务
@@ -133,19 +125,6 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 
 ### Pattern B — Pipeline 串接（多步骤协作）
 
-**架构**：
-```
-主 session
-   ↓ 派遣
-[task-splitter] ──→ .coord/plan.yml
-   ↓ 读 plan
-[codex-delegate] (skill，不是 subagent；wrapping 外部 Codex CLI)
-   ↓ 写代码
-[output-reconciler] ──→ .coord/reconciliation.md
-   ↓ 整理结论
-[acceptance-gate] ──→ .coord/acceptance.md (PASS/FAIL)
-```
-
 **何时用**：任务需要**步骤顺序**，前一个的 output 是后一个的 input。例：
 - Multi-LLM workflow：Claude planner → Codex implementer → Gemini reviewer
 - 文献研究 pipeline：splitter 切题 → 多 researcher 跑各 sub-query → reconciler 合稿
@@ -159,15 +138,6 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 ---
 
 ### Pattern C — Meta-Agent（**不推荐**，列出来避坑）
-
-**架构**：
-```
-主 session
-   ↓
-[meta-agent] ──→ 写新 .md 到 ~/.claude/agents/
-                     ↓
-                 下次 session 看到新 agent
-```
 
 **为什么存在**：理论上“一个 subagent 写出更多 subagent”听起来很 elegant。
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "02-prompt-engineering"
@@ -13,7 +13,7 @@ order: 2
 ---
 # Stage 2 — Prompt 设计（Prompt Engineering）
 
-> [繁体中文](/zh-tw/stages/02-prompt-engineering/) | **简体中文** | [English](/en/stages/02-prompt-engineering/)
+> [繁體中文](/zh-tw/stages/02-prompt-engineering/) | **简体中文** | [English](/en/stages/02-prompt-engineering/)
 
 ⏱ **时间估算**：1-2 周（约 5-12 小时）
 
@@ -563,7 +563,7 @@ LLM-powered system 的工程实践可以拆成 **3 层 stack**。这不是 1 次
 延伸阅读（不必修、未来想深挖时看）：
 
 - [`Meirtz/Awesome-Context-Engineering`](https://github.com/Meirtz/Awesome-Context-Engineering)（★ 3k+）——从 prompt engineering 一路推到 production agent 的 survey
-- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works)（★ 2k+）——Claude Code 内部解析，含 context engineering 章节
+- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works)（★ 2.4k+）——Claude Code 内部解析，含 context engineering 章节
 
 ## ✅ 进 Stage 3 前的自我检查
 

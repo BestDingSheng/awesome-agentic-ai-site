@@ -111,14 +111,6 @@ When you want to run 2+ subagents together, how should you compose them? The 3 p
 
 ### Pattern A — Parallel Isolation (most common and simplest)
 
-**Architecture**:
-```
-main session ──┬─→ code-reviewer
-               ├─→ Explore
-               └─→ general-purpose
-3 agents run independently, do not know about one another, and return results to the main session
-```
-
 **When to use it**: 3 tasks are **independent** and do not need to communicate. Examples:
 - 4 files need the same audit (spawn 4 `general-purpose` subagents)
 - Run “code review” + “find related papers” + “write a changelog” as 3 independent tasks
@@ -133,19 +125,6 @@ main session ──┬─→ code-reviewer
 
 ### Pattern B — Pipeline Chaining (multi-step collaboration)
 
-**Architecture**:
-```
-main session
-   ↓ dispatch
-[task-splitter] ──→ .coord/plan.yml
-   ↓ reads plan
-[codex-delegate] (skill, not subagent; wrapping external Codex CLI)
-   ↓ writes code
-[output-reconciler] ──→ .coord/reconciliation.md
-   ↓ organizes conclusion
-[acceptance-gate] ──→ .coord/acceptance.md (PASS/FAIL)
-```
-
 **When to use it**: The task needs a **step order**, and the previous step’s output is the next step’s input. Examples:
 - Multi-LLM workflow: Claude planner → Codex implementer → Gemini reviewer
 - Literature-research pipeline: splitter divides the topic → multiple researchers run sub-queries → reconciler merges the draft
@@ -159,15 +138,6 @@ main session
 ---
 
 ### Pattern C — Meta-Agent (**not recommended**, included as a pitfall)
-
-**Architecture**:
-```
-main session
-   ↓
-[meta-agent] ──→ writes new .md into ~/.claude/agents/
-                     ↓
-                 next session sees the new agent
-```
 
 **Why it exists**: In theory, “one subagent writes more subagents” sounds elegant.
 

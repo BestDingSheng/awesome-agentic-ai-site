@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/agent-paradigms.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "agent-paradigms"
@@ -170,23 +170,7 @@ baseSlug: "agent-paradigms"
 
 真實 user 常常**同時用 2-3 個 type**、各做擅長的事：
 
-```
-個人 dev workflow (power user pattern):
-┌─────────────────────────────────────────────────────┐
-│ Type 2 (Claude Code 主開發)                          │
-│   ├─ 寫 code / refactor / paper                     │
-│   ├─ 完成後 commit + push                            │
-│   └─ Telegram ping → ──────────────┐                │
-│                                     ↓                │
-│ Type 4 (Hermes Agent on VPS)                        │
-│   ├─ 收到 ping、檢查 CI / PR 狀態                    │
-│   ├─ 每天 9am 自動掃 arXiv                          │
-│   └─ 重要事件再 Telegram 通知你                     │
-│                                                     │
-│ Type 5 (OpenClaw on Jetson、僅敏感 task 才開)      │
-│   └─ 整理病人資料 / 法律文書 / 個人日記             │
-└─────────────────────────────────────────────────────┘
-```
+![個人 power-user 多 type workflow](/upstream/resources/diagrams/power-user-multi-type-workflow.png)
 
 **為什麼這樣搭**：
 - Type 2 處理 code（terminal 介面最自然）

@@ -5,14 +5,14 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
 ---
 # Stage 7.5 — Advanced Agentic Concepts Map
 
-> [Traditional Chinese](/zh-tw/stages/07-5-advanced-agentic-concepts/) | [简体中文](/stages/07-5-advanced-agentic-concepts/) | **English**
+> [繁體中文](/zh-tw/stages/07-5-advanced-agentic-concepts/) | [简体中文](/stages/07-5-advanced-agentic-concepts/) | **English**
 
 ⏱ **Estimated Time**: 1 week (about 5 hours — no coding, just reading resources to build the concept map)
 

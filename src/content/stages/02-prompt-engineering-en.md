@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -548,7 +548,7 @@ Engineering practice for LLM-powered systems can be divided into **three stack l
 Further reading (optional, for when you want to dig deeper):
 
 - [`Meirtz/Awesome-Context-Engineering`](https://github.com/Meirtz/Awesome-Context-Engineering) (★ 3k+) — comprehensive survey from prompt engineering to production agents
-- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works) (★ 2k+) — Claude Code internals, includes a context-engineering chapter
+- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works) (★ 2.4k+) — Claude Code internals, includes a context-engineering chapter
 
 ## ✅ Self-Check Before Stage 3
 

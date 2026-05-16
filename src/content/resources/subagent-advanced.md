@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/subagent-advanced.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/subagent-advanced.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "subagent-advanced"
@@ -123,14 +123,6 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 
 ### Pattern A — 平行隔離（最常用、最簡單）
 
-**架構**：
-```
-主 session ──┬─→ code-reviewer
-             ├─→ Explore
-             └─→ general-purpose
-3 個各跑各的、互不知道對方存在、結果各回主 session
-```
-
 **何時用**：3 個任務**獨立**、不需要互相溝通。例：
 - 4 個 file 都要做同樣的 audit（spawn 4 個 `general-purpose`）
 - 同時跑「code review」+「找相關 paper」+「寫 changelog」3 個獨立任務
@@ -145,19 +137,6 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 
 ### Pattern B — Pipeline 串接（多步驟協作）
 
-**架構**：
-```
-主 session
-   ↓ 派遣
-[task-splitter] ──→ .coord/plan.yml
-   ↓ 讀 plan
-[codex-delegate] (skill，不是 subagent；wrapping 外部 Codex CLI)
-   ↓ 寫程式碼
-[output-reconciler] ──→ .coord/reconciliation.md
-   ↓ 整理結論
-[acceptance-gate] ──→ .coord/acceptance.md (PASS/FAIL)
-```
-
 **何時用**：任務需要**步驟順序**、前一個的 output 是後一個的 input。例：
 - Multi-LLM workflow：Claude planner → Codex implementer → Gemini reviewer
 - 文獻研究 pipeline：splitter 切題 → 多 researcher 跑各 sub-query → reconciler 合稿
@@ -171,15 +150,6 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 ---
 
 ### Pattern C — Meta-Agent（**不推薦**、列出來避坑）
-
-**架構**：
-```
-主 session
-   ↓
-[meta-agent] ──→ 寫新 .md 到 ~/.claude/agents/
-                     ↓
-                 下次 session 看到新 agent
-```
 
 **為什麼存在**：理論上「一個 subagent 寫出更多 subagent」聽起來很 elegant。
 

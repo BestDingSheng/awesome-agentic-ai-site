@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -29,22 +29,7 @@ order: 3
 
 ### A Hierarchy Diagram to Establish Understanding
 
-```
-AI (Artificial Intelligence)
- └── ML (Machine Learning) ─ Learns from data
-      └── DL (Deep Learning) ─ Uses neural networks
-           └── LLM (Large Language Model)
-                                    └─ A massive neural network with text in, text out
-
-   ┌──────────────────────────────────────────────────────────┐
-   │ Agent = A cross-layer system that wraps an LLM in a │
-   │ tool-calling loop. │
-   │ = LLM (the brain) + Tools (hands) + Loop (heartbeat) │
-   └──────────────────────────────────────────────────────────┘
-                          ▲
-                          │ Uses an LLM as one component
-                          │ (Not a "subtype" of LLM)
-```
+![AI / ML / DL / LLM vs. Agent](/upstream/resources/diagrams/ai-ml-llm-agent-hierarchy.en.png)
 
 → **An "Agent" is not a "more advanced model than an LLM," nor is it a branch under the LLM classification tree**. An agent is a **cross-layer abstract system** that uses an LLM as one of its components. Cursor / Claude Code / Hermes Agent all use the same LLMs internally (Claude / GPT / Gemini)—the difference is how they wrap the LLM in a tool-calling loop.
 
@@ -490,7 +475,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 | **ReAct from Scratch**<br>(Understand the principles) | [pguso/ai-agents-from-scratch](https://github.com/pguso/ai-agents-from-scratch) | ⭐⭐⭐⭐⭐ | Exercise 3 (write ReAct from scratch) | Build from scratch with local Ollama, zero framework, good chapter structure. **The cleanest "no framework" reference implementation**. |
 | | [arunpshankar/react-from-scratch](https://github.com/arunpshankar/react-from-scratch) | ⭐⭐⭐⭐ | Ex 3 alternative (Gemini-preferred) + want to see reflection variants | ReAct + Reflection + Self-consistency, Gemini-optimized (⚠️ updates slowed after 2025-05, Apache-2.0). |
 | | [mattambrogi/agent-implementation](https://github.com/mattambrogi/agent-implementation) | ⭐⭐⭐ | For line-by-line comparison when stuck on Ex 3 | ~150 lines of the most minimal ReAct (⚠️ stagnant since 2024-01, kept as a teaching-toy reference). |
-| | [lsdefine/GenericAgent](https://github.com/lsdefine/GenericAgent) | ⭐⭐⭐⭐ | Ex 3/4, want to see a "minimal but complete" framework | Self-evolving framework, ~3K lines, ★ 9k+, supports Claude / Gemini / Kimi / MiniMax. Between a toy and LangGraph. |
+| | [lsdefine/GenericAgent](https://github.com/lsdefine/GenericAgent) | ⭐⭐⭐⭐ | Ex 3/4, want to see a "minimal but complete" framework | Self-evolving framework, ~3K lines, ★ 11k+, supports Claude / Gemini / Kimi / MiniMax. Between a toy and LangGraph. |
 | **CodeAct Route**<br>(Agent writes code as action) | [HuggingFace Smolagents](https://github.com/huggingface/smolagents) | ⭐⭐⭐⭐ | Ex 5 alternative, local LLM experiments | ≤1000 LOC, representative of the CodeAct pattern, ★ 27k+. HF's stance: agents should be small. |
 | | [QuantaLogic/quantalogic](https://github.com/quantalogic/quantalogic) | ⭐⭐⭐ | After Ex 3, want to compare CodeAct vs JSON-tool | Another CodeAct route, agent writes Python code directly as action, Apache-2.0. |
 | **Chinese Chapter-based In-depth Material**<br>(Chapter-length) | [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents) ⭐ **Recommended for this stage** | ⭐⭐⭐⭐⭐ | Chinese readers who want structured teaching + full coverage | **16 capabilities** including tool use / ReAct / context engineering / sub-agents / circuit breaker / observability. The most complete chapter-based course in Chinese (CC BY-NC-SA, non-commercial). |

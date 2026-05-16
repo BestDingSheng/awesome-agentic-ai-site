@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "08-agent-interfaces"
@@ -13,7 +13,7 @@ order: 8
 ---
 # Stage 8 — Agent Interfaces: Computer Use, Browser Use, & Code Sandbox
 
-> **English** | [繁體中文](/zh-tw/stages/08-agent-interfaces/) | [简体中文](/stages/08-agent-interfaces/)
+> [繁體中文](/zh-tw/stages/08-agent-interfaces/) | [简体中文](/stages/08-agent-interfaces/) | **English**
 
 ⏱ **Estimated Time**: 2-3 weeks (approx. 12-20 hours)
 
@@ -422,27 +422,7 @@ In March 2026, a US federal judge issued a preliminary injunction against Comet,
 
 ### 4 Must-Have Defensive Patterns
 
-```
-                    ┌──── User Request ────┐
-                    ▼ │
-              ┌──── Agent ────┐ │
-              │ │ │
-   ┌─① approval gate │ │
-   │ (User confirms before high-risk actions)│ │
-   │ │ │
-   │ ┌─② sandbox ──┐ │ │
-   │ │ Agent runs code here │ │ │
-   │ └──────────────┘ │ │
-   │ │ │
-   │ ┌─③ human-in-loop ─┐ │ │
-   │ │ Mid-task check for long tasks │ │
-   │ └──────────────────┘ │ │
-   │ │ │
-   │ ┌─④ output filter ──┐ │ │
-   │ │ Whitelist destinations ││ │
-   │ └────────────────────┘ ▼ │
-   └─────────────────► Execution ───────────┘
-```
+![Agent — 4 must-have defensive patterns](/upstream/resources/diagrams/agent-guardrail-patterns.en.png)
 
 | Pattern | How to Implement | When it's a Must |
 |---|---|---|

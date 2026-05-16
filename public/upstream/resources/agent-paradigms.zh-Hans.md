@@ -158,23 +158,7 @@
 
 真实 user 常常**同时用 2-3 个 type**、各做擅长的事:
 
-```
-个人 dev workflow (power user pattern):
-┌─────────────────────────────────────────────────────┐
-│ Type 2 (Claude Code 主开发)                          │
-│   ├─ 写 code / refactor / paper                     │
-│   ├─ 完成后 commit + push                            │
-│   └─ Telegram ping → ──────────────┐                │
-│                                     ↓                │
-│ Type 4 (Hermes Agent on VPS)                        │
-│   ├─ 收到 ping、检查 CI / PR 状态                    │
-│   ├─ 每天 9am 自动扫 arXiv                          │
-│   └─ 重要事件再 Telegram 通知你                     │
-│                                                     │
-│ Type 5 (OpenClaw on Jetson、仅敏感 task 才开)      │
-│   └─ 整理病人资料 / 法律文书 / 个人日记             │
-└─────────────────────────────────────────────────────┘
-```
+![个人 power-user 多 type workflow](../resources/diagrams/power-user-multi-type-workflow.zh-Hans.png)
 
 **为什么这样搭**:
 - Type 2 处理 code（terminal 界面最自然）

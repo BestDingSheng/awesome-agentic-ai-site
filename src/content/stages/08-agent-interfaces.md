@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "08-agent-interfaces"
@@ -13,7 +13,7 @@ order: 8
 ---
 # Stage 8 — Agent 操作介面（Agent Interfaces）：Computer Use · Browser Use · Code Sandbox
 
-> **繁體中文** | (zh-Hans / en mirror defer 中)
+> **繁體中文** | [简体中文](/stages/08-agent-interfaces/) | [English](/en/stages/08-agent-interfaces/)
 
 ⏱ **時間估算**：2-3 週（約 12-20 小時）
 
@@ -422,27 +422,7 @@ agent = Agent(
 
 ### 4 個防護 pattern（必加）
 
-```
-                    ┌──── User Request ────┐
-                    ▼ │
-              ┌──── Agent ────┐ │
-              │ │ │
-   ┌─① approval gate │ │
-   │ (高風險前 user 確認) │ │
-   │ │ │
-   │ ┌─② sandbox ──┐ │ │
-   │ │ agent 跑 code │ │ │
-   │ └──────────────┘ │ │
-   │ │ │
-   │ ┌─③ human-in-loop ─┐ │ │
-   │ │ long task 中段確認 │ │ │
-   │ └──────────────────┘ │ │
-   │ │ │
-   │ ┌─④ output filter ──┐ │ │
-   │ │ destination 白名單 │ │ │
-   │ └────────────────────┘ ▼ │
-   └─────────────────► Execution ───────────┘
-```
+![Agent 4 個防護 pattern](/upstream/resources/diagrams/agent-guardrail-patterns.png)
 
 | Pattern | 怎麼做 | 何時必加 |
 |---|---|---|
@@ -535,7 +515,7 @@ agent = Agent(
 ### Voice agents（語音介面）
 
 - [**Vapi**](https://vapi.ai/) / [**Retell**](https://www.retellai.com/) — 商業 voice agent platform
-- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS、★ 9k+
+- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS、★ 10k+
 - [**OpenAI Realtime API**](https://platform.openai.com/docs/guides/realtime) — speech-to-speech 直接做 agent
 
 ### VLA（Vision-Language-Action）機器人

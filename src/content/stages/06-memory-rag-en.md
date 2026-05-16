@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
@@ -13,7 +13,7 @@ order: 6
 ---
 # Stage 6 — Context Engineering: RAG and Memory
 
-> [Traditional Chinese](/zh-tw/stages/06-memory-rag/) | [简体中文](/stages/06-memory-rag/) | **English**
+> [繁體中文](/zh-tw/stages/06-memory-rag/) | [简体中文](/stages/06-memory-rag/) | **English**
 
 ⏱ **Estimated Time**: 2 weeks (approx. 10 hours)
 
@@ -59,11 +59,7 @@ The point is not "how many conversations you opened." The point is "**what you p
 
 ### Where it sits in the three-layer stack
 
-```
-prompt eng (Stage 2) → engineers the "string"
-context eng (this stage) → engineers the "information" inside the window
-harness eng (Stage 7) → engineers the "runtime" outside the model
-```
+![Prompt → Context → Harness engineering stack](/upstream/resources/diagrams/prompt-context-harness-stack.en.png)
 
 See [Stage 2](/en/stages/02-prompt-engineering/) for the full comparison.
 
@@ -595,19 +591,7 @@ print(chunks[0])
 
 **Typical Architecture** (Full Persistent Memory Version):
 
-```
-Actor → Critic → Actor (Single-round loop, consistent with Stage 3 Reflection)
-       ↑──────────┘
-            ↓
-   Reflection summary
-            ↓
-   Episodic memory store
-   (Vector / Summary pattern, see Memory Design Patterns above)
-            ↓
-   Next task → Retrieve relevant past reflections
-            → Prepend to Actor's prompt
-            (Accumulates lessons across trials, avoids repeating mistakes)
-```
+![Reflexion persistent episodic memory loop](/upstream/resources/diagrams/reflexion-persistent-memory-loop.en.png)
 
 → **Difference from Stage 3 Reflection**: Stage 3 focuses on an **in-context loop within a single session** (no external store). This section covers **persistent episodic memory storage + retrieval across trials** to learn from past experiences.
 

@@ -5,14 +5,14 @@ section: "Resource"
 sourcePath: "resources/diagrams/concept-prompts.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/diagrams/concept-prompts.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "diagrams-concept-prompts"
 ---
 # Stage 7.5 概念圖 — ChatGPT image-gen prompts（3 圖 × 3 語言）
 
-> 把下面的 prompt 整段複製貼到 ChatGPT（含 DALL-E / GPT-4o image gen），生成對應的概念圖 PNG。
+> 把下面的 prompt 整段複製貼到 ChatGPT（含 DALL-E / 原生 image-gen model），生成對應的概念圖 PNG。
 
 > 📋 **v2 更新**：加上 icon 描述（每個元素附 emoji icon、視覺辨識度更高）+ 中英文 bilingual 術語（中文 prompt 用「中文 (English)」格式介紹專有詞、英文 prompt 純英文）+ 明確「no source attribution」規則。
 
@@ -488,7 +488,7 @@ DO NOT:
 
 ## 用法建議
 
-1. 開 ChatGPT（GPT-4o 或 DALL-E、有 image gen 能力的 model）
+1. 開 ChatGPT（DALL-E 或任何有 image gen 能力的 model）
 2. 把對應語言的 prompt **整段**複製貼上、或把 9 個 `.txt` 拖進去叫它 batch 處理
 3. 生成後存成 `resources/diagrams/concept-cluster.<locale>.png` / `reading-decision-tree.<locale>.png` / `failure-lifecycle.<locale>.png`
 4. 嵌入 Stage 7.5 對應 section（取代或補充既有 ASCII 圖）

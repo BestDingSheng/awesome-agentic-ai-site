@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/agent-paradigms.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "agent-paradigms"
@@ -170,25 +170,7 @@ See the full comparison table at the [start of Stage 5.5](/en/stages/05-claude-c
 
 Real power users often run **2 or 3 types simultaneously**, each handling what it's best at:
 
-```
-Personal dev workflow (power-user pattern):
-┌─────────────────────────────────────────────────────┐
-│ Type 2 (Claude Code, primary development)            │
-│   ├─ writes code / refactors / paper                 │
-│   ├─ commits + pushes on completion                  │
-│   └─ Telegram ping → ──────────────┐                │
-│                                     ↓                │
-│ Type 4 (Hermes Agent on a VPS)                      │
-│   ├─ receives the ping, checks CI / PR status        │
-│   ├─ scans arXiv every day at 9am                    │
-│   └─ pings you back on important events              │
-│                                                     │
-│ Type 5 (OpenClaw on Jetson, used only for sensitive  │
-│        tasks)                                        │
-│   └─ patient records / legal documents / personal    │
-│      journals                                        │
-└─────────────────────────────────────────────────────┘
-```
+![Personal power-user multi-type workflow](/upstream/resources/diagrams/power-user-multi-type-workflow.en.png)
 
 **Why this combination**:
 - Type 2 handles code (terminal is the most natural interface)

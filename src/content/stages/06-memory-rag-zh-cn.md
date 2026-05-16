@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "06-memory-rag"
@@ -59,11 +59,7 @@ order: 6
 
 ### 在三层 stack 里的位置
 
-```
-prompt eng（Stage 2） → 工程那段“字符串”
-context eng（本 stage） → 工程窗口里的“信息”
-harness eng（Stage 7） → 工程模型外面的“runtime”
-```
+![Prompt → Context → Harness 三层工程 stack](/upstream/resources/diagrams/prompt-context-harness-stack.zh-Hans.png)
 
 完整对照见 [Stage 2](/stages/02-prompt-engineering/)。
 
@@ -599,19 +595,7 @@ print(chunks[0])
 
 **典型架构**（持久记忆完整版）：
 
-```
-Actor → Critic → Actor （单轮循环，与 Stage 3 反思 一致）
-       ↑──────────┘
-            ↓
-   Reflection summary
-            ↓
-   Episodic memory store
-   （vector / summary 模式，见上文 Memory 设计模式 3）
-            ↓
-   Next task → Retrieve relevant past reflections
-            → Prepend to Actor's prompt
-            （跨 trial 累积教训，避免重复犯错）
-```
+![Reflexion 持久 episodic memory loop](/upstream/resources/diagrams/reflexion-persistent-memory-loop.zh-Hans.png)
 
 → **与 Stage 3 反思的区别**: Stage 3 侧重于**单 session 内的 in-context 循环**（无外部存储），本节则探讨**跨 trial 的持久 episodic memory 存储 + 检索**（从过往经验中学习）。
 

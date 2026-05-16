@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "08-agent-interfaces"
@@ -13,7 +13,7 @@ order: 8
 ---
 # Stage 8 — Agent 操作介面（Agent Interfaces）：Computer Use · Browser Use · Code Sandbox
 
-> [繁体中文](/zh-tw/stages/08-agent-interfaces/) | **简体中文** | [English](/en/stages/08-agent-interfaces/)
+> [繁體中文](/zh-tw/stages/08-agent-interfaces/) | **简体中文** | [English](/en/stages/08-agent-interfaces/)
 
 ⏱ **时间估算**：2-3 周（约 12-20 小时）
 
@@ -422,27 +422,7 @@ agent = Agent(
 
 ### 4 个防护模式（必须添加）
 
-```
-                    ┌──── 用户请求 ────┐
-                    ▼ │
-              ┌──── 智能体 ────┐ │
-              │ │ │
-   ┌─① 审批门 │ │
-   │ (高风险操作前用户确认) │ │
-   │ │ │
-   │ ┌─② 沙箱 ──┐ │ │
-   │ │ 智能体运行代码 │ │ │
-   │ └──────────────┘ │ │
-   │ │ │
-   │ ┌─③ 人工介入 ─┐ │ │
-   │ │ 长任务中段确认 │ │ │
-   │ └──────────────────┘ │ │
-   │ │ │
-   │ ┌─④ 输出过滤器 ──┐ │ │
-   │ │ 目标白名单 │ │ │
-   │ └────────────────────┘ ▼ │
-   └─────────────────► 执行 ───────────┘
-```
+![Agent 4 个防护模式](/upstream/resources/diagrams/agent-guardrail-patterns.zh-Hans.png)
 
 | 模式 | 如何实现 | 何时必须添加 |
 |---|---|---|
@@ -535,7 +515,7 @@ agent = Agent(
 ### Voice agents（语音界面）
 
 - [**Vapi**](https://vapi.ai/) / [**Retell**](https://www.retellai.com/) — 商业语音智能体平台
-- [**LiveKit Agents**](https://github.com/livekit/agents) — 开源，★ 9k+
+- [**LiveKit Agents**](https://github.com/livekit/agents) — 开源，★ 10k+
 - [**OpenAI Realtime API**](https://platform.openai.com/docs/guides/realtime) — 直接构建 speech-to-speech 智能体
 
 ### VLA（Vision-Language-Action）机器人

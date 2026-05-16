@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T03:31:48.975Z"
+syncedAt: "2026-05-16T13:39:56.129Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -29,22 +29,7 @@ order: 3
 
 ### 一張階層圖先建立認知
 
-```
-AI (Artificial Intelligence、人工智慧)
- └── ML (Machine Learning、機器學習) ─ 用資料學
-      └── DL (Deep Learning、深度學習) ─ 用神經網路
-           └── LLM (Large Language Model、大型語言模型)
-                                    └─ 文字 in、文字 out 的超大神經網路
-
-   ┌──────────────────────────────────────────────────────────┐
-   │ Agent (智能體 / 代理人) = 跨層 system，把 LLM 包進 │
-   │ 工具呼叫迴圈 │
-   │ = LLM（當大腦）+ Tools（手腳）+ Loop（心跳） │
-   └──────────────────────────────────────────────────────────┘
-                          ▲
-                          │ 用 LLM 當其中一個元件
-                          │（不是 LLM 的「子類型」）
-```
+![AI / ML / DL / LLM 與 Agent 的關係](/upstream/resources/diagrams/ai-ml-llm-agent-hierarchy.png)
 
 → **「Agent」不是「比 LLM 更厲害的模型」，也不是 LLM 樹狀分類底下的一個分支**。Agent 是個**跨層抽象的系統**，把 LLM 當作其中一個元件來用。Cursor / Claude Code / Hermes Agent 內部都還是同一批 LLM（Claude / GPT / Gemini）—— 差別是怎麼把 LLM 包進工具呼叫迴圈裡。
 
@@ -490,7 +475,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 | **從零實作 ReAct**<br>（理解原理） | [pguso/ai-agents-from-scratch](https://github.com/pguso/ai-agents-from-scratch) | ⭐⭐⭐⭐⭐ | 練習 3（從零寫 ReAct） | 用本機 Ollama 從零打造、zero framework、章節結構好。**最乾淨的「不靠 framework」參考實作** |
 | | [arunpshankar/react-from-scratch](https://github.com/arunpshankar/react-from-scratch) | ⭐⭐⭐⭐ | 練習 3 替代（偏好 Gemini）+ 想看反思變體 | ReAct + Reflection + Self-consistency、Gemini 最佳化（⚠️ 2025-05 後更新放緩、Apache-2.0） |
 | | [mattambrogi/agent-implementation](https://github.com/mattambrogi/agent-implementation) | ⭐⭐⭐ | 練習 3 卡住時逐行對照 | ~150 行最精簡 ReAct（⚠️ 已停滯 2024-01、留作教學玩具參考） |
-| | [lsdefine/GenericAgent](https://github.com/lsdefine/GenericAgent) | ⭐⭐⭐⭐ | 練習 3/4，想看「精簡但完整」framework | 自我演化 framework、~3K 行、★ 9k+、支援 Claude / Gemini / Kimi / MiniMax。介於玩具版與 LangGraph 之間 |
+| | [lsdefine/GenericAgent](https://github.com/lsdefine/GenericAgent) | ⭐⭐⭐⭐ | 練習 3/4，想看「精簡但完整」framework | 自我演化 framework、~3K 行、★ 11k+、支援 Claude / Gemini / Kimi / MiniMax。介於玩具版與 LangGraph 之間 |
 | **CodeAct 路線**<br>（agent 寫程式碼當 action） | [HuggingFace Smolagents](https://github.com/huggingface/smolagents) | ⭐⭐⭐⭐ | 練習 5 替代方案、本地 LLM 實驗 | ≤1000 LOC、CodeAct pattern 代表、★ 27k+。HF 立場：agent 應該要小 |
 | | [QuantaLogic/quantalogic](https://github.com/quantalogic/quantalogic) | ⭐⭐⭐ | 練習 3 後想比較 CodeAct vs JSON-tool | 另一條 CodeAct 路線、agent 直接寫 Python 程式碼當 action、Apache-2.0 |
 | **中文章節式深度教材**<br>（chapter-length） | [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents) ⭐ **本 stage 推薦** | ⭐⭐⭐⭐⭐ | 中文讀者想要結構化教學 + 完整覆蓋 | **16 種能力**含 tool use / ReAct / context engineering / sub-agents / circuit breaker / observability。中文圈最完整章節式（CC BY-NC-SA、非商用） |
