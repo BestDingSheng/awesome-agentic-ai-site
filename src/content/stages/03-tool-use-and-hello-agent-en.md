@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -17,11 +17,11 @@ order: 3
 
 ⏱️ **Estimated Time**: 2-3 weeks (approx. 10-20 hours)
 
-> 💡 Terminology-heavy (agent / tool use / function calling / ReAct / structured output) → See [`resources/glossary.md` 2](/zh-tw/resources/glossary/#2-agent--tool-use).
+> 💡 Terminology-heavy (agent / tool use / function calling / ReAct / structured output) → See [`resources/glossary.md` 2](/en/resources/glossary/#2-agents--tool-use).
 > 🗺️ **Before choosing Track A (CLI Power User) or Track B (Agent Builder)**, read [`resources/agent-paradigms.md`](/zh-tw/resources/agent-paradigms/) — a panoramic view of 5 agent archetypes to help you choose your path.
 
 > 📋 **Chapter Structure**: [Opening Framing: The relationship between AI/LLM/Agent] → Learning Objectives → Prerequisites → Required Reading → [Optional · Concept Map] → Hands-on Exercises → Reflection (Concepts + Routing) → Curated Projects → Self-Check
-> 🔑 **Key Terms**: See [`resources/glossary.md` 2](/zh-tw/resources/glossary/#2-agent--tool-use)
+> 🔑 **Key Terms**: See [`resources/glossary.md` 2](/en/resources/glossary/#2-agents--tool-use)
 
 ## 🤖 Before We Start: AI / LLM / Agent — How Do They Differ?
 
@@ -145,13 +145,13 @@ You should already have:
 
 > 🦙 **This stage defaults to using Ollama qwen2.5:3b** (for cost reasons and stable tool-use support). Starting from Stage 3, with tool calling / ReAct loops, `gemma4:e4b` is insufficient; we switch to `qwen2.5:3b` (1.9 GB, install with `ollama pull qwen2.5:3b`). Each exercise has a Path A (Ollama, default) + Path B (Anthropic, optional, for when you want to see high-quality tool-use in the cloud).
 >
-> 💰 **Stage 3 Budget Estimate** (for all 6 exercises, with heavy tool use): **All local = $0**; **all haiku ≈ $0.50**; **all sonnet ≈ $1.50**. The ReAct loop exercise is about 4-6 tool calls × 5 exercises × 5 reps ≈ $0.80 on haiku. For the full budget, see [`examples/README.md#recommended-llms`](/en#recommended-llms).
+> 💰 **Stage 3 Budget Estimate** (for all 6 exercises, with heavy tool use): **All local = $0**; **all haiku ≈ $0.50**; **all sonnet ≈ $1.50**. The ReAct loop exercise is about 4-6 tool calls × 5 exercises × 5 reps ≈ $0.80 on haiku. For the full budget, see [`examples/README.md#recommended-llms`](/en#recommended-llm-list).
 >
-> For the full 3-way trade-off, see [`examples/README.md`](/en#three-paths--defaulting-to-ollama-for-cost-reasons).
+> For the full 3-way trade-off, see [`examples/README.md`](/en#three-paths--default-is-ollama-cost-driven).
 >
 > 🆘 **Stuck?** Tool calling has the steepest learning curve in the entire curriculum. Install the [`examples/stage-5/tool-calling-tutor/`](../examples/stage-5/tool-calling-tutor/) skill—when you prompt Claude Code with "Why isn't my LLM calling my tool?" or "What's wrong with my schema?", it will auto-load and walk you through a 4-symptom diagnostic process.
 >
-> 🪜 **This stage is the starting point for single-agent**: one LLM + ReAct loop. For **multi-agent concepts** (multiple agents collaborating), see [Stage 4 What is a multi-agent framework](/zh-tw/stages/04-agent-frameworks/#-what-is-a-multi-agent-framework); for **Claude's native subagent mechanism** (`.claude/agents/` + Task tool, no framework needed), see [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagents--claude-codes-native-multi-agent-mechanism-new-in-2025).
+> 🪜 **This stage is the starting point for single-agent**: one LLM + ReAct loop. For **multi-agent concepts** (multiple agents collaborating), see [Stage 4 What is a multi-agent framework](/en/stages/04-agent-frameworks/#-what-is-a-multi-agent-framework); for **Claude's native subagent mechanism** (`.claude/agents/` + Task tool, no framework needed), see [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature).
 
 ### Exercise 1: Function Calling (One Tool, One Call)
 Give Claude a tool (a fake weather API) and a question ("Is it raining in Taipei right now?"). See how Claude calls the tool, gets the result, and then answers you.
@@ -476,7 +476,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 - [**LangChain — Reflection Agents (blog)**](https://blog.langchain.dev/reflection-agents/) — A framework implementation reference + a complete working notebook.
 - [**datawhalechina/hello-agents**](https://github.com/datawhalechina/hello-agents) — The corresponding chapter (Self-reflection / Self-Refine section, a complete tutorial in Chinese).
 
-> 💡 **Want to see how reflection looks in a production agent?**: [Stage 5 5.6 Harness Internals](/zh-tw/stages/05-claude-code-ecosystem/#56--claude-code-source-dissection--reference-harness-implementation-track-b-must-read) dissects the Claude Code source where you can see it—the agent self-evaluates the patch after a tool call, goes back to fix problems, and commits after correction. **This is one of the core building blocks of modern production agents**.
+> 💡 **Want to see how reflection looks in a production agent?**: [Stage 5 5.6 Harness Internals](/en/stages/05-claude-code-ecosystem/#56--dissecting-claude-code-source-reference-harness-implementation--a-must-read-for-track-b) dissects the Claude Code source where you can see it—the agent self-evaluates the patch after a tool call, goes back to fix problems, and commits after correction. **This is one of the core building blocks of modern production agents**.
 
 ## 🎯 Curated Projects
 

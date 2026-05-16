@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cookbook"
@@ -148,7 +148,7 @@ You can then use tools like promptfoo for batch testing.
 
 ### Further Reading
 
-- See [Stage 5.3](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer) for a detailed explanation of Skill anatomy.
+- See [Stage 5.3](/en/stages/05-claude-code-ecosystem/#53--skills-claude-codes-behavior-layer--the-most-critical-layer-of-the-claude-code-ecosystem) for a detailed explanation of Skill anatomy.
 - Refer to the official skill templates in [`anthropics/skills`](https://github.com/anthropics/skills) (for docx / xlsx / pptx, etc.) for examples.
 - Package multiple skills into a plugin → [Stage 5.4](/en/stages/05-claude-code-ecosystem/#54--plugins--marketplaces)
 
@@ -257,9 +257,9 @@ Claude replies (with a tool call icon): Echo: hello world
 
 ### Further Reading
 
-- See [Stage 5.2](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol-foundation) for a full introduction to MCP.
+- See [Stage 5.2](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation) for a full introduction to MCP.
 - Refer to the official examples in [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) (e.g., filesystem, github, sqlite, time).
-- For production servers, see [Stage 5.2 "Practice: MCP in production"](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol-foundation) and the `~/.claude/skills/` examples in [`anthropics/claude-code`](https://github.com/anthropics/claude-code).
+- For production servers, see [Stage 5.2 "Practice: MCP in production"](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation) and the `~/.claude/skills/` examples in [`anthropics/claude-code`](https://github.com/anthropics/claude-code).
 
 ---
 
@@ -615,7 +615,7 @@ For local LLM work, treat "Claude Code" and "BYO-LLM CLI agents" as separate too
 
 ### Further Reading
 
-- Stage 1 [Local LLM exercise](/en/stages/01-llm-basics/#exercise-local-llm): Ollama / llama.cpp / vLLM tradeoffs
+- Stage 1 [Local LLM exercise](/en/stages/01-llm-basics/#exercise-6-local-llm): Ollama / llama.cpp / vLLM tradeoffs
 - [`cli-agents-guide.md`](/en/resources/cli-agents-guide/): how to choose among 7 CLI agents
 - Hermes Agent README: multi-platform gateway setup for Telegram / Discord / Slack and providers
 

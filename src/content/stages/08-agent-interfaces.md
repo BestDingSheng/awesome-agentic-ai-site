@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "08-agent-interfaces"
@@ -35,7 +35,7 @@ order: 8
 |---|---|---|---|
 | **🖱 Computer Use**（screen-level）| 任何桌面 app（Excel / SAP / Photoshop / 沒 API 的軟體）| screenshot → vision → 算座標 → 模擬鍵鼠 | Anthropic Claude Computer Use / OpenAI Codex desktop / Gemini in Chrome |
 | **🌐 Browser Use**（web-level）| 任何網頁 | DOM-aware navigation + 必要時 vision fallback | Atlas / Comet / browser-use（OSS 86k stars）|
-| **📦 Code Sandbox**（isolated exec）| agent 生成的 code 在隔離環境跑 | microVM / Container / 用戶空間 kernel | E2B / Daytona / Modal / Vercel Sandbox / OpenAI Agents SDK（April 2026 內建）|
+| **📦 Code Sandbox**（isolated exec）| agent 生成的 code 在隔離環境跑 | microVM / Container / user-space kernel（userland） | E2B / Daytona / Modal / Vercel Sandbox / OpenAI Agents SDK（April 2026 內建）|
 
 ### 跟前面 stage 的差別（避免概念混淆）
 
@@ -260,7 +260,7 @@ agent 收到任務
 | **VM**（Virtual Machine）| Hypervisor 配虛擬硬體、**獨立 kernel** | 最強 | 慢（秒級）| 高風險 / enterprise |
 | **microVM** | VM 的精簡版、極小 footprint、仍獨立 kernel | **強** | **快（< 100ms）** | agent sandbox 甜蜜點 |
 | **Firecracker** | AWS 開源 microVM、Rust 寫、**AWS Lambda 底層**、E2B 用它做 isolation | 強 | 快 | serverless / agent |
-| **gVisor** | Google 寫的「用戶空間 kernel」、攔截 syscall 自己模擬、不用 hypervisor | 中強 | 中快 | 介於 container / VM |
+| **gVisor** | Google 寫的「user-space kernel（userland）」、攔截 syscall 自己模擬、不用 hypervisor | 中強 | 中快 | 介於 container / VM |
 | **Cold start** | sandbox 從零啟動到可用的時間（Daytona 最快 27ms、E2B microVM 較慢）| — | — | latency-critical 場景關鍵 |
 | **Persistence** | state 跨呼叫保留嗎（檔案 / process / network） | — | — | long-running agent 必要 |
 | **GPU passthrough** | VM / microVM 訪問 host GPU 的技術（**Modal 唯一支援**）| — | — | sandbox 內跑 inference / fine-tune |

@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a2-cli-workflow"
@@ -93,7 +93,7 @@ official — Claude Code memory / CLAUDE.md authoring docs, including best pract
 ★ 178k+ — Not just a skill collection but also a production CLAUDE.md template. Read the full `.claude/` structure.
 
 #### [mattpocock/skills](https://github.com/mattpocock/skills) ⭐⭐⭐⭐
-A practitioner's daily skill library. The `.claude/` structure is a great reference. **More skill examples in [Stage 5.3 — Skills](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer).**
+A practitioner's daily skill library. The `.claude/` structure is a great reference. **More skill examples in [Stage 5.3 — Skills](/en/stages/05-claude-code-ecosystem/#53--skills-claude-codes-behavior-layer--the-most-critical-layer-of-the-claude-code-ecosystem).**
 
 ---
 

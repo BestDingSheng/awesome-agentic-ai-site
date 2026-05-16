@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a1-cli-intro"
@@ -108,7 +108,7 @@ order: 1
 非开源 desktop app——拖拉界面跑本地 LLM。如果你是 Windows / Mac 用户不想学 command line 但想跑 local LLM，先试这个。
 
 #### [Ollama](https://github.com/ollama/ollama)
-★ 170k+ — 本地 LLM runner，跟 OpenCode / goose 搭配很好（也能单独给 IDE 接 OpenAI 相容 API）。详见 [Stage 1 — Local LLM 执行](/stages/01-llm-basics/#-本地端执行-llm不用付-api-费用)。
+★ 170k+ — 本地 LLM runner，跟 OpenCode / goose 搭配很好（也能单独给 IDE 接 OpenAI 相容 API）。详见 [Stage 1 — Local LLM 执行](/stages/01-llm-basics/#练习-6local-llm)。
 
 ## ✅ 进 A2 前的自我检查
 

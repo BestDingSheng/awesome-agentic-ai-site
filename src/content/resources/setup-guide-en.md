@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/setup-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:58:59.418Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "setup-guide"
@@ -205,7 +205,7 @@ load_dotenv()
 client = Anthropic() # Automatically reads ANTHROPIC_API_KEY
 
 msg = client.messages.create(
-    model="claude-sonnet-4-5",
+    model="claude-sonnet-4-6",
     max_tokens=100,
     messages=[{"role": "user", "content": "Hello, who are you?"}],
 )
@@ -301,7 +301,7 @@ When the user asks you to greet them, return three things:
 
 Run `claude`, then type `say hi`. If Claude returns the three items, the Skill loaded.
 
-> For deeper Skill design, see [Stage 5.3 — Skills](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer).
+> For deeper Skill design, see [Stage 5.3 — Skills](/en/stages/05-claude-code-ecosystem/#53--skills-claude-codes-behavior-layer--the-most-critical-layer-of-the-claude-code-ecosystem).
 > For copy-and-run examples, see the [Cookbook](/en/resources/cookbook/).
 
 ---

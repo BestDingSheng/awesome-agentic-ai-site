@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "schema-design-cheatsheet"
@@ -168,4 +168,4 @@ Tool fails and returns `null` or `{}` — LLM thinks it succeeded, continues rea
 - [Anthropic — Tool Use Guide](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview) — official schema spec
 - [OpenAI — Function Calling](https://platform.openai.com/docs/guides/function-calling) — OpenAI's schema spec (slight differences from Anthropic)
 - [Stage 3 — Tool Use & Agent Intro](/en/stages/03-tool-use-and-hello-agent/) — main exercises
-- [Stage 5.2 — MCP foundation](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol-foundation) — MCP server tool schemas (nearly identical structure to function-calling schema)
+- [Stage 5.2 — MCP foundation](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation) — MCP server tool schemas (nearly identical structure to function-calling schema)

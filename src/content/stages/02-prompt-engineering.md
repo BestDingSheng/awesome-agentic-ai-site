@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
@@ -41,7 +41,7 @@ order: 2
 
 ## 📚 必修閱讀
 
-1. [**anthropics/prompt-eng-interactive-tutorial**](https://github.com/anthropics/prompt-eng-interactive-tutorial) ⭐⭐⭐⭐⭐ ★ 35k+ — **Anthropic 官方互動教程**、9 章 Jupyter notebook（basic / intermediate / advanced + appendix），含 playground 跟 answer key。用 Claude 3 Haiku（最便宜）跑得起來、**Stage 2 的 canonical 動手教材**。也是 [**anthropics/courses**](https://github.com/anthropics/courses) 5 course umbrella 的 module 2，想看更廣（含 API Fundamentals / Real World Prompting / Eval / Tool Use）直接看 umbrella
+1. [**anthropics/prompt-eng-interactive-tutorial**](https://github.com/anthropics/prompt-eng-interactive-tutorial) ⭐⭐⭐⭐⭐ ★ 35k+ — **Anthropic 官方互動教學**、9 章 Jupyter notebook（basic / intermediate / advanced + appendix），含 playground 跟 answer key。用 Claude 3 Haiku（最便宜）跑得起來、**Stage 2 的 canonical 動手教材**。也是 [**anthropics/courses**](https://github.com/anthropics/courses) 5 course umbrella 的 module 2，想看更廣（含 API Fundamentals / Real World Prompting / Eval / Tool Use）直接看 umbrella
 2. [**anthropics/courses — Real World Prompting**](https://github.com/anthropics/courses) ⭐⭐⭐⭐ ★ 21k+ — 同 umbrella 的 module 3，**「真實情境下怎麼用 prompting」**：chatbot / legal / financial / coding 案例 walk-through。看完 #1 再來看 #2
 3. [**Anthropic Prompt Engineering Guide**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — 官方 docs、配合上面 #1 一起讀
 3. [**OpenAI Prompt Engineering**](https://platform.openai.com/docs/guides/prompt-engineering) — OpenAI 觀點

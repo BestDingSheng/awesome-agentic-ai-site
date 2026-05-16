@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -15,6 +15,8 @@ baseSlug: "07-5-advanced-agentic-concepts"
 > [Traditional Chinese](/zh-tw/stages/07-5-advanced-agentic-concepts/) | [简体中文](/stages/07-5-advanced-agentic-concepts/) | **English**
 
 ⏱ **Estimated Time**: 1 week (about 5 hours — no coding, just reading resources to build the concept map)
+
+> 🚪 **Entry condition**: complete [Stage 7 — Multi-Agent · Productionization](/zh-tw/stages/07-multi-agent-production/) (or at least Stages 4 + 6 + 7). This chapter is a frontier concept map for *after* productionization, not an intro — without having built a production agent you will not feel what pain points these concepts solve.
 
 > 💡 This is an **advanced-concept map + reading path**, not a full tutorial. After Stages 4 / 6 / 7, you can already build production **agents** (AI systems that plan + execute tasks autonomously — LLM-based programs that drive their own actions; "production agents" are agents that real users can rely on without frequent breakdowns); this stage helps you locate **which advanced concepts are still being debated in the industry**, **what problem each concept solves**, and **which papers / blogs to read first**, so you do not step into problems that others have already hit in real work.
 
@@ -105,7 +107,7 @@ Many advanced concepts eventually trace back to the same question: how far does 
 - Agents will proactively "fill in" things not requested — use structured output schemas + evaluator-optimizer loops to filter speculative content.
 - A rule "being installed ≠ being followed" — operator self-discipline is not enough. You need mechanical gates (permission check, cost cap, destructive-op confirmation) to prevent humans from bypassing the rule with "just this once".
 
-→ **How this maps to tools**: write the work boundary into the brief (Anthropic's brief template / LangGraph state schemas / `agent-collab-skills`' task-splitter — all the same idea), enforce it at an acceptance gate / evaluator loop, and put an explicit gate in front of destructive operations (covered in [§7 Autonomy Gradients](#7-autonomy-gradients--trust-layers)).
+→ **How this maps to tools**: write the work boundary into the brief (Anthropic's brief template / LangGraph state schemas / `agent-collab-skills`' task-splitter — all the same idea), enforce it at an acceptance gate / evaluator loop, and put an explicit gate in front of destructive operations (covered in [§7 Autonomy Gradients](#-12-advanced-concepts--skeleton)).
 
 ### 🔁 Failure-mode lifecycle (how industry agent failures evolved into best practice)
 
@@ -375,7 +377,7 @@ Before opening a PR, the agent runs an evaluator-optimizer loop on itself:
 
 ### Matrix: 5 principles × Stage 7 Harness 8 components
 
-Below shows how the 5 principles act on [Stage 7's 8 core Harness components](/en/stages/07-multi-agent-production/#the-8-core-components-of-the-harness) (✓ = applies, ✓★ = primary lever):
+Below shows how the 5 principles act on [Stage 7's 8 core Harness components](/en/stages/07-multi-agent-production/#the-8-core-components-of-a-harness) (✓ = applies, ✓★ = primary lever):
 
 | Principle ＼ Harness component | 1. Agent Loop | 2. Tool Reg | 3. Ctx Mgr | 4. Retry | 5. Sandbox | 6. Obs | 7. Eval | 8. Cost / Lat |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -465,7 +467,7 @@ Once you understand the 5 principles above plus the Anthropic cross-mapping, **h
 3. **Apply the 5 OpenAI principles (cross-cutting)**: Legibility / SoR / Progressive Disclosure / Taste Invariants / Throughput Merge Philosophy. These 5 cut across all 12 concepts and determine whether the design is "right".
    → This stage §Cross-concept Harness Engineering principles
 
-4. **Encode into Skills + CLAUDE.md**: use the 4 prompts in Stage 5 — CLAUDE.md audit / generate ([Stage 5.1](/en/stages/05-claude-code-ecosystem/#51--claude-code-basics)) + SKILL.md audit / generate ([Stage 5.3](/en/stages/05-claude-code-ecosystem/#53--skillsclaude-codes-behavior-layer--the-most-critical-layer-of-the-claude-code-ecosystem)).
+4. **Encode into Skills + CLAUDE.md**: use the 4 prompts in Stage 5 — CLAUDE.md audit / generate ([Stage 5.1](/en/stages/05-claude-code-ecosystem/#51--claude-code-basics)) + SKILL.md audit / generate ([Stage 5.3](/en/stages/05-claude-code-ecosystem/#53--skills-claude-codes-behavior-layer--the-most-critical-layer-of-the-claude-code-ecosystem)).
 
 5. **Verify with an acceptance gate**: preset YAML catches drift / LLM-as-judge automates evaluation / human spot-checks cover edge cases.
    → [agent-collab-skills](https://github.com/WenyuChiou/agent-collab-skills)
@@ -519,6 +521,8 @@ This is not just a reading list. It is a **decision tree**: identify the problem
 - [李宏毅 GenAI 2024 / 2025](https://speech.ee.ntu.edu.tw/~hylee/)
 - [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents)
 
+> 📋 **After advanced concepts, revisit this synthesis** → [Stage 5 §🗺️ 7-Layer Architecture Map](/en/stages/05-claude-code-ecosystem/#-7-layer-architecture-map-read-this-first-then-51-56) (Claude Code's 7 primitives + 3 engineering disciplines in one map)
+
 ## ✅ Self-check
 
 After this stage, you should be able to:
@@ -531,3 +535,7 @@ After this stage, you should be able to:
 - [ ] Write the task's work boundary explicitly into a brief (what is in-scope / out-of-scope)
 
 → If you can do all of these, you are already beyond Stage 7 productionization and into frontier agentic workflow design. **What remains is to pick the paper that matches your current pain point and read that one deeply.**
+
+---
+
+→ Next: [**Stage 8 — Agent Interfaces**](/zh-tw/stages/08-agent-interfaces/) (**a shared hub for both tracks**) — learn how agents interact with the non-API world (Computer Use / Browser Use / Code Sandbox). Or pick a [specialized branch](/en#-learning-map-two-tracks), or come back and contribute to this repo.

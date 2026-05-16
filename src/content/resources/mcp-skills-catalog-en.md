@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -21,8 +21,8 @@ baseSlug: "mcp-skills-catalog"
 ## How to use this catalog
 
 - **Looking for a specific tool's MCP**: jump to the relevant section below
-- **Want to know what MCP / Skills / Plugins are**: see [README "Three core terms"](/en#three-core-terms-mcp--skills--plugins) first, then [Stage 5 — Claude Code Ecosystem](/en/stages/05-claude-code-ecosystem/)
-- **Want hands-on exercises (install + test)**: see [Stage 5.2 (MCP)](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol-foundation) and [Stage 5.3 (Skills)](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer)
+- **Want to know what MCP / Skills / Plugins are**: see [RESOURCES.en.md "Three core terms"](../RESOURCES.en.md#three-core-terms-mcp--skills--plugins) first, then [Stage 5 — Claude Code Ecosystem](/en/stages/05-claude-code-ecosystem/)
+- **Want hands-on exercises (install + test)**: see [Stage 5.2 (MCP)](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation) and [Stage 5.3 (Skills)](/en/stages/05-claude-code-ecosystem/#53--skills-claude-codes-behavior-layer--the-most-critical-layer-of-the-claude-code-ecosystem)
 
 ### Inclusion direction (not strict rules)
 

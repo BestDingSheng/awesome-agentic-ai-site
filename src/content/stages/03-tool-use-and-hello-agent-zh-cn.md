@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -151,7 +151,7 @@ AI (Artificial Intelligence、人工智能)
 >
 > 🆘 **卡住了？** Tool calling 是整个 curriculum 最陡的学习曲线。装 [`examples/stage-5/tool-calling-tutor/`](../examples/stage-5/tool-calling-tutor/) skill——当你 prompt Claude Code「为什么 LLM 不调用我的 tool」、「我这 schema 哪里写坏」会自动加载、走 4-symptom 诊断流程。
 >
-> 🪜 **本 stage 是 single-agent 起点**：一个 LLM + ReAct loop。**Multi-agent 概念**（多个 agent 协作）入门看 [Stage 4 什么是 multi-agent framework](/zh-tw/stages/04-agent-frameworks/#-什么是-multi-agent-framework)、**Claude 原生 subagent 机制**（`.claude/agents/` + Task tool、不需 framework）看 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-机制-2025-新功能)。
+> 🪜 **本 stage 是 single-agent 起点**：一个 LLM + ReAct loop。**Multi-agent 概念**（多个 agent 协作）入门看 [Stage 4 什么是 multi-agent framework](/stages/04-agent-frameworks/#-什么是-multi-agent-framework)、**Claude 原生 subagent 机制**（`.claude/agents/` + Task tool、不需 framework）看 [Stage 5.5](/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-机制-2025-新功能)。
 
 ### 练习 1：Function Calling（一个工具、一次调用）
 给 Claude 一个工具（假的天气 API）跟一个问题（「台北现在有下雨吗？」）。看 Claude 怎么调用工具、拿到结果、再回答你。

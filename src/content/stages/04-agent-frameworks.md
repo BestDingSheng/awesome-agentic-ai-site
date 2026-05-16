@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "04-agent-frameworks"
@@ -113,14 +113,9 @@ order: 4
 
 **Multi-agent 不只有 framework 這條路**。Anthropic 自家的 Claude Code 提供另一個 abstraction 層：[subagent](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能) — 寫一個 `.claude/agents/<name>.md` 檔就是一個 subagent，**不需要 framework**。
 
-跟 framework 路線的根本差異：
+跟 framework 路線的根本差異（一句話）：**framework 路線**跨 LLM provider、寫 Python orchestration code、checkpointing / audit trail 完整；**Claude Code subagent** 只在 Claude Code runtime 內、寫 markdown 不寫 code、天生 context 隔離。
 
-| 維度 | Framework 路線（本 stage 主題） | Claude Code subagent |
-|---|---|---|
-| **跑哪** | 多數 framework 跨 LLM provider（LangGraph / CrewAI / AutoGen）；OpenAI Agents SDK 跟 Strands Agents 例外、綁定自家生態 | 只在 Claude Code runtime 內 |
-| **怎麼寫** | Python code + `langgraph.graph()` / `Crew(agents=...)` 之類 | `.claude/agents/X.md` markdown + frontmatter（檔案開頭的 YAML metadata） |
-| **適合誰** | 跨 LLM provider production system | 已 commit Claude Code 的工程團隊 |
-| **核心 benefit** | **checkpointing + state persistence**（LangGraph）、**audit trail / time-travel debug**（production 稽核必備）、orchestration 控制、跨 provider 可攜 | context preservation + 角色 specialization + tool constraint + cost control（route 到便宜 model）|
+> 📌 **完整逐維度對照表（啟動方式 / runtime / context 隔離 / provider lock-in / 學習曲線）的 canonical 在 [Stage 5.5 開頭](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)**——本 stage 只需知道「multi-agent 還有 Claude Code 原生這第二條路」、逐項實作差異到 5.5 再看。
 
 **何時選 subagent 而非 framework**：
 - 你已經在用 Claude Code 跑日常工作
@@ -157,7 +152,7 @@ Framework 把上面這 5 個 pattern 的 orchestration boilerplate（roles、han
 > 2. **跑 1 個 framework quickstart**（2-3 hr）— LangGraph 或 CrewAI 二選一、跑官方多 agent 教學
 > 3. **對照 Anthropic Cookbook `customer_service_agent`**（1 hr）— production-style routing + handoff 範例
 > 4. *(可選)* **深入學術側**：挑 paper 1-2 篇看（AutoGen / CAMEL / ChatDev / Generative Agents）
-> 5. *(Claude 用戶可選)* **寫一個 subagent 對照**：見 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)、跟 framework 路線比較
+> 5. *(Claude 使用者可選)* **寫一個 subagent 對照**：見 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)、跟 framework 路線比較
 >
 > **不必把 5 個 paper 全讀完**、挑跟你場景最近的 1-2 個。
 
@@ -237,4 +232,4 @@ Stage 3 教你寫 single tool / multi-tool selection（手寫 `if/elif/else` 路
 
 不要想把這些全部學完。挑**一個 production 等級的（LangGraph）**跟**一個快速雛形用的（CrewAI）**深入學。其他的 README 瀏覽過去就好，知道有這些選項存在即可。
 
-**Memory 預備**（學的時候可能碰到、不用先讀）：有些 framework 功能會用到 memory 概念 — LangGraph 的 checkpointing（狀態持久化）、CrewAI agent 之間傳遞任務結果（輕量 memory）。這些在 [Stage 6 — Memory & RAG](/zh-tw/stages/06-memory-rag/) 完整講；本 stage 看不懂某個 framework 功能時、再去那邊查就好，**不用先讀完才能進 Stage 4**。
+**Memory 預備**（學的時候可能碰到、不用先讀）：有些 framework 功能會用到 memory 概念 — LangGraph 的 checkpointing（狀態持久化）、CrewAI agent 之間傳遞任務結果（輕量 memory）。這些在 [Stage 6 — Memory & RAG](/zh-tw/stages/06-memory-rag/) 完整講；本 stage 看不懂某個 framework 功能時、再去那邊查就好，**不用先讀完才能繼續本 stage**。

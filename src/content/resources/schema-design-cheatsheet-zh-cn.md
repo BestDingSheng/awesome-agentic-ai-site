@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "schema-design-cheatsheet"
@@ -159,4 +159,4 @@ LLM 看到 `success: false` 就知道要处理错误，不会把空数据当答�
 - [Anthropic — Tool Use Guide](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview) — 官方 schema 规格
 - [OpenAI — Function Calling](https://platform.openai.com/docs/guides/function-calling) — OpenAI 的 schema 规格（跟 Anthropic 略有差异）
 - [Stage 3 — Tool Use & Agent 入门](/zh-tw/stages/03-tool-use-and-hello-agent/) — 主要动手练习
-- [Stage 5.2 — MCP 基础](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) — MCP server 的 tool schema（跟 function calling schema 结构几乎相同）
+- [Stage 5.2 — MCP 基础](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) — MCP server 的 tool schema（跟 function calling schema 结构几乎相同）

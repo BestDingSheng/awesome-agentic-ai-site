@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cookbook.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cookbook"
@@ -150,7 +150,7 @@ from mypackage import foo",
 
 ### 进一步
 
-- 看 [Stage 5.3](/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行为层) 的 Skill anatomy 详解
+- 看 [Stage 5.3](/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行为层-claude-code-生态最关键的一层) 的 Skill anatomy 详解
 - 看 [`anthropics/skills`](https://github.com/anthropics/skills) 官方 skill 模板（docx / xlsx / pptx 等）的写法
 - 多个 skill 打包成 plugin → [Stage 5.4](/stages/05-claude-code-ecosystem/#54--plugins-与-marketplaces)
 

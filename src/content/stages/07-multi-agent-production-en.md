@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -69,19 +69,7 @@ Engineering work can be split into three layers, corresponding to different posi
 
 **Multi-agent is not the default; it is a design you use only when the task truly needs it.** In most scenarios, you should first try a simple workflow or a single agent; **only when the task is naturally decomposable, needs parallel exploration, a single context is not enough, or explicit role separation is needed, is multi-agent worth introducing**. Forcing it brings **3-10× token cost, difficult debugging, and severe context fragmentation (context gets split across multiple agents, and no one sees the whole picture)**.
 
-| Stance | Source | Core argument |
-|---|---|---|
-| **Anthropic** | [Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents), [How we built our multi-agent research system (2025)](https://www.anthropic.com/engineering/built-multi-agent-research-system) | Multi-agent is suitable for **high-value tasks that benefit from parallel exploration, need many tools, or exceed a single context**; token usage can be many times higher than a single chat. |
-| **Cognition** | [Don't Build Multi-Agents (2025)](https://cognition.ai/blog/dont-build-multi-agents) | Context fragmentation is severe in multi-agent systems, and maintaining shared state is painful; only consider it after exhausting single-agent + long-context options. |
-
-Only use multi-agent when you see these **4 clear signals** (for details, see [Stage 4 When do you really need multi-agent](/zh-tw/stages/04-agent-frameworks/#when-do-you-really-need-multi-agent-dont-force-it)):
-
-1. **Natural Task Decomposition** — A large task has clear sub-steps and can be completed step by step → Sequential / Planner-Executor
-2. **Token Explosion** — A single-agent prompt cannot fit all tool descriptions / context → Supervisor-Worker
-3. **Role Conflict** — Using the same LLM as both writer and critic leads to self-justification → Debate / Peer review
-4. **Parallel Acceleration** — Running 3 research subtasks at the same time reduces wall-clock time to 1/3 → Parallel / Map-Reduce
-
-**None of these 4 signals present?** → A single agent + good prompts + tool use is enough. Don't force multi-agent. **The harness engineering part of this stage (8 components / eval / observability) still applies even if you end up using a single agent**—so this stage is still required reading even if you decide against multi-agent.
+> 📌 **The decision framework's canonical home is Stage 4**: the full Anthropic / Cognition stance comparison + the 4 "should you go multi-agent" signals + each signal's corresponding pattern live in [Stage 4 §When do you really need multi-agent](/en/stages/04-agent-frameworks/#when-do-you-really-need-multi-agent-dont-force-it) (design-phase decision). This section is only the last sanity check before production — **none of the 4 signals present?** → a single agent + good prompts + tool use is enough; don't force multi-agent. **The harness engineering part of this stage (8 components / eval / observability) still applies even if you end up using a single agent**—so this stage is still required reading even if you decide against multi-agent.
 
 ## 📌 Learning Objectives
 
@@ -160,7 +148,7 @@ To turn an LLM into a usable agent, you usually run into three layers of enginee
 
 Want to see what a production-grade harness looks like? Two references:
 
-- **The entire Claude Code runtime** — is a reference harness implementation. **For a source-reading exercise, see [Stage 5.6](/zh-tw/stages/05-claude-code-ecosystem/#56--dissecting-claude-code-source-a-reference-harness-implementation-track-b-must-see)** (clone `claude-agent-sdk-python` and dissect the main loop + where the first 6 runtime components from the table above live; the 7th, Eval harness, is a plugin, and the 8th, Cost / Latency, is cross-cutting, see the deep-dive below)
+- **The entire Claude Code runtime** — is a reference harness implementation. **For a source-reading exercise, see [Stage 5.6](/en/stages/05-claude-code-ecosystem/#56--dissecting-claude-code-source-reference-harness-implementation--a-must-read-for-track-b)** (clone `claude-agent-sdk-python` and dissect the main loop + where the first 6 runtime components from the table above live; the 7th, Eval harness, is a plugin, and the 8th, Cost / Latency, is cross-cutting, see the deep-dive below)
 - **`anthropics/claude-agent-sdk-python`** source — the specific repo used in the exercise above
 
 → The remaining 6 exercises in this stage (multi-agent / eval / observability / SDK / deploy / cost) each cover one facet of the harness. Completing the full stage = assembling a complete mental model of harness engineering.
@@ -309,7 +297,7 @@ Categorized by use case, a single table to get you started with 22 projects. **U
 | | [OpenBMB/ChatDev](https://github.com/OpenBMB/ChatDev) | ⭐⭐⭐⭐ | For seeing agent debate / peer-review patterns | Conversational software development where agents debate each other on design / code / test. ★ 33k+, Apache 2.0, has a zh README |
 | | [princeton-nlp/SWE-agent](https://github.com/princeton-nlp/SWE-agent) | ⭐⭐⭐⭐ | To understand why tool design > prompt tuning | The Agent-Computer Interface (ACI) design philosophy, backed by a Princeton paper, a leading method on SWE-Bench. ★ 19k+, MIT |
 
-> 🌳 For **Claude's native subagent mechanism** (multi-agent without a framework), see [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism). This stage focuses on frameworks / production; Stage 5.5 focuses on markdown-based subagent orchestration.
+> 🌳 For **Claude's native subagent mechanism** (multi-agent without a framework), see [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature). This stage focuses on frameworks / production; Stage 5.5 focuses on markdown-based subagent orchestration.
 
 ## ✅ Self-Check After Stage 7
 
@@ -320,7 +308,7 @@ Can you:
 - [ ] Measure the cost difference before and after implementing prompt caching on a real workload?
 - [ ] Deploy an agent to the cloud (any provider)?
 
-If you can do all of these → proceed to [**Stage 8 — Agent Interfaces**](/zh-tw/stages/08-agent-interfaces/) (**a shared hub for both tracks**) to learn how agents interact with the non-API world (Computer Use / Browser Use / Sandbox). Or, pick a [specialized branch](/en#️-7-stage-learning-map), or come back and contribute to this repo.
+If you can do all of these → first go to [**Stage 7.5 — Advanced Agentic Concepts Map**](/zh-tw/stages/07-5-advanced-agentic-concepts/) (1 week, no coding — build a frontier concept map and locate which advanced concepts the industry is still debating), then proceed to [**Stage 8 — Agent Interfaces**](/zh-tw/stages/08-agent-interfaces/) (**a shared hub for both tracks**) to learn how agents interact with the non-API world (Computer Use / Browser Use / Sandbox). Or, pick a [specialized branch](/en#-learning-map-two-tracks), or come back and contribute to this repo.
 
 ## 💡 What's Next
 

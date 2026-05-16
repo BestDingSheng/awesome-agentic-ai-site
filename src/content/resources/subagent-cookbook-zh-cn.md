@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/subagent-cookbook.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/subagent-cookbook.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "subagent-cookbook"
@@ -33,7 +33,7 @@ baseSlug: "subagent-cookbook"
 
 > 💡 **怎么实际派遣 subagent**：在你的 Claude Code 终端对话框里，**直接输入（或粘贴）prompt 模板**——就这样。Claude 看到指令，会自动通过 Task tool（内部派遣机制）找到对应 subagent 跑，跑完后向主 session 回报一段摘要。**不需要 slash command，不需要特殊语法**。
 >
-> 📌 **subagent ≠ slash command**：slash command（如 `/help` / `/compact` / `/agents`）执行 Claude Code 内置功能；subagent 是派出一个“子 Claude”跑独立任务，结果回报主 session。`/agents` 是查看当前可用 subagent 的指令，不是用来“调用”subagent。
+> 📌 **subagent ≠ slash command**：`/agents` 是列表命令，**不是调用 subagent 的方式**；派遣 subagent 直接打对话 prompt 文字即可。完整对比表（subagent vs skill / vs slash command / description router）见 [Stage 5.5 §易混淆观念厘清](/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-机制-2025-新功能)。
 
 ---
 
@@ -41,17 +41,9 @@ baseSlug: "subagent-cookbook"
 
 在你的 Claude Code session 里跑 `/agents` 这个指令，会列出全部当前可用的 subagent（内置 + plugin + 自定义）。
 
-**Claude Code 默认内置的 7 个**（截至 2025-11，可能会变动）：
+**Claude Code 默认内置 7 个** subagent：`general-purpose` / `code-reviewer` / `Explore` / `Plan` / `frontend-developer` / `claude-code-guide` / `statusline-setup`（截至 2025-11，可能会变动）。
 
-| 名称 | 一句话功能 |
-|---|---|
-| `general-purpose` | 通用研究 / 多步骤任务 / fallback |
-| `code-reviewer` | Review diff，找 bug + 安全问题 |
-| `Explore` | 只读搜索 codebase，找 code |
-| `Plan` | 设计 step-by-step 实作计划 |
-| `frontend-developer` | React / UI / 响应式 / a11y |
-| `claude-code-guide` | 问 Claude Code 自己的 feature 怎么用 |
-| `statusline-setup` | 设置 status line（小工具）— 直接调用即可，无独立 recipe |
+> 📌 **每个内置 subagent 的功能说明 + 「遇到 X 任务用 Y」decision table 的 canonical 在 [Stage 5.5 §可派遣的 subagent 有哪些](/stages/05-claude-code-ecosystem/#可派遣的-subagent-有哪些)**——本 cookbook 聚焦「怎么派遣」的 15 个 recipe，内置清单与选用逻辑以 Stage 5.5 为准。
 
 > 💡 **如果 `/agents` 列表跟这份 cookbook 不一致**：表示你装了 plugin，或 Claude Code 版本不同。**recipe 名字对不上时，找最接近的 subagent 用就好**（例如没有 `Explore`，用 `general-purpose` 也能跑搜索）。
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
@@ -110,11 +110,12 @@ LLMs can use your private / domain data in three main ways. **This stage teaches
 ## 🚪 Prerequisites
 
 You should have already:
-- Completed Stage 3 (ability to write tool use, call LLM APIs, understand ReAct loop)
+- Completed Stage 3 (ability to write tool use, call LLM APIs, understand ReAct loop) — **hard technical prerequisite**
+- Walked through Stage 4 (agent frameworks) + Stage 5 (Claude Code ecosystem) — the curriculum main line is **3 → 4 → 5 → 6** (see the [README learning map](/en#-learning-map-two-tracks)); not a hard technical prerequisite, but RAG / memory often pairs with frameworks + Claude Code memory mechanisms so following the sequence gives a more complete understanding, and [Stage 7](/zh-tw/stages/07-multi-agent-production/) expects you to have completed 4 + 5 + 6
 - Be able to run Python `pip install` to install SDKs (will use `chromadb`, `sentence-transformers`, etc. later)
 - Be comfortable with basic Python structures like lists, dicts, and generators.
 
-If not, refer back to [Stage 3](/zh-tw/stages/03-tool-use-and-hello-agent/) or [Stage 0 Setup Guide](/zh-tw/stages/00-foundations/#when-can-i-skip-this-stage).
+If not, refer back to [Stage 3](/zh-tw/stages/03-tool-use-and-hello-agent/) or [Stage 0 Setup Guide](/en/stages/00-foundations/#when-to-skip-this-stage).
 
 ## 📚 Required Reading
 
@@ -581,7 +582,7 @@ print(chunks[0])
 
 ## 🪞 Advanced: Full Reflexion with Persistent Memory ⭐ Track B Elective
 
-> **This section covers concepts and routing; it's not a practice exercise.** It expands on the basic Reflexion from [Stage 3 Reflection](/zh-tw/stages/03-tool-use-and-hello-agent/#-reflectionreflexion--self-refine-concept--routing) by explaining why some reflections require persistent memory—this version truly belongs in Stage 6.
+> **This section covers concepts and routing; it's not a practice exercise.** It expands on the basic Reflexion from [Stage 3 Reflection](/en/stages/03-tool-use-and-hello-agent/#-reflection-reflexion--self-refine--concept--routing) by explaining why some reflections require persistent memory—this version truly belongs in Stage 6.
 
 **Difference Between Full Reflexion and Self-Refine**:
 

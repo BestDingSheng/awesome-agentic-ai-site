@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -16,6 +16,8 @@ order: 5
 > **繁體中文** | [简体中文](/stages/05-claude-code-ecosystem/) | [English](/en/stages/05-claude-code-ecosystem/)
 
 ⏱ **時間估算**：3-4 週（約 15-25 小時）
+
+> 🚪 **進入條件**（共用 hub、依 track 不同）：**Track A（CLI Power User）** 從 A1-A2 過來、會用 Python + 跑過基本 CLI 即可、從 5.1/5.2 起步；**Track B（Agent Builder）** 建議先完成 [Stage 3](/zh-tw/stages/03-tool-use-and-hello-agent/)（tool use）+ [Stage 4](/zh-tw/stages/04-agent-frameworks/)（agent frameworks）再進、把整個 stage 當「Claude Code 內部怎麼運作」深讀。不確定走哪條 → 看下面 📌 的兩軌說明。
 
 > 💡 整個 stage 圍繞 4 個關鍵詞（**MCP / Skills / Plugins / Marketplace**）展開 → 不熟先翻 [`resources/glossary.md` 5](/zh-tw/resources/glossary/#5-claude-code-生態)。
 
@@ -58,11 +60,86 @@ order: 5
 
 ---
 
+## 🗺️ 7-Layer Architecture Map（先看這張圖、再讀 5.1-5.6）
+
+> 📋 **這節是什麼**：把 Claude Code 的 7 個 primitive（MCP / Skills / Plugins / Subagents / Hooks / Slash commands / CLI）對應到 **7 個架構層 + 3 個工程學 discipline**——進 5.1-5.6 之前看一次知道接下來在學什麼層、學完回頭看是 synthesis。**分層是教學選擇、不是 absolute 真理**。
+
+![Claude Code 7-Layer Architecture Map](/upstream/resources/diagrams/claude-architecture-map.png)
+
+> 📊 **上圖**：Claude Code 7 個架構層 + 3 個工程學 discipline 整合視圖（accessible ASCII 版見下）。
+
+### ASCII 版（accessible、git diff friendly）
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Layer 7 — Interface       │ CLI / GUI                      │
+│            （介面層）        │ → Claude: claude-code CLI      │
+├─────────────────────────────────────────────────────────────┤
+│  Layer 6 — Workflow        │ ◄── Skills 主要住這             │
+│            （固定流程）      │     Slash commands             │
+├─────────────────────────────────────────────────────────────┤
+│  Layer 5 — Coordination    │ Subagents / Multi-agent        │
+│            （協調層）        │                                │
+├─────────────────────────────────────────────────────────────┤
+│  Layer 4 — Memory / Context│ History / Compaction / /compact │
+│            （記憶 / 上下文） │                                │
+├─────────────────────────────────────────────────────────────┤
+│  Layer 3 — Control Plane   │ Hooks（PreToolUse / PostToolUse）│
+│            （控制層）        │                                │
+├─────────────────────────────────────────────────────────────┤
+│  Layer 2 — Tool Use        │ Anthropic Tool Use protocol     │
+│            （工具呼叫）      │                                 │
+│  Layer 2.5 — Tool Provider │ ◄── MCP servers 在這(protocol層)│
+├─────────────────────────────────────────────────────────────┤
+│  Layer 1 — Foundation      │ Anthropic API（Sonnet/Opus/...) │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 每層 1 句白話 + Claude 的版本
+
+| Layer | 是什麼 | Claude 的版本 | 誰管 | 學在 |
+|---|---|---|---|---|
+| **L7 Interface** | 使用者跟 agent 交談入口 | claude-code CLI / Desktop | Harness Eng | [Stage 5.1](#51--claude-code-基礎) |
+| **L6 Workflow** | 固定可重用流程模板 | **Skills**（SKILL.md）+ Slash commands + **Plugins**（打包 Skills / hooks / commands、屬 packaging）| Prompt Eng | [Stage 5.3](#53--skillsclaude-code-的行為層-claude-code-生態最關鍵的一層) / [5.4](#54--plugins-與-marketplaces) |
+| **L5 Coordination** | 多 agent 分工合作 | **Subagents** + Agent team + Background | Harness Eng | [Stage 5.5](#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能) |
+| **L4 Memory / Context** | 跨對話 / 跨 session 記事情 | History / `/compact` / Memory hooks | Context Eng | [Stage 6](/zh-tw/stages/06-memory-rag/) |
+| **L3 Control Plane** | tool 執行前 / 後攔截 / validation / 阻擋 | **Hooks**（PreToolUse / PostToolUse 等）| Harness Eng | [Stage 5.1 hooks 段](#51--claude-code-基礎) |
+| **L2 Tool Use** | LLM 呼叫外部 function 的 protocol | Anthropic Tool Use（`input_schema`）| Tool design | [Stage 3](/zh-tw/stages/03-tool-use-and-hello-agent/) |
+| **L2.5 Tool Provider** | 把外部 API 包成 tool 給 Layer 2 用 | **MCP servers**（Notion / Gmail / Slack）| Context Eng + Tool | [Stage 5.2](#52--mcpmodel-context-protocol-基礎) |
+| **L1 Foundation** | LLM 本體（system prompt 直接送達這層）| Anthropic API | Prompt Eng | [Stage 1](/zh-tw/stages/01-llm-basics/) + [Stage 2](/zh-tw/stages/02-prompt-engineering/) |
+
+### 3 工程學 Discipline overlay（核心 insight）
+
+「Prompt / Context / Harness」是**不同層的 discipline**——學會其中一個不會自動會另一個：
+
+| Discipline | 負責哪些 layer | 1 句話 | 學在 |
+|---|---|---|---|
+| **Prompt Engineering** | L1 + L6 | 「送進 LLM 的字串怎麼設計」 | [Stage 2](/zh-tw/stages/02-prompt-engineering/) |
+| **Context Engineering** | L4 + L2.5 | 「context window 裝什麼資訊」 | [Stage 6](/zh-tw/stages/06-memory-rag/) |
+| **Harness Engineering** | L3 + L5 + L7 | 「LLM 外面的 runtime scaffolding」 | [Stage 7 §Harness Engineering](/zh-tw/stages/07-multi-agent-production/#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念) |
+
+> 💡 **MCP 的特殊位置**：MCP 嚴格說是 **Context Engineering**（feed context source）+ **Tool design**（協議規範）跨層東西、不純歸任一 discipline——所以圖裡用 Layer 2.5 標明。
+
+### 跨 CLI vendor mini-comparison（2026-05 snapshot）
+
+只有 Claude Code 有**完整 7-layer stack**；其他 CLI 大多停在 single-agent + 簡化版：
+
+| Layer | Claude Code | OpenAI Codex | Gemini CLI |
+|---|---|---|---|
+| L5 Coordination（multi-agent）| ✅ Subagents | ❌ single-agent | ❌ |
+| L3 Control Plane（hooks）| ✅ Hooks | ❌ | ❌ |
+| L2.5 Tool Provider（MCP）| ✅ | ✅（已支援 MCP）| ✅（需手動裝 MCP server）|
+| L6 Workflow（Skills）| ✅ SKILL.md | AGENTS.md（context only）| GEMINI.md（context only）|
+
+→ 細看 [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)
+
+---
+
 ## 5.1 — Claude Code 基礎
 
 ### Claude Code 是什麼（先定位）
 
-**Claude Code = 跑在你 terminal 內的 Claude agent**——有完整 file system / shell / git / 子程序 access、可以**自主完成多步驟工作**（讀檔 → 改檔 → 跑 test → commit → 發 PR）。
+**Claude Code = 跑在你 terminal 內的 Claude agent**——有完整 file system / shell / git / subprocess access、可以**自主完成多步驟工作**（讀檔 → 改檔 → 跑 test → commit → 發 PR）。
 
 跟其他 Claude 介面差別：
 
@@ -297,7 +374,7 @@ Skill = **一個 markdown 檔**（`.claude/skills/<name>/SKILL.md`），告訴 C
 
 → **建議流程**：先 `/skill skill-creator` 拿乾淨骨架 → 用 Prompt 2 填內容 → 寫完用 Prompt 1 audit。
 
-**核心 mental model**：你發現自己「**每次都要打同樣的 prompt 教 Claude 怎麼做某件事**」→ 把它寫成 skill、下次就不用了。Claude Code 生態裡 **skill 是 power user 跟普通用戶的分水嶺**——熟練 skill 寫作的人能把 1 個小時的工作壓到 5 分鐘。
+**核心 mental model**：你發現自己「**每次都要打同樣的 prompt 教 Claude 怎麼做某件事**」→ 把它寫成 skill、下次就不用了。Claude Code 生態裡 **skill 是 power user 跟一般使用者的分水嶺**——熟練 skill 寫作的人能把 1 個小時的工作壓到 5 分鐘。
 
 ### Skill vs CLAUDE.md vs MCP vs Plugin vs Subagent — 一張表分清楚
 
@@ -471,6 +548,10 @@ Plugin
 
 到這裡為止你學了 MCP（工具層）/ Skills（行為層）/ Plugins（散佈層）。**Subagents 是 orchestration 層**——讓主 Claude session spawn 出有獨立 context 的子 agent、跑特定任務、回報結果。
 
+![Subagent 的 4 個生命週期：從 .md 檔到執行結果](/upstream/resources/diagrams/subagent-4-stage-flow.png)
+
+> 📊 **上圖**：subagent 從**定義 → 發現 → 派遣 → 執行** 4 個階段、看完這張再讀下面細節最快。
+
 跟 Stage 4 的 framework-based multi-agent（LangGraph / CrewAI / AutoGen）對照：
 
 | 維度 | Framework path (Stage 4) | Claude Subagent path（本節） |
@@ -543,9 +624,9 @@ Plugin
 | 找 code / 探索陌生 codebase 結構 | `Explore` | 專門做 read-only 搜尋、不會亂改 |
 | 設計實作 plan（不直接寫 code） | `Plan` | 輸出 step-by-step 計畫、適合大任務拆解前 |
 | Review staged diff / 安全審查 / 發 commit 前檢查 | `code-reviewer` | 結構化輸出 PASS/FAIL + 具體 fix |
-| 寫 / 改 UI component / 處理 accessibility | `frontend-developer` | React / 響應式 / a11y 領域知識 |
+| 寫 / 改 UI component / 處理 accessibility（無障礙設計）| `frontend-developer` | React / 響應式 / a11y（accessibility 縮寫、視障 / 鍵盤使用者也能用的設計）領域知識 |
 | 多步驟研究、不確定任務該歸哪類 | `general-purpose` | 通用、可 web search、適合 fallback |
-| 問 Claude Code 自己的 feature 怎麼用 | `claude-code-guide` | hooks / slash command / MCP 等問題 |
+| 問 Claude Code 自己的 feature 怎麼用 | `claude-code-guide` | hooks（工具執行前 / 後的攔截腳本、見下方 Gotcha #5）/ slash command（`/` 開頭的指令）/ MCP 等問題 |
 | 上面都不符合 | 自己寫 `.claude/agents/<name>.md` | 客製或公司 specific 流程 |
 
 **5 個常見情境的 mini cookbook**（完整 15 個 recipe 見下面）：
@@ -567,6 +648,8 @@ Plugin
 #### Subagent vs Skill — 5 個關鍵差別
 
 很多人把 Subagent 跟 Skill 當同一件事——其實**完全不同層的東西**：
+
+![Subagent vs Skill — 5 個關鍵差別](/upstream/resources/diagrams/subagent-vs-skill.png)
 
 | 維度 | Subagent（子 agent） | Skill（技能） |
 |---|---|---|
@@ -609,6 +692,33 @@ Plugin
 | 4 | **Subagent 沒「我之前說過 X」記憶** | 每次派遣都是**全新 context**、看不到主 session 對話。Prompt 要 self-contained、不能 reference「我們剛討論的 Y」 |
 | 5 | **Subagent 也吃 hook** | PreToolUse / PostToolUse（工具執行前 / 後的攔截腳本）在 subagent 內**也會 fire**。設 hook 時要想到這層 |
 
+#### Subagent 整體優缺點（讀完前面、回頭看這個 summary）
+
+**5 個優點**（為什麼存在）：
+
+| 優點 | 怎麼幫到你 |
+|---|---|
+| **Context 隔離** | 主 session window 不被污染——subagent 跑大檔案 / 長 log 不會擠掉主 session 的工作記憶 |
+| **Tool allowlist** | 限制 subagent 只能用 Read / Grep（不能寫檔 / 不能跑 Bash）= 安全 sandbox |
+| **Model override** | 跑簡單任務用 Haiku、跑難的用 Opus、混搭省成本——主 session 是 Opus 也可以叫 subagent 用 Haiku |
+| **Parallel spawn** | 一個 prompt spawn N 個 subagent 平行跑、wall clock 時間 ÷ N（適合 4 個 file 同時 audit）|
+| **專業化 prompt** | code-reviewer 永遠只 review、description 寫死「Use PROACTIVELY when commit」、不會被閒聊干擾 |
+
+**5 個缺點**（什麼時候不值得）：
+
+| 缺點 | 影響 |
+|---|---|
+| **Spawn 有 overhead** | 任務 < 5 分鐘、自己跑更快——subagent startup 也吃時間跟 token |
+| **無 cross-call memory** | 每次 spawn 都新 context、看不到「我們剛討論的 X」——prompt 必須 self-contained |
+| **只回一個 message** | subagent 是「派出去、跑完回報一次」、不能跟你來回對話、不適合需要逐步 feedback 的任務 |
+| **Token cost N ×** | spawn 4 個 = 用 4 倍 token——parallel 的 ROI 要算（時間省、錢花更多）|
+| **Debug 多一層** | 出錯不知該怪主 session description / subagent system prompt / 還是 prompt 本身——見 [advanced §3 debug 5 切點](/zh-tw/resources/subagent-advanced/#3-自製-subagent-的-debug-工具)|
+
+> 📌 **1 句話判斷**：任務 **≥ 5 分鐘** + **可以用一個 brief 寫死**（不需來回對話）+ **結果一次回來夠用**（不需逐步 feedback）→ 用 subagent；否則自己跑。
+
+
+> 📋 **準備自己寫 subagent / 組合多個 / debug 跑壞的？** → [`resources/subagent-advanced.md`](/zh-tw/resources/subagent-advanced/)（description 寫法 4 個 bug 對照、composition 3 種 pattern、debug 5 切點）
+
 
 <details>
 <summary>👉 具體 subagent 檔案範例（最簡單入門）</summary>
@@ -644,7 +754,7 @@ You are a senior code reviewer. When invoked:
 ### 學習目標
 
 - 講得出 subagent 跟 skill / MCP server 的差別（**subagent ≠ skill**：skill 是行為 prompt，subagent 是**另一個 Claude instance with isolated context**）
-- 寫一個 `.claude/agents/<name>.md` 自訂 subagent（frontmatter + system prompt + tool whitelist）
+- 寫一個 `.claude/agents/<name>.md` 自訂 subagent（frontmatter + system prompt + `tools:` 白名單——明寫允許的工具清單）
 - 從主 session 用 Task tool invoke subagent，觀察 context 隔離（parent 看不到 subagent 的中間 step、只看到最終 result）
 - 知道何時用 subagent（parallel research / large-context isolated task / specialized review），何時不用（小 query 用 skill 即可）
 
@@ -731,7 +841,7 @@ You are a senior code reviewer. When invoked:
 |---|---|---|---|
 | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | 所有 Track B 學習者、想搞清楚「Claude Code 內部怎麼跑」 | **canonical Python harness、本節練習就是讀這個 repo**。後面 Stage 7 deploy 也會 import |
 | [ZhangHanDong/harness-engineering-from-cc-to-ai-coding](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) | ⭐⭐⭐⭐ | 中文 reader 想看「為什麼 Claude Code 這樣設計」 | 中文圈最完整 CC 內部解讀（harness 概念 → CC 實作 → 跟其他 AI coding tool 對比）。**配合 SDK source 互補看**——一個告訴你「怎麼做」、一個告訴你「為什麼這麼做」 |
-| [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | 5.6 讀完想擴大視野 | community curation：30+ harness / eval / memory / observability / MCP project（★ 780+）。**廣度資源庫、非教程**——挑感興趣的 sub-topic 鑽進去 |
+| [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | 5.6 讀完想擴大視野 | community curation：30+ harness / eval / memory / observability / MCP project（★ 780+）。**廣度資源庫、非教學**——挑感興趣的 sub-topic 鑽進去 |
 | [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | 寫完 5.5 自己的 subagent 後想看 production-grade 範本 | 50+ subagent definition 的 ergonomic 設計（description / tool list / system prompt 分層）。**讀 source 比讀文件學得多**。在 5.5 已介紹、本節 cross-ref |
 
 > 💡 **本節跟 Stage 7 的差別**：本節學「Claude Code 這個 harness 怎麼跑」（具體 reference）；Stage 7 學「production harness 一般要有什麼」（抽象 pattern）。**先具體後抽象**、看完本節再進 Stage 7 會輕鬆很多。

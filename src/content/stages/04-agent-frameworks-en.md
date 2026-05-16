@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "04-agent-frameworks"
@@ -111,16 +111,11 @@ You typically need multi-agent when one of these four signals appears:
 
 > **This section is on a different level than the 5 patterns above**: The 5 patterns are design choices that can be implemented with or without a framework. The **Claude Code subagent** introduced here is another execution model (built-in runtime orchestration, no framework code). After reading about the 5 patterns, this section shows you "there's a second path for multi-agent."
 
-**Frameworks aren't the only way to do multi-agent.** Anthropic's own Claude Code offers another layer of abstraction: the [subagent](/en/stages/05-claude-code-ecosystem/#55--subagents-native-multi-agent-in-claude-code-new-in-2025). You create a subagent by writing a `.claude/agents/<name>.md` file—**no framework required**.
+**Frameworks aren't the only way to do multi-agent.** Anthropic's own Claude Code offers another layer of abstraction: the [subagent](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature). You create a subagent by writing a `.claude/agents/<name>.md` file—**no framework required**.
 
-The fundamental difference from the framework path:
+The fundamental difference from the framework path (in one line): the **framework path** is cross-LLM-provider, written as Python orchestration code, with full checkpointing / audit trail; **Claude Code subagent** runs only inside the Claude Code runtime, written as markdown not code, with built-in context isolation.
 
-| Dimension | Framework Path (Topic of this stage) | Claude Code Subagent Path |
-| ------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| **Where it runs** | Most frameworks are cross-LLM provider (LangGraph / CrewAI / AutoGen); OpenAI Agents SDK and Strands Agents are exceptions, tied to their ecosystems. | Only within the Claude Code runtime. |
-| **How you write it**| Python code + framework-specific syntax like `langgraph.graph()` / `Crew(agents=...)`. | `.claude/agents/X.md` markdown files with frontmatter. |
-| **Who it's for** | Production systems that need to be cross-LLM provider. | Engineering teams already committed to the Claude Code ecosystem. |
-| **Core Benefits** | **Checkpointing + state persistence** (LangGraph), **audit trail / time-travel debug** (essential for production), orchestration control, cross-provider portability. | Context preservation, role specialization, tool constraints, cost control (by routing to cheaper models). |
+> 📌 **The full dimension-by-dimension comparison table (startup / runtime / context isolation / provider lock-in / learning curve) lives canonically at [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature)** — this stage only needs you to know "there's a second, Claude-Code-native path"; see 5.5 for the per-item implementation differences.
 
 **When to choose subagents over a framework**:
 - You're already using Claude Code for your daily work.
@@ -128,7 +123,7 @@ The fundamental difference from the framework path:
 - You want to run multiple subagents in parallel (research / write / critic) to save wall-clock time.
 - You don't need cross-provider migration.
 
-For detailed implementation and hands-on exercises, see [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-native-multi-agent-in-claude-code-new-in-2025) (**it's recommended to complete Stage 5.1 on Claude Code basics before tackling 5.5**—subagents are an advanced feature of the ecosystem and require familiarity with the basics).
+For detailed implementation and hands-on exercises, see [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature) (**it's recommended to complete Stage 5.1 on Claude Code basics before tackling 5.5**—subagents are an advanced feature of the ecosystem and require familiarity with the basics).
 
 ### What Frameworks Do
 
@@ -157,7 +152,7 @@ Frameworks abstract away the orchestration boilerplate for the 5 patterns above 
 > 2. **Run a framework quickstart** (2-3 hr) — Pick either LangGraph or CrewAI and run their official multi-agent tutorial.
 > 3. **Cross-reference with Anthropic's Cookbook `customer_service_agent`** (1 hr) — A production-style routing + handoff example.
 > 4. *(Optional)* **Dive into the academic side**: Pick 1-2 papers to read (AutoGen / CAMEL / ChatDev / Generative Agents).
-> 5. *(Optional for Claude users)* **Write a subagent for comparison**: See [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-native-multi-agent-in-claude-code-new-in-2025) and compare it to the framework approach.
+> 5. *(Optional for Claude users)* **Write a subagent for comparison**: See [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature) and compare it to the framework approach.
 >
 > **You don't need to read all 5 papers.** Pick the 1-2 that are most relevant to your use case.
 
@@ -209,7 +204,7 @@ Use Pydantic AI to build an agent that returns structured output (e.g., for a gi
 | | [agno-agi/agno](https://github.com/agno-agi/agno) | ⭐⭐⭐⭐ | Those who want a "build + serve + monitor" solution without the full LangGraph + LangSmith suite. | Multi-modal agent runtime + control plane. ★ 39k+, Apache-2.0. Learn the API in Stage 4, use the runtime in Stage 7. |
 | **Rapid Prototyping / Multi-agent**<br>(Role-based / handoff) | [CrewAI](https://github.com/crewAIInc/crewAI) ⭐ **This stage's #2 recommendation** | ⭐⭐⭐⭐ | Rapidly prototyping "researcher → writer → critic" pipelines. | Build a crew in ~20 lines of code. Lowest learning curve. ★ 50k+, MIT. ⚠️ No checkpointing for long workflows; use CrewAI for prototypes, LangGraph for production. |
 | | [Microsoft AutoGen / AG2](https://github.com/microsoft/autogen) | ⭐⭐⭐⭐ | Multi-agent debate / brainstorming / peer review patterns. | Conversational multi-agent, strong group-chat capabilities. ★ 57k+, CC-BY-4.0 (for docs). ⚠️ AG2 v0.4 was a major async-first rewrite; most tutorials are for v0.2, mind the version. |
-| | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | Teams already committed to the OpenAI ecosystem. | OpenAI's official library. Clean API for agent hand-off + structured output. MIT. **Major update in April 2026**: built-in sandbox (7 providers) + harness abstraction layer. The first architecturally sound approach for production coding agents ([details in Stage 8](/en/stages/08-agent-interfaces/#openai-agents-sdk-april-2026-update--why-its-a-milestone)). |
+| | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | Teams already committed to the OpenAI ecosystem. | OpenAI's official library. Clean API for agent hand-off + structured output. MIT. **Major update in April 2026**: built-in sandbox (7 providers) + harness abstraction layer. The first architecturally sound approach for production coding agents ([details in Stage 8](/en/stages/08-agent-interfaces/#why-the-april-2026-openai-agents-sdk-update-is-a-milestone)). |
 | | [OpenAI Swarm](https://github.com/openai/swarm) | ⭐⭐⭐⭐ Edu<br>⭐⭐⭐ Prod | To understand the **core mental model** of multi-agent systems without learning a full framework. | ~200 LOC, just two concepts: Agent + handoff. MIT. ⚠️ OpenAI labels it experimental/educational, not a production tool. **Read the source code as a chapter-length tutorial.** |
 | | [Strands Agents (AWS)](https://github.com/strands-agents/sdk-python) | ⭐⭐⭐⭐ | Teams already committed to the AWS cloud and Bedrock-native solutions. | Model-driven design (LLM plans on its own, no explicit graph). Apache 2.0. Released late 2025, integrates with AWS Lambda / Step Functions / Bedrock Agents. |
 | **Specialized Paths**<br>(CodeAct / typed / memory-first) | [Hugging Face Smolagents](https://github.com/huggingface/smolagents) | ⭐⭐⭐⭐ | Local LLM ecosystems, HF integration scenarios. | A prime example of the CodeAct pattern (agent writes Python code as its action, not JSON tool calls). ★ 27k+, Apache 2.0, ≤1000 LOC. |
@@ -237,4 +232,4 @@ If yes → Proceed to [Stage 5 — The Claude Code Ecosystem](/en/stages/05-clau
 
 Don't try to learn all of these. Pick **one production-grade (LangGraph)** and **one for rapid prototyping (CrewAI)** to learn in depth. For the others, just skim their READMEs to know they exist as options.
 
-**A heads-up on Memory** (you might encounter this while learning, no need to read ahead): Some framework features use memory concepts—LangGraph's checkpointing (state persistence), CrewAI agents passing task results to each other (lightweight memory). These are covered in full in [Stage 6 — Memory & RAG](/en/stages/06-memory-rag/). If you get stuck on a framework feature in this stage, check that section, but **you don't need to read it all before starting Stage 4**.
+**A heads-up on Memory** (you might encounter this while learning, no need to read ahead): Some framework features use memory concepts—LangGraph's checkpointing (state persistence), CrewAI agents passing task results to each other (lightweight memory). These are covered in full in [Stage 6 — Memory & RAG](/en/stages/06-memory-rag/). If you get stuck on a framework feature in this stage, check that section, but **you don't need to read it all before continuing this stage**.

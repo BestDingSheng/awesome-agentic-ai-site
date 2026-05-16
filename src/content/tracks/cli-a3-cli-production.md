@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a3-cli-production"
@@ -223,7 +223,7 @@ Track A 的人**已經在用** [Stage 7.5 的進階概念](/zh-tw/stages/07-5-ad
 - [ ] 把你的 CLAUDE.md / commands 打包過至少一次（即使只有自己用）
 - [ ] 知道什麼任務值得加 observability、什麼不值得
 
-如果都可以 → **Track A 完整通關**。挑一個 [specialized branch](/zh-tw#️-學習地圖兩條學習路徑) 繼續走（researcher / developer / teacher / knowledge-worker / everyday-users）。
+如果都可以 → **Track A 完整通關**。建議接著走 [**Stage 8 — Agent Interfaces**](/zh-tw/stages/08-agent-interfaces/)（**兩 track 共用 hub**：Computer Use / Browser Use / Code Sandbox，Track A 視角約 1-2 週），或挑一個 [specialized branch](/zh-tw#️-學習地圖兩條學習路徑) 繼續走（researcher / developer / teacher / knowledge-worker / everyday-users）。
 
 如果想再深入「**怎麼寫自己的 CLI agent**」（不是用現有的）→ 跳到 [Track B Stage 3](/zh-tw/stages/03-tool-use-and-hello-agent/) 開始。Track A 跟 Track B 互補。
 

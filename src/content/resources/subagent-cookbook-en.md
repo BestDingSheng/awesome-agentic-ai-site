@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/subagent-cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/subagent-cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "subagent-cookbook"
@@ -33,7 +33,7 @@ Each recipe uses the same 4-part structure:
 
 > 💡 **How to actually dispatch a subagent**: in your Claude Code terminal conversation, **type or paste the prompt template directly**. That is all. Claude sees the instruction, automatically uses the Task tool (Claude Code’s internal dispatch mechanism) to find the right subagent, runs it, and returns a short summary to the main session. **No slash command or special syntax is required**.
 >
-> 📌 **Subagent vs slash command**: slash commands such as `/help`, `/compact`, and `/agents` run built-in Claude Code functions. A subagent is a “child Claude” dispatched to run an independent task and report back to the main session. `/agents` lists currently available subagents; it is not how you invoke a subagent.
+> 📌 **Subagent vs slash command**: `/agents` is a list command, **not how you invoke a subagent**. To dispatch a subagent, type ordinary prompt text directly. For complete comparison tables (subagent vs skill / vs slash command / description router), see [Stage 5.5 §Common Confusing Concepts Clarified](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature).
 
 ---
 
@@ -41,17 +41,9 @@ Each recipe uses the same 4-part structure:
 
 Run `/agents` inside your Claude Code session. It lists every subagent currently available to you: built-in, plugin-provided, and custom.
 
-**The 7 built-in Claude Code subagents** (as of 2025-11; this may change):
+**The 7 built-in Claude Code subagents**: `general-purpose` / `code-reviewer` / `Explore` / `Plan` / `frontend-developer` / `claude-code-guide` / `statusline-setup` (as of 2025-11; this may change).
 
-| Name | One-line purpose |
-|---|---|
-| `general-purpose` | General research / multi-step tasks / fallback |
-| `code-reviewer` | Review diffs; find bugs + security issues |
-| `Explore` | Read-only codebase search; find code |
-| `Plan` | Design a step-by-step implementation plan |
-| `frontend-developer` | React / UI / responsive design / a11y |
-| `claude-code-guide` | Ask how to use Claude Code features |
-| `statusline-setup` | Configure the status line utility; invoke directly, no standalone recipe |
+> 📌 **Each built-in subagent's purpose + the "task X → use subagent Y" decision table live canonically at [Stage 5.5 §Which subagents can you dispatch?](/en/stages/05-claude-code-ecosystem/#which-subagents-can-you-dispatch)** — this cookbook focuses on the 15 dispatch recipes; treat Stage 5.5 as the source of truth for the built-in list and selection logic.
 
 > 💡 **If your `/agents` list does not match this cookbook**: you may have installed plugins, or your Claude Code version may differ. **When a recipe name does not match, use the closest available subagent**. For example, if you do not have `Explore`, `general-purpose` can still run a search task.
 

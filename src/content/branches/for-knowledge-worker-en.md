@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-knowledge-worker.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-knowledge-worker"
@@ -32,7 +32,7 @@ The table below splits a knowledge worker's day into 7 common scenarios. Most of
 | **Notion / knowledge-base cleanup** | Notes are messy, unstructured, and hard to find | Retag + classify + auto-summarize | Claude Desktop + Notion MCP |
 | **Documents / proposal drafts** | Specs and proposals get stuck | Outline → sections → polish | Claude.ai |
 
-> 💡 **MCP is central for knowledge workers**: new to MCP? Read [Stage 5.2 — MCP Foundation](/en/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol--foundation). Looking for available MCP servers? See [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/).
+> 💡 **MCP is central for knowledge workers**: new to MCP? Read [Stage 5.2 — MCP Foundation](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation). Looking for available MCP servers? See [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/).
 
 ## Curated Projects
 

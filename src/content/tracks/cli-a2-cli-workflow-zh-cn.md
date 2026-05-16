@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a2-cli-workflow"
@@ -93,7 +93,7 @@ official — Claude Code memory / CLAUDE.md 编写的官方说明，含 best pra
 ★ 178k+ — 不只是 skill collection，也是 production CLAUDE.md 范本。看 `.claude/` whole directory structure。
 
 #### [mattpocock/skills](https://github.com/mattpocock/skills) ⭐⭐⭐⭐
-工程师日常用的 skill 库。`.claude/` structure 是好参考。**更多 skill 范例见 [Stage 5.3 — Skills](/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行为层)。**
+工程师日常用的 skill 库。`.claude/` structure 是好参考。**更多 skill 范例见 [Stage 5.3 — Skills](/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行为层-claude-code-生态最关键的一层)。**
 
 ---
 

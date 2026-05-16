@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -98,7 +98,7 @@ AI (Artificial Intelligence、人工智慧)
 
 **🇺🇸 English**：
 1. [**Andrej Karpathy — "Intro to Large Language Models"**](https://www.youtube.com/watch?v=zjkBMFhNj_g) ⭐⭐⭐（1hr）— LLM 從零開始 visual intro（ex-OpenAI / ex-Tesla AI Director、英文圈最重視的 LLM 入門影片）
-2. [**Andrej Karpathy — "Let's build GPT from scratch"**](https://www.youtube.com/watch?v=kCc8FmEb1nY) ⭐⭐（2hr）— 想看 LLM 內部到代碼級的人
+2. [**Andrej Karpathy — "Let's build GPT from scratch"**](https://www.youtube.com/watch?v=kCc8FmEb1nY) ⭐⭐（2hr）— 想看 LLM 內部到程式碼級的人
 3. [**3Blue1Brown — "But what is a Transformer?"**](https://www.youtube.com/watch?v=wjZofJX0v4M) ⭐⭐⭐ — visual 解釋 LLM，英文圈最被推薦的視覺化教材
 4. [**Lilian Weng — "LLM Powered Autonomous Agents"**](https://lilianweng.github.io/posts/2023-06-23-agent/) ⭐⭐⭐ — canonical 1-page agent anatomy（Planning / Memory / Tool use / Action）、英文圈被引用最多的 agent 解剖文
 5. [**Anthropic — "Building Effective Agents"**](https://www.anthropic.com/research/building-effective-agents) ⭐ — Anthropic 觀點：何時該用 agent、何時 workflow 就夠
@@ -306,7 +306,7 @@ print(f"LLM 挑了: {tc.function.name}, args: {json.loads(tc.function.arguments)
 
 </details>
 
-→ **基礎 starter 範本** → [`examples/stage-3/02-multi-tool-selection/`](../examples/stage-3/02-multi-tool-selection/)（starter.py 含 stub + 簡單 test，illustrative，**不是 chapter-length 完整教程**；深度章節見 stage 開頭 📚 hello-agents callout）
+→ **基礎 starter 範本** → [`examples/stage-3/02-multi-tool-selection/`](../examples/stage-3/02-multi-tool-selection/)（starter.py 含 stub + 簡單 test，illustrative，**不是 chapter-length 完整教學**；深度章節見 stage 開頭 📚 hello-agents callout）
 
 ### 練習 3：從零實作 ReAct（不用 framework）
 用 50-80 行 Python 把 Thought → Action → Observation 迴圈寫出來。不要 LangChain、不要 LangGraph，就是純 `while not done: thought; action; observation; ...`。
@@ -343,7 +343,7 @@ for step in range(5): # max_iter safety net
 
 </details>
 
-→ **基礎 starter 範本** → [`examples/stage-3/03-react-from-scratch/`](../examples/stage-3/03-react-from-scratch/)（含 mock-based test.py、不花 API 錢也能驗；illustrative，**不是 chapter-length 完整教程**——深度章節見 stage 開頭 📚 hello-agents callout）
+→ **基礎 starter 範本** → [`examples/stage-3/03-react-from-scratch/`](../examples/stage-3/03-react-from-scratch/)（含 mock-based test.py、不花 API 錢也能驗；illustrative，**不是 chapter-length 完整教學**——深度章節見 stage 開頭 📚 hello-agents callout）
 
 ### 練習 4：多步驟推理任務
 一個需要連續呼叫 3-5 次 tool 的任務。例如：「找出台北人口，除以紐約人口，再把比例換成百分比。」每一步用不同的工具。
@@ -368,7 +368,7 @@ TOOL_IMPL = {
 
 </details>
 
-→ **基礎 starter 範本** → [`examples/stage-3/04-multi-step-reasoning/`](../examples/stage-3/04-multi-step-reasoning/)（starter.py 含 stub + 簡單 test，illustrative，**不是 chapter-length 完整教程**；深度章節見 stage 開頭 📚 hello-agents callout）
+→ **基礎 starter 範本** → [`examples/stage-3/04-multi-step-reasoning/`](../examples/stage-3/04-multi-step-reasoning/)（starter.py 含 stub + 簡單 test，illustrative，**不是 chapter-length 完整教學**；深度章節見 stage 開頭 📚 hello-agents callout）
 
 ### 練習 5：錯誤處理
 讓某個工具失敗（網路錯誤、輸入無效）。看看 agent 會怎麼處理錯誤、能不能恢復，再加上 retry 機制。
@@ -405,7 +405,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 
 </details>
 
-→ **基礎 starter 範本** → [`examples/stage-3/05-error-handling/`](../examples/stage-3/05-error-handling/)（starter.py 含 stub + 簡單 test，illustrative，**不是 chapter-length 完整教程**；深度章節見 stage 開頭 📚 hello-agents callout）
+→ **基礎 starter 範本** → [`examples/stage-3/05-error-handling/`](../examples/stage-3/05-error-handling/)（starter.py 含 stub + 簡單 test，illustrative，**不是 chapter-length 完整教學**；深度章節見 stage 開頭 📚 hello-agents callout）
 
 ### 練習 6：Function schema 設計（壞 schema 修到好）
 **先給 LLM 一份故意寫爛的 schema**——`description` 模糊（「處理資料」）、參數全用 `type: string`、沒分 required / optional、enum 該用沒用。觀察 LLM 怎麼選錯 tool、傳錯參數。然後逐項修：
@@ -444,7 +444,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 
 </details>
 
-→ **基礎 starter 範本** → [`examples/stage-3/06-schema-design/`](../examples/stage-3/06-schema-design/)（含 bad schema vs good schema 兩個版本對照；illustrative，**不是 chapter-length 完整教程**——深度章節見 stage 開頭 📚 hello-agents callout）
+→ **基礎 starter 範本** → [`examples/stage-3/06-schema-design/`](../examples/stage-3/06-schema-design/)（含 bad schema vs good schema 兩個版本對照；illustrative，**不是 chapter-length 完整教學**——深度章節見 stage 開頭 📚 hello-agents callout）
 
 ## 🪞 反思（Reflexion / Self-Refine）— 概念 + 路由
 

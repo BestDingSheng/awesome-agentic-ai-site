@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "mcp-skills-catalog"
@@ -22,7 +22,7 @@ baseSlug: "mcp-skills-catalog"
 
 - **想找特定工具的 MCP**：直接看下面分类目录
 - **想看 MCP / Skills / Plugins 是什么**：先看 [README 三个核心用语](/#三个核心用语mcp--skills--plugins)，再看 [Stage 5 — Claude Code 生态系](/zh-tw/stages/05-claude-code-ecosystem/)
-- **想看 动手练习 怎么装、怎么测**：看 [Stage 5.2 (MCP)](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) 跟 [Stage 5.3 (Skills)](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層)
+- **想看 动手练习 怎么装、怎么测**：看 [Stage 5.2 (MCP)](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) 跟 [Stage 5.3 (Skills)](/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行为层-claude-code-生态最关键的一层)
 
 ### 收录原则
 

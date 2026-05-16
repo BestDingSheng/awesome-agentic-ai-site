@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "04-agent-frameworks"
@@ -113,14 +113,9 @@ order: 4
 
 **Multi-agent 不只有 framework 这条路**。Anthropic 自家的 Claude Code 提供另一个 abstraction 层：[subagent](/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-机制-2025-新功能) — 写一个 `.claude/agents/<name>.md` 档就是一个 subagent，**不需要 framework**。
 
-跟 framework 路线的根本差异：
+跟 framework 路线的根本差异（一句话）：**framework 路线**跨 LLM provider、写 Python orchestration code、checkpointing / audit trail 完整；**Claude Code subagent** 只在 Claude Code runtime 内、写 markdown 不写 code、天生 context 隔离。
 
-| 维度 | Framework 路线（本 stage 主题） | Claude Code subagent |
-| ---------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| **跑哪** | 多数 framework 跨 LLM provider（LangGraph / CrewAI / AutoGen）；OpenAI Agents SDK 跟 Strands Agents 例外、绑定自家生态 | 只在 Claude Code runtime 内 |
-| **怎么写** | Python code + `langgraph.graph()` / `Crew(agents=...)` 之类 | `.claude/agents/X.md` markdown + frontmatter |
-| **适合谁** | 跨 LLM provider production system | 已 commit Claude Code 的工程团队 |
-| **核心 benefit** | **checkpointing + state persistence**（LangGraph）、**audit trail / time-travel debug**（production 稽核必备）、orchestration 控制、跨 provider 可携 | context preservation + 角色 specialization + tool constraint + cost control（route 到便宜 model） |
+> 📌 **完整逐维度对照表（启动方式 / runtime / context 隔离 / provider lock-in / 学习曲线）的 canonical 在 [Stage 5.5 开头](/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-机制-2025-新功能)**——本 stage 只需知道「multi-agent 还有 Claude Code 原生这第二条路」、逐项实作差异到 5.5 再看。
 
 **何时选 subagent 而非 framework**：
 - 你已经在使用 Claude Code 跑日常工作
@@ -209,7 +204,7 @@ Stage 3 教你写 single tool / multi-tool selection（手写 `if/elif/else` 路
 | | [agno-agi/agno](https://github.com/agno-agi/agno) | ⭐⭐⭐⭐ | 要「build + serve + monitor」一条龙但不想全套 LangGraph + LangSmith | multi-modal agent runtime + control plane，★ 39k+、Apache-2.0。Stage 4 学 API、Stage 7 用 runtime |
 | **快速雏形 / 多 agent**<br>（role-based / handoff） | [CrewAI](https://github.com/crewAIInc/crewAI) ⭐ **本 stage 推荐 #2** | ⭐⭐⭐⭐ | 快速雏形「researcher → writer → critic」pipeline | ~20 行写完 crew、学习曲线最低，★ 50k+、MIT。⚠️ 长 workflow 没 checkpointing；雏形用 CrewAI、production 用 LangGraph |
 | | [Microsoft AutoGen / AG2](https://github.com/microsoft/autogen) | ⭐⭐⭐⭐ | 多 agent 辩论 / 脑力激荡 / peer review pattern | 对话式多 agent、group-chat 强，★ 57k+、CC-BY-4.0（文件 license）。⚠️ AG2 v0.4 重写成 async-first、多数教学还在 v0.2、留意版本分支 |
-| | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | 已 commit OpenAI 生态 | OpenAI 官方、agent hand-off + 结构化输出、API 干净、MIT。**2026-04 重大升级**：内建 sandbox（7 个 provider）+ harness 抽象层、production coding agent 首次 architecturally sound（[详见 Stage 8](/stages/08-agent-interfaces/#openai-agents-sdk-april-2026-更新--why-是-milestone)） |
+| | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | 已 commit OpenAI 生态 | OpenAI 官方、agent hand-off + 结构化输出、API 干净、MIT。**2026-04 重大升级**：内建 sandbox（7 个 provider）+ harness 抽象层、production coding agent 首次 architecturally sound（[详见 Stage 8](/stages/08-agent-interfaces/#openai-agents-sdk-2026-年-4-月更新--为何是里程碑)） |
 | | [OpenAI Swarm](https://github.com/openai/swarm) | ⭐⭐⭐⭐ 教育用<br>⭐⭐⭐ production | 想理解 multi-agent **核心 mental model** 但不想学整套 framework | ~200 LOC、只有 Agent + handoff 两个观念、MIT。⚠️ OpenAI 自己标 experimental / educational、不是 production tool。**读 source 当 chapter-length 教材** |
 | | [Strands Agents (AWS)](https://github.com/strands-agents/sdk-python) | ⭐⭐⭐⭐ | 已 commit AWS 云、Bedrock-native | model-driven 设计（LLM 自己 plan、无 explicit graph）、Apache 2.0。2025 后段推出、AWS Lambda / Step Functions / Bedrock Agents 整合 |
 | **特殊路线**<br>（CodeAct / typed / memory-first） | [Hugging Face Smolagents](https://github.com/huggingface/smolagents) | ⭐⭐⭐⭐ | 本地 LLM 生态、HF 整合场景 | CodeAct pattern 代表（agent 写 Python 代码当作 action、非 JSON tool call），★ 27k+、Apache 2.0、≤1000 LOC |
@@ -237,4 +232,4 @@ Stage 3 教你写 single tool / multi-tool selection（手写 `if/elif/else` 路
 
 不要想把这些全部学完。挑**一个 production 等级的（LangGraph）**跟**一个快速雏形用的（CrewAI）**深入学。其他的 README 浏览过去就好，知道有这些选项存在即可。
 
-**Memory 预备**（学的时候可能碰到、不用先读）：有些 framework 功能会用到 memory 概念 — LangGraph 的 checkpointing（状态持久化）、CrewAI agent 之间传递任务结果（轻量 memory）。这些在 [Stage 6 — Memory & RAG](/stages/06-memory-rag/) 完整讲；本 stage 看不懂某个 framework 功能时、再去那边查就好，**不用先读完才能进 Stage 4**。
+**Memory 预备**（学的时候可能碰到、不用先读）：有些 framework 功能会用到 memory 概念 — LangGraph 的 checkpointing（状态持久化）、CrewAI agent 之间传递任务结果（轻量 memory）。这些在 [Stage 6 — Memory & RAG](/stages/06-memory-rag/) 完整讲；本 stage 看不懂某个 framework 功能时、再去那边查就好，**不用先读完才能继续本 stage**。

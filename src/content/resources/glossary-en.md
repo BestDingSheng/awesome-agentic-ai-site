@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -219,6 +219,12 @@ Anthropic 2024 method — embed each chunk together with a summary of the docume
 
 📍 Detail: [Stage 6](/en/stages/06-memory-rag/)
 
+### Fine-tuning
+
+Re-train the model on your own data, baking knowledge or behavior into the weights (unlike RAG — RAG injects data into the context at inference time and never changes the weights). Good for making the model reliably learn a **format / style / domain vocabulary**; **not** for stuffing in "the latest facts" (that is RAG's job — facts fine-tuned in go stale and are hard to update). In most agent scenarios, **try prompt + RAG first**, and only consider fine-tuning if that genuinely is not enough.
+
+📍 Detail: [Stage 6](/en/stages/06-memory-rag/)
+
 ---
 
 ## 4. Multi-Agent
@@ -256,7 +262,7 @@ Anthropic's open protocol, introduced in 2024, that lets any LLM host (Claude Co
 
 **Architecture**: server / client pattern — the tool server runs locally or remotely, and the LLM host connects as the client. The server exposes those primitives over one of three transports: stdio / SSE / HTTP.
 
-📍 Detail: [Stage 5.2](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol-foundation)
+📍 Detail: [Stage 5.2](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation)
 
 ### Skills / SKILL.md
 
@@ -264,7 +270,7 @@ Claude Code's "behavior bundles". A Skill = a folder containing `SKILL.md` (desc
 
 **Trigger mechanism** (many people do not know this, but it matters): before Claude Code handles each message, it scans the **frontmatter `description` field** of every available skill — if it matches the current situation, the corresponding SKILL.md is auto-loaded. **So the quality of the description directly determines whether the skill gets triggered.** In practice, starting with "Use when ..." works best.
 
-📍 Detail: [Stage 5.3](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer)
+📍 Detail: [Stage 5.3](/en/stages/05-claude-code-ecosystem/#53--skills-claude-codes-behavior-layer--the-most-critical-layer-of-the-claude-code-ecosystem)
 
 ### Plugin / Marketplace
 
@@ -429,6 +435,6 @@ Google's "user-space kernel" — intercepts syscalls and emulates them itself, n
 
 ## Term not here?
 
-- Read the actual stage content: [Stage 5.2 MCP](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol-foundation) / [5.3 Skills](/en/stages/05-claude-code-ecosystem/#53--skills-claude-code-behavior-layer) / [5.4 Plugins](/en/stages/05-claude-code-ecosystem/#54--plugins--marketplaces)
+- Read the actual stage content: [Stage 5.2 MCP](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation) / [5.3 Skills](/en/stages/05-claude-code-ecosystem/#53--skills-claude-codes-behavior-layer--the-most-critical-layer-of-the-claude-code-ecosystem) / [5.4 Plugins](/en/stages/05-claude-code-ecosystem/#54--plugins--marketplaces)
 - Required reading lists in [Stage 1](/en/stages/01-llm-basics/) / [Stage 6](/en/stages/06-memory-rag/) / [Stage 7](/en/stages/07-multi-agent-production/) / [Stage 8](/en/stages/08-agent-interfaces/)
 - Missing? Open an issue or PR a new entry.

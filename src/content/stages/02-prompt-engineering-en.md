@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-15T15:26:35.202Z"
+syncedAt: "2026-05-16T03:31:48.975Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -50,7 +50,7 @@ You should already:
 
 > 🦙 **This stage defaults to Ollama gemma4:e4b** (cost-driven; $0/run). Prompt engineering is especially instructive on small models — they are sensitive to prompt quality, so you can clearly see how much each technique (system prompts, few-shot, CoT, refinement) improves output. Every exercise has Path A (Ollama, default) + Path B (Anthropic, optional).
 >
-> 💰 **Stage 2 budget estimate** (4 exercises, 3-5 runs each): **all local = $0**, **all haiku ≈ $0.20**, **all sonnet ≈ $0.60**. The few-shot classifier alone is 12 calls × 5 reps ≈ $0.30 haiku / $0.90 sonnet. Full budget: [`examples/README.en.md#recommended-llm-list`](/en#recommended-llm-list-local--cloud-user-perspective).
+> 💰 **Stage 2 budget estimate** (4 exercises, 3-5 runs each): **all local = $0**, **all haiku ≈ $0.20**, **all sonnet ≈ $0.60**. The few-shot classifier alone is 12 calls × 5 reps ≈ $0.30 haiku / $0.90 sonnet. Full budget: [`examples/README.en.md#recommended-llm-list`](/en#recommended-llm-list).
 >
 > Full three-path trade-off in [`examples/README.en.md`](/en#three-paths--default-is-ollama-cost-driven).
 
