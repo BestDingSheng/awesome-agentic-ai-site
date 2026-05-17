@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-knowledge-worker.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T13:39:56.129Z"
+syncedAt: "2026-05-17T03:49:52.961Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-knowledge-worker"
@@ -69,7 +69,7 @@ baseSlug: "for-knowledge-worker"
 | Stars | ★ 34k+ |
 | License | AGPL-3.0 |
 
-**教什么**：自架的「第二大脑」——可以跟 web + 本地文件对话、排程自动化、自定义 agent。
+**教什么**：自架的“第二大脑”——可以跟 web + 本地文件对话、排程自动化、自定义 agent。
 
 **适合谁**：想自架个人知识库 + AI assistant 的人。
 

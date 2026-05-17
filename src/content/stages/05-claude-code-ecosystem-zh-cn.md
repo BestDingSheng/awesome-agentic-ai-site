@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T13:39:56.129Z"
+syncedAt: "2026-05-17T03:49:52.961Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -17,21 +17,21 @@ order: 5
 
 ⏱ **时间估算**：3-4 周（约 15-25 小时）
 
-> 🚪 **进入条件**（共用 hub、依 track 不同）：**Track A（CLI Power User）** 从 A1-A2 过来、会用 Python + 跑过基本 CLI 即可、从 5.1/5.2 起步；**Track B（Agent Builder）** 建议先完成 [Stage 3](/stages/03-tool-use-and-hello-agent/)（tool use）+ [Stage 4](/stages/04-agent-frameworks/)（agent frameworks）再进、把整个 stage 当「Claude Code 内部怎么运作」深读。不确定走哪条 → 看下面 📌 的两轨说明。
+> 🚪 **进入条件**（共用 hub、依 track 不同）：**Track A（CLI Power User）** 从 A1-A2 过来、会用 Python + 跑过基本 CLI 即可、从 5.1/5.2 起步；**Track B（Agent Builder）** 建议先完成 [Stage 3](/stages/03-tool-use-and-hello-agent/)（tool use）+ [Stage 4](/stages/04-agent-frameworks/)（agent frameworks）再进、把整个 stage 当“Claude Code 内部怎么运作”深读。不确定走哪条 → 看下面 📌 的两轨说明。
 
 > 💡 整个 stage 围绕 4 个关键词（**MCP / Skills / Plugins / Marketplace**）展开 → 不熟先翻 [`resources/glossary.zh-Hans.md` 5](/resources/glossary/#5-claude-code-生态)。
 
 **👥 共用 hub**：本 stage 是 Track A（CLI Power User）+ Track B（Agent Builder）两条路径的共用中心。Stage 5 跟 [Stage 8 — Agent Interfaces](/stages/08-agent-interfaces/) 是 curriculum 的两个 hub。
 
 > 📌 **这个 stage 两条轨都用**：
-> - **Track A（CLI Power User）**：A2 用 [5.1（Claude Code 基础）](#51--claude-code-基础)；A3 用 [5.2（MCP）](#52--mcpmodel-context-protocol-基础) + 选择性用到 [5.3（Skills）](#53--skillsclaude-code-的行为层-claude-code-生态最关键的一层) 跟 [5.4（Plugins）](#54--plugins-与-marketplaces)（A3 的 动手练习 CLI-12 会教把 CLAUDE.md 跟 commands 打包成 plugin）。读的角度是「**怎么用 Claude Code 把工作做好**」。
-> - **Track B（Agent Builder）**：把整个 stage 当「**Claude Code 内部怎么运作**」的深度学习，从 5.1 完整走到 5.4。
+> - **Track A（CLI Power User）**：A2 用 [5.1（Claude Code 基础）](#51--claude-code-基础)；A3 用 [5.2（MCP）](#52--mcpmodel-context-protocol-基础) + 选择性用到 [5.3（Skills）](#53--skillsclaude-code-的行为层-claude-code-生态最关键的一层) 跟 [5.4（Plugins）](#54--plugins-与-marketplaces)（A3 的 动手练习 CLI-12 会教把 CLAUDE.md 跟 commands 打包成 plugin）。读的角度是“**怎么用 Claude Code 把工作做好**”。
+> - **Track B（Agent Builder）**：把整个 stage 当“**Claude Code 内部怎么运作**”的深度学习，从 5.1 完整走到 5.4。
 
 > 🗺️ **Claude Code 属于哪种 agent 型态**？→ [`resources/agent-paradigms.zh-Hans.md`](/resources/agent-paradigms/) Type 1（IDE-coupled）+ Type 2（Terminal pair-programmer）；想看完整 5 种 paradigm 对照也从这份开始。
 
 > ⚠️ **想用本地 LLM？这个 stage 不是那条路线。** Claude Code 需要 Anthropic API / OAuth，不能直接改接 Ollama 或本地 endpoint。离线、隐私数据或不想用 API 额度时，请看 [`resources/cookbook.zh-Hans.md` Recipe 6](/resources/cookbook/#6-本地-llm--cli-agent-快速-walkthrough)，用 OpenCode / goose / Aider / Hermes 这类支持 BYO LLM 的 CLI agent。
 
-> 📋 **本章组成**：6 个子章（5.1 基础 / 5.2 MCP / 5.3 Skills / 5.4 Plugins / 5.5 Subagents / 5.6 Claude Code Source 解剖），每个子章都有「学习目标 → 必修阅读 → 动手练习 → 精选 Projects」 → 章末 自我检查。**注意**：Harness Engineering（Agent 执行系统设计）的**学科级概念**会在 [Stage 7](/stages/07-multi-agent-production/) 系统整理；本章 5.6 把 Claude Code 当作案例，观察一个成熟 agent 工具如何处理工具、记忆、配置、权限与执行流程。
+> 📋 **本章组成**：6 个子章（5.1 基础 / 5.2 MCP / 5.3 Skills / 5.4 Plugins / 5.5 Subagents / 5.6 Claude Code Source 解剖），每个子章都有“学习目标 → 必修阅读 → 动手练习 → 精选 Projects” → 章末 自我检查。**注意**：Harness Engineering（Agent 执行系统设计）的**学科级概念**会在 [Stage 7](/stages/07-multi-agent-production/) 系统整理；本章 5.6 把 Claude Code 当作案例，观察一个成熟 agent 工具如何处理工具、记忆、配置、权限与执行流程。
 > 🔑 **关键名词**：见 [`resources/glossary.zh-Hans.md` 5](/resources/glossary/#5-claude-code-生态)。
 
 ## Stack 一览
@@ -597,7 +597,7 @@ Plugin
 | 找 code / 探索陌生 codebase 结构 | `Explore` | 专门做 read-only 搜索，不会乱改 |
 | 设计实作 plan（不直接写 code） | `Plan` | 输出 step-by-step 计划，适合大任务拆解前 |
 | Review staged diff / 安全审查 / 发 commit 前检查 | `code-reviewer` | 结构化输出 PASS/FAIL + 具体 fix |
-| 写 / 改 UI component / 处理 accessibility（无障碍设计）| `frontend-developer` | React / 响应式 / a11y（accessibility 缩写，视障 / 键盘使用者也能用的设计）领域知识 |
+| 写 / 改 UI component / 处理 accessibility（无障碍设计）| `frontend-developer` | React / 响应式 / a11y（accessibility 缩写，视障 / 键盘用户也能用的设计）领域知识 |
 | 多步骤研究，不确定任务该归哪类 | `general-purpose` | 通用，可 web search，适合 fallback |
 | 问 Claude Code 自己的 feature 怎么用 | `claude-code-guide` | hooks（工具执行前 / 后的拦截脚本，见下方 Gotcha #5）/ slash command（`/` 开头的指令）/ MCP 等问题 |
 | 上面都不符合 | 自己写 `.claude/agents/<name>.md` | 客制或公司 specific 流程 |

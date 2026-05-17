@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T13:39:56.129Z"
+syncedAt: "2026-05-17T03:49:52.961Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -846,12 +846,7 @@ baseSlug: "mcp-skills-catalog"
 
 The 3 skills below are **designed to be used together**, not as standalone tools:
 
-```
-                       ┌─ codex-delegate → code-heavy work
-Claude (planner + ├─ gemini-delegate → long-form / CJK / 1M context
-        reviewer) └─ agent-collab-skills → splitter + reconciler + acceptance gate
-                                                 (when running 2+ delegates in parallel)
-```
+![Claude + 3 delegate skills — division of labor](/upstream/resources/diagrams/multi-llm-delegation-composition.en.png)
 
 Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is bad at conversational coordination; Gemini's 1M context is great but mid-tier reasoning. **Division of labor: Claude handles design / review, Codex handles implementation, Gemini handles long-form drafting / synthesis.**
 

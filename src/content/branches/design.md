@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/DESIGN.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/DESIGN.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T13:39:56.129Z"
+syncedAt: "2026-05-17T03:49:52.961Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "design"
@@ -98,10 +98,7 @@ audience 切太細會：
 ## 兩種 entry 結構：tier vs flat
 
 ### Tier 結構（目前只用在 for-everyday-users）
-```
-Tier 0 → Tier 1 → Tier 2 → Tier 3
-（網頁→桌面→CLI→本地 LLM）
-```
+![Branch tier 漸進結構](/upstream/resources/diagrams/branch-tier-progression.png)
 **用 tier 的條件**：audience 內部「動手程度差很多」。Everyday users 從「打開 Claude.ai」到「跑 Ollama 本地 LLM」差距太大，不分 tier 會混亂。
 
 ### Flat 結構（其他 4 個 branch 都用這個）
@@ -129,22 +126,7 @@ Tier 0 → Tier 1 → Tier 2 → Tier 3
 
 ## 加新 branch 的決策樹
 
-```
-有人提議加新 branch
-    ↓
-1. 這個 audience 的 pain 已經被現有 5 個 branch 涵蓋了嗎？
-    ├─ 是 → 加 sub-section 到那個 branch，不開新 branch
-    └─ 否 → 繼續
-2. 這個 audience 在中文社群至少有 1 萬人嗎？（reachable scale）
-    ├─ 否 → 加 sub-section
-    └─ 是 → 繼續
-3. 至少有 1-2 個願意偶爾回來 review 的 maintainer？
-    ├─ 沒有 → 加 sub-section 比較安全（沒人維護的 branch 容易腐爛）
-    └─ 有 → 繼續
-4. 至少能找到 5 個 quality entries？
-    ├─ 否 → 加 sub-section
-    └─ 是 → 開新 branch
-```
+![加新 branch 決策樹](/upstream/resources/diagrams/add-branch-decision-flow.png)
 
 ### 範例：要不要加 `for-data-scientists`？
 - pain 已被 for-researcher 涵蓋（文獻 RAG、實驗設計）

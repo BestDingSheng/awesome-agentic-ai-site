@@ -169,18 +169,7 @@ Real power users often run **2 or 3 types simultaneously**, each handling what i
 
 ## Decision tree (text form)
 
-```
-Your working style
-│
-├─ Mainly write code, want IDE-visual feedback → Type 1 (IDE-coupled)
-│
-├─ Write code but want the agent to run multi-step tasks → Type 2 (Claude Code / Codex)
-│   └─ Want to compare cost across LLMs → Type 3 (Aider / OpenCode)
-│
-├─ Personal assistant / 24×7 / cross-platform notifications / China-region LLMs → Type 4 (Hermes Agent)
-│
-└─ Privacy-sensitive / fully offline / home AI box / physical AI → Type 5 (OpenClaw)
-```
+![Agent paradigm decision tree](../resources/diagrams/agent-paradigm-decision-tree.en.png)
 
 ---
 

@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-researcher.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-16T13:39:56.129Z"
+syncedAt: "2026-05-17T03:49:52.961Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-researcher"
@@ -36,7 +36,7 @@ baseSlug: "for-researcher"
 
 ## 精选 Projects
 
-> 💡 **想把 Claude Code 接到 NotebookLM、Obsidian、Notion、Excel、PDF、Excalidraw 等研究常用工具？** 62 个集成在 [`resources/mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（按使用场景分类）。下面这节保留「研究专属」的工具与 marketplace。
+> 💡 **想把 Claude Code 接到 NotebookLM、Obsidian、Notion、Excel、PDF、Excalidraw 等研究常用工具？** 62 个集成在 [`resources/mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（按使用场景分类）。下面这节保留“研究专属”的工具与 marketplace。
 
 ### 研究流程 Marketplace
 
@@ -57,7 +57,7 @@ baseSlug: "for-researcher"
 
 **教什么**：对 PDF 文件以 **citation-grounded Q&A** 为设计目标——每个答案附句子层级的引用、减少幻觉风险。实际准确率依文件类型而异，评测结果以官方 benchmark / paper 为准。
 
-**适合谁**：写文献回顾、需要「查文献时答案要可追溯」的研究者。比一般 RAG 更严谨。
+**适合谁**：写文献回顾、需要“查文献时答案要可追溯”的研究者。比一般 RAG 更严谨。
 
 ---
 
@@ -85,7 +85,7 @@ baseSlug: "for-researcher"
 
 **教什么**：multi-perspective outline-then-write pipeline——**白话三步**：(1) 先模拟不同观点提出问题、(2) 把问题整理成大纲、(3) 最后生成 Wikipedia-style 草稿。Stanford OVAL 出品。
 
-**适合谁**：想学「**outline-driven 写作**」的人。从零产主题 brief 时的好工具，类似 NotebookLM structured report 流程的开源版。
+**适合谁**：想学“**outline-driven 写作**”的人。从零产主题 brief 时的好工具，类似 NotebookLM structured report 流程的开源版。
 
 **备注**：最后一次推送已超过 6 个月，使用前确认最新 commit 日期。
 
@@ -160,9 +160,9 @@ baseSlug: "for-researcher"
 | Stars | ★ 11k+ |
 | License | MIT |
 
-**教什么**：开源版的 Deep Research——支持单 agent 跟 supervisor + multi-researcher 两种架构（multi-agent 那条目前在 `src/legacy/`）、平行搜索、再合成为有引用的 report。是学「LLM agent 怎么自动产出有引用 brief」的好参考。
+**教什么**：开源版的 Deep Research——支持单 agent 跟 supervisor + multi-researcher 两种架构（multi-agent 那条目前在 `src/legacy/`）、平行搜索、再合成为有引用的 report。是学“LLM agent 怎么自动产出有引用 brief”的好参考。
 
-**适合谁**：要打造「agent 自动产出有引用 brief」工作流程的研究者。是这个分类最 canonical 的开源选择。
+**适合谁**：要打造“agent 自动产出有引用 brief”工作流程的研究者。是这个分类最 canonical 的开源选择。
 
 **备注**：依赖 LangGraph + 搜索 tool（要 API key）。
 
@@ -175,9 +175,9 @@ baseSlug: "for-researcher"
 | Stars | ★ 6k+ |
 | License | The AI Scientist Source Code License（source-available，非商用 + 有 manuscript-disclosure 条款） |
 
-**教什么**：端到端的 multi-agent 科学研究 loop：构想 → 写代码 → 跑实验 → 写 paper → 互审。Sakana AI 的「AI 写整篇 ML paper」研究实践。
+**教什么**：端到端的 multi-agent 科学研究 loop：构想 → 写代码 → 跑实验 → 写 paper → 互审。Sakana AI 的“AI 写整篇 ML paper”研究实践。
 
-**适合谁**：想看「多个 agent 跑完整研究生命周期会长什么样」的研究者。研究架构参考、不是 production 工具。
+**适合谁**：想看“多个 agent 跑完整研究生命周期会长什么样”的研究者。研究架构参考、不是 production 工具。
 
 **备注**：产出是 demo 级别（不是直接投稿用），ML / CS 领域偏多。License 是自定义的 source-available 条款（含 manuscript-disclosure 规定），使用前请先读 LICENSE 文件。
 

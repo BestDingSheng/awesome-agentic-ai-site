@@ -834,12 +834,7 @@
 
 底下 3 個 skill 是**設計成一起用**的，不是獨立工具：
 
-```
-                    ┌─ codex-delegate → 跑 code-heavy
-Claude（planner + ├─ gemini-delegate → 跑 long-form / CJK / 1M 長 context
-        reviewer） └─ agent-collab-skills → splitter + reconciler + acceptance gate
-                                              （多個 delegate 平行跑時用）
-```
+![Claude + 3 delegate skill 分工](../resources/diagrams/multi-llm-delegation-composition.png)
 
 Claude 不擅長 token-heavy 機械式工作（成本高、context 容易爆）；Codex 不擅長對話協作；Gemini 1M context 但中型推理稍弱。**分工 = Claude 負責 design / review、Codex 負責 implement、Gemini 負責 long-form draft / synthesis**。
 
