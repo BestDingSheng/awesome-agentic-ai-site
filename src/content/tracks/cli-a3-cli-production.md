@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-18T15:40:35.017Z"
+syncedAt: "2026-05-19T03:55:29.633Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a3-cli-production"
@@ -209,7 +209,7 @@ Track A 的人**已經在用** [Stage 7.5 的進階概念](/zh-tw/stages/07-5-ad
 | **Observability + Cost** | [langfuse/langfuse](https://github.com/langfuse/langfuse) | ⭐⭐⭐⭐⭐ | 想把 trace / cost / session 都接起來 | open source LLM observability，★ 26k+。詳見 [Stage 7 常用推薦](/zh-tw/stages/07-multi-agent-production/#-常用-multi-agent--production-工具推薦按用途分類) |
 | | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | 想要最快的 logging（改 base_url 就好）| proxy-based 監控、改 base_url 就有 logging + caching，★ 5.7k+ |
 | | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | ⭐⭐⭐⭐⭐ | CLI workflow 升 production 前跑回歸測試 | eval framework，★ 20k+。詳見 [Stage 7 Agent Benchmark Landscape + Reward-Hacking 警告](/zh-tw/stages/07-multi-agent-production/#-agent-benchmark-landscape怎麼看不要只看排行榜---reward-hacking-警告) |
-| **Production CLI workflow 範本** | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看完整 production-grade workflow 長什麼樣 | 整套 production-ready skill collection、★ 178k+。看別人怎麼把 CLI workflow 做完整 |
+| **Production CLI workflow 範本** | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看完整 production-grade workflow 長什麼樣 | 整套 production-ready skill collection、★ 196k+。看別人怎麼把 CLI workflow 做完整 |
 | | [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | ⭐⭐⭐ | 要把 team 的 CLI workflow 打包共用 | 最簡 marketplace template、★ 900+ |
 
 > 💡 **建議入手路徑**：先從 `modelcontextprotocol/servers` 挑一個 reference MCP 接到 CLI → 用 `claude-code-action` 跑第一個 CI workflow → 加 langfuse 看 trace + cost → production 規模化時把 workflow 打包成 marketplace plugin。

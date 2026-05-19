@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-18T15:40:35.017Z"
+syncedAt: "2026-05-19T03:55:29.633Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -753,6 +753,30 @@ baseSlug: "mcp-skills-catalog"
 **Notes**: Installable with a single `curl` + `pip install`; highest-starred community Skill for Chinese A-share data. Compatible with Claude Code, Codex, and OpenClaw.
 
 > Looking for WeChat / DingTalk integrations? Today the mainstream is chatbot frameworks (e.g., zhayujie/CowAgent), not pure MCP servers. Will add when proper MCPs emerge.
+
+### [MoonshotAI/Kimi-K2](https://github.com/MoonshotAI/Kimi-K2) ⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 10.7k+ |
+| License | Modified MIT |
+| Rating | ⭐⭐⭐ |
+
+**What it does**: Moonshot's Kimi K2 open-weight LLM series — open weights + OpenAI/Anthropic-compatible API, oriented toward agentic / coding / long-horizon tasks; usable as a backend model for an agent stack.
+**Audience**: Chinese developers who want to run agent / coding workflows on a domestic open model, or to self-host open weights.
+**Notes**: License is Modified MIT (standard MIT + added large-scale-commercial clauses) — read the original LICENSE before commercial use; weights are also available on Hugging Face.
+
+### [zai-org/GLM-4.5](https://github.com/zai-org/GLM-4.5) ⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 4.3k+ |
+| License | Apache-2.0 |
+| Rating | ⭐⭐⭐ |
+
+**What it does**: Zhipu (Z.ai)'s GLM-4.5 open model — positioned as Agentic, Reasoning, and Coding (ARC) foundation models; open weights + API, usable as a backend for agent / tool use / coding.
+**Audience**: Chinese developers evaluating domestic open agentic models, or who need weights under a permissive license (Apache-2.0).
+**Notes**: zai-org is Zhipu's open-source org; the same series also has GLM-4 (★ 7k+) for context; weights are on Hugging Face.
 
 ---
 
