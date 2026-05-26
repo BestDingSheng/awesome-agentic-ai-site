@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -292,7 +292,7 @@ For a complete list, see the official [Slash Commands documentation](https://doc
 | [modelcontextprotocol/typescript-sdk](https://github.com/modelcontextprotocol/typescript-sdk) | ⭐⭐⭐⭐ | Those who prefer TS | The TypeScript version of the Python SDK, MIT. |
 | [wong2/awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers) ⭐ Catalog | ⭐⭐⭐⭐⭐ | Finding an existing server before writing your own | A catalog of 150+ community MCP servers, categorized by search / code / cloud / communication / finance. Submissions go through mcpservers.org. |
 | [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | ⭐⭐⭐⭐ | Cross-referencing with wong2's list | Another MCP server catalog, organized differently and often updated more frequently. |
-| [github/github-mcp-server](https://github.com/github/github-mcp-server) | ⭐⭐⭐⭐ | Seeing production-grade MCP server source | Maintained by GitHub, a real example running in production. |
+| [github/github-mcp-server](https://github.com/github/github-mcp-server) | ⭐⭐⭐⭐ | Reading the source of an MCP server actually running in production | Maintained by GitHub, a real example running in production. |
 | [21st-dev/magic-mcp](https://github.com/21st-dev/magic-mcp) | ⭐⭐⭐ | Finding inspiration after Exercise 2 | A non-trivial MCP server that generates UI components, ★ 4.8k+, NOASSERTION. **Shows that MCP can do more than just data fetching.** |
 | [yamadashy/repomix](https://github.com/yamadashy/repomix) | ⭐⭐⭐⭐⭐ | Feeding an entire codebase to an LLM | ★ 24k+, MIT. Packs a repo into a single AI-friendly file, with MCP server mode + tree-sitter compression (~70% token savings) + secretlint to filter secrets. **Daily-driver tool to pair with Claude Code / Codex.** |
 
@@ -748,7 +748,7 @@ A single table to cover 4 projects. **Pick an entry point by looking at "Best fo
 
 | Project | ⭐ | Best for | Why it's recommended / Notes |
 |---|---|---|---|
-| [anthropics/claude-cookbooks](https://github.com/anthropics/claude-cookbooks) ⭐ Official | ⭐⭐⭐⭐⭐ | Those who finish 5.5 and want to see "what production-grade looks like" | Anthropic's official chapter-length examples. **`tool_use/customer_service_agent.ipynb`** = the orchestrator-workers canonical example (multi-agent routing + handoff). Python / Jupyter notebook, MIT. **Note**: The full version of `computer_use_demo` is in another repo, [`claude-quickstarts/computer-use-demo`](https://github.com/anthropics/claude-quickstarts/tree/main/computer-use-demo). |
+| [anthropics/claude-cookbooks](https://github.com/anthropics/claude-cookbooks) ⭐ Official | ⭐⭐⭐⭐⭐ | Those who finish 5.5 and want to see "what an agent in actual use looks like" | Anthropic's official chapter-length examples. **`tool_use/customer_service_agent.ipynb`** = the orchestrator-workers canonical example (multi-agent routing + handoff). Python / Jupyter notebook, MIT. **Note**: The full version of `computer_use_demo` is in another repo, [`claude-quickstarts/computer-use-demo`](https://github.com/anthropics/claude-quickstarts/tree/main/computer-use-demo). |
 | [wshobson/agents](https://github.com/wshobson/agents) ⭐ Subagent canonical | ⭐⭐⭐⭐⭐ | Those who have written 1-2 subagents and want to see a real team's templates | A collection of 50+ subagent definitions in a production workflow pattern. **Look at the `.claude/agents/` directory structure + naming conventions + how cross-agent handoffs are written.** |
 | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | Those who want to see a mixed implementation of skills + subagents | Already introduced in Stage 5.3. **Focus on the "which tasks go to skills, which go to subagents" decision**—a production template. |
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) Official | ⭐⭐⭐⭐ | Seeing how a plugin packages a subagent | Already introduced in Stage 5.4. The `agents/` subdirectory inside each plugin is the subagent definition; look at how it's packaged. |
@@ -765,14 +765,14 @@ A single table to cover 4 projects. **Pick an entry point by looking at "Best fo
 
 ## 5.6 — Dissecting Claude Code Source (reference harness implementation) ⭐ A must-read for Track B
 
-> **Positioning of this section**: This section is **not** a discipline-level tutorial on harness engineering—the definition, the **8 components**, and the three-layer lineage of prompt→context→harness are covered in **[Stage 7 Harness Engineering](/en/stages/07-multi-agent-production/#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage)**. **This section is a case study**—we're dissecting the source code of Claude Code (a production-grade reference harness) to find the corresponding locations in the implementation for the **first 6 runtime-internal components** of the 8 components listed in Stage 7 (the other two, Eval and Cost-Latency, are cross-cutting and not in the main source loop).
+> **Positioning of this section**: This section is **not** a discipline-level tutorial on harness engineering—the definition, the **8 components**, and the three-layer lineage of prompt→context→harness are covered in **[Stage 7 Harness Engineering](/en/stages/07-multi-agent-production/#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage)**. **This section is a case study**—we're dissecting the source code of Claude Code (a widely-used reference harness) to find the corresponding locations in the implementation for the **first 6 runtime-internal components** of the 8 components listed in Stage 7 (the other two, Eval and Cost-Latency, are cross-cutting and not in the main source loop).
 
 ### Learning Goals
 
 After completing this section, you will be able to:
 - Understand the main loop of the `claude-agent-sdk-python` source (not line-by-line, but grasping the main structure)
 - Pinpoint in the source the file:line for the first 6 runtime-internal harness components from the [8 components listed in Stage 7](/en/stages/07-multi-agent-production/#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage) (agent loop / tool registry / context manager / safety layer / retry / telemetry). The 7th, Eval, is a plugin, and the 8th, Cost / Latency, is cross-cutting; they are not in the main source loop and are outside the scope of this exercise.
-- Explain the difference between Claude Code's agent loop and the from-scratch ReAct from Stage 3, Exercise 3—what extra components make it production-grade.
+- Explain the difference between Claude Code's agent loop and the from-scratch ReAct from Stage 3, Exercise 3—what extra components a deployed agent needs that a from-scratch one doesn't.
 
 > **Where are the discipline-level concepts?**: What harness engineering is / the difference between a framework and a harness / the three-layer lineage of prompt→context→harness → all covered in **[Stage 7 Harness Engineering](/en/stages/07-multi-agent-production/#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage)**. This section is only responsible for the case study of the Claude Code source.
 
@@ -797,7 +797,7 @@ This section is **a reading exercise, not a coding one**—a production harness 
    - (d) **Safety layer**: Is there a permission gate / sandboxing before a tool is executed?
    - (e) **Retry / recovery**: How are tool failures handled (exception vs the LLM reflecting on the error itself)?
    - (f) **Telemetry**: Where are metrics / logging / token counting integrated?
-4. **Write an 80-150 word summary**: "What's the difference between Claude Code's agent loop and your from-scratch ReAct from Stage 3, Exercise 3?" The point is not a trivial observation like "Claude Code is more complex," but to be able to **articulate what extra components are there and why they are necessary for production-grade software**.
+4. **Write an 80-150 word summary**: "What's the difference between Claude Code's agent loop and your from-scratch ReAct from Stage 3, Exercise 3?" The point is not a trivial observation like "Claude Code is more complex," but to be able to **articulate what extra components are there and why they are necessary to run in production**.
 
 **Deliverable**: A set of notes (in your own Obsidian / Notion / `.md` is fine), no submission required. But **if you can't articulate it, you don't understand it yet**—this is a necessary mental model before moving on to production deployment in Stage 7.
 
@@ -812,9 +812,81 @@ A single table to cover 4 projects. **Pick an entry point by looking at "Best fo
 | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | All Track B learners who want to figure out "how Claude Code runs internally" | **The canonical Python harness, this is the repo you'll be reading for this section's exercise**. It will also be imported in the Stage 7 deployment. |
 | [ZhangHanDong/harness-engineering-from-cc-to-ai-coding](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) | ⭐⭐⭐⭐ | Chinese readers who want to understand "why Claude Code was designed this way" | The most complete interpretation of CC's internals in the Chinese community (harness concepts → CC implementation → comparison with other AI coding tools). **Use it as a complement to the SDK source**—one tells you "how," the other tells you "why." |
 | [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | Those who finish 5.6 and want to broaden their horizons | A community curation: 30+ harness / eval / memory / observability / MCP projects (★ 1.1k+). **A breadth resource library, not a tutorial**—pick a sub-topic of interest and dive in. |
-| [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | Those who have written their own subagent in 5.5 and want to see a production-grade template | The ergonomic design of 50+ subagent definitions (description / tool list / system prompt layers). **You'll learn more from reading the source than from reading the docs**. Already introduced in 5.5, cross-referenced here. |
+| [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | Those who have written their own subagent in 5.5 and want to see templates actually in use | The ergonomic design of 50+ subagent definitions (description / tool list / system prompt layers). **You'll learn more from reading the source than from reading the docs**. Already introduced in 5.5, cross-referenced here. |
 
 > 💡 **The difference between this section and Stage 7**: This section teaches "how this specific harness, Claude Code, works" (a concrete reference); Stage 7 teaches "what a production harness should generally have" (an abstract pattern). **Go from concrete to abstract**—it will be much easier to get into Stage 7 after you've finished this section.
+
+---
+
+## 5.7 — SDK: Take Claude Code Apart and Rebuild It Your Way ⭐ Track B optional — production only
+
+> 🎯 **Who this section is for**: 99% of readers are done after 5.1-5.6. Only descend here if there's something CLI genuinely can't do for you. Stage 5.6 had you read the SDK source for harness understanding; this section is to make you *use* the SDK as your own service.
+
+### One analogy that separates SDK / CLI / `CLAUDE.md`
+
+- **CLI** (`claude` / `codex` / etc.) = a **ready-made car**. Get in, drive.
+- Editing `CLAUDE.md` / `AGENTS.md` / adding hooks / writing skills = **tuning the car's performance** so it drives better for your routines. Still the same car.
+- **SDK** (`claude-agent-sdk-python` / `openai-agents-python`) = **building a new car from the engine up** — controlling the agent loop, tool dispatch, and memory wiring yourself in Python / TS.
+
+**99% of learners plateau at "tuning the car" and that's enough.** Only climb to the SDK rung when tuning genuinely can't reach your target scenario.
+
+### Three-rung ladder — which one are you on?
+
+1. **Rung 1 — Use the CLI directly.** 90% of solo + team use cases. See 5.1.
+2. **Rung 2 — CLI + customisation.** Write `CLAUDE.md`, add hooks, write skills, install plugins. See 5.1-5.4. **Most people stop here, and that's enough.**
+3. **Rung 3 — SDK.** Embed the agent inside your code. This section.
+
+### When do you actually need rung 3?
+
+Concrete scenarios (not abstract):
+- **Embedded in your existing web app / backend** — users don't open a terminal, so CLI is unavailable.
+- **Triggered by cron / scheduler** — no human pressing enter; CLI's interactive mode doesn't fit.
+- **Wrapped as a company-internal layer** — adding auth, audit logs, rate limits, custom prompt templates — exposing CLI's power through controlled channels.
+- **Multi-agent runs with programmatic hand-off control** — finer than Stage 5.5's Task-tool dispatch.
+
+If none of these describe your task, you probably don't need the SDK. **Go back to 5.1-5.4.**
+
+### Hello SDK (4 lines of Python)
+
+```python
+from claude_agent_sdk import query
+
+async for msg in query(prompt="Check current state with git status"):
+    print(msg)  # all message types print safely; filter for AssistantMessage to get the agent's reply
+```
+
+That's it — wrap in `async def` and it runs. `query()` yields several message types (`AssistantMessage` / `ResultMessage` / `SystemMessage` / etc.); the `print(msg)` above prints any of them safely. To get the agent's actual reply you check `isinstance(msg, AssistantMessage)` and then read `msg.content`. Retry / streaming / prompt caching are in Stage 7 Exercise 4.
+
+### vs CLI / vs Customisation comparison (read this AFTER the sections above)
+
+| | CLI (claude / codex) | CLI + custom (CLAUDE.md / hooks) | SDK |
+|---|---|---|---|
+| Embed in your app | ❌ | ❌ | ✅ |
+| Cron / scheduled runs | ⚠️ Barely (`-p` flag) | ⚠️ Same | ✅ |
+| Switch language / env | Bound to Node / Bash | Same | Python / TS |
+| Programmatic control | ❌ | ❌ | ✅ |
+| Custom system prompt | Limited | Limited | Fully open |
+| Learning cost | 1 day | 1-2 weeks | 1 month+ |
+| Who it's for | Solo daily use | Solo / small team long-term | Building a product / service |
+
+### Two main SDKs
+
+| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | [openai-agents-python](https://github.com/openai/openai-agents-python) |
+|---|---|---|
+| Publisher | Anthropic | OpenAI |
+| Models | Claude (Opus / Sonnet / Haiku) | OpenAI series + others |
+| Strengths | Same tool / skill / hook abstraction as Claude Code | Handoff / agents-as-tools pattern; built-in sandbox since April 2026 |
+| Best fit | Already on Claude Code, embedding into a service | Already committed to the OpenAI ecosystem |
+
+Both are MIT-licensed with clean APIs. **The real question is which model your downstream picks.**
+
+### What's next
+
+- **Read code**: back to 5.6, read `claude-agent-sdk-python`'s `_internal/client.py` — now that you've used the SDK, the main loop reads with more meaning.
+- **Practice the SDK at production depth**: Stage 7 Exercise 4 (streaming + prompt caching); Stage 7 Exercise 5 (FastAPI + Docker production deploy).
+- **If you realise you don't actually need the SDK**: that's a good outcome — go back to 5.1-5.4 and master "CLI + customisation". It's usually a better return than writing your own SDK service.
+
+> 💡 **This section vs Stage 7**: this section is "what the SDK is, when to use it" (positioning + entry); Stage 7 is "writing an agent service that's ready to deploy with the SDK" (streaming / caching / deployment).
 
 ---
 

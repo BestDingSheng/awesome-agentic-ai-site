@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -48,7 +48,7 @@ baseSlug: "07-5-advanced-agentic-concepts"
 
 ## 🎯 Why this stage exists
 
-Stages 4 / 6 / 7 together cover **70% of production-grade agents** (agents real users can rely on without frequent breakdowns). What each stage teaches and what you can do after:
+Stages 4 / 6 / 7 together cover **70% of agents real users can rely on without frequent breakdowns**. What each stage teaches and what you can do after:
 
 | Stage | Teaches | What you can do |
 |---|---|---|

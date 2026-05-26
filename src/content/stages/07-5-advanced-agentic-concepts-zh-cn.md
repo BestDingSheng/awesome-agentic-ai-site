@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -48,7 +48,7 @@ baseSlug: "07-5-advanced-agentic-concepts"
 
 ## 🎯 为什么有这 stage
 
-Stage 4 / 6 / 7 加起来足以做 **70% 的 production-grade agent**（能给真人用、不会三天两头搞砸）。每个 stage 教什么、学完能做什么：
+Stage 4 / 6 / 7 加起来足以做 **70% 能给真人用、不会三天两头搞砸的 agent**。每个 stage 教什么、学完能做什么：
 
 | Stage | 教什么 | 学完能做什么 |
 |---|---|---|

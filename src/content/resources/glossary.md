@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "glossary"
@@ -207,7 +207,7 @@ agent 自我評估上一回合輸出、改下一回合的 pattern——「Actor 
 
 ### Hybrid Search（混合搜尋）
 
-語意搜尋 + 關鍵字搜尋一起用，再 merge 排序。多半比單一方法準。production-grade RAG 標配。
+語意搜尋 + 關鍵字搜尋一起用，再 merge 排序。多半比單一方法準。上線部署 RAG 的標配。
 
 ### Reranking（重新排序）
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "08-agent-interfaces"
@@ -445,7 +445,7 @@ Write an agent in under 10 lines of Python using `browser-use` to automatically 
 Use an E2B sandbox to have an agent generate Python code to calculate and chart data, run it in the sandbox, and return the result. **Goal**: Experience the difference between microVM isolation and running directly on the host.
 
 ### Exercise 4 (Advanced): OpenAI Agents SDK + Sandbox + Computer Use
-Use the OpenAI Agents SDK (April 2026 version) to integrate a sandbox for running code and Computer Use for operating a GUI, creating a small RPA-replacement workflow. **Goal**: Experience the integration of a production-grade harness and sandbox.
+Use the OpenAI Agents SDK (April 2026 version) to integrate a sandbox for running code and Computer Use for operating a GUI, creating a small RPA-replacement workflow. **Goal**: Experience how a harness running in production integrates with a sandbox.
 
 ## 🎯 Recommended Tools (by Use Case)
 

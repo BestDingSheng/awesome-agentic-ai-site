@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "mcp-skills-catalog"
@@ -47,6 +47,7 @@ baseSlug: "mcp-skills-catalog"
 12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（2）
 13. [研究工作流 Skills（学术 / paper / 文献）](#13-研究工作流-skills学术--paper--文献)（4）
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills)（3）
+15. [金融 / 交易 Agents](#15-金融--交易-agents)（2）
 
 ---
 
@@ -384,7 +385,7 @@ baseSlug: "mcp-skills-catalog"
 
 **教什么**：跨 DB 的 MCP server——MySQL / PostgreSQL / Cloud SQL / Spanner / BigQuery 一次包。
 **适合谁**：在 Google Cloud 上跑 DB 的工程师、要支持多 DB 引擎的开发者。
-**备注**：开源 + Google 官方维护，是 production-grade 的选择。
+**备注**：开源 + Google 官方维护，是可上线使用的选择。
 
 ### [bytebase/dbhub](https://github.com/bytebase/dbhub) ⭐⭐⭐⭐⭐
 
@@ -904,7 +905,37 @@ baseSlug: "mcp-skills-catalog"
 
 **教什么**：Claude Code marketplace for multi-agent collaboration——task splitter、output reconciler、adversarial debate、shared memory、acceptance gate。跟 codex-delegate / gemini-delegate 组合用。
 **适合谁**：要跑 2+ delegate agent 在同一轮、想看 multi-agent coordination 怎么打包成 marketplace 的人。
-**备注**：experimental——别把它当作生产级 framework，当作维护者把自己 setup 公开的 reference 看就好。要 production-grade 的请看 Stage 7 的 LangGraph / AutoGen / CrewAI。
+**备注**：experimental——别把它当作生产级 framework，当作维护者把自己 setup 公开的 reference 看就好。要可上线部署的请看 Stage 7 的 LangGraph / AutoGen / CrewAI。
+
+---
+
+## 15. 金融 / 交易 Agents
+
+> ⚠️ **应用领域区**：agent 在量化交易 / hedge fund 模拟 / 自动下单的应用。这类 repo 授权状态混杂（部分 NO-LICENSE、部分 Apache-2.0 等开源授权），使用前自行查清楚。**警示**：trading agent 跑真实资金有显著风险，本目录列入是为了学习 agent 设计模式、不是投资建议。
+
+### [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) ⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| Stars | ★ 79k+ |
+| License | Apache-2.0 |
+| 推荐度 | ⭐⭐⭐ |
+
+**教什么**：多 agent LLM 框架做金融交易决策，bull / bear / fundamentals / technicals / risk 各 agent 分工。
+**适合谁**：想看 multi-agent 在分析性任务怎么分工的学习者；量化研究者想实验 LLM 增强既有 pipeline。
+**备注**：Apache-2.0、允许修改与商用（保留授权声明）；**非投资建议，别直接拿来下实单**。
+
+### [virattt/ai-hedge-fund](https://github.com/virattt/ai-hedge-fund) ⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| Stars | ★ 59k+ |
+| License | NO-LICENSE |
+| 推荐度 | ⭐⭐⭐ |
+
+**教什么**：多角色 AI hedge fund 模拟，bull / bear / 基本面 / 技术面 / 风控 agent 协作产生 trade recommendation。
+**适合谁**：看过 Stage 7 multi-agent 想要一个完整应用案例的学习者；对 agent + 金融交叉领域有兴趣的人。
+**备注**：NO-LICENSE → 同上；**模拟性质、非投资建议**。
 
 ---
 

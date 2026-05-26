@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "07-multi-agent-production"
@@ -127,7 +127,7 @@ order: 7
 
 **Harness Engineering（Agent 執行系統設計）= 把 LLM、tools、memory、state、workflow control、retry、safety、eval、observability 與 deployment 串成一套可執行、可觀測、可維護的 agent 系統**。
 
-→ 所有**不屬於 model weights、也不只是 prompt string 本身**的工程元件都算 harness 範圍。一個 production-grade agent runtime 包含這 8 個核心元件（前 6 個是 runtime 內建、第 7 個 eval 是外掛工具、第 8 個 cost / latency 是跨層議題）：
+→ 所有**不屬於 model weights、也不只是 prompt string 本身**的工程元件都算 harness 範圍。一個可部署的 agent runtime 包含這 8 個核心元件（前 6 個是 runtime 內建、第 7 個 eval 是外掛工具、第 8 個 cost / latency 是跨層議題）：
 
 | 元件 | 做什麼 | 對應本 stage 練習 |
 |---|---|---|
@@ -146,7 +146,7 @@ order: 7
 
 ### 參考實作
 
-想看 production-grade harness 長什麼樣？兩個 reference：
+想看實際在 production 跑的 harness 長什麼樣？兩個 reference：
 
 - **Claude Code 整個 runtime** — 是 reference harness 實作。**讀 source 練習見 [Stage 5.6](/zh-tw/stages/05-claude-code-ecosystem/#56--claude-code-source-解剖reference-harness-implementation-track-b-必看)**（clone `claude-agent-sdk-python` 解剖 main loop + 上表前 6 個 runtime 元件位置；第 7 個 Eval harness 是外掛、第 8 個 Cost / Latency 是 cross-cutting、見下方深入段）
 - **`anthropics/claude-agent-sdk-python`** source — 上面練習用的具體 repo

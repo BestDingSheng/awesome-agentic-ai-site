@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a2-cli-workflow"
@@ -26,7 +26,7 @@ order: 2
 
 ## 📌 學習目標
 
-- 寫一份 production-grade 的 `CLAUDE.md` / `AGENTS.md`——production-grade 的最低構成：**(1) 角色** + **(2) 專案背景** + **(3) 禁止事項** + **(4) 測試指令** + **(5) 交付格式**。實務上 30-50 行可同時涵蓋這 5 件事；超過 50 行通常該拆檔
+- 寫一份實用的 `CLAUDE.md` / `AGENTS.md`——實用的最低構成：**(1) 角色** + **(2) 專案背景** + **(3) 禁止事項** + **(4) 測試指令** + **(5) 交付格式**。實務上 30-50 行可同時涵蓋這 5 件事；超過 50 行通常該拆檔
 - 設計可重複的 slash command / custom prompt
 - 把多步驟任務拆成 CLI 能跑完的小步驟
 - 設計 prompt 讓任務在不同 CLI 上 portable
@@ -98,7 +98,7 @@ description: Review staged changes for security + style
 | 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|---|
 | **CLAUDE.md 範例庫** | [Anthropic 官方 CLAUDE.md 指南](https://docs.claude.com/en/docs/claude-code/memory) | ⭐⭐⭐⭐⭐ | 第一份 CLAUDE.md 從這抄結構 | Claude Code repo 自己的 CLAUDE.md、官方寫法 |
-| | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看 production-grade `.claude/` 完整目錄結構 | 不只是 skill collection、也是 CLAUDE.md 範本（★ 196k+） |
+| | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看實際在用的 `.claude/` 完整目錄結構 | 不只是 skill collection、也是 CLAUDE.md 範本（★ 196k+） |
 | | [mattpocock/skills](https://github.com/mattpocock/skills) | ⭐⭐⭐⭐ | 想看工程師日常用的 skill 庫 | `.claude/` 結構是好參考。**更多 skill 範例見 [Stage 5.3](/zh-tw/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行為層-claude-code-生態最關鍵的一層)** |
 | **Slash Commands / Custom Prompts** | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | ⭐⭐⭐⭐⭐ | 找官方 plugin 範本 | 官方 plugin marketplace、每個 plugin 內的 commands / skills 是 slash command 範例（★ 27k+） |
 | | [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | ⭐⭐⭐ | 想逛社群 slash command 範例 | 社群整理的 Claude Code 資源清單 |

@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a2-cli-workflow"
@@ -26,7 +26,7 @@ After installing a CLI and running first tasks, the next question: **how do I ma
 
 ## 📌 Learning Goals
 
-- Write a production-grade `CLAUDE.md` / `AGENTS.md` — the minimum production-grade shape is **(1) role** + **(2) project context** + **(3) forbidden actions** + **(4) test commands** + **(5) delivery format**. In practice, 30-50 lines can usually cover those 5 things; beyond 50 lines, split the file
+- Write a practical `CLAUDE.md` / `AGENTS.md` — the minimum practical shape is **(1) role** + **(2) project context** + **(3) forbidden actions** + **(4) test commands** + **(5) delivery format**. In practice, 30-50 lines can usually cover those 5 things; beyond 50 lines, split the file
 - Design repeatable slash commands / custom prompts
 - Decompose multi-step tasks into ones the CLI can execute end-to-end
 - Design prompts portable across CLIs

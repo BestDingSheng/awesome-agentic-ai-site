@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a2-cli-workflow"
@@ -26,7 +26,7 @@ order: 2
 
 ## 📌 学习目标
 
-- 写一份 production-grade 的 `CLAUDE.md` / `AGENTS.md`——production-grade 的最低构成：**(1) 角色** + **(2) 项目背景** + **(3) 禁止事项** + **(4) 测试指令** + **(5) 交付格式**。实务上 30-50 行可同时涵盖这 5 件事；超过 50 行通常该拆文件
+- 写一份实用的 `CLAUDE.md` / `AGENTS.md`——实用的最低构成：**(1) 角色** + **(2) 项目背景** + **(3) 禁止事项** + **(4) 测试指令** + **(5) 交付格式**。实务上 30-50 行可同时涵盖这 5 件事；超过 50 行通常该拆文件
 - 设计可重复的 slash command / custom prompt
 - 把多步骤任务拆成 CLI 能跑完的小步骤
 - 设计 prompt 让任务在不同 CLI 上 portable

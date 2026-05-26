@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-knowledge-worker.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-knowledge-worker"
@@ -146,10 +146,11 @@ Recommended progression:
 | **Tier 0** | Claude.ai / ChatGPT / Gemini / Perplexity (web) | Most knowledge workers start here | 0 (if you can use a browser) |
 | **Tier 1** | Claude Desktop + MCP (Gmail / Notion / calendar) | Repeat workflows over local / cloud files | Half a day |
 | **Tier 2** | n8n / Make / Langflow (automation platforms) | Connecting several SaaS tools without writing code | 1 week of setup |
-| **Tier 3** | Claude Code / Codex / your own Python | Dev background or dev support, production-grade workflows | Several weeks, overlaps with Track A |
+| **Tier 3** | Claude Code / Codex / your own Python | Dev background or dev support, workflows ready for production deployment | Several weeks, overlaps with Track A |
 
 **Tier 3+ (CLI / SDK) is too heavy for most knowledge worker tasks**. Most people can stop at Tier 1-2.
 
 ## Reading
 
 - [How I Turned Claude Code Into My Personal AI Agent OS](https://aimaker.substack.com/p/how-i-turned-claude-code-into-personal-ai-agent-operating-system-for-writing-research-complete-guide) — knowledge worker case study
+- [**Anthropic — The Founder's Playbook**](https://claude.com/blog/the-founders-playbook) — Anthropic's 35-page startup playbook (2026-05-14); maps Idea / MVP / Launch / Scale onto 2026 AI capability

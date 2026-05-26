@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -47,6 +47,7 @@ baseSlug: "mcp-skills-catalog"
 12. [Other Common (Cloudflare / Stripe…)](#12-other-common-cloudflare--stripe) (2)
 13. [Research Workflow Skills](#13-research-workflow-skills-academic--paper--lit) (4)
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills) (3)
+15. [Finance / Trading Agents](#15-finance--trading-agents) (2)
 
 ---
 
@@ -382,7 +383,7 @@ baseSlug: "mcp-skills-catalog"
 
 **What it does**: cross-DB MCP server — MySQL / PostgreSQL / Cloud SQL / Spanner / BigQuery.
 **Audience**: engineers running databases on Google Cloud, or anyone needing multi-engine support.
-**Notes**: open-source + Google-maintained; production-grade choice.
+**Notes**: open-source + Google-maintained; solid choice for production use.
 
 ### [bytebase/dbhub](https://github.com/bytebase/dbhub) ⭐⭐⭐⭐⭐
 
@@ -912,7 +913,37 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 **What it does**: Claude Code marketplace for multi-agent collaboration — task splitter, output reconciler, adversarial debate, shared memory, acceptance gate. Composes with codex-delegate / gemini-delegate.
 **Audience**: people running 2+ delegate agents per round who want to see one way of packaging multi-agent coordination into a marketplace.
-**Notes**: **experimental** — don't treat this as a production-grade framework. It's the maintainer's own setup made public as a reference. For production-grade multi-agent, see LangGraph / AutoGen / CrewAI in Stage 7.
+**Notes**: **experimental** — don't treat this as a framework ready for production use. It's the maintainer's own setup made public as a reference. For multi-agent frameworks built for production, see LangGraph / AutoGen / CrewAI in Stage 7.
+
+---
+
+## 15. Finance / Trading Agents
+
+> ⚠️ **Application-domain section**: agents applied to quantitative trading, hedge-fund simulation, and automated order placement. Licensing varies (NO-LICENSE to permissive open-source); verify each repo before reuse. **Caveat**: real-money trading agents carry significant risk; listed here for agent-design study, not as investment advice.
+
+### [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) ⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 79k+ |
+| License | Apache-2.0 |
+| Rating | ⭐⭐⭐ |
+
+**What it does**: a multi-agent LLM framework for financial trading decisions, with bull / bear / fundamentals / technicals / risk agents collaborating.
+**Audience**: learners studying how multi-agent systems split analytical work; quant researchers experimenting with LLM augmentation of existing pipelines.
+**Notes**: Apache-2.0 — modification and commercial use permitted (retain license notice). **Not investment advice — do not run on real funds directly.**
+
+### [virattt/ai-hedge-fund](https://github.com/virattt/ai-hedge-fund) ⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 59k+ |
+| License | NO-LICENSE |
+| Rating | ⭐⭐⭐ |
+
+**What it does**: a multi-role AI hedge-fund simulation where bull / bear / fundamentals / technicals / risk agents collaborate to produce trade recommendations.
+**Audience**: Stage 7 multi-agent learners wanting a complete application example; people interested in the agent × finance crossover.
+**Notes**: NO-LICENSE → same caveat as above. **Simulation only — not investment advice.**
 
 ---
 

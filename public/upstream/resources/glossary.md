@@ -195,7 +195,7 @@ agent 自我評估上一回合輸出、改下一回合的 pattern——「Actor 
 
 ### Hybrid Search（混合搜尋）
 
-語意搜尋 + 關鍵字搜尋一起用，再 merge 排序。多半比單一方法準。production-grade RAG 標配。
+語意搜尋 + 關鍵字搜尋一起用，再 merge 排序。多半比單一方法準。上線部署 RAG 的標配。
 
 ### Reranking（重新排序）
 

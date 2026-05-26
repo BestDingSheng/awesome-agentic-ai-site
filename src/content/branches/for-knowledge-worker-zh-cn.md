@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-knowledge-worker.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-25T15:16:06.265Z"
+syncedAt: "2026-05-26T03:55:40.681Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-knowledge-worker"
@@ -146,10 +146,11 @@ Slack / Gmail / Discord 等。Anthropic 原本维护的 reference server 已于 
 | **Tier 0** | Claude.ai / ChatGPT / Gemini / Perplexity（网页版） | 大多数知识工作者从这里开始 | 0（会用浏览器就行） |
 | **Tier 1** | Claude Desktop + MCP（Gmail / Notion / 日历） | 要对本机 / 云端文件重复跑流程 | 半天装好 |
 | **Tier 2** | n8n / Make / Langflow（自动化平台） | 要把多个 SaaS 工具串起来、不写 code | 1 周 setup |
-| **Tier 3** | Claude Code / Codex / 自己写 Python | 有 dev 背景或团队有 dev 支援、要 production-grade | 数周、跟 Track A 重叠 |
+| **Tier 3** | Claude Code / Codex / 自己写 Python | 有 dev 背景或团队有 dev 支援、要做能上线部署的成果 | 数周、跟 Track A 重叠 |
 
 **Tier 3+（CLI / SDK）对多数知识工作者任务来说太重**——不要被别人怂恿过去。多数人停在 Tier 1-2 就够。
 
 ## 阅读
 
 - [How I Turned Claude Code Into My Personal AI Agent OS](https://aimaker.substack.com/p/how-i-turned-claude-code-into-personal-ai-agent-operating-system-for-writing-research-complete-guide) — 知识工作者个案研究
+- [**Anthropic — The Founder's Playbook**](https://claude.com/blog/the-founders-playbook) — Anthropic 2026-05-14 发布的 35 页 startup 指南;Idea / MVP / Launch / Scale 四阶段对应到 2026 AI capability
