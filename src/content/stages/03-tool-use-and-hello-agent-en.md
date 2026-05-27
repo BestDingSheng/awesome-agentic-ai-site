@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-26T15:43:18.759Z"
+syncedAt: "2026-05-27T04:09:47.862Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -29,7 +29,7 @@ order: 3
 
 ### A Hierarchy Diagram to Establish Understanding
 
-![AI / ML / DL / LLM vs. Agent](/upstream/resources/diagrams/ai-ml-llm-agent-hierarchy.en.png)
+![AI / ML / DL / LLM vs. Agent](/upstream/resources/diagrams/ai-ml-llm-agent-hierarchy.png)
 
 → **An "Agent" is not a "more advanced model than an LLM," nor is it a branch under the LLM classification tree**. An agent is a **cross-layer abstract system** that uses an LLM as one of its components. Cursor / Claude Code / Hermes Agent all use the same LLMs internally (Claude / GPT / Gemini)—the difference is how they wrap the LLM in a tool-calling loop.
 

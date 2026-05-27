@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-26T15:43:18.759Z"
+syncedAt: "2026-05-27T04:09:47.862Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
@@ -59,7 +59,7 @@ The point is not "how many conversations you opened." The point is "**what you p
 
 ### Where it sits in the three-layer stack
 
-![Prompt → Context → Harness engineering stack](/upstream/resources/diagrams/prompt-context-harness-stack.en.png)
+![Prompt → Context → Harness engineering stack](/upstream/resources/diagrams/prompt-context-harness-stack.png)
 
 See [Stage 2](/en/stages/02-prompt-engineering/) for the full comparison.
 
@@ -591,7 +591,7 @@ print(chunks[0])
 
 **Typical Architecture** (Full Persistent Memory Version):
 
-![Reflexion persistent episodic memory loop](/upstream/resources/diagrams/reflexion-persistent-memory-loop.en.png)
+![Reflexion persistent episodic memory loop](/upstream/resources/diagrams/reflexion-persistent-memory-loop.png)
 
 → **Difference from Stage 3 Reflection**: Stage 3 focuses on an **in-context loop within a single session** (no external store). This section covers **persistent episodic memory storage + retrieval across trials** to learn from past experiences.
 
@@ -639,7 +639,7 @@ OpenAI's **o1** (Sep 2024), followed by open-source efforts like DeepSeek's **R1
 | **Claude Opus 4.7** | Anthropic 2026 (Predecessors: Sonnet 4.5 / Opus 4.5) | Closed-source, controllable thinking budget (API parameter), **leading in SWE-bench / Terminal-bench** | [Anthropic extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) |
 | **Gemini 3.1 Pro** | Google 2026-02 (Predecessors: Gemini 2.5 Thinking 2025, Gemini 3 2025-11) | Closed-source, viewable thinking traces, **GPQA Diamond 94.3%**, leading in price/speed/multimodality | [Gemini API](https://ai.google.dev/gemini-api/docs/thinking) |
 | **DeepSeek-V4 / V4-Pro / V4-Flash** | DeepSeek 2026-04 preview (Predecessors: R1 2025-01 → V3.1) | Open-source **MIT license**, agent-focused training, integrated reasoning + tool use + knowledge processing. R series reasoning now mainline. | [HF DeepSeek-V4-Pro](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro), [R1 paper (method baseline)](https://arxiv.org/abs/2501.12948), [CNBC report](https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html) |
-| **QwQ-32B / QvQ-72B** | Alibaba Qwen 2024-11 ~ 2026 | Open-source **Apache 2.0**, QwQ-32B remains a top choice for small-size reasoning, QvQ is the visual variant. | [QwQ blog](https://qwenlm.github.io/blog/qwq-32b-preview/) |
+| **QwQ-32B / QvQ-72B** | Alibaba Qwen 2024-11 ~ 2026 | Open-source **Apache 2.0**, QwQ-32B remains a strong option for small-size reasoning, QvQ is the visual variant. | [QwQ blog](https://qwenlm.github.io/blog/qwq-32b-preview/) |
 
 ### How to Choose Between the Two Paths
 
@@ -727,7 +727,7 @@ Categorized for quick reference; **choose by use case ("Entry Point") and follow
 | Category | Project | ⭐ | Who It's For | Why Recommended / Notes |
 |---|---|---|---|---|
 | **RAG Framework**<br>(Full Pipeline) | [LlamaIndex](https://github.com/run-llama/llama_index) | ⭐⭐⭐⭐⭐ | Applications focused on documents | Core RAG library, provides document loaders / chunking / retrieval / query engines. ★ 49k+ |
-| | [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | ⭐⭐⭐⭐⭐ | Teams shipping RAG to non-developers | Production-grade RAG engine, deep document understanding (layout/tables/OCR) + hybrid retrieval + agent loops + Web UI. ★ 79k+, Apache-2.0. |
+| | [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | ⭐⭐⭐⭐⭐ | Teams shipping RAG to non-developers | Production-ready RAG engine, deep document understanding (layout/tables/OCR) + hybrid retrieval + agent loops + Web UI. ★ 79k+, Apache-2.0. |
 | | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | ⭐⭐⭐⭐ | Those exploring research-grade graph + long-context memory methods | Graph + vector hybrid retrieval + summarization-based memory, backed by EMNLP 2025 paper. ★ 34k+, MIT. Research-oriented codebase. |
 | **Vector DB**<br>(Local-First) | [Chroma](https://github.com/chroma-core/chroma) | ⭐⭐⭐⭐⭐ | Exercises 2 / 4, easiest vector DB to start with | Open-source embedding database, runs locally, in-memory/SQLite backend, zero ops. ★ 27k+, Apache-2.0. **Install**: `pip install chromadb` |
 | **Vector DB**<br>(Production Scale) | [Qdrant](https://github.com/qdrant/qdrant) | ⭐⭐⭐⭐⭐ | When Chroma can't keep up, need production scale | Rust-based vector DB, offers cloud and self-hosted options. ★ 31k+ |

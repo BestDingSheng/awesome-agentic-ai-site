@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-26T15:43:18.759Z"
+syncedAt: "2026-05-27T04:09:47.862Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -29,7 +29,7 @@ order: 3
 
 ### 一张阶层图先建立认知
 
-![AI / ML / DL / LLM 与 Agent 的关系](/upstream/resources/diagrams/ai-ml-llm-agent-hierarchy.zh-Hans.png)
+![AI / ML / DL / LLM 与 Agent 的关系](/upstream/resources/diagrams/ai-ml-llm-agent-hierarchy.png)
 
 → **“Agent”不是“比 LLM 更厉害的模型”，也不是 LLM 树状分类底下的一个分支**。Agent 是个**跨层抽象的系统**，把 LLM 当作其中一个组件来用。Cursor / Claude Code / Hermes Agent 内部都还是同一批 LLM（Claude / GPT / Gemini）—— 差别是怎么把 LLM 包进工具调用循环里。
 

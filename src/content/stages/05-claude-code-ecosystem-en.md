@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-26T15:43:18.759Z"
+syncedAt: "2026-05-27T04:09:47.862Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -38,7 +38,7 @@ order: 5
 
 From top to bottom, each layer builds on the one below it:
 
-![Claude Code Ecosystem Stack](/upstream/resources/diagrams/stage5-stack.en.png)
+![Claude Code Ecosystem Stack](/upstream/resources/diagrams/stage5-stack.png)
 
 Each layer adds a capability:
 - **API + SDK**: Programmatic access to the LLM.
@@ -64,7 +64,7 @@ After completing this stage, you will be able to extend Claude Code, write your 
 
 > 📋 **What this section is**: maps Claude Code's 7 primitives (MCP / Skills / Plugins / Subagents / Hooks / Slash commands / CLI) to **7 architecture layers + 3 engineering disciplines**. Read it once before 5.1-5.6 to know which layer each sub-chapter teaches; read it again afterward as synthesis. **The layering is a teaching choice, not an absolute truth**.
 
-![Claude Code 7-Layer Architecture Map](/upstream/resources/diagrams/claude-architecture-map.en.png)
+![Claude Code 7-Layer Architecture Map](/upstream/resources/diagrams/claude-architecture-map.png)
 
 > 📊 **Above**: Claude Code 7 architecture layers + 3 engineering disciplines integrated view.
 
@@ -424,7 +424,7 @@ These layers are often confused. **A one-line comparison**:
 
 | Project | ⭐ | Best for | Why it's recommended / Notes |
 |---|---|---|---|
-| [anthropics/skills](https://github.com/anthropics/skills) ⭐ Official spec | ⭐⭐⭐⭐⭐ | Reading before writing your own SKILL.md | Anthropic's official Skills repo: `spec/` (frontmatter standard) + `template/` (starter template) + `skills/` containing reference implementations like pdf / docx / xlsx / pptx / skill-creator / skill-vetter. ★ 128k+. **The top choice for SKILL.md structure reference**. For the broader Agent Skills standard, see [agentskills.io](https://agentskills.io). |
+| [anthropics/skills](https://github.com/anthropics/skills) ⭐ Official spec | ⭐⭐⭐⭐⭐ | Reading before writing your own SKILL.md | Anthropic's official Skills repo: `spec/` (frontmatter standard) + `template/` (starter template) + `skills/` containing reference implementations like pdf / docx / xlsx / pptx / skill-creator / skill-vetter. ★ 128k+. **A reference template for SKILL.md structure**. For the broader Agent Skills standard, see [agentskills.io](https://agentskills.io). |
 | [anthropics/claude-code](https://github.com/anthropics/claude-code) | ⭐⭐⭐⭐ | Tracking new features, reading release notes | The main Claude Code repo, including issues / releases / inline skill examples. For learning Skills, this repo is secondary to the one above. |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | ⭐⭐⭐⭐ | Seeing "real-world engineer daily SKILL.mds" | Matt Pocock (a well-known educator in the TypeScript community) has open-sourced his actual `.claude/` directory. Each SKILL.md is **extremely short (10-50 lines)** and not over-engineered. **A valuable reference against over-engineered 200-line skills** (★ 104k+, MIT). |
 | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | Power user setup, learning advanced patterns | 20+ battle-tested skills (TDD, debugging, collaboration patterns) + `/brainstorm` / `/write-plan` / `/execute-plan` commands + a skills-search tool. |
@@ -521,7 +521,7 @@ Plugin
 
 Up to this point, you've learned about MCP (the tool layer), Skills (the behavior layer), and Plugins (the distribution layer). **Subagents are the orchestration layer**—they allow the main Claude session to spawn child agents with independent contexts to run specific tasks and report back the results.
 
-![Subagent 4-Stage Lifecycle: from .md file to returned summary](/upstream/resources/diagrams/subagent-4-stage-flow.en.png)
+![Subagent 4-Stage Lifecycle: from .md file to returned summary](/upstream/resources/diagrams/subagent-4-stage-flow.png)
 
 > 📊 **The diagram above** shows the 4 stages — **Definition → Discovery → Dispatch → Execution**. Read this first, then dive into the details below.
 
@@ -622,7 +622,7 @@ The **3 concept pairs** students confuse most often, plus **5 gotchas veterans l
 
 Many people treat Subagents and Skills as the same thing. They are actually **completely different layers**:
 
-![Subagent vs Skill — 5 Key Differences](/upstream/resources/diagrams/subagent-vs-skill.en.png)
+![Subagent vs Skill — 5 Key Differences](/upstream/resources/diagrams/subagent-vs-skill.png)
 
 | Dimension | Subagent | Skill |
 |---|---|---|

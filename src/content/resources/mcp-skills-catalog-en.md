@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-26T15:43:18.759Z"
+syncedAt: "2026-05-27T04:09:47.862Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -44,7 +44,7 @@ baseSlug: "mcp-skills-catalog"
 9. [Monitoring / Observability](#9-monitoring--observability) (3)
 10. [Media / Streaming (YouTube / Spotify)](#10-media--streaming-youtube--spotify) (3)
 11. [Chinese-language Ecosystem](#11-chinese-language-ecosystem) (9)
-12. [Other Common (Cloudflare / Stripe…)](#12-other-common-cloudflare--stripe) (2)
+12. [Other Common (Cloudflare / Stripe…)](#12-other-common-cloudflare--stripe) (3)
 13. [Research Workflow Skills](#13-research-workflow-skills-academic--paper--lit) (4)
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills) (3)
 15. [Finance / Trading Agents](#15-finance--trading-agents) (2)
@@ -807,6 +807,17 @@ baseSlug: "mcp-skills-catalog"
 **Audience**: developers wiring payment / billing into agent flows.
 **Notes**: ⚠️ this is real money. Test thoroughly in sandbox before going to production.
 
+### YIELD INTELLIGENCE MCP (Hosted Remote Server)
+
+| Field | Value |
+|---|---|
+| Type | hosted MCP server |
+| Rating | ⭐⭐⭐ (finance analysis tool; practical example of hosted vs self-hosted MCP architecture) |
+
+**What it does**: YIELD INTELLIGENCE hosted remote MCP server — live US Treasury yield rates, dividend ETF / REIT / preferred stock analysis, and passive income portfolio optimization. Two tools: `analyze_yield_opportunities` (scans passive income options) + `optimize_income_portfolio` (builds a portfolio toward a target monthly income). Listed in the Anthropic official MCP Registry (`io.github.thebrierfox/intuitek-ace`, since 2026-05-10).
+**Audience**: people doing personal finance analysis in Claude Code / Claude Desktop who want AI to surface passive income opportunities. Good hands-on example of a hosted remote MCP server — plug the URL in, zero install, useful for Stage 5 learners exploring the hosted vs self-hosted difference.
+**Notes**: Live endpoint `https://api.intuitek.ai/yield/mcp` (no auth, no API key required). x402 micropayment $1 USDC/call on Base (agent-to-agent scenarios); free for regular users. Analysis-only, no trading. GitHub: [thebrierfox/intuitek-ace](https://github.com/thebrierfox/intuitek-ace) (MIT License).
+
 ---
 
 ## 13. Research Workflow Skills (academic / paper / lit)
@@ -871,7 +882,7 @@ baseSlug: "mcp-skills-catalog"
 
 The 3 skills below are **designed to be used together**, not as standalone tools:
 
-![Claude + 3 delegate skills — division of labor](/upstream/resources/diagrams/multi-llm-delegation-composition.en.png)
+![Claude + 3 delegate skills — division of labor](/upstream/resources/diagrams/multi-llm-delegation-composition.png)
 
 Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is bad at conversational coordination; Gemini's 1M context is great but mid-tier reasoning. **Division of labor: Claude handles design / review, Codex handles implementation, Gemini handles long-form drafting / synthesis.**
 

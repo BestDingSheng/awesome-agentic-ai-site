@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-26T15:43:18.759Z"
+syncedAt: "2026-05-27T04:09:47.862Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "08-agent-interfaces"
@@ -422,7 +422,7 @@ agent = Agent(
 
 ### 4 个防护模式（必须添加）
 
-![Agent 4 个防护模式](/upstream/resources/diagrams/agent-guardrail-patterns.zh-Hans.png)
+![Agent 4 个防护模式](/upstream/resources/diagrams/agent-guardrail-patterns.png)
 
 | 模式 | 如何实现 | 何时必须添加 |
 |---|---|---|

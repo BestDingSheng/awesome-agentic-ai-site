@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-26T15:43:18.759Z"
+syncedAt: "2026-05-27T04:09:47.862Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a1-cli-intro"
@@ -78,7 +78,7 @@ Deliberately break your API key (one wrong character) and see how the CLI errors
 Detailed comparison (stars, license, strengths, recommended use cases) in [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/). Quick entry points here:
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
-★ 120k+ — Recommended first CLI agent. Built-in SKILL / plugin ecosystem, CLAUDE.md prompt system, most complete community resources.
+★ 120k+ — Recommended first CLI agent. Built-in SKILL / plugin ecosystem, CLAUDE.md prompt system, rich community resources.
 
 #### [openai/codex](https://github.com/openai/codex) ⭐⭐⭐⭐⭐
 ★ 80k+ — Top pick if you already subscribe to ChatGPT Plus / Pro; same account works in the terminal.

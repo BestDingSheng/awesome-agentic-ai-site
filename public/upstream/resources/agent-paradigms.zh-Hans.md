@@ -158,7 +158,7 @@
 
 真实 user 常常**同时用 2-3 个 type**、各做擅长的事:
 
-![个人 power-user 多 type workflow](../resources/diagrams/power-user-multi-type-workflow.zh-Hans.png)
+![个人 power-user 多 type workflow](../resources/diagrams/power-user-multi-type-workflow.png)
 
 **为什么这样搭**:
 - Type 2 处理 code（terminal 界面最自然）
@@ -169,7 +169,7 @@
 
 ## Decision tree（简化文字版）
 
-![选哪个 agent type 决策树](../resources/diagrams/agent-paradigm-decision-tree.zh-Hans.png)
+![选哪个 agent type 决策树](../resources/diagrams/agent-paradigm-decision-tree.png)
 
 ---
 

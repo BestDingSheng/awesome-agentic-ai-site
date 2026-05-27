@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/subagent-advanced.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/subagent-advanced.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-26T15:43:18.759Z"
+syncedAt: "2026-05-27T04:09:47.862Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "subagent-advanced"
@@ -117,7 +117,7 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 
 When you want to run 2+ subagents together, how should you compose them? The 3 patterns below are common community patterns:
 
-![Subagent Composition — 3 Patterns](/upstream/resources/diagrams/subagent-composition-patterns.en.png)
+![Subagent Composition — 3 Patterns](/upstream/resources/diagrams/subagent-composition-patterns.png)
 
 > 📊 **The diagram above**: A — Parallel (most common) / B — Pipeline (multi-LLM orchestration) / C — Meta-Agent (NOT recommended, listed to avoid). See the full picture first, then read the details.
 

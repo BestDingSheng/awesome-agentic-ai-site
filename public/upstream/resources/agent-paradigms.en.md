@@ -158,7 +158,7 @@ See the full comparison table at the [start of Stage 5.5](../stages/05-claude-co
 
 Real power users often run **2 or 3 types simultaneously**, each handling what it's best at:
 
-![Personal power-user multi-type workflow](../resources/diagrams/power-user-multi-type-workflow.en.png)
+![Personal power-user multi-type workflow](../resources/diagrams/power-user-multi-type-workflow.png)
 
 **Why this combination**:
 - Type 2 handles code (terminal is the most natural interface)
@@ -169,7 +169,7 @@ Real power users often run **2 or 3 types simultaneously**, each handling what i
 
 ## Decision tree (text form)
 
-![Agent paradigm decision tree](../resources/diagrams/agent-paradigm-decision-tree.en.png)
+![Agent paradigm decision tree](../resources/diagrams/agent-paradigm-decision-tree.png)
 
 ---
 

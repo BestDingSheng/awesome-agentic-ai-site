@@ -32,7 +32,7 @@
 9. [監控 / Observability](#9-監控--observability)（3）
 10. [媒體 / 串流（YouTube / Spotify）](#10-媒體--串流youtube--spotify)（3）
 11. [中文圈專用](#11-中文圈專用)（9）
-12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（2）
+12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（3）
 13. [研究工作流 Skills（學術 / paper / 文獻）](#13-研究工作流-skills學術--paper--文獻)（4）
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills)（3）
 15. [金融 / 交易 Agents](#15-金融--交易-agents)（2）
@@ -794,6 +794,18 @@
 **教什麼**：Stripe 官方 AI agent toolkit，含 MCP server，操作付款、訂閱、退款、客戶。
 **適合誰**：要在 agent 內處理付款 / billing 的開發者。
 **備註**：⚠️ 涉及金流，務必用 sandbox 測試夠了再接 production。
+
+
+### YIELD INTELLIGENCE MCP（Hosted Remote Server）
+
+| 欄位 | 內容 |
+|---|---|
+| 形式 | hosted MCP server |
+| 推薦度 | ⭐⭐⭐（Finance 分析工具；了解 hosted vs self-hosted MCP 實作差異的實例） |
+
+**教什麼**：YIELD INTELLIGENCE hosted remote MCP server——即時美國國債殖利率 + 股息 ETF / REIT / 特別股分析 + 被動收入投資組合優化。2 個工具：`analyze_yield_opportunities`（掃描被動收入機會）+ `optimize_income_portfolio`（目標月收入建立投資組合）。已列入 Anthropic 官方 MCP Registry（`io.github.thebrierfox/intuitek-ace`，since 2026-05-10）。
+**適合誰**：用 Claude Code / Claude Desktop 做個人理財分析、想讓 AI 找出被動收入機會的人。hosted remote MCP server 範例——直接 plug URL、0 安裝、適合 Stage 5 學完 MCP 概念後拿來實驗 hosted vs self-hosted 差異。
+**備註**：Live endpoint `https://api.intuitek.ai/yield/mcp`（no auth、no API key）。x402 micropayment $1 USDC/call on Base（agent-to-agent 場景）；一般使用者免費。非交易型，純分析工具。GitHub：[thebrierfox/intuitek-ace](https://github.com/thebrierfox/intuitek-ace)（MIT License）。
 
 ---
 

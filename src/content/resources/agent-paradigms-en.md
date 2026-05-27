@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/agent-paradigms.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-26T15:43:18.759Z"
+syncedAt: "2026-05-27T04:09:47.862Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "agent-paradigms"
@@ -170,7 +170,7 @@ See the full comparison table at the [start of Stage 5.5](/en/stages/05-claude-c
 
 Real power users often run **2 or 3 types simultaneously**, each handling what it's best at:
 
-![Personal power-user multi-type workflow](/upstream/resources/diagrams/power-user-multi-type-workflow.en.png)
+![Personal power-user multi-type workflow](/upstream/resources/diagrams/power-user-multi-type-workflow.png)
 
 **Why this combination**:
 - Type 2 handles code (terminal is the most natural interface)
@@ -181,7 +181,7 @@ Real power users often run **2 or 3 types simultaneously**, each handling what i
 
 ## Decision tree (text form)
 
-![Agent paradigm decision tree](/upstream/resources/diagrams/agent-paradigm-decision-tree.en.png)
+![Agent paradigm decision tree](/upstream/resources/diagrams/agent-paradigm-decision-tree.png)
 
 ---
 

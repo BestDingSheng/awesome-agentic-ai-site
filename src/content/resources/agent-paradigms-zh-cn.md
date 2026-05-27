@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/agent-paradigms.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-26T15:43:18.759Z"
+syncedAt: "2026-05-27T04:09:47.862Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "agent-paradigms"
@@ -170,7 +170,7 @@ baseSlug: "agent-paradigms"
 
 真实 user 常常**同时用 2-3 个 type**、各做擅长的事:
 
-![个人 power-user 多 type workflow](/upstream/resources/diagrams/power-user-multi-type-workflow.zh-Hans.png)
+![个人 power-user 多 type workflow](/upstream/resources/diagrams/power-user-multi-type-workflow.png)
 
 **为什么这样搭**:
 - Type 2 处理 code（terminal 界面最自然）
@@ -181,7 +181,7 @@ baseSlug: "agent-paradigms"
 
 ## Decision tree（简化文字版）
 
-![选哪个 agent type 决策树](/upstream/resources/diagrams/agent-paradigm-decision-tree.zh-Hans.png)
+![选哪个 agent type 决策树](/upstream/resources/diagrams/agent-paradigm-decision-tree.png)
 
 ---
 
