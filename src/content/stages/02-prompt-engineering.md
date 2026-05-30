@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-30T03:45:27.215Z"
+syncedAt: "2026-05-30T13:46:46.116Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
@@ -468,7 +468,7 @@ LLM-powered system 的工程實踐分成 **3 層 stack**（不是 1 次 call vs 
 
 > 💡 **Karpathy 2025-06**：「context engineering 是把對下一步有用的資訊**剛好填進** context window 的精細藝術」（it's about *what goes in the window*）。
 >
-> 💡 **Simon Willison / Addy Osmani**：「coding agent = LLM + harness」、harness = 所有不是 model 本身的程式碼。[OpenAI 2026-02 也使用 "Harness Engineering" 這個說法](https://openai.com/index/harness-engineering)。
+> 💡 **Simon Willison / Addy Osmani**：「coding agent = LLM + harness」——harness 就是「模型外圍的控制系統」、retry / loop / 監測 / 沙盒 / 部署這些不是 LLM 本身的程式碼。[OpenAI 2026-02 也使用 "Harness Engineering" 這個說法](https://openai.com/index/harness-engineering)。
 
 **這個 stage 不用學完後兩層**，只是給方向性提示——進入 Stage 6 / 7 時會接續這個 lineage。
 

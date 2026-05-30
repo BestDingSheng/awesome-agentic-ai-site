@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-30T03:45:27.215Z"
+syncedAt: "2026-05-30T13:46:46.116Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -305,7 +305,7 @@ Dump too much context on an agent and it drowns — attention scatters, focus is
 The intro prompt should be a table of contents, not the entire book:
 
 - **AGENTS.md / CLAUDE.md ≤ 100 lines**: just the top-level "what does this project do + where is the main structure". Skip detail.
-- **Brief instead of dump**: when assigning a task, use a 100-line brief — not vibrating the whole codebase into context.
+- **Brief instead of dump**: when assigning a task, use a 100-line brief — not dumping the whole codebase into context.
 - **Stable entrance**: the 100 lines should change as little as possible so the agent can build a reliable mental model of them.
 
 **(b) Navigation mechanism — teach the agent where to dig**
@@ -439,7 +439,7 @@ The 5 principles above apply to all agents, but **coding agents** (Claude Code /
 |---|---|---|
 | **File system + repo state snapshot** | agent edits code → must be able to diff / rollback / replay; unlike a chat agent that forgets after editing | Stage 5 CLAUDE.md hierarchy, Stage 7 Retry |
 | **Isolated execution sandbox** | the code the agent writes must actually run to be verified (not just generated), but must not pollute the host | Stage 8 Code Sandbox (e2b / Daytona) |
-| **Long-horizon task decomposition + parallel subagents** | large refactors / cross-file edits exceed a single context, so they must be split into subtasks running in parallel | Stage 7 multi-agent · **Opus 4.8 Dynamic Workflows (research preview, parallel-subagent harness) is exactly the productization of this direction** |
+| **Long-horizon task decomposition + parallel subagents** | large refactors / cross-file edits exceed a single context, so they must be split into subtasks running in parallel | Stage 7 multi-agent · **[Opus 4.8 Dynamic Workflows](#-dynamic-workflows-opus-48--when-the-agent-writes-its-own-workflow) (research preview) is exactly the productization of this direction — see the dedicated section below** |
 
 **Why this line is especially hot in 2026**:
 
@@ -457,7 +457,7 @@ Stage 7's Benchmark Landscape mentioned Berkeley's reward-hacking warning. Here'
 - **The same model, a different scaffold, and the score can halve** — research shows a model scoring 60% under a sophisticated agent scaffold may drop to 30% unassisted. **The scaffold (= harness) is as much a benchmark variable as the model**. ([SWE-bench benchmark-hygiene analysis](https://www.whocodesbest.com/news/2026/swe-bench-april-2026-benchmark-hygiene-matters))
 - **A single run is untrustworthy**: if scores vary by > 10% across runs, the signal-to-noise ratio is too low to conclude from one run. SWE-bench locks a per-issue Docker image (repo snapshot + pinned deps) for exact replay; τ-bench uses **pass^k** (only counts if all k trials pass) to measure reliability.
 - **The benchmark itself often has reward-design bugs**: [Establishing Best Practices for Building Rigorous Agentic Benchmarks](https://arxiv.org/abs/2507.02825) catalogs holes in many agentic benchmarks' task setup / reward design — e.g. an early τ-bench version counted empty responses as correct.
-- **Reward hacking is not an edge case**: on open-ended tasks, top models exploit rubric holes in **75%** of agentic-code-generation tasks and 67% of creative tasks.
+- **Reward hacking is not an edge case**: on open-ended tasks, one study measured top models exploiting rubric holes in **75%** of agentic-code-generation tasks and 67% of creative tasks (figures vary by task and harness design — see the source below).
 
 **Takeaway for readers (harness-engineer lens)**:
 
@@ -469,6 +469,36 @@ Stage 7's Benchmark Landscape mentioned Berkeley's reward-hacking warning. Here'
 | Trusting a benchmark ranking | First check whether its reward design has been audited (empty-response / shortcut holes) |
 
 > 📚 **Want to go deeper on eval rigor**: [Establishing Best Practices for Building Rigorous Agentic Benchmarks](https://arxiv.org/abs/2507.02825) is a systematic catalog; for the production reward-hacking warning see the Berkeley section in [Stage 7 Benchmark Landscape](/en/stages/07-multi-agent-production/) + the pass^k design of τ-bench ([sierra-research/tau2-bench](https://github.com/sierra-research/tau2-bench)).
+
+### 🔀 Dynamic Workflows (Opus 4.8) — when the agent writes its own workflow
+
+The coding-agent harness section above mentioned Opus 4.8's **Dynamic Workflows** (2026-05-28, Claude Code research preview). It deserves its own section — because it collapses the [workflow-vs-agent distinction taught in Stage 4](/en/stages/04-agent-frameworks/#two-dimensions-to-clarify-first-workflow-vs-agent--single-vs-multi), making it the best live teaching material for "agent-authored orchestration."
+
+**The name is almost an oxymoron**: by Anthropic's own [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) definition, a **workflow = code paths a human predefines, an agent = an LLM directing its own process at runtime**. But a Dynamic Workflow is — **the agent (Claude) decides at runtime how to decompose the task, then emits a JavaScript orchestration script that a separate background runtime executes**. The human didn't write that workflow; the agent did. It is both an agent (who decides) and a workflow (how it runs).
+
+**The core mechanism — why it's not just "parallel subagents"**:
+
+The point isn't the parallelism, it's **context offloading**. Plain subagents / skills: every intermediate result returns to Claude's context window. Dynamic Workflows: the loop, branches, and intermediate results **all live in script variables** — only the final verified answer returns to context. That's why it can run "hundreds-of-thousands-of-line codebase migrations, using the existing test suite as the bar, from kickoff to merge" — because the noise of hundreds of intermediate agent calls never floods the context.
+
+| Aspect | Fact (per official Claude Code docs) |
+|---|---|
+| Which pattern it is | the scaled-up **orchestrator-workers** pattern — the one of [Anthropic's five workflow patterns](https://www.anthropic.com/research/building-effective-agents) where subtasks are *determined at runtime* — plus adversarial verification |
+| Scale limits | **up to 16 agents concurrently**, with a hard cap of **1,000 total per run** (anti-runaway). NOT "hundreds running at once" |
+| How it triggers | (1) the word `workflow` in a prompt (2) a saved command like `/deep-research` (3) `/effort ultracode` (xhigh reasoning + automatic orchestration) |
+| Platform | a Claude Code feature (CLI / Desktop / IDE / headless / Agent SDK, v2.1.154+). **Not** a raw API (no `/v1/workflows`) |
+| Quality mechanism | an adversarial propose / refute / converge loop — independent agents attack from different angles, others try to refute, it iterates to convergence, verifies before merging |
+
+**This very section was researched using this exact pattern** (live example): the facts here were gathered by running a dynamic-workflow-style orchestration — 4 parallel research agents each taking one angle (official / technical / positioning / skeptic) + a skeptic synthesizer that **dropped every claim it couldn't corroborate across sources**. What got dropped includes "hundreds of parallel subagents" (the real number is 16 concurrent / 1,000 total) and "a 750k-line Bun migration from Zig to Rust passing 99.8% of tests, merged in 11 days" (a single vendor case study, not independently audited — not citable as a verified fact). **That is orchestrator-workers + adversarial verify in action.**
+
+> ⚠️ **What it is NOT (the honest limitations matter as much as the feature)**:
+> - **Not a generic workflow engine** (not Airflow / n8n / Temporal — a human doesn't draw a DAG; the agent writes code)
+> - **Not unbounded parallelism** (16 concurrent / 1,000 total per run, not "hundreds at once")
+> - **Not GA** (research preview, paid-plan-gated, pricing / availability may change; two official sources even disagree on whether Pro is included)
+> - **Its reliability gain comes mainly from abstaining when uncertain** (a refusal trade-off — fewer attempts on uncertain questions, not more correct answers; from the system card). More subagents ≠ higher correct coverage
+> - **Not free** (Anthropic itself warns token usage is "substantially more" and recommends a scoped task first to calibrate consumption)
+> - **Doesn't solve the dispatch problem** ("when to fan out vs do one careful pass" still rests on Claude's runtime judgment; independent analysts note verifier discipline is still thin — fan-out without good verification can produce "fifty plausible bugs," worse than the single careful pass it replaced)
+
+> 📚 **Authoritative sources**: [Claude Code — Dynamic Workflows docs](https://code.claude.com/docs/en/workflows) (canonical for mechanism + 16/1000 limits + triggers) · [Anthropic — Introducing Dynamic Workflows](https://claude.com/blog/introducing-dynamic-workflows-in-claude-code) (positioning + token warning) · [Anthropic — Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) (workflow-vs-agent + orchestrator-workers foundation) · [Opus 4.8 announcement](https://www.anthropic.com/news/claude-opus-4-8).
 
 ### 📋 Concept-check prompt (self-quiz)
 
