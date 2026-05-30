@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-29T15:46:21.007Z"
+syncedAt: "2026-05-30T03:45:27.215Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -205,7 +205,7 @@ Before choosing a model or building an agent, you'll want to look at benchmark n
 
 | Benchmark | Domain | 2026-05 SOTA | Leading Model |
 |---|---|---|---|
-| [**SWE-bench Verified**](https://www.swebench.com/) | Software Engineering / code agent | **87.6%** | Claude Opus 4.7 |
+| [**SWE-bench Verified**](https://www.swebench.com/) | Software Engineering / code agent | **88.6%** | Claude Opus 4.8 |
 | [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal tasks | Leading | Claude Opus 4.5 / 4.7 |
 | **GAIA** | general assistant | **74.6%** | Claude Sonnet 4.5 (Princeton HAL) |
 | [**WebArena**](https://github.com/web-arena-x/webarena) | web navigation | **68.7%** | Claude Mythos Preview |

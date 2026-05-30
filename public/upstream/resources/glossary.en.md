@@ -64,7 +64,7 @@ LLMs see **tokens** (sub-word units), not characters. Roughly 1 English word ≈
 
 ### Context Window
 
-The maximum tokens an LLM can "see" in one call. **2026 frontier**: Claude Sonnet 4.6 / Opus 4.7 1M, GPT-5.5 ~400k, Gemini 3.1 Pro 2M. **Bigger isn't always better** — beyond a length the LLM gets "Lost in the Middle".
+The maximum tokens an LLM can "see" in one call. **2026 frontier**: Claude Sonnet 4.6 / Opus 4.8 1M, GPT-5.5 ~400k, Gemini 3.1 Pro 2M. **Bigger isn't always better** — beyond a length the LLM gets "Lost in the Middle".
 
 ### Prompt
 
@@ -389,7 +389,7 @@ Contrast:
 
 ### Computer Use (screen-level agent)
 
-An agent operates real desktop apps via **screenshot → vision → coordinates → simulated mouse/keyboard** — no API needed, the agent uses the screen like a human. Representative: Anthropic Claude Computer Use (Opus 4.7 / Sonnet 4.6), OpenAI Codex desktop, Google Gemini in Chrome. **Anthropic public beta opened Oct 2024; OSWorld benchmark reached 76.26% (superhuman) by May 2026**.
+An agent operates real desktop apps via **screenshot → vision → coordinates → simulated mouse/keyboard** — no API needed, the agent uses the screen like a human. Representative: Anthropic Claude Computer Use (Opus 4.8 / Sonnet 4.6), OpenAI Codex desktop, Google Gemini in Chrome. **Anthropic public beta opened Oct 2024; OSWorld benchmark reached 76.26% (superhuman) by May 2026**.
 
 📍 Full coverage + 4-vendor comparison: [Stage 8 Computer Use](../stages/08-agent-interfaces.en.md)
 

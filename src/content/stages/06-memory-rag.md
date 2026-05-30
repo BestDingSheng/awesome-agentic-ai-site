@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-29T15:46:21.007Z"
+syncedAt: "2026-05-30T03:45:27.215Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "06-memory-rag"
@@ -635,12 +635,12 @@ Reflexion 是 **prompt-based reflection**——LLM 在 inference 時自己改自
 
 > 📺 **視覺學習**：[李宏毅 2025 第七講 — DeepSeek-R1 這類大型語言模型是如何進行「深度思考」(Reasoning) 的？](https://www.youtube.com/watch?v=bJFtcwLSNxI)（NTU 生成式AI時代下的機器學習 2025）
 
-OpenAI **o1**（2024-09）開啟、DeepSeek **R1**（2025-01）開源化、**DeepSeek-V4-Pro**（2026-04 preview、agent-focused 開源 reasoning）+ Claude Opus 4.7（2026-04）+ GPT-5.5（2026-04）+ Gemini 3.1 Pro（2026-02）為當前 frontier——把「step-by-step thinking + 自我糾錯」**訓練進 model 權重**、inference 時自動展開長 reasoning chain（thinking tokens）。**這是 2024-2026 LLM 最大典範轉移**、目前所有 frontier model 都走這路。下表只列**當前（2026-05）frontier**——歷史前身（o1 / R1 / Sonnet 4.5 / Gemini 2.5）省略、想看 lineage 看每家發布日列。
+OpenAI **o1**（2024-09）開啟、DeepSeek **R1**（2025-01）開源化、**DeepSeek-V4-Pro**（2026-04 preview、agent-focused 開源 reasoning）+ Claude Opus 4.8（2026-05、Dynamic Workflows + parallel subagent）+ GPT-5.5（2026-04）+ Gemini 3.1 Pro（2026-02）為當前 frontier——把「step-by-step thinking + 自我糾錯」**訓練進 model 權重**、inference 時自動展開長 reasoning chain（thinking tokens）。**這是 2024-2026 LLM 最大典範轉移**、目前所有 frontier model 都走這路。下表只列**當前（2026-05）frontier**——歷史前身（o1 / R1 / Sonnet 4.5 / Gemini 2.5）省略、想看 lineage 看每家發布日列。
 
 | Model | 來源 / 發布 | 特色 | 連結 |
 |---|---|---|---|
 | **GPT-5.5** | OpenAI 2026-04（前身：o1 2024-09 → o3 → GPT-5 2025-08 → 5.4 2026-03）| 閉源、reasoning + chat 合併、Thinking budget API、agent 能力強化 | [OpenAI](https://openai.com/) |
-| **Claude Opus 4.7** | Anthropic 2026（前身：Sonnet 4.5 / Opus 4.5）| 閉源、可控 thinking budget（API 參數）、**SWE-bench / Terminal-bench 領先** | [Anthropic extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) |
+| **Claude Opus 4.8** | Anthropic 2026-05（前身：Sonnet 4.5 / Opus 4.5 / Opus 4.7、Dynamic Workflows 研究預覽）| 閉源、可控 thinking budget（API 參數）、**SWE-bench / Terminal-bench 領先** | [Anthropic extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) |
 | **Gemini 3.1 Pro** | Google 2026-02（前身：Gemini 2.5 Thinking 2025、Gemini 3 2025-11）| 閉源、可看 thinking trace、**GPQA Diamond 94.3%**、價格 / 速度 / multimodal 領先 | [Gemini API](https://ai.google.dev/gemini-api/docs/thinking) |
 | **DeepSeek-V4 / V4-Pro / V4-Flash** | DeepSeek 2026-04 preview（前身：R1 2025-01 → V3.1）| 開源 **MIT license**、agent-focused 訓練、推理 + 工具使用 + 知識處理整合、R 系列 reasoning 已併入主線 | [HF DeepSeek-V4-Pro](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro)、[R1 paper（方法 baseline）](https://arxiv.org/abs/2501.12948)、[CNBC report](https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html) |
 | **QwQ-32B / QvQ-72B** | Alibaba Qwen 2024-11 ~ 2026 | 開源 **Apache 2.0**、32B 在小尺寸 reasoning 仍是不錯的選擇、QvQ 是視覺版本 | [QwQ blog](https://qwenlm.github.io/blog/qwq-32b-preview/) |
@@ -650,7 +650,7 @@ OpenAI **o1**（2024-09）開啟、DeepSeek **R1**（2025-01）開源化、**Dee
 | 你的情況 | 建議 |
 |---|---|
 | 用一般 chat model base、想加 reasoning | Path 1（prompt-based）—— ToT / Self-Consistency / CoVe |
-| 預算 / latency 允許、要最強 reasoning | Path 2 —— **GPT-5.5 / Opus 4.7 / Gemini 3.1 Pro / V4-Pro** 任挑一個 |
+| 預算 / latency 允許、要最強 reasoning | Path 2 —— **GPT-5.5 / Opus 4.8 / Gemini 3.1 Pro / V4-Pro** 任挑一個 |
 | 想自己 fine-tune reasoning model | Path 2 —— 讀 R1 paper（方法 baseline）、從 R1-Distill / V4 開源權重起步 |
 | 想 on-device / 預算極緊 | **QwQ-32B**（Apache 2.0）或 R 系列 distill |
 | Multi-agent debate / critic 場景 | Path 1（CRITIC / debate）+ [Stage 7 multi-agent](/zh-tw/stages/07-multi-agent-production/) |
@@ -658,7 +658,7 @@ OpenAI **o1**（2024-09）開啟、DeepSeek **R1**（2025-01）開源化、**Dee
 > 💡 **2025-2026 觀察**：
 > - reasoning model 把 Reflexion 那套吞進權重——但 **prompt-based reflection 沒被取代**：agent loop（控制反思時機 / 內容）+ multi-agent debate 還是必須的
 > - **2026 開源逼近閉源**——DeepSeek-V4-Pro（2026-04 preview、MIT license）把 R1 reasoning 併入主線、agent-focused 訓練、跟 GPT-5.5 / Gemini 3.1 Pro 差距持續縮小
-> - **agent capability 變主訴求**——V4 / Opus 4.7 都把 agent-as-product（SWE-bench / Terminal-bench / tool use）當 headline benchmark、單純 reasoning 已經不夠賣
+> - **agent capability 變主訴求**——V4 / Opus 4.8 都把 agent-as-product（SWE-bench / Terminal-bench / tool use）當 headline benchmark、單純 reasoning 已經不夠賣
 > - 兩條路會長期共存、production agent 兩個都用
 
 ## 📏 RAG / Memory Eval — 跑得起來 ≠ 跑得準

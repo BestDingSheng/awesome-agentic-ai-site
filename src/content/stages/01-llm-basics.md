@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-29T15:46:21.007Z"
+syncedAt: "2026-05-30T03:45:27.215Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -57,7 +57,7 @@ order: 1
 
 | Model 家族 | 旗艦（2026-05）| Context | 強項 | 適合任務 | 官方 docs |
 |---|---|---|---|---|---|
-| **Claude**（Anthropic）| Opus 4.7 / Sonnet 4.6 / Haiku 4.5 | 1M（Haiku 4.5 為 200k）| long-form / coding / agent / safety alignment | 寫 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| **Claude**（Anthropic）| Opus 4.8 / Sonnet 4.6 / Haiku 4.5 | 1M（Haiku 4.5 為 200k）| long-form / coding / agent / safety alignment | 寫 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
 | **GPT**（OpenAI）| GPT-5.5 / GPT-5 / o-series | ~400k | 通用 / function calling / ecosystem 最廣 | 廣度查詢 / function-call 框架 / GPTs 生態 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
 | **Gemini**（Google）| 3.1 Pro / Flash | **2M**（Pro 系列、Flash 為 1M）| 長 context / 原生 multimodal / Google 整合 | PDF / 影音 / 大量文件 / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
@@ -132,7 +132,7 @@ order: 1
 
 ## 📚 必修閱讀
 
-1. [**Anthropic — Claude 模型總覽**](https://docs.claude.com/en/about-claude/models/overview) — 官方模型 family、含 2026 最新 Opus 4.7 / Sonnet 4.6 / Haiku 4.5
+1. [**Anthropic — Claude 模型總覽**](https://docs.claude.com/en/about-claude/models/overview) — 官方模型 family、含 2026 最新 Opus 4.8 / Sonnet 4.6 / Haiku 4.5
 2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic 官方 5 course umbrella、**module 1「Anthropic API Fundamentals」對應本 stage**。Jupyter notebook、用 Claude 3 Haiku（最便宜）跑、跟著做就能拿到 API 基本功
 3. [**OpenAI Quickstart**](https://platform.openai.com/docs/quickstart) — 第一次 API call 的步驟
 4. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face 的入門
@@ -397,7 +397,7 @@ import anthropic
 PRICING = {
     "claude-haiku-4-5":   {"input": 1.00, "output":  5.00},
     "claude-sonnet-4-6":  {"input": 3.00, "output": 15.00},
-    "claude-opus-4-7":    {"input": 5.00, "output": 25.00},  # Opus 4.7 (April 2026) 價格下調至 5/25
+    "claude-opus-4-8":    {"input": 5.00, "output": 25.00},  # Opus 4.8 (May 2026, Dynamic Workflows) — 維持 5/25 同價
 }
 
 client = anthropic.Anthropic()
@@ -418,7 +418,7 @@ for name, r in PRICING.items():
 
 # === 自我驗證 ===
 assert cost_one > 0, "Cloud LLM 一定有成本"
-print(f"\n✅ 練習 3 通過（Anthropic）— 1000 次 haiku ≈ $0.25、sonnet 4.6 ≈ $0.76、opus 4.7 ≈ $1.27")
+print(f"\n✅ 練習 3 通過（Anthropic）— 1000 次 haiku ≈ $0.25、sonnet 4.6 ≈ $0.76、opus 4.8 ≈ $1.27")
 ```
 
 **預期輸出**：
@@ -428,7 +428,7 @@ single: input=14 output=48 → $0.000254
 1000 calls cost across model tiers:
   claude-haiku-4-5       $0.2540
   claude-sonnet-4-6      $0.7620
-  claude-opus-4-7        $1.2700
+  claude-opus-4-8        $1.2700
 ```
 
 **Trade-off 對照**：本機 Ollama 跑 1000 次免費但要 ~2 hr；Anthropic haiku ~10 min $0.25；sonnet ~10 min $0.76。**production 場景才考慮 cloud；學習 / 實驗 / debug 全用本機**。

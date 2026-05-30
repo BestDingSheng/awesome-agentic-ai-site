@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-29T15:46:21.007Z"
+syncedAt: "2026-05-30T03:45:27.215Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -76,7 +76,7 @@ LLMs see **tokens** (sub-word units), not characters. Roughly 1 English word ≈
 
 ### Context Window
 
-The maximum tokens an LLM can "see" in one call. **2026 frontier**: Claude Sonnet 4.6 / Opus 4.7 1M, GPT-5.5 ~400k, Gemini 3.1 Pro 2M. **Bigger isn't always better** — beyond a length the LLM gets "Lost in the Middle".
+The maximum tokens an LLM can "see" in one call. **2026 frontier**: Claude Sonnet 4.6 / Opus 4.8 1M, GPT-5.5 ~400k, Gemini 3.1 Pro 2M. **Bigger isn't always better** — beyond a length the LLM gets "Lost in the Middle".
 
 ### Prompt
 
@@ -401,7 +401,7 @@ Contrast:
 
 ### Computer Use (screen-level agent)
 
-An agent operates real desktop apps via **screenshot → vision → coordinates → simulated mouse/keyboard** — no API needed, the agent uses the screen like a human. Representative: Anthropic Claude Computer Use (Opus 4.7 / Sonnet 4.6), OpenAI Codex desktop, Google Gemini in Chrome. **Anthropic public beta opened Oct 2024; OSWorld benchmark reached 76.26% (superhuman) by May 2026**.
+An agent operates real desktop apps via **screenshot → vision → coordinates → simulated mouse/keyboard** — no API needed, the agent uses the screen like a human. Representative: Anthropic Claude Computer Use (Opus 4.8 / Sonnet 4.6), OpenAI Codex desktop, Google Gemini in Chrome. **Anthropic public beta opened Oct 2024; OSWorld benchmark reached 76.26% (superhuman) by May 2026**.
 
 📍 Full coverage + 4-vendor comparison: [Stage 8 Computer Use](/en/stages/08-agent-interfaces/)
 

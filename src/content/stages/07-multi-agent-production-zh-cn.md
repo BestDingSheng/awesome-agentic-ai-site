@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-29T15:46:21.007Z"
+syncedAt: "2026-05-30T03:45:27.215Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "07-multi-agent-production"
@@ -205,7 +205,7 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 
 | Benchmark | 领域 | 2026-05 SOTA | 领先 Model |
 |---|---|---|---|
-| [**SWE-bench Verified**](https://www.swebench.com/) | 软工 / code agent | **87.6%** | Claude Opus 4.7 |
+| [**SWE-bench Verified**](https://www.swebench.com/) | 软工 / code agent | **88.6%** | Claude Opus 4.8 |
 | [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal 任务 | 领先 | Claude Opus 4.5 / 4.7 |
 | **GAIA** | general assistant | **74.6%** | Claude Sonnet 4.5（Princeton HAL）|
 | [**WebArena**](https://github.com/web-arena-x/webarena) | web 导航 | **68.7%** | Claude Mythos Preview |

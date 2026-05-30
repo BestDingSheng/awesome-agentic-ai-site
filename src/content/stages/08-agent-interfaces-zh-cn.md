@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-05-29T15:46:21.007Z"
+syncedAt: "2026-05-30T03:45:27.215Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "08-agent-interfaces"
@@ -96,7 +96,7 @@ order: 8
 ## 📚 必修阅读
 
 1. [**Anthropic — Introducing Computer Use**](https://www.anthropic.com/news/3-5-models-and-computer-use) — Computer Use 的原始发布，必读以了解其工作原理。
-2. [**Anthropic — Claude Opus 4.7 Release Notes**](https://docs.anthropic.com/en/release-notes/overview) — 2026 年 4 月最新的 Opus 4.7 包含对 Computer Use 的改进。
+2. [**Anthropic — Claude Opus 4.8 Release Notes**](https://docs.anthropic.com/en/release-notes/overview) — 2026 年 5 月最新的 Opus 4.8 引入 Dynamic Workflows + parallel subagent harness。
 3. [**OpenAI — The next evolution of the Agents SDK**](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) ⭐ **2026-04** — 内置沙箱和 harness 抽象，是生产级编码智能体架构的里程碑。
 4. [**OpenAI — Computer-Using Agent (CUA)**](https://openai.com/index/computer-using-agent/) — OpenAI 版本的 Computer Use，包含 WebArena / OSWorld 数据。
 5. [**browser-use docs**](https://docs.browser-use.com/) — 开源 web agent 排名第一（86k+ 星），5 行 Python 即可上手。
@@ -137,7 +137,7 @@ order: 8
 
 | 厂商 | 产品 | 2026 状态 | OSWorld | 强项 |
 |---|---|---|---|---|
-| **Anthropic** | [Claude Opus 4.7 / Sonnet 4.6 Computer Use](https://www.anthropic.com/news/3-5-models-and-computer-use) | GA，跨 macOS / Linux / Windows（Docker）| **72.7%**（Opus 4.6 基线，接近人类 72%；Opus 4.7 2026-04 发布数据未公布）| 推理 + 代码智能体，Stage 5/7 主场 |
+| **Anthropic** | [Claude Opus 4.8 / Sonnet 4.6 Computer Use](https://www.anthropic.com/news/3-5-models-and-computer-use) | GA，跨 macOS / Linux / Windows（Docker）| **72.7%**（Opus 4.6 基线，接近人类 72%；Opus 4.7 / 4.8 后续 Computer Use 专项数据未公布）| 推理 + 代码智能体，Stage 5/7 主场 |
 | **OpenAI** | [Codex desktop](https://openai.com/index/codex-for-almost-everything/)（2026 年 4 月）| GA，**background mode** 不抢占光标，in-app browser，90+ 插件 | CUA 38.1% | 与 ChatGPT + Atlas 合并成 **Desktop Superapp** |
 | **OpenAI** | [Computer-Using Agent (CUA)](https://openai.com/index/computer-using-agent/) | API | 38.1% / WebArena 58.1% | API-first，可整合到自己的技术栈 |
 | **Google** | [Gemini in Chrome](https://gemini.google/overview/gemini-in-chrome/)（Gemini 3）| GA + Android | — | **Auto Browse** + **Chrome Skills**，Chrome Enterprise Premium $6/用户/月 |
@@ -221,7 +221,7 @@ order: 8
 | 框架 | 状态 | 强项 |
 |---|---|---|
 | [**browser-use**](https://github.com/browser-use/browser-use) ⭐ | **86k+ 星，MIT** | 2026 年最火的开源软件，Python，5 行上手，支持 OpenAI / Claude / Gemini / Ollama。 |
-| [**Microsoft OmniParser v2**](https://github.com/microsoft/OmniParser) | 2026 年更新，Apache 2.0 | 基于视觉的 GUI 解析，延迟改善 60%，使用 ScreenSpot Pro 准确率达 39.6%。同一仓库包含 **OmniTool**（Windows 11 VM 控制，可搭配 GPT-5.5 / Claude Opus 4.7 / DeepSeek-V4-Pro / Qwen 2.5VL / Claude Computer Use）。 |
+| [**Microsoft OmniParser v2**](https://github.com/microsoft/OmniParser) | 2026 年更新，Apache 2.0 | 基于视觉的 GUI 解析，延迟改善 60%，使用 ScreenSpot Pro 准确率达 39.6%。同一仓库包含 **OmniTool**（Windows 11 VM 控制，可搭配 GPT-5.5 / Claude Opus 4.8 / DeepSeek-V4-Pro / Qwen 2.5VL / Claude Computer Use）。 |
 | **Playwright + LLM**（DIY）| — | 不是专门的框架，但 Playwright 是 web 自动化的标准，加上 LLM 包装器即可使用。 |
 
 **为什么 browser-use 这么火（86k 星）**：
@@ -350,7 +350,7 @@ from langchain_openai import ChatOpenAI
 
 agent = Agent(
     task="Search Hacker News for top AI agent posts this week and summarize",
-    llm=ChatOpenAI(model="gpt-5.5"), # 也可换成 Claude Opus 4.7 / Gemini 3.1 Pro / DeepSeek-V4-Pro
+    llm=ChatOpenAI(model="gpt-5.5"), # 也可换成 Claude Opus 4.8 / Gemini 3.1 Pro / DeepSeek-V4-Pro
 )
 result = await agent.run()
 ```
