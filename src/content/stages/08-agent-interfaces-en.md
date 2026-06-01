@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-01T04:25:31.556Z"
+syncedAt: "2026-06-01T17:49:04.071Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "08-agent-interfaces"
@@ -422,7 +422,7 @@ In March 2026, a US federal judge issued a preliminary injunction against Comet,
 
 ### 4 Must-Have Defensive Patterns
 
-![Agent — 4 must-have defensive patterns](/upstream/resources/diagrams/agent-guardrail-patterns.png)
+![Agent — 4 must-have defensive patterns](/upstream/resources/diagrams/agent-guardrail-patterns.en.png)
 
 | Pattern | How to Implement | When it's a Must |
 |---|---|---|

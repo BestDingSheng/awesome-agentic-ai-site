@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-01T04:25:31.556Z"
+syncedAt: "2026-06-01T17:49:04.071Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
@@ -59,7 +59,7 @@ The point is not "how many conversations you opened." The point is "**what you p
 
 ### Where it sits in the three-layer stack
 
-![Prompt → Context → Harness engineering stack](/upstream/resources/diagrams/prompt-context-harness-stack.png)
+![Prompt → Context → Harness engineering stack](/upstream/resources/diagrams/prompt-context-harness-stack.en.png)
 
 See [Stage 2](/en/stages/02-prompt-engineering/) for the full comparison.
 
@@ -591,7 +591,7 @@ print(chunks[0])
 
 **Typical Architecture** (Full Persistent Memory Version):
 
-![Reflexion persistent episodic memory loop](/upstream/resources/diagrams/reflexion-persistent-memory-loop.png)
+![Reflexion persistent episodic memory loop](/upstream/resources/diagrams/reflexion-persistent-memory-loop.en.png)
 
 → **Difference from Stage 3 Reflection**: Stage 3 focuses on an **in-context loop within a single session** (no external store). This section covers **persistent episodic memory storage + retrieval across trials** to learn from past experiences.
 

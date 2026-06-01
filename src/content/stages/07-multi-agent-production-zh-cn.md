@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-01T04:25:31.556Z"
+syncedAt: "2026-06-01T17:49:04.071Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "07-multi-agent-production"
@@ -96,7 +96,7 @@ order: 7
 3. [**Anthropic — Message Batches API**](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) — 异步 batch job
 4. [**anthropics/courses — Prompt Evaluations**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic 官方 5 course umbrella、**module 4“Prompt Evaluations”对应本 stage eval / observability 部分**。Jupyter notebook、教怎么系统化评估 prompt 跟 agent 行为。
 5. **任一 eval framework 的文件** — promptfoo 或 LangSmith 或 weave
-6. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering)（★ 1.1k+）— agent harness 的工具 / pattern / eval / memory / MCP / observability 全集合
+6. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering)（★ 1.5k+）— agent harness 的工具 / pattern / eval / memory / MCP / observability 全集合
 7. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)（★ 1.3k+）— 从 Claude Code 源码学 harness 设计（中文）
 
 ## 🏗 Harness Engineering — production agent runtime 的工程设计 ⭐ 本 stage 核心概念

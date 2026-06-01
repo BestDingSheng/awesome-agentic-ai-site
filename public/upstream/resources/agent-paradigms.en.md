@@ -77,7 +77,7 @@ You want to use DeepSeek-R1 to write code (10× cheaper than Claude Opus). Aider
 
 ## Type 4: Cloud-deployed — exemplar: Hermes Agent
 
-**Exemplar**: [Hermes Agent](https://github.com/NousResearch/hermes-agent) (Nous Research, ★ 156k+, MIT)
+**Exemplar**: [Hermes Agent](https://github.com/NousResearch/hermes-agent) (Nous Research, ★ 175k+, MIT)
 
 **Hero example**:
 You're on the subway, you open Telegram on your phone, and you message your Hermes bot: "Pull today's arXiv ML papers, give me 3 highlights, send the result back to Telegram." Hermes — running on your $5 DigitalOcean VPS — receives the message, decides to use GPT-5 (paper discovery) + Claude Opus (summary) + Gemini Flash (compression to 3 bullet points), executes the pipeline, and sends the result back. You never touched your laptop.
@@ -158,7 +158,7 @@ See the full comparison table at the [start of Stage 5.5](../stages/05-claude-co
 
 Real power users often run **2 or 3 types simultaneously**, each handling what it's best at:
 
-![Personal power-user multi-type workflow](../resources/diagrams/power-user-multi-type-workflow.png)
+![Personal power-user multi-type workflow](../resources/diagrams/power-user-multi-type-workflow.en.png)
 
 **Why this combination**:
 - Type 2 handles code (terminal is the most natural interface)
@@ -169,7 +169,7 @@ Real power users often run **2 or 3 types simultaneously**, each handling what i
 
 ## Decision tree (text form)
 
-![Agent paradigm decision tree](../resources/diagrams/agent-paradigm-decision-tree.png)
+![Agent paradigm decision tree](../resources/diagrams/agent-paradigm-decision-tree.en.png)
 
 ---
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-01T04:25:31.556Z"
+syncedAt: "2026-06-01T17:49:04.071Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "06-memory-rag"
@@ -59,7 +59,7 @@ order: 6
 
 ### 在三层 stack 里的位置
 
-![Prompt → Context → Harness 三层工程 stack](/upstream/resources/diagrams/prompt-context-harness-stack.png)
+![Prompt → Context → Harness 三层工程 stack](/upstream/resources/diagrams/prompt-context-harness-stack.zh-Hans.png)
 
 完整对照见 [Stage 2](/stages/02-prompt-engineering/)。
 
@@ -595,7 +595,7 @@ print(chunks[0])
 
 **典型架构**（持久记忆完整版）：
 
-![Reflexion 持久 episodic memory loop](/upstream/resources/diagrams/reflexion-persistent-memory-loop.png)
+![Reflexion 持久 episodic memory loop](/upstream/resources/diagrams/reflexion-persistent-memory-loop.zh-Hans.png)
 
 → **与 Stage 3 反思的区别**: Stage 3 侧重于**单 session 内的 in-context 循环**（无外部存储），本节则探讨**跨 trial 的持久 episodic memory 存储 + 检索**（从过往经验中学习）。
 

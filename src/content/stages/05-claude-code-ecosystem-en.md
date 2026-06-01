@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-01T04:25:31.556Z"
+syncedAt: "2026-06-01T17:49:04.071Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -38,7 +38,7 @@ order: 5
 
 From top to bottom, each layer builds on the one below it:
 
-![Claude Code Ecosystem Stack](/upstream/resources/diagrams/stage5-stack.png)
+![Claude Code Ecosystem Stack](/upstream/resources/diagrams/stage5-stack.en.png)
 
 Each layer adds a capability:
 - **API + SDK**: Programmatic access to the LLM.
@@ -64,7 +64,7 @@ After completing this stage, you will be able to extend Claude Code, write your 
 
 > 📋 **What this section is**: maps Claude Code's 7 primitives (MCP / Skills / Plugins / Subagents / Hooks / Slash commands / CLI) to **7 architecture layers + 3 engineering disciplines**. Read it once before 5.1-5.6 to know which layer each sub-chapter teaches; read it again afterward as synthesis. **The layering is a teaching choice, not an absolute truth**.
 
-![Claude Code 7-Layer Architecture Map](/upstream/resources/diagrams/claude-architecture-map.png)
+![Claude Code 7-Layer Architecture Map](/upstream/resources/diagrams/claude-architecture-map.en.png)
 
 > 📊 **Above**: Claude Code 7 architecture layers + 3 engineering disciplines integrated view.
 
@@ -424,7 +424,7 @@ These layers are often confused. **A one-line comparison**:
 
 | Project | ⭐ | Best for | Why it's recommended / Notes |
 |---|---|---|---|
-| [anthropics/skills](https://github.com/anthropics/skills) ⭐ Official spec | ⭐⭐⭐⭐⭐ | Reading before writing your own SKILL.md | Anthropic's official Skills repo: `spec/` (frontmatter standard) + `template/` (starter template) + `skills/` containing reference implementations like pdf / docx / xlsx / pptx / skill-creator / skill-vetter. ★ 128k+. **A reference template for SKILL.md structure**. For the broader Agent Skills standard, see [agentskills.io](https://agentskills.io). |
+| [anthropics/skills](https://github.com/anthropics/skills) ⭐ Official spec | ⭐⭐⭐⭐⭐ | Reading before writing your own SKILL.md | Anthropic's official Skills repo: `spec/` (frontmatter standard) + `template/` (starter template) + `skills/` containing reference implementations like pdf / docx / xlsx / pptx / skill-creator / skill-vetter. ★ 144k+. **A reference template for SKILL.md structure**. For the broader Agent Skills standard, see [agentskills.io](https://agentskills.io). |
 | [anthropics/claude-code](https://github.com/anthropics/claude-code) | ⭐⭐⭐⭐ | Tracking new features, reading release notes | The main Claude Code repo, including issues / releases / inline skill examples. For learning Skills, this repo is secondary to the one above. |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | ⭐⭐⭐⭐ | Seeing "real-world engineer daily SKILL.mds" | Matt Pocock (a well-known educator in the TypeScript community) has open-sourced his actual `.claude/` directory. Each SKILL.md is **extremely short (10-50 lines)** and not over-engineered. **A valuable reference against over-engineered 200-line skills** (★ 104k+, MIT). |
 | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | Power user setup, learning advanced patterns | 20+ battle-tested skills (TDD, debugging, collaboration patterns) + `/brainstorm` / `/write-plan` / `/execute-plan` commands + a skills-search tool. |
@@ -511,7 +511,7 @@ Plugin
 | [trailofbits/skills-curated](https://github.com/trailofbits/skills-curated) | ⭐⭐⭐ | Reviewers / teams concerned about supply chain security | A **security-vetted** marketplace maintained by Trail of Bits. Every skill is reviewed, and the README clearly states the criteria. **Demonstrates that a marketplace is not just a list, but also a trust mechanism** (★ 388, CC-BY-SA-4.0). |
 | [rohitg00/awesome-claude-code-toolkit](https://github.com/rohitg00/awesome-claude-code-toolkit) | ⭐⭐⭐ | Those who want to browse what the community has to offer | The largest community catalog of Claude Code agents / skills / hooks / templates. Covers a wide range of use cases. |
 | [anthropics/life-sciences](https://github.com/anthropics/life-sciences) | ⭐⭐⭐ | Those creating a domain-specific marketplace (medical, financial, legal, educational, etc.) | Anthropic's own **domain-specific marketplace** example (for biology / health sciences), demonstrating how to tailor `marketplace.json` for a single vertical. **The payload is bio-sci MCP servers, but the structure of marketplace.json is the main lesson** (★ 375). |
-| [anthropics/claude-for-legal](https://github.com/anthropics/claude-for-legal) | ⭐⭐⭐⭐ | Want to see a full vertical plugin suite (skills + agents + MCP + scheduled agents) | **Anthropic's official legal vertical reference** (★ 7k+, Apache-2.0) — 10 legal plugins (commercial / corporate / litigation / privacy / employment / IP / law-student) + 100+ skills + 20+ MCP connectors + scheduled agents + subagent delegation. **You don't need to know law** — this is the best teaching material for "**how to design a vertical plugin suite**": system prompt patterns, accountability surfaces, and the `orchestrate.py` event loop. |
+| [anthropics/claude-for-legal](https://github.com/anthropics/claude-for-legal) | ⭐⭐⭐⭐ | Want to see a full vertical plugin suite (skills + agents + MCP + scheduled agents) | **Anthropic's official legal vertical reference** (★ 7.9k+, Apache-2.0) — 10 legal plugins (commercial / corporate / litigation / privacy / employment / IP / law-student) + 100+ skills + 20+ MCP connectors + scheduled agents + subagent delegation. **You don't need to know law** — this is the best teaching material for "**how to design a vertical plugin suite**": system prompt patterns, accountability surfaces, and the `orchestrate.py` event loop. |
 
 > 💡 **A walkthrough on "how to publish your own marketplace"**: Currently, the most reliable resource is the [official Anthropic plugin documentation](https://docs.claude.com/en/docs/claude-code/plugins). If you know of a good blog post / repo, feel free to open a PR to add it.
 
@@ -521,7 +521,7 @@ Plugin
 
 Up to this point, you've learned about MCP (the tool layer), Skills (the behavior layer), and Plugins (the distribution layer). **Subagents are the orchestration layer**—they allow the main Claude session to spawn child agents with independent contexts to run specific tasks and report back the results.
 
-![Subagent 4-Stage Lifecycle: from .md file to returned summary](/upstream/resources/diagrams/subagent-4-stage-flow.png)
+![Subagent 4-Stage Lifecycle: from .md file to returned summary](/upstream/resources/diagrams/subagent-4-stage-flow.en.png)
 
 > 📊 **The diagram above** shows the 4 stages — **Definition → Discovery → Dispatch → Execution**. Read this first, then dive into the details below.
 
@@ -622,7 +622,7 @@ The **3 concept pairs** students confuse most often, plus **5 gotchas veterans l
 
 Many people treat Subagents and Skills as the same thing. They are actually **completely different layers**:
 
-![Subagent vs Skill — 5 Key Differences](/upstream/resources/diagrams/subagent-vs-skill.png)
+![Subagent vs Skill — 5 Key Differences](/upstream/resources/diagrams/subagent-vs-skill.en.png)
 
 | Dimension | Subagent | Skill |
 |---|---|---|
@@ -780,7 +780,7 @@ After completing this section, you will be able to:
 
 1. [**Anthropic — Building Effective Agents**](https://www.anthropic.com/engineering/building-effective-agents) ⭐ — The canonical reference for orchestrator / worker / handoff / reflection and other patterns.
 2. [**anthropics/claude-agent-sdk-python**](https://github.com/anthropics/claude-agent-sdk-python) — The source of Claude Code's official Python SDK; **key files: `src/claude_agent_sdk/_internal/client.py`** (where the main loop is) + `query.py` (for single-turn API calls).
-3. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering) ⭐ (★ 1.1k+) — A community curation: harness patterns / eval / memory / observability integrations.
+3. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering) ⭐ (★ 1.5k+) — A community curation: harness patterns / eval / memory / observability integrations.
 4. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) — The most complete interpretation of Claude Code's internals in the Chinese community.
 
 ### 🛠 Hands-on Exercise — Dissecting the agent loop (a reading exercise, not a coding one)
@@ -811,7 +811,7 @@ A single table to cover 4 projects. **Pick an entry point by looking at "Best fo
 |---|---|---|---|
 | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | All Track B learners who want to figure out "how Claude Code runs internally" | **The canonical Python harness, this is the repo you'll be reading for this section's exercise**. It will also be imported in the Stage 7 deployment. |
 | [ZhangHanDong/harness-engineering-from-cc-to-ai-coding](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) | ⭐⭐⭐⭐ | Chinese readers who want to understand "why Claude Code was designed this way" | The most complete interpretation of CC's internals in the Chinese community (harness concepts → CC implementation → comparison with other AI coding tools). **Use it as a complement to the SDK source**—one tells you "how," the other tells you "why." |
-| [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | Those who finish 5.6 and want to broaden their horizons | A community curation: 30+ harness / eval / memory / observability / MCP projects (★ 1.1k+). **A breadth resource library, not a tutorial**—pick a sub-topic of interest and dive in. |
+| [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | Those who finish 5.6 and want to broaden their horizons | A community curation: 30+ harness / eval / memory / observability / MCP projects (★ 1.5k+). **A breadth resource library, not a tutorial**—pick a sub-topic of interest and dive in. |
 | [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | Those who have written their own subagent in 5.5 and want to see templates actually in use | The ergonomic design of 50+ subagent definitions (description / tool list / system prompt layers). **You'll learn more from reading the source than from reading the docs**. Already introduced in 5.5, cross-referenced here. |
 
 > 💡 **The difference between this section and Stage 7**: This section teaches "how this specific harness, Claude Code, works" (a concrete reference); Stage 7 teaches "what a production harness should generally have" (an abstract pattern). **Go from concrete to abstract**—it will be much easier to get into Stage 7 after you've finished this section.

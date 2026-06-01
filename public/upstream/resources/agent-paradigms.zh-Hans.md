@@ -77,7 +77,7 @@
 
 ## Type 4: Cloud-deployed — 例:Hermes Agent
 
-**代表**:[Hermes Agent](https://github.com/NousResearch/hermes-agent)（Nous Research、★ 156k+、MIT）
+**代表**:[Hermes Agent](https://github.com/NousResearch/hermes-agent)（Nous Research、★ 175k+、MIT）
 
 **Hero example**:
 你坐在地铁、手机开 Telegram、对 Hermes bot 说“整理今天 arXiv ML 新 paper、给我 3 个 highlights、传回 Telegram”。Hermes agent 在你 $5 DigitalOcean VPS 上跑、收讯息、决定该用 GPT-5（找 paper）+ Claude Opus（写 summary）+ Gemini Flash（压缩成 3 条）、执行完传结果回 Telegram。整个过程你没碰 laptop。
@@ -158,7 +158,7 @@
 
 真实 user 常常**同时用 2-3 个 type**、各做擅长的事:
 
-![个人 power-user 多 type workflow](../resources/diagrams/power-user-multi-type-workflow.png)
+![个人 power-user 多 type workflow](../resources/diagrams/power-user-multi-type-workflow.zh-Hans.png)
 
 **为什么这样搭**:
 - Type 2 处理 code（terminal 界面最自然）
@@ -169,7 +169,7 @@
 
 ## Decision tree（简化文字版）
 
-![选哪个 agent type 决策树](../resources/diagrams/agent-paradigm-decision-tree.png)
+![选哪个 agent type 决策树](../resources/diagrams/agent-paradigm-decision-tree.zh-Hans.png)
 
 ---
 

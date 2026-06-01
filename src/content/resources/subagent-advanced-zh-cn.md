@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/subagent-advanced.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/subagent-advanced.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-01T04:25:31.556Z"
+syncedAt: "2026-06-01T17:49:04.071Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "subagent-advanced"
@@ -117,7 +117,7 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 
 要跑 2+ subagent 一起时，怎么组合？下面 3 种 pattern 是社群归纳的常见组合：
 
-![Subagent Composition — 3 种组合 Pattern](/upstream/resources/diagrams/subagent-composition-patterns.png)
+![Subagent Composition — 3 种组合 Pattern](/upstream/resources/diagrams/subagent-composition-patterns.zh-Hans.png)
 
 > 📊 **上图**：A 并行（最常用）/ B Pipeline（多 LLM 编排）/ C Meta-Agent（不推荐避坑）—— 先看全貌再读细节。
 

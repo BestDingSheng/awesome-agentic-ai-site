@@ -870,7 +870,7 @@
 
 The 3 skills below are **designed to be used together**, not as standalone tools:
 
-![Claude + 3 delegate skills — division of labor](../resources/diagrams/multi-llm-delegation-composition.png)
+![Claude + 3 delegate skills — division of labor](../resources/diagrams/multi-llm-delegation-composition.en.png)
 
 Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is bad at conversational coordination; Gemini's 1M context is great but mid-tier reasoning. **Division of labor: Claude handles design / review, Codex handles implementation, Gemini handles long-form drafting / synthesis.**
 

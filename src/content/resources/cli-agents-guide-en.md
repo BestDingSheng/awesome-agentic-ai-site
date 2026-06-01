@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cli-agents-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-01T04:25:31.556Z"
+syncedAt: "2026-06-01T17:49:04.071Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-agents-guide"
@@ -37,7 +37,7 @@ Only terminal-based CLI agents are included. IDE-based agents (Cursor / Cline / 
 | [Gemini CLI](https://github.com/google-gemini/gemini-cli) | Google (official) | Apache-2.0 | Gemini | Generous free tier, paid above quota | ★ 103k+ |
 | [goose](https://github.com/block/goose) | Agentic AI Foundation (repo now at `aaif-goose/goose`) | Apache-2.0 | 15+ providers (incl. Ollama) | BYO API key, or existing Claude / ChatGPT / Gemini subscription via ACP | ★ 43k+ |
 | [Aider](https://github.com/Aider-AI/aider) | Aider-AI (community) | Apache-2.0 | Any | BYO API key | ★ 44k+ |
-| [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research | MIT | 200+ via OpenRouter / NVIDIA NIM / Zhipu GLM / Kimi / Xiaomi MiMo / MiniMax / HF / OpenAI | BYO API key (multi-provider) | ★ 156k+ |
+| [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research | MIT | 200+ via OpenRouter / NVIDIA NIM / Zhipu GLM / Kimi / Xiaomi MiMo / MiniMax / HF / OpenAI | BYO API key (multi-provider) | ★ 175k+ |
 
 ---
 
@@ -155,6 +155,6 @@ Different audiences have different CLI needs:
 
 ## Maintenance Notes
 
-- 7 CLI tools' stars / license / pushed_at refreshed quarterly via `bash scripts/refresh-stars.py`
+- 7 CLI tools' stars / license / pushed_at auto-refreshed weekly by the `weekly-catalog-refresh` CI (manual run: `python scripts/refresh-stars.py`)
 - The CLI market moves fast — new tools require evaluation before inclusion (bar: 30k+ stars, actively maintained, true CLI not IDE)
 - The comparison table deliberately leaves out "strengths / weaknesses" columns — avoiding subjective bias and letting the use-case section + readers' own judgment do that work

@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cli-agents-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-01T04:25:31.556Z"
+syncedAt: "2026-06-01T17:49:04.071Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-agents-guide"
@@ -35,7 +35,7 @@ baseSlug: "cli-agents-guide"
 | [Gemini CLI](https://github.com/google-gemini/gemini-cli) | Google（官方） | Apache-2.0 | Gemini | 免费额度宽，超出收费 | ★ 103k+ |
 | [goose](https://github.com/block/goose) | Agentic AI Foundation（repo 已迁至 `aaif-goose/goose`） | Apache-2.0 | 15+ provider（含 Ollama） | BYO API key 或既有 Claude / ChatGPT / Gemini 订阅（ACP） | ★ 43k+ |
 | [Aider](https://github.com/Aider-AI/aider) | Aider-AI（社群） | Apache-2.0 | BYO API key | ★ 44k+ |
-| [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research | MIT | 200+ via OpenRouter / NVIDIA NIM / 智谱 GLM / Kimi / 小米 MiMo / MiniMax / HF / OpenAI | BYO API key（多 provider） | ★ 156k+ |
+| [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research | MIT | 200+ via OpenRouter / NVIDIA NIM / 智谱 GLM / Kimi / 小米 MiMo / MiniMax / HF / OpenAI | BYO API key（多 provider） | ★ 175k+ |
 
 ---
 
@@ -153,6 +153,6 @@ baseSlug: "cli-agents-guide"
 
 ## 维护备注
 
-- 7 个 CLI 的 stars / license / pushed_at 每季用 `bash scripts/refresh-stars.py` 更新一次
+- 7 个 CLI 的 stars / license / pushed_at 由 `weekly-catalog-refresh` CI 每周自动更新（手动可跑 `python scripts/refresh-stars.py`）
 - CLI 工具市场变化快——新工具出现要评估是否加入这份比较（门槛：> 30k stars + 维护中 + 真的 CLI 不是 IDE）
 - 比较表格的“强项 / 弱项”栏位刻意没填——避免产生主观 bias，让 use case section 跟读者自己的判断做这件事

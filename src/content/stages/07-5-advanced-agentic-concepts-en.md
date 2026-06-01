@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-01T04:25:31.556Z"
+syncedAt: "2026-06-01T17:49:04.071Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -79,7 +79,7 @@ This stage uses the **work boundary** as the spine for organizing advanced agent
 
 Borrow software architecture layering — **Types → Config → Repo → Service** — and apply it to agent systems:
 
-![Agentic Stack 4-Layer Work Boundary](/upstream/resources/diagrams/stack-4layer.png)
+![Agentic Stack 4-Layer Work Boundary](/upstream/resources/diagrams/stack-4layer.en.png)
 
 → Every layer boundary is a **work boundary**. The scope the agent operates on = the scope of its autonomy:
 
@@ -111,7 +111,7 @@ Many advanced concepts eventually trace back to the same question: how far does 
 
 ### 🔁 Failure-mode lifecycle (how industry agent failures evolved into best practice)
 
-![Failure-Mode Evolution Cycle](/upstream/resources/diagrams/failure-lifecycle.png)
+![Failure-Mode Evolution Cycle](/upstream/resources/diagrams/failure-lifecycle.en.png)
 
 Every industry-grade agent failure mode goes through the same loop: **discover incident → publicly document → encode as a framework pattern → eliminate automatically**. Five publicly documented cases:
 
@@ -133,7 +133,7 @@ Each concept stays within 4 lines: a one-sentence definition + which layer of th
 
 ### 🗺️ 12-concept cluster map (which layer × problem type)
 
-![12 Advanced Agentic AI Concepts — Cluster Map](/upstream/resources/diagrams/concept-cluster.png)
+![12 Advanced Agentic AI Concepts — Cluster Map](/upstream/resources/diagrams/concept-cluster.en.png)
 
 The diagram above groups the 12 concepts by **which layer they touch** (horizontal axis) and **what kind of problem they solve** (vertical axis), so you can see which concepts should be learned together and which you can skip for now. Note that **Work Boundary (#1) spans all layers** (it is a discipline that applies everywhere, not one specific position).
 
@@ -198,7 +198,7 @@ The 12 concepts in table form (# / concept / which layer / one-line definition /
 
 These are not 5 isolated principles, and they are not 12 unrelated concepts. There are clear **enabling relationships** between them:
 
-![Cross-source dependency graph for 5 Harness Engineering principles](/upstream/resources/diagrams/principle-dependency.png)
+![Cross-source dependency graph for 5 Harness Engineering principles](/upstream/resources/diagrams/principle-dependency.en.png)
 
 → **4 relationship insights**:
 
@@ -555,7 +555,7 @@ Ordered by depth. You do not need to read everything. The Foundation tier is req
 
 ### 🌳 Reading decision tree (pick by the problem you're stuck on)
 
-![Agentic AI Advanced Reading Decision Tree](/upstream/resources/diagrams/reading-decision-tree.png)
+![Agentic AI Advanced Reading Decision Tree](/upstream/resources/diagrams/reading-decision-tree.en.png)
 
 This is not just a reading list. It is a **decision tree**: identify the problem you have right now, then read the 1-2 papers or posts attached to that branch first. The diagram above shows 5 branches for 5 common stuck-states; below are branch-specific second readings (only after you finish the first one).
 

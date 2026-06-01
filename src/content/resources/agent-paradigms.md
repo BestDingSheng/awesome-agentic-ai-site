@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/agent-paradigms.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-01T04:25:31.556Z"
+syncedAt: "2026-06-01T17:49:04.071Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "agent-paradigms"
@@ -89,7 +89,7 @@ baseSlug: "agent-paradigms"
 
 ## Type 4: Cloud-deployed — 例：Hermes Agent
 
-**代表**：[Hermes Agent](https://github.com/NousResearch/hermes-agent)（Nous Research、★ 156k+、MIT）
+**代表**：[Hermes Agent](https://github.com/NousResearch/hermes-agent)（Nous Research、★ 175k+、MIT）
 
 **Hero example**：
 你坐在地鐵、手機開 Telegram、對 Hermes bot 說「整理今天 arXiv ML 新 paper、給我 3 個 highlights、傳回 Telegram」。Hermes agent 在你 $5 DigitalOcean VPS 上跑、收訊息、決定該用 GPT-5（找 paper）+ Claude Opus（寫 summary）+ Gemini Flash（壓縮成 3 條）、執行完傳結果回 Telegram。整個過程你沒碰 laptop。
