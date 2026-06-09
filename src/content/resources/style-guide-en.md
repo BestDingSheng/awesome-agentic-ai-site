@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-09T03:52:38.992Z"
+syncedAt: "2026-06-09T15:15:01.373Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "style-guide"
@@ -167,7 +167,7 @@ Technical writing has terms that **read more naturally in English** than transla
 ## 6. Stage page template
 
 > The same template applies to two locations:
-> - `stages/0X-*.md` — shared foundations (0-2) + Track B (Stage 3-7)
+> - `stages/0X-*.md` — shared foundations (0-2) + Track B (Stage 3-8)
 > - `tracks/cli/AX-*.md` — Track A (A1-A3) sub-stages also follow this template, with a higher proportion of cross-links (most entries reference existing Stage 5 / 7 / cli-agents-guide content)
 
 Every stage (except Stage 0) should have:
@@ -299,7 +299,7 @@ Branch entries can be more concise than stage entries (full schema table optiona
 
 ## Related Internal Design Docs
 
-This style guide covers "how to write an entry." For **design rationale** — why these 5 branches, why 7 stages — see:
+This style guide covers "how to write an entry." For **design rationale** — why these 5 branches, why 8 stages — see:
 
 - [`branches/DESIGN.md`](/zh-tw/branches/design/) — Branch design notes (why these audiences, where entries belong) (zh)
 - [`stages/DESIGN.md`](/zh-tw/stages/design/) — Stage design notes (why this structure, how exercises are chosen) (zh)

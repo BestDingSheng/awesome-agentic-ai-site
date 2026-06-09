@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-09T03:52:38.992Z"
+syncedAt: "2026-06-09T15:15:01.373Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -446,7 +446,7 @@ single: input=14 output=48 → $0.000254
 - prompt 超長 → context window 滿了會發生什麼
 - 網路斷掉 → 寫一個有 exponential backoff 的 retry wrapper
 
-這是後面 Stage 3-7 寫 production agent 一定會用到的基礎。
+這是後面 Stage 3-8 寫 production agent 一定會用到的基礎。
 
 → **基礎 starter 範本** → [`examples/stage-1/05-error-handling/`](../examples/stage-1/05-error-handling/)（含 mock-based test、不用真的斷網就能驗證 retry 邏輯；illustrative，**不是 chapter-length 完整教學**）
 

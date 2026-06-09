@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-09T03:52:38.992Z"
+syncedAt: "2026-06-09T15:15:01.373Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "style-guide"
@@ -201,7 +201,7 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 ## 6. Stage 頁面模板
 
 > 同一個模板適用於兩個位置：
-> - `stages/0X-*.md` — 共用基礎（0-2）+ Track B（Stage 3-7）
+> - `stages/0X-*.md` — 共用基礎（0-2）+ Track B（Stage 3-8）
 > - `tracks/cli/AX-*.md` — Track A（A1-A3）的 sub-stage，也照同一模板，只是 cross-link 比例較高（多數 entry 引用既有 Stage 5 / 7 / cli-agents-guide）
 
 每個 stage（Stage 0 除外）都應該有：
@@ -339,7 +339,7 @@ Branch 的 entry 格式可以比 stage 簡潔（不一定要完整 schema 表格
 
 ## 相關內部設計文件
 
-這份 style-guide 講「entry 怎麼寫」。為什麼分這 5 個 branch、為什麼是 7 個 stage 這類**設計理由**，見：
+這份 style-guide 講「entry 怎麼寫」。為什麼分這 5 個 branch、為什麼是 8 個 stage 這類**設計理由**，見：
 
 - [`branches/DESIGN.md`](/zh-tw/branches/design/)——branch 設計筆記（為什麼這樣切、entry 該放哪）
 - [`stages/DESIGN.md`](/zh-tw/stages/design/)——stage 設計筆記（為什麼這結構、動手練習 怎麼挑）
