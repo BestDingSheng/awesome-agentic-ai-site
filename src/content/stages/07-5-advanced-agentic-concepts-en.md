@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-09T15:15:01.373Z"
+syncedAt: "2026-06-10T04:03:37.307Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -473,6 +473,8 @@ Stage 7's Benchmark Landscape mentioned Berkeley's reward-hacking warning. Here'
 ### 🔀 Dynamic Workflows (Opus 4.8) — when the agent writes its own workflow
 
 The coding-agent harness section above mentioned Opus 4.8's **Dynamic Workflows** (2026-05-28, Claude Code research preview). It deserves its own section — because it collapses the [workflow-vs-agent distinction taught in Stage 4](/en/stages/04-agent-frameworks/#two-dimensions-to-clarify-first-workflow-vs-agent--single-vs-multi), making it the best live teaching material for "agent-authored orchestration."
+
+> 📌 **Latest Claude release (2026-06-09)**: the latest Claude release is now **Claude Fable 5** (`claude-fable-5`, the Mythos-class tier — positioned above the Opus class and the widely-available highest-capability member); a limited-availability Claude Mythos 5 (`claude-mythos-5`) shipped the same day. Opus 4.8 remains the Opus-class flagship and Fable 5's safeguard fallback, and **Dynamic Workflows remains an Opus 4.8 feature** — it is not re-attributed to Fable 5.
 
 **The name is almost an oxymoron**: by Anthropic's own [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) definition, a **workflow = code paths a human predefines, an agent = an LLM directing its own process at runtime**. But a Dynamic Workflow is — **the agent (Claude) decides at runtime how to decompose the task, then emits a JavaScript orchestration script that a separate background runtime executes**. The human didn't write that workflow; the agent did. It is both an agent (who decides) and a workflow (how it runs).
 

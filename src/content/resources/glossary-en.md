@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-09T15:15:01.373Z"
+syncedAt: "2026-06-10T04:03:37.307Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -374,7 +374,7 @@ The LLM "confidently asserts something false" — invents APIs, fabricates numbe
 
 ### Frontier Model
 
-The current top tier (**2026-05**: GPT-5.5, Claude Opus 4.8, Gemini 3.1 Pro, DeepSeek-V4-Pro, etc.). Use frontier for hard reasoning; use cheap small models for simple classification / translation to save cost.
+The current top tier (**2026-06**: Claude Fable 5 (Mythos-class, positioned above Opus — the highest-capability, widely-available Claude tier); **2026-05**: GPT-5.5, Claude Opus 4.8 (Opus-class flagship, and Fable 5's safeguard fallback), Gemini 3.1 Pro, DeepSeek-V4-Pro, etc.). Use frontier for hard reasoning; use cheap small models for simple classification / translation to save cost.
 
 ### Context Engineering
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-09T15:15:01.373Z"
+syncedAt: "2026-06-10T04:03:37.307Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -55,9 +55,9 @@ order: 1
 
 這 3 家是 SaaS API、付 token 用、不能 self-host：
 
-| Model 家族 | 旗艦（2026-05）| Context | 強項 | 適合任務 | 官方 docs |
+| Model 家族 | 旗艦（2026-06）| Context | 強項 | 適合任務 | 官方 docs |
 |---|---|---|---|---|---|
-| **Claude**（Anthropic）| Opus 4.8 / Sonnet 4.6 / Haiku 4.5 | 1M（Haiku 4.5 為 200k）| long-form / coding / agent / safety alignment | 寫 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| **Claude**（Anthropic）| Fable 5（Mythos-class、2026-06 最新最高階）/ Opus 4.8（Opus-class 旗艦、Fable 5 安全 fallback）/ Sonnet 4.6 / Haiku 4.5 | Fable 5 官方未公布；Opus 4.8 為 1M（Haiku 4.5 為 200k）| long-form / coding / agent / safety alignment | 寫 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
 | **GPT**（OpenAI）| GPT-5.5 / GPT-5 / o-series | ~400k | 通用 / function calling / ecosystem 最廣 | 廣度查詢 / function-call 框架 / GPTs 生態 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
 | **Gemini**（Google）| 3.1 Pro / Flash | **2M**（Pro 系列、Flash 為 1M）| 長 context / 原生 multimodal / Google 整合 | PDF / 影音 / 大量文件 / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
@@ -132,7 +132,7 @@ order: 1
 
 ## 📚 必修閱讀
 
-1. [**Anthropic — Claude 模型總覽**](https://docs.claude.com/en/about-claude/models/overview) — 官方模型 family、含 2026 最新 Opus 4.8 / Sonnet 4.6 / Haiku 4.5
+1. [**Anthropic — Claude 模型總覽**](https://docs.claude.com/en/about-claude/models/overview) — 官方模型 family、含 2026 最新 Claude Fable 5（`claude-fable-5`、Mythos-class、2026-06-09 GA）以及 Opus 4.8 / Sonnet 4.6 / Haiku 4.5。Fable 5 為對外開放的安全版；其同源、解除部分安全限制的 Mythos 5（`claude-mythos-5`）僅透過 Project Glasswing 限量開放給核准客戶
 2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic 官方 5 course umbrella、**module 1「Anthropic API Fundamentals」對應本 stage**。Jupyter notebook、用 Claude 3 Haiku（最便宜）跑、跟著做就能拿到 API 基本功
 3. [**OpenAI Quickstart**](https://platform.openai.com/docs/quickstart) — 第一次 API call 的步驟
 4. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face 的入門
@@ -398,6 +398,7 @@ PRICING = {
     "claude-haiku-4-5":   {"input": 1.00, "output":  5.00},
     "claude-sonnet-4-6":  {"input": 3.00, "output": 15.00},
     "claude-opus-4-8":    {"input": 5.00, "output": 25.00},  # Opus 4.8 (May 2026, Dynamic Workflows) — 維持 5/25 同價
+    "claude-fable-5":     {"input": 10.00, "output": 50.00},  # Fable 5 (Mythos-class, 2026-06-09 GA) — 最新最高階、約 Opus 4.8 的 2 倍
 }
 
 client = anthropic.Anthropic()
