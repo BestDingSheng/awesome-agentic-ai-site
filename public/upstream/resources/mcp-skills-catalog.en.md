@@ -2,7 +2,7 @@
 
 > [繁體中文](./mcp-skills-catalog.md) | [简体中文](./mcp-skills-catalog.zh-Hans.md) | **English**
 
-> Connect Claude Code (or any other CLI agent) to the apps you already use, without window-hopping. This page is a curated index of 62 MCP servers / Claude Skills / integrations grouped by use case (incl. research-workflow + multi-LLM-delegation dedicated sections).
+> Connect Claude Code (or any other CLI agent) to the apps you already use, without window-hopping. This page is a curated index of 65+ MCP servers / Claude Skills / integrations grouped by use case (incl. research-workflow + multi-LLM-delegation dedicated sections).
 
 ---
 
@@ -22,7 +22,7 @@
 ### Index
 
 1. [Notes / Knowledge Base](#1-notes--knowledge-base) (7)
-2. [Office Documents (Word / Excel / PowerPoint / PDF)](#2-office-documents-word--excel--powerpoint--pdf) (6)
+2. [Office Documents (Word / Excel / PowerPoint / PDF)](#2-office-documents-word--excel--powerpoint--pdf) (7)
 3. [Google Workspace](#3-google-workspace) (2)
 4. [Microsoft 365](#4-microsoft-365) (3)
 5. [Dev Collaboration (GitHub / Atlassian / Slack…)](#5-dev-collaboration-github--atlassian--slack) (6)
@@ -164,6 +164,18 @@
 **What it does**: PPT manipulation via python-pptx — create decks, edit slides, insert images, change layouts.
 **Audience**: people who want LLMs to auto-generate decks from outlines / Markdown (consultants, lecturers, students).
 **Notes**: overlaps with `anthropics/skills`'s pptx skill; use this when the official one isn't enough.
+
+### [1weiho/open-slide](https://github.com/1weiho/open-slide) ⭐⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 4.9k+ |
+| License | MIT |
+| Rating | ⭐⭐⭐⭐ (agent-native slide framework) |
+
+**What it does**: a React slide framework built for coding agents — describe a deck in natural language and let Claude Code / Codex / Cursor write the React; ships two Claude Code Skills (`/create-slide`, `/slide-authoring`).
+**Audience**: people who want agents to produce decks as code (git-versionable) — a different route from PowerPoint-MCP's .pptx output.
+**Notes**: TypeScript / React / Vite; scaffold with `npx @open-slide/cli init`. It's an agent-native tool (agents author with it), not a Stage 4 agent-building / orchestration framework.
 
 ### [SylphxAI/pdf-reader-mcp](https://github.com/SylphxAI/pdf-reader-mcp) ⭐⭐⭐⭐
 

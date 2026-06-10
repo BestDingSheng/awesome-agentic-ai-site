@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -283,7 +283,7 @@ For a complete list, see the official [Slash Commands documentation](https://doc
 ### Curated Projects (for spec / SDK / template reference)
 
 > 💡 **Looking for MCP servers for everyday tools (Notion / Obsidian / Excel / Postgres / Playwright / Figma, etc.)?**
-> Check out [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/)—it organizes 62 common MCP servers / Skills into 14 categories, each with stars / license / intended audience. The table below retains official servers / SDKs that serve as a "**reference for writing your own MCP server**."
+> Check out [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/)—it organizes 65+ common MCP servers / Skills into 15 categories, each with stars / license / intended audience. The table below retains official servers / SDKs that serve as a "**reference for writing your own MCP server**."
 
 | Project | ⭐ | Best for | Why it's recommended / Notes |
 |---|---|---|---|

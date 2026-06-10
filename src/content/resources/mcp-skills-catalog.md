@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "mcp-skills-catalog"
@@ -14,7 +14,7 @@ baseSlug: "mcp-skills-catalog"
 
 > **繁體中文** | [简体中文](/resources/mcp-skills-catalog/) | [English](/en/resources/mcp-skills-catalog/)
 
-> 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 62 個分類整理過的 MCP server / Claude Skill / 整合範例（含研究工作流 + multi-LLM delegation 兩個專屬區）。
+> 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 65+ 個分類整理過的 MCP server / Claude Skill / 整合範例（含研究工作流 + multi-LLM delegation 兩個專屬區）。
 
 ---
 
@@ -34,7 +34,7 @@ baseSlug: "mcp-skills-catalog"
 ### 目錄
 
 1. [筆記 / 知識庫](#1-筆記--知識庫)（7）
-2. [辦公文件（Word / Excel / PowerPoint / PDF）](#2-辦公文件word--excel--powerpoint--pdf)（6）
+2. [辦公文件（Word / Excel / PowerPoint / PDF）](#2-辦公文件word--excel--powerpoint--pdf)（7）
 3. [Google Workspace](#3-google-workspace)（2）
 4. [Microsoft 365](#4-microsoft-365)（3）
 5. [開發協作（GitHub / Atlassian / Slack…）](#5-開發協作github--atlassian--slack)（6）
@@ -176,6 +176,18 @@ baseSlug: "mcp-skills-catalog"
 **教什麼**：用 python-pptx 操作 PPT——建簡報、改 slide、插圖、改 layout。
 **適合誰**：要 LLM 從大綱 / Markdown 自動生 PPT 的人（顧問、講師、學生）。
 **備註**：跟 anthropics/skills 的 pptx skill 重疊；那邊不夠用再來這邊。
+
+### [1weiho/open-slide](https://github.com/1weiho/open-slide) ⭐⭐⭐⭐
+
+| 欄位 | 內容 |
+|---|---|
+| Stars | ★ 4.9k+ |
+| License | MIT |
+| 推薦度 | ⭐⭐⭐⭐（agent-native 簡報框架） |
+
+**教什麼**：為 coding agent 打造的 React 簡報框架——用自然語言描述簡報、讓 Claude Code / Codex / Cursor 寫出 React slides；內附 `/create-slide`、`/slide-authoring` 兩個 Claude Code Skill。
+**適合誰**：想讓 agent 直接產出「程式碼即簡報、可進 git 版控」的人，跟 PowerPoint-MCP 走 .pptx 不同路。
+**備註**：TypeScript / React / Vite，`npx @open-slide/cli init` 起手。它是 agent-native 工具（agent 來寫），不是 Stage 4 那種建構 agent 的編排框架。
 
 ### [SylphxAI/pdf-reader-mcp](https://github.com/SylphxAI/pdf-reader-mcp) ⭐⭐⭐⭐
 

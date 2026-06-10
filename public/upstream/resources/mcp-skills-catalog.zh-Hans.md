@@ -2,7 +2,7 @@
 
 > [繁體中文](./mcp-skills-catalog.md) | **简体中文** | [English](./mcp-skills-catalog.en.md)
 
-> 把 Claude Code（或其他 CLI agent）接到你已经正在用的工具，不用反复切换视窗。本页是 62 个分类整理过的 MCP server / Claude Skill / 集成范例（含研究工作流 + multi-LLM delegation 两个专属区）。
+> 把 Claude Code（或其他 CLI agent）接到你已经正在用的工具，不用反复切换视窗。本页是 65+ 个分类整理过的 MCP server / Claude Skill / 集成范例（含研究工作流 + multi-LLM delegation 两个专属区）。
 
 ---
 
@@ -22,7 +22,7 @@
 ### 目录
 
 1. [笔记 / 知识库](#1-笔记--知识库)（7）
-2. [办公文件（Word / Excel / PowerPoint / PDF）](#2-办公文件word--excel--powerpoint--pdf)（6）
+2. [办公文件（Word / Excel / PowerPoint / PDF）](#2-办公文件word--excel--powerpoint--pdf)（7）
 3. [Google Workspace](#3-google-workspace)（2）
 4. [Microsoft 365](#4-microsoft-365)（3）
 5. [开发协作（GitHub / Atlassian / Slack…）](#5-开发协作github--atlassian--slack)（6）
@@ -164,6 +164,18 @@
 **教什么**：用 python-pptx 操作 PPT——建简报、改 slide、插图、改 layout。
 **适合谁**：要 LLM 从大纲 / Markdown 自动生 PPT 的人（顾问、讲师、学生）。
 **备注**：跟 anthropics/skills 的 pptx skill 重叠；那边不够用再来这边。
+
+### [1weiho/open-slide](https://github.com/1weiho/open-slide) ⭐⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| Stars | ★ 4.9k+ |
+| License | MIT |
+| 推荐度 | ⭐⭐⭐⭐（agent-native 简报框架） |
+
+**教什么**：为 coding agent 打造的 React 简报框架——用自然语言描述简报、让 Claude Code / Codex / Cursor 写出 React slides；内附 `/create-slide`、`/slide-authoring` 两个 Claude Code Skill。
+**适合谁**：想让 agent 直接产出“代码即简报、可进 git 版控”的人，跟 PowerPoint-MCP 走 .pptx 不同路。
+**备注**：TypeScript / React / Vite，`npx @open-slide/cli init` 起手。它是 agent-native 工具（agent 来写），不是 Stage 4 那种构建 agent 的编排框架。
 
 ### [SylphxAI/pdf-reader-mcp](https://github.com/SylphxAI/pdf-reader-mcp) ⭐⭐⭐⭐
 

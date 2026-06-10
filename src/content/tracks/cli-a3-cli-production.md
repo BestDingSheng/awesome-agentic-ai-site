@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a3-cli-production"
@@ -198,7 +198,7 @@ Track A 的人**已經在用** [Stage 7.5 的進階概念](/zh-tw/stages/07-5-ad
 
 按用途分 4 類、9 個項目一張表搞定。**挑入口看「適合誰」、想深入細節點連結看 repo**。
 
-> 💡 **要找接日常工具的 MCP**（Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma 等）：[`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)——62 個分類整理，每個都有 stars / license / 適合誰。下表只列「寫自己 MCP server / 找 reference」用的核心 catalog。
+> 💡 **要找接日常工具的 MCP**（Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma 等）：[`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)——65+ 個分類整理，每個都有 stars / license / 適合誰。下表只列「寫自己 MCP server / 找 reference」用的核心 catalog。
 
 | 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|---|

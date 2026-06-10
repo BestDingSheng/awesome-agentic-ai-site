@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a3-cli-production"
@@ -188,7 +188,7 @@ Track A 的人**已经在用** [Stage 7.5 的进阶概念](/stages/07-5-advanced
 
 ### MCP server collection（接 CLI 用）
 
-> 💡 **要找接日常工具的 MCP**（Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma 等）：[`resources/mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)——62 个分类整理，每个都有 stars / license / 适合谁。下面只列“写自己 MCP server / 找 reference”用的核心 catalog。
+> 💡 **要找接日常工具的 MCP**（Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma 等）：[`resources/mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)——65+ 个分类整理，每个都有 stars / license / 适合谁。下面只列“写自己 MCP server / 找 reference”用的核心 catalog。
 
 #### [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) ⭐⭐⭐⭐⭐
 ★ 85k+ — 官方 reference servers。filesystem、github、sqlite、git、time、fetch、memory、sequential-thinking。

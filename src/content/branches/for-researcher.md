@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-researcher.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-researcher"
@@ -36,7 +36,7 @@ baseSlug: "for-researcher"
 
 ## 精選 Projects
 
-> 💡 **想把 Claude Code 接到 NotebookLM、Obsidian、Notion、Excel、PDF、Excalidraw 等研究常用工具？** 62 個整合在 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)（按使用情境分類）。下面這節保留「研究專屬」的工具與 marketplace。
+> 💡 **想把 Claude Code 接到 NotebookLM、Obsidian、Notion、Excel、PDF、Excalidraw 等研究常用工具？** 65+ 個整合在 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)（按使用情境分類）。下面這節保留「研究專屬」的工具與 marketplace。
 
 ### 研究流程 Marketplace
 

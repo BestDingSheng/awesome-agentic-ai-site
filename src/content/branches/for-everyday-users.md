@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-everyday-users"
@@ -88,7 +88,7 @@ ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 Ap
 >
 > 想要 step-by-step 上手？見 [`tracks/cli/A1-cli-intro.md`](/zh-tw/tracks/cli-a1-cli-intro/)（Track A 第一站，從安裝到第一個任務）。
 >
-> 想把 CLI agent 接到你的 Notion / Obsidian / Excel / Google 文件等日常工具？見 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)（按分類整理 62 個 MCP server / Skill）。
+> 想把 CLI agent 接到你的 Notion / Obsidian / Excel / Google 文件等日常工具？見 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)（按分類整理 65+ 個 MCP server / Skill）。
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
 ★ 120k+ — Anthropic 官方的 CLI agent。能讀寫檔案、執行指令、做多步驟任務。**日常使用者最容易上手的 CLI 工具**。

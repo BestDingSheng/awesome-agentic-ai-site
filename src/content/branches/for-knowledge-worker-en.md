@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-knowledge-worker.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-knowledge-worker"
@@ -36,7 +36,7 @@ The table below splits a knowledge worker's day into 7 common scenarios. Most of
 
 ## Curated Projects
 
-> 💡 **Want to wire your AI agent to Notion / Gmail / Outlook / Slack / Excel / Lark?** Example: automatically turn Gmail messages into Notion todos. 62 commonly-used office integration tools are listed in [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (grouped by use case). The section below stays focused on workflow / integration-platform-level tools.
+> 💡 **Want to wire your AI agent to Notion / Gmail / Outlook / Slack / Excel / Lark?** Example: automatically turn Gmail messages into Notion todos. 65+ commonly-used office integration tools are listed in [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (grouped by use case). The section below stays focused on workflow / integration-platform-level tools.
 
 ### Workflow Tools
 

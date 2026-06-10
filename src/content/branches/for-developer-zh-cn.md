@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-developer.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-developer"
@@ -38,7 +38,7 @@ baseSlug: "for-developer"
 
 > **CLI agent 比较**：7 个主流 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent）的并列比较见 [`resources/cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/)。第一次接触 CLI agent 想要 step-by-step 入门 → [`tracks/cli/A1-cli-intro.zh-Hans.md`](/tracks/cli-a1-cli-intro/)（Track A 第一站）。
 >
-> **MCP catalog**：要把 CLI 接到日常工具（GitHub、Linear、Atlassian、Postgres、Playwright、Figma 等）→ [`resources/mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（62 个分类整理）。
+> **MCP catalog**：要把 CLI 接到日常工具（GitHub、Linear、Atlassian、Postgres、Playwright、Figma 等）→ [`resources/mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（65+ 个分类整理）。
 >
 > 本页只列**跟开发者 workflow 直接相关**的工具入口。
 

@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-developer.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-developer"
@@ -38,7 +38,7 @@ The table below splits a developer's day into 7 common scenarios. Each has a dif
 
 > **CLI agent comparison**: 7 major CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent) compared side-by-side in [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/). New to CLI agents and want step-by-step onboarding → [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) (Track A first stop).
 >
-> **MCP catalog**: Looking for integrations to wire CLI into daily tools (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (62 entries by category).
+> **MCP catalog**: Looking for integrations to wire CLI into daily tools (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (65+ entries by category).
 >
 > This page only lists tool entry points directly relevant to developer workflows.
 

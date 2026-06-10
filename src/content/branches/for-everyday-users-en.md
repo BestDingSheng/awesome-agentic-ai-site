@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-everyday-users"
@@ -86,7 +86,7 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 >
 > Want step-by-step onboarding? See [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) — Track A first stop, from install to your first task.
 >
-> Want to wire your CLI agent to Notion / Obsidian / Excel / Google docs / etc.? See [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) — 62 MCP servers / Skills grouped by use case.
+> Want to wire your CLI agent to Notion / Obsidian / Excel / Google docs / etc.? See [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) — 65+ MCP servers / Skills grouped by use case.
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
 ★ 120k+ — Anthropic's official CLI agent. Reads/writes files, runs commands, handles multi-step tasks. **The most beginner-friendly CLI tool for everyday users.**

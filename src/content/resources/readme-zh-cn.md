@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/README.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "readme"
@@ -26,7 +26,7 @@ baseSlug: "readme"
 |---|---|---|---|
 | [`glossary.zh-Hans.md`](/resources/glossary/) | **30 秒查词典** | 看 stage 内容时遇到 LLM / RAG / token / agent / vector DB / streaming / batch API 不知道什么意思 | ~210 |
 | [`cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/) | **7 个 CLI agent 比较** | 第一次选 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent）不知道挑哪个 | ~134 |
-| [`mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/) | **62 个集成 catalog** | 想把 Claude Code 接 Notion / Obsidian / Excel / Postgres / Slack / 等实际工具 | ~775 |
+| [`mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/) | **65+ 个集成 catalog** | 想把 Claude Code 接 Notion / Obsidian / Excel / Postgres / Slack / 等实际工具 | ~775 |
 | [`schema-design-cheatsheet.zh-Hans.md`](/resources/schema-design-cheatsheet/) | **function schema 设计 5 规则 + 5 anti-pattern** | 写 tool schema / MCP server schema / function calling，发现 LLM 选错 tool / 传错参数 | ~159 |
 | [`cookbook.zh-Hans.md`](/resources/cookbook/) | **6 个 step-by-step recipe** | 想 30-50 分钟做出第一个 Skill / MCP server / 接 Office / 接 NotebookLM / 接 Zotero / 接本机 LLM | ~620 |
 | [`setup-guide.zh-Hans.md`](/resources/setup-guide/) | **从零开始的 setup 指南** | 完全没有 dev 背景、第一次申请 API key / 装 Python / 用 Claude Code | ~400 |
@@ -52,7 +52,7 @@ baseSlug: "readme"
 
 ### 🔌 我要把 Claude Code 接 X 工具（Notion / Excel / Postgres 等）
 
-→ [`mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（62 个集成分 14 类）
+→ [`mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（65+ 个集成分 15 类）
 
 ### 🍳 我想动手写第一个 Skill / MCP server / 接 Word 等
 

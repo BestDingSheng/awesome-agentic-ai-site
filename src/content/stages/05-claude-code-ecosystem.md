@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T04:03:37.307Z"
+syncedAt: "2026-06-10T15:43:43.401Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -283,7 +283,7 @@ order: 5
 ### 精選 Projects（spec / SDK / 範本參考）
 
 > 💡 **找日常工具的 MCP（Notion / Obsidian / Excel / Postgres / Playwright / Figma 等）？**
-> 看 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)——按 14 個分類整理 62 個常用 MCP server / Skill，每個都附 stars / license / 適合誰。下表保留的是「**寫自己 MCP server 時的 reference**」性質的官方 server / SDK。
+> 看 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)——按 15 個分類整理 65+ 個常用 MCP server / Skill，每個都附 stars / license / 適合誰。下表保留的是「**寫自己 MCP server 時的 reference**」性質的官方 server / SDK。
 
 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|
