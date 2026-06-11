@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -63,7 +63,7 @@ Engineering work can be split into three layers, corresponding to different posi
 | Comparison | What's Covered There | What's Covered in This Stage |
 |---|---|---|
 | **Stage 5.5 Subagents** | Claude Code's native subagent mechanism (markdown-based, no coding) | General multi-agent frameworks (autogen / crewAI / langgraph, vendor-agnostic) |
-| **Stage 5.6 Claude Code source** | Claude Code source dissection (reference implementation case study) | General harness engineering principles (not tied to a specific vendor) |
+| **Stage 5.7 Claude Code source** | Claude Code source dissection (reference implementation case study) | General harness engineering principles (not tied to a specific vendor) |
 
 ### ⚠ But do you really need multi-agent?
 
@@ -83,7 +83,7 @@ Engineering work can be split into three layers, corresponding to different posi
 
 You should already have:
 - Completed Stage 4 (used at least one agent framework to run a multi-agent demo)
-- Completed Stage 5 (understand the roles of MCP / Skills / Plugins / Subagents, and have dissected a harness internally in 5.6)
+- Completed Stage 5 (understand the roles of MCP / Skills / Plugins / Subagents, and have dissected a harness internally in 5.7)
 - Completed Stage 6 (know basic RAG, can explain the differences between memory patterns)
 - Basic familiarity with Docker / git / CI (will be used in production deployment)
 
@@ -148,7 +148,7 @@ To turn an LLM into a usable agent, you usually run into three layers of enginee
 
 Want to see what a harness running in production looks like? Two references:
 
-- **The entire Claude Code runtime** — is a reference harness implementation. **For a source-reading exercise, see [Stage 5.6](/en/stages/05-claude-code-ecosystem/#56--dissecting-claude-code-source-reference-harness-implementation--a-must-read-for-track-b)** (clone `claude-agent-sdk-python` and dissect the main loop + where the first 6 runtime components from the table above live; the 7th, Eval harness, is a plugin, and the 8th, Cost / Latency, is cross-cutting, see the deep-dive below)
+- **The entire Claude Code runtime** — is a reference harness implementation. **For a source-reading exercise, see [Stage 5.7](/en/stages/05-claude-code-ecosystem/#57--dissecting-claude-code-source-reference-harness-implementation--a-must-read-for-track-b)** (clone `claude-agent-sdk-python` and dissect the main loop + where the first 6 runtime components from the table above live; the 7th, Eval harness, is a plugin, and the 8th, Cost / Latency, is cross-cutting, see the deep-dive below)
 - **`anthropics/claude-agent-sdk-python`** source — the specific repo used in the exercise above
 
 → The remaining 6 exercises in this stage (multi-agent / eval / observability / SDK / deploy / cost) each cover one facet of the harness. Completing the full stage = assembling a complete mental model of harness engineering.

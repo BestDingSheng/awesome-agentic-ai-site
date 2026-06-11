@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -31,7 +31,7 @@ order: 5
 
 > ⚠️ **想用本機 LLM？這個 stage 不是那條路線。** Claude Code 需要 Anthropic API / OAuth，不能直接改接 Ollama 或本機 endpoint。離線、隱私資料或不想用 API 額度時，請看 [`resources/cookbook.md` Recipe 6](/zh-tw/resources/cookbook/#6-本機-llm--cli-agent-快速-walkthrough)，用 OpenCode / goose / Aider / Hermes 這類支援 BYO LLM 的 CLI agent。
 
-> 📋 **本章組成**：6 個子章（5.1 基礎 / 5.2 MCP / 5.3 Skills / 5.4 Plugins / 5.5 Subagents / 5.6 Claude Code Source 解剖），每個子章都有「學習目標 → 必修閱讀 → 動手練習 → 精選 Projects」 → 章末 自我檢查。**注意**：Harness Engineering（Agent 執行系統設計）的**學科級概念**在 [Stage 7](/zh-tw/stages/07-multi-agent-production/) 系統整理；本章 5.6 則把 Claude Code 當成案例，觀察一個成熟 agent 工具如何處理工具、記憶、設定、權限與執行流程
+> 📋 **本章組成**：7 個子章（5.1 基礎 / 5.2 MCP / 5.3 Skills / 5.4 Plugins / 5.5 Subagents / 5.6 Dynamic Workflows / 5.7 Claude Code Source 解剖），每個子章都有「學習目標 → 必修閱讀 → 動手練習 → 精選 Projects」 → 章末 自我檢查。**注意**：Harness Engineering（Agent 執行系統設計）的**學科級概念**在 [Stage 7](/zh-tw/stages/07-multi-agent-production/) 系統整理；本章 5.7 則把 Claude Code 當成案例，觀察一個成熟 agent 工具如何處理工具、記憶、設定、權限與執行流程
 > 🔑 **關鍵名詞**：見 [`resources/glossary.md` 5](/zh-tw/resources/glossary/#5-claude-code-生態)
 
 ## Stack 一覽
@@ -60,9 +60,9 @@ order: 5
 
 ---
 
-## 🗺️ 7-Layer Architecture Map（先看這張圖、再讀 5.1-5.6）
+## 🗺️ 7-Layer Architecture Map（先看這張圖、再讀 5.1-5.7）
 
-> 📋 **這節是什麼**：把 Claude Code 的 7 個 primitive（MCP / Skills / Plugins / Subagents / Hooks / Slash commands / CLI）對應到 **7 個架構層 + 3 個工程學 discipline**——進 5.1-5.6 之前看一次知道接下來在學什麼層、學完回頭看是 synthesis。**分層是教學選擇、不是 absolute 真理**。
+> 📋 **這節是什麼**：把 Claude Code 的 7 個 primitive（MCP / Skills / Plugins / Subagents / Hooks / Slash commands / CLI）對應到 **7 個架構層 + 3 個工程學 discipline**——進 5.1-5.7 之前看一次知道接下來在學什麼層、學完回頭看是 synthesis。**分層是教學選擇、不是 absolute 真理**。
 
 ![Claude Code 7-Layer Architecture Map](/upstream/resources/diagrams/claude-architecture-map.png)
 
@@ -123,7 +123,7 @@ order: 5
 | **Claude Agent SDK** | 你的 Python / TS 環境 | 完整 agent runtime + tool use + 多 session | 寫 production agent system |
 | **Claude Code**（**本節**） | 你的 terminal | **完整 OS-level agent**（file / shell / git / subprocess）+ skill / plugin / subagent 生態 | **日常工作主力工具** |
 
-進 5.2-5.6 之前你會在這節學到 **4 個 Claude Code 核心結構**：CLAUDE.md（記憶層）/ slash commands（控制層）/ `~/.claude/` 目錄（設定層）/ settings.json（行為層）。
+進 5.2-5.7 之前你會在這節學到 **4 個 Claude Code 核心結構**：CLAUDE.md（記憶層）/ slash commands（控制層）/ `~/.claude/` 目錄（設定層）/ settings.json（行為層）。
 
 ### 學習目標
 
@@ -554,7 +554,7 @@ Plugin
 - 想用 **CLI** 玩 multi-agent → 目前只有 Claude Code 有 native 支援（**本節主題**）
 - 想 **跨 provider / 跨 LLM** → 走 Stage 4 framework path
 - 想 **OpenAI 生態 + 多 agent** → 用 OpenAI Agents SDK 寫 handoff pattern（programmatic、非 CLI）
-- 想 **完全自己控** → 走 [Stage 5.6 Harness Internals](#56--claude-code-source-解剖reference-harness-implementation-track-b-必看)（讀 SDK source、自己 wire 多 agent）
+- 想 **完全自己控** → 走 [Stage 5.7 Harness Internals](#57--claude-code-source-解剖reference-harness-implementation-track-b-必看)（讀 SDK source、自己 wire 多 agent）
 
 → 本節剩下內容都聚焦在 **Claude Code subagent**。其他平台的進展請追蹤各家 changelog（Codex / Gemini / Cursor 都還在 single-agent + MCP 階段、可能 2026 後段才會跟進）。
 
@@ -766,7 +766,35 @@ You are a senior code reviewer. When invoked:
 
 ---
 
-## 5.6 — Claude Code Source 解剖（reference harness implementation）⭐ Track B 必看
+## 5.6 — Dynamic Workflows（讓 Claude 自己寫出 workflow）⭐ Opus 4.8+ 新機制
+
+> **本節定位**：5.5 教你**手動**派 subagent；本節更上一層——**讓 Claude 自己生成一份 workflow 腳本、再自己執行**。這是 Opus 4.8 起的新機制（research preview 出身，Fable 5 世代延續），新版 Claude Code 內建。本節只把它放進生態地圖、講清楚跟 5.5 的分工；**機制 / 實例 / quality pattern 的完整版在 [Stage 7.5 — Dynamic Workflows 深入](/zh-tw/stages/07-5-advanced-agentic-concepts/#-dynamic-workflowsopus-48-當-agent-自己寫出-workflow)**。
+
+### 跟 5.5 Subagents 的差別
+
+| | 5.5 Subagents | 5.6 Dynamic Workflows |
+|---|---|---|
+| 步驟誰決定 | 你手動派、一次一個 | Claude 自己寫出多步驟腳本 |
+| 控制流 | model 即興決定下一步 | 腳本裡是**確定性**的 loop / 平行 fan-out / 驗證階段 |
+| 適合 | 少數幾個並行子任務 | 大型、要窮舉或多階段驗證（migration、audit、跨檔 review）|
+| 關係 | — | DW **建在 subagent 之上**：workflow 腳本去 orchestrate 一群 subagent |
+
+### 什麼時候用、什麼時候別用
+
+- **用**：要窮舉 + 對抗式驗證（找完所有 bug、每個 finding 再派獨立 agent 反駁）、一次性大遷移、跨多檔同樣轉換的 pipeline。
+- **別用**：只是想叫一兩個 agent 平行做點事 → 留在 5.5 就好；小任務直接一條 prompt 更省。
+- ⚠️ DW 會 spawn 大量 agent、吃 token，不是萬靈丹。「何時值得、怎麼寫不會爆」見下方 7.5 深入。
+
+### 📚 必修閱讀
+
+1. [**Anthropic — Claude Opus 4.8**](https://www.anthropic.com/news/claude-opus-4-8) — Dynamic Workflows 首次發布的官方說明
+2. **[Stage 7.5 — Dynamic Workflows 深入](/zh-tw/stages/07-5-advanced-agentic-concepts/#-dynamic-workflowsopus-48-當-agent-自己寫出-workflow)** ⭐ — 機制、quality pattern（adversarial verify / loop-until-dry / judge panel）、何時用的完整版
+
+> 本節無 examples（概念 + 入口節點）；想動手照 7.5 的 pattern 寫。
+
+---
+
+## 5.7 — Claude Code Source 解剖（reference harness implementation）⭐ Track B 必看
 
 > **本節定位**：本節**不是** harness engineering 的學科級概念教學——學科級的定義 / **8 個核心元件** / prompt→context→harness 三層工程分工 是 **[Stage 7 Harness Engineering](/zh-tw/stages/07-multi-agent-production/#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念)** 在講。**本節是 case study**——拿 Claude Code（一個被廣泛使用的參考實作）的 source code 來解剖、把 Stage 7 列的 8 個元件**中前 6 個 runtime-internal 元件**（Eval / Cost-Latency 兩個是跨層議題、不在 source 主 loop）**在實作裡找到對應位置**。
 
@@ -814,16 +842,16 @@ You are a senior code reviewer. When invoked:
 |---|---|---|---|
 | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | 所有 Track B 學習者、想搞清楚「Claude Code 內部怎麼跑」 | **canonical Python harness、本節練習就是讀這個 repo**。後面 Stage 7 deploy 也會 import |
 | [ZhangHanDong/harness-engineering-from-cc-to-ai-coding](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) | ⭐⭐⭐⭐ | 中文 reader 想看「為什麼 Claude Code 這樣設計」 | 中文圈最完整 CC 內部解讀（harness 概念 → CC 實作 → 跟其他 AI coding tool 對比）。**配合 SDK source 互補看**——一個告訴你「怎麼做」、一個告訴你「為什麼這麼做」 |
-| [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | 5.6 讀完想擴大視野 | community curation：30+ harness / eval / memory / observability / MCP project（★ 1.7k+）。**廣度資源庫、非教學**——挑感興趣的 sub-topic 鑽進去 |
+| [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | 5.7 讀完想擴大視野 | community curation：30+ harness / eval / memory / observability / MCP project（★ 1.7k+）。**廣度資源庫、非教學**——挑感興趣的 sub-topic 鑽進去 |
 | [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | 寫完 5.5 自己的 subagent 後想看實際在用的範本 | 50+ subagent definition 的 ergonomic 設計（description / tool list / system prompt 分層）。**讀 source 比讀文件學得多**。在 5.5 已介紹、本節 cross-ref |
 
 > 💡 **本節跟 Stage 7 的差別**：本節學「Claude Code 這個 harness 怎麼跑」（具體 reference）；Stage 7 學「production harness 一般要有什麼」（抽象 pattern）。**先具體後抽象**、看完本節再進 Stage 7 會輕鬆很多。
 
 ---
 
-## 5.7 — SDK：把 Claude Code 拆開來自己組 ⭐ Track B 可選、production 才需要
+## 5.8 — SDK：把 Claude Code 拆開來自己組 ⭐ Track B 可選、production 才需要
 
-> 🎯 **這節是給誰看的**：99% 的人讀完 5.1-5.6 已經夠用，**只在你想做 CLI 做不到的事**才往下走。Stage 5.6 叫你讀 SDK source 是為了理解 harness 內部；這節是為了讓你**會用 SDK** 包成自己的服務。
+> 🎯 **這節是給誰看的**：99% 的人讀完 5.1-5.7 已經夠用，**只在你想做 CLI 做不到的事**才往下走。Stage 5.7 叫你讀 SDK source 是為了理解 harness 內部；這節是為了讓你**會用 SDK** 包成自己的服務。
 
 ### 1 個比喻把 SDK / CLI / `CLAUDE.md` 分清楚
 
@@ -885,7 +913,7 @@ async for msg in query(prompt="用 git status 看當前狀態"):
 
 ### 接下來
 
-- **看程式碼**：回 5.6，讀 `claude-agent-sdk-python` 的 `_internal/client.py` —— 你現在會用 SDK 了，讀那邊的 main loop 會看懂更多
+- **看程式碼**：回 5.7，讀 `claude-agent-sdk-python` 的 `_internal/client.py` —— 你現在會用 SDK 了，讀那邊的 main loop 會看懂更多
 - **動手練 SDK 進階**：Stage 7 練習 4（streaming + prompt caching）；Stage 7 練習 5（FastAPI + Docker production deploy）
 - **如果你發現你其實不需要 SDK**：那很好 —— 回 5.1-5.4，把 CLI + 自訂這層用透，通常已經比寫 SDK 划算
 
@@ -902,7 +930,7 @@ async for msg in query(prompt="用 git status 看當前狀態"):
 - [ ] 寫一份能在特定觸發詞自動載入的 `SKILL.md`
 - [ ] 把 skill 打包成 plugin，再用 `marketplace.json` 發佈
 - [ ] **寫過 `.claude/agents/` 自訂 subagent 並從 Task tool invoke 過**
-- [ ] **讀過 `claude-agent-sdk-python` 的 main loop、能在 source 裡標出 [Stage 7 列的 8 個 harness 元件](/zh-tw/stages/07-multi-agent-production/#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念) 的前 6 個 runtime-internal 元件**位置（5.6 練習）
+- [ ] **讀過 `claude-agent-sdk-python` 的 main loop、能在 source 裡標出 [Stage 7 列的 8 個 harness 元件](/zh-tw/stages/07-multi-agent-production/#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念) 的前 6 個 runtime-internal 元件**位置（5.7 練習）
 - [ ] 從角色分工說出 MCP / Skills / Plugins / Subagents / SDK 各自的位置
 
 如果都可以 → 前往 [Stage 6 — Memory & RAG](/zh-tw/stages/06-memory-rag/)。

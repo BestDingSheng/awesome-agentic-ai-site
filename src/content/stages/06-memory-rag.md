@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "06-memory-rag"
@@ -613,7 +613,7 @@ print(chunks[0])
 > 💡 **跟 Stage 3 反思的分工**：
 > - 想理解「反思 loop 怎麼運作、單次怎麼跑」→ Stage 3 反思
 > - 想理解「反思怎麼跨 session 累積、agent 怎麼從過去學教訓」→ 本節
-> - 想看 production agent 內怎麼用反思（Cursor / Claude Code）→ [Stage 5 5.6 Harness Internals](/zh-tw/stages/05-claude-code-ecosystem/#56--claude-code-source-解剖reference-harness-implementation-track-b-必看)
+> - 想看 production agent 內怎麼用反思（Cursor / Claude Code）→ [Stage 5 5.7 Harness Internals](/zh-tw/stages/05-claude-code-ecosystem/#57--claude-code-source-解剖reference-harness-implementation-track-b-必看)
 
 ## 🤔 進階 Reasoning / Reflection — 2024-2026 思潮 ⭐ 兩個 track 都看
 

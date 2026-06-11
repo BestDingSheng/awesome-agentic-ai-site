@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -594,7 +594,7 @@ This is not just a reading list. It is a **decision tree**: identify the problem
 - [李宏毅 GenAI 2024 / 2025](https://speech.ee.ntu.edu.tw/~hylee/)
 - [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents)
 
-> 📋 **After advanced concepts, revisit this synthesis** → [Stage 5 §🗺️ 7-Layer Architecture Map](/en/stages/05-claude-code-ecosystem/#-7-layer-architecture-map-read-this-first-then-51-56) (Claude Code's 7 primitives + 3 engineering disciplines in one map)
+> 📋 **After advanced concepts, revisit this synthesis** → [Stage 5 §🗺️ 7-Layer Architecture Map](/en/stages/05-claude-code-ecosystem/#-7-layer-architecture-map-read-this-first-then-51-57) (Claude Code's 7 primitives + 3 engineering disciplines in one map)
 
 ## ✅ Self-check
 

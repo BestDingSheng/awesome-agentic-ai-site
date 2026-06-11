@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -594,7 +594,7 @@ Stage 7 的 Benchmark Landscape 提过 Berkeley 的 reward-hacking 警告。这�
 - [李宏毅 GenAI 2024 / 2025](https://speech.ee.ntu.edu.tw/~hylee/)
 - [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents)
 
-> 📋 **学完进阶概念回头看 synthesis** → [Stage 5 §🗺️ 7-Layer Architecture Map](/stages/05-claude-code-ecosystem/#-7-layer-architecture-map先看这张图再读-51-56)（Claude Code 7 个 primitive + 3 个工程学 discipline 整合图）
+> 📋 **学完进阶概念回头看 synthesis** → [Stage 5 §🗺️ 7-Layer Architecture Map](/stages/05-claude-code-ecosystem/#-7-layer-architecture-map先看这张图再读-51-57)（Claude Code 7 个 primitive + 3 个工程学 discipline 整合图）
 
 ## ✅ 自我检查
 

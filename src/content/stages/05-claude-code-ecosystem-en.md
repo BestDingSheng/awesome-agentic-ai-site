@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -31,7 +31,7 @@ order: 5
 
 > ⚠️ **Looking to use a local LLM? This stage is not that path.** Claude Code requires the Anthropic API / OAuth and cannot be directly pointed to Ollama or a local endpoint. For offline work, sensitive data, or to avoid using API quota, please see [`resources/cookbook.en.md` Recipe 6](/en/resources/cookbook/#6-local-llm--cli-agent-quick-walkthrough) and use a CLI agent that supports BYO LLM, like OpenCode / goose / Aider / Hermes.
 
-> 📋 **Structure of this chapter**: 6 sub-chapters (5.1 Basics / 5.2 MCP / 5.3 Skills / 5.4 Plugins / 5.5 Subagents / 5.6 Dissecting Claude Code Source), each with "Learning Goals → Required Reading → Hands-on Exercises → Curated Projects" → followed by a self-check at the end of the chapter. **Note**: The **discipline-level** concept of Harness Engineering (the engineering of an agent's execution system) is systematically covered in [Stage 7](/en/stages/07-multi-agent-production/); 5.6 in this chapter uses Claude Code as a case study, observing how a mature agent tool handles tools, memory, configuration, permissions, and execution flow
+> 📋 **Structure of this chapter**: 7 sub-chapters (5.1 Basics / 5.2 MCP / 5.3 Skills / 5.4 Plugins / 5.5 Subagents / 5.6 Dynamic Workflows / 5.7 Dissecting Claude Code Source), each with "Learning Goals → Required Reading → Hands-on Exercises → Curated Projects" → followed by a self-check at the end of the chapter. **Note**: The **discipline-level** concept of Harness Engineering (the engineering of an agent's execution system) is systematically covered in [Stage 7](/en/stages/07-multi-agent-production/); 5.7 in this chapter uses Claude Code as a case study, observing how a mature agent tool handles tools, memory, configuration, permissions, and execution flow
 > 🔑 **Key Terms**: See [`resources/glossary.en.md` 5](/en/resources/glossary/#5-claude-code-ecosystem).
 
 ## Stack at a Glance
@@ -60,9 +60,9 @@ After completing this stage, you will be able to extend Claude Code, write your 
 
 ---
 
-## 🗺️ 7-Layer Architecture Map (read this first, then 5.1-5.6)
+## 🗺️ 7-Layer Architecture Map (read this first, then 5.1-5.7)
 
-> 📋 **What this section is**: maps Claude Code's 7 primitives (MCP / Skills / Plugins / Subagents / Hooks / Slash commands / CLI) to **7 architecture layers + 3 engineering disciplines**. Read it once before 5.1-5.6 to know which layer each sub-chapter teaches; read it again afterward as synthesis. **The layering is a teaching choice, not an absolute truth**.
+> 📋 **What this section is**: maps Claude Code's 7 primitives (MCP / Skills / Plugins / Subagents / Hooks / Slash commands / CLI) to **7 architecture layers + 3 engineering disciplines**. Read it once before 5.1-5.7 to know which layer each sub-chapter teaches; read it again afterward as synthesis. **The layering is a teaching choice, not an absolute truth**.
 
 ![Claude Code 7-Layer Architecture Map](/upstream/resources/diagrams/claude-architecture-map.en.png)
 
@@ -123,7 +123,7 @@ Differences from other Claude interfaces:
 | **Claude Agent SDK** | Your Python / TS environment | Full agent runtime + tool use + multiple sessions | Building production agent systems |
 | **Claude Code** (**This Section**) | Your terminal | **Full OS-level agent** (file / shell / git / subprocess) + skill / plugin / subagent ecosystem | **Primary daily work tool** |
 
-Before moving on to 5.2-5.6, you will learn about **4 core structures of Claude Code** in this section: CLAUDE.md (memory layer) / slash commands (control layer) / the `~/.claude/` directory (configuration layer) / settings.json (behavior layer).
+Before moving on to 5.2-5.7, you will learn about **4 core structures of Claude Code** in this section: CLAUDE.md (memory layer) / slash commands (control layer) / the `~/.claude/` directory (configuration layer) / settings.json (behavior layer).
 
 ### Learning Goals
 
@@ -554,7 +554,7 @@ Many people assume that multi-agent CLIs are a standard feature for Anthropic / 
 - If you want to play with multi-agent systems in a **CLI** → currently, only Claude Code has native support (**the topic of this section**)
 - If you want to go **cross-provider / cross-LLM** → take the Stage 4 framework path
 - If you want **OpenAI ecosystem + multiple agents** → use the OpenAI Agents SDK to write a handoff pattern (programmatic, not CLI)
-- If you want **complete control** → go to [Stage 5.6 Dissecting Claude Code Source](#56--dissecting-claude-code-source-reference-harness-implementation--a-must-read-for-track-b) (read the SDK source, wire the multi-agent system yourself)
+- If you want **complete control** → go to [Stage 5.7 Dissecting Claude Code Source](#57--dissecting-claude-code-source-reference-harness-implementation--a-must-read-for-track-b) (read the SDK source, wire the multi-agent system yourself)
 
 → The rest of this section focuses on **Claude Code subagents**. For developments on other platforms, please follow their respective changelogs (Codex / Gemini / Cursor are still in the single-agent + MCP phase, and will likely follow suit in late 2026).
 
@@ -763,7 +763,35 @@ A single table to cover 4 projects. **Pick an entry point by looking at "Best fo
 
 ---
 
-## 5.6 — Dissecting Claude Code Source (reference harness implementation) ⭐ A must-read for Track B
+## 5.6 — Dynamic Workflows (when Claude writes its own workflow) ⭐ Opus 4.8+ feature
+
+> **What this section is**: 5.5 taught you to dispatch subagents **manually**; this is one level up — **Claude generates a workflow script and then runs it itself**. This is the Opus 4.8-era mechanism (started as a research preview, continued in the Fable 5 generation), built into recent Claude Code. This section only places it on the ecosystem map and clarifies how it divides labor with 5.5; the **mechanism / examples / quality patterns live in [Stage 7.5 — Dynamic Workflows deep-dive](/en/stages/07-5-advanced-agentic-concepts/#-dynamic-workflows-opus-48--when-the-agent-writes-its-own-workflow)**.
+
+### How it differs from 5.5 Subagents
+
+| | 5.5 Subagents | 5.6 Dynamic Workflows |
+|---|---|---|
+| Who decides the steps | You — dispatch manually, one at a time | Claude writes a multi-step script itself |
+| Control flow | the model improvises the next step | the script has **deterministic** loops / parallel fan-out / verification stages |
+| Best for | a few parallel subtasks | large, exhaustive, or multi-stage work (migrations, audits, cross-file review) |
+| Relationship | — | DW is **built on top of subagents**: the workflow script orchestrates a fleet of them |
+
+### When to use it, when not to
+
+- **Use it**: exhaustive + adversarial work (find every bug, then have an independent agent refute each finding), one-shot large migrations, pipelines applying the same transform across many files.
+- **Don't**: if you just want one or two agents working in parallel, stay in 5.5; for small tasks a single prompt is cheaper.
+- ⚠️ DW spawns many agents and burns tokens — it is not a default. "When it's worth it, and how to write one that doesn't blow up" is in the 7.5 deep-dive below.
+
+### 📚 Required reading
+
+1. [**Anthropic — Claude Opus 4.8**](https://www.anthropic.com/news/claude-opus-4-8) — the official announcement where Dynamic Workflows first shipped
+2. **[Stage 7.5 — Dynamic Workflows deep-dive](/en/stages/07-5-advanced-agentic-concepts/#-dynamic-workflows-opus-48--when-the-agent-writes-its-own-workflow)** ⭐ — the full version: mechanism, quality patterns (adversarial verify / loop-until-dry / judge panel), and when to use it
+
+> No examples folder for this section (it's a concept + entry point); to get hands-on, follow the patterns in 7.5.
+
+---
+
+## 5.7 — Dissecting Claude Code Source (reference harness implementation) ⭐ A must-read for Track B
 
 > **Positioning of this section**: This section is **not** a discipline-level tutorial on harness engineering—the definition, the **8 components**, and the three-layer lineage of prompt→context→harness are covered in **[Stage 7 Harness Engineering](/en/stages/07-multi-agent-production/#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage)**. **This section is a case study**—we're dissecting the source code of Claude Code (a widely-used reference harness) to find the corresponding locations in the implementation for the **first 6 runtime-internal components** of the 8 components listed in Stage 7 (the other two, Eval and Cost-Latency, are cross-cutting and not in the main source loop).
 
@@ -811,16 +839,16 @@ A single table to cover 4 projects. **Pick an entry point by looking at "Best fo
 |---|---|---|---|
 | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | All Track B learners who want to figure out "how Claude Code runs internally" | **The canonical Python harness, this is the repo you'll be reading for this section's exercise**. It will also be imported in the Stage 7 deployment. |
 | [ZhangHanDong/harness-engineering-from-cc-to-ai-coding](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) | ⭐⭐⭐⭐ | Chinese readers who want to understand "why Claude Code was designed this way" | The most complete interpretation of CC's internals in the Chinese community (harness concepts → CC implementation → comparison with other AI coding tools). **Use it as a complement to the SDK source**—one tells you "how," the other tells you "why." |
-| [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | Those who finish 5.6 and want to broaden their horizons | A community curation: 30+ harness / eval / memory / observability / MCP projects (★ 1.7k+). **A breadth resource library, not a tutorial**—pick a sub-topic of interest and dive in. |
+| [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | Those who finish 5.7 and want to broaden their horizons | A community curation: 30+ harness / eval / memory / observability / MCP projects (★ 1.7k+). **A breadth resource library, not a tutorial**—pick a sub-topic of interest and dive in. |
 | [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | Those who have written their own subagent in 5.5 and want to see templates actually in use | The ergonomic design of 50+ subagent definitions (description / tool list / system prompt layers). **You'll learn more from reading the source than from reading the docs**. Already introduced in 5.5, cross-referenced here. |
 
 > 💡 **The difference between this section and Stage 7**: This section teaches "how this specific harness, Claude Code, works" (a concrete reference); Stage 7 teaches "what a production harness should generally have" (an abstract pattern). **Go from concrete to abstract**—it will be much easier to get into Stage 7 after you've finished this section.
 
 ---
 
-## 5.7 — SDK: Take Claude Code Apart and Rebuild It Your Way ⭐ Track B optional — production only
+## 5.8 — SDK: Take Claude Code Apart and Rebuild It Your Way ⭐ Track B optional — production only
 
-> 🎯 **Who this section is for**: 99% of readers are done after 5.1-5.6. Only descend here if there's something CLI genuinely can't do for you. Stage 5.6 had you read the SDK source for harness understanding; this section is to make you *use* the SDK as your own service.
+> 🎯 **Who this section is for**: 99% of readers are done after 5.1-5.7. Only descend here if there's something CLI genuinely can't do for you. Stage 5.7 had you read the SDK source for harness understanding; this section is to make you *use* the SDK as your own service.
 
 ### One analogy that separates SDK / CLI / `CLAUDE.md`
 
@@ -882,7 +910,7 @@ Both are MIT-licensed with clean APIs. **The real question is which model your d
 
 ### What's next
 
-- **Read code**: back to 5.6, read `claude-agent-sdk-python`'s `_internal/client.py` — now that you've used the SDK, the main loop reads with more meaning.
+- **Read code**: back to 5.7, read `claude-agent-sdk-python`'s `_internal/client.py` — now that you've used the SDK, the main loop reads with more meaning.
 - **Practice the SDK at production depth**: Stage 7 Exercise 4 (streaming + prompt caching); Stage 7 Exercise 5 (FastAPI + Docker production deploy).
 - **If you realise you don't actually need the SDK**: that's a good outcome — go back to 5.1-5.4 and master "CLI + customisation". It's usually a better return than writing your own SDK service.
 
@@ -899,7 +927,7 @@ Can you:
 - [ ] Write a `SKILL.md` that auto-loads on a specific trigger phrase?
 - [ ] Package a skill into a plugin and publish it via `marketplace.json`?
 - [ ] **Write a custom subagent in `.claude/agents/` and invoke it from the Task tool?**
-- [ ] **Read the main loop of `claude-agent-sdk-python` and pinpoint in the source where the first 6 runtime-internal components of the [8 harness components listed in Stage 7](/en/stages/07-multi-agent-production/#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage) are? (5.6 exercise)**
+- [ ] **Read the main loop of `claude-agent-sdk-python` and pinpoint in the source where the first 6 runtime-internal components of the [8 harness components listed in Stage 7](/en/stages/07-multi-agent-production/#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage) are? (5.7 exercise)**
 - [ ] Explain the respective roles of MCP, Skills, Plugins, Subagents, and the SDK?
 
 If yes to all → proceed to [Stage 6 — Memory & RAG](/en/stages/06-memory-rag/).

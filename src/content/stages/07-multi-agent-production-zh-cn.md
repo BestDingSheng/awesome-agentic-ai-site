@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "07-multi-agent-production"
@@ -63,7 +63,7 @@ order: 7
 | 跟谁比 | 那边讲什么 | 本 stage 讲什么 |
 |---|---|---|
 | **Stage 5.5 Subagents** | Claude Code 原生 subagent 机制（markdown-based、不写程序）| 通用 multi-agent framework（autogen / crewAI / langgraph、跨 vendor）|
-| **Stage 5.6 Claude Code source** | Claude Code source 解剖（reference implementation case study）| Harness engineering 通则（不绑特定 vendor）|
+| **Stage 5.7 Claude Code source** | Claude Code source 解剖（reference implementation case study）| Harness engineering 通则（不绑特定 vendor）|
 
 ### ⚠ 但你真的需要 multi-agent 吗？
 
@@ -83,7 +83,7 @@ order: 7
 
 你应该已经：
 - 完成 Stage 4（用过至少一个 agent framework 跑 multi-agent demo）
-- 完成 Stage 5（懂 MCP / Skills / Plugins / Subagents 各自角色，并用 5.6 解剖过 harness 内部）
+- 完成 Stage 5（懂 MCP / Skills / Plugins / Subagents 各自角色，并用 5.7 解剖过 harness 内部）
 - 完成 Stage 6（会基本 RAG，能讲出 memory pattern 差异）
 - 对 Docker / git / CI 基础熟悉（production deploy 会用到）
 
@@ -148,7 +148,7 @@ order: 7
 
 想看实际在 production 跑的 harness 长什么样？两个 reference：
 
-- **Claude Code 整个 runtime** — 是 reference harness 实现。**读 source 练习见 [Stage 5.6](/zh-tw/stages/05-claude-code-ecosystem/#56--claude-code-source-解剖reference-harness-implementation-track-b-必看)**（clone `claude-agent-sdk-python` 解剖 main loop + 上表前 6 个 runtime 元件位置；第 7 个 Eval harness 是外挂、第 8 个 Cost / Latency 是 cross-cutting、见下方深入段）
+- **Claude Code 整个 runtime** — 是 reference harness 实现。**读 source 练习见 [Stage 5.7](/zh-tw/stages/05-claude-code-ecosystem/#57--claude-code-source-解剖reference-harness-implementation-track-b-必看)**（clone `claude-agent-sdk-python` 解剖 main loop + 上表前 6 个 runtime 元件位置；第 7 个 Eval harness 是外挂、第 8 个 Cost / Latency 是 cross-cutting、见下方深入段）
 - **`anthropics/claude-agent-sdk-python`** source — 上面练习用的具体 repo
 
 → 本 stage 剩下的 6 个练习（multi-agent / eval / observability / SDK / deploy / cost）每个都是 harness 的一个面向。学完整 stage = 拼出完整的 harness engineering mental model。

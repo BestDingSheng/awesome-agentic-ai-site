@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -392,7 +392,7 @@ Contrast:
 - **Harness** (this term) defines the **runtime**: how it runs, how it recovers, how it is observed
 
 📍 Discipline-level concept (**8 core components** / prompt→context→harness three-layer engineering split / framework vs harness): [Stage 7 Harness Engineering](/en/stages/07-multi-agent-production/)
-📍 Reference implementation case study (reading Claude Code source): [Stage 5 5.6](/en/stages/05-claude-code-ecosystem/)
+📍 Reference implementation case study (reading Claude Code source): [Stage 5 5.7](/en/stages/05-claude-code-ecosystem/)
 📍 Further: [`anthropics/claude-agent-sdk-python`](https://github.com/anthropics/claude-agent-sdk-python), [`ai-boost/awesome-harness-engineering`](https://github.com/ai-boost/awesome-harness-engineering), [`ZhangHanDong/harness-engineering-from-cc-to-ai-coding`](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)
 
 ---

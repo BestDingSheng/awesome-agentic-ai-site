@@ -380,7 +380,7 @@ Contrast:
 - **Harness** (this term) defines the **runtime**: how it runs, how it recovers, how it is observed
 
 📍 Discipline-level concept (**8 core components** / prompt→context→harness three-layer engineering split / framework vs harness): [Stage 7 Harness Engineering](../stages/07-multi-agent-production.en.md)
-📍 Reference implementation case study (reading Claude Code source): [Stage 5 5.6](../stages/05-claude-code-ecosystem.en.md)
+📍 Reference implementation case study (reading Claude Code source): [Stage 5 5.7](../stages/05-claude-code-ecosystem.en.md)
 📍 Further: [`anthropics/claude-agent-sdk-python`](https://github.com/anthropics/claude-agent-sdk-python), [`ai-boost/awesome-harness-engineering`](https://github.com/ai-boost/awesome-harness-engineering), [`ZhangHanDong/harness-engineering-from-cc-to-ai-coding`](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)
 
 ---

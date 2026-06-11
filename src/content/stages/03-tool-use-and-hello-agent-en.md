@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -69,7 +69,7 @@ After learning the 3 minimum components, the next layer is "**how the LLM thinks
 > 💡 **Extended Components** (infrastructure that makes agents stronger, but **not a criterion for "is it an agent?"**):
 > - **Memory / RAG** (agent can remember things across conversations) → Taught completely in **Stage 6**
 > - **Reflection / self-critique** (agent looks at its own answer, finds problems, and goes back to fix them) → Basic version in **Reflection of this stage** (concept + paper routing); advanced version with persistent memory in **Stage 6 Reflexion with Memory**
-> - **Production harness** (telemetry / safety / retry / orchestration) → **Stage 5 5.6**
+> - **Production harness** (telemetry / safety / retry / orchestration) → **Stage 5 5.7**
 >
 > These are all advanced patterns—Stage 3 teaches the minimum viable agent, and later stages teach how to make it stronger.
 
@@ -462,7 +462,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 - [**LangChain — Reflection Agents (blog)**](https://blog.langchain.dev/reflection-agents/) — A framework implementation reference + a complete working notebook.
 - [**datawhalechina/hello-agents**](https://github.com/datawhalechina/hello-agents) — The corresponding chapter (Self-reflection / Self-Refine section, a complete tutorial in Chinese).
 
-> 💡 **Want to see how reflection looks in a production agent?**: [Stage 5 5.6 Harness Internals](/en/stages/05-claude-code-ecosystem/#56--dissecting-claude-code-source-reference-harness-implementation--a-must-read-for-track-b) dissects the Claude Code source where you can see it—the agent self-evaluates the patch after a tool call, goes back to fix problems, and commits after correction. **This is one of the core building blocks of modern production agents**.
+> 💡 **Want to see how reflection looks in a production agent?**: [Stage 5 5.7 Harness Internals](/en/stages/05-claude-code-ecosystem/#57--dissecting-claude-code-source-reference-harness-implementation--a-must-read-for-track-b) dissects the Claude Code source where you can see it—the agent self-evaluates the patch after a tool call, goes back to fix problems, and commits after correction. **This is one of the core building blocks of modern production agents**.
 
 ## 🎯 Curated Projects
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
@@ -609,7 +609,7 @@ print(chunks[0])
 > 💡 **Delineation with Stage 3 Reflection**:
 > - To understand "how the reflection loop works and runs in a single turn" → Stage 3 Reflection.
 > - To understand "how reflections accumulate across sessions and agents learn from past lessons" → This section.
-> - To see how reflection is used in production agents (Cursor / Claude Code) → [Stage 5 5.6 Harness Internals](/zh-tw/stages/05-claude-code-ecosystem/#56--claude-code-source-解剖reference-harness-implementation-track-b-必看).
+> - To see how reflection is used in production agents (Cursor / Claude Code) → [Stage 5 5.7 Harness Internals](/zh-tw/stages/05-claude-code-ecosystem/#57--claude-code-source-解剖reference-harness-implementation-track-b-必看).
 
 ## 🤔 Advanced Reasoning / Reflection — 2024-2026 Trends ⭐ Covers Both Tracks
 

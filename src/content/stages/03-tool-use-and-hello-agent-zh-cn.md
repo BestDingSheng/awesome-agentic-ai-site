@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -69,7 +69,7 @@ order: 3
 > 💡 **延伸组件**（agent 变强的 infrastructure、但**不是“是不是 agent”的判准**）：
 > - **记忆 / RAG**（agent 能跨对话记住东西）→ **Stage 6** 完整教
 > - **反思 / self-critique**（agent 看自己答案、发现问题、回头改）→ 基本版见 **本 stage 反思**（concept + paper routing）；带持久 memory 的进阶版见 **Stage 6 Reflexion with Memory**
-> - **Production harness**（telemetry / safety / retry / orchestration）→ **Stage 5 5.6**
+> - **Production harness**（telemetry / safety / retry / orchestration）→ **Stage 5 5.7**
 >
 > 这些都是 advanced pattern——Stage 3 教最小可行 agent、后面 stage 教怎么变强。
 
@@ -462,7 +462,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 - [**LangChain — Reflection Agents（blog）**](https://blog.langchain.dev/reflection-agents/) — framework 实现参考 + 完整 working notebook
 - [**datawhalechina/hello-agents**](https://github.com/datawhalechina/hello-agents) — 对应章节（自我反思 / Self-Refine 段落、中文完整教学）
 
-> 💡 **想看反思怎么长进 production agent**：[Stage 5 5.6 Harness Internals](/zh-tw/stages/05-claude-code-ecosystem/#56--claude-code-source-解剖reference-harness-implementation-track-b-必看) 解剖 Claude Code source 时可以看到——agent 跑完 tool call 后自我评估 patch、有问题回头改、修正后再 commit。**这是现代 production agent 的核心 building block 之一**。
+> 💡 **想看反思怎么长进 production agent**：[Stage 5 5.7 Harness Internals](/zh-tw/stages/05-claude-code-ecosystem/#57--claude-code-source-解剖reference-harness-implementation-track-b-必看) 解剖 Claude Code source 时可以看到——agent 跑完 tool call 后自我评估 patch、有问题回头改、修正后再 commit。**这是现代 production agent 的核心 building block 之一**。
 
 ## 🎯 精选 Projects
 

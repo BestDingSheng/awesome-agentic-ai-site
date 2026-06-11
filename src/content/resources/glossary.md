@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-10T15:43:43.401Z"
+syncedAt: "2026-06-11T04:17:23.925Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "glossary"
@@ -392,7 +392,7 @@ LLM 「自信地說錯」——把不存在的 API 編出來、把錯的數字�
 - **Harness**（本詞）規範 **runtime**：怎麼跑、怎麼 recovery、怎麼觀測
 
 📍 **學科級概念**（**8 個核心元件** / prompt→context→harness 三層工程分工 / framework vs harness）：[Stage 7 Harness Engineering](/zh-tw/stages/07-multi-agent-production/#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念)
-📍 **Reference implementation case study**（讀 Claude Code source）：[Stage 5 5.6](/zh-tw/stages/05-claude-code-ecosystem/#56--claude-code-source-解剖reference-harness-implementation-track-b-必看)
+📍 **Reference implementation case study**（讀 Claude Code source）：[Stage 5 5.7](/zh-tw/stages/05-claude-code-ecosystem/#57--claude-code-source-解剖reference-harness-implementation-track-b-必看)
 📍 延伸：[`anthropics/claude-agent-sdk-python`](https://github.com/anthropics/claude-agent-sdk-python)、[`ai-boost/awesome-harness-engineering`](https://github.com/ai-boost/awesome-harness-engineering)、[`ZhangHanDong/harness-engineering-from-cc-to-ai-coding`](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)
 
 ---
