@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
@@ -167,6 +167,8 @@ These are the minimal structural elements. **The 3 most common pitfalls**:
 - **Top-k set too high / too low**: Too low might miss relevant chunks; too high introduces noise / burns tokens.
 
 > 📚 **For more RAG pitfalls and solutions**: [NirDiamant/RAG_Techniques](https://github.com/NirDiamant/RAG_Techniques) ★ Large Production RAG Cookbook, includes 30+ techniques + Jupyter notebook examples.
+
+> 📄 **The two places RAG actually breaks (don't only tune chunking)**: (1) **parsing / ingest**: PDF → clean markdown is where garbage-in starts: [docling-project/docling](https://github.com/docling-project/docling) (★61k, MIT), [opendatalab/MinerU](https://github.com/opendatalab/MinerU) (strong on Chinese / scientific PDFs; **AGPL**, mind the license), [microsoft/markitdown](https://github.com/microsoft/markitdown) (★150k+, MIT). (2) **picking an embedding model**: your first retrieval-quality decision: check the [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard); for Chinese / multilingual, [BGE-M3](https://github.com/FlagOpen/FlagEmbedding) (★12k, MIT) is a common pick.
 
 After implementing the basic skeleton, complete Exercises 1-4 (Embeddings / Vector DB / Chunking / Full Pipeline) to gain practical experience, then move to the next section on Advanced RAG Techniques.
 
@@ -631,13 +633,13 @@ Reflexion is **prompt-based reflection**—LLMs modify themselves during inferen
 
 > 📺 **Visual Learning**: [Hung-Yi Lee 2025 Lecture 7 — How Large Language Models Like DeepSeek-R1 Perform "Deep Thinking" (Reasoning)](https://www.youtube.com/watch?v=bJFtcwLSNxI) (NTU Machine Learning in the Era of Generative AI 2025)
 
-OpenAI's **o1** (Sep 2024), followed by open-source efforts like DeepSeek's **R1** (Jan 2025), **DeepSeek-V4-Pro** (Apr 2026 preview, agent-focused open-source reasoning), Claude Fable 5 (Jun 2026, Mythos-class, Claude's current highest-capability widely-available tier, positioned above the Opus class), Claude Opus 4.8 (May 2026, Opus-class flagship + Fable 5's safeguard fallback, Dynamic Workflows + parallel subagents), GPT-5.5 (Apr 2026), and Gemini 3.1 Pro (Feb 2026) represent the current frontier. These models have "step-by-step thinking + self-correction" **trained directly into their weights**, automatically unfolding long reasoning chains (thinking tokens) during inference. **This is the biggest paradigm shift in LLMs from 2024-2026**, with all frontier models adopting this approach. The table below lists **current (Jun 2026) frontiers**—historical predecessors (o1 / R1 / Sonnet 4.5 / Gemini 2.5) are omitted; refer to release dates for lineage.
+OpenAI's **o1** (Sep 2024), followed by open-source efforts like DeepSeek's **R1** (Jan 2025), **DeepSeek-V4-Pro** (Apr 2026 preview, agent-focused open-source reasoning), Claude Fable 5 (Jun 2026, Mythos-class, above the Opus class; access suspended 2026-06-12, currently unavailable), Claude Opus 4.8 (May 2026, Opus-class flagship and current top usable tier, Dynamic Workflows + parallel subagents), GPT-5.5 (Apr 2026), and Gemini 3.1 Pro (Feb 2026) represent the current frontier. These models have "step-by-step thinking + self-correction" **trained directly into their weights**, automatically unfolding long reasoning chains (thinking tokens) during inference. **This is the biggest paradigm shift in LLMs from 2024-2026**, with all frontier models adopting this approach. The table below lists **current (Jun 2026) frontiers**—historical predecessors (o1 / R1 / Sonnet 4.5 / Gemini 2.5) are omitted; refer to release dates for lineage.
 
 | Model | Source / Release | Features | Link |
 |---|---|---|---|
 | **GPT-5.5** | OpenAI 2026-04 (Predecessors: o1 2024-09 → o3 → GPT-5 2025-08 → 5.4 2026-03) | Closed-source, unified reasoning + chat, Thinking budget API, enhanced agent capabilities | [OpenAI](https://openai.com/) |
-| **Claude Fable 5** | Anthropic 2026-06 (Mythos-class, positioned above the Opus class; released alongside Claude Mythos 5, a limited-availability variant with some safeguards lifted) | Closed-source, Claude's current highest-capability widely-available tier; sensitive queries (cybersecurity / bio-chem / distillation) fall back to Opus 4.8; official benchmark numbers not yet published | [Claude Fable 5 / Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) |
-| **Claude Opus 4.8** | Anthropic 2026-05 (Predecessors: Sonnet 4.5 / Opus 4.5 / Opus 4.7; Dynamic Workflows research preview) | Closed-source, Opus-class flagship + Fable 5's safeguard fallback, controllable thinking budget (API parameter), **leading in SWE-bench / Terminal-bench** | [Anthropic extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) |
+| **Claude Fable 5** | Anthropic 2026-06 (Mythos-class, positioned above the Opus class; released alongside Claude Mythos 5, a limited-availability variant with some safeguards lifted) | Closed-source, Mythos-class (above the Opus class). ⚠️ **Access suspended 2026-06-12 by a US export-control directive ([status](https://status.claude.com/)); Fable 5 and Mythos 5 are currently unavailable with no restoration timeline; use Opus 4.8.** Official benchmark numbers were never published | [Claude Fable 5 / Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) |
+| **Claude Opus 4.8** | Anthropic 2026-05 (Predecessors: Sonnet 4.5 / Opus 4.5 / Opus 4.7; Dynamic Workflows research preview) | Closed-source, Opus-class flagship and current top usable Claude tier (was Fable 5's safeguard fallback; Fable 5 suspended 2026-06-12), controllable thinking budget (API parameter), **leading in SWE-bench / Terminal-bench** | [Anthropic extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) |
 | **Gemini 3.1 Pro** | Google 2026-02 (Predecessors: Gemini 2.5 Thinking 2025, Gemini 3 2025-11) | Closed-source, viewable thinking traces, **GPQA Diamond 94.3%**, leading in price/speed/multimodality | [Gemini API](https://ai.google.dev/gemini-api/docs/thinking) |
 | **DeepSeek-V4 / V4-Pro / V4-Flash** | DeepSeek 2026-04 preview (Predecessors: R1 2025-01 → V3.1) | Open-source **MIT license**, agent-focused training, integrated reasoning + tool use + knowledge processing. R series reasoning now mainline. | [HF DeepSeek-V4-Pro](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro), [R1 paper (method baseline)](https://arxiv.org/abs/2501.12948), [CNBC report](https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html) |
 | **QwQ-32B / QvQ-72B** | Alibaba Qwen 2024-11 ~ 2026 | Open-source **Apache 2.0**, QwQ-32B remains a strong option for small-size reasoning, QvQ is the visual variant. | [QwQ blog](https://qwenlm.github.io/blog/qwq-32b-preview/) |
@@ -647,7 +649,7 @@ OpenAI's **o1** (Sep 2024), followed by open-source efforts like DeepSeek's **R1
 | Your Situation | Recommendation |
 |---|---|
 | Using a general chat model base and want to add reasoning | Path 1 (Prompt-based) — ToT / Self-Consistency / CoVe |
-| Budget/latency allows for strongest reasoning | Path 2 — Choose among **Claude Fable 5 / GPT-5.5 / Opus 4.8 / Gemini 3.1 Pro / V4-Pro** |
+| Budget/latency allows for strongest reasoning | Path 2 — Choose among **GPT-5.5 / Opus 4.8 / Gemini 3.1 Pro / V4-Pro** (Claude Fable 5 suspended as of 2026-06-12) |
 | Want to fine-tune your own reasoning model | Path 2 — Study the R1 paper (method baseline), start from R1-Distill / V4 open-source weights |
 | On-device / Extremely tight budget | **QwQ-32B** (Apache 2.0) or R series distilled versions |
 | Multi-agent debate / critic scenarios | Path 1 (CRITIC / debate) + [Stage 7 Multi-agent](/zh-tw/stages/07-multi-agent-production/) |

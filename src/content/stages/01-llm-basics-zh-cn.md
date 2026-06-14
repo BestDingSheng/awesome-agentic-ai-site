@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "01-llm-basics"
@@ -31,6 +31,8 @@ order: 1
 
 → 这 3 个词贯穿后续所有 stage。Stage 1 的目标就是让你亲手调用 API、直接感受它们怎么影响输出。
 
+> 🧠 **temperature 为什么能调？先懂 next-token**：LLM 的核心动作是**预测下一个 token**：它对“下一个字”算出一个概率分布，再从里面**采样**一个。`temperature` 跟 `top_p` 就是在“重塑这个分布”——temperature 低 → 分布变尖、几乎只挑最可能的（稳定、可复现）；temperature 高 → 分布变平、更敢挑冷门字（有创意但易跑题）。`max_tokens` 则是“最多采样几次就停”。所以这些不是魔法旋钮，而是在控制“怎么从概率分布里选字”。
+
 ## 📌 学习目标
 
 完成本阶段后，你将能够：
@@ -54,7 +56,7 @@ order: 1
 
 | Model 家族 | 旗舰（2026-06）| Context | 强项 | 适合任务 | 官方 docs |
 |---|---|---|---|---|---|
-| **Claude**（Anthropic）| Fable 5（Mythos-class、2026-06 最新最高阶）/ Opus 4.8（Opus-class 旗舰、Fable 5 安全 fallback）/ Sonnet 4.6 / Haiku 4.5 | Fable 5 官方未公布；Opus 4.8 为 1M（Haiku 4.5 为 200k）| long-form / coding / agent / safety alignment | 写 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| **Claude**（Anthropic）| Opus 4.8（Opus-class 旗舰、目前可用的最高阶）/ Fable 5（Mythos-class；2026-06-09 GA、⚠️ 2026-06-12 起暂停、无法使用）/ Sonnet 4.6 / Haiku 4.5 | Fable 5 官方未公布；Opus 4.8 为 1M（Haiku 4.5 为 200k）| long-form / coding / agent / safety alignment | 写 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
 | **GPT**（OpenAI）| GPT-5.5 / GPT-5 / o-series | ~400k | 通用 / function calling / ecosystem 最广 | 广度查询 / function-call 框架 / GPTs 生态 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
 | **Gemini**（Google）| 3.1 Pro / Flash | **2M**（Pro 系列、Flash 为 1M）| 长 context / 原生 multimodal / Google 整合 | PDF / 影音 / 大量文件 / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
@@ -129,7 +131,7 @@ order: 1
 
 ## 📚 必修阅读
 
-1. [**Anthropic - Claude 模型概览**](https://docs.claude.com/en/about-claude/models/overview) - 官方模型总览，包含 2026 最新 Claude Fable 5（`claude-fable-5`、Mythos-class、2026-06-09 GA）以及 Opus 4.8 / Sonnet 4.6 / Haiku 4.5。Fable 5 为对外开放的安全版；其同源、解除部分安全限制的 Mythos 5（`claude-mythos-5`）仅通过 Project Glasswing 限量开放给核准客户。
+1. [**Anthropic - Claude 模型概览**](https://docs.claude.com/en/about-claude/models/overview) - 官方模型总览，包含 2026 的 Claude Fable 5（`claude-fable-5`、Mythos-class、2026-06-09 GA）以及 Opus 4.8 / Sonnet 4.6 / Haiku 4.5。⚠️ **Fable 5 与姊妹版 Mythos 5（`claude-mythos-5`）已于 2026-06-12 被美国出口管制指令暂停访问（[状态页](https://status.claude.com/) · [官方声明](https://www.anthropic.com/news/fable-mythos-access)）、目前无法使用且无恢复时间；Opus 4.8 是目前可用的最高 Claude 层级。**
 2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic 官方 5 course umbrella、**module 1“Anthropic API Fundamentals”对应本 stage**。Jupyter notebook、用 Claude 3 Haiku（最便宜）跑、跟着做就能拿到 API 基本功。
 3. [**OpenAI Quickstart**](https://platform.openai.com/docs/quickstart) - 学习发送你的第一个 API call。
 4. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) - Hugging Face 的图文并茂指南。
@@ -352,7 +354,7 @@ PRICING = {
     "claude-haiku-4-5":   {"input": 1.00, "output":  5.00},
     "claude-sonnet-4-6":  {"input": 3.00, "output": 15.00},
     "claude-opus-4-8":    {"input": 5.00, "output": 25.00},  # Opus 4.8（2026 年 5 月、Dynamic Workflows）—— 维持 5/25 同价
-    "claude-fable-5":     {"input": 10.00, "output": 50.00},  # Fable 5（Mythos-class、2026-06-09 GA）—— 最新最高阶、约 Opus 4.8 的 2 倍
+    "claude-fable-5":     {"input": 10.00, "output": 50.00},  # Fable 5（Mythos-class、2026-06-09 GA；2026-06-12 起暂停、无法使用）约 Opus 4.8 的 2 倍
 }
 
 client = anthropic.Anthropic()

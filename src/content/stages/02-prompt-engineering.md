@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
@@ -355,6 +355,8 @@ def ask(prompt: str) -> str:
 **Claude 通常 3/3 全對**（包括 A 純 prompt）—— 對照 gemma4:e4b 可能只 1-2/3 對，能看到 CoT 對小 model 的價值。
 
 </details>
+
+> 🧠 **什麼時候別自己寫 CoT**：對 **reasoning-native 模型**（Claude Opus 4.x、o 系列、Gemini thinking 等內建思考的模型），用它們的 extended thinking 通常比你手寫「Let's think step by step」更好；硬塞步驟反而可能干擾它本來的推理。手寫 CoT 仍適用於不具內建推理的一般 chat model。
 
 ### 練習 4：Iterative Refinement
 拿一個模糊的 prompt，refine 5 次。把每一輪記下來。觀察哪些改動會提升品質。

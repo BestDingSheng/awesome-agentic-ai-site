@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -237,6 +237,27 @@ For a complete list, see the official [Slash Commands documentation](https://doc
 | [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | ⭐⭐⭐⭐ | Seeing what the community has to offer (slash command / skill / hook examples) | A broader list of resources (currently being reorganized). |
 | [KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh](https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh) | ⭐⭐⭐⭐ | Chinese readers who want a step-by-step tutorial | A beginner's guide in Simplified Chinese. |
 
+### Hooks (the L3 control layer) ⭐ turn rules into code that auto-intercepts
+
+MCP / Skills give the agent *more* abilities; **Hooks are the reverse: you attach your own scripts to lifecycle events to check, block, or inject**. This is Claude Code's control layer (L3 in the architecture map).
+
+**How it works**: in `settings.json`'s `hooks`, you say "when event X fires, run command Y". Common events (the 2026 list has grown to ~28; learn the core few first):
+
+| Event | Fires | Typical use |
+|---|---|---|
+| `PreToolUse` | before a tool call | block dangerous commands, permission gate |
+| `PostToolUse` | after a tool call | auto-format / lint / run tests |
+| `UserPromptSubmit` | when you submit a prompt | inject context, reject some inputs |
+| `Stop` / `SubagentStop` | when a (sub)agent tries to stop | force it to continue, or run a final check |
+| `SessionStart` / `SessionEnd` | session start / end | load state, write logs |
+| `PreCompact` | before context compaction | protect important content |
+
+**Key semantics**: a hook **returning exit code 2 = block**: Claude reads stderr back as an error (e.g. `PreToolUse` exit 2 blocks that tool call; `UserPromptSubmit` exit 2 blocks the prompt). That is the "enforce rules in code" mechanism.
+
+> ⚠️ **Security**: a hook is a shell command running on your machine, so don't install others' hooks blindly, and don't run unchecked input inside one.
+>
+> Full event list + advanced JSON usage: [Claude Code Hooks](https://code.claude.com/docs/en/hooks).
+
 ---
 
 ## 5.2 — MCP (Model Context Protocol) ⭐ Foundation
@@ -283,7 +304,7 @@ For a complete list, see the official [Slash Commands documentation](https://doc
 ### Curated Projects (for spec / SDK / template reference)
 
 > 💡 **Looking for MCP servers for everyday tools (Notion / Obsidian / Excel / Postgres / Playwright / Figma, etc.)?**
-> Check out [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/)—it organizes 65+ common MCP servers / Skills into 15 categories, each with stars / license / intended audience. The table below retains official servers / SDKs that serve as a "**reference for writing your own MCP server**."
+> Check out [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/)—it organizes 65+ common MCP servers / Skills into 16 categories, each with stars / license / intended audience. The table below retains official servers / SDKs that serve as a "**reference for writing your own MCP server**."
 
 | Project | ⭐ | Best for | Why it's recommended / Notes |
 |---|---|---|---|
@@ -295,6 +316,8 @@ For a complete list, see the official [Slash Commands documentation](https://doc
 | [github/github-mcp-server](https://github.com/github/github-mcp-server) | ⭐⭐⭐⭐ | Reading the source of an MCP server actually running in production | Maintained by GitHub, a real example running in production. |
 | [21st-dev/magic-mcp](https://github.com/21st-dev/magic-mcp) | ⭐⭐⭐ | Finding inspiration after Exercise 2 | A non-trivial MCP server that generates UI components, ★ 4.8k+, NOASSERTION. **Shows that MCP can do more than just data fetching.** |
 | [yamadashy/repomix](https://github.com/yamadashy/repomix) | ⭐⭐⭐⭐⭐ | Feeding an entire codebase to an LLM | ★ 24k+, MIT. Packs a repo into a single AI-friendly file, with MCP server mode + tree-sitter compression (~70% token savings) + secretlint to filter secrets. **Daily-driver tool to pair with Claude Code / Codex.** |
+
+> 🔭 **MCP in 2026: from "knowing what it is" to "using the ecosystem"**: (1) the **official Registry** (registry.modelcontextprotocol.io), a central place to discover/publish MCP servers; (2) **FastMCP** ([jlowin/fastmcp](https://github.com/jlowin/fastmcp), ★25k), which writes a server in a few `@mcp.tool` lines instead of the low-level SDK; (3) ⚠️ **MCP security**: a tool's results are **untrusted input** (tool poisoning, confused-deputy), so do not attach an unvetted third-party server to a permissioned agent.
 
 ---
 
@@ -765,7 +788,7 @@ A single table to cover 4 projects. **Pick an entry point by looking at "Best fo
 
 ## 5.6 — Dynamic Workflows (when Claude writes its own workflow) ⭐ Opus 4.8+ feature
 
-> **What this section is**: 5.5 taught you to dispatch subagents **manually**; this is one level up — **Claude generates a workflow script and then runs it itself**. This is the Opus 4.8-era mechanism (started as a research preview, continued in the Fable 5 generation), built into recent Claude Code. This section only places it on the ecosystem map and clarifies how it divides labor with 5.5; the **mechanism / examples / quality patterns live in [Stage 7.5 — Dynamic Workflows deep-dive](/en/stages/07-5-advanced-agentic-concepts/#-dynamic-workflows-opus-48--when-the-agent-writes-its-own-workflow)**.
+> **What this section is**: 5.5 taught you to dispatch subagents **manually**; this is one level up — **Claude generates a workflow script and then runs it itself**. This is the Opus 4.8-era mechanism (started as a research preview), built into recent Claude Code. This section only places it on the ecosystem map and clarifies how it divides labor with 5.5; the **mechanism / examples / quality patterns live in [Stage 7.5 — Dynamic Workflows deep-dive](/en/stages/07-5-advanced-agentic-concepts/#-dynamic-workflows-opus-48--when-the-agent-writes-its-own-workflow)**.
 
 ### How it differs from 5.5 Subagents
 

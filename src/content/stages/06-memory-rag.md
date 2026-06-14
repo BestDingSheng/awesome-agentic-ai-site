@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "06-memory-rag"
@@ -167,6 +167,8 @@ LLM 知道你的私有 / 領域資料、有 3 種主要做法。**本 stage 教 
 - **top-k 設太大 / 太小**：太小、漏 relevant chunk；太大、雜訊高 / token 燒
 
 > 📚 **想看更多 RAG 踩坑指南 + 解法**：[NirDiamant/RAG_Techniques](https://github.com/NirDiamant/RAG_Techniques) ★ 大型 production RAG cookbook、含 30+ 技巧 + Jupyter notebook 範例。
+
+> 📄 **RAG 真正常掛的兩個地方，別只顧 chunking**：(1) **解析（ingest）**——PDF→乾淨 markdown 是 garbage-in 的源頭：[docling-project/docling](https://github.com/docling-project/docling)（★61k、MIT）、[opendatalab/MinerU](https://github.com/opendatalab/MinerU)（中文 / 科學 PDF 強，**AGPL** 注意授權）、[microsoft/markitdown](https://github.com/microsoft/markitdown)（★150k+、MIT）。(2) **選嵌入模型**——第一個檢索品質決策，別瞎挑：看 [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard)，中文 / 多語常用 [BGE-M3](https://github.com/FlagOpen/FlagEmbedding)（★12k、MIT）。
 
 跑完基本骨架後，跑 動手練習 1-4（embeddings / vector DB / chunking / 完整 pipeline）建立手感、再進下一節 進階 RAG 技巧。
 
@@ -635,13 +637,13 @@ Reflexion 是 **prompt-based reflection**——LLM 在 inference 時自己改自
 
 > 📺 **視覺學習**：[李宏毅 2025 第七講 — DeepSeek-R1 這類大型語言模型是如何進行「深度思考」(Reasoning) 的？](https://www.youtube.com/watch?v=bJFtcwLSNxI)（NTU 生成式AI時代下的機器學習 2025）
 
-OpenAI **o1**（2024-09）開啟、DeepSeek **R1**（2025-01）開源化、**DeepSeek-V4-Pro**（2026-04 preview、agent-focused 開源 reasoning）+ Claude Fable 5（2026-06、Mythos-class、Claude 目前能力最高且廣泛可用的層級、位階在 Opus class 之上）+ Claude Opus 4.8（2026-05、Opus class 旗艦 + Fable 5 的 safeguard fallback、Dynamic Workflows + parallel subagent）+ GPT-5.5（2026-04）+ Gemini 3.1 Pro（2026-02）為當前 frontier——把「step-by-step thinking + 自我糾錯」**訓練進 model 權重**、inference 時自動展開長 reasoning chain（thinking tokens）。**這是 2024-2026 LLM 最大典範轉移**、目前所有 frontier model 都走這路。下表只列**當前（2026-06）frontier**——歷史前身（o1 / R1 / Sonnet 4.5 / Gemini 2.5）省略、想看 lineage 看每家發布日列。
+OpenAI **o1**（2024-09）開啟、DeepSeek **R1**（2025-01）開源化、**DeepSeek-V4-Pro**（2026-04 preview、agent-focused 開源 reasoning）+ Claude Fable 5（2026-06、Mythos-class、位階在 Opus class 之上；存取已於 2026-06-12 暫停、目前無法使用）+ Claude Opus 4.8（2026-05、Opus class 旗艦、目前可用的最高層級、Dynamic Workflows + parallel subagent）+ GPT-5.5（2026-04）+ Gemini 3.1 Pro（2026-02）為當前 frontier——把「step-by-step thinking + 自我糾錯」**訓練進 model 權重**、inference 時自動展開長 reasoning chain（thinking tokens）。**這是 2024-2026 LLM 最大典範轉移**、目前所有 frontier model 都走這路。下表只列**當前（2026-06）frontier**——歷史前身（o1 / R1 / Sonnet 4.5 / Gemini 2.5）省略、想看 lineage 看每家發布日列。
 
 | Model | 來源 / 發布 | 特色 | 連結 |
 |---|---|---|---|
 | **GPT-5.5** | OpenAI 2026-04（前身：o1 2024-09 → o3 → GPT-5 2025-08 → 5.4 2026-03）| 閉源、reasoning + chat 合併、Thinking budget API、agent 能力強化 | [OpenAI](https://openai.com/) |
-| **Claude Fable 5** | Anthropic 2026-06（Mythos-class、位階在 Opus class 之上；同步發布 Claude Mythos 5 為解除部分 safeguard 的限量版本）| 閉源、Claude 目前能力最高且廣泛可用的層級、敏感查詢（cybersecurity / 生化 / distillation）會 fallback 到 Opus 4.8、官方 benchmark 數字尚未公布 | [Claude Fable 5 / Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) |
-| **Claude Opus 4.8** | Anthropic 2026-05（前身：Sonnet 4.5 / Opus 4.5 / Opus 4.7、Dynamic Workflows 研究預覽）| 閉源、Opus class 旗艦 + Fable 5 的 safeguard fallback、可控 thinking budget（API 參數）、**SWE-bench / Terminal-bench 領先** | [Anthropic extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) |
+| **Claude Fable 5** | Anthropic 2026-06（Mythos-class、位階在 Opus class 之上；同步發布 Claude Mythos 5 為解除部分 safeguard 的限量版本）| 閉源、Mythos-class（位階在 Opus class 之上）。⚠️ **存取已於 2026-06-12 被美國出口管制指令暫停（[狀態頁](https://status.claude.com/)）；Fable 5 與 Mythos 5 目前皆無法使用、無恢復時程、請改用 Opus 4.8。** 官方 benchmark 數字始終未公布 | [Claude Fable 5 / Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) |
+| **Claude Opus 4.8** | Anthropic 2026-05（前身：Sonnet 4.5 / Opus 4.5 / Opus 4.7、Dynamic Workflows 研究預覽）| 閉源、Opus class 旗艦、目前可用的最高 Claude 層級（原為 Fable 5 的 safeguard fallback；Fable 5 已於 2026-06-12 暫停）、可控 thinking budget（API 參數）、**SWE-bench / Terminal-bench 領先** | [Anthropic extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) |
 | **Gemini 3.1 Pro** | Google 2026-02（前身：Gemini 2.5 Thinking 2025、Gemini 3 2025-11）| 閉源、可看 thinking trace、**GPQA Diamond 94.3%**、價格 / 速度 / multimodal 領先 | [Gemini API](https://ai.google.dev/gemini-api/docs/thinking) |
 | **DeepSeek-V4 / V4-Pro / V4-Flash** | DeepSeek 2026-04 preview（前身：R1 2025-01 → V3.1）| 開源 **MIT license**、agent-focused 訓練、推理 + 工具使用 + 知識處理整合、R 系列 reasoning 已併入主線 | [HF DeepSeek-V4-Pro](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro)、[R1 paper（方法 baseline）](https://arxiv.org/abs/2501.12948)、[CNBC report](https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html) |
 | **QwQ-32B / QvQ-72B** | Alibaba Qwen 2024-11 ~ 2026 | 開源 **Apache 2.0**、32B 在小尺寸 reasoning 仍是不錯的選擇、QvQ 是視覺版本 | [QwQ blog](https://qwenlm.github.io/blog/qwq-32b-preview/) |
@@ -651,7 +653,7 @@ OpenAI **o1**（2024-09）開啟、DeepSeek **R1**（2025-01）開源化、**Dee
 | 你的情況 | 建議 |
 |---|---|
 | 用一般 chat model base、想加 reasoning | Path 1（prompt-based）—— ToT / Self-Consistency / CoVe |
-| 預算 / latency 允許、要最強 reasoning | Path 2 —— **Claude Fable 5 / GPT-5.5 / Opus 4.8 / Gemini 3.1 Pro / V4-Pro** 任挑一個 |
+| 預算 / latency 允許、要最強 reasoning | Path 2 —— **GPT-5.5 / Opus 4.8 / Gemini 3.1 Pro / V4-Pro** 任挑一個（Claude Fable 5 已於 2026-06-12 暫停）|
 | 想自己 fine-tune reasoning model | Path 2 —— 讀 R1 paper（方法 baseline）、從 R1-Distill / V4 開源權重起步 |
 | 想 on-device / 預算極緊 | **QwQ-32B**（Apache 2.0）或 R 系列 distill |
 | Multi-agent debate / critic 場景 | Path 1（CRITIC / debate）+ [Stage 7 multi-agent](/zh-tw/stages/07-multi-agent-production/) |

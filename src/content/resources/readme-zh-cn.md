@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/README.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "readme"
@@ -52,7 +52,7 @@ baseSlug: "readme"
 
 ### 🔌 我要把 Claude Code 接 X 工具（Notion / Excel / Postgres 等）
 
-→ [`mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（65+ 个集成分 15 类）
+→ [`mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（65+ 个集成分 16 类）
 
 ### 🍳 我想动手写第一个 Skill / MCP server / 接 Word 等
 

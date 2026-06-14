@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -46,6 +46,8 @@ Engineering work can be split into three layers, corresponding to different posi
 | 1 | **Prompt Engineering** | How should I ask this time? | **single LLM call** | [Stage 2](/zh-tw/stages/02-prompt-engineering/) |
 | 2 | **Context Engineering** | What information should the model receive this time? | **context across multiple interactions** | [Stage 6](/zh-tw/stages/06-memory-rag/) |
 | **3** | **Harness Engineering**<br>(**This stage**) | How does the whole workflow run? | **executable LLM workflow / system** | **This stage** |
+
+> 🔁 **The next layer: Loop Engineering**. After prompt → context → harness, the fourth discipline emerging in 2026 is **engineering the agent's iteration loop itself**: the goal, available tools, context management, **termination logic**, and error handling that keep an agent reliable across hundreds of steps and multiple sessions. Claude Code's `/goal` (give a verifiable completion condition and the agent loops until it is met) is exactly this; [Stage 5.6 Dynamic Workflows](/en/stages/05-claude-code-ecosystem/) is the agent writing its own loop script. Lineage: ReAct (2022) → AutoGPT (2023) → /goal (2026).
 
 **Plain-language difference**:
 - **Prompt** = design a good way of asking so the model answers correctly this time
@@ -213,7 +215,7 @@ Before choosing a model or building an agent, you'll want to look at benchmark n
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | multi-turn dialogue with tool use | (Harder to hack) | Anthropic / OpenAI leading |
 | **RE-bench** | research engineering | (Harder to hack, close to human baseline) | Frontier models |
 
-> **New top tier (2026-06-09)**: [**Claude Fable 5**](https://www.anthropic.com/news/claude-fable-5-mythos-5) (`claude-fable-5`, Mythos-class, positioned above the Opus class) is now the publicly available, highest-capability Claude tier; its sibling Claude Mythos 5 (`claude-mythos-5`, some safeguards lifted, limited to approved customers) shipped the same day. The numbers above stay attributed to their original models; Fable 5's official benchmark numbers are not yet published, so it is not listed. Opus 4.8 remains the Opus-class flagship and serves as Fable 5's safeguard fallback (sensitive queries fall back to Opus 4.8).
+> **Mythos-class tier (2026-06-09, access suspended 2026-06-12)**: [**Claude Fable 5**](https://www.anthropic.com/news/claude-fable-5-mythos-5) (`claude-fable-5`, Mythos-class, positioned above the Opus class) briefly shipped as the publicly available highest-capability Claude tier alongside its sibling Claude Mythos 5 (`claude-mythos-5`, some safeguards lifted, limited to approved customers). ⚠️ **On 2026-06-12 a US export-control directive suspended all access to both ([status](https://status.claude.com/) · [statement](https://www.anthropic.com/news/fable-mythos-access)); they are currently unavailable with no restoration timeline.** The numbers above stay attributed to their original models; Fable 5's official benchmark numbers were never published, so it is not listed. **Opus 4.8 remains the Opus-class flagship and the current top usable tier.**
 
 → For detailed rankings + live updates: [Agent Benchmark Leaderboard 2026](https://benchmarkingagents.com/agent-benchmarks/), [Rapid Claw AI Agent Framework Scorecard 2026](https://rapidclaw.dev/blog/ai-agent-benchmarks-2026)
 
@@ -243,6 +245,8 @@ This means that for numbers on the leaderboard like "Claude 87.6% / GPT 85.0%", 
 > - Your own eval set (internal hold-out test) is the basis for go-live decisions.
 > - Every time a model is upgraded → run it against your internal eval set for validation, don't just look at the vendor's published benchmark improvements.
 > - Connect to [langfuse](https://github.com/langfuse/langfuse) / [promptfoo](https://github.com/promptfoo/promptfoo) to automate eval and run it with every deployment.
+
+> 📊 **For observability, learn one portable standard + two eval ideas**: (1) **OpenTelemetry GenAI conventions** (`gen_ai.*`): langfuse / Arize Phoenix / Helicone all emit OTel-compatible spans, so learning this layer keeps you from being locked to one tool; the OTel-native [Arize Phoenix](https://github.com/Arize-ai/phoenix) (★10k) is worth a look. (2) **pass^k**: the probability of solving the same task k times in a row (reliability, not a single pass), measured by [τ²-bench](https://github.com/sierra-research/tau2-bench). (3) Multi-agent failures have a ready vocabulary: **MAST** ([arXiv 2503.13657](https://arxiv.org/abs/2503.13657), 14 failure modes in 3 categories).
 
 ## 🎯 Recommended Tools for Multi-Agent / Production (by Use Case)
 

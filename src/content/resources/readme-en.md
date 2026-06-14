@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/README.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "readme"
@@ -52,7 +52,7 @@ You do not need any reference first. **Start with the main [README](/en) → [St
 
 ### 🔌 I Want to Connect Claude Code to Tool X (Notion / Excel / Postgres / etc.)
 
-→ [`mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (65+ integrations in 15 categories)
+→ [`mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (65+ integrations in 16 categories)
 
 ### 🍳 I Want to Build My First Skill / MCP Server / Word Integration
 

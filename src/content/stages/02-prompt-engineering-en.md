@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -336,6 +336,8 @@ def ask(prompt: str) -> str:
 **Claude typically gets 3/3 right** including the plain-prompt baseline — that contrast with gemma4:e4b (where CoT is essential) is the actual teaching point. **Cost**: 3 calls ≈ $0.002.
 
 </details>
+
+> 🧠 **When NOT to hand-write CoT**: for **reasoning-native models** (Claude Opus 4.x, the o-series, Gemini thinking, and other models with built-in thinking), using their extended thinking is usually better than hand-writing "Let's think step by step"; forcing your own steps can interfere with their native reasoning. Hand-written CoT still applies to plain chat models without built-in reasoning.
 
 ### Exercise 4: Iterative Refinement
 Take a vague prompt, refine it 5 times. Track the iterations. Notice what changes improve quality.

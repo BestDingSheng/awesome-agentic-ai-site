@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -344,6 +344,14 @@ Per LLM call: input tokens × input price + output tokens × output price. Costs
 
 Rule layer that prevents the LLM from doing bad things — block prompt injection, PII leakage, harmful output, etc. NeMo Guardrails, Guardrails AI, etc.
 
+### Prompt Injection
+
+Hiding malicious instructions inside content the LLM will read (web pages, documents, tool results) so it ignores its real task and does what the attacker wants. Root cause: the LLM can't tell "instructions" apart from "instructions smuggled inside data". Defenses: least privilege, isolating untrusted content, human review of high-risk actions. Related: lethal trifecta, Guardrails.
+
+### Lethal Trifecta
+
+Simon Willison's framing: an agent becomes exploitable when it has all three of (1) access to private data, (2) exposure to untrusted content, (3) the ability to communicate externally — at which point prompt injection can make it steal and exfiltrate data. The defense is to break at least one leg (commonly: cut external comms, or isolate untrusted input).
+
 ---
 
 ## 7. Buzzwords / Loose Terms
@@ -374,7 +382,7 @@ The LLM "confidently asserts something false" — invents APIs, fabricates numbe
 
 ### Frontier Model
 
-The current top tier (**2026-06**: Claude Fable 5 (Mythos-class, positioned above Opus — the highest-capability, widely-available Claude tier); **2026-05**: GPT-5.5, Claude Opus 4.8 (Opus-class flagship, and Fable 5's safeguard fallback), Gemini 3.1 Pro, DeepSeek-V4-Pro, etc.). Use frontier for hard reasoning; use cheap small models for simple classification / translation to save cost.
+The current top tier (**2026-06**: Claude Fable 5 (Mythos-class, above Opus) briefly shipped, but ⚠️ **a US export-control directive suspended all access on 2026-06-12 ([status](https://status.claude.com/) · [statement](https://www.anthropic.com/news/fable-mythos-access)); Fable 5 and Mythos 5 are currently unavailable**; **2026-05**: GPT-5.5, Claude Opus 4.8 (Opus-class flagship and the current top usable Claude tier), Gemini 3.1 Pro, DeepSeek-V4-Pro, etc.). Use frontier for hard reasoning; use cheap small models for simple classification / translation to save cost.
 
 ### Context Engineering
 
@@ -394,6 +402,10 @@ Contrast:
 📍 Discipline-level concept (**8 core components** / prompt→context→harness three-layer engineering split / framework vs harness): [Stage 7 Harness Engineering](/en/stages/07-multi-agent-production/)
 📍 Reference implementation case study (reading Claude Code source): [Stage 5 5.7](/en/stages/05-claude-code-ecosystem/)
 📍 Further: [`anthropics/claude-agent-sdk-python`](https://github.com/anthropics/claude-agent-sdk-python), [`ai-boost/awesome-harness-engineering`](https://github.com/ai-boost/awesome-harness-engineering), [`ZhangHanDong/harness-engineering-from-cc-to-ai-coding`](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)
+
+### Loop Engineering
+
+The fourth discipline after prompt → context → harness engineering: designing and tuning an agent's iteration loop itself (goal, tools, context management, termination logic, error handling) so long-running, multi-step, cross-session execution stays reliable and on-target. Related: harness, Dynamic Workflows, ReAct.
 
 ---
 

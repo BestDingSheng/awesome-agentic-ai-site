@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -237,6 +237,27 @@ order: 5
 | [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | ⭐⭐⭐⭐ | 想看社群有什麼（slash commands / skills / hooks 範例）| 較廣泛的資源清單（目前正在重整）|
 | [KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh](https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh) | ⭐⭐⭐⭐ | 中文讀者要逐步教學 | 簡中入門導讀 |
 
+### Hooks（L3 控制層）⭐ 把規則寫成程式、自動攔截
+
+MCP / Skills 是「給 agent 更多能力」；**Hooks 則是反過來：在 agent 的生命週期事件上掛你自己的 script，做檢查、攔截、注入**。這是 Claude Code 的控制層（架構圖的 L3）。
+
+**怎麼運作**：在 `settings.json` 的 `hooks` 設定「某事件發生時跑哪個 command」。常用事件（2026 已擴到 ~28 個，先記核心幾個）：
+
+| 事件 | 觸發時機 | 典型用途 |
+|---|---|---|
+| `PreToolUse` | 工具呼叫前 | 擋危險指令、權限 gate |
+| `PostToolUse` | 工具呼叫後 | 自動 format / lint / 跑測試 |
+| `UserPromptSubmit` | 你送出 prompt 時 | 注入 context、擋掉某些輸入 |
+| `Stop` / `SubagentStop` | （子）agent 想停時 | 強制它繼續、或做收尾檢查 |
+| `SessionStart` / `SessionEnd` | session 開始 / 結束 | 載入狀態、寫 log |
+| `PreCompact` | context 壓縮前 | 保護重要內容 |
+
+**關鍵語意**：hook **回傳 exit code 2 = 阻擋**：Claude 會把 stderr 當錯誤訊息讀回去（例如 `PreToolUse` 回 2 就擋下那個工具呼叫、`UserPromptSubmit` 回 2 就擋下 prompt）。這就是「用程式強制規則」的機制。
+
+> ⚠️ **安全**：hook 是在你機器上跑的 shell command，別亂裝別人的 hook，也別在 hook 裡跑未經檢查的輸入。
+>
+> 完整事件清單 + JSON 進階用法見官方文件：[Claude Code Hooks](https://code.claude.com/docs/en/hooks)。
+
 ---
 
 ## 5.2 — MCP（Model Context Protocol）⭐ 基礎
@@ -283,7 +304,7 @@ order: 5
 ### 精選 Projects（spec / SDK / 範本參考）
 
 > 💡 **找日常工具的 MCP（Notion / Obsidian / Excel / Postgres / Playwright / Figma 等）？**
-> 看 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)——按 15 個分類整理 65+ 個常用 MCP server / Skill，每個都附 stars / license / 適合誰。下表保留的是「**寫自己 MCP server 時的 reference**」性質的官方 server / SDK。
+> 看 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)——按 16 個分類整理 65+ 個常用 MCP server / Skill，每個都附 stars / license / 適合誰。下表保留的是「**寫自己 MCP server 時的 reference**」性質的官方 server / SDK。
 
 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|
@@ -295,6 +316,8 @@ order: 5
 | [github/github-mcp-server](https://github.com/github/github-mcp-server) | ⭐⭐⭐⭐ | 想看實際上線的 MCP server source | GitHub 官方維護、真正 production 在跑的範例 |
 | [21st-dev/magic-mcp](https://github.com/21st-dev/magic-mcp) | ⭐⭐⭐ | 做完練習 2 找靈感 | 會生成 UI 元件的非平凡 MCP server、★ 4.8k+、NOASSERTION。**看 MCP 不只能做資料抓取** |
 | [yamadashy/repomix](https://github.com/yamadashy/repomix) | ⭐⭐⭐⭐⭐ | 把整個 codebase 餵給 LLM | ★ 24k+ MIT、把 repo packed 成 AI-friendly 單一檔案、含 MCP server mode + tree-sitter 壓縮（省 70% token）+ secretlint 過濾密鑰。**daily-driver 工具，搭 Claude Code / Codex 用** |
+
+> 🔭 **MCP 在 2026：從「知道是什麼」到「會用生態」**：(1) **官方 Registry**（registry.modelcontextprotocol.io）——發現 / 發佈 MCP server 的中央目錄；(2) **FastMCP**（[jlowin/fastmcp](https://github.com/jlowin/fastmcp)、★25k）——用 `@mcp.tool` 幾行寫出 server，比 low-level SDK 省事；(3) ⚠️ **MCP 安全**：tool 回傳的內容是**不可信輸入**（tool poisoning、confused-deputy），別把沒檢查過的第三方 server 接上有權限的 agent。
 
 ---
 
@@ -768,7 +791,7 @@ You are a senior code reviewer. When invoked:
 
 ## 5.6 — Dynamic Workflows（讓 Claude 自己寫出 workflow）⭐ Opus 4.8+ 新機制
 
-> **本節定位**：5.5 教你**手動**派 subagent；本節更上一層——**讓 Claude 自己生成一份 workflow 腳本、再自己執行**。這是 Opus 4.8 起的新機制（research preview 出身，Fable 5 世代延續），新版 Claude Code 內建。本節只把它放進生態地圖、講清楚跟 5.5 的分工；**機制 / 實例 / quality pattern 的完整版在 [Stage 7.5 — Dynamic Workflows 深入](/zh-tw/stages/07-5-advanced-agentic-concepts/#-dynamic-workflowsopus-48-當-agent-自己寫出-workflow)**。
+> **本節定位**：5.5 教你**手動**派 subagent；本節更上一層——**讓 Claude 自己生成一份 workflow 腳本、再自己執行**。這是 Opus 4.8 起的新機制（research preview 出身），新版 Claude Code 內建。本節只把它放進生態地圖、講清楚跟 5.5 的分工；**機制 / 實例 / quality pattern 的完整版在 [Stage 7.5 — Dynamic Workflows 深入](/zh-tw/stages/07-5-advanced-agentic-concepts/#-dynamic-workflowsopus-48-當-agent-自己寫出-workflow)**。
 
 ### 跟 5.5 Subagents 的差別
 

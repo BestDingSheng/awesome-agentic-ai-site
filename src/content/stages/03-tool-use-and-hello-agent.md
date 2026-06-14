@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-13T14:07:11.273Z"
+syncedAt: "2026-06-14T04:25:13.303Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -138,6 +138,18 @@ order: 3
 > 🆘 **卡住了？** Tool calling 是整個 curriculum 最陡的學習曲線。裝 [`examples/stage-5/tool-calling-tutor/`](../examples/stage-5/tool-calling-tutor/) skill——當你 prompt Claude Code「為什麼 LLM 不呼叫我的 tool」、「我這 schema 哪裡寫壞」會自動載入、走 4-symptom 診斷流程。
 >
 > 🪜 **本 stage 是 single-agent 起點**：一個 LLM + ReAct loop。**Multi-agent 概念**（多個 agent 協作）入門看 [Stage 4 什麼是 multi-agent framework](/zh-tw/stages/04-agent-frameworks/#-什麼是-multi-agent-framework)、**Claude 原生 subagent 機制**（`.claude/agents/` + Task tool、不需 framework）看 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)。
+
+### ⚠️ 先懂風險：給 agent 工具 = 給它一個攻擊面
+
+把工具交給 LLM 的那一刻，你也給了它一個攻擊面。最清楚的框架是 Simon Willison 的 **lethal trifecta（致命三角）**：當一個 agent 同時具備這三件事，就可能被攻擊者操控去偷資料再外傳——
+
+1. **能存取私密資料**（你的檔案 / DB / API key）
+2. **會接觸不可信內容**（網頁、Email、別人傳的文件，裡面可能藏指令）
+3. **能對外送東西**（發 request、寄信、寫檔）
+
+根因是 LLM 會「照內容裡的指令做」，分不清哪些是你下的、哪些是不可信資料裡夾帶的——這就是 **prompt injection**。本階段先建立這個意識就好，具體防法（隔離不可信輸入、權限 gate、最小工具集、高風險動作要人審）在 [Stage 8](/zh-tw/stages/08-agent-interfaces/) 與 [Stage 5](/zh-tw/stages/05-claude-code-ecosystem/) 細談。詞表：[prompt injection / lethal trifecta](/zh-tw/resources/glossary/)。
+
+---
 
 ### 練習 1：Function Calling（一個工具、一次呼叫）
 給 Claude 一個工具（假的天氣 API）跟一個問題（「台北現在有下雨嗎？」）。看 Claude 怎麼呼叫工具、拿到結果、再回答你。
@@ -294,6 +306,19 @@ print(f"LLM 挑了: {tc.function.name}, args: {json.loads(tc.function.arguments)
 
 → **基礎 starter 範本** → [`examples/stage-3/02-multi-tool-selection/`](../examples/stage-3/02-multi-tool-selection/)（starter.py 含 stub + 簡單 test，illustrative，**不是 chapter-length 完整教學**；深度章節見 stage 開頭 📚 hello-agents callout）
 
+### 結構化輸出（Structured Outputs / JSON mode）⭐ function calling 的孿生兄弟
+
+function calling 是「**讓模型決定要不要動手**」；**結構化輸出是「強制模型回傳一個固定形狀的 JSON」**——兩者常搞混，但用途不同：前者讓 agent 採取行動，後者讓你拿到可程式解析的資料（填表、分類、抽取、eval 評分）。
+
+**三種做法（由弱到強）**：
+1. **prompt 要求 JSON**——最簡單、但模型有時會多嘴或格式跑掉。
+2. **JSON mode / `response_format`**——API 保證回合法 JSON（但不保證符合你的 schema）。
+3. **JSON-schema 強制 / constrained decoding**——連 schema 都鎖死，回來的一定符合（最可靠）。
+
+> 💡 為什麼重要：agent 的 state、tool 參數、eval 評分全都依賴「拿得到結構化資料」。這是 tool calling 底下那層 load-bearing 的可靠度基礎。
+
+**動手工具**：[jxnl/instructor](https://github.com/jxnl/instructor)（★13k，把 Pydantic model 當 schema、自動 retry）、[dottxt-ai/outlines](https://github.com/dottxt-ai/outlines)（★14k，constrained decoding、連本機 LLM 都能鎖 schema）；Stage 4 的 Pydantic AI 也是同路線。
+
 ### 練習 3：從零實作 ReAct（不用 framework）
 用 50-80 行 Python 把 Thought → Action → Observation 迴圈寫出來。不要 LangChain、不要 LangGraph，就是純 `while not done: thought; action; observation; ...`。
 
@@ -431,6 +456,8 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 </details>
 
 → **基礎 starter 範本** → [`examples/stage-3/06-schema-design/`](../examples/stage-3/06-schema-design/)（含 bad schema vs good schema 兩個版本對照；illustrative，**不是 chapter-length 完整教學**——深度章節見 stage 開頭 📚 hello-agents callout）
+
+> 💡 **手寫 schema 之後，認識 MCP**：你上面手寫的 tool schema，真實世界已經有標準——**MCP（Model Context Protocol）** 把「工具長什麼樣、怎麼呼叫」標準化成跨 agent 可重用的協定：寫一次，任何支援 MCP 的 agent（Claude Code / Cursor / …）都能用。這裡先記得這個名字，[Stage 5.2](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) 細講。
 
 ## 🪞 反思（Reflexion / Self-Refine）— 概念 + 路由
 
