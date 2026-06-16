@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-15T17:19:24.533Z"
+syncedAt: "2026-06-16T04:46:01.543Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -302,6 +302,7 @@ MCP / Skills 是“给 agent 更多能力”；**Hooks 则是反过来：在 age
 1. [**Anthropic — Introducing MCP**](https://www.anthropic.com/news/model-context-protocol) — 最初发表，概念总览
 2. [**MCP Specification**](https://modelcontextprotocol.io/specification) — 实际的协议规格
 3. [**Complete Guide to MCP in 2026**](https://dev.to/x4nent/complete-guide-to-mcp-model-context-protocol-in-2026-architecture-implementation-and-4a11) — 实践导读
+4. [**Microsoft — MCP for Beginners**](https://github.com/microsoft/mcp-for-beginners) — 官方循序渐进 MCP 学习课纲（概念、安装、动手 lab；免费、GitHub 上）。★ 16k+
 
 ### 动手练习
 - **练习：MCP client** — 安装 `modelcontextprotocol/servers/filesystem`，从 Claude Desktop 连上去。看着 Claude 读你的文件。

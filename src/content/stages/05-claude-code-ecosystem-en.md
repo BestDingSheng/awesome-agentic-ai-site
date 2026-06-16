@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-15T17:19:24.533Z"
+syncedAt: "2026-06-16T04:46:01.543Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -302,6 +302,7 @@ MCP / Skills give the agent *more* abilities; **Hooks are the reverse: you attac
 1. [**Anthropic — Introducing MCP**](https://www.anthropic.com/news/model-context-protocol) — The original announcement, a conceptual overview
 2. [**MCP Specification**](https://modelcontextprotocol.io/specification) — The actual protocol specification
 3. [**Complete Guide to MCP in 2026**](https://dev.to/x4nent/complete-guide-to-mcp-model-context-protocol-in-2026-architecture-implementation-and-4a11) — An implementation guide
+4. [**Microsoft — MCP for Beginners**](https://github.com/microsoft/mcp-for-beginners) — Official step-by-step MCP curriculum (concepts, setup, hands-on labs; free, GitHub-based). ★ 16k+
 
 ### Hands-on Exercises
 - **Exercise: MCP client** — Install `modelcontextprotocol/servers/filesystem` and connect to it from Claude Desktop. Watch Claude read your files.

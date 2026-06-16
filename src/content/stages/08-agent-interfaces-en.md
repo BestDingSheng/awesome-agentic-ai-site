@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-15T17:19:24.533Z"
+syncedAt: "2026-06-16T04:46:01.543Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "08-agent-interfaces"
@@ -474,7 +474,7 @@ Use the OpenAI Agents SDK (April 2026 version) to integrate a sandbox for runnin
 
 ## 🎯 Featured Projects (Templates / SDKs / Tool Collections)
 
-A table of 15 projects, categorized by use case.
+A table of 17 projects, categorized by use case.
 
 | Category | Project | ⭐ | Who it's for | Why it's recommended / Notes |
 |---|---|---|---|---|
@@ -483,6 +483,8 @@ A table of 15 projects, categorized by use case.
 | | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | Building production agents with Claude | Anthropic's agent SDK, predates OpenAI's, same runtime as Claude Code. |
 | **Browser Use OSS**| [browser-use/browser-use](https://github.com/browser-use/browser-use) ⭐ | ⭐⭐⭐⭐⭐ | #1 OSS web agent | 86k+ stars, MIT, LLM-vendor agnostic. |
 | | [microsoft/OmniParser](https://github.com/microsoft/OmniParser) | ⭐⭐⭐⭐ | Vision-based GUI parsing | v2 has 60% latency improvement, Apache 2.0, includes OmniTool (Windows VM control). |
+| **Computer Use Agent Stack** | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | ⭐⭐⭐⭐ | Running an open computer-use agent on the desktop | ByteDance's open "computer use" agent that sees the screen and controls your desktop. 36k+ stars, Apache-2.0. |
+| | [trycua/cua](https://github.com/trycua/cua) | ⭐⭐⭐⭐ | Building / sandboxing computer-use agents | Open toolkit for building "computer use" agents — safe sandboxes, SDKs, and tests on macOS / Linux / Windows. 18k+ stars, MIT. |
 | **AI Browser** (closed-source/consumer)| [Atlas](https://openai.com/index/introducing-chatgpt-atlas/) | ⭐⭐⭐⭐ | ChatGPT users + Agent Mode | From OpenAI, GA on macOS. |
 | | [Comet](https://comet.perplexity.ai/) | ⭐⭐⭐⭐ | Research-focused agent browser | From Perplexity, all platforms, citation-backed. ⚠ Brave injection + Amazon injunction. |
 | | [Dia](https://www.diabrowser.com/) | ⭐⭐⭐ | For those who want an AI browser **without** agent mode| From The Browser Company (acquired by Atlassian for $610M), focuses on performance. |
