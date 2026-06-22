@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-22T04:48:51.856Z"
+syncedAt: "2026-06-22T17:03:24.620Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a2-cli-workflow"
@@ -109,7 +109,7 @@ description: Review staged changes for security + style
 
 ### 推薦工具
 
-- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 24k+ — 把整個 codebase packed 成單一 AI-friendly 檔案（XML / Markdown / JSON），方便 Claude Code / Codex 做 code review / refactoring。內建 MCP server mode + tree-sitter 壓縮（壓縮率依語言與檔案結構而異）+ secretlint 過濾敏感資訊。**Track A 很值得當 daily driver 的工具。**
+- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 26k+ — 把整個 codebase packed 成單一 AI-friendly 檔案（XML / Markdown / JSON），方便 Claude Code / Codex 做 code review / refactoring。內建 MCP server mode + tree-sitter 壓縮（壓縮率依語言與檔案結構而異）+ secretlint 過濾敏感資訊。**Track A 很值得當 daily driver 的工具。**
 
 ## ✅ 進 A3 前的自我檢查
 

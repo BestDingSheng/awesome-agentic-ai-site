@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-22T04:48:51.856Z"
+syncedAt: "2026-06-22T17:03:24.620Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a2-cli-workflow"
@@ -124,7 +124,7 @@ Look at Setup A / B / C and try one that fits.
 
 ### Recommended Tools
 
-- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 24k+ — Packs your entire codebase into a single AI-friendly file (XML / Markdown / JSON) for Claude Code / Codex code review / refactoring. Includes MCP server mode + tree-sitter compression (compression varies by language and file structure) + secretlint for secret filtering. **A must-have, daily-driver-grade tool for Track A.**
+- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 26k+ — Packs your entire codebase into a single AI-friendly file (XML / Markdown / JSON) for Claude Code / Codex code review / refactoring. Includes MCP server mode + tree-sitter compression (compression varies by language and file structure) + secretlint for secret filtering. **A must-have, daily-driver-grade tool for Track A.**
 
 ## ✅ Self-Check Before A3
 

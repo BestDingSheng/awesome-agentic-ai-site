@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-developer.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-22T04:48:51.856Z"
+syncedAt: "2026-06-22T17:03:24.620Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-developer"
@@ -75,7 +75,7 @@ Editor-integrated AI pair-programming tool. Widely adopted in AI editor tools an
 
 ### Recommended Tools
 
-- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 24k+ — **Typical developer use case: package the whole codebase for a reviewer / refactor agent**. Outputs a single AI-friendly file (XML / Markdown / JSON) for Claude Code / Codex code review / refactoring. See the official README for technical details such as MCP server mode, tree-sitter compression, and secretlint filtering. **A must-have, daily-driver-grade tool for Track A.**
+- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 26k+ — **Typical developer use case: package the whole codebase for a reviewer / refactor agent**. Outputs a single AI-friendly file (XML / Markdown / JSON) for Claude Code / Codex code review / refactoring. See the official README for technical details such as MCP server mode, tree-sitter compression, and secretlint filtering. **A must-have, daily-driver-grade tool for Track A.**
 
 ## Workflows to Master (by frequency)
 

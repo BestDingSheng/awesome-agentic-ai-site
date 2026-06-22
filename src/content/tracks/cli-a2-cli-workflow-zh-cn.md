@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-22T04:48:51.856Z"
+syncedAt: "2026-06-22T17:03:24.620Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a2-cli-workflow"
@@ -124,7 +124,7 @@ official — Claude Code memory / CLAUDE.md 编写的官方说明，含 best pra
 
 ### 推荐工具
 
-- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 24k+ — 把整个 codebase packed 成单个 AI-friendly 文件（XML / Markdown / JSON），方便 Claude Code / Codex 做 code review / refactoring。带 MCP server mode + tree-sitter 压缩（压缩率依语言与文件结构而异）+ secretlint 过滤敏感信息。**Track A 的必备 daily-driver 工具。**
+- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 26k+ — 把整个 codebase packed 成单个 AI-friendly 文件（XML / Markdown / JSON），方便 Claude Code / Codex 做 code review / refactoring。带 MCP server mode + tree-sitter 压缩（压缩率依语言与文件结构而异）+ secretlint 过滤敏感信息。**Track A 的必备 daily-driver 工具。**
 
 ## ✅ 进 A3 前的自我检查
 

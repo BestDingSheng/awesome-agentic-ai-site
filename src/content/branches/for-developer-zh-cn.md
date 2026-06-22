@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-developer.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-22T04:48:51.856Z"
+syncedAt: "2026-06-22T17:03:24.620Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-developer"
@@ -75,7 +75,7 @@ baseSlug: "for-developer"
 
 ### 推荐工具
 
-- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 24k+ — **典型开发者用途：打包整个 codebase 给 reviewer / refactor agent**。输出单个 AI-friendly 文件（XML / Markdown / JSON），方便 Claude Code / Codex 做 code review / refactoring。技术细节（MCP server mode、tree-sitter 压缩、secretlint 过滤）见官方 README。**Track A 的必备 daily-driver 工具。**
+- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 26k+ — **典型开发者用途：打包整个 codebase 给 reviewer / refactor agent**。输出单个 AI-friendly 文件（XML / Markdown / JSON），方便 Claude Code / Codex 做 code review / refactoring。技术细节（MCP server mode、tree-sitter 压缩、secretlint 过滤）见官方 README。**Track A 的必备 daily-driver 工具。**
 
 ## 必练流程（按使用频率）
 
