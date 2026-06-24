@@ -25,7 +25,7 @@
 2. [Office Documents (Word / Excel / PowerPoint / PDF)](#2-office-documents-word--excel--powerpoint--pdf) (7)
 3. [Google Workspace](#3-google-workspace) (2)
 4. [Microsoft 365](#4-microsoft-365) (3)
-5. [Dev Collaboration (GitHub / Atlassian / Slack…)](#5-dev-collaboration-github--atlassian--slack) (7)
+5. [Dev Collaboration (GitHub / Atlassian / Slack…)](#5-dev-collaboration-github--atlassian--slack) (9)
 6. [Databases](#6-databases) (8)
 7. [Browser Automation / Web Scraping](#7-browser-automation--web-scraping) (4)
 8. [Design (Figma / Excalidraw)](#8-design-figma--excalidraw) (3)
@@ -381,6 +381,18 @@
 **What it does**: pulls up-to-date library / framework docs into the agent's context so it stops hallucinating outdated APIs — one of the most-installed coding MCPs.
 **Audience**: developers who hit "the LLM wrote code against a stale version of this library" — Context7 feeds the agent current docs on demand.
 **Notes**: among the highest-starred coding MCPs; reach for it whenever the agent's library knowledge lags the version you're actually on.
+
+### [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) ⭐⭐⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 13.5k+ |
+| License | MIT |
+| Rating | ⭐⭐⭐⭐⭐ (code intelligence) |
+
+**What it does**: indexes a codebase into a queryable knowledge graph, so a coding agent can ask about structure / symbols / call paths instead of repeatedly grepping and reading files. Single static binary, 158 languages.
+**Audience**: people running coding agents on large or unfamiliar repos who want fast orientation and lower token use.
+**Notes**: re-index after big edits, since the graph can go stale; treat its answers as a fast first pass and verify load-bearing claims (who-calls-X / is-this-dead) against the actual code.
 
 ---
 

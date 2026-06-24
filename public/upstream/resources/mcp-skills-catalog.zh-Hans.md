@@ -25,7 +25,7 @@
 2. [办公文件（Word / Excel / PowerPoint / PDF）](#2-办公文件word--excel--powerpoint--pdf)（7）
 3. [Google Workspace](#3-google-workspace)（2）
 4. [Microsoft 365](#4-microsoft-365)（3）
-5. [开发协作（GitHub / Atlassian / Slack…）](#5-开发协作github--atlassian--slack)（7）
+5. [开发协作（GitHub / Atlassian / Slack…）](#5-开发协作github--atlassian--slack)（9）
 6. [数据库](#6-数据库)（8）
 7. [浏览器自动化 / 网页抓取](#7-浏览器自动化--网页抓取)（4）
 8. [设计（Figma / Excalidraw）](#8-设计figma--excalidraw)（3）
@@ -383,6 +383,18 @@
 **教什么**：把最新版的 library / framework 文档拉进 agent 的 context，让它别再用过时或幻觉出来的 API；是安装量最高的 coding MCP 之一。
 **适合谁**：用 Claude Code / Cursor 写代码、常被旧版 API 或编造出来的方法坑到的开发者。
 **备注**：直接缓解“模型知识截止后 API 已经变了”的问题——写代码时把它挂上，省掉手动贴文档。
+
+### [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) ⭐⭐⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| Stars | ★ 13.5k+ |
+| License | MIT |
+| 推荐度 | ⭐⭐⭐⭐⭐（code intelligence） |
+
+**教什么**：把 codebase 索引成可查询的 knowledge graph，让 coding agent 用“查结构 / 符号 / 调用路径”取代反复 grep + 读文件。单一 static binary、158 种语言。
+**适合谁**：在大型或不熟的 repo 上跑 coding agent、想快速定位又想省 token 的人。
+**备注**：大改后要重新索引（graph 会 stale）；把它的回答当“快速第一手”、load-bearing 的结论（谁调用 X / 这段是不是死码）再用实际代码验证。
 
 ---
 

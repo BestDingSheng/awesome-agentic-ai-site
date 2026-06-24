@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-24T03:54:51.513Z"
+syncedAt: "2026-06-24T14:38:18.800Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "mcp-skills-catalog"
@@ -37,7 +37,7 @@ baseSlug: "mcp-skills-catalog"
 2. [辦公文件（Word / Excel / PowerPoint / PDF）](#2-辦公文件word--excel--powerpoint--pdf)（7）
 3. [Google Workspace](#3-google-workspace)（2）
 4. [Microsoft 365](#4-microsoft-365)（3）
-5. [開發協作（GitHub / Atlassian / Slack…）](#5-開發協作github--atlassian--slack)（7）
+5. [開發協作（GitHub / Atlassian / Slack…）](#5-開發協作github--atlassian--slack)（9）
 6. [資料庫](#6-資料庫)（8）
 7. [瀏覽器自動化 / 網頁抓取](#7-瀏覽器自動化--網頁抓取)（4）
 8. [設計（Figma / Excalidraw）](#8-設計figma--excalidraw)（3）
@@ -393,6 +393,18 @@ baseSlug: "mcp-skills-catalog"
 **教什麼**：把函式庫 / 框架的**最新版官方文件**即時拉進 agent 的 context，讓 LLM 不再依賴過時、會幻覺的 API；是安裝量最高的 coding MCP 之一。
 **適合誰**：所有用 Claude Code / Cursor 寫 code 的人——尤其常踩「LLM 用舊版 API、查半天才發現過時」的開發者。
 **備註**：解決的是「LLM 知識有 cutoff、套件卻一直更新」的痛點；一條 prompt 就能讓 agent 抓到當前版本的正確用法。
+
+### [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) ⭐⭐⭐⭐⭐
+
+| 欄位 | 內容 |
+|---|---|
+| Stars | ★ 13.5k+ |
+| License | MIT |
+| 推薦度 | ⭐⭐⭐⭐⭐（code intelligence） |
+
+**教什麼**：把 codebase 索引成可查詢的 knowledge graph，讓 coding agent 用「查結構 / 符號 / 呼叫路徑」取代反覆 grep + 讀檔。單一 static binary、158 種語言。
+**適合誰**：在大型或不熟的 repo 上跑 coding agent、想快速定位又想省 token 的人。
+**備註**：大改後要重新索引（graph 會 stale）；把它的回答當「快速第一手」、load-bearing 的結論（誰呼叫 X / 這段是不是死碼）再用實際程式碼驗證。
 
 ---
 
