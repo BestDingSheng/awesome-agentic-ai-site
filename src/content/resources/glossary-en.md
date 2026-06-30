@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-30T03:57:46.638Z"
+syncedAt: "2026-06-30T14:26:21.175Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -76,7 +76,7 @@ LLMs see **tokens** (sub-word units), not characters. Roughly 1 English word ≈
 
 ### Context Window
 
-The maximum tokens an LLM can "see" in one call. **2026 frontier**: Claude Sonnet 4.6 / Opus 4.8 1M, GPT-5.6 (preview) ~400k, Gemini 3.5 Flash 1M (Pro series up to 2M). **Bigger isn't always better** — beyond a length the LLM gets "Lost in the Middle".
+The maximum tokens an LLM can "see" in one call. **2026 frontier**: Claude Sonnet 4.6 / Opus 4.8 1M, GPT-5.6 (preview) ~400k, Gemini 3.5 Flash 1M (Pro series up to 2M), xAI Grok 4.3 1M, Mistral Medium 3.5 256k. **Bigger isn't always better** — beyond a length the LLM gets "Lost in the Middle".
 
 ### Prompt
 
@@ -245,7 +245,7 @@ One agent transfers a task to another. Adds "how to pass context" and "who handl
 
 ### A2A (Agent-to-Agent) Protocol
 
-Google's protocol for agent ↔ agent communication. Sibling to MCP, but for agent-to-agent rather than agent-to-tool.
+An agent ↔ agent communication protocol started by Google and now governed by the Linux Foundation. Sibling to MCP, but for agent-to-agent rather than agent-to-tool. Reached **v1.0** in 2026 (150+ organizations, plus identity verification so one agent can confirm another really is who it claims to be).
 
 ---
 
@@ -301,6 +301,12 @@ Scripts that run before or after specific Claude Code events. **The official sys
 | `PostCompact` | After compact | Check what context got compressed |
 
 Configuration: add a `"hooks"` block in `.claude/settings.json` and point it at your script path.
+
+### Deep Agent
+
+An agent design that comes "fully equipped" — beyond just calling tools, it has built-in planning (a todo list), long-term memory (a filesystem), division of labor via subagents, and loadable skills. Contrast: a plain agent is just an LLM plus a few tools. Reference implementation: LangChain's [deepagents](https://github.com/langchain-ai/deepagents).
+
+---
 
 ### Subagent
 

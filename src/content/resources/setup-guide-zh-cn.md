@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/setup-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-30T03:57:46.638Z"
+syncedAt: "2026-06-30T14:26:21.175Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "setup-guide"
@@ -30,7 +30,7 @@ baseSlug: "setup-guide"
 | 服务 | 网址 | 备注 |
 |---|---|---|
 | **Claude** | https://claude.ai | Anthropic 官方。免费 tier 每天有限额，付费 $20/月 |
-| **ChatGPT** | https://chatgpt.com | OpenAI 官方。免费可用 GPT-5（基础），Plus $20/月 |
+| **ChatGPT** | https://chatgpt.com | OpenAI 官方。免费可用 GPT-5.5 Instant（有用量限制），Plus $20/月解锁 Thinking/Pro |
 | **Gemini** | https://gemini.google.com | Google 官方。免费 tier 宽松，整合 Google 服务 |
 | **Le Chat** | https://chat.mistral.ai | Mistral（欧洲开源 LLM）。免费、隐私导向 |
 

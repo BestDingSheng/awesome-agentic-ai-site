@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-30T03:57:46.638Z"
+syncedAt: "2026-06-30T14:26:21.175Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -146,6 +146,23 @@ To turn an LLM into a usable agent, you usually run into three layers of enginee
 - **Framework** ([Stage 4](/zh-tw/stages/04-agent-frameworks/)) defines the **API** — what the interface you call looks like
 - **Harness** (this section) defines the **runtime** — how it runs, how it recovers, and how it is observed
 
+### Feedback loops: agents improve from feedback, not a more perfect prompt
+
+The 8 components above are the harness "skeleton." But what actually makes the skeleton work is something more basic than any single component: **an agent gets better by feeding feedback back into the loop, not by wording the opening prompt more perfectly.**
+
+An analogy: a student doesn't get better because the assignment was phrased more elegantly; they improve by getting feedback at the right moments — handing in a draft, a teacher's mid-task nudge, having the finished work graded, redoing it next time. Agents are the same, and feedback can enter at four moments:
+
+| Moment | In plain words | What it looks like in engineering |
+|---|---|---|
+| **1. Tool return values** | The text a tool returns is itself feedback written for the agent | Write the error message, hints, and next-step suggestions *clearly* — don't just dump a stack trace |
+| **2. Mid-run steering** | Slip a message in between the agent's two thinking steps to redirect it | Inject a message mid-run (steering); no need to wait a whole turn to course-correct |
+| **3. End-of-turn acceptance** | When a turn finishes, have *someone else* check it against the goal | Use a separate evaluator to compare against the goal, instead of letting the agent grade itself |
+| **4. Outer loop** | Re-invoke the agent against the same goal until it's done | Goal-driven re-runs (like OpenAI Codex's `/goal`, or a cron re-run) |
+
+**Why #3 (an independent check) matters most**: Anthropic's own experiments found that when you ask an agent to check its own work, it almost always praises it — even when the quality is obviously mediocre. So they split the "maker" agent from the "checker" agent: one builds, the other uses tools (like Playwright) to actually click and test, then reports bugs back. Tuning an external checker to be more skeptical is far easier than making one agent harder on itself.
+
+> 📚 Real example: Anthropic's [Harness design for long-running apps](https://www.anthropic.com/engineering/harness-design-long-running-apps) (2026-03) uses planner → generator → evaluator, letting an agent run for hours to build a full music-production app, correcting on every round from the evaluator's feedback.
+
 ### Reference Implementations
 
 Want to see what a harness running in production looks like? Two references:
@@ -210,7 +227,7 @@ Before choosing a model or building an agent, you'll want to look at benchmark n
 | [**SWE-bench Verified**](https://www.swebench.com/) | Software Engineering / code agent | **88.6%** | Claude Opus 4.8 |
 | [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal tasks | Leading | Claude Opus 4.8 |
 | **GAIA** | general assistant | **74.6%** | Claude Sonnet 4.5 (Princeton HAL) |
-| [**WebArena**](https://github.com/web-arena-x/webarena) | web navigation | **68.7%** | Claude Mythos Preview |
+| [**WebArena**](https://github.com/web-arena-x/webarena) | web navigation | **68.7%** | (leading model not disclosed) |
 | [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level desktop control | **76.26%** (SOTA, superhuman vs 72.36% human baseline) | OpenAI CUA 38%, most frontier models still under 50% |
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | multi-turn dialogue with tool use | (Harder to hack) | Anthropic / OpenAI leading |
 | **RE-bench** | research engineering | (Harder to hack, close to human baseline) | Frontier models |

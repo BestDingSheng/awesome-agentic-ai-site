@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cookbook.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-30T03:57:46.638Z"
+syncedAt: "2026-06-30T14:26:21.175Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cookbook"
@@ -598,7 +598,7 @@ hermes
 | 成本 | 订阅或 per-token | `$0` token cost |
 | 速度 | 通常较稳 | 看硬件，常慢 2-5 倍 |
 | 隐私 | 内容送 Anthropic | 内容留在本地 |
-| Reasoning 上限 | Claude 4.5+ 较强 | 取决于本地模型 |
+| Reasoning 上限 | Claude 4.8+ 较强 | 取决于本地模型 |
 | 适合 use case | 复杂 codebase、长 context、可靠推理 | 隐私资料、离线 demo、低成本反复试 |
 
 ### 重要限制：Claude Code 不能直接用本地 LLM

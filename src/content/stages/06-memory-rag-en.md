@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-30T03:57:46.638Z"
+syncedAt: "2026-06-30T14:26:21.175Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
@@ -650,14 +650,14 @@ OpenAI's **o1** (Sep 2024), followed by open-source efforts like DeepSeek's **R1
 | Your Situation | Recommendation |
 |---|---|
 | Using a general chat model base and want to add reasoning | Path 1 (Prompt-based) — ToT / Self-Consistency / CoVe |
-| Budget/latency allows for strongest reasoning | Path 2 — Choose among **GPT-5.5 / Opus 4.8 / Gemini 3.1 Pro / V4-Pro** (Claude Fable 5 suspended as of 2026-06-12) |
+| Budget/latency allows for strongest reasoning | Path 2 — Choose among **GPT-5.5 / Opus 4.8 / Gemini 3.5 Flash / Grok 4.3 / V4-Pro** (Claude Fable 5 suspended as of 2026-06-12) |
 | Want to fine-tune your own reasoning model | Path 2 — Study the R1 paper (method baseline), start from R1-Distill / V4 open-source weights |
 | On-device / Extremely tight budget | **QwQ-32B** (Apache 2.0) or R series distilled versions |
 | Multi-agent debate / critic scenarios | Path 1 (CRITIC / debate) + [Stage 7 Multi-agent](/zh-tw/stages/07-multi-agent-production/) |
 
 > 💡 **2025-2026 Trends**:
 > - Reasoning models are integrating Reflexion's capabilities into their weights—however, **prompt-based reflection is not obsolete**. Agent loops (controlling reflection timing/content) and multi-agent debates remain essential.
-> - **Open-source is rapidly catching up to closed-source**. DeepSeek-V4-Pro (Apr 2026 preview, MIT license) integrates R1 reasoning into its mainline, trained with an agent-first approach, narrowing the gap with GPT-5.5 / Gemini 3.1 Pro.
+> - **Open-source is rapidly catching up to closed-source**. DeepSeek-V4-Pro (Apr 2026 preview, MIT license) integrates R1 reasoning into its mainline, trained with an agent-first approach, narrowing the gap with GPT-5.5 / Gemini 3.5 Flash.
 > - **Agent capabilities are becoming the primary selling point**. V4 / Opus 4.8 position agents-as-products (SWE-bench / Terminal-bench / tool use) as headline benchmarks, moving beyond just raw reasoning.
 > - **Both paths will coexist**; production agents will likely leverage both.
 

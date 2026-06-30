@@ -18,7 +18,7 @@
 | 服務 | 網址 | 備註 |
 |---|---|---|
 | **Claude** | https://claude.ai | Anthropic 官方。免費 tier 每天額度有限，付費版 $20/月 |
-| **ChatGPT** | https://chatgpt.com | OpenAI 官方。免費可用 GPT-5（基本款），付費 $20/月升 Plus |
+| **ChatGPT** | https://chatgpt.com | OpenAI 官方。免費可用 GPT-5.5 Instant（有用量限制），付費 $20/月升 Plus 解鎖 Thinking/Pro |
 | **Gemini** | https://gemini.google.com | Google 官方。免費 tier 寬鬆，整合 Google 服務 |
 | **Le Chat** | https://chat.mistral.ai | Mistral（歐洲開源 LLM）。免費、隱私導向 |
 

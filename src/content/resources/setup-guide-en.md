@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/setup-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-30T03:57:46.638Z"
+syncedAt: "2026-06-30T14:26:21.175Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "setup-guide"
@@ -30,7 +30,7 @@ Open a browser, type the URL — done. **Best place to start if it's your first 
 | Service | URL | Notes |
 |---|---|---|
 | **Claude** | https://claude.ai | Anthropic. Free tier has daily limits; Pro is $20/mo |
-| **ChatGPT** | https://chatgpt.com | OpenAI. Free GPT-5 (basic); Plus $20/mo |
+| **ChatGPT** | https://chatgpt.com | OpenAI. Free GPT-5.5 Instant (rate-limited); Plus $20/mo unlocks Thinking/Pro |
 | **Gemini** | https://gemini.google.com | Google. Generous free tier, integrates Google apps |
 | **Le Chat** | https://chat.mistral.ai | Mistral (EU open-source LLM lab). Free, privacy-focused |
 

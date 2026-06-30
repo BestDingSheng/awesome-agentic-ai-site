@@ -18,7 +18,7 @@ Open a browser, type the URL — done. **Best place to start if it's your first 
 | Service | URL | Notes |
 |---|---|---|
 | **Claude** | https://claude.ai | Anthropic. Free tier has daily limits; Pro is $20/mo |
-| **ChatGPT** | https://chatgpt.com | OpenAI. Free GPT-5 (basic); Plus $20/mo |
+| **ChatGPT** | https://chatgpt.com | OpenAI. Free GPT-5.5 Instant (rate-limited); Plus $20/mo unlocks Thinking/Pro |
 | **Gemini** | https://gemini.google.com | Google. Generous free tier, integrates Google apps |
 | **Le Chat** | https://chat.mistral.ai | Mistral (EU open-source LLM lab). Free, privacy-focused |
 

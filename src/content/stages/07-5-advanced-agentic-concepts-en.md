@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-30T03:57:46.638Z"
+syncedAt: "2026-06-30T14:26:21.175Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -501,6 +501,17 @@ The point isn't the parallelism, it's **context offloading**. Plain subagents / 
 > - **Doesn't solve the dispatch problem** ("when to fan out vs do one careful pass" still rests on Claude's runtime judgment; independent analysts note verifier discipline is still thin — fan-out without good verification can produce "fifty plausible bugs," worse than the single careful pass it replaced)
 
 > 📚 **Authoritative sources**: [Claude Code — Dynamic Workflows docs](https://code.claude.com/docs/en/workflows) (canonical for mechanism + 16/1000 limits + triggers) · [Anthropic — Introducing Dynamic Workflows](https://claude.com/blog/introducing-dynamic-workflows-in-claude-code) (positioning + token warning) · [Anthropic — Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) (workflow-vs-agent + orchestrator-workers foundation) · [Opus 4.8 announcement](https://www.anthropic.com/news/claude-opus-4-8).
+
+### ⏳ Harnesses expire: Model-Harness-Fit and the Bitter Lesson
+
+We've spent a lot of space on how to design a harness. Here's an easily-missed but important caveat: **the harness you build today is tailored to *today's* model; as the model gets stronger, some of that harness expires.**
+
+- **Model-Harness-Fit**: a harness is "paired" with the current model's abilities. You build scaffolding to patch the model's weaknesses (can't plan, forgets, won't check its own work); once the next-generation model does those things on its own, that scaffolding becomes dead weight.
+- **The Bitter Lesson**: AI history keeps showing that hand-crafted cleverness wins in the short run but almost always loses, long-term, to "let the model learn with more compute." Applied to harnesses: over-scaffolding is a bet against that trend.
+
+**The trade-off, plainly**: if a thin harness that's just enough to ship will do, don't build a castle. Every time you add a layer of scaffolding, ask: "Is this patching a real model weakness, or am I just nervous?" — when the next model lands, the former survives and the latter becomes debt you come back to tear out.
+
+> 📚 Origin of the idea: Rich Sutton, [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) (2019); it echoes this stage's "same model, different scaffold, double the score" — since the scaffold matters that much, its shelf life is worth keeping in mind while you design.
 
 ### 📋 Concept-check prompt (self-quiz)
 

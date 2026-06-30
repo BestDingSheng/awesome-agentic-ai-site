@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-30T03:57:46.638Z"
+syncedAt: "2026-06-30T14:26:21.175Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "06-memory-rag"
@@ -654,14 +654,14 @@ OpenAI **o1**（2024-09）開啟、DeepSeek **R1**（2025-01）開源化、**Dee
 | 你的情況 | 建議 |
 |---|---|
 | 用一般 chat model base、想加 reasoning | Path 1（prompt-based）—— ToT / Self-Consistency / CoVe |
-| 預算 / latency 允許、要最強 reasoning | Path 2 —— **GPT-5.5 / Opus 4.8 / Gemini 3.1 Pro / V4-Pro** 任挑一個（Claude Fable 5 已於 2026-06-12 暫停）|
+| 預算 / latency 允許、要最強 reasoning | Path 2 —— **GPT-5.5 / Opus 4.8 / Gemini 3.5 Flash / Grok 4.3 / V4-Pro** 任挑一個（Claude Fable 5 已於 2026-06-12 暫停）|
 | 想自己 fine-tune reasoning model | Path 2 —— 讀 R1 paper（方法 baseline）、從 R1-Distill / V4 開源權重起步 |
 | 想 on-device / 預算極緊 | **QwQ-32B**（Apache 2.0）或 R 系列 distill |
 | Multi-agent debate / critic 場景 | Path 1（CRITIC / debate）+ [Stage 7 multi-agent](/zh-tw/stages/07-multi-agent-production/) |
 
 > 💡 **2025-2026 觀察**：
 > - reasoning model 把 Reflexion 那套吞進權重——但 **prompt-based reflection 沒被取代**：agent loop（控制反思時機 / 內容）+ multi-agent debate 還是必須的
-> - **2026 開源逼近閉源**——DeepSeek-V4-Pro（2026-04 preview、MIT license）把 R1 reasoning 併入主線、agent-focused 訓練、跟 GPT-5.5 / Gemini 3.1 Pro 差距持續縮小
+> - **2026 開源逼近閉源**——DeepSeek-V4-Pro（2026-04 preview、MIT license）把 R1 reasoning 併入主線、agent-focused 訓練、跟 GPT-5.5 / Gemini 3.5 Flash 差距持續縮小
 > - **agent capability 變主訴求**——V4 / Opus 4.8 都把 agent-as-product（SWE-bench / Terminal-bench / tool use）當 headline benchmark、單純 reasoning 已經不夠賣
 > - 兩條路會長期共存、production agent 兩個都用
 
