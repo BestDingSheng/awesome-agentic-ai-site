@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-29T15:53:09.062Z"
+syncedAt: "2026-06-30T03:57:46.638Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "01-llm-basics"
@@ -57,8 +57,8 @@ order: 1
 | Model 家族 | 旗舰（2026-06）| Context | 强项 | 适合任务 | 官方 docs |
 |---|---|---|---|---|---|
 | **Claude**（Anthropic）| Opus 4.8（Opus-class 旗舰、目前可用的最高阶）/ Fable 5（Mythos-class；2026-06-09 GA、⚠️ 2026-06-12 起暂停、无法使用）/ Sonnet 4.6 / Haiku 4.5 | Fable 5 官方未公布；Opus 4.8 为 1M（Haiku 4.5 为 200k）| long-form / coding / agent / safety alignment | 写 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
-| **GPT**（OpenAI）| GPT-5.5 / GPT-5 / o-series | ~400k | 通用 / function calling / ecosystem 最广 | 广度查询 / function-call 框架 / GPTs 生态 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
-| **Gemini**（Google）| 3.1 Pro / Flash | **2M**（Pro 系列、Flash 为 1M）| 长 context / 原生 multimodal / Google 整合 | PDF / 影音 / 大量文件 / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
+| **GPT**（OpenAI）| GPT-5.6（Sol / Terra / Luna、preview）/ GPT-5.5 / GPT-5 / o-series | ~400k | 通用 / function calling / ecosystem 最广 | 广度查询 / function-call 框架 / GPTs 生态 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
+| **Gemini**（Google）| 3.5 Flash / 3.5 Pro（开发中）/ 3.1 Pro | **2M**（Pro 系列、Flash 为 1M）| 长 context / 原生 multimodal / Google 整合 | PDF / 影音 / 大量文件 / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
 ### 🇨🇳 中国商业 + 开源 frontier（7 家）
 

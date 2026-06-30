@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-29T15:53:09.062Z"
+syncedAt: "2026-06-30T03:57:46.638Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "01-llm-basics"
@@ -58,8 +58,8 @@ These 3 are SaaS APIs: you pay per token and cannot self-host them.
 | Model family | Flagship (2026-06) | Context | Strengths | Best for | Official docs |
 |---|---|---|---|---|---|
 | **Claude** (Anthropic) | Opus 4.8 (Opus-class flagship, current top available tier) / Fable 5 (Mythos-class; GA 2026-06-09, ⚠️ suspended 2026-06-12, unavailable) / Sonnet 4.6 / Haiku 4.5 | Fable 5 not published; Opus 4.8 is 1M (Haiku 4.5 is 200k) | long-form / coding / agent / safety alignment | writing papers / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
-| **GPT** (OpenAI) | GPT-5.5 / GPT-5 / o-series | ~400k | general-purpose / function calling / broadest ecosystem | broad queries / function-call frameworks / GPTs ecosystem | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
-| **Gemini** (Google) | 3.1 Pro / Flash | **2M** (Pro series; Flash is 1M) | long context / native multimodal / Google integration | PDF / video and audio / large document sets / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
+| **GPT** (OpenAI) | GPT-5.6 (Sol / Terra / Luna, preview) / GPT-5.5 / GPT-5 / o-series | ~400k | general-purpose / function calling / broadest ecosystem | broad queries / function-call frameworks / GPTs ecosystem | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
+| **Gemini** (Google) | 3.5 Flash / 3.5 Pro (in dev) / 3.1 Pro | **2M** (Pro series; Flash is 1M) | long context / native multimodal / Google integration | PDF / video and audio / large document sets / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
 ### 🇨🇳 Chinese Commercial + Open-Source Frontier (7 providers)
 
