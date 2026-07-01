@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-30T14:26:21.175Z"
+syncedAt: "2026-07-01T04:13:06.728Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "01-llm-basics"
@@ -55,25 +55,40 @@ After this stage you will be able to:
 
 These 3 are SaaS APIs: you pay per token and cannot self-host them.
 
+<!-- How to keep these 3 tables tidy: the "Flagship" cell lists only the current flagship, plus at most the one before it; when a newer one ships, swap the name in rather than piling them up, and delete any name that is old or no longer in the official docs. Anything that changes over time (suspended / preview / not-yet-out) does not go in the cell -- put it in the "Note" line under the table, and delete that line once the status is over (released / restored / retired for good). The "Context" cell holds just a number. Update the (2026-MM) in the header when you edit. -->
+
 | Model family | Flagship (2026-06) | Context | Strengths | Best for | Official docs |
 |---|---|---|---|---|---|
-| **Claude** (Anthropic) | Opus 4.8 (Opus-class flagship, current top available tier) / Fable 5 (Mythos-class; GA 2026-06-09, ⚠️ suspended 2026-06-12, unavailable) / Sonnet 4.6 / Haiku 4.5 | Fable 5 not published; Opus 4.8 is 1M (Haiku 4.5 is 200k) | long-form / coding / agent / safety alignment | writing papers / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
-| **GPT** (OpenAI) | GPT-5.6 (Sol / Terra / Luna, preview) / GPT-5.5 / GPT-5 / o-series | ~400k | general-purpose / function calling / broadest ecosystem | broad queries / function-call frameworks / GPTs ecosystem | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
-| **Gemini** (Google) | 3.5 Flash / 3.5 Pro (in dev) / 3.1 Pro | **2M** (Pro series; Flash is 1M) | long context / native multimodal / Google integration | PDF / video and audio / large document sets / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
+| **Claude** (Anthropic) | Opus 4.8 / Sonnet 4.6 / Haiku 4.5 | 1M | long-form / coding / agent / safety alignment | writing papers / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| **GPT** (OpenAI) | GPT-5.6 (preview) / GPT-5.5 | ~400k | general-purpose / function calling / broadest ecosystem | broad queries / function-call frameworks / GPTs ecosystem | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
+| **Gemini** (Google) | 3.5 Flash / 3.5 Pro (in dev) | 2M | long context / native multimodal / Google integration | PDF / video and audio / large document sets / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
+
+> **Note**: `(preview)` = still in limited preview, not open to everyone yet; `(in dev)` = not released yet. ⚠️ Claude **Fable 5** (originally the top tier, positioned above Opus) launched 2026-06-09 but **was suspended on 2026-06-12 and can't be used right now** → use Opus 4.8 (the best tier you can actually use today). Context is the flagship's ceiling: Gemini Pro series 2M, Flash 1M; Claude 1M (Haiku 4.5 is 200k).
 
 ### 🇨🇳 Chinese Commercial + Open-Source Frontier (7 providers)
 
-These are the main choices for Chinese-language work. Some are API-only (DeepSeek / Kimi / Hunyuan); others also release **OSS weights** (Qwen / GLM-5.1 / Yi can run through Ollama).
+These are the main choices for Chinese-language work, in two groups: **API-only** (cloud, paid, can't self-host) and **open weights** (can run on your own machine).
 
-| Model family | Flagship (2026-05) | Context | Strengths | Best for | License | Official |
-|---|---|---|---|---|---|---|
-| **DeepSeek** | V3 (`deepseek-chat`) / R1 (`deepseek-reasoner`) ⚠️ V4-series weights are open-source; consumer API is not fully public yet | 128k | reasoning / coding / **lowest cost** | high-token workloads / code generation / math | API proprietary; some weights OSS on HF | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
-| **Qwen** (Alibaba) | Qwen3 (cloud DashScope + Apache 2.0 OSS) | 128k+ | **strongest Chinese OSS** / multimodal / agent | Chinese long-form writing / agent / self-host | Apache 2.0 (OSS) + proprietary (cloud) | [qwen.ai](https://qwen.ai/) · [DashScope](https://help.aliyun.com/zh/dashscope/) |
-| **Kimi** (Moonshot) | K2.6 multimodal + Agent | **very long context (1M+)** | long context / Chinese long-form writing | whole-book reading / literature triage | Proprietary | [platform.moonshot.cn](https://platform.moonshot.cn/) |
-| **GLM** (Zhipu) | GLM-5 proprietary / GLM-5.1 Apache 2.0 | 128k | Chinese / tool use / agent | Chinese agents / multi-turn chat | proprietary + Apache 2.0 (5.1) | [open.bigmodel.cn](https://open.bigmodel.cn/) · [chatglm.cn](https://chatglm.cn/) |
-| **Hunyuan** (Tencent) | T1 (deep-thinking, Transformer-Mamba MoE) + TurboS | 128k | **DeepSeek R1-comparable reasoning**, Chinese | Chinese reasoning / Tencent ecosystem | Proprietary | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
-| **MiniMax** | abab6.5 + M2.7 | 200k | multimodal / Chinese long prose | Chinese writing / video and audio multimodal | Proprietary | [platform.minimax.io](https://platform.minimax.io/) |
-| **Yi** (01.AI / Kai-Fu Lee) | Yi-Lightning (new API flagship) / Yi-34B-Chat (OSS, 200k context) | 200k | **Chinese OSS** alternative to Llama | Chinese self-host / Chinese API | Apache 2.0 (OSS) / proprietary (Lightning) | [01.ai](https://01.ai/) · [GitHub](https://github.com/01-ai/Yi) |
+**① API-only (cloud, mostly paid)**
+
+| Model family | Flagship (2026-05) | Context | Strengths | Best for | Official |
+|---|---|---|---|---|---|
+| **DeepSeek** | V3 (`deepseek-chat`) / R1 (`deepseek-reasoner`) | 128k | reasoning / coding / **lowest cost** | high-token workloads / code generation / math | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
+| **Kimi** (Moonshot) | K2.6 multimodal + Agent | **very long 1M+** | long context / Chinese long-form writing | whole-book reading / literature triage | [platform.moonshot.cn](https://platform.moonshot.cn/) |
+| **Hunyuan** (Tencent) | T1 (deep-thinking) + TurboS | 128k | **DeepSeek R1-comparable reasoning**, Chinese | Chinese reasoning / Tencent ecosystem | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
+| **MiniMax** | abab6.5 + M2.7 | 200k | multimodal / Chinese long prose | Chinese writing / video and audio multimodal | [platform.minimax.io](https://platform.minimax.io/) |
+
+> **Note**: This group is mostly cloud-API and proprietary. DeepSeek also has some open weights (on HF), but its V4 consumer API isn't fully public yet, so the API is still the main way to use it.
+
+**② Open weights (self-hostable)**
+
+| Model family | Flagship (2026-05) | Context | Strengths | Best for | Official |
+|---|---|---|---|---|---|
+| **Qwen** (Alibaba) | Qwen3 | 128k+ | **strongest Chinese OSS** / multimodal / agent | Chinese long-form writing / agent / self-host | [qwen.ai](https://qwen.ai/) · [DashScope](https://help.aliyun.com/zh/dashscope/) |
+| **GLM** (Zhipu) | GLM-5 / GLM-5.1 | 128k | Chinese / tool use / agent | Chinese agents / multi-turn chat | [open.bigmodel.cn](https://open.bigmodel.cn/) · [chatglm.cn](https://chatglm.cn/) |
+| **Yi** (01.AI / Kai-Fu Lee) | Yi-Lightning / Yi-34B-Chat | 200k | **Chinese OSS** alternative to Llama | Chinese self-host / Chinese API | [01.ai](https://01.ai/) · [GitHub](https://github.com/01-ai/Yi) |
+
+> **Note**: All three offer both an **Apache 2.0 open version and a paid cloud API** (GLM's open version is 5.1). The open versions run on your own machine via [Ollama](https://ollama.com/).
 
 > ⚠️ **Xiaomi MiMo** is listed in [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) for Hermes Agent routing, but as of 2026-05 there is no authoritative official source to verify it, so it is not included in this table. To try it, connect through [Hermes Agent](https://github.com/NousResearch/hermes-agent) 200+ provider routing.
 
@@ -83,10 +98,12 @@ These are the main choices for running on your own hardware, avoiding API fees, 
 
 | Model family | Active size | License | Strengths | Best for | Official |
 |---|---|---|---|---|---|
-| **Llama** (Meta) | 3.3 70B (**Llama 4 not yet released as of 2026-05**) | Llama Community License | general-purpose / broadest ecosystem / Ollama default | self-hosting intro / fine-tune base | [llama.com](https://www.llama.com/) · [HF Meta](https://huggingface.co/meta-llama) |
-| **Gemma** (Google) | Gemma 4 26B MoE + 31B dense (released 2026-04; Arena #3) | Apache 2.0 | **small and efficient** / strong Apple MLX integration / multimodal | edge / mobile / 4-8 GB RAM machines | [ai.google.dev/gemma](https://ai.google.dev/gemma) |
+| **Llama** (Meta) | 3.3 70B | Llama Community License | general-purpose / broadest ecosystem / Ollama default | self-hosting intro / fine-tune base | [llama.com](https://www.llama.com/) · [HF Meta](https://huggingface.co/meta-llama) |
+| **Gemma** (Google) | Gemma 4 26B MoE + 31B dense | Apache 2.0 | **small and efficient** / strong Apple MLX integration / multimodal | edge / mobile / 4-8 GB RAM machines | [ai.google.dev/gemma](https://ai.google.dev/gemma) |
 | **Mistral** (Mistral AI) | 7B / Mixtral 8x7B / Codestral | Apache 2.0 (OSS parts) | strongest open-source 7B class | commercial self-host / EU sovereignty | [mistral.ai](https://mistral.ai/) · [HF Mistral](https://huggingface.co/mistralai) |
-| **Phi** (Microsoft) | Phi-4 14B reasoning + Phi-4-multimodal-instruct (multimodal version) | MIT | **small but strong** / reasoning / edge-friendly | 4 GB+ RAM / mobile / reasoning intro | [HF microsoft](https://huggingface.co/microsoft) |
+| **Phi** (Microsoft) | Phi-4 14B + multimodal | MIT | **small but strong** / reasoning / edge-friendly | 4 GB+ RAM / mobile / reasoning intro | [HF microsoft](https://huggingface.co/microsoft) |
+
+> **Note**: Llama 4 hadn't shipped as of 2026-05 (the table shows 3.3); Gemma 4 was released 2026-04, ranked #3 on LMArena's open-weights board; Phi-4 also has a multimodal version.
 
 ### 🎯 Which One Should I Pick? (by scenario)
 

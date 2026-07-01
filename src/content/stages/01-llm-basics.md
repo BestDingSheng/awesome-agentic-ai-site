@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-06-30T14:26:21.175Z"
+syncedAt: "2026-07-01T04:13:06.728Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -57,25 +57,40 @@ order: 1
 
 這 3 家是 SaaS API、付 token 用、不能 self-host：
 
+<!-- 維護慣例（下面 3 張表共用）：「旗艦」這格只寫現在的旗艦，最多再留前一代；出了新的就把舊名字換掉、別一直往上加；太舊、官網已經查不到的就刪掉。會變的資訊（暫停、preview、還沒出）別塞在格子裡，寫到表格下面那行「註」；等狀態結束了（正式上線、恢復、或永久退役）就把那行刪掉。「Context」這格只填數字。改完記得更新標題的月份（2026-MM）。 -->
+
 | Model 家族 | 旗艦（2026-06）| Context | 強項 | 適合任務 | 官方 docs |
 |---|---|---|---|---|---|
-| **Claude**（Anthropic）| Opus 4.8（Opus-class 旗艦、目前可用的最高階）/ Fable 5（Mythos-class；2026-06-09 GA、⚠️ 2026-06-12 起暫停、無法使用）/ Sonnet 4.6 / Haiku 4.5 | Fable 5 官方未公布；Opus 4.8 為 1M（Haiku 4.5 為 200k）| long-form / coding / agent / safety alignment | 寫 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
-| **GPT**（OpenAI）| GPT-5.6（Sol / Terra / Luna、preview）/ GPT-5.5 / GPT-5 / o-series | ~400k | 通用 / function calling / ecosystem 最廣 | 廣度查詢 / function-call 框架 / GPTs 生態 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
-| **Gemini**（Google）| 3.5 Flash / 3.5 Pro（開發中）/ 3.1 Pro | **2M**（Pro 系列、Flash 為 1M）| 長 context / 原生 multimodal / Google 整合 | PDF / 影音 / 大量文件 / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
+| **Claude**（Anthropic）| Opus 4.8 / Sonnet 4.6 / Haiku 4.5 | 1M | long-form / coding / agent / safety alignment | 寫 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| **GPT**（OpenAI）| GPT-5.6（preview）/ GPT-5.5 | ~400k | 通用 / function calling / ecosystem 最廣 | 廣度查詢 / function-call 框架 / GPTs 生態 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
+| **Gemini**（Google）| 3.5 Flash / 3.5 Pro（開發中）| 2M | 長 context / 原生 multimodal / Google 整合 | PDF / 影音 / 大量文件 / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
+
+> **註**：`（preview）`= 還在限量試用、還沒正式開放；`（開發中）`= 還沒推出。⚠️ Claude **Fable 5**（原本定位在 Opus 之上的最高等級）2026-06-09 上線，但 **2026-06-12 起被暫停、目前不能用** → 改用 Opus 4.8（目前能用的最高階）。Context 欄填的是旗艦的上限：Gemini Pro 系列 2M、Flash 1M；Claude 1M（Haiku 4.5 是 200k）。
 
 ### 🇨🇳 中國商業 + 開源 frontier（7 家）
 
-中文場景的主力——有些純 API（DeepSeek / Kimi / Hunyuan）、有些**同時釋出 OSS weights**（Qwen / GLM-5.1 / Yi 可在 Ollama 跑）：
+中文場景的主力，分兩類：**純 API**（雲端付費、不能 self-host）和**有開源 weights**（可在自己機器跑）。
 
-| Model 家族 | 旗艦（2026-05）| Context | 強項 | 適合任務 | 授權 | 官方 |
-|---|---|---|---|---|---|---|
-| **DeepSeek**（深度求索）| V3（`deepseek-chat`）/ R1（`deepseek-reasoner`）⚠️ V4 系列 weights 開源、消費 API 尚未全公開 | 128k | 推理 / coding / **cost 最低** | 大量 token / code 生成 / math | API proprietary、部分 weights OSS 在 HF | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
-| **Qwen**（阿里）| Qwen3（cloud DashScope + Apache 2.0 OSS）| 128k+ | **中文最強 OSS** / 多模態 / agent | 中文長文 / agent / self-host | Apache 2.0（OSS）+ proprietary（cloud）| [qwen.ai](https://qwen.ai/) · [DashScope](https://help.aliyun.com/zh/dashscope/) |
-| **Kimi**（Moonshot）| K2.6 multimodal + Agent | **超長 context（1M+）** | 長 context / 中文長文 | 整本書讀 / 文獻分流 | Proprietary | [platform.moonshot.cn](https://platform.moonshot.cn/) |
-| **GLM**（智譜 Zhipu）| GLM-5 proprietary / GLM-5.1 Apache 2.0 | 128k | 中文 / tool use / agent | 中文 agent / 多輪對話 | proprietary + Apache 2.0（5.1）| [open.bigmodel.cn](https://open.bigmodel.cn/) · [chatglm.cn](https://chatglm.cn/) |
-| **Hunyuan**（騰訊）| T1（deep-thinking、Transformer-Mamba MoE）+ TurboS | 128k | **可比 DeepSeek R1 推理**、中文 | 中文推理 / 騰訊生態 | Proprietary | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
-| **MiniMax** | abab6.5 + M2.7 | 200k | 多模態 / 中文長 prose | 中文寫作 / 影音 multimodal | Proprietary | [platform.minimax.io](https://platform.minimax.io/) |
-| **Yi**（01.AI / 李開復）| Yi-Lightning（API 新旗艦）/ Yi-34B-Chat（OSS、200k context）| 200k | **中文 OSS** 替代 Llama | 中文 self-host / 中文 API | Apache 2.0（OSS）/ proprietary（Lightning）| [01.ai](https://01.ai/) · [GitHub](https://github.com/01-ai/Yi) |
+**① 純 API（雲端、付費為主）**
+
+| Model 家族 | 旗艦（2026-05）| Context | 強項 | 適合任務 | 官方 |
+|---|---|---|---|---|---|
+| **DeepSeek**（深度求索）| V3（`deepseek-chat`）/ R1（`deepseek-reasoner`）| 128k | 推理 / coding / **cost 最低** | 大量 token / code 生成 / math | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
+| **Kimi**（Moonshot）| K2.6 multimodal + Agent | **超長 1M+** | 長 context / 中文長文 | 整本書讀 / 文獻分流 | [platform.moonshot.cn](https://platform.moonshot.cn/) |
+| **Hunyuan**（騰訊）| T1（深度思考）+ TurboS | 128k | **可比 DeepSeek R1 推理**、中文 | 中文推理 / 騰訊生態 | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
+| **MiniMax** | abab6.5 + M2.7 | 200k | 多模態 / 中文長 prose | 中文寫作 / 影音 multimodal | [platform.minimax.io](https://platform.minimax.io/) |
+
+> **註**：這組以雲端 API 為主、多為 proprietary。DeepSeek 另有部分開源權重（在 HF），但 V4 消費級 API 還沒完全開放，主要用法仍是 API。
+
+**② 有開源 weights（可 self-host）**
+
+| Model 家族 | 旗艦（2026-05）| Context | 強項 | 適合任務 | 官方 |
+|---|---|---|---|---|---|
+| **Qwen**（阿里）| Qwen3 | 128k+ | **中文最強 OSS** / 多模態 / agent | 中文長文 / agent / self-host | [qwen.ai](https://qwen.ai/) · [DashScope](https://help.aliyun.com/zh/dashscope/) |
+| **GLM**（智譜 Zhipu）| GLM-5 / GLM-5.1 | 128k | 中文 / tool use / agent | 中文 agent / 多輪對話 | [open.bigmodel.cn](https://open.bigmodel.cn/) · [chatglm.cn](https://chatglm.cn/) |
+| **Yi**（01.AI / 李開復）| Yi-Lightning / Yi-34B-Chat | 200k | **中文 OSS** 替代 Llama | 中文 self-host / 中文 API | [01.ai](https://01.ai/) · [GitHub](https://github.com/01-ai/Yi) |
+
+> **註**：這三家都走 **Apache 2.0 開源版 + 付費雲端 API** 兩條路（GLM 開源版是 5.1）。開源版可用 [Ollama](https://ollama.com/) 在自己機器跑。
 
 > ⚠️ **小米 MiMo** 雖在 [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) 列入 Hermes Agent routing、但 2026-05 無權威官方 source 可驗證、暫不收進此表。要試 → 透過 [Hermes Agent](https://github.com/NousResearch/hermes-agent) 200+ provider routing 接入。
 
@@ -85,10 +100,12 @@ order: 1
 
 | Model 家族 | 大小（活躍）| License | 強項 | 適合任務 | 官方 |
 |---|---|---|---|---|---|
-| **Llama**（Meta）| 3.3 70B（**Llama 4 截至 2026-05 還沒釋出**）| Llama Community License | 通用 / 生態最廣 / Ollama 預設 | self-host 入門 / fine-tune base | [llama.com](https://www.llama.com/) · [HF Meta](https://huggingface.co/meta-llama) |
-| **Gemma**（Google）| Gemma 4 26B MoE + 31B dense（2026-04 釋出、Arena #3）| Apache 2.0 | **小巧高效** / Apple MLX 整合好 / multimodal | Edge / mobile / 4-8GB RAM 機器 | [ai.google.dev/gemma](https://ai.google.dev/gemma) |
+| **Llama**（Meta）| 3.3 70B | Llama Community License | 通用 / 生態最廣 / Ollama 預設 | self-host 入門 / fine-tune base | [llama.com](https://www.llama.com/) · [HF Meta](https://huggingface.co/meta-llama) |
+| **Gemma**（Google）| Gemma 4 26B MoE + 31B dense | Apache 2.0 | **小巧高效** / Apple MLX 整合好 / multimodal | Edge / mobile / 4-8GB RAM 機器 | [ai.google.dev/gemma](https://ai.google.dev/gemma) |
 | **Mistral**（Mistral AI）| 7B / Mixtral 8x7B / Codestral | Apache 2.0（OSS 部分）| 開源 7B 級最強 | 商用 self-host / EU 主權 | [mistral.ai](https://mistral.ai/) · [HF Mistral](https://huggingface.co/mistralai) |
-| **Phi**（Microsoft）| Phi-4 14B reasoning + Phi-4-multimodal-instruct（multimodal 版）| MIT | **小但強** / reasoning / 適 edge | 4GB+ RAM / mobile / reasoning 入門 | [HF microsoft](https://huggingface.co/microsoft) |
+| **Phi**（Microsoft）| Phi-4 14B + multimodal | MIT | **小但強** / reasoning / 適 edge | 4GB+ RAM / mobile / reasoning 入門 | [HF microsoft](https://huggingface.co/microsoft) |
+
+> **註**：Llama 4 截至 2026-05 還沒釋出（表中為 3.3）；Gemma 4 為 2026-04 釋出、LMArena 開源組第 3；Phi-4 另有 multimodal 版。
 
 ### 🎯 我該選哪家？（按場景反查）
 
