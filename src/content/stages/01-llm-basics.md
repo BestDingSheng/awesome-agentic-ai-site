@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-01T04:13:06.728Z"
+syncedAt: "2026-07-01T14:43:48.399Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -61,11 +61,11 @@ order: 1
 
 | Model 家族 | 旗艦（2026-06）| Context | 強項 | 適合任務 | 官方 docs |
 |---|---|---|---|---|---|
-| **Claude**（Anthropic）| Opus 4.8 / Sonnet 4.6 / Haiku 4.5 | 1M | long-form / coding / agent / safety alignment | 寫 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| **Claude**（Anthropic）| Opus 4.8 / Sonnet 5 / Haiku 4.5 | 1M | long-form / coding / agent / safety alignment | 寫 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
 | **GPT**（OpenAI）| GPT-5.6（preview）/ GPT-5.5 | ~400k | 通用 / function calling / ecosystem 最廣 | 廣度查詢 / function-call 框架 / GPTs 生態 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
 | **Gemini**（Google）| 3.5 Flash / 3.5 Pro（開發中）| 2M | 長 context / 原生 multimodal / Google 整合 | PDF / 影音 / 大量文件 / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
-> **註**：`（preview）`= 還在限量試用、還沒正式開放；`（開發中）`= 還沒推出。⚠️ Claude **Fable 5**（原本定位在 Opus 之上的最高等級）2026-06-09 上線，但 **2026-06-12 起被暫停、目前不能用** → 改用 Opus 4.8（目前能用的最高階）。Context 欄填的是旗艦的上限：Gemini Pro 系列 2M、Flash 1M；Claude 1M（Haiku 4.5 是 200k）。
+> **註**：`（preview）`= 還在限量試用、還沒正式開放；`（開發中）`= 還沒推出。⚠️ Claude **Fable 5**（原本定位在 Opus 之上的最高等級）2026-06-09 上線，但 **2026-06-12 起被暫停、目前不能用** → 改用 Opus 4.8（目前能用的最高階）。Context 欄填的是旗艦的上限：Gemini Pro 系列 2M、Flash 1M；Claude 1M（Haiku 4.5 是 200k）。另外 **Sonnet 5**（2026-06-30 上線）是目前的 Sonnet 版本：1M context、速度快、比 Opus 便宜（$3/$15，Opus 是 $5/$25）。
 
 ### 🇨🇳 中國商業 + 開源 frontier（7 家）
 
@@ -151,7 +151,7 @@ order: 1
 
 ## 📚 必修閱讀
 
-1. [**Anthropic — Claude 模型總覽**](https://docs.claude.com/en/about-claude/models/overview) — 官方模型 family、含 2026 的 Claude Fable 5（`claude-fable-5`、Mythos-class、2026-06-09 GA）以及 Opus 4.8 / Sonnet 4.6 / Haiku 4.5。⚠️ **Fable 5 與姊妹版 Mythos 5（`claude-mythos-5`）已於 2026-06-12 被美國出口管制指令暫停存取（[狀態頁](https://status.claude.com/) · [官方聲明](https://www.anthropic.com/news/fable-mythos-access)）、目前無法使用且無恢復時程；Opus 4.8 是目前可用的最高 Claude 層級。**
+1. [**Anthropic — Claude 模型總覽**](https://docs.claude.com/en/about-claude/models/overview) — 官方模型 family、含 2026 的 Claude Fable 5（`claude-fable-5`、Mythos-class、2026-06-09 GA）以及 Opus 4.8 / Sonnet 5 / Haiku 4.5。⚠️ **Fable 5 與姊妹版 Mythos 5（`claude-mythos-5`）已於 2026-06-12 被美國出口管制指令暫停存取（[狀態頁](https://status.claude.com/) · [官方聲明](https://www.anthropic.com/news/fable-mythos-access)）、目前無法使用且無恢復時程；Opus 4.8 是目前可用的最高 Claude 層級。**
 2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic 官方 5 course umbrella、**module 1「Anthropic API Fundamentals」對應本 stage**。Jupyter notebook、用 Claude 3 Haiku（最便宜）跑、跟著做就能拿到 API 基本功
 3. [**OpenAI Quickstart**](https://platform.openai.com/docs/quickstart) — 第一次 API call 的步驟
 4. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face 的入門
@@ -415,7 +415,7 @@ import anthropic
 # Anthropic 2026 Q2 公開計價（每 1M token、USD）— 跑前對照 https://www.anthropic.com/pricing
 PRICING = {
     "claude-haiku-4-5":   {"input": 1.00, "output":  5.00},
-    "claude-sonnet-4-6":  {"input": 3.00, "output": 15.00},
+    "claude-sonnet-5":    {"input": 3.00, "output": 15.00},
     "claude-opus-4-8":    {"input": 5.00, "output": 25.00},  # Opus 4.8 (May 2026, Dynamic Workflows) — 維持 5/25 同價
     "claude-fable-5":     {"input": 10.00, "output": 50.00},  # Fable 5 (Mythos-class, 2026-06-09 GA；2026-06-12 起暫停、無法使用) 約 Opus 4.8 的 2 倍
 }
@@ -438,7 +438,7 @@ for name, r in PRICING.items():
 
 # === 自我驗證 ===
 assert cost_one > 0, "Cloud LLM 一定有成本"
-print(f"\n✅ 練習 3 通過（Anthropic）— 1000 次 haiku ≈ $0.25、sonnet 4.6 ≈ $0.76、opus 4.8 ≈ $1.27")
+print(f"\n✅ 練習 3 通過（Anthropic）— 1000 次 haiku ≈ $0.25、sonnet 5 ≈ $0.76、opus 4.8 ≈ $1.27")
 ```
 
 **預期輸出**：
@@ -447,7 +447,7 @@ model: claude-haiku-4-5
 single: input=14 output=48 → $0.000254
 1000 calls cost across model tiers:
   claude-haiku-4-5       $0.2540
-  claude-sonnet-4-6      $0.7620
+  claude-sonnet-5        $0.7620
   claude-opus-4-8        $1.2700
 ```
 

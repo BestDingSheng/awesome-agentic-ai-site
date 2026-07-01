@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-01T04:13:06.728Z"
+syncedAt: "2026-07-01T14:43:48.399Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "02-prompt-engineering"
@@ -162,7 +162,13 @@ print(f"\n✅ 练习 1 通过（Anthropic）")
 </details>
 
 ### 练习 2：Few-Shot
-挑一个分類任务。先用 0-shot 跑，再用 3-shot 跑。量一下准确率差多少。
+
+**先搞懂这三个词**——差别只在你给 LLM 看“几个范例”：
+- **Zero-shot（0-shot）**：不给范例、直接问。
+- **One-shot（1-shot）**：先给 **1 个**“输入 → 答案”范例再问。
+- **Few-shot（下面用的 3-shot 就是）**：给几个（通常 2-5 个）范例再问——LLM 照着范例的格式跟判断标准做，准确率通常明显变高。
+
+挑一个分类任务。先用 0-shot 跑，再用 3-shot 跑。量一下准确率差多少。
 
 <details open>
 <summary>📋 <b>起手码 — Path A（本机 Ollama gemma4:e4b、默认）</b>（复制到 <code>practice_2.py</code>）</summary>

@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-developer.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-01T04:13:06.728Z"
+syncedAt: "2026-07-01T14:43:48.399Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-developer"
@@ -101,7 +101,7 @@ Editor-integrated AI pair-programming tool. Widely adopted in AI editor tools an
 **2. Aider Git-Native Flow (closest "pair with AI" experience)**
 ```bash
 # Inside the repo
-aider --model anthropic/claude-sonnet-4-20250514
+aider --model anthropic/claude-sonnet-5
 
 # Natural-language ask
 > Add a timezone parameter to parse_date in utils.py, default UTC

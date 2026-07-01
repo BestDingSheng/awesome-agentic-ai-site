@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-01T04:13:06.728Z"
+syncedAt: "2026-07-01T14:43:48.399Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "01-llm-basics"
@@ -59,11 +59,11 @@ These 3 are SaaS APIs: you pay per token and cannot self-host them.
 
 | Model family | Flagship (2026-06) | Context | Strengths | Best for | Official docs |
 |---|---|---|---|---|---|
-| **Claude** (Anthropic) | Opus 4.8 / Sonnet 4.6 / Haiku 4.5 | 1M | long-form / coding / agent / safety alignment | writing papers / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| **Claude** (Anthropic) | Opus 4.8 / Sonnet 5 / Haiku 4.5 | 1M | long-form / coding / agent / safety alignment | writing papers / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
 | **GPT** (OpenAI) | GPT-5.6 (preview) / GPT-5.5 | ~400k | general-purpose / function calling / broadest ecosystem | broad queries / function-call frameworks / GPTs ecosystem | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
 | **Gemini** (Google) | 3.5 Flash / 3.5 Pro (in dev) | 2M | long context / native multimodal / Google integration | PDF / video and audio / large document sets / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
-> **Note**: `(preview)` = still in limited preview, not open to everyone yet; `(in dev)` = not released yet. ⚠️ Claude **Fable 5** (originally the top tier, positioned above Opus) launched 2026-06-09 but **was suspended on 2026-06-12 and can't be used right now** → use Opus 4.8 (the best tier you can actually use today). Context is the flagship's ceiling: Gemini Pro series 2M, Flash 1M; Claude 1M (Haiku 4.5 is 200k).
+> **Note**: `(preview)` = still in limited preview, not open to everyone yet; `(in dev)` = not released yet. ⚠️ Claude **Fable 5** (originally the top tier, positioned above Opus) launched 2026-06-09 but **was suspended on 2026-06-12 and can't be used right now** → use Opus 4.8 (the best tier you can actually use today). Context is the flagship's ceiling: Gemini Pro series 2M, Flash 1M; Claude 1M (Haiku 4.5 is 200k). Also, **Sonnet 5** (launched 2026-06-30) is the current Sonnet: 1M context, fast, and cheaper than Opus ($3/$15 vs Opus $5/$25).
 
 ### 🇨🇳 Chinese Commercial + Open-Source Frontier (7 providers)
 
@@ -149,7 +149,7 @@ If not — go back to Stage 0 first.
 
 ## 📚 Required Reading
 
-1. [**Anthropic — Claude Model Overview**](https://docs.claude.com/en/about-claude/models/overview) — official model family overview, including 2026's Claude Fable 5 (`claude-fable-5`, Mythos-class, GA 2026-06-09) plus Opus 4.8 / Sonnet 4.6 / Haiku 4.5. ⚠️ **Both Fable 5 and its sibling Mythos 5 (`claude-mythos-5`) had access suspended on 2026-06-12 by a US export-control directive ([status](https://status.claude.com/) · [statement](https://www.anthropic.com/news/fable-mythos-access)) and are currently unavailable with no restoration timeline; Opus 4.8 is the current top usable Claude tier.**
+1. [**Anthropic — Claude Model Overview**](https://docs.claude.com/en/about-claude/models/overview) — official model family overview, including 2026's Claude Fable 5 (`claude-fable-5`, Mythos-class, GA 2026-06-09) plus Opus 4.8 / Sonnet 5 / Haiku 4.5. ⚠️ **Both Fable 5 and its sibling Mythos 5 (`claude-mythos-5`) had access suspended on 2026-06-12 by a US export-control directive ([status](https://status.claude.com/) · [statement](https://www.anthropic.com/news/fable-mythos-access)) and are currently unavailable with no restoration timeline; Opus 4.8 is the current top usable Claude tier.**
 2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic's official 5-course umbrella; **module 1 "Anthropic API Fundamentals" maps to this stage**. Jupyter notebooks, runs on Claude 3 Haiku (cheapest), hands-on walkthrough of API essentials.
 3. [**OpenAI Quickstart**](https://platform.openai.com/docs/quickstart) — first API call walkthrough
 4. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face's intro
@@ -370,7 +370,7 @@ import anthropic
 # Anthropic public pricing 2026 Q2 (per 1M tokens, USD) — verify at https://www.anthropic.com/pricing
 PRICING = {
     "claude-haiku-4-5":   {"input": 1.00, "output":  5.00},
-    "claude-sonnet-4-6":  {"input": 3.00, "output": 15.00},
+    "claude-sonnet-5":    {"input": 3.00, "output": 15.00},
     "claude-opus-4-8":    {"input": 5.00, "output": 25.00},  # Opus 4.8 (May 2026, Dynamic Workflows) — same 5/25 pricing
     "claude-fable-5":     {"input": 10.00, "output": 50.00},  # Fable 5 (Mythos-class, GA 2026-06-09; suspended 2026-06-12, unavailable) ~2x Opus 4.8
 }
@@ -391,7 +391,7 @@ for name, r in PRICING.items():
     print(f"  {name:<22} ${c:.4f}")
 
 assert cost_one > 0, "Cloud LLM always has a cost"
-print(f"\n✅ Exercise 3 passed (Anthropic) — 1000 runs: haiku ≈ $0.25, sonnet 4.6 ≈ $0.76, opus 4.8 ≈ $1.27")
+print(f"\n✅ Exercise 3 passed (Anthropic) — 1000 runs: haiku ≈ $0.25, sonnet 5 ≈ $0.76, opus 4.8 ≈ $1.27")
 ```
 
 **Expected output**:
@@ -400,7 +400,7 @@ model: claude-haiku-4-5
 single: input=14 output=48 → $0.000254
 1000 calls cost across model tiers:
   claude-haiku-4-5       $0.2540
-  claude-sonnet-4-6      $0.7620
+  claude-sonnet-5        $0.7620
   claude-opus-4-8        $1.2700
 ```
 

@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/setup-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-01T04:13:06.728Z"
+syncedAt: "2026-07-01T14:43:48.399Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "setup-guide"
@@ -205,7 +205,7 @@ load_dotenv()
 client = Anthropic() # 自动读取 ANTHROPIC_API_KEY
 
 msg = client.messages.create(
-    model="claude-sonnet-4-6",
+    model="claude-sonnet-5",
     max_tokens=100,
     messages=[{"role": "user", "content": "Hello, who are you?"}],
 )

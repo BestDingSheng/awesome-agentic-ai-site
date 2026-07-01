@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-01T04:13:06.728Z"
+syncedAt: "2026-07-01T14:43:48.399Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -148,6 +148,12 @@ print(f"\n✅ Exercise 1 passed (Anthropic)")
 </details>
 
 ### Exercise 2: Few-Shot
+
+**Get these three terms first** — the only difference is how many examples you show the LLM:
+- **Zero-shot (0-shot)**: no examples, just ask.
+- **One-shot (1-shot)**: give **1** "input → answer" example first, then ask.
+- **Few-shot (the 3-shot below is exactly this)**: give a few (usually 2–5) examples first — the LLM copies their format and judgment criteria, and accuracy usually jumps.
+
 Pick a classification task. Run it 0-shot, then 3-shot. Measure accuracy difference.
 
 <details open>

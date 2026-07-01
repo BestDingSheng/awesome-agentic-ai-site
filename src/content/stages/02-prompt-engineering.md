@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-01T04:13:06.728Z"
+syncedAt: "2026-07-01T14:43:48.399Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
@@ -169,6 +169,12 @@ print(f"\n✅ 練習 1 通過（Anthropic）")
 </details>
 
 ### 練習 2：Few-Shot
+
+**先搞懂這三個詞**——差別只在你給 LLM 看「幾個範例」：
+- **Zero-shot（0-shot）**：不給範例、直接問。
+- **One-shot（1-shot）**：先給 **1 個**「輸入 → 答案」範例再問。
+- **Few-shot（下面用的 3-shot 就是）**：給幾個（通常 2-5 個）範例再問——LLM 照著範例的格式跟判斷標準做，準確率通常明顯變高。
+
 挑一個分類任務。先用 0-shot 跑，再用 3-shot 跑。量一下準確率差多少。
 
 <details open>
