@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -515,6 +515,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 ## ✅ Self-Check Before Stage 4
 
 Can you:
+
 - [ ] Define a tool schema (name + description + JSON schema for input/output)?
 - [ ] Write a ReAct loop in under 100 lines of Python, without any framework?
 - [ ] Explain why an agent needs an "I'm done" exit condition?

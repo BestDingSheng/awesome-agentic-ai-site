@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a1-cli-intro"
@@ -111,6 +111,7 @@ Closed-source desktop app — drag-and-drop UI for local LLMs. Try this first if
 ## ✅ Self-Check Before A2
 
 Can you:
+
 - [ ] Articulate the core differences between the 7 mainstream CLIs (3-4 without checking the table)
 - [ ] Have a working primary CLI (installed, authed, ran 5+ real tasks)
 - [ ] Written your own `CLAUDE.md` / `AGENTS.md` / `GEMINI.md`

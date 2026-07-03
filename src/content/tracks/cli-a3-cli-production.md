@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a3-cli-production"
@@ -217,6 +217,7 @@ Track A 的人**已經在用** [Stage 7.5 的進階概念](/zh-tw/stages/07-5-ad
 ## ✅ Track A 完整通關自我檢查
 
 你能不能：
+
 - [ ] 已有至少 1 個 MCP server 接到你日常 CLI
 - [ ] 已有至少 1 個 CI workflow 在自動跑 CLI agent
 - [ ] 你能講出某個 task 跑下去的 token 用量、cost、latency 大致範圍

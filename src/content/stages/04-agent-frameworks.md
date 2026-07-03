@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "04-agent-frameworks"
@@ -222,6 +222,7 @@ Stage 3 教你寫 single tool / multi-tool selection（手寫 `if/elif/else` 路
 ## ✅ 進 Stage 5 前的自我檢查
 
 你能不能：
+
 - [ ] 用 LangGraph 跟 CrewAI 各做一次同一個 agent
 - [ ] 替任務挑出對的 framework（production vs 雛形）
 - [ ] 解釋 LangGraph 的 checkpoint 跟 CrewAI 的 task delegation 差在哪

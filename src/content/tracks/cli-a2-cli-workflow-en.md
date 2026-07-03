@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a2-cli-workflow"
@@ -129,6 +129,7 @@ Look at Setup A / B / C and try one that fits.
 ## ✅ Self-Check Before A3
 
 Can you:
+
 - [ ] Written at least 1 CLAUDE.md for a production / work repo (not a demo repo)
 - [ ] Written at least 2 slash commands you actually use
 - [ ] Run the same prompt across 2 different CLIs and know the differences

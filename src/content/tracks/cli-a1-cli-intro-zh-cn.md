@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a1-cli-intro"
@@ -113,6 +113,7 @@ order: 1
 ## ✅ 进 A2 前的自我检查
 
 你能不能：
+
 - [ ] 讲得出 7 个主流 CLI 的核心差别（不查表就答得出 3-4 个）
 - [ ] 你已经選定一个主用 CLI，并有 working setup（装好、认证好、跑过至少 5 个非 hello-world 任务）
 - [ ] 写过你自己的 `CLAUDE.md` / `AGENTS.md` / `GEMINI.md`

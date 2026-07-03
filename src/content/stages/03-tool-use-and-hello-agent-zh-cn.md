@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -516,6 +516,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 ## ✅ 进 Stage 4 前的自我检查
 
 你能不能：
+
 - [ ] 定义一个 tool schema（name + description + JSON schema 输入/输出）
 - [ ] 用不到 100 行 Python、不靠任何 framework，把 ReAct 循环写出来
 - [ ] 解释为什么 agent 需要一个“我做完了”的退出条件

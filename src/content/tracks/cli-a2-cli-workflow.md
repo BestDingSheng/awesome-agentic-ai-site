@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a2-cli-workflow"
@@ -114,6 +114,7 @@ description: Review staged changes for security + style
 ## ✅ 進 A3 前的自我檢查
 
 你能不能：
+
 - [ ] 寫過至少 1 份你 production / 工作 repo 的 CLAUDE.md（不是 demo repo）
 - [ ] 寫過至少 2 個 slash command 並實際在用
 - [ ] 把同一個 prompt 在 2 個不同 CLI 上跑過、知道差異

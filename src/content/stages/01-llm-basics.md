@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -552,6 +552,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 ## ✅ 進 Stage 2 前的自我檢查
 
 你能不能：
+
 - [ ] 用 5 行 Python 呼叫 Claude API
 - [ ] 解釋為什麼「你好」可能用 2 個 token，但「Hello」只用 1 個
 - [ ] 大致說出 Claude Sonnet vs Opus 的 per-token 價格

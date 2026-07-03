@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a2-cli-workflow"
@@ -129,6 +129,7 @@ official — Claude Code memory / CLAUDE.md 编写的官方说明，含 best pra
 ## ✅ 进 A3 前的自我检查
 
 你能不能：
+
 - [ ] 写过至少 1 份你 production / 工作 repo 的 CLAUDE.md（不是 demo repo）
 - [ ] 写过至少 2 个 slash command 并实际在用
 - [ ] 把同一个 prompt 在 2 个不同 CLI 上跑过、知道差异

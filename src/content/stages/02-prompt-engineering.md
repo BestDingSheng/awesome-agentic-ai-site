@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
@@ -490,6 +490,7 @@ LLM-powered system 的工程實踐分成 **3 層 stack**（不是 1 次 call vs 
 ## ✅ 進 Stage 3 前的自我檢查
 
 你能不能：
+
 - [ ] 寫一個有 system message + user message + 3 個範例 message 的 prompt（few-shot）
 - [ ] 示範 CoT 在某個推理任務上提升準確率
 - [ ] 反覆 refine 一個 prompt 5 次，每一版都留下記錄

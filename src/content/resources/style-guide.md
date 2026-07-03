@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "style-guide"
@@ -244,6 +244,7 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 
 ## ✅ 進 Stage N+1 前的自我檢查
 你能不能：
+
 - [ ] ...
 - [ ] ...
 

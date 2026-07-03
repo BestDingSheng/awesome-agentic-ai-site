@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
@@ -236,6 +236,7 @@ Official GitHub Action template. PR review, issue triage, auto-fix.
 ## ✅ Track A Full Self-Check
 
 Can you:
+
 - [ ] Have at least 1 MCP server connected to your daily CLI
 - [ ] Have at least 1 CI workflow auto-running a CLI agent
 - [ ] State the rough token / cost / latency for some specific task you run

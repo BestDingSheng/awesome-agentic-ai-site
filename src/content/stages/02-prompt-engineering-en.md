@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -470,6 +470,7 @@ Further reading (optional, for when you want to dig deeper):
 ## ✅ Self-Check Before Stage 3
 
 Can you:
+
 - [ ] Write a prompt with system message + user message + 3 example messages (few-shot)
 - [ ] Demonstrate CoT improving accuracy on a reasoning task
 - [ ] Iteratively refine a prompt 5 times tracking each version

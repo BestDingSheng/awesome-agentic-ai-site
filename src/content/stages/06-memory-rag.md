@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "06-memory-rag"
@@ -757,6 +757,7 @@ OpenAI **o1**（2024-09）開啟、DeepSeek **R1**（2025-01）開源化、**Dee
 ## ✅ 進入 Stage 7 前的自我檢查
 
 你能不能：
+
 - [ ] 寫一條 50 行的 RAG 流水線（load → chunk → embed → store → query → answer）
 - [ ] 解釋為什麼天真的切塊在長文件上會失敗
 - [ ] 針對 API 文件、PDF、表格設計不同的 chunking 策略

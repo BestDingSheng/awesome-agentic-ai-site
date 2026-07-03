@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -952,6 +952,7 @@ Both are MIT-licensed with clean APIs. **The real question is which model your d
 ## ✅ Self-Check Before Stage 6
 
 Can you:
+
 - [ ] Install Claude Code and use 5 different slash commands?
 - [ ] Connect 2 MCP servers in the same Claude session?
 - [ ] Write your own MCP server in Python that provides 1 usable tool?

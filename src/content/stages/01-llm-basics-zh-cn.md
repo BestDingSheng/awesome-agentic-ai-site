@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "01-llm-basics"
@@ -495,6 +495,7 @@ print(f"💡 跑这次完全没花钱（除了你的电力）")
 ## ✅ 进 Stage 2 前的自我检查
 
 你需要完成以下任务：
+
 - [ ] 写一个 5 行的 Python 脚本调用 Claude API。
 - [ ] 理解“基础概念”中的至少 2 个 token（例如，“Hello” 是 1 个）。
 - [ ] 比较 Claude Sonnet vs Opus 的 per-token 价格。

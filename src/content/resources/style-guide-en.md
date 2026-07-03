@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "style-guide"
@@ -209,6 +209,7 @@ Description.
 
 ## ✅ Self-Check Before Stage N+1
 Can you:
+
 - [ ] ...
 - [ ] ...
 

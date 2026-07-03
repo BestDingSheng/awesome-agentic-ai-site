@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "06-memory-rag"
@@ -762,6 +762,7 @@ OpenAI 的 **o1**（2024-09）开启了这一趋势，随后是开源的 DeepSee
 ## ✅ 进入 Stage 7 前的自我检查
 
 你是否能够：
+
 - [ ] 编写一条 50 行的 RAG Pipeline（load → chunk → embed → store → query → answer）？
 - [ ] 解释为什么天真的 chunking 在长文档上会失效？
 - [ ] 为 API 文档、PDF、表格设计不同的 chunking 策略？

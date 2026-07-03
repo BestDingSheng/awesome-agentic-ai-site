@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "04-agent-frameworks"
@@ -222,6 +222,7 @@ Use Pydantic AI to build an agent that returns structured output (e.g., for a gi
 ## ✅ Self-Check Before Moving to Stage 5
 
 Can you:
+
 - [ ] Build the same agent using both LangGraph and CrewAI?
 - [ ] Choose the right framework for a task (production vs. prototype)?
 - [ ] Explain the difference between LangGraph's checkpointing and CrewAI's task delegation?

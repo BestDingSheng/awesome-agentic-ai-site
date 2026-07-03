@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -955,6 +955,7 @@ async for msg in query(prompt="用 git status 看當前狀態"):
 ## ✅ 進入 Stage 6 前的自我檢查
 
 你能不能：
+
 - [ ] 安裝 Claude Code 並使用 5 個不同的 slash command
 - [ ] 在同一個 Claude session 裡接 2 個 MCP server
 - [ ] 用 Python 寫自己的 MCP server，提供 1 個能用的 tool

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -329,6 +329,7 @@ Categorized by use case, a single table to get you started with 27 projects. **U
 ## ✅ Self-Check After Stage 7
 
 Can you:
+
 - [ ] Design a multi-agent system and clearly explain its collaboration protocol?
 - [ ] Run an automated eval pipeline in CI?
 - [ ] Connect observability (tracing) to a production agent?

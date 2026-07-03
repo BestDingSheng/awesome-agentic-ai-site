@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-03T03:35:44.811Z"
+syncedAt: "2026-07-03T14:14:21.936Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "01-llm-basics"
@@ -496,6 +496,7 @@ print(f"💡 This run cost you $0 (except for electricity)")
 ## ✅ Self-Check Before Stage 2
 
 Can you:
+
 - [ ] Make a Claude API call from Python in 5 lines
 - [ ] Explain why "你好" might use 2 tokens but "Hello" uses 1
 - [ ] Quote roughly the per-token price for Claude Sonnet vs Opus
