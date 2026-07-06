@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-06T03:53:55.713Z"
+syncedAt: "2026-07-06T15:40:27.293Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "02-prompt-engineering"
@@ -478,7 +478,7 @@ LLM-powered system 的工程实践可以拆成 **3 层 stack**。这不是 1 次
 延伸阅读（不必修、未来想深挖时看）：
 
 - [`Meirtz/Awesome-Context-Engineering`](https://github.com/Meirtz/Awesome-Context-Engineering)（★ 3k+）——从 prompt engineering 一路推到 production agent 的 survey
-- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works)（★ 2.6k+）——Claude Code 内部解析，含 context engineering 章节
+- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works)（★ 3k+）——Claude Code 内部解析，含 context engineering 章节
 
 ## ✅ 进 Stage 3 前的自我检查
 
