@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-09T03:41:41.657Z"
+syncedAt: "2026-07-09T15:17:06.615Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -512,6 +512,21 @@ We've spent a lot of space on how to design a harness. Here's an easily-missed b
 **The trade-off, plainly**: if a thin harness that's just enough to ship will do, don't build a castle. Every time you add a layer of scaffolding, ask: "Is this patching a real model weakness, or am I just nervous?" — when the next model lands, the former survives and the latter becomes debt you come back to tear out.
 
 > 📚 Origin of the idea: Rich Sutton, [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) (2019); it echoes this stage's "same model, different scaffold, double the score" — since the scaffold matters that much, its shelf life is worth keeping in mind while you design.
+
+### 🧑‍🔧 Division of labor: you set the task and sign off, the agent does the work
+
+Anthropic's June 2026 report boiled real usage data down to one plain sentence: **you decide what to build, and the agent decides how to build it.**
+
+Think of **hiring someone to renovate your home**: you say "I want a Nordic-style study, here's the budget, here's the deadline," and the contractor picks the materials and does the actual work; when it's done, you either accept it or send it back. You don't nail every board yourself — but deciding *what you want* and *signing off* stays your job.
+
+The numbers line up with that: in a typical session, **you make about 70% of the "what to build" decisions, while about 80% of the "how to build it" decisions are left to the agent.**
+
+Three things to remember:
+- **Draw the line clearly, or the agent can't help.** Spend your effort on stating what you want and checking the result; hand the doing to the agent. Vague requests are what send it off-track. This is exactly this stage's "work boundary."
+- **The more expertise you have, the more the agent amplifies you** — because you're better at setting the task and reviewing the output. It *amplifies* experts; it doesn't replace them.
+- **A team of agents needs division of labor too.** Once you run several agents at once (Stage 7), an "orchestrator" splits the work among sub-agents that each own one piece — so division of labor extends from "human vs agent" to "agent vs agent."
+
+> 📚 Sources: [Anthropic — Agentic coding and persistent returns to expertise](https://www.anthropic.com/research/claude-code-expertise) (2026-06-16; quantifies the human/agent division of labor from real Claude Code usage) · [2026 Agentic Coding Trends Report](https://resources.anthropic.com/2026-agentic-coding-trends-report) (the shift from writing code to orchestrating agent teams).
 
 ### 📋 Concept-check prompt (self-quiz)
 
