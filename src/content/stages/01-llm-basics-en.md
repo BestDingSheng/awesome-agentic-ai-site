@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-10T03:38:43.193Z"
+syncedAt: "2026-07-10T14:34:47.253Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "01-llm-basics"
@@ -27,7 +27,7 @@ order: 1
 | Term | Chinese | One-liner |
 |---|---|---|
 | **token** | 詞元 | the unit LLMs use to count text length and price (1 Chinese char ≈ 1.5-2 tokens; 1 English word ≈ 1.3 tokens) |
-| **context window** | 上下文視窗 | How many tokens the model sees at once (Claude 1M / GPT ~400k / Gemini 2M) |
+| **context window** | 上下文視窗 | How many tokens the model sees at once (Claude 1M / GPT 1.05M / Gemini 2M) |
 | **temperature** | 隨機程度參數 | Controls how stable or creative the output is (0 = deterministic, 1 = creative; use 0.0-0.3 for classification, 0.7-1.0 for creative writing) |
 
 → These 3 terms run through every later stage. The goal of Stage 1 is to call the API yourself and feel firsthand how they shape the output.
@@ -57,13 +57,13 @@ These 3 are SaaS APIs: you pay per token and cannot self-host them.
 
 <!-- How to keep these 3 tables tidy: the "Flagship" cell lists only the current flagship, plus at most the one before it; when a newer one ships, swap the name in rather than piling them up, and delete any name that is old or no longer in the official docs. Anything that changes over time (suspended / preview / not-yet-out) does not go in the cell -- put it in the "Note" line under the table, and delete that line once the status is over (released / restored / retired for good). The "Context" cell holds just a number. Update the (2026-MM) in the header when you edit. -->
 
-| Model family | Flagship (2026-06) | Context | Strengths | Best for | Official docs |
+| Model family | Flagship (2026-07) | Context | Strengths | Best for | Official docs |
 |---|---|---|---|---|---|
 | **Claude** (Anthropic) | Opus 4.8 / Sonnet 5 / Haiku 4.5 | 1M | long-form / coding / agent / safety alignment | writing papers / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
-| **GPT** (OpenAI) | GPT-5.6 (preview) / GPT-5.5 | ~400k | general-purpose / function calling / broadest ecosystem | broad queries / function-call frameworks / GPTs ecosystem | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
+| **GPT** (OpenAI) | GPT-5.6 Sol / Terra / Luna | 1.05M | general-purpose / function calling / broadest ecosystem | broad queries / function-call frameworks / GPTs ecosystem | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
 | **Gemini** (Google) | 3.5 Flash / 3.5 Pro (in dev) | 2M | long context / native multimodal / Google integration | PDF / video and audio / large document sets / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
-> **Note**: `(preview)` = still in limited preview, not open to everyone yet; `(in dev)` = not released yet. ⚠️ Claude **Fable 5** (originally the top tier, positioned above Opus) launched 2026-06-09 but **was suspended on 2026-06-12 and can't be used right now** → use Opus 4.8 (the best tier you can actually use today). Context is the flagship's ceiling: Gemini Pro series 2M, Flash 1M; Claude 1M (Haiku 4.5 is 200k). Also, **Sonnet 5** (launched 2026-06-30) is the current Sonnet: 1M context, fast, and cheaper than Opus ($3/$15 vs Opus $5/$25).
+> **Note**: `(in dev)` = not released yet. ⚠️ Claude **Fable 5** (originally the top tier, positioned above Opus) launched 2026-06-09 but **was suspended on 2026-06-12 and can't be used right now** → use Opus 4.8 (the best tier you can actually use today). Context is the flagship's ceiling: Gemini Pro series 2M, Flash 1M; Claude 1M (Haiku 4.5 is 200k); all three GPT-5.6 tiers are 1.05M. Also, **Sonnet 5** (launched 2026-06-30) is the current Sonnet: 1M context, fast, and cheaper than Opus ($3/$15 vs Opus $5/$25). **GPT-5.6** (launched 2026-07) comes in three tiers: **Sol** flagship ($5/$30), **Terra** balanced ($2.50/$15), **Luna** fastest and cheapest ($1/$6) — available in ChatGPT, Codex, and the API.
 
 ### 🇨🇳 Chinese Commercial + Open-Source Frontier (7 providers)
 

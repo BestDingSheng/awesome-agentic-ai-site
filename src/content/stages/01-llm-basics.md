@@ -1,11 +1,11 @@
 ---
 title: "Stage 1 — LLM 基礎（LLM Basics）"
-description: "| 詞 | 中文 | 一句話 | |---|---|---| | token | 詞元 | 模型計算文字長度與費用的基本單位（中文 1 字 ≈ 1.5-2 token） | | context window | 上下文視窗 | 模型一次能看到多少 token（Claude 1M / GPT 400k / Gemini 2M）| | temperature | 隨機程度參數 | 控制回答穩定或發散（0 = 最穩定、1 = 創意；分類任務用"
+description: "| 詞 | 中文 | 一句話 | |---|---|---| | token | 詞元 | 模型計算文字長度與費用的基本單位（中文 1 字 ≈ 1.5-2 token） | | context window | 上下文視窗 | 模型一次能看到多少 token（Claude 1M / GPT 1.05M / Gemini 2M）| | temperature | 隨機程度參數 | 控制回答穩定或發散（0 = 最穩定、1 = 創意；分類任務"
 section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-10T03:38:43.193Z"
+syncedAt: "2026-07-10T14:34:47.253Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -29,7 +29,7 @@ order: 1
 | 詞 | 中文 | 一句話 |
 |---|---|---|
 | **token** | 詞元 | 模型計算文字長度與費用的基本單位（中文 1 字 ≈ 1.5-2 token） |
-| **context window** | 上下文視窗 | 模型一次能看到多少 token（Claude 1M / GPT ~400k / Gemini 2M）|
+| **context window** | 上下文視窗 | 模型一次能看到多少 token（Claude 1M / GPT 1.05M / Gemini 2M）|
 | **temperature** | 隨機程度參數 | 控制回答穩定或發散（0 = 最穩定、1 = 創意；分類任務用 0.0-0.3、創作用 0.7-1.0）|
 
 → 這 3 個詞貫穿後續所有 stage。Stage 1 的目標就是讓你用 API 跑出來、親手摸到它們如何影響輸出。
@@ -59,13 +59,13 @@ order: 1
 
 <!-- 維護慣例（下面 3 張表共用）：「旗艦」這格只寫現在的旗艦，最多再留前一代；出了新的就把舊名字換掉、別一直往上加；太舊、官網已經查不到的就刪掉。會變的資訊（暫停、preview、還沒出）別塞在格子裡，寫到表格下面那行「註」；等狀態結束了（正式上線、恢復、或永久退役）就把那行刪掉。「Context」這格只填數字。改完記得更新標題的月份（2026-MM）。 -->
 
-| Model 家族 | 旗艦（2026-06）| Context | 強項 | 適合任務 | 官方 docs |
+| Model 家族 | 旗艦（2026-07）| Context | 強項 | 適合任務 | 官方 docs |
 |---|---|---|---|---|---|
 | **Claude**（Anthropic）| Opus 4.8 / Sonnet 5 / Haiku 4.5 | 1M | long-form / coding / agent / safety alignment | 寫 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
-| **GPT**（OpenAI）| GPT-5.6（preview）/ GPT-5.5 | ~400k | 通用 / function calling / ecosystem 最廣 | 廣度查詢 / function-call 框架 / GPTs 生態 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
+| **GPT**（OpenAI）| GPT-5.6 Sol / Terra / Luna | 1.05M | 通用 / function calling / ecosystem 最廣 | 廣度查詢 / function-call 框架 / GPTs 生態 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
 | **Gemini**（Google）| 3.5 Flash / 3.5 Pro（開發中）| 2M | 長 context / 原生 multimodal / Google 整合 | PDF / 影音 / 大量文件 / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
-> **註**：`（preview）`= 還在限量試用、還沒正式開放；`（開發中）`= 還沒推出。⚠️ Claude **Fable 5**（原本定位在 Opus 之上的最高等級）2026-06-09 上線，但 **2026-06-12 起被暫停、目前不能用** → 改用 Opus 4.8（目前能用的最高階）。Context 欄填的是旗艦的上限：Gemini Pro 系列 2M、Flash 1M；Claude 1M（Haiku 4.5 是 200k）。另外 **Sonnet 5**（2026-06-30 上線）是目前的 Sonnet 版本：1M context、速度快、比 Opus 便宜（$3/$15，Opus 是 $5/$25）。
+> **註**：`（開發中）`= 還沒推出。⚠️ Claude **Fable 5**（原本定位在 Opus 之上的最高等級）2026-06-09 上線，但 **2026-06-12 起被暫停、目前不能用** → 改用 Opus 4.8（目前能用的最高階）。Context 欄填的是旗艦的上限：Gemini Pro 系列 2M、Flash 1M；Claude 1M（Haiku 4.5 是 200k）；GPT-5.6 三款都是 1.05M。另外 **Sonnet 5**（2026-06-30 上線）是目前的 Sonnet 版本：1M context、速度快、比 Opus 便宜（$3/$15，Opus 是 $5/$25）。**GPT-5.6**（2026-07 上線）分三級：**Sol** 旗艦（$5/$30）、**Terra** 均衡（$2.50/$15）、**Luna** 最快最省（$1/$6），ChatGPT / Codex / API 皆可用。
 
 ### 🇨🇳 中國商業 + 開源 frontier（7 家）
 
