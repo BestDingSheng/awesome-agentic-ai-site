@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-12T13:27:07.651Z"
+syncedAt: "2026-07-13T03:20:52.390Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -191,10 +191,13 @@ input: This shop is in New Taipei City.
 output: neutral
 """
 
+# Both conditions share the SAME task instruction; few-shot only adds examples. That keeps the comparison clean — what you measure is the effect of the examples themselves, not "finally telling the model what the task is."
+TASK = "Classify the sentence below into exactly one of positive / negative / neutral. Output only one of those three words, nothing else.\n\n"
+
 
 def classify(text: str, *, use_few_shot: bool) -> str:
     prefix = FEW_SHOT_EXAMPLES + "\n" if use_few_shot else ""
-    prompt = f"{prefix}input: {text}\noutput:"
+    prompt = f"{TASK}{prefix}input: {text}\noutput:"
     r = client.chat.completions.create(
         model="gemma4:e4b",
         max_tokens=10,
@@ -223,8 +226,12 @@ c3, _ = evaluate(use_few_shot=True)
 print(f"correct {c3}/{n} = {c3/n:.0%}")
 
 # === Self-check ===
-print(f"\n✅ Exercise 2 passed — 0-shot {c0}/{n}, 3-shot {c3}/{n}")
-assert c3 >= c0, f"expected 3-shot ≥ 0-shot, got {c3} < {c0}"
+# Both conditions got the same task instruction, so this measures the effect of the EXAMPLES alone.
+# few-shot isn't guaranteed to win (depends on the model / test set / sampling), so we don't assert c3 >= c0.
+assert n == 6 and 0 <= c0 <= n and 0 <= c3 <= n, "both conditions must run all 6 items"
+print(f"\n✅ Exercise 2 passed — 0-shot {c0}/{n}, 3-shot {c3}/{n}; few-shot net gain {c3 - c0} (may be 0 or even negative — that's normal) (local, $0)")
+print("💡 With a clear instruction, 0-shot already has a baseline; few-shot's value is pinning the output FORMAT + showing judgment on ambiguous cases (like 'neutral')")
+print("💡 Small models (gemma4:e4b) are more format-sensitive, so few-shot usually helps them more than Claude — still not guaranteed, so you measure")
 ```
 
 </details>
@@ -241,16 +248,16 @@ if hasattr(sys.stdout, "reconfigure"):
 import anthropic
 client = anthropic.Anthropic()
 
-# Same TEST_SET / FEW_SHOT_EXAMPLES as Path A — only the classify() body changes:
+# Same TASK / TEST_SET / FEW_SHOT_EXAMPLES as Path A — only the classify() body changes:
 def classify(text: str, *, use_few_shot: bool) -> str:
     prefix = FEW_SHOT_EXAMPLES + "\n" if use_few_shot else ""
     msg = client.messages.create(
         model="claude-haiku-4-5",
         max_tokens=10,
-        messages=[{"role": "user", "content": f"{prefix}input: {text}\noutput:"}],
+        messages=[{"role": "user", "content": f"{TASK}{prefix}input: {text}\noutput:"}],
     )
     return msg.content[0].text.strip().splitlines()[0]
-# Rest of TEST_SET / FEW_SHOT_EXAMPLES / evaluate() stays identical to Path A
+# Rest of TASK / TEST_SET / FEW_SHOT_EXAMPLES / evaluate() stays identical to Path A
 ```
 
 **Cost**: 12 calls ≈ $0.005. Claude is usually accurate at 0-shot already, so the few-shot lift is smaller than on gemma4:e4b — that contrast is the actual teaching point.

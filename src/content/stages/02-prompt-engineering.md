@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-12T13:27:07.651Z"
+syncedAt: "2026-07-13T03:20:52.390Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
@@ -212,10 +212,13 @@ input: 這家店位於新北市三重區。
 output: 中立
 """
 
+# 兩種條件共用同一段「任務說明」；few-shot 只多加範例——這樣對比才乾淨，量到的是「範例」本身的效果，而不是「終於告訴模型要做什麼」。
+TASK = "把下面的句子分類成「正面 / 負面 / 中立」其中一個，只輸出這三個詞其中之一、不要多餘文字。\n\n"
+
 
 def classify(text: str, *, use_few_shot: bool) -> str:
     prefix = FEW_SHOT_EXAMPLES + "\n" if use_few_shot else ""
-    prompt = f"{prefix}input: {text}\noutput:"
+    prompt = f"{TASK}{prefix}input: {text}\noutput:"
     r = client.chat.completions.create(
         model="gemma4:e4b",
         max_tokens=10,
@@ -244,10 +247,12 @@ c3, _ = evaluate(use_few_shot=True)
 print(f"正確 {c3}/{n} = {c3/n:.0%}")
 
 # === 自我驗證 ===
-assert c3 >= c0, f"預期 3-shot 不比 0-shot 差、實際 {c3} < {c0}（小 model 樣本小、跑幾次比較）"
-print(f"\n✅ 練習 2 通過 — 0-shot {c0}/{n}、3-shot {c3}/{n}（本機 $0）")
-print("💡 觀察：'中立' 在 0-shot 容易被誤判成正面或負面、3-shot 後改善明顯")
-print("💡 小 model（gemma4:e4b）通常 0-shot 表現比 Claude 差更多、所以 few-shot 改善幅度更大")
+# 兩種條件都給了同樣的任務說明，所以這裡量的是「範例本身」帶來的差異。
+# few-shot 不保證每次都贏（看 model / 題目 / 抽樣），所以不硬性要求 c3 >= c0。
+assert n == 6 and 0 <= c0 <= n and 0 <= c3 <= n, "兩種條件都要各跑完 6 題"
+print(f"\n✅ 練習 2 通過 — 0-shot {c0}/{n}、3-shot {c3}/{n}；few-shot 淨提升 {c3 - c0} 題（可能為 0 甚至負，都算正常）（本機 $0）")
+print("💡 觀察：有了任務說明，0-shot 就有基本盤；few-shot 的價值在「釘住輸出格式」+ 示範模稜兩可案例（如 '中立'）的判準")
+print("💡 小 model（gemma4:e4b）對格式更敏感，所以 few-shot 的幫助通常比 Claude 明顯——但仍非保證，要跑了才知道")
 ```
 
 </details>
@@ -266,10 +271,10 @@ def classify(text: str, *, use_few_shot: bool) -> str:
     msg = client.messages.create(
         model="claude-haiku-4-5",
         max_tokens=10,
-        messages=[{"role": "user", "content": f"{prefix}input: {text}\noutput:"}],
+        messages=[{"role": "user", "content": f"{TASK}{prefix}input: {text}\noutput:"}],
     )
     return msg.content[0].text.strip().splitlines()[0]
-# 其餘 TEST_SET / FEW_SHOT_EXAMPLES / evaluate() 跟 Path A 一樣
+# 其餘 TASK / TEST_SET / FEW_SHOT_EXAMPLES / evaluate() 跟 Path A 一樣
 ```
 
 **成本**：6 題 × 2 條件 = 12 次 ≈ $0.005。**Claude 通常 0-shot 已經有不錯準確率**、所以 few-shot 改善幅度比小 model 小。

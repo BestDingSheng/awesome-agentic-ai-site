@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-12T13:27:07.651Z"
+syncedAt: "2026-07-13T03:20:52.390Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "02-prompt-engineering"
@@ -184,7 +184,7 @@ from openai import OpenAI
 
 client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
 
-# 中文情緒分類（正面 / 负面 / 中立）
+# 中文情绪分类（正面 / 负面 / 中立）
 TEST_SET = [
     ("这部电影超赞、看完想再看一次！", "正面"),
     ("剧情无聊、演员演技尴尬。", "负面"),
@@ -205,10 +205,13 @@ input: 这家店位于新北市三重区。
 output: 中立
 """
 
+# 两种条件共用同一段“任务说明”；few-shot 只多加范例——这样对比才干净，量到的是“范例”本身的效果，而不是“终于告诉模型要做什么”。
+TASK = "把下面的句子分类成“正面 / 负面 / 中立”其中一个，只输出这三个词其中之一、不要多余文字。\n\n"
+
 
 def classify(text: str, *, use_few_shot: bool) -> str:
     prefix = FEW_SHOT_EXAMPLES + "\n" if use_few_shot else ""
-    prompt = f"{prefix}input: {text}\noutput:"
+    prompt = f"{TASK}{prefix}input: {text}\noutput:"
     r = client.chat.completions.create(
         model="gemma4:e4b",
         max_tokens=10,
@@ -237,10 +240,12 @@ c3, _ = evaluate(use_few_shot=True)
 print(f"正确 {c3}/{n} = {c3/n:.0%}")
 
 # === 自我验证 ===
-assert c3 >= c0, f"预期 3-shot 不比 0-shot 差、实际 {c3} < {c0}（小 model 样本小、跑几次比较）"
-print(f"\n✅ 练习 2 通过 — 0-shot {c0}/{n}、3-shot {c3}/{n}（本机 $0）")
-print("💡 观察：'中立' 在 0-shot 容易被误判成正面或负面、3-shot 后改善明显")
-print("💡 小 model（gemma4:e4b）通常 0-shot 表现比 Claude 差更多、所以 few-shot 改善幅度更大")
+# 两种条件都给了同样的任务说明，所以这里量的是“范例本身”带来的差异。
+# few-shot 不保证每次都赢（看 model / 题目 / 抽样），所以不硬性要求 c3 >= c0。
+assert n == 6 and 0 <= c0 <= n and 0 <= c3 <= n, "两种条件都要各跑完 6 题"
+print(f"\n✅ 练习 2 通过 — 0-shot {c0}/{n}、3-shot {c3}/{n}；few-shot 净提升 {c3 - c0} 题（可能为 0 甚至负，都算正常）（本机 $0）")
+print("💡 观察：有了任务说明，0-shot 就有基本盘；few-shot 的价值在“钉住输出格式” + 示范模棱两可案例（如 '中立'）的判准")
+print("💡 小 model（gemma4:e4b）对格式更敏感，所以 few-shot 的帮助通常比 Claude 明显——但仍非保证，要跑了才知道")
 ```
 
 </details>
@@ -259,10 +264,10 @@ def classify(text: str, *, use_few_shot: bool) -> str:
     msg = client.messages.create(
         model="claude-haiku-4-5",
         max_tokens=10,
-        messages=[{"role": "user", "content": f"{prefix}input: {text}\noutput:"}],
+        messages=[{"role": "user", "content": f"{TASK}{prefix}input: {text}\noutput:"}],
     )
     return msg.content[0].text.strip().splitlines()[0]
-# 其余 TEST_SET / FEW_SHOT_EXAMPLES / evaluate() 跟 Path A 一样
+# 其余 TASK / TEST_SET / FEW_SHOT_EXAMPLES / evaluate() 跟 Path A 一样
 ```
 
 **成本**：6 题 × 2 条件 = 12 次 ≈ $0.005。**Claude 通常 0-shot 已经有不错准确率**、所以 few-shot 改善幅度比小 model 小。
