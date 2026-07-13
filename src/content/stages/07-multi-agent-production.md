@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-13T03:20:52.390Z"
+syncedAt: "2026-07-13T14:41:40.710Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "07-multi-agent-production"
@@ -232,7 +232,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | tool use 多輪對話 | （較難 hack）| Anthropic / OpenAI 領先 |
 | **RE-bench** | research engineering | （較難 hack、接近人類 baseline）| Frontier model |
 
-> **Mythos-class 層級（2026-06-09 發布、2026-06-12 暫停存取）**：[**Claude Fable 5**](https://www.anthropic.com/news/claude-fable-5-mythos-5)（`claude-fable-5`，Mythos-class、定位在 Opus 之上）曾短暫成為對外開放的最高能力 Claude 層級，與姊妹版 Claude Mythos 5（`claude-mythos-5`，部分安全措施放寬、限定核准客戶）同日發布。⚠️ **2026-06-12 美國出口管制指令暫停了兩者全部存取（[狀態頁](https://status.claude.com/) · [官方聲明](https://www.anthropic.com/news/fable-mythos-access)），目前無法使用且無恢復時程。** 上表數字維持原本歸屬的 model；Fable 5 官方 benchmark 數字始終未公布，故未列入。**Opus 4.8 仍為 Opus-class 旗艦，也是目前可用的最高層級。**
+> **Mythos-class 層級（Claude Fable 5 — 2026-06-09 發布；2026-06-12 暫停、2026-07-01 恢復）**：[**Claude Fable 5**](https://www.anthropic.com/news/claude-fable-5-mythos-5)（`claude-fable-5`，Mythos-class、定位在 Opus 之上）是對外開放的最高能力 Claude 層級，與姊妹版 Claude Mythos 5（`claude-mythos-5`，部分安全措施放寬、限定核准客戶）同日發布。2026-06-12 曾被美國出口管制指令暫停，但出口管制 2026-06-30 解除、[Fable 5 於 2026-07-01 全球恢復](https://www.anthropic.com/news/redeploying-fable-5)（重新部署時加了新安全 classifier；Mythos 5 僅對核准的美國組織恢復）。上表數字維持原本歸屬的 model；Fable 5 官方 benchmark 數字始終未公布，故未列入。**Fable 5 又是最高階的 Claude 層級；Opus 4.8 為 Opus-class 旗艦。**
 
 → 詳細排行 + 即時更新：[Agent Benchmark Leaderboard 2026](https://benchmarkingagents.com/agent-benchmarks/)、[Rapid Claw AI Agent Framework Scorecard 2026](https://rapidclaw.dev/blog/ai-agent-benchmarks-2026)
 
@@ -275,7 +275,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | **想要 group debate / brainstorm pattern** | [AutoGen](https://github.com/microsoft/autogen) | GroupChat 自由辯論、Microsoft 出品 |
 | **production 要 audit trail / checkpoint / human-in-loop** | [LangGraph](https://github.com/langchain-ai/langgraph) | state machine、控制最完整 |
 | **eval 標準化**（CI / regression 必裝）| [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config、跨模型比較、★ 22k+ |
-| **eval + observability 同平台** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS、tracing + eval + prompt mgmt、★ 28k+ |
+| **eval + observability 同平台** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS、tracing + eval + prompt mgmt、★ 31k+ |
 | **不改程式、快速 instrumentation** | [Helicone](https://github.com/Helicone/helicone) | proxy 中介、不綁 framework |
 | **全 stack 在 LangChain** | [LangSmith](https://www.langchain.com/langsmith)（商業）| LangChain 官方 observability |
 | **打造 Claude agent**（programmatic）| [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | Anthropic 官方 agent SDK、跟 Claude Code 同 runtime |
@@ -300,9 +300,9 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | 想要 role-based 流水線 | 角色式 multi-agent（research → writer → reviewer），最簡單 production pattern |
 | | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | 需要 audit trail / checkpoint / human-in-the-loop | state machine 路線、production 控制最強 |
 | **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | 把 eval 流程標準化、CI 整合 | YAML config、跨模型比較。★ 22k+、MIT |
-| | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | 學術 benchmark 主張（MMLU / HellaSwag / GSM8K）| 學術等級。★ 12k+、MIT |
+| | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | 學術 benchmark 主張（MMLU / HellaSwag / GSM8K）| 學術等級。★ 13k+、MIT |
 | | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | OpenAI 專屬 eval / 想回饋上游 | ★ 18k+ |
-| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | 自架 production observability | OSS LangSmith 替代、traces + sessions + evals + prompt mgmt。★ 28k+、MIT |
+| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | 自架 production observability | OSS LangSmith 替代、traces + sessions + evals + prompt mgmt。★ 31k+、MIT |
 | | [LangSmith](https://www.langchain.com/langsmith)（商業）| ⭐⭐⭐⭐ | 全 stack 在 LangChain / LangGraph 上 | LangChain 官方、只有 hosted 版 |
 | | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | 不想改程式、快速上 instrumentation | proxy 中介、順便拿到 logging + caching。★ 5.7k+、Apache 2.0 |
 | | [weave (W&B)](https://github.com/wandb/weave) | ⭐⭐⭐⭐ | 團隊已在用 W&B 做 ML 實驗追蹤 | W&B tracing + eval、跟 wandb 整合 |
@@ -311,7 +311,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | **Safety / Guardrails** | [NVIDIA-NeMo/Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) | ⭐⭐⭐⭐ | 想在 agent 的輸入 / 輸出加上安全規則 | 包在 LLM app 外的安全規則——讓它不離題、擋 jailbreak、過濾不當輸出。★ 6.6k+、Apache 2.0 |
 | **Anthropic SDK 進階** | [anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) | ⭐⭐⭐⭐⭐ | 直接基於 Claude API 做應用 | 官方 Python SDK：streaming / async / tool use / prompt caching / batches / files |
 | | [anthropic-sdk-typescript](https://github.com/anthropics/anthropic-sdk-typescript) | ⭐⭐⭐⭐ | TypeScript / Node / web app | Python SDK 的 TS 版 |
-| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | ⭐⭐⭐⭐⭐ | 打造 Claude-based agent 而非只 API | 內建 tool use loop / file access / sandbox / subagent 編排；跟 Claude Code 同 runtime、想看內部運作直接讀 source。★ 6.9k+、MIT |
+| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | ⭐⭐⭐⭐⭐ | 打造 Claude-based agent 而非只 API | 內建 tool use loop / file access / sandbox / subagent 編排；跟 Claude Code 同 runtime、想看內部運作直接讀 source。★ 7.6k+、MIT |
 | | [claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript) | ⭐⭐⭐⭐ | Node / web app 環境 Claude agent | Claude Agent SDK TS 版。★ 1.6k+ |
 | | [Anthropic Cookbook（進階）](https://github.com/anthropics/anthropic-cookbook) | ⭐⭐⭐⭐ | 想看官方進階 SDK pattern | 特別是 `prompt_caching.ipynb` / `tool_use/` / `multimodal/` 三個 notebook |
 | **Structured Output** | [BoundaryML/baml](https://github.com/BoundaryML/baml) | ⭐⭐⭐⭐ | 想穩定拿到任何模型輸出的可靠 JSON | 一個專用小語言、幫你從 LLM 穩定取得經過檢查的 JSON；支援 Claude / OpenAI / 本機模型、7 種程式語言。★ 8k+、Apache 2.0 |

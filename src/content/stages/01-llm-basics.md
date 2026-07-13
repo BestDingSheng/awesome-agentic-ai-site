@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-13T03:20:52.390Z"
+syncedAt: "2026-07-13T14:41:40.710Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -65,7 +65,7 @@ order: 1
 | **GPT**（OpenAI）| GPT-5.6 Sol / Terra / Luna | 1.05M | 通用 / function calling / ecosystem 最廣 | 廣度查詢 / function-call 框架 / GPTs 生態 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
 | **Gemini**（Google）| 3.5 Flash / 3.5 Pro（開發中）| 2M | 長 context / 原生 multimodal / Google 整合 | PDF / 影音 / 大量文件 / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
-> **註**：`（開發中）`= 還沒推出。⚠️ Claude **Fable 5**（原本定位在 Opus 之上的最高等級）2026-06-09 上線，但 **2026-06-12 起被暫停、目前不能用** → 改用 Opus 4.8（目前能用的最高階）。Context 欄填的是旗艦的上限：Gemini Pro 系列 2M、Flash 1M；Claude 1M（Haiku 4.5 是 200k）；GPT-5.6 三款都是 1.05M。另外 **Sonnet 5**（2026-06-30 上線）是目前的 Sonnet 版本：1M context、速度快、比 Opus 便宜（$3/$15，Opus 是 $5/$25）。**GPT-5.6**（2026-07 上線）分三級：**Sol** 旗艦（$5/$30）、**Terra** 均衡（$2.50/$15）、**Luna** 最快最省（$1/$6），ChatGPT / Codex / API 皆可用。
+> **註**：`（開發中）`= 還沒推出。Claude **Fable 5**（Mythos-class、位階在 Opus 之上、$10/$50）曾於 2026-06-12 被美國出口管制暫停，**出口管制已於 2026-06-30 解除、Fable 5 於 2026-07-01 全球恢復**（Claude Platform / Claude Code / Cowork 可用、API 陸續開放），是目前最高階的 Claude 層級（Opus 4.8 為 Opus 級旗艦）。Context 欄填的是旗艦的上限：Gemini Pro 系列 2M、Flash 1M；Claude 1M（Haiku 4.5 是 200k）；GPT-5.6 三款都是 1.05M。另外 **Sonnet 5**（2026-06-30 上線）是目前的 Sonnet 版本：1M context、速度快、比 Opus 便宜（$3/$15，Opus 是 $5/$25）。**GPT-5.6**（2026-07 上線）分三級：**Sol** 旗艦（$5/$30）、**Terra** 均衡（$2.50/$15）、**Luna** 最快最省（$1/$6），ChatGPT / Codex / API 皆可用。
 
 ### 🇨🇳 中國商業 + 開源 frontier（7 家）
 
@@ -151,7 +151,7 @@ order: 1
 
 ## 📚 必修閱讀
 
-1. [**Anthropic — Claude 模型總覽**](https://docs.claude.com/en/about-claude/models/overview) — 官方模型 family、含 2026 的 Claude Fable 5（`claude-fable-5`、Mythos-class、2026-06-09 GA）以及 Opus 4.8 / Sonnet 5 / Haiku 4.5。⚠️ **Fable 5 與姊妹版 Mythos 5（`claude-mythos-5`）已於 2026-06-12 被美國出口管制指令暫停存取（[狀態頁](https://status.claude.com/) · [官方聲明](https://www.anthropic.com/news/fable-mythos-access)）、目前無法使用且無恢復時程；Opus 4.8 是目前可用的最高 Claude 層級。**
+1. [**Anthropic — Claude 模型總覽**](https://docs.claude.com/en/about-claude/models/overview) — 官方模型 family、含 2026 的 Claude Fable 5（`claude-fable-5`、Mythos-class、2026-06-09 GA）以及 Opus 4.8 / Sonnet 5 / Haiku 4.5。**Fable 5 與姊妹版 Mythos 5（`claude-mythos-5`）曾於 2026-06-12 被美國出口管制指令暫停，出口管制已於 2026-06-30 解除；[Fable 5 於 2026-07-01 全球恢復](https://www.anthropic.com/news/redeploying-fable-5)（重新部署時加了新的安全 classifier），Mythos 5 僅對核准的美國組織恢復。Fable 5 是目前最高階的 Claude 層級，Opus 4.8 為 Opus 級旗艦。**
 2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic 官方 5 course umbrella、**module 1「Anthropic API Fundamentals」對應本 stage**。Jupyter notebook、用 Claude 3 Haiku（最便宜）跑、跟著做就能拿到 API 基本功
 3. [**OpenAI Quickstart**](https://platform.openai.com/docs/quickstart) — 第一次 API call 的步驟
 4. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face 的入門
@@ -417,7 +417,7 @@ PRICING = {
     "claude-haiku-4-5":   {"input": 1.00, "output":  5.00},
     "claude-sonnet-5":    {"input": 3.00, "output": 15.00},
     "claude-opus-4-8":    {"input": 5.00, "output": 25.00},  # Opus 4.8 (May 2026, Dynamic Workflows) — 維持 5/25 同價
-    "claude-fable-5":     {"input": 10.00, "output": 50.00},  # Fable 5 (Mythos-class, 2026-06-09 GA；2026-06-12 起暫停、無法使用) 約 Opus 4.8 的 2 倍
+    "claude-fable-5":     {"input": 10.00, "output": 50.00},  # Fable 5 (Mythos-class、2026-07-01 恢復可用) 約 Opus 4.8 的 2 倍
 }
 
 client = anthropic.Anthropic()
@@ -533,16 +533,16 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 | | [Anthropic Courses](https://github.com/anthropics/courses) | ⭐⭐⭐⭐⭐ | 系統性從零學一遍 Claude | Anthropic 自家完整 5 門課（API 基礎 / prompt eval / real-world prompting / tool use），★ 21k+。先跑 `anthropic_api_fundamentals` |
 | | [OpenAI Cookbook](https://github.com/openai/openai-cookbook) | ⭐⭐⭐⭐⭐ | 用 OpenAI API + structured output / function calling | 跟 Anthropic Cookbook 對照、★ 73k+、MIT。比 Anthropic 大很多、用搜尋 |
 | | [Anthropic Claude API Quickstart](https://docs.anthropic.com/en/docs/get-started) | ⭐⭐⭐⭐ | 5 分鐘上手 | 官方文件、加 bookmark 用 |
-| **中文教材**<br>（章節式） | [datawhalechina/happy-llm](https://github.com/datawhalechina/happy-llm) | ⭐⭐⭐⭐⭐ | 中文讀者想徹底搞懂 LLM 原理 | 對應 Karpathy「Zero to Hero」中文版，★ 29k+。等同 HF LLM Course 中文版 |
+| **中文教材**<br>（章節式） | [datawhalechina/happy-llm](https://github.com/datawhalechina/happy-llm) | ⭐⭐⭐⭐⭐ | 中文讀者想徹底搞懂 LLM 原理 | 對應 Karpathy「Zero to Hero」中文版，★ 32k+。等同 HF LLM Course 中文版 |
 | | [datawhalechina/llm-universe](https://github.com/datawhalechina/llm-universe) | ⭐⭐⭐⭐⭐ | 中文新手想用 LLM 做東西 | API 基礎 / 知識庫 / RAG / 進階技巧，★ 13k+ |
 | | [datawhalechina/llm-cookbook](https://github.com/datawhalechina/llm-cookbook) | ⭐⭐⭐⭐ | 想要完整中文 LLM 學習路線 | Andrew Ng 課程中文翻譯改編（⚠️ 2025-06 後更新放緩、CC BY-NC-SA）|
-| | [jingyaogong/minimind](https://github.com/jingyaogong/minimind) | ⭐⭐⭐⭐ | 看完 Karpathy 影片想實際跑訓練 | 2hr 從零訓 64M LLM、Pretrain + SFT + LoRA + DPO + RLHF 全包，★ 48k+、Apache-2.0 |
+| | [jingyaogong/minimind](https://github.com/jingyaogong/minimind) | ⭐⭐⭐⭐ | 看完 Karpathy 影片想實際跑訓練 | 2hr 從零訓 64M LLM、Pretrain + SFT + LoRA + DPO + RLHF 全包，★ 53k+、Apache-2.0 |
 | **英文 course**<br>（系統式） | [HuggingFace — LLM Course](https://huggingface.co/learn/llm-course) | ⭐⭐⭐⭐⭐ | 想搞懂 transformer 內部 + HF 生態 | 含 transformer 原理 + 應用、Apache 2.0 |
 | | [LangChain Academy](https://academy.langchain.com/) | ⭐⭐⭐⭐ | 喜歡影片教學的視覺型學習者 | LangChain 官方免費課、含 RAG / agent。**忽略 LangChain 行銷段落** |
 | **本地端執行**<br>（不付 API 費）| [ollama/ollama](https://github.com/ollama/ollama) | ⭐⭐⭐⭐⭐ | 第一次跑本地 LLM | 本 repo Path A 預設、OpenAI-compat API、★ 170k+ |
 | | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | ⭐⭐⭐⭐⭐ | 想搞懂 quantization / 為什麼 7B 能塞 8GB RAM | Ollama 底層 inference engine，★ 119k+、MIT |
 | | [mudler/LocalAI](https://github.com/mudler/LocalAI) | ⭐⭐⭐⭐ | 團隊合規、要 self-host 全套 OpenAI 替代 | drop-in OpenAI API 替代品（chat / embedding / image / TTS / STT），★ 46k+ |
-| | [ml-explore/mlx](https://github.com/ml-explore/mlx) | ⭐⭐⭐⭐ | Mac 開發、想榨乾 Apple Silicon | Apple 為 M1+ 量身打造的 ML framework，★ 25k+。搭 `mlx-lm` 用最方便 |
+| | [ml-explore/mlx](https://github.com/ml-explore/mlx) | ⭐⭐⭐⭐ | Mac 開發、想榨乾 Apple Silicon | Apple 為 M1+ 量身打造的 ML framework，★ 27k+。搭 `mlx-lm` 用最方便 |
 | **從零打造**<br>（理解原理）| [karpathy — Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY) | ⭐⭐⭐⭐⭐ | 想搞懂 LLM 內部、不只會呼叫 | 2hr 高密度影片、用 PyTorch 從零打造 GPT。**暫停跟著寫 code 不要被動看** |
 | | [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | ⭐⭐⭐⭐⭐ | 想用整本書速度慢慢讀完 | Karpathy 影片的書本版：tokenizer → attention → pretraining → finetuning，★ 91k+、Apache-2.0 |
 | | [karpathy/LLM101n](https://github.com/karpathy/LLM101n) | ⭐⭐ | 歷史紀錄 | ⚠️ 已封存（2024-08）、只有大綱、課程沒做完。**直接看上面的「Build GPT from scratch」影片即可** |

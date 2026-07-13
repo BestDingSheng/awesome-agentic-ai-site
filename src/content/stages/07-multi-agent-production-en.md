@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-13T03:20:52.390Z"
+syncedAt: "2026-07-13T14:41:40.710Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -232,7 +232,7 @@ Before choosing a model or building an agent, you'll want to look at benchmark n
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | multi-turn dialogue with tool use | (Harder to hack) | Anthropic / OpenAI leading |
 | **RE-bench** | research engineering | (Harder to hack, close to human baseline) | Frontier models |
 
-> **Mythos-class tier (2026-06-09, access suspended 2026-06-12)**: [**Claude Fable 5**](https://www.anthropic.com/news/claude-fable-5-mythos-5) (`claude-fable-5`, Mythos-class, positioned above the Opus class) briefly shipped as the publicly available highest-capability Claude tier alongside its sibling Claude Mythos 5 (`claude-mythos-5`, some safeguards lifted, limited to approved customers). ⚠️ **On 2026-06-12 a US export-control directive suspended all access to both ([status](https://status.claude.com/) · [statement](https://www.anthropic.com/news/fable-mythos-access)); they are currently unavailable with no restoration timeline.** The numbers above stay attributed to their original models; Fable 5's official benchmark numbers were never published, so it is not listed. **Opus 4.8 remains the Opus-class flagship and the current top usable tier.**
+> **Mythos-class tier (Claude Fable 5 — 2026-06-09; suspended 2026-06-12, restored 2026-07-01)**: [**Claude Fable 5**](https://www.anthropic.com/news/claude-fable-5-mythos-5) (`claude-fable-5`, Mythos-class, positioned above the Opus class) shipped as the publicly available highest-capability Claude tier alongside its sibling Claude Mythos 5 (`claude-mythos-5`, some safeguards lifted, limited to approved customers). It was suspended 2026-06-12 by a US export-control directive, but the controls were lifted 2026-06-30 and [Fable 5 was redeployed globally 2026-07-01](https://www.anthropic.com/news/redeploying-fable-5) with a new safety classifier (Mythos 5 restored only for approved US organizations). The numbers above stay attributed to their original models; Fable 5's official benchmark numbers were never published, so it is not listed. **Fable 5 is again the highest Claude tier; Opus 4.8 is the Opus-class flagship.**
 
 → For detailed rankings + live updates: [Agent Benchmark Leaderboard 2026](https://benchmarkingagents.com/agent-benchmarks/), [Rapid Claw AI Agent Framework Scorecard 2026](https://rapidclaw.dev/blog/ai-agent-benchmarks-2026)
 
@@ -275,7 +275,7 @@ Don't know where to start choosing tools? Below are the common pairings in the i
 | **Want a group debate / brainstorm pattern** | [AutoGen](https://github.com/microsoft/autogen) | GroupChat for free-form debate, from Microsoft |
 | **Need an audit trail / checkpoint / human-in-the-loop for production** | [LangGraph](https://github.com/langchain-ai/langgraph) | State machine approach, most complete control |
 | **Standardizing eval** (a must for CI / regression) | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config, cross-model comparison, ★ 22k+ |
-| **Eval + observability on the same platform** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS, tracing + eval + prompt mgmt, ★ 28k+ |
+| **Eval + observability on the same platform** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS, tracing + eval + prompt mgmt, ★ 31k+ |
 | **Quick instrumentation without code changes** | [Helicone](https://github.com/Helicone/helicone) | Proxy-based, not tied to a framework |
 | **Entire stack is on LangChain** | [LangSmith](https://www.langchain.com/langsmith) (Commercial) | Official observability from LangChain |
 | **Building a Claude agent** (programmatically) | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | Official agent SDK from Anthropic, same runtime as Claude Code |
@@ -300,9 +300,9 @@ Categorized by use case, a single table to get you started with 27 projects. **U
 | | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | Those who want a role-based assembly line | Role-based multi-agent (research → writer → reviewer), the simplest production pattern |
 | | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | Those needing an audit trail / checkpoint / human-in-the-loop | State machine approach, strongest for production control |
 | **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | To standardize the eval process, CI integration | YAML config, cross-model comparison. ★ 22k+, MIT |
-| | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | For academic benchmarks (MMLU / HellaSwag / GSM8K) | Academic grade. ★ 12k+, MIT |
+| | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | For academic benchmarks (MMLU / HellaSwag / GSM8K) | Academic grade. ★ 13k+, MIT |
 | | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | For OpenAI-specific evals / want to contribute upstream | ★ 18k+ |
-| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | For self-hosting production observability | OSS LangSmith alternative, traces + sessions + evals + prompt mgmt. ★ 28k+, MIT |
+| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | For self-hosting production observability | OSS LangSmith alternative, traces + sessions + evals + prompt mgmt. ★ 31k+, MIT |
 | | [LangSmith](https://www.langchain.com/langsmith) (Commercial) | ⭐⭐⭐⭐ | For those with their entire stack on LangChain / LangGraph | Official from LangChain, hosted version only |
 | | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | For quick instrumentation without code changes | Proxy-based, get logging + caching for free. ★ 5.7k+, Apache 2.0 |
 | | [weave (W&B)](https://github.com/wandb/weave) | ⭐⭐⭐⭐ | For teams already using W&B for ML experiment tracking | W&B tracing + eval, integrates with wandb |
@@ -311,7 +311,7 @@ Categorized by use case, a single table to get you started with 27 projects. **U
 | **Safety / Guardrails** | [NVIDIA-NeMo/Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) | ⭐⭐⭐⭐ | For safety rules around an agent's inputs and outputs | Safety rules you wrap around an LLM app — keep it on-topic, block jailbreaks, filter bad output. ★ 6.6k+, Apache 2.0 |
 | **Advanced Anthropic SDK** | [anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) | ⭐⭐⭐⭐⭐ | For building applications directly on the Claude API | Official Python SDK: streaming / async / tool use / prompt caching / batches / files |
 | | [anthropic-sdk-typescript](https://github.com/anthropics/anthropic-sdk-typescript) | ⭐⭐⭐⭐ | For TypeScript / Node / web apps | The TS version of the Python SDK |
-| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | ⭐⭐⭐⭐⭐ | For building Claude-based agents, not just API calls | Built-in tool use loop / file access / sandbox / subagent orchestration; same runtime as Claude Code, read the source to see how it works internally. ★ 6.9k+, MIT |
+| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | ⭐⭐⭐⭐⭐ | For building Claude-based agents, not just API calls | Built-in tool use loop / file access / sandbox / subagent orchestration; same runtime as Claude Code, read the source to see how it works internally. ★ 7.6k+, MIT |
 | | [claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript) | ⭐⭐⭐⭐ | For Claude agents in a Node / web app environment | The TS version of the Claude Agent SDK. ★ 1.6k+ |
 | | [Anthropic Cookbook (Advanced)](https://github.com/anthropics/anthropic-cookbook) | ⭐⭐⭐⭐ | For seeing official advanced SDK patterns | Especially the `prompt_caching.ipynb` / `tool_use/` / `multimodal/` notebooks |
 | **Structured Output** | [BoundaryML/baml](https://github.com/BoundaryML/baml) | ⭐⭐⭐⭐ | For getting reliable, validated JSON out of any model | A small dedicated language for getting reliable, checked JSON out of LLMs; works with Claude / OpenAI / local models across 7 programming languages. ★ 8k+, Apache 2.0 |
