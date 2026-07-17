@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "01-llm-basics"
@@ -72,12 +72,12 @@ order: 1
 
 | Model 家族 | 旗舰（2026-05）| Context | 强项 | 适合任务 | 官方 |
 |---|---|---|---|---|---|
-| **DeepSeek**（深度求索）| V3（`deepseek-chat`）/ R1（`deepseek-reasoner`）| 128k | 推理 / coding / **cost 最低** | 大量 token / code 生成 / math | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
-| **Kimi**（Moonshot）| K2.6 multimodal + Agent | **超长 1M+** | 长 context / 中文长文 | 整本书读 / 文献分流 | [platform.moonshot.cn](https://platform.moonshot.cn/) |
+| **DeepSeek**（深度求索）| V4-Flash（`deepseek-v4-flash`）/ V4-Pro（`deepseek-v4-pro`）| 1M | 推理 / coding / **cost 最低** | 大量 token / code 生成 / math | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
+| **Kimi**（Moonshot）| K3（2.8T 参数、原生多模态）| **1M** | 长 context / 中文长文 | 整本书读 / 文献分流 | [platform.moonshot.cn](https://platform.moonshot.cn/) |
 | **Hunyuan**（腾讯）| T1（深度思考）+ TurboS | 128k | **可比 DeepSeek R1 推理**、中文 | 中文推理 / 腾讯生态 | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
 | **MiniMax** | abab6.5 + M2.7 | 200k | 多模态 / 中文长 prose | 中文写作 / 影音 multimodal | [platform.minimax.io](https://platform.minimax.io/) |
 
-> **注**：这组以云端 API 为主、多为 proprietary。DeepSeek 另有部分开源权重（在 HF），但 V4 消费级 API 还没完全开放，主要用法仍是 API。
+> **注**：这组以云端 API 为主、多为 proprietary。DeepSeek 另有部分开源权重（在 HF），主要用法仍是云端 API（旧名 `deepseek-chat`/`deepseek-reasoner` 于 2026-07-24 停用、已改指向 v4-flash）。
 
 **② 有开源 weights（可 self-host）**
 
@@ -102,7 +102,7 @@ order: 1
 | **Mistral**（Mistral AI）| 7B / Mixtral 8x7B / Codestral | Apache 2.0（OSS 部分）| 开源 7B 级最强 | 商用 self-host / EU 主权 | [mistral.ai](https://mistral.ai/) · [HF Mistral](https://huggingface.co/mistralai) |
 | **Phi**（Microsoft）| Phi-4 14B + multimodal | MIT | **小但强** / reasoning / 适合 edge | 4GB+ RAM / mobile / reasoning 入门 | [HF microsoft](https://huggingface.co/microsoft) |
 
-> **注**：Llama 4 截至 2026-05 还没发布（表中为 3.3）；Gemma 4 为 2026-04 发布、LMArena 开源组第 3；Phi-4 另有 multimodal 版。
+> **注**：Llama 4（Scout / Maverick）于 2025-04 发布，但属大型 MoE，单机自架的实用基准仍是 3.3 70B（表中为 3.3）、Behemoth 未发布；Gemma 4 为 2026-04 发布、LMArena 开源组第 3；Phi-4 另有 multimodal 版。
 
 ### 🎯 我该选哪家？（按场景反查）
 
@@ -114,10 +114,10 @@ order: 1
 | 广度查询 + function calling 框架 | **GPT** — ecosystem 最广、SDK 整合最深 |
 | **中文场景 + 商业 API** | **Kimi**（长 context 强、能塞整本书）或 **DeepSeek**（cost 最低）或 **GLM**（agent 友好）|
 | **中文场景 + 开源 self-host** | **Qwen 3**（Apache 2.0、目前中文最强 OSS）|
-| 推理 / math（reasoning model）| **DeepSeek R1** / **Hunyuan T1** / **OpenAI o-series** |
+| 推理 / math（reasoning model）| **DeepSeek V4-Pro** / **Hunyuan T1** / **OpenAI o-series** |
 | 隐私 / offline / 不付 API | **Llama 3.3** / **Gemma 4** / **Qwen 3 OSS** via [Ollama](https://ollama.com/) |
 | Edge / 4GB RAM 机器 | **Gemma 4** / **Phi-4** / **Qwen 3（`qwen3-3B` 或以下版本）** |
-| 100k+ token 大文件 | **Gemini 3.1**（2M context）或 **Kimi K2.6**（1M+）|
+| 100k+ token 大文件 | **Gemini 3.1**（2M context）或 **Kimi K3**（1M）|
 | **想 cost 最低**（API 账单敏感）| **DeepSeek V4-Flash** — 同级英文 model 中 token 单价最低 |
 
 ### 📊 中立 benchmark 资源（自己 verify、不靠单一 source）

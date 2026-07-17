@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-developer.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-developer"
@@ -36,7 +36,7 @@ The table below splits a developer's day into 7 common scenarios. Each has a dif
 
 ## Curated Projects
 
-> **CLI agent comparison**: 7 major CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent) compared side-by-side in [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/). New to CLI agents and want step-by-step onboarding → [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) (Track A first stop).
+> **CLI agent comparison**: 8 major CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent / Grok Build) compared side-by-side in [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/). New to CLI agents and want step-by-step onboarding → [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) (Track A first stop).
 >
 > **MCP catalog**: Looking for integrations to wire CLI into daily tools (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (65+ entries by category).
 >
@@ -65,8 +65,8 @@ Editor-integrated AI pair-programming tool. Widely adopted in AI editor tools an
 #### [block/goose](https://github.com/block/goose) ⭐⭐⭐⭐
 ★ 43k+ · Apache-2.0 — Open-source, extensible AI agent that goes beyond code suggestions — install / execute / edit / test, with any LLM. Supports multiple LLM providers and MCP, ships as desktop app, CLI, and API. (Repo now resolves to `aaif-goose/goose`.)
 
-#### [RooCodeInc/Roo-Code](https://github.com/RooCodeInc/Roo-Code) ⭐⭐⭐⭐
-★ 23k+ · Apache-2.0 — VS Code coding agent with a "**team of specialized modes**" model. Different from Cline's single-agent flow.
+#### [RooCodeInc/Roo-Code](https://github.com/RooCodeInc/Roo-Code) ⭐⭐⭐ (⚠️ archived)
+★ 23k+ · Apache-2.0 — VS Code coding agent with a "**team of specialized modes**" model. Different from Cline's single-agent flow. **⚠️ Repo archived 2026-05 (read-only, no longer maintained)** — still usable, but don't expect new features.
 
 ### Code Review
 

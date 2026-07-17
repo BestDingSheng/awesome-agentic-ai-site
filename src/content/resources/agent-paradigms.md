@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/agent-paradigms.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "agent-paradigms"
@@ -17,7 +17,7 @@ baseSlug: "agent-paradigms"
 > [← 回主路線 README](/zh-tw)
 
 > 📌 **這份是 mental model reference**。看完之後你會知道：「同樣叫 agent、為什麼 Claude Code、Hermes Agent、OpenClaw 用起來完全不同感受？」
-> 已經知道想用哪個 → [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)（7 CLI 並排比較）或 [`resources/cookbook.md`](/zh-tw/resources/cookbook/)（step-by-step 部署）。
+> 已經知道想用哪個 → [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)（8 CLI 並排比較）或 [`resources/cookbook.md`](/zh-tw/resources/cookbook/)（step-by-step 部署）。
 
 「Agent」一詞被用得很泛。Cursor 是 agent、Claude Code 是 agent、Telegram 上跟你聊天的 Hermes 也是 agent、家裡 Jetson 板子跑的 OpenClaw 也是 agent。但這 4 個東西用起來完全不同感受 —— 因為它們屬於**不同 paradigm**。差別不在 LLM 是哪家、而在 **agent 跑在哪、你用什麼介面跟它互動、需不需要連網**。
 
@@ -74,7 +74,7 @@ baseSlug: "agent-paradigms"
 **代表**：[Aider](https://aider.chat) / [OpenCode](https://github.com/sst/opencode) / [goose](https://block.github.io/goose) / [Hermes Agent](https://github.com/NousResearch/hermes-agent)*
 
 **Hero example**：
-你想用 DeepSeek-V4-Pro（2026-04 preview、開源 MIT、前身 R1 reasoning lineage 已併入主線）寫 code（比 Claude Opus 便宜 10×）。Aider 設 `--model deepseek/deepseek-reasoner` + `OPENROUTER_API_KEY` 就能跑、git-aware、commit message 自動寫。
+你想用 DeepSeek-V4-Pro（前身 R1 reasoning lineage 已併入主線）寫 code（比 Claude Opus 便宜約 10×）。Aider 設 `--model deepseek/deepseek-v4-pro` + `OPENROUTER_API_KEY` 就能跑、git-aware、commit message 自動寫。
 
 **跟 Type 2 的差別**：Type 2 綁特定家、Type 3 你帶 API key、任何 OpenAI-compatible endpoint 都行。
 
@@ -188,7 +188,7 @@ baseSlug: "agent-paradigms"
 ## 跟既有 stage / branch 的連結
 
 - **想學 Type 2 上手** → [Stage 5: Claude Code 生態](/zh-tw/stages/05-claude-code-ecosystem/)
-- **想看 7 CLI 詳細並排比較**（Type 2 + Type 3）→ [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)
+- **想看 8 CLI 詳細並排比較**（Type 2 + Type 3）→ [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)
 - **想看 IDE-coupled 對比**（Type 1）→ [`branches/for-developer.md`](/zh-tw/branches/for-developer/)
 - **想 step-by-step 部署 Hermes** → [`resources/cookbook.md` Recipe 6](/zh-tw/resources/cookbook/)（含 Hermes + Ollama walkthrough）
 - **想搞 Jetson + OpenClaw** → [Jetson AI Lab tutorial](https://www.jetson-ai-lab.com/tutorials/openclaw/) + [Seeed Studio wiki](https://wiki.seeedstudio.com/local_openclaw_on_recomputer_jetson/)

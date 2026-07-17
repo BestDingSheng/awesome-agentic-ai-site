@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-everyday-users"
@@ -84,7 +84,7 @@ ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 Ap
 
 > 這些工具雖然定位給開發者，但**日常使用者也能用**——例如批次重新命名檔案、整理下載資料夾、自動寫每週回顧、把 PDF 摘要存成 Markdown。
 >
-> 想看詳細比較？見 [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)（7 個主流 CLI agent 並列、依 use case 推薦、常見坑、實用搭配）。
+> 想看詳細比較？見 [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)（8 個主流 CLI agent 並列、依 use case 推薦、常見坑、實用搭配）。
 >
 > 想要 step-by-step 上手？見 [`tracks/cli/A1-cli-intro.md`](/zh-tw/tracks/cli-a1-cli-intro/)（Track A 第一站，從安裝到第一個任務）。
 >

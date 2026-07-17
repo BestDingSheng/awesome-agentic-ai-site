@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-developer.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-developer"
@@ -36,7 +36,7 @@ baseSlug: "for-developer"
 
 ## 精选 Projects
 
-> **CLI agent 比较**：7 个主流 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent）的并列比较见 [`resources/cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/)。第一次接触 CLI agent 想要 step-by-step 入门 → [`tracks/cli/A1-cli-intro.zh-Hans.md`](/tracks/cli-a1-cli-intro/)（Track A 第一站）。
+> **CLI agent 比较**：8 个主流 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent / Grok Build）的并列比较见 [`resources/cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/)。第一次接触 CLI agent 想要 step-by-step 入门 → [`tracks/cli/A1-cli-intro.zh-Hans.md`](/tracks/cli-a1-cli-intro/)（Track A 第一站）。
 >
 > **MCP catalog**：要把 CLI 接到日常工具（GitHub、Linear、Atlassian、Postgres、Playwright、Figma 等）→ [`resources/mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)（65+ 个分类整理）。
 >
@@ -65,8 +65,8 @@ baseSlug: "for-developer"
 #### [block/goose](https://github.com/block/goose) ⭐⭐⭐⭐
 ★ 43k+ · Apache-2.0 — 开源、可扩展的 AI agent，超出纯 code suggestion——能 install / execute / edit / test，搭配任何 LLM。同时支持多家 LLM provider 跟 MCP，提供 desktop app、CLI、API 三种接口。（repo 现指向 `aaif-goose/goose`。）
 
-#### [RooCodeInc/Roo-Code](https://github.com/RooCodeInc/Roo-Code) ⭐⭐⭐⭐
-★ 23k+ · Apache-2.0 — VS Code 的 coding agent，采用“**多种专业模式**”的设计，跟 Cline 的单一 agent flow 不同。VS Code 用户想 multi-mode 替代方案的选择。
+#### [RooCodeInc/Roo-Code](https://github.com/RooCodeInc/Roo-Code) ⭐⭐⭐（⚠️ 已封存）
+★ 23k+ · Apache-2.0 — VS Code 的 coding agent，采用“**多种专业模式**”的设计，跟 Cline 的单一 agent flow 不同。**⚠️ repo 已于 2026-05 封存（read-only、不再维护）**——仍可用，但别预期新功能。
 
 ### Code Review
 

@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-everyday-users"
@@ -82,7 +82,7 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 
 > These tools are positioned for developers but **everyday users can use them too** — e.g. batch-rename files, organize the Downloads folder, auto-write weekly reviews, summarize PDFs into Markdown.
 >
-> Want a detailed comparison? See [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) — six major CLI agents side by side, recommendations by use case, common pitfalls, real-world setups.
+> Want a detailed comparison? See [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) — eight major CLI agents side by side, recommendations by use case, common pitfalls, real-world setups.
 >
 > Want step-by-step onboarding? See [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) — Track A first stop, from install to your first task.
 >

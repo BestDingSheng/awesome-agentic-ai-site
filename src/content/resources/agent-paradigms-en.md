@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/agent-paradigms.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "agent-paradigms"
@@ -17,7 +17,7 @@ baseSlug: "agent-paradigms"
 > [← Back to main README](/en)
 
 > 📌 **This is a mental-model reference**. After reading you'll understand: "Why do Claude Code, Hermes Agent, and OpenClaw all call themselves 'agents' but feel completely different to use?"
-> If you already know which one you want → [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) (7-CLI side-by-side comparison) or [`resources/cookbook.en.md`](/en/resources/cookbook/) (step-by-step deployment).
+> If you already know which one you want → [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) (8-CLI side-by-side comparison) or [`resources/cookbook.en.md`](/en/resources/cookbook/) (step-by-step deployment).
 
 The word "agent" gets used loosely. Cursor is an agent. Claude Code is an agent. Hermes Agent — the one chatting with you on Telegram — is an agent. OpenClaw running on a Jetson board in your apartment is also an agent. But these four feel completely different in practice — because they belong to **different paradigms**. The difference isn't which LLM family they use; it's **where the agent runs, what interface you use to talk to it, and whether it needs an internet connection**.
 
@@ -74,7 +74,7 @@ You open Claude Code in a terminal and type "refactor the entire auth module, sw
 **Examples**: [Aider](https://aider.chat) / [OpenCode](https://github.com/sst/opencode) / [goose](https://block.github.io/goose) / [Hermes Agent](https://github.com/NousResearch/hermes-agent)*
 
 **Hero example**:
-You want to use DeepSeek-R1 to write code (10× cheaper than Claude Opus). Aider with `--model deepseek/deepseek-reasoner` + an `OPENROUTER_API_KEY` does it — git-aware, automatic commit messages, the same workflow as Type 2.
+You want to use DeepSeek-V4-Pro (the former R1 reasoning lineage now merged into the main line) to write code (~10× cheaper than Claude Opus). Aider with `--model deepseek/deepseek-v4-pro` + an `OPENROUTER_API_KEY` does it — git-aware, automatic commit messages, the same workflow as Type 2.
 
 **Difference from Type 2**: Type 2 locks you into one LLM family. Type 3 takes any OpenAI-compatible endpoint with your own API key.
 
@@ -188,7 +188,7 @@ Real power users often run **2 or 3 types simultaneously**, each handling what i
 ## Links to existing stages / branches
 
 - **Learn Type 2 hands-on** → [Stage 5: Claude Code Ecosystem](/en/stages/05-claude-code-ecosystem/)
-- **See the 7-CLI detailed comparison** (Type 2 + Type 3) → [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/)
+- **See the 8-CLI detailed comparison** (Type 2 + Type 3) → [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/)
 - **Compare IDE-coupled tools** (Type 1) → [`branches/for-developer.en.md`](/en/branches/for-developer/)
 - **Step-by-step Hermes deployment** → [`resources/cookbook.en.md` Recipe 6](/en/resources/cookbook/) (Hermes + Ollama walkthrough)
 - **Jetson + OpenClaw setup** → [Jetson AI Lab tutorial](https://www.jetson-ai-lab.com/tutorials/openclaw/) + [Seeed Studio wiki](https://wiki.seeedstudio.com/local_openclaw_on_recomputer_jetson/)

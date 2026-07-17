@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cookbook"
@@ -616,7 +616,7 @@ For local LLM work, treat "Claude Code" and "BYO-LLM CLI agents" as separate too
 ### Further Reading
 
 - Stage 1 [Local LLM exercise](/en/stages/01-llm-basics/#exercise-6-local-llm): Ollama / llama.cpp / vLLM tradeoffs
-- [`cli-agents-guide.md`](/en/resources/cli-agents-guide/): how to choose among 7 CLI agents
+- [`cli-agents-guide.md`](/en/resources/cli-agents-guide/): how to choose among 8 CLI agents
 - Hermes Agent README: multi-platform gateway setup for Telegram / Discord / Slack and providers
 
 ---

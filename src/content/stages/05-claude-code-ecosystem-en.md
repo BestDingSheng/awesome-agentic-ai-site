@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -102,12 +102,12 @@ Prompt / Context / Harness are **disciplines for different layers**. Learning on
 
 ### Cross-CLI vendor mini-comparison (2026-05 snapshot)
 
-Only Claude Code has the **full 7-layer stack**; most other CLIs stop at single-agent plus simplified variants:
+Claude Code's **7-layer stack is the most complete**; Codex CLI / Gemini CLI added subagents + hooks in 2026, while the other layers remain fullest on Claude Code:
 
 | Layer | Claude Code | OpenAI Codex | Gemini CLI |
 |---|---|---|---|
-| L5 Coordination (multi-agent) | ✅ Subagents | ❌ single-agent | ❌ |
-| L3 Control Plane (hooks) | ✅ Hooks | ❌ | ❌ |
+| L5 Coordination (multi-agent) | ✅ Subagents | ✅ Subagents | ✅ Subagents |
+| L3 Control Plane (hooks) | ✅ Hooks | ✅ Hooks | ✅ Hooks |
 | L2.5 Tool Provider (MCP) | ✅ | ✅ (MCP supported) | ✅ (requires manual MCP server install) |
 | L6 Workflow (Skills) | ✅ SKILL.md | AGENTS.md (context only) | GEMINI.md (context only) |
 
@@ -434,12 +434,14 @@ These layers are often confused. **A one-line comparison**:
 | **📄 Office docs processing** | `pdf` / `docx` / `xlsx` / `pptx` | anthropics/skills | Read and write PDF / Word / Excel / PowerPoint. **A must-have set**—essential for any office workflow. |
 | **🔧 Code review** | `code-reviewer` / `code-review-excellence` | claude-plugins-official | Security / style / test review for staged diffs. |
 | **🐛 Debugging** | `debugger` / `systematic-debugging` | claude-plugins-official | Systematic root cause analysis, avoids quick fixes. |
+| **🔐 Security audit** | `security-audit` | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) | Open-sourced by Cloudflare: a six-phase pipeline (recon → hunt → adversarial validation → report → structured output → independent verification) that orchestrates parallel agents to find genuinely exploitable vulnerabilities; the seed of Cloudflare's own vulnerability-discovery harness. Install via `npx skills add` (MIT). |
 | **🎓 Academic writing** | `academic-writing-skills` | community | findings-first / mechanism / banned word audit. |
 | **🔌 MCP integration / server writing** | `mcp-builder` / `mcp-integration` | claude-plugins-official | Scaffolding for writing MCP servers and integrating existing ones. |
 | **💻 Frontend / fullstack** | `frontend-developer` / `fullstack-developer` | claude-plugins-official | Assistance with React components / full-stack architecture. |
 | **📊 Data analysis** | `data-analyst` / `visualization-expert` | community | SQL / pandas / chart type selection. |
 | **⚙️ Permissions / settings management** | `update-config` / `fewer-permission-prompts` | claude-plugins-official | Management of hooks / permissions / env vars. |
 | **🔁 Self-improvement** | `self-improving-agent` | community | Captures learning / errors / corrections for continuous agent improvement. |
+| **🚀 Idea to live agent** | `launch-your-agent` | [anthropics/launch-your-agent](https://github.com/anthropics/launch-your-agent) | Official Anthropic educational skill: interviews you about what to build → scopes a v0 → launches a Claude Managed Agent in your own account → grades it against your own definition of done and iterates → schedules it if the task recurs. ⚠️ Self-described reference implementation, not maintained, not accepting contributions (Apache-2.0). |
 | **🌐 General / fallback** | `general-purpose` | Built into Claude Code | The default entry point for complex, open-ended tasks and uncovered scenarios. |
 
 **Suggested adoption order**:
@@ -569,25 +571,25 @@ A comparison with framework-based multi-agent systems from Stage 4 (LangGraph / 
 
 ### Current state of multi-agent mechanisms in various CLIs / SDKs (late 2025)
 
-Many people assume that multi-agent CLIs are a standard feature for Anthropic / OpenAI / Google—but in reality, only **Claude Code currently has a complete native multi-agent stack**. Codex CLI / Gemini CLI / Cursor are still single-agent; to get multi-agent functionality, you have to write it yourself using an SDK or framework.
+Multi-agent CLIs were once unique to Claude Code—in 2026 both Codex CLI and Gemini CLI added **native subagents + hooks** (Cursor is still single-agent). Claude Code still has the most mature, most complete native multi-agent stack.
 
 | Platform | Subagent | Agent team | Background agent | Mechanism |
 |---|:---:|:---:|:---:|---|
 | **Claude Code** (CLI) | ✅ | ✅ | ✅ | `.claude/agents/<name>.md` + Task tool (subagent) + [agent teams](https://docs.claude.com/en/docs/claude-code/agent-teams) + [agent view / background](https://docs.claude.com/en/docs/claude-code/agent-view) |
-| **OpenAI Codex CLI** | ❌ | ❌ | ❌ | `AGENTS.md` is just a **single-agent context file** (similar to CLAUDE.md), **not a subagent system** |
-| **Google Gemini CLI** | ❌ | ❌ | ❌ | `GEMINI.md` is just for context; no subagent / multi-agent features |
+| **OpenAI Codex CLI** | ✅ | ⚠️ | ✅ | [Subagents](https://developers.openai.com/codex/subagents) GA (≤6 parallel) + [hooks](https://developers.openai.com/codex/hooks) (2026); cloud / background mode. `AGENTS.md` is still a context file |
+| **Google Gemini CLI** | ✅ | ⚠️ | ⚠️ | [Subagents](https://geminicli.com/docs/core/subagents/) (2026-04) + [hooks](https://geminicli.com/docs/hooks/); explicit `@name` dispatch, can run in parallel. `GEMINI.md` is still context |
 | **Cursor** (IDE-coupled) | ❌ | ❌ | ❌ | A single Cursor Agent; queued messages are sequential, not parallel |
 | **OpenAI Agents SDK**<br>(programmatic, not CLI) | ⚠️ Handoffs + agents-as-tools | ❌ | ❌ | A pure Python SDK, not a CLI; the handoff pattern is close to Claude's subagents but requires writing code |
 | **Framework path**<br>(Stage 4) | LangGraph / CrewAI / AutoGen | ✅ You wire it | Partially | Cross-LLM provider, Python orchestration, see [Stage 4](/en/stages/04-agent-frameworks/) |
 
 **Interpreting the current state**:
 
-- If you want to play with multi-agent systems in a **CLI** → currently, only Claude Code has native support (**the topic of this section**)
+- If you want to play with multi-agent systems in a **CLI** → Claude Code, Codex CLI, and Gemini CLI all have native subagents now; Claude Code's is the most mature (**the topic of this section**)
 - If you want to go **cross-provider / cross-LLM** → take the Stage 4 framework path
 - If you want **OpenAI ecosystem + multiple agents** → use the OpenAI Agents SDK to write a handoff pattern (programmatic, not CLI)
 - If you want **complete control** → go to [Stage 5.7 Dissecting Claude Code Source](#57--dissecting-claude-code-source-reference-harness-implementation--a-must-read-for-track-b) (read the SDK source, wire the multi-agent system yourself)
 
-→ The rest of this section focuses on **Claude Code subagents**. For developments on other platforms, please follow their respective changelogs (Codex / Gemini / Cursor are still in the single-agent + MCP phase, and will likely follow suit in late 2026).
+→ The rest of this section focuses on **Claude Code subagents**. Codex / Gemini CLI added native subagents in 2026 (see the table above); Cursor is still single-agent. Follow each platform's changelog for the rest.
 
 ### How to dispatch Claude Code's 3 multi-agent mechanisms (specific syntax)
 

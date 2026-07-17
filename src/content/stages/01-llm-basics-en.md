@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "01-llm-basics"
@@ -73,12 +73,12 @@ These are the main choices for Chinese-language work, in two groups: **API-only*
 
 | Model family | Flagship (2026-05) | Context | Strengths | Best for | Official |
 |---|---|---|---|---|---|
-| **DeepSeek** | V3 (`deepseek-chat`) / R1 (`deepseek-reasoner`) | 128k | reasoning / coding / **lowest cost** | high-token workloads / code generation / math | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
-| **Kimi** (Moonshot) | K2.6 multimodal + Agent | **very long 1M+** | long context / Chinese long-form writing | whole-book reading / literature triage | [platform.moonshot.cn](https://platform.moonshot.cn/) |
+| **DeepSeek** | V4-Flash (`deepseek-v4-flash`) / V4-Pro (`deepseek-v4-pro`) | 1M | reasoning / coding / **lowest cost** | high-token workloads / code generation / math | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
+| **Kimi** (Moonshot) | K3 (2.8T params, native multimodal) | **1M** | long context / Chinese long-form writing | whole-book reading / literature triage | [platform.moonshot.cn](https://platform.moonshot.cn/) |
 | **Hunyuan** (Tencent) | T1 (deep-thinking) + TurboS | 128k | **DeepSeek R1-comparable reasoning**, Chinese | Chinese reasoning / Tencent ecosystem | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
 | **MiniMax** | abab6.5 + M2.7 | 200k | multimodal / Chinese long prose | Chinese writing / video and audio multimodal | [platform.minimax.io](https://platform.minimax.io/) |
 
-> **Note**: This group is mostly cloud-API and proprietary. DeepSeek also has some open weights (on HF), but its V4 consumer API isn't fully public yet, so the API is still the main way to use it.
+> **Note**: This group is mostly cloud-API and proprietary. DeepSeek also has some open weights (on HF), but the cloud API is still the main way to use it (the legacy names `deepseek-chat`/`deepseek-reasoner` retire 2026-07-24 and now alias to v4-flash).
 
 **② Open weights (self-hostable)**
 
@@ -103,7 +103,7 @@ These are the main choices for running on your own hardware, avoiding API fees, 
 | **Mistral** (Mistral AI) | 7B / Mixtral 8x7B / Codestral | Apache 2.0 (OSS parts) | strongest open-source 7B class | commercial self-host / EU sovereignty | [mistral.ai](https://mistral.ai/) · [HF Mistral](https://huggingface.co/mistralai) |
 | **Phi** (Microsoft) | Phi-4 14B + multimodal | MIT | **small but strong** / reasoning / edge-friendly | 4 GB+ RAM / mobile / reasoning intro | [HF microsoft](https://huggingface.co/microsoft) |
 
-> **Note**: Llama 4 hadn't shipped as of 2026-05 (the table shows 3.3); Gemma 4 was released 2026-04, ranked #3 on LMArena's open-weights board; Phi-4 also has a multimodal version.
+> **Note**: Llama 4 (Scout / Maverick) shipped 2025-04, but they're large MoE models, so 3.3 70B remains the practical single-GPU self-host base (the table shows 3.3); Behemoth never shipped. Gemma 4 was released 2026-04, ranked #3 on LMArena's open-weights board; Phi-4 also has a multimodal version.
 
 ### 🎯 Which One Should I Pick? (by scenario)
 
@@ -115,10 +115,10 @@ These are the main choices for running on your own hardware, avoiding API fees, 
 | Broad queries + function calling frameworks | **GPT** — broadest ecosystem and deepest SDK integration |
 | **Chinese scenarios + commercial API** | **Kimi** (strong long context; can fit whole books), **DeepSeek** (lowest cost), or **GLM** (agent-friendly) |
 | **Chinese scenarios + open-source self-host** | **Qwen 3** (Apache 2.0; currently the strongest Chinese OSS) |
-| Reasoning / math (reasoning model) | **DeepSeek R1** / **Hunyuan T1** / **OpenAI o-series** |
+| Reasoning / math (reasoning model) | **DeepSeek V4-Pro** / **Hunyuan T1** / **OpenAI o-series** |
 | Privacy / offline / no API fees | **Llama 3.3** / **Gemma 4** / **Qwen 3 OSS** via [Ollama](https://ollama.com/) |
 | Edge / 4 GB RAM machine | **Gemma 4** / **Phi-4** / **Qwen 3 (`qwen3-3B` or smaller variants)** |
-| 100k+ token large documents | **Gemini 3.1** (2M context) or **Kimi K2.6** (1M+) |
+| 100k+ token large documents | **Gemini 3.1** (2M context) or **Kimi K3** (1M) |
 | **Want the lowest cost** (API-bill sensitive) | **DeepSeek V4-Flash** — lowest token price among same-tier English models |
 
 ### 📊 Neutral Benchmark Resources (verify for yourself; do not rely on one source)

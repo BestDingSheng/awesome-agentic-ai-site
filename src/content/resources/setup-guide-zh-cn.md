@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/setup-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "setup-guide"
@@ -55,7 +55,7 @@ baseSlug: "setup-guide"
 | **Windsurf** | https://codeium.com/windsurf | 独立 IDE（Codeium 出） |
 | **Cline** | https://cline.bot | VS Code extension（agentic 风格） |
 | **Continue** | https://continue.dev | VS Code / JetBrains extension（开源） |
-| **Roo Code** | https://github.com/RooCodeInc/Roo-Code | VS Code extension（Cline fork，社群活跃） |
+| **Roo Code** | https://github.com/RooCodeInc/Roo-Code | VS Code extension（Cline fork）；⚠️ **repo 已封存 2026-05（read-only）** |
 | **Zed** | https://zed.dev | 独立 editor，内建 AI assistant |
 | **GitHub Copilot** | https://github.com/features/copilot | VS Code / JetBrains 等多 IDE extension |
 
@@ -75,7 +75,7 @@ baseSlug: "setup-guide"
 | **Aider** | https://aider.chat | 任意（git-native） |
 | **Hermes Agent** | https://github.com/NousResearch/hermes-agent | 200+（model-neutral） |
 
-→ 想看 7 个 CLI 完整比较 → [`cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/)
+→ 想看 8 个 CLI 完整比较 → [`cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/)
 → Claude Code 第一次装的详细步骤 → 本指南 D
 
 > 💡 **IDE-based 跟 CLI agent 怎么选？** 边写 code 边要 AI 帮忙 → IDE；下单一 prompt 让 agent 自己跑完一整个任务 → CLI。两个可以并用。
@@ -119,11 +119,11 @@ baseSlug: "setup-guide"
 > 中国大陆用户连 Anthropic / OpenAI 有困难、或想试中文 native 模型，从这边开始。**这些 API 都 OpenAI-compatible**、改 `base_url` 跟 model name 就能跑同一份练习。
 
 - **DeepSeek**：https://platform.deepseek.com/
-  web 版 https://chat.deepseek.com 完全免费（含 R1 推理模型）。API 价格极便宜（**$0.27 input / $1.10 output per 1M token**、比 haiku 便宜 4 倍）。Code / 推理都很强。
-  `base_url=https://api.deepseek.com/v1`、`model=deepseek-chat` 或 `deepseek-reasoner`。
+  web 版 https://chat.deepseek.com 完全免费（含深度思考模式）。API 价格极便宜（**$0.14 input / $0.28 output per 1M token**、比 haiku 便宜约 7 倍）。Code / 推理都很强。
+  `base_url=https://api.deepseek.com/v1`、`model=deepseek-v4-flash` 或 `deepseek-v4-pro`。
 - **Moonshot Kimi**：https://platform.moonshot.cn/ (中国)、https://platform.moonshot.ai/ (海外)
   web 版 https://kimi.com 免费、**1M token context** 是卖点（很大文件 / 长对话）。API 约 $5-15/1M input、按 context size 阶梯计费。
-  `base_url=https://api.moonshot.cn/v1` (中国) / `https://api.moonshot.ai/v1` (海外)、`model=kimi-k2-turbo-preview` 等。
+  `base_url=https://api.moonshot.cn/v1` (中国) / `https://api.moonshot.ai/v1` (海外)、`model=kimi-k3` 等。
 - **通义千问 Qwen（Alibaba）**：https://dashscope.console.aliyun.com/
   web 版 https://chat.qwen.ai 免费。API 走 Alibaba Cloud DashScope、有 **OpenAI-compatible endpoint**（[文档](https://help.aliyun.com/zh/dashscope/developer-reference/compatibility-of-openai-with-dashscope/)）。**同样的 Qwen 模型也能用 Ollama 在本机跑**（`ollama pull qwen2.5:3b`）——cloud 跟 local 两条路径都通。
 - **智谱 GLM（ZhipuAI）**：https://open.bigmodel.cn/ (中国) / https://z.ai/ (海外)

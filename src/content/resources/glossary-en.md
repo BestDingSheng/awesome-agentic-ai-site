@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -428,7 +428,7 @@ An agent operates real desktop apps via **screenshot → vision → coordinates 
 
 ### Browser Use (web-level agent)
 
-An agent operates web pages, primarily via **DOM-aware navigation** (direct CSS selector queries) with vision fallback. Closed-source: Atlas / Comet / Dia / Gemini in Chrome. OSS leader: [browser-use](https://github.com/browser-use/browser-use) (★ 95k+).
+An agent operates web pages, primarily via **DOM-aware navigation** (direct CSS selector queries) with vision fallback. Closed-source: Comet / Dia / Gemini in Chrome (Atlas discontinued Aug 2026). OSS leader: [browser-use](https://github.com/browser-use/browser-use) (★ 95k+).
 
 📍 Full coverage + 5-vendor comparison + OSS frameworks: [Stage 8 Browser Use](/en/stages/08-agent-interfaces/)
 

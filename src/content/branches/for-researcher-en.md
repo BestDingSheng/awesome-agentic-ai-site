@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-researcher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T02:52:52.060Z"
+syncedAt: "2026-07-17T13:45:14.979Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-researcher"
@@ -147,7 +147,7 @@ Some research tasks only need Claude (dialogue, design, review). Others waste Cl
 | **[zotero-skills](https://github.com/WenyuChiou/zotero-skills)** ⭐⭐⭐⭐ | Reference management | Zotero CLI skill for search / add / classify / tag; complements zotero-gpt, which chats inside Zotero while this operates from outside |
 | **[academic-writing-skills](https://github.com/WenyuChiou/academic-writing-skills)** ⭐⭐⭐ | Pre-submission | banned-word audit, figure-text coupling, and submission checklist; per-paper journal_format / style_overrides customization |
 | **[codex-delegate](https://github.com/WenyuChiou/codex-delegate)** ⭐⭐⭐⭐⭐ | Coding | Standard Claude planner + Codex executor skill for batch refactor / boilerplate / migration work |
-| **[gemini-delegate-skill](https://github.com/WenyuChiou/gemini-delegate-skill)** ⭐⭐⭐⭐ | Long drafts / synthesis | Claude planner + Gemini for 1M-context long-form writing / CJK / second opinions |
+| **[gemini-delegate-skill](https://github.com/WenyuChiou/gemini-delegate-skill)** ⭐⭐⭐ (⚠️ archived) | Long drafts / synthesis | Claude planner + Gemini for 1M-context long-form writing / CJK / second opinions. **⚠️ Repo archived 2026-07** — the workflow still works directly via Gemini CLI |
 
 ---
 
