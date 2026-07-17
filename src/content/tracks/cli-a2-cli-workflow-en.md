@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-16T14:00:29.349Z"
+syncedAt: "2026-07-17T02:52:52.060Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a2-cli-workflow"
@@ -125,6 +125,9 @@ Look at Setup A / B / C and try one that fits.
 ### Recommended Tools
 
 - [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 26k+ — Packs your entire codebase into a single AI-friendly file (XML / Markdown / JSON) for Claude Code / Codex code review / refactoring. Includes MCP server mode + tree-sitter compression (compression varies by language and file structure) + secretlint for secret filtering. **A must-have, daily-driver-grade tool for Track A.**
+- [**langchain-ai/openwiki**](https://github.com/langchain-ai/openwiki) ⭐⭐⭐⭐ ★ 11k+ — CLI that generates and auto-maintains a wiki of your codebase, then wires a reference into `CLAUDE.md` / `AGENTS.md` so your coding agent reads it on demand and it stays updated as code changes. `npm i -g openwiki` → `openwiki --init`. Built on DeepAgents, traces to LangSmith. MIT.
+
+> 💡 **Concept: *agent-facing documentation*.** repomix and OpenWiki attack the same gap (your agent doesn't know the repo) from two angles: a one-shot packed snapshot vs a living, auto-maintained wiki. The shared move is to give the agent *structured codebase context it reads on demand*, kept separate from your `CLAUDE.md` instructions rather than crammed into the prompt.
 
 ## ✅ Self-Check Before A3
 

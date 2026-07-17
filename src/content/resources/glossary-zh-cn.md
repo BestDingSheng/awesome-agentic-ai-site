@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-16T14:00:29.349Z"
+syncedAt: "2026-07-17T02:52:52.060Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "glossary"
@@ -454,4 +454,5 @@ Google 写的“用户空间 kernel”、拦截 syscall 自己模拟、**不用 
 
 - 看 [Stage 5.2 — MCP](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) / [5.3 — Skills](/stages/05-claude-code-ecosystem/#53--skillsclaude-code-的行为层-claude-code-生态最关键的一层) / [5.4 — Plugins](/stages/05-claude-code-ecosystem/#54--plugins-与-marketplaces) 的内文
 - 看 [Stage 1](/stages/01-llm-basics/) / [Stage 6](/stages/06-memory-rag/) / [Stage 7](/stages/07-multi-agent-production/) / [Stage 8](/stages/08-agent-interfaces/) 的延伸阅读清单
+- 想要更白话的解释？[baihuaai.com（白话AI）](https://baihuaai.com) 是一个免费、无广告的简中入门词典，用大白话搭配现实类比讲 AI 术语（有「术语索引」与「零基础专区」）。
 - 找不到的词 → 开 issue 或直接 PR 加进这份小词典

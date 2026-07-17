@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-16T14:00:29.349Z"
+syncedAt: "2026-07-17T02:52:52.060Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -458,4 +458,5 @@ Google's "user-space kernel" — intercepts syscalls and emulates them itself, n
 
 - Read the actual stage content: [Stage 5.2 MCP](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation) / [5.3 Skills](/en/stages/05-claude-code-ecosystem/#53--skills-claude-codes-behavior-layer--the-most-critical-layer-of-the-claude-code-ecosystem) / [5.4 Plugins](/en/stages/05-claude-code-ecosystem/#54--plugins--marketplaces)
 - Required reading lists in [Stage 1](/en/stages/01-llm-basics/) / [Stage 6](/en/stages/06-memory-rag/) / [Stage 7](/en/stages/07-multi-agent-production/) / [Stage 8](/en/stages/08-agent-interfaces/)
+- Want plainer language? [baihuaai.com (白话AI)](https://baihuaai.com) is a free, ad-free Simplified-Chinese beginner glossary that explains AI terms in everyday words with real-world analogies (has a term index + a zero-basics zone).
 - Missing? Open an issue or PR a new entry.
