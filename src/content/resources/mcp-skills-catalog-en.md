@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T13:45:14.979Z"
+syncedAt: "2026-07-18T02:44:52.639Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -166,13 +166,13 @@ baseSlug: "mcp-skills-catalog"
 **Audience**: people working with Excel reports daily who want LLM-driven data filling and cleanup.
 **Notes**: Python-based, depends on openpyxl.
 
-### [GongRzhe/Office-PowerPoint-MCP-Server](https://github.com/GongRzhe/Office-PowerPoint-MCP-Server) ⭐⭐⭐⭐
+### [GongRzhe/Office-PowerPoint-MCP-Server](https://github.com/GongRzhe/Office-PowerPoint-MCP-Server) ⭐⭐⭐ (⚠️ archived 2025-12; use anthropics/skills pptx)
 
 | Field | Value |
 |---|---|
 | Stars | ★ 1.7k+ |
 | License | MIT |
-| Rating | ⭐⭐⭐⭐ |
+| Rating | ⭐⭐⭐ (⚠️ archived) |
 
 **What it does**: PPT manipulation via python-pptx — create decks, edit slides, insert images, change layouts.
 **Audience**: people who want LLMs to auto-generate decks from outlines / Markdown (consultants, lecturers, students).

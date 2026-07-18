@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T13:45:14.979Z"
+syncedAt: "2026-07-18T02:44:52.639Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "06-memory-rag"
@@ -654,7 +654,7 @@ OpenAI **o1**（2024-09）開啟、DeepSeek **R1**（2025-01）開源化、**Dee
 | 你的情況 | 建議 |
 |---|---|
 | 用一般 chat model base、想加 reasoning | Path 1（prompt-based）—— ToT / Self-Consistency / CoVe |
-| 預算 / latency 允許、要最強 reasoning | Path 2 —— **GPT-5.5 / Opus 4.8 / Gemini 3.5 Flash / Grok 4.3 / V4-Pro** 任挑一個（Claude Fable 5 已於 2026-07-01 恢復，屬 premium 高階層級）|
+| 預算 / latency 允許、要最強 reasoning | Path 2 —— **GPT-5.5 / Opus 4.8 / Gemini 3.5 Flash / Grok 4.5 / V4-Pro** 任挑一個（Claude Fable 5 已於 2026-07-01 恢復，屬 premium 高階層級）|
 | 想自己 fine-tune reasoning model | Path 2 —— 讀 R1 paper（方法 baseline）、從 R1-Distill / V4 開源權重起步 |
 | 想 on-device / 預算極緊 | **QwQ-32B**（Apache 2.0）或 R 系列 distill |
 | Multi-agent debate / critic 場景 | Path 1（CRITIC / debate）+ [Stage 7 multi-agent](/zh-tw/stages/07-multi-agent-production/) |

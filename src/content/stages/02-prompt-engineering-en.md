@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T13:45:14.979Z"
+syncedAt: "2026-07-18T02:44:52.639Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -437,7 +437,7 @@ for label, prompt in PROMPTS.items():
 | **Official cookbook** | [Anthropic Cookbook — Prompt patterns](https://github.com/anthropics/claude-cookbooks) | ⭐⭐⭐⭐⭐ | Advanced Claude prompting (prompt caching / multimodal) | Introduced in Stage 1; for this stage focus on `misc/prompt_caching.ipynb` and `multimodal/` |
 | | [GoogleCloudPlatform/generative-ai](https://github.com/GoogleCloudPlatform/generative-ai) | ⭐⭐⭐ | Google stack (PaLM / Gemini) users | Google Cloud's prompting cookbook; cross-vendor perspective |
 | **Inspiration collection**<br>(steal patterns, don't copy)| [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) | ⭐⭐⭐ | When you're stuck for ideas | Hundreds of "Act as a [role]..." prompts, ★ 162k+, CC0. **Take the pattern, rewrite — don't copy verbatim** |
-| **Production management**<br>(scale up)| [microsoft/prompt-engine](https://github.com/microsoft/prompt-engine) | ⭐⭐⭐ | Managing many prompts in production | TypeScript library, template + dialogue history management |
+| **Production management**<br>(scale up)| [microsoft/prompt-engine](https://github.com/microsoft/prompt-engine) | ⭐⭐ (⚠️ archived) | Managing many prompts in production | TypeScript library; ⚠️ **no updates since 2023, repo archived** — find a maintained alternative |
 | | [microsoft/promptflow](https://github.com/microsoft/promptflow) | ⭐⭐⭐ | Team apps needing eval | Visual prompt design + eval tooling, ★ 11k+ |
 | | [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy) ⭐ **Stage 2 → 3 bridge** | ⭐⭐⭐⭐⭐ | After dair-ai, want to scale prompts | Treat prompts as code, compiler auto-optimizes, ★ 34k+, MIT |
 

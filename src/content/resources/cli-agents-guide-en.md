@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cli-agents-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T13:45:14.979Z"
+syncedAt: "2026-07-18T02:44:52.639Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-agents-guide"
@@ -156,6 +156,6 @@ Different audiences have different CLI needs:
 
 ## Maintenance Notes
 
-- 7 CLI tools' stars / license / pushed_at auto-refreshed weekly by the `weekly-catalog-refresh` CI (manual run: `python scripts/refresh-stars.py`)
-- The CLI market moves fast — new tools require evaluation before inclusion (bar: 30k+ stars, actively maintained, true CLI not IDE)
+- 8 CLI tools' stars / license / pushed_at auto-refreshed weekly by the `weekly-catalog-refresh` CI (manual run: `python scripts/refresh-stars.py`)
+- The CLI market moves fast — new tools require evaluation before inclusion (bar: 30k+ stars, actively maintained, true CLI not IDE; an official-vendor or very-new CLI can be an exception, e.g. Grok Build)
 - The comparison table deliberately leaves out "strengths / weaknesses" columns — avoiding subjective bias and letting the use-case section + readers' own judgment do that work

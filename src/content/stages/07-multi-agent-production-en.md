@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-17T13:45:14.979Z"
+syncedAt: "2026-07-18T02:44:52.639Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -228,7 +228,7 @@ Before choosing a model or building an agent, you'll want to look at benchmark n
 | [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal tasks | Leading | Claude Opus 4.8 |
 | **GAIA** | general assistant | **74.6%** | Claude Sonnet 4.5 (Princeton HAL) |
 | [**WebArena**](https://github.com/web-arena-x/webarena) | web navigation | **68.7%** | (leading model not disclosed) |
-| [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level desktop control | **76.26%** (SOTA, superhuman vs 72.36% human baseline) | OpenAI CUA 38%, most frontier models still under 50% |
+| [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level desktop control | v1 **76.26%** (near-saturated) | OpenAI CUA 38%; [OSWorld 2.0](https://osworld-v2.xlang.ai/) (2026-06, long-horizon) superseded v1 — realistic long-task SOTA only ~20% (Opus 4.8 20.6%), see Stage 8 |
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | multi-turn dialogue with tool use | (Harder to hack) | Anthropic / OpenAI leading |
 | **RE-bench** | research engineering | (Harder to hack, close to human baseline) | Frontier models |
 
@@ -316,7 +316,7 @@ Categorized by use case, a single table to get you started with 27 projects. **U
 | | [Anthropic Cookbook (Advanced)](https://github.com/anthropics/anthropic-cookbook) | ⭐⭐⭐⭐ | For seeing official advanced SDK patterns | Especially the `prompt_caching.ipynb` / `tool_use/` / `multimodal/` notebooks |
 | **Structured Output** | [BoundaryML/baml](https://github.com/BoundaryML/baml) | ⭐⭐⭐⭐ | For getting reliable, validated JSON out of any model | A small dedicated language for getting reliable, checked JSON out of LLMs; works with Claude / OpenAI / local models across 7 programming languages. ★ 8k+, Apache 2.0 |
 | **Deployment** | [BentoML](https://github.com/bentoml/BentoML) | ⭐⭐⭐⭐ | For packaging an agent into a production API service | Docker + serving framework. ★ 8k+, Apache 2.0 |
-| | [LangServe](https://github.com/langchain-ai/langserve) | ⭐⭐⭐⭐ | For quickly deploying a LangChain agent | Based on FastAPI |
+| | [LangServe](https://github.com/langchain-ai/langserve) | ⭐⭐⭐ (⚠️ archived) | For quickly deploying a LangChain agent | Based on FastAPI; ⚠️ **repo archived 2026-05** — use LangGraph Platform for new deploys |
 | | [vLLM](https://github.com/vllm-project/vllm) | ⭐⭐⭐⭐ | For self-hosting an open-source LLM to replace paid APIs | High-throughput LLM serving for Llama / Qwen, etc. ★ 79k+, Apache 2.0 |
 | **Chinese Deploy / Fine-tune** | [datawhalechina/self-llm](https://github.com/datawhalechina/self-llm) | ⭐⭐⭐⭐ | For Chinese teams wanting to self-host open-source LLMs | A complete Chinese guide from training-to-deployment, for Qwen / Llama / GLM / multimodal. ★ 30k+, Apache 2.0 |
 | | [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | ⭐⭐⭐⭐⭐ | For fine-tuning open-source LLMs (beyond just prompt eng) | Unified SFT/DPO/PPO/GRPO for 100+ models, no-code Web UI, widest Chinese community. ★ 70k+, Apache 2.0 |
