@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-20T14:12:27.790Z"
+syncedAt: "2026-07-21T02:55:26.933Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
@@ -213,14 +213,14 @@ Official GitHub Action template. PR review, issue triage, auto-fix.
 ### Observability + Cost
 
 #### [langfuse/langfuse](https://github.com/langfuse/langfuse) ⭐⭐⭐⭐⭐
-★ 26k+ — Open-source LLM observability. Trace, cost, sessions in one place.
+★ 31k+ — Open-source LLM observability. Trace, cost, sessions in one place.
 > See [Stage 7 Observability](/en/stages/07-multi-agent-production/#exercise-3-observability).
 
 #### [Helicone](https://github.com/Helicone/helicone) ⭐⭐⭐⭐
-★ 5k+ — Proxy-based monitoring. Just change `base_url` and you get logging + caching.
+★ 6k+ — Proxy-based monitoring. Just change `base_url` and you get logging + caching.
 
 #### [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) ⭐⭐⭐⭐⭐
-★ 20k+ — Eval framework. Run regression tests before promoting CLI workflows to production.
+★ 23k+ — Eval framework. Run regression tests before promoting CLI workflows to production.
 > See [Stage 7 Eval](/en/stages/07-multi-agent-production/#exercise-2-eval).
 
 ---
@@ -228,10 +228,10 @@ Official GitHub Action template. PR review, issue triage, auto-fix.
 ### Production CLI Workflow Templates
 
 #### [obra/superpowers](https://github.com/obra/superpowers) ⭐⭐⭐⭐
-★ 178k+ — Production-ready skill collection. See how someone else does a complete CLI workflow.
+★ 258k+ — Production-ready skill collection. See how someone else does a complete CLI workflow.
 
 #### [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace)
-★ 900+ — Minimal marketplace template. Reference when packaging your team's CLI workflow.
+★ 1.2k+ — Minimal marketplace template. Reference when packaging your team's CLI workflow.
 
 ## ✅ Track A Full Self-Check
 

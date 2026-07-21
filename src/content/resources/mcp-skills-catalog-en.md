@@ -1,11 +1,11 @@
 ---
 title: "MCP / Skills Integration Catalog"
-description: "| Field | Value | |---|---| | Stars | ★ 4k+ | | License | NOASSERTION | | Rating | ⭐⭐⭐⭐⭐ (official) |"
+description: "| Field | Value | |---|---| | Stars | ★ 4.5k+ | | License | NOASSERTION | | Rating | ⭐⭐⭐⭐⭐ (official) |"
 section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-20T14:12:27.790Z"
+syncedAt: "2026-07-21T02:55:26.933Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -58,7 +58,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 4k+ |
+| Stars | ★ 4.5k+ |
 | License | NOASSERTION |
 | Rating | ⭐⭐⭐⭐⭐ (**official**) |
 
@@ -70,7 +70,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 3.5k+ |
+| Stars | ★ 4.1k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (community, most popular) |
 
@@ -82,7 +82,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 6k+ |
+| Stars | ★ 7.4k+ |
 | License | NOASSERTION |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -94,7 +94,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 12k+ |
+| Stars | ★ 18k+ |
 | License | NOASSERTION |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -106,7 +106,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 264 |
+| Stars | ★ 312 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -118,7 +118,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 147 |
+| Stars | ★ 171 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (covers both Logseq + Obsidian) |
 
@@ -130,7 +130,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 254 |
+| Stars | ★ 394 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -146,7 +146,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 129k+ |
+| Stars | ★ 162k+ |
 | License | NOASSERTION |
 | Rating | ⭐⭐⭐⭐⭐ (**official**, must-install) |
 
@@ -182,7 +182,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 4.9k+ |
+| Stars | ★ 5.9k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (agent-native slide framework) |
 
@@ -194,7 +194,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 688 |
+| Stars | ★ 831 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (high-throughput PDF) |
 
@@ -206,7 +206,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 590 |
+| Stars | ★ 790 |
 | License | NOASSERTION |
 | Rating | ⭐⭐⭐ (Office skill add-on) |
 
@@ -234,7 +234,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 2.3k+ |
+| Stars | ★ 2.9k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (one server, all of Google) |
 
@@ -246,7 +246,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 844 |
+| Stars | ★ 952 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (Sheets-only) |
 
@@ -262,7 +262,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 681 |
+| Stars | ★ 859 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (full M365) |
 
@@ -274,7 +274,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 363 |
+| Stars | ★ 407 |
 | License | NOASSERTION |
 | Rating | ⭐⭐⭐ (Outlook only) |
 
@@ -286,7 +286,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 244 |
+| Stars | ★ 278 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -326,7 +326,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 650+ |
+| Stars | ★ 878 |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐ (**official**) |
 
@@ -362,7 +362,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 298 |
+| Stars | ★ 414 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -374,7 +374,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 44k+ |
+| Stars | ★ 92k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ |
 
@@ -398,7 +398,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 13.5k+ |
+| Stars | ★ 33k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (code intelligence) |
 
@@ -426,7 +426,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 2.7k+ |
+| Stars | ★ 3.2k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (community multi-DB) |
 
@@ -462,7 +462,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 1.6k+ |
+| Stars | ★ 2k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (read-only MySQL) |
 
@@ -526,7 +526,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 38k+ |
+| Stars | ★ 47k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ (**Chrome official**) |
 
@@ -538,7 +538,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 6.2k+ |
+| Stars | ★ 7k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (**Firecrawl official**) |
 
@@ -578,7 +578,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 4.3k+ |
+| Stars | ★ 5k+ |
 | License | NOASSERTION |
 | Rating | ⭐⭐⭐⭐⭐ (**Excalidraw official**) |
 
@@ -590,7 +590,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 1.9k+ |
+| Stars | ★ 2.2k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (alternative Excalidraw) |
 
@@ -602,7 +602,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 25k+ |
+| Stars | ★ 48k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ |
 
@@ -630,7 +630,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 677 |
+| Stars | ★ 782 |
 | License | NOASSERTION |
 | Rating | ⭐⭐⭐⭐ (**Sentry official**) |
 
@@ -698,7 +698,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 193 |
+| Stars | ★ 243 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -710,7 +710,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 5k+ |
+| Stars | ★ 5.6k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -746,7 +746,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 5k+ |
+| Stars | ★ 5.6k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -782,7 +782,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 117 |
+| Stars | ★ 917 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -794,7 +794,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 492 |
+| Stars | ★ 7.5k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -848,7 +848,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 1.5k+ |
+| Stars | ★ 1.7k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (**Stripe official**) |
 
@@ -889,7 +889,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 60 |
+| Stars | ★ 165 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (full research workflow) |
 
@@ -901,7 +901,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 2 |
+| Stars | ★ 8 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (narrow but deep) |
 
@@ -913,7 +913,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 16 |
+| Stars | ★ 45 |
 | License | NOASSERTION |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -925,7 +925,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 14 |
+| Stars | ★ 38 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -997,7 +997,7 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 | Field | Value |
 |---|---|
-| Stars | ★ 79k+ |
+| Stars | ★ 93k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐ |
 

@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-researcher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-20T14:12:27.790Z"
+syncedAt: "2026-07-21T02:55:26.933Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-researcher"
@@ -52,7 +52,7 @@ Claude Code infrastructure for PhD researchers — skills, agents, hooks, rules 
 
 | Field | Value |
 |---|---|
-| Stars | ★ 8k+ |
+| Stars | ★ 8.9k+ |
 | License | Apache-2.0 |
 
 **What it teaches**: PDF Q&A designed for **citation-grounded Q&A** — every answer includes sentence-level citations to reduce hallucination risk. Actual accuracy depends on document type; use the official benchmarks / papers as the reference.
@@ -172,7 +172,7 @@ Some research tasks only need Claude (dialogue, design, review). Others waste Cl
 
 | Field | Value |
 |---|---|
-| Stars | ★ 6k+ |
+| Stars | ★ 6.9k+ |
 | License | The AI Scientist Source Code License (source-available, non-commercial + manuscript-disclosure clause) |
 
 **What it teaches**: End-to-end multi-agent science loop: ideate → code → experiment → write → peer-review. Sakana AI's research implementation of "AI writes a full ML paper."

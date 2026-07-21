@@ -1,11 +1,11 @@
 ---
 title: "MCP / Skills 集成目录"
-description: "| 栏位 | 内容 | |---|---| | Stars | ★ 4k+ | | License | NOASSERTION | | 推荐度 | ⭐⭐⭐⭐⭐（官方） |"
+description: "| 栏位 | 内容 | |---|---| | Stars | ★ 4.5k+ | | License | NOASSERTION | | 推荐度 | ⭐⭐⭐⭐⭐（官方） |"
 section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-20T14:12:27.790Z"
+syncedAt: "2026-07-21T02:55:26.933Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "mcp-skills-catalog"
@@ -58,7 +58,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 4k+ |
+| Stars | ★ 4.5k+ |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐⭐⭐（**官方**） |
 
@@ -70,7 +70,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 3.5k+ |
+| Stars | ★ 4.1k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（社群、最热门） |
 
@@ -82,7 +82,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 6k+ |
+| Stars | ★ 7.4k+ |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -94,7 +94,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 12k+ |
+| Stars | ★ 18k+ |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -106,7 +106,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 264 |
+| Stars | ★ 312 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -118,7 +118,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 147 |
+| Stars | ★ 171 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐（同时支持 Logseq + Obsidian） |
 
@@ -130,7 +130,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 254 |
+| Stars | ★ 394 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -146,7 +146,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 129k+ |
+| Stars | ★ 162k+ |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐⭐⭐（**官方**，必装） |
 
@@ -182,7 +182,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 4.9k+ |
+| Stars | ★ 5.9k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（agent-native 简报框架） |
 
@@ -194,7 +194,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 688 |
+| Stars | ★ 831 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（PDF 高效解析） |
 
@@ -206,7 +206,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 590 |
+| Stars | ★ 790 |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐（补强版 Office skill） |
 
@@ -234,7 +234,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 2.3k+ |
+| Stars | ★ 2.9k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（一个 server 包整套 Google） |
 
@@ -246,7 +246,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 844 |
+| Stars | ★ 952 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（单纯 Sheets 用） |
 
@@ -262,7 +262,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 681 |
+| Stars | ★ 859 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（M365 全套） |
 
@@ -274,7 +274,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 363 |
+| Stars | ★ 407 |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐（只 Outlook） |
 
@@ -286,7 +286,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 244 |
+| Stars | ★ 278 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -326,7 +326,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 650+ |
+| Stars | ★ 878 |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐（**官方**） |
 
@@ -362,7 +362,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 298 |
+| Stars | ★ 414 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -376,7 +376,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 44k+ |
+| Stars | ★ 92k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
@@ -400,7 +400,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 13.5k+ |
+| Stars | ★ 33k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（code intelligence） |
 
@@ -428,7 +428,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 2.7k+ |
+| Stars | ★ 3.2k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（社群多 DB MCP） |
 
@@ -464,7 +464,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 1.6k+ |
+| Stars | ★ 2k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（read-only MySQL） |
 
@@ -528,7 +528,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 38k+ |
+| Stars | ★ 47k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Chrome 官方**） |
 
@@ -540,7 +540,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 6.2k+ |
+| Stars | ★ 7k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Firecrawl 官方**） |
 
@@ -580,7 +580,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 4.3k+ |
+| Stars | ★ 5k+ |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Excalidraw 官方**） |
 
@@ -592,7 +592,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 1.9k+ |
+| Stars | ★ 2.2k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（替代版 Excalidraw） |
 
@@ -606,7 +606,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 25k+ |
+| Stars | ★ 48k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
@@ -634,7 +634,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 677 |
+| Stars | ★ 782 |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐⭐（**Sentry 官方**） |
 
@@ -702,7 +702,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 193 |
+| Stars | ★ 243 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -714,7 +714,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 5k+ |
+| Stars | ★ 5.6k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -750,7 +750,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 5k+ |
+| Stars | ★ 5.6k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -786,7 +786,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 117 |
+| Stars | ★ 917 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -798,7 +798,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 492 |
+| Stars | ★ 7.5k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -852,7 +852,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 1.5k+ |
+| Stars | ★ 1.7k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（**Stripe 官方**） |
 
@@ -893,7 +893,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 60 |
+| Stars | ★ 165 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（研究流程一整套） |
 
@@ -905,7 +905,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 2 |
+| Stars | ★ 8 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐（窄但深） |
 
@@ -917,7 +917,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 16 |
+| Stars | ★ 45 |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -929,7 +929,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 14 |
+| Stars | ★ 38 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -989,7 +989,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 79k+ |
+| Stars | ★ 93k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐ |
 

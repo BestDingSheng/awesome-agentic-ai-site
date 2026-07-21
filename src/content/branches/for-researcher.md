@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-researcher.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-20T14:12:27.790Z"
+syncedAt: "2026-07-21T02:55:26.933Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-researcher"
@@ -52,7 +52,7 @@ baseSlug: "for-researcher"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 8k+ |
+| Stars | ★ 8.9k+ |
 | License | Apache-2.0 |
 
 **教什麼**：對 PDF 文件以 **citation-grounded Q&A** 為設計目標——每個答案附句子層級的引用、減少幻覺風險。實際準確率依文件類型而異、評測結果以官方 benchmark / paper 為準。
@@ -172,7 +172,7 @@ baseSlug: "for-researcher"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 6k+ |
+| Stars | ★ 6.9k+ |
 | License | The AI Scientist Source Code License（source-available，非商用 + 有 manuscript-disclosure 條款） |
 
 **教什麼**：端到端的 multi-agent 科學研究 loop：構想 → 寫程式 → 跑實驗 → 寫 paper → 互審。Sakana AI 的「AI 寫整篇 ML paper」研究實作。

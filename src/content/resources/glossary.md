@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-20T14:12:27.790Z"
+syncedAt: "2026-07-21T02:55:26.933Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "glossary"
@@ -428,7 +428,7 @@ Agent 透過 **screenshot → vision → 算座標 → 模擬鍵鼠** 操作真�
 
 ### Browser Use（web 級 agent）
 
-Agent 操作網頁、主要用 **DOM-aware navigation**（直接 query CSS selector）+ 必要時 vision fallback。代表閉源：Comet / Dia / Gemini in Chrome（Atlas 2026-08 停運）。代表 OSS：[browser-use](https://github.com/browser-use/browser-use)（★ 95k+）。
+Agent 操作網頁、主要用 **DOM-aware navigation**（直接 query CSS selector）+ 必要時 vision fallback。代表閉源：Comet / Dia / Gemini in Chrome（Atlas 2026-08 停運）。代表 OSS：[browser-use](https://github.com/browser-use/browser-use)（★ 105k+）。
 
 📍 完整解說 + 5 強對比 + OSS 框架：[Stage 8 Browser Use](/zh-tw/stages/08-agent-interfaces/#-browser-use--web-級-agent)
 

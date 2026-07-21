@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-teacher.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-20T14:12:27.790Z"
+syncedAt: "2026-07-21T02:55:26.933Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-teacher"
@@ -87,7 +87,7 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 通用的写作 / 头脑风暴 skill。可改用在备课上。
 
 #### 进阶自动化：[Claude Code](https://github.com/anthropics/claude-code)（搭配自定义 CLAUDE.md）⭐⭐⭐⭐⭐
-★ 120k+ — **教师的基础工具是 Claude.ai（网页版）+ NotebookLM + Google Classroom / LMS 集成**，先从这里开始。**只有当你已有会重复跑的批量流程**（如每周生成 50 份家长信、每学期跑学生反馈分析）才升级到 Claude Code，需要学一点 CLI。
+★ 138k+ — **教师的基础工具是 Claude.ai（网页版）+ NotebookLM + Google Classroom / LMS 集成**，先从这里开始。**只有当你已有会重复跑的批量流程**（如每周生成 50 份家长信、每学期跑学生反馈分析）才升级到 Claude Code，需要学一点 CLI。
 
 ### 教学课程素材（给教师备课用）
 
