@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-27T03:29:08.713Z"
+syncedAt: "2026-07-27T14:42:43.941Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a1-cli-intro"
@@ -101,7 +101,7 @@ order: 1
 ★ 217k+ — Nous Research 出的自动演化型 agent。差异化在三件事：(1) agent 跑 cloud VM，从 Telegram / Discord / Slack 任一界面跟它聊；(2) 多 LLM 中性，支持 GLM / Kimi / 小米 MiMo / MiniMax 等中文圈生态；(3) 内建 cron 排程 + skill 自动演化回圈（★ 数据截至 2026-05；以官方 GitHub 为准）。⚠️ 自动演化 skill 是实验性功能，缺第三方独立审计，production 用前请自行验证安全性与维护状态，先在低风险场景试。
 
 #### [xai-org/grok-build](https://github.com/xai-org/grok-build) ⭐⭐⭐
-★ 20k+ — SpaceXAI（xAI）官方 TUI coding agent（Rust、支持 headless 模式 / ACP 编辑器嵌入）。⚠️ 2026-07-14 才开源、非常新——先观察、不建议当第一个 CLI agent。
+★ 22k+ — SpaceXAI（xAI）官方 TUI coding agent（Rust、支持 headless 模式 / ACP 编辑器嵌入）。⚠️ 2026-07-14 才开源、非常新——先观察、不建议当第一个 CLI agent。
 
 ---
 

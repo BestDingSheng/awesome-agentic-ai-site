@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-27T03:29:08.713Z"
+syncedAt: "2026-07-27T14:42:43.941Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -314,7 +314,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 5.1k+ |
+| Stars | ★ 5.6k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (most popular community Atlassian) |
 
@@ -901,7 +901,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 8 |
+| Stars | ★ 10 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (narrow but deep) |
 

@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-27T03:29:08.713Z"
+syncedAt: "2026-07-27T14:42:43.941Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a1-cli-intro"
@@ -99,7 +99,7 @@ Detailed comparison (stars, license, strengths, recommended use cases) in [`reso
 ★ 217k+ — Nous Research's auto-evolving agent. Three differentiators: (1) the agent runs on a cloud VM and you message it from Telegram / Discord / Slack / WhatsApp / Signal; (2) model-neutral — supports GLM / Kimi / Xiaomi MiMo / MiniMax and other Chinese-ecosystem LLMs; (3) built-in cron scheduler + autonomous skill-evolution loop (★ data as of 2026-05; check the official GitHub for current numbers). ⚠️ Auto-evolving skills are experimental, lack third-party independent audits, and should be safety- and maintenance-verified before production use; start in low-risk contexts.
 
 #### [xai-org/grok-build](https://github.com/xai-org/grok-build) ⭐⭐⭐
-★ 20k+ — SpaceXAI's (xAI) official TUI coding agent (Rust; headless mode + ACP editor embedding). ⚠️ Open-sourced 2026-07-14, very new — watch first; not recommended as your first CLI agent.
+★ 22k+ — SpaceXAI's (xAI) official TUI coding agent (Rust; headless mode + ACP editor embedding). ⚠️ Open-sourced 2026-07-14, very new — watch first; not recommended as your first CLI agent.
 
 ---
 
