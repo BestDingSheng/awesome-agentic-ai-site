@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-31T03:19:10.825Z"
+syncedAt: "2026-07-31T14:14:11.553Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a3-cli-production"
@@ -202,7 +202,7 @@ Track A 的人**已經在用** [Stage 7.5 的進階概念](/zh-tw/stages/07-5-ad
 
 | 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|---|
-| **MCP server collection**<br>（接 CLI 用） | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | ⭐⭐⭐⭐⭐ | 第一個 MCP 從 reference 學起 | 官方 reference servers（filesystem / github / sqlite / git / time / fetch / memory / sequential-thinking），★ 85k+。詳見 [Stage 5.2](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) |
+| **MCP server collection**<br>（接 CLI 用） | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | ⭐⭐⭐⭐⭐ | 第一個 MCP 從 reference 學起 | 官方 reference servers（現有 7 個：everything / fetch / filesystem / git / memory / sequentialthinking / time；github、sqlite 已移到 `servers-archived`），★ 85k+。詳見 [Stage 5.2](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) |
 | | [wong2/awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers) | ⭐⭐⭐⭐ | 想找特定領域的社群 MCP | 社群 MCP catalog、150+ 個依分類整理 |
 | **CI 整合 patterns** | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | ⭐⭐⭐⭐⭐ | 第一個 CI workflow 從官方範本起步 | 官方 GitHub Action 範本、PR review / issue triage / 自動 fix |
 | | [continuedev/continue](https://github.com/continuedev/continue) | ⭐⭐⭐⭐ | 想把 AI checks 接到 PR pipeline 強制執行 | ★ 33k+。完整介紹見 [`branches/for-developer.md`](/zh-tw/branches/for-developer/) |

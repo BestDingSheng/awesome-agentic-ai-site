@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-31T03:19:10.825Z"
+syncedAt: "2026-07-31T14:14:11.553Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -1053,7 +1053,7 @@ If your integration isn't above, check these catalogs first:
 
 - [`wong2/awesome-mcp-servers`](https://github.com/wong2/awesome-mcp-servers) — most complete community MCP server catalog, 150+ entries by category
 - [`punkpeye/awesome-mcp-servers`](https://github.com/punkpeye/awesome-mcp-servers) — another MCP server catalog, complementary
-- [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) — Anthropic's official reference servers (filesystem, git, time, memory, fetch, sequential-thinking, …)
+- [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) — official reference servers (7 today: everything, fetch, filesystem, git, memory, sequentialthinking, time; github and sqlite have moved to `servers-archived`)
 - [`travisvn/awesome-claude-skills`](https://github.com/travisvn/awesome-claude-skills) — Claude Skills catalog
 
 ### Want to add something?

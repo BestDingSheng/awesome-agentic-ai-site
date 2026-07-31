@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-31T03:19:10.825Z"
+syncedAt: "2026-07-31T14:14:11.553Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "08-agent-interfaces"
@@ -311,7 +311,7 @@ order: 8
 **为何选择 MCP 路线**：你已熟悉 Claude Code（[Stage 5](/stages/05-claude-code-ecosystem/)），新功能可通过 MCP 接入，无需更换工具。
 
 - **Computer-use MCP**（社区有多个实现版本）：在 `.mcp.json` 中添加服务器后，就能在 Claude Code 内调用“截图 → 查看 → 操作”。
-- **Browser MCP**：如 [Playwright MCP](https://github.com/modelcontextprotocol/servers) 等，Claude Code 可打开浏览器运行 web 任务。
+- **Browser MCP**：如 [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) 等，Claude Code 可打开浏览器运行 web 任务。
 
 ### 2. 使用 Codex desktop 在后台运行
 

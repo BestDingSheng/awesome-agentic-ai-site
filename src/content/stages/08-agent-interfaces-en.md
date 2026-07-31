@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-31T03:19:10.825Z"
+syncedAt: "2026-07-31T14:14:11.553Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "08-agent-interfaces"
@@ -311,7 +311,7 @@ A common sticking point for new readers, explained here:
 **Why the MCP route**: You're already familiar with Claude Code ([Stage 5](/zh-tw/stages/05-claude-code-ecosystem/)). New features can be connected via MCP without switching tools.
 
 - **Computer-use MCP** (many community implementations): After adding the server to your `.mcp.json`, you can call "screenshot → analyze → operate" from within Claude Code.
-- **Browser MCP**: Tools like the [Playwright MCP](https://github.com/modelcontextprotocol/servers) allow Claude Code to open a browser and run web tasks.
+- **Browser MCP**: Tools like [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) allow Claude Code to open a browser and run web tasks.
 
 ### 2. Run Tasks in the Background with Codex Desktop
 

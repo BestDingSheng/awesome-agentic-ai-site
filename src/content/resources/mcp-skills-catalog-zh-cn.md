@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-31T03:19:10.825Z"
+syncedAt: "2026-07-31T14:14:11.553Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "mcp-skills-catalog"
@@ -1045,7 +1045,7 @@ baseSlug: "mcp-skills-catalog"
 
 - [`wong2/awesome-mcp-servers`](https://github.com/wong2/awesome-mcp-servers) — 社群最完整 MCP server 清单，150+ 个按分类整理
 - [`punkpeye/awesome-mcp-servers`](https://github.com/punkpeye/awesome-mcp-servers) — 另一份 MCP server 清单，跟上面互补
-- [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) — Anthropic 官方 reference servers（filesystem、git、time、memory、fetch、sequential-thinking 等）
+- [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) — 官方 reference servers（现有 7 个：everything、fetch、filesystem、git、memory、sequentialthinking、time；github、sqlite 已移到 `servers-archived`）
 - [`travisvn/awesome-claude-skills`](https://github.com/travisvn/awesome-claude-skills) — Claude Skills 清单
 
 ### 要加新的？

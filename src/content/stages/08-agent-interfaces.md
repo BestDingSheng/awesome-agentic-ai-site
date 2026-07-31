@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-31T03:19:10.825Z"
+syncedAt: "2026-07-31T14:14:11.553Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "08-agent-interfaces"
@@ -311,7 +311,7 @@ agent 收到任務
 **Why MCP 路線**：你已熟 Claude Code（[Stage 5](/zh-tw/stages/05-claude-code-ecosystem/)），新功能能透過 MCP 接、不用換工具。
 
 - **Computer-use MCP**（社群實作多版本）：在 `.mcp.json` 加 server 後、Claude Code 內就能叫「截圖 → 看 → 操作」
-- **Browser MCP**：[Playwright MCP](https://github.com/modelcontextprotocol/servers) 等、Claude Code 可開瀏覽器跑 web 任務
+- **Browser MCP**：[microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) 等、Claude Code 可開瀏覽器跑 web 任務
 
 ### 2. 用 Codex desktop 在 background 跑
 

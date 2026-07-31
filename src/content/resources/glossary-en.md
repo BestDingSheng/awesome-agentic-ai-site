@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-31T03:19:10.825Z"
+syncedAt: "2026-07-31T14:14:11.553Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -256,14 +256,14 @@ An agent ↔ agent communication protocol started by Google and now governed by 
 
 ### MCP (Model Context Protocol)
 
-Anthropic's open protocol, introduced in 2024, that lets any LLM host (Claude Code, Cursor, your own agent) connect to external tool servers through one interface. Think "**USB for LLMs**".
+Anthropic's open protocol, introduced in 2024, that lets any LLM host (Claude Code, Cursor, your own agent) connect to external tool servers through one interface; donated to the Linux Foundation's Agentic AI Foundation in 2025-12. Think "**USB for LLMs**".
 
 **Technically it standardizes 3 primitives**:
 - **Tools**: functions an LLM can call (read DB / search web / send email…)
 - **Resources**: data an LLM can read (file contents, API responses, DB rows…)
 - **Prompts**: reusable prompt templates (triggered inside the host with `/`)
 
-**Architecture**: server / client pattern — the tool server runs locally or remotely, and the LLM host connects as the client. The server exposes those primitives over one of three transports: stdio / SSE / HTTP.
+**Architecture**: server / client pattern — the tool server runs locally or remotely, and the LLM host connects as the client. The server exposes those primitives over one of two transports: **stdio** (local subprocess) or **Streamable HTTP** (remote); the older HTTP+SSE transport was deprecated in the 2025-03-26 spec revision.
 
 📍 Detail: [Stage 5.2](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation)
 

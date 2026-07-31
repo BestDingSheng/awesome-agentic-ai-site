@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-07-31T03:19:10.825Z"
+syncedAt: "2026-07-31T14:14:11.553Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cookbook"
@@ -169,8 +169,11 @@ You can then use tools like promptfoo for batch testing.
 #### Step 1: Install the Official SDK
 
 ```bash
-pip install mcp
+pip install "mcp>=2,<3"
 ```
+
+> ⚠️ **Always pin the version.** The official Python SDK **released v2.0.0 on 2026-07-28**, and it is a breaking change (`FastMCP` was renamed `MCPServer`; the low-level `Server` takes handlers as constructor parameters instead of decorators). A bare `pip install mcp` gets you 2.x, and **the v1 tutorials written in 2025 that are all over the web will fail on the import line**.
+> Have v1 code you aren't ready to migrate? Pin `pip install "mcp>=1,<2"` (v1.x is in maintenance mode and only receives security fixes). Side-by-side mapping: [official migration guide](https://py.sdk.modelcontextprotocol.io/migration/).
 
 #### Step 2: Write `server.py`
 
@@ -178,45 +181,20 @@ A minimal template for an echo tool:
 
 ```python
 # server.py
-from mcp.server import Server
-from mcp.server.stdio import stdio_server
-from mcp.types import Tool, TextContent
+from mcp.server.mcpserver import MCPServer
 
-app = Server("hello-mcp")
+app = MCPServer("hello-mcp")
 
-@app.list_tools()
-async def list_tools() -> list[Tool]:
-    return [
-        Tool(
-            name="echo",
-            description="Echo the input text back to the user.",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "text": {
-                        "type": "string",
-                        "description": "Text to echo back",
-                    }
-                },
-                "required": ["text"],
-            },
-        )
-    ]
-
-@app.call_tool()
-async def call_tool(name: str, arguments: dict) -> list[TextContent]:
-    if name == "echo":
-        return [TextContent(type="text", text=f"Echo: {arguments['text']}")]
-    raise ValueError(f"Unknown tool: {name}")
-
-async def main():
-    async with stdio_server() as (read, write):
-        await app.run(read, write, app.create_initialization_options())
+@app.tool()
+async def echo(text: str) -> str:
+    """Echo the input text back to the user."""
+    return f"Echo: {text}"
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+    app.run(transport="stdio")
 ```
+
+> 💡 **Why it's so short**: v2 **derives the inputSchema from your type hints** (`text: str` → a required string parameter), uses the **docstring as the tool description**, and wraps return values into MCP content automatically—all three were hand-written in v1. So the schema-design effort now goes into "name the parameters well, write the type hints, write a clear docstring".
 
 #### Step 3: Configure in Claude Desktop / Code
 
@@ -251,14 +229,16 @@ Claude replies (with a tool call icon): Echo: hello world
 | Symptom | Cause | Solution |
 |---|---|---|
 | Claude Desktop doesn't see the tool | `server.py` failed to start | Run `python server.py` directly in the terminal and check `stderr` for errors |
-| Tool is listed but call fails | Incorrect `inputSchema` format (missing `required` fields, wrong `type`) | Refer to [`schema-design-cheatsheet.md`](/en/resources/schema-design-cheatsheet/) |
-| Claude doesn't proactively call the tool | `description` is too generic | Refine `description` to be specific trigger phrases like "When the user asks X, use this tool" |
-| stdio vs. SSE? | `stdio` is for local desktop integration; `SSE` is for remote/web | Always use `stdio` for the first server. |
+| Tool is listed but call fails | A parameter is missing its type hint (v2 builds the schema from it), or the types don't line up | Add a type hint to every parameter; refer to [`schema-design-cheatsheet.md`](/en/resources/schema-design-cheatsheet/) |
+| Claude doesn't proactively call the tool | The docstring (= tool description) is too generic | Rewrite the docstring as a specific trigger, like "When the user asks X, use this tool" |
+| `ImportError` / `AttributeError` on the import line | v1 code (`from mcp.server import Server`, `@app.list_tools()`) running on v2 | Use the v2 form shown above, or pin `mcp>=1,<2` and stay on v1 |
+| stdio or HTTP? | **stdio** for local desktop integration; **Streamable HTTP** for remote (the old HTTP+SSE transport was deprecated in the 2025-03-26 spec revision—don't use it) | Always use `stdio` for the first server. |
+| Does a stdio server need OAuth? | No. The spec says authorization is optional overall; only the HTTP transport SHOULD follow it, and **stdio SHOULD NOT use authorization** | Take credentials from the **environment** (e.g. `os.environ["API_KEY"]`) instead of implementing a login flow inside the server |
 
 ### Further Reading
 
 - See [Stage 5.2](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation) for a full introduction to MCP.
-- Refer to the official examples in [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) (e.g., filesystem, github, sqlite, time).
+- Refer to the official reference servers in [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) (7 of them today: everything / fetch / filesystem / git / memory / sequentialthinking / time; github and sqlite have moved to `servers-archived`). The official README says these are reference implementations and **not production-ready**—to find servers you can actually use, go to the [official Registry](https://registry.modelcontextprotocol.io) (still in preview).
 - For production servers, see [Stage 5.2 "Practice: MCP in production"](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation) and the `~/.claude/skills/` examples in [`anthropics/claude-code`](https://github.com/anthropics/claude-code).
 
 ---
