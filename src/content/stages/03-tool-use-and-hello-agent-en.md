@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T03:17:15.643Z"
+syncedAt: "2026-08-01T13:27:37.194Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -133,7 +133,7 @@ You should already have:
 >
 > 💰 **Stage 3 Budget Estimate** (for all 6 exercises, with heavy tool use): **All local = $0**; **all haiku ≈ $0.50**; **all sonnet ≈ $1.50**. The ReAct loop exercise is about 4-6 tool calls × 5 exercises × 5 reps ≈ $0.80 on haiku. For the full budget, see [`examples/README.md#recommended-llms`](/en#recommended-llm-list).
 >
-> For the full 3-way trade-off, see [`examples/README.md`](/en#three-paths--default-is-ollama-cost-driven).
+> For the full 3-way trade-off, see [`examples/README.en.md`](/en#three-paths--default-is-ollama-cost-driven).
 >
 > 🆘 **Stuck?** Tool calling has the steepest learning curve in the entire curriculum. Install the [`examples/stage-5/tool-calling-tutor/`](../examples/stage-5/tool-calling-tutor/) skill—when you prompt Claude Code with "Why isn't my LLM calling my tool?" or "What's wrong with my schema?", it will auto-load and walk you through a 4-symptom diagnostic process.
 >

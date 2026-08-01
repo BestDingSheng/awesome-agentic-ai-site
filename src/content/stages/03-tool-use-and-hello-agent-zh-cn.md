@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T03:17:15.643Z"
+syncedAt: "2026-08-01T13:27:37.194Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -133,7 +133,7 @@ order: 3
 >
 > 💰 **Stage 3 预算估算**（全 6 练习、tool use 较重）：**全本机 = $0**、**全 haiku ≈ $0.50**、**全 sonnet ≈ $1.50**。ReAct loop 练习单次 4-6 tool calls × 5 练习 × 5 reps ≈ $0.80 haiku。完整预算见 [`examples/README.md#推荐-llm-清单`](/#推荐-llm-清单)。
 >
-> 完整 3 路 trade-off 见 [`examples/README.md`](/#三条路径--默认用-ollama成本考量)。
+> 完整 3 路 trade-off 见 [`examples/README.zh-Hans.md`](/#三条路径--默认用-ollama成本考量)。
 >
 > 🆘 **卡住了？** Tool calling 是整个 curriculum 最陡的学习曲线。装 [`examples/stage-5/tool-calling-tutor/`](../examples/stage-5/tool-calling-tutor/) skill——当你 prompt Claude Code“为什么 LLM 不调用我的 tool”、“我这 schema 哪里写坏”会自动加载、走 4-symptom 诊断流程。
 >

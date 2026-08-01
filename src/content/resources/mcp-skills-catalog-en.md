@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T03:17:15.643Z"
+syncedAt: "2026-08-01T13:27:37.194Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -1062,7 +1062,7 @@ If your integration isn't above, check these catalogs first:
 2. Or PR directly: add an entry under the relevant category in this format (Stars / License / Rating + What it does / Audience / Notes).
 3. **Stars < 100 + non-official** typically gets rejected unless you can argue a strong niche use case.
 
-Read [`resources/style-guide.md`](/en/resources/style-guide/) and [`CONTRIBUTING.md`](../CONTRIBUTING.md) before submitting.
+Read [`resources/style-guide.en.md`](/en/resources/style-guide/) and [`CONTRIBUTING.md`](../CONTRIBUTING.md) before submitting.
 
 ---
 

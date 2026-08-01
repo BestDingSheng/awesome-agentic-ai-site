@@ -2,7 +2,7 @@
 
 > [繁體中文](./cookbook.md) | **简体中文** | [English](./cookbook.en.md)
 
-> Stage 5（Claude Code 生态）跟 [`mcp-skills-catalog.md`](mcp-skills-catalog.zh-Hans.md) 讲“概念”跟“有哪些工具”。这份 cookbook 补中间缺的：“**怎么动手做出来**”。每个 recipe 是一份 step-by-step + sample code + 常见 pitfall，~30-50 分钟做完一个。
+> Stage 5（Claude Code 生态）跟 [`mcp-skills-catalog.zh-Hans.md`](mcp-skills-catalog.zh-Hans.md) 讲“概念”跟“有哪些工具”。这份 cookbook 补中间缺的：“**怎么动手做出来**”。每个 recipe 是一份 step-by-step + sample code + 常见 pitfall，~30-50 分钟做完一个。
 >
 > 不是 reference 也不是 tutorial——是 recipe，挑你需要的那道煮就好。
 
@@ -219,7 +219,7 @@ Claude 回（会显示 tool call icon）：Echo: hello world
 | 症状 | 原因 | 解法 |
 |---|---|---|
 | Claude Desktop 没看到 tool | server.py 启动失败 | 终端直接 `python server.py` 跑、看 stderr 哪里爆 |
-| tool 列出但 call 失败 | 参数 type hint 没写（v2 靠它产 schema）、或类型对不上 | 每个参数都补 type hint；看 [`schema-design-cheatsheet.md`](schema-design-cheatsheet.zh-Hans.md) |
+| tool 列出但 call 失败 | 参数 type hint 没写（v2 靠它产 schema）、或类型对不上 | 每个参数都补 type hint；看 [`schema-design-cheatsheet.zh-Hans.md`](schema-design-cheatsheet.zh-Hans.md) |
 | Claude 不主动叫 tool | docstring（= tool description）太笼统 | docstring 改成“When the user asks X, use this tool”式的具体 trigger |
 | `ImportError` / `AttributeError` 在 import 那行 | 混到 v1 写法（`from mcp.server import Server`、`@app.list_tools()`）跑在 v2 上 | 用上面的 v2 写法，或锁 `mcp>=1,<2` 留在 v1 |
 | stdio 跟 HTTP 哪个用？ | 本地桌面集成用 **stdio**；远程用 **Streamable HTTP**（旧的 HTTP+SSE transport 已于 2025-03-26 deprecated、别再用） | 第一个 server 一律用 stdio |
@@ -587,7 +587,7 @@ Claude Code 目前需要 Anthropic OAuth / API key，没有官方设置可以把
 ### 进一步
 
 - Stage 1 [Local LLM 练习](../stages/01-llm-basics.zh-Hans.md#练习-6local-llm)：Ollama / llama.cpp / vLLM 的差异
-- [`cli-agents-guide.md`](cli-agents-guide.zh-Hans.md)：8 个 CLI agent 怎么选
+- [`cli-agents-guide.zh-Hans.md`](cli-agents-guide.zh-Hans.md)：8 个 CLI agent 怎么选
 - Hermes Agent README：多平台 gateway（Telegram / Discord / Slack）与 provider 设置
 
 ---
@@ -595,8 +595,8 @@ Claude Code 目前需要 Anthropic OAuth / API key，没有官方设置可以把
 ## 找不到你要的 recipe？
 
 - 看 [Stage 5](../stages/05-claude-code-ecosystem.zh-Hans.md) 完整概念
-- 看 [`mcp-skills-catalog.md`](mcp-skills-catalog.zh-Hans.md) 完整工具清单
-- 看 [`schema-design-cheatsheet.md`](schema-design-cheatsheet.zh-Hans.md) 写 tool schema 的细节
-- 看 [`cli-agents-guide.md`](cli-agents-guide.zh-Hans.md) 8 个主流 CLI agent 比较
+- 看 [`mcp-skills-catalog.zh-Hans.md`](mcp-skills-catalog.zh-Hans.md) 完整工具清单
+- 看 [`schema-design-cheatsheet.zh-Hans.md`](schema-design-cheatsheet.zh-Hans.md) 写 tool schema 的细节
+- 看 [`cli-agents-guide.zh-Hans.md`](cli-agents-guide.zh-Hans.md) 8 个主流 CLI agent 比较
 
 要新 recipe → 开 issue 或直接 PR 一份。recipe 格式：**为什么 + 步骤 + 范本 prompt + 常见 pitfall + 进一步**。

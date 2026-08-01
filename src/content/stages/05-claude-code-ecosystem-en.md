@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T03:17:15.643Z"
+syncedAt: "2026-08-01T13:27:37.194Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -272,6 +272,8 @@ MCP / Skills give the agent *more* abilities; **Hooks are the reverse: you attac
 ### What is MCP (Positioning First)
 
 **MCP = an open protocol for "letting an LLM use any external tool or data."** Before MCP, every LLM vendor had to define their own tool specification, and every tool provider had to write a separate integration for each LLM. MCP **standardizes** this layer—write an MCP server once, and Claude / Codex / Cursor / any MCP-enabled host can use it.
+
+> 📈 **Scale check** (Anthropic's own [July 2026 figures](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)): MCP passed **400M monthly SDK downloads** (roughly 4x growth this year), and Claude's connectors directory lists **950+ MCP servers**.
 
 **MCP's Three Abstractions**:
 

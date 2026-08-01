@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T03:17:15.643Z"
+syncedAt: "2026-08-01T13:27:37.194Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -272,6 +272,8 @@ MCP / Skills 是「給 agent 更多能力」；**Hooks 則是反過來：在 age
 ### MCP 是什麼（先定位）
 
 **MCP = 「**讓 LLM 用任何外部工具 / 資料**」的開放協定**。在 MCP 之前每個 LLM 廠商都得自己定義 tool 規格、每個工具供應商都得為每個 LLM 寫一份接法。MCP 把這層**標準化**——寫一次 MCP server、Claude / Codex / Cursor / 任何支援 MCP 的 host 都能用。
+
+> 📈 **規模參考**（Anthropic 2026-07 [官方數字](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)）：MCP 的 SDK 月下載量已超過 **4 億**（今年約成長 4 倍），Claude 的 connectors 目錄收錄 **950+ 個 MCP server**。
 
 **MCP 三個抽象**：
 

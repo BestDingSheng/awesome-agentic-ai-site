@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T03:17:15.643Z"
+syncedAt: "2026-08-01T13:27:37.194Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cookbook"
@@ -229,7 +229,7 @@ Claude replies (with a tool call icon): Echo: hello world
 | Symptom | Cause | Solution |
 |---|---|---|
 | Claude Desktop doesn't see the tool | `server.py` failed to start | Run `python server.py` directly in the terminal and check `stderr` for errors |
-| Tool is listed but call fails | A parameter is missing its type hint (v2 builds the schema from it), or the types don't line up | Add a type hint to every parameter; refer to [`schema-design-cheatsheet.md`](/en/resources/schema-design-cheatsheet/) |
+| Tool is listed but call fails | A parameter is missing its type hint (v2 builds the schema from it), or the types don't line up | Add a type hint to every parameter; refer to [`schema-design-cheatsheet.en.md`](/en/resources/schema-design-cheatsheet/) |
 | Claude doesn't proactively call the tool | The docstring (= tool description) is too generic | Rewrite the docstring as a specific trigger, like "When the user asks X, use this tool" |
 | `ImportError` / `AttributeError` on the import line | v1 code (`from mcp.server import Server`, `@app.list_tools()`) running on v2 | Use the v2 form shown above, or pin `mcp>=1,<2` and stay on v1 |
 | stdio or HTTP? | **stdio** for local desktop integration; **Streamable HTTP** for remote (the old HTTP+SSE transport was deprecated in the 2025-03-26 spec revision—don't use it) | Always use `stdio` for the first server. |
@@ -596,7 +596,7 @@ For local LLM work, treat "Claude Code" and "BYO-LLM CLI agents" as separate too
 ### Further Reading
 
 - Stage 1 [Local LLM exercise](/en/stages/01-llm-basics/#exercise-6-local-llm): Ollama / llama.cpp / vLLM tradeoffs
-- [`cli-agents-guide.md`](/en/resources/cli-agents-guide/): how to choose among 8 CLI agents
+- [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/): how to choose among 8 CLI agents
 - Hermes Agent README: multi-platform gateway setup for Telegram / Discord / Slack and providers
 
 ---
@@ -604,8 +604,8 @@ For local LLM work, treat "Claude Code" and "BYO-LLM CLI agents" as separate too
 ## Can't Find the Recipe You Need?
 
 - See [Stage 5](/zh-tw/stages/05-claude-code-ecosystem/) for the full concept.
-- See [`mcp-skills-catalog.md`](/en/resources/mcp-skills-catalog/) for a comprehensive list of tools.
-- See [`schema-design-cheatsheet.md`](/en/resources/schema-design-cheatsheet/) for details on writing tool schemas.
-- See [`cli-agents-guide.md`](/en/resources/cli-agents-guide/) for a comparison of 7 popular CLI agents.
+- See [`mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) for a comprehensive list of tools.
+- See [`schema-design-cheatsheet.en.md`](/en/resources/schema-design-cheatsheet/) for details on writing tool schemas.
+- See [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) for a comparison of 7 popular CLI agents.
 
 Want a new recipe? Open an issue or submit a PR. Recipe format: **Why + Steps + Sample Prompt + Common Pitfalls + Further Reading**.
