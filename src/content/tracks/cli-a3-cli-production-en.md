@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-02T03:17:33.137Z"
+syncedAt: "2026-08-02T13:34:38.726Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
@@ -188,7 +188,7 @@ Track A users are **already using** [Stage 7.5 advanced concepts](/en/stages/07-
 
 ### MCP server collection (CLI-friendly)
 
-> 💡 **Looking for MCPs that connect to daily tools** (Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma…): see [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) — 65+ entries grouped by category, each with stars / license / audience. The list below is for "writing your own MCP server / finding reference implementations".
+> 💡 **Looking for MCPs that connect to daily tools** (Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma…): see [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) — 76+ entries grouped by category, each with stars / license / audience. The list below is for "writing your own MCP server / finding reference implementations".
 
 #### [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) ⭐⭐⭐⭐⭐
 ★ 85k+ — Official reference servers (7 today: everything, fetch, filesystem, git, memory, sequentialthinking, time; github and sqlite have moved to `servers-archived`).

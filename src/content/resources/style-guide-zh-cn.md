@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-02T03:17:33.137Z"
+syncedAt: "2026-08-02T13:34:38.726Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "style-guide"
@@ -55,9 +55,9 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 **备注**：1-3 句个人评价。哪里好、哪里弱、哪里可以跳。（可省略）
 
 **怎么跑**：
-```bash
+\`\`\`bash
 # 最小安装指令、第一次跑该执行什么
-```
+\`\`\`
 ```
 
 ### 必填字段（GitHub repo entry）

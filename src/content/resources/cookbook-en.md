@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-02T03:17:33.137Z"
+syncedAt: "2026-08-02T13:34:38.726Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cookbook"
@@ -214,7 +214,7 @@ if __name__ == "__main__":
 **Claude Code**: Use the `claude mcp add` command:
 
 ```bash
-claude mcp add hello-mcp python /absolute/path/to/server.py
+claude mcp add hello-mcp --scope project -- python /absolute/path/to/server.py
 ```
 
 #### Step 4: Restart Claude Desktop / Code and Test

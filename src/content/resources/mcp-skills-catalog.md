@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-02T03:17:33.137Z"
+syncedAt: "2026-08-02T13:34:38.726Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "mcp-skills-catalog"
@@ -14,7 +14,7 @@ baseSlug: "mcp-skills-catalog"
 
 > **繁體中文** | [简体中文](/resources/mcp-skills-catalog/) | [English](/en/resources/mcp-skills-catalog/)
 
-> 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 65+ 個分類整理過的 MCP server / Claude Skill / 整合範例（含研究工作流 + multi-LLM delegation 兩個專屬區）。
+> 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 76+ 個分類整理過的 MCP server / Claude Skill / 整合範例（含研究工作流 + multi-LLM delegation 兩個專屬區）。
 
 ---
 
@@ -40,10 +40,10 @@ baseSlug: "mcp-skills-catalog"
 5. [開發協作（GitHub / Atlassian / Slack…）](#5-開發協作github--atlassian--slack)（9）
 6. [資料庫](#6-資料庫)（8）
 7. [瀏覽器自動化 / 網頁抓取](#7-瀏覽器自動化--網頁抓取)（4）
-8. [設計（Figma / Excalidraw）](#8-設計figma--excalidraw)（3）
+8. [設計（Figma / Excalidraw）](#8-設計figma--excalidraw)（4）
 9. [監控 / Observability](#9-監控--observability)（3）
 10. [媒體 / 串流（YouTube / Spotify）](#10-媒體--串流youtube--spotify)（3）
-11. [中文圈專用](#11-中文圈專用)（9）
+11. [中文圈專用](#11-中文圈專用)（11）
 12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（4）
 13. [研究工作流 Skills（學術 / paper / 文獻）](#13-研究工作流-skills學術--paper--文獻)（4）
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills)（3）
@@ -338,7 +338,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 1.6k+ |
+| Stars | ★ 1.8k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐（無 admin 權限也能用） |
 
@@ -398,7 +398,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 33k+ |
+| Stars | ★ 36k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐⭐（code intelligence） |
 
@@ -486,7 +486,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 504 |
+| Stars | ★ 555 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐（**Redis 官方**） |
 
@@ -602,7 +602,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 48k+ |
+| Stars | ★ 53k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐⭐⭐ |
 
@@ -618,7 +618,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 3k+ |
+| Stars | ★ 3.3k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐⭐⭐（**Grafana 官方**） |
 
@@ -864,7 +864,7 @@ baseSlug: "mcp-skills-catalog"
 | 形式 | hosted MCP server |
 | 推薦度 | ⭐⭐⭐（Finance 分析工具；了解 hosted vs self-hosted MCP 實作差異的實例） |
 
-**教什麼**：YIELD INTELLIGENCE hosted remote MCP server——即時美國國債殖利率 + 股息 ETF / REIT / 特別股分析 + 被動收入投資組合優化。2 個工具：`analyze_yield_opportunities`（掃描被動收入機會）+ `optimize_income_portfolio`（目標月收入建立投資組合）。已列入 Anthropic 官方 MCP Registry（`io.github.thebrierfox/intuitek-ace`，since 2026-05-10）。
+**教什麼**：YIELD INTELLIGENCE hosted remote MCP server——即時美國國債殖利率 + 股息 ETF / REIT / 特別股分析 + 被動收入投資組合優化。2 個工具：`analyze_yield_opportunities`（掃描被動收入機會）+ `optimize_income_portfolio`（目標月收入建立投資組合）。已列入官方 MCP Registry（`io.github.thebrierfox/intuitek-ace`，since 2026-05-10）。
 **適合誰**：用 Claude Code / Claude Desktop 做個人理財分析、想讓 AI 找出被動收入機會的人。hosted remote MCP server 範例——直接 plug URL、0 安裝、適合 Stage 5 學完 MCP 概念後拿來實驗 hosted vs self-hosted 差異。
 **備註**：Live endpoint `https://api.intuitek.ai/yield/mcp`（no auth、no API key）。x402 micropayment $1 USDC/call on Base（agent-to-agent 場景）；一般使用者免費。非交易型，純分析工具。GitHub：[thebrierfox/intuitek-ace](https://github.com/thebrierfox/intuitek-ace)（MIT License）。
 
@@ -890,7 +890,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 165 |
+| Stars | ★ 182 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐⭐（研究流程一整套） |
 
@@ -940,6 +940,7 @@ baseSlug: "mcp-skills-catalog"
 
 > ⚠️ **maintainer 自家專案區**：跟 13 一樣，以下是維護者把自己 daily workflow 抽出來公開的 delegation skills。star 門檻放寬，選收標準是「真的能讓 Claude planner + Codex/Gemini 執行者組合穩定跑下去」。Multi-LLM 領域變化快，建議跟其他 multi-agent framework（Stage 7 列的）一起評估後再選。
 
+<!-- not-an-entry -->
 ### 三個 skill 的組合（composition）
 
 底下 3 個 skill 是**設計成一起用**的，不是獨立工具：
