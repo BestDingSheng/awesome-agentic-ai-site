@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "schema-design-cheatsheet"
@@ -14,7 +14,7 @@ baseSlug: "schema-design-cheatsheet"
 
 > [繁體中文](/zh-tw/resources/schema-design-cheatsheet/) | **简体中文** | [English](/en/resources/schema-design-cheatsheet/)
 
-> [Stage 3 — Tool Use & Agent 入门](/zh-tw/stages/03-tool-use-and-hello-agent/) 的补充参考。写 tool / function schema 时的 5 条黄金规则 + 5 个 anti-pattern。
+> [Stage 3 — Tool Use & Agent 入门](/stages/03-tool-use-and-hello-agent/) 的补充参考。写 tool / function schema 时的 5 条黄金规则 + 5 个 anti-pattern。
 
 LLM 怎么用你的 tool **80% 取决于 schema 写得好不好**——schema 模糊，再强的模型也会选错、传错。
 
@@ -158,5 +158,5 @@ LLM 看到 `success: false` 就知道要处理错误，不会把空数据当答�
 
 - [Anthropic — Tool Use Guide](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview) — 官方 schema 规格
 - [OpenAI — Function Calling](https://platform.openai.com/docs/guides/function-calling) — OpenAI 的 schema 规格（跟 Anthropic 略有差异）
-- [Stage 3 — Tool Use & Agent 入门](/zh-tw/stages/03-tool-use-and-hello-agent/) — 主要动手练习
+- [Stage 3 — Tool Use & Agent 入门](/stages/03-tool-use-and-hello-agent/) — 主要动手练习
 - [Stage 5.2 — MCP 基础](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) — MCP server 的 tool schema（跟 function calling schema 结构几乎相同）

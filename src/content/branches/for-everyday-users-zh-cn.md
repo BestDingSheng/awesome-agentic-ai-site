@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-everyday-users"
@@ -188,4 +188,4 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 - 中文友善的 chat tools（国产 LLM、本地化 wrapper）
 - 隐私 / 安全相关的最佳实践（什么数据能送 / 不能送）
 
-详见 [CONTRIBUTING.md](../CONTRIBUTING.md)。
+详见 [CONTRIBUTING.md](../CONTRIBUTING.zh-Hans.md)。

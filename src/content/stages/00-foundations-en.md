@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/00-foundations.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "00-foundations"
@@ -29,7 +29,7 @@ If you can:
 - Use the command line on your OS (cd, ls, mkdir, run a script)
 - Read a YAML / JSON file without confusion
 
-→ **Skip directly to [Stage 1](/zh-tw/stages/01-llm-basics/)**.
+→ **Skip directly to [Stage 1](/en/stages/01-llm-basics/)**.
 
 If you can't, work through this stage. Don't skip — every later stage assumes these.
 

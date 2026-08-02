@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cookbook"
@@ -14,7 +14,7 @@ baseSlug: "cookbook"
 
 > [繁體中文](/zh-tw/resources/cookbook/) | [简体中文](/resources/cookbook/) | **English**
 
-> Stage 5 (Claude Code Ecosystem) talks about "Concepts" and "Available Tools" with [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/). This cookbook fills in the gap in between: "**How to build it**". Each recipe is a step-by-step guide + sample code + common pitfalls, designed to be completed in about 30-50 minutes.
+> Stage 5 (Claude Code Ecosystem) talks about "Concepts" and "Available Tools" with [`mcp-skills-catalog.md`](/en/resources/mcp-skills-catalog/). This cookbook fills in the gap in between: "**How to build it**". Each recipe is a step-by-step guide + sample code + common pitfalls, designed to be completed in about 30-50 minutes.
 >
 > This is not a reference or a tutorial—it's a recipe. Pick the one you need and start cooking.
 
@@ -603,7 +603,7 @@ For local LLM work, treat "Claude Code" and "BYO-LLM CLI agents" as separate too
 
 ## Can't Find the Recipe You Need?
 
-- See [Stage 5](/zh-tw/stages/05-claude-code-ecosystem/) for the full concept.
+- See [Stage 5](/en/stages/05-claude-code-ecosystem/) for the full concept.
 - See [`mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) for a comprehensive list of tools.
 - See [`schema-design-cheatsheet.en.md`](/en/resources/schema-design-cheatsheet/) for details on writing tool schemas.
 - See [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) for a comparison of 7 popular CLI agents.

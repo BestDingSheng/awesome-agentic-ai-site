@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-teacher.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-teacher"
@@ -233,4 +233,4 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 - 教师专属的 MCP server（成绩册集成、LMS 串接如 Canvas / Moodle / Google Classroom）
 - **某学科 + 某年级的完整 case study**（例如“我用 AI 带初中数学一个学期，这是我的 workflow”）
 
-请见 [CONTRIBUTING.md](../CONTRIBUTING.md)。
+请见 [CONTRIBUTING.md](../CONTRIBUTING.zh-Hans.md)。

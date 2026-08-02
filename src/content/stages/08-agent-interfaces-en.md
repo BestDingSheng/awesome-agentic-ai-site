@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "08-agent-interfaces"
@@ -21,7 +21,7 @@ order: 8
 
 > 📋 **Chapter Outline**: [What are Agent Interfaces? (Positioning)] → [Learning Objectives] → [Prerequisites] → [Required Reading] → [🖱 Computer Use (Screen-level)] → [🌐 Browser Use (Web-level)] → [📦 Code Sandbox (Isolated Execution, with Mini-Glossary)] → [How Track A Uses It] → [How Track B Builds It] → [⚠ 2026 Safety & Security] → [Hands-on Exercises] → [Recommended Tools] → [Featured Projects] → [Self-Check] → [The Next Frontier (Voice/VLA Forward Note)]
 
-> 🔑 **Key Terms**: See explanations within this chapter and in the main [`resources/glossary.md`](/zh-tw/resources/glossary/).
+> 🔑 **Key Terms**: See explanations within this chapter and in the main [`resources/glossary.md`](/en/resources/glossary/).
 
 **👥 Shared Hub**: Like Stage 5 (The Claude Code Ecosystem), this chapter serves as a hub for both Track A (CLI Power User) and Track B (Agent Builder). Stages 5 and 8 are the two central hubs of this curriculum.
 
@@ -85,8 +85,8 @@ After completing this stage, you will be able to:
 
 You should have already:
 
-- Completed [Stage 5](/zh-tw/stages/05-claude-code-ecosystem/) (understand MCP/Skills/Plugins, use Claude Code daily).
-- Completed [Stage 7](/zh-tw/stages/07-multi-agent-production/) (understand harness engineering, know what the reward-hacking warning is about).
+- Completed [Stage 5](/en/stages/05-claude-code-ecosystem/) (understand MCP/Skills/Plugins, use Claude Code daily).
+- Completed [Stage 7](/en/stages/07-multi-agent-production/) (understand harness engineering, know what the reward-hacking warning is about).
 - Have a basic familiarity with Docker/VM concepts (this chapter explains the difference between microVMs and Containers, but you'll struggle if you've never touched Docker).
 - **For Track A only**: Completing Stage 5 is sufficient; Stage 7 is optional. The Track A portion of this chapter does not depend on building experience.
 - **For Track B**: Stage 7 is mandatory, otherwise you will get stuck on the build examples in 9.
@@ -252,7 +252,7 @@ Agent receives a task
 
 **Why this only became a production requirement in 2026**:
 - **April 2026 OpenAI Agents SDK Update**: [Built-in support for 7 sandbox providers](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) (Blaxel, Cloudflare, Daytona, E2B, Modal, Runloop, Vercel).
-- Before that, protection relied on approval gates in tools like [Claude Code](/zh-tw/stages/05-claude-code-ecosystem/) or [Cursor](https://www.cursor.com). But a production agent runs **unattended and must have a sandbox.**
+- Before that, protection relied on approval gates in tools like [Claude Code](/en/stages/05-claude-code-ecosystem/) or [Cursor](https://www.cursor.com). But a production agent runs **unattended and must have a sandbox.**
 
 ### 🔑 Mini-Glossary of Isolation Technologies
 
@@ -308,7 +308,7 @@ A common sticking point for new readers, explained here:
 
 ### 1. Connect to Computer Use / Browser MCPs in Claude Code
 
-**Why the MCP route**: You're already familiar with Claude Code ([Stage 5](/zh-tw/stages/05-claude-code-ecosystem/)). New features can be connected via MCP without switching tools.
+**Why the MCP route**: You're already familiar with Claude Code ([Stage 5](/en/stages/05-claude-code-ecosystem/)). New features can be connected via MCP without switching tools.
 
 - **Computer-use MCP** (many community implementations): After adding the server to your `.mcp.json`, you can call "screenshot → analyze → operate" from within Claude Code.
 - **Browser MCP**: Tools like [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) allow Claude Code to open a browser and run web tasks.
@@ -539,6 +539,6 @@ This stage covered the three interface layers of **desktop, browser, and sandbox
 
 You've completed the main curriculum. Next steps:
 
-1. **Pick a specialist branch** ([for-researcher](/zh-tw/branches/for-researcher/), [for-developer](/zh-tw/branches/for-developer/), [for-teacher](/zh-tw/branches/for-teacher/), [for-knowledge-workers](/zh-tw/branches/for-knowledge-worker/), [for-everyday-users](/zh-tw/branches/for-everyday-users/)).
+1. **Pick a specialist branch** ([for-researcher](/en/branches/for-researcher/), [for-developer](/en/branches/for-developer/), [for-teacher](/en/branches/for-teacher/), [for-knowledge-workers](/en/branches/for-knowledge-worker/), [for-everyday-users](/en/branches/for-everyday-users/)).
 2. **Contribute upstream**—`browser-use`, OmniParser, and OSWorld all welcome PRs.
 3. **Follow developments after 2026**—Voice and VLA are the next wave. Follow Stage 9 (TBD).

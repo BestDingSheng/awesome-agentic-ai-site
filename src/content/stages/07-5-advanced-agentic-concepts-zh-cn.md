@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -16,7 +16,7 @@ baseSlug: "07-5-advanced-agentic-concepts"
 
 ⏱ **时间估算**：1 周（约 5 小时——不写 code、只读资源建立概念地图）
 
-> 🚪 **进入条件**：完成 [Stage 7 — 多 Agent 系统与稳定运作](/zh-tw/stages/07-multi-agent-production/)（或至少 Stage 4 + 6 + 7）。本章是 production 之后的 frontier 概念地图、不是入门——没做过 production agent 会读不出这些概念在解什么痛点。
+> 🚪 **进入条件**：完成 [Stage 7 — 多 Agent 系统与稳定运作](/stages/07-multi-agent-production/)（或至少 Stage 4 + 6 + 7）。本章是 production 之后的 frontier 概念地图、不是入门——没做过 production agent 会读不出这些概念在解什么痛点。
 
 > 💡 这是一份 **进阶概念地图 + reading path**，不是完整教学。Stage 4 / 6 / 7 学完后已经能做能上线给人用的 **agent**（AI 自主执行体、自己会规划 + 执行任务的 LLM 系统、俗称 production agent）；本 stage 帮你定位**业界还在讨论哪些进阶概念存在**、**每个概念解什么问题**、**该先读哪些 paper / blog**，避免你在真实工作里踩到别人已经踩过的坑。
 
@@ -637,4 +637,4 @@ Anthropic 2026-06 的报告用真实使用数据归成一句大白话：**你决
 
 ---
 
-→ 接下来 [**Stage 8 — Agent Interfaces**](/zh-tw/stages/08-agent-interfaces/)（**两 track 共用 hub**）：学 agent 怎么跟非 API 世界互动（Computer Use / Browser Use / Code Sandbox）。或挑一个[特化分支](/#-学习地图两条学习路径)、或回头来贡献这份 repo。
+→ 接下来 [**Stage 8 — Agent Interfaces**](/stages/08-agent-interfaces/)（**两 track 共用 hub**）：学 agent 怎么跟非 API 世界互动（Computer Use / Browser Use / Code Sandbox）。或挑一个[特化分支](/#-学习地图两条学习路径)、或回头来贡献这份 repo。

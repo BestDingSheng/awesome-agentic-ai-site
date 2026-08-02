@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-developer.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-developer"
@@ -175,4 +175,4 @@ Contributions especially welcome:
 - CI / pre-commit hook integration case studies
 - **Multi-developer team governance** — sharing Skills across devs, permission design, cost tracking
 
-See [CONTRIBUTING.md](../CONTRIBUTING.md).
+See [CONTRIBUTING.md](../CONTRIBUTING.en.md).

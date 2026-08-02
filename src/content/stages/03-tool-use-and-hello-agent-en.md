@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -18,7 +18,7 @@ order: 3
 ⏱️ **Estimated Time**: 2-3 weeks (approx. 10-20 hours)
 
 > 💡 Terminology-heavy (agent / tool use / function calling / ReAct / structured output) → See [`resources/glossary.md` 2](/en/resources/glossary/#2-agents--tool-use).
-> 🗺️ **Before choosing Track A (CLI Power User) or Track B (Agent Builder)**, read [`resources/agent-paradigms.md`](/zh-tw/resources/agent-paradigms/) — a panoramic view of 5 agent archetypes to help you choose your path.
+> 🗺️ **Before choosing Track A (CLI Power User) or Track B (Agent Builder)**, read [`resources/agent-paradigms.md`](/en/resources/agent-paradigms/) — a panoramic view of 5 agent archetypes to help you choose your path.
 
 > 📋 **Chapter Structure**: [Opening Framing: The relationship between AI/LLM/Agent] → Learning Objectives → Prerequisites → Required Reading → [Optional · Concept Map] → Hands-on Exercises → Reflection (Concepts + Routing) → Curated Projects → Self-Check
 > 🔑 **Key Terms**: See [`resources/glossary.md` 2](/en/resources/glossary/#2-agents--tool-use)
@@ -425,7 +425,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 - Use enums to constrain ambiguous boundaries (e.g., `unit: "celsius" | "fahrenheit"` instead of `unit: string`).
 - Wrap the error return in `{"error": "...", "retry_hint": "..."}` so the LLM can recover.
 
-> 💡 For a detailed cheatsheet, see [`resources/schema-design-cheatsheet.md`](/zh-tw/resources/schema-design-cheatsheet/)—5 golden rules + 5 common anti-patterns.
+> 💡 For a detailed cheatsheet, see [`resources/schema-design-cheatsheet.md`](/en/resources/schema-design-cheatsheet/)—5 golden rules + 5 common anti-patterns.
 
 <details>
 <summary>📋 <b>Simplified Core Concept — bad vs good schema comparison</b></summary>
@@ -522,6 +522,6 @@ Can you:
 - [ ] Compare the CodeAct (code as action) and JSON-tool routes?
 - [ ] See which problems don't actually need an agent?
 
-If yes → Proceed to [Stage 4 — Agent Frameworks](/zh-tw/stages/04-agent-frameworks/).
+If yes → Proceed to [Stage 4 — Agent Frameworks](/en/stages/04-agent-frameworks/).
 
 If no → Run through Exercise 3 again, don't skip it. If you don't understand what the frameworks are abstracting away for you, the stuff in Stage 4 will look like black magic.

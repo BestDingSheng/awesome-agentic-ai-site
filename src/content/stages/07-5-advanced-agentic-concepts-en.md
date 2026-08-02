@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -16,7 +16,7 @@ baseSlug: "07-5-advanced-agentic-concepts"
 
 ⏱ **Estimated Time**: 1 week (about 5 hours — no coding, just reading resources to build the concept map)
 
-> 🚪 **Entry condition**: complete [Stage 7 — Multi-Agent · Productionization](/zh-tw/stages/07-multi-agent-production/) (or at least Stages 4 + 6 + 7). This chapter is a frontier concept map for *after* productionization, not an intro — without having built a production agent you will not feel what pain points these concepts solve.
+> 🚪 **Entry condition**: complete [Stage 7 — Multi-Agent · Productionization](/en/stages/07-multi-agent-production/) (or at least Stages 4 + 6 + 7). This chapter is a frontier concept map for *after* productionization, not an intro — without having built a production agent you will not feel what pain points these concepts solve.
 
 > 💡 This is an **advanced-concept map + reading path**, not a full tutorial. After Stages 4 / 6 / 7, you can already build production **agents** (AI systems that plan + execute tasks autonomously — LLM-based programs that drive their own actions; "production agents" are agents that real users can rely on without frequent breakdowns); this stage helps you locate **which advanced concepts are still being debated in the industry**, **what problem each concept solves**, and **which papers / blogs to read first**, so you do not step into problems that others have already hit in real work.
 
@@ -637,4 +637,4 @@ After this stage, you should be able to:
 
 ---
 
-→ Next: [**Stage 8 — Agent Interfaces**](/zh-tw/stages/08-agent-interfaces/) (**a shared hub for both tracks**) — learn how agents interact with the non-API world (Computer Use / Browser Use / Code Sandbox). Or pick a [specialized branch](/en#-learning-map-two-tracks), or come back and contribute to this repo.
+→ Next: [**Stage 8 — Agent Interfaces**](/en/stages/08-agent-interfaces/) (**a shared hub for both tracks**) — learn how agents interact with the non-API world (Computer Use / Browser Use / Code Sandbox). Or pick a [specialized branch](/en#-learning-map-two-tracks), or come back and contribute to this repo.

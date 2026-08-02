@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/README.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "readme"
@@ -68,7 +68,7 @@ baseSlug: "readme"
 
 ### 🤝 我想送 PR / 翻译 / 加新 entry
 
-→ [`style-guide.zh-Hans.md`](/resources/style-guide/) + [`../CONTRIBUTING.md`](../CONTRIBUTING.md)
+→ [`style-guide.zh-Hans.md`](/resources/style-guide/) + [`../CONTRIBUTING.md`](../CONTRIBUTING.zh-Hans.md)
 
 ---
 

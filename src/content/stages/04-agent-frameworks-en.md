@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "04-agent-frameworks"
@@ -17,10 +17,10 @@ order: 4
 
 ⏱ **Estimated time**: 2-3 weeks (approx. 10-15 hours)
 
-> 💡 Unfamiliar with terms like `framework`, `supervisor`, `worker`, `handoff`? → Check [`resources/glossary.md`](/zh-tw/resources/glossary/).
+> 💡 Unfamiliar with terms like `framework`, `supervisor`, `worker`, `handoff`? → Check [`resources/glossary.md`](/en/resources/glossary/).
 
 > 📋 **Chapter structure**: Learning Objectives → Entry Conditions → Required Reading → [Optional · Concept Map: multi-agent intro + advanced tool patterns] → Hands-on Exercises → Curated Projects → Self-Check
-> 🔑 **Key Terms**: See [`resources/glossary.md`](/zh-tw/resources/glossary/) (2 & 4 cover terms like `framework`, `agent loop`, `handoff`, `supervisor`).
+> 🔑 **Key Terms**: See [`resources/glossary.md`](/en/resources/glossary/) (2 & 4 cover terms like `framework`, `agent loop`, `handoff`, `supervisor`).
 
 You've built a ReAct agent from scratch (Stage 3). Now, let's see what a framework actually does for you. **Pick one to learn deeply**, and just skim the others to know when to switch.
 

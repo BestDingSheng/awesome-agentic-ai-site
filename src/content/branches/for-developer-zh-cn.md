@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-developer.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-developer"
@@ -175,4 +175,4 @@ jobs:
 - CI / pre-commit hook 集成 case study
 - **跨多人团队用 AI dev 的 governance pattern**——多 dev 共用 Skills、permission 设计、cost tracking
 
-请见 [CONTRIBUTING.md](../CONTRIBUTING.md)。
+请见 [CONTRIBUTING.md](../CONTRIBUTING.zh-Hans.md)。

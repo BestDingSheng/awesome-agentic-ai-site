@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "04-agent-frameworks"
@@ -17,10 +17,10 @@ order: 4
 
 ⏱ **时间估算**：2-3 周（约 10-15 小时）
 
-> 💡 用语不熟（framework / supervisor / worker / handoff⋯）→ 翻 [`resources/glossary.md`](/zh-tw/resources/glossary/)。
+> 💡 用语不熟（framework / supervisor / worker / handoff⋯）→ 翻 [`resources/glossary.md`](/resources/glossary/)。
 
 > 📋 **本章组成**：学习目标 → 进入条件 → 必读 →〔可选 · 概念地图：multi-agent intro + 进阶 tool patterns〕→ 动手练习 → 精选 Projects → 自我检查
-> 🔑 **关键名词**：见 [`resources/glossary.md`](/zh-tw/resources/glossary/)（framework / agent loop / handoff / supervisor 等收在 2、4）
+> 🔑 **关键名词**：见 [`resources/glossary.md`](/resources/glossary/)（framework / agent loop / handoff / supervisor 等收在 2、4）
 
 你已经从零打造过一个 ReAct agent（Stage 3）。现在来看 framework 到底帮你做了什么。**挑一个深入学**，其他的浏览过去就好，知道什么时候该换。
 

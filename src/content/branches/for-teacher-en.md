@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-teacher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-01T13:27:37.194Z"
+syncedAt: "2026-08-02T03:17:33.137Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-teacher"
@@ -235,4 +235,4 @@ This branch is the smallest curated section currently. Contributions especially 
 - Teacher-specific MCP servers (gradebook integrations, LMS connections like Canvas / Moodle / Google Classroom)
 - **Subject + grade-level case studies** (e.g., "I used AI to teach middle-school math for a semester — here's my workflow")
 
-See [CONTRIBUTING.md](../CONTRIBUTING.md).
+See [CONTRIBUTING.md](../CONTRIBUTING.en.md).
