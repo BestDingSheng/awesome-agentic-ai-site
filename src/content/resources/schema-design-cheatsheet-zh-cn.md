@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T03:19:15.007Z"
+syncedAt: "2026-08-03T14:46:03.480Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "schema-design-cheatsheet"
@@ -151,6 +151,15 @@ Tool 失败只回 `null` 或 `{}`，LLM 以为成功，继续用空数据推论�
 - 失败 → `{"success": false, "error": "...", "retry_hint": "..."}`
 
 LLM 看到 `success: false` 就知道要处理错误，不会把空数据当答案编造。
+
+---
+
+## Schema 演进的小建议
+
+- 加参数要 backward-compatible：新参数设 `default` 而不是 required
+- 改参数含义 → 开新 tool（`get_weather_v2`），旧的标 deprecated 一段时间再下
+- description 改了要重新测——LLM 行为对 description 敏感，连标点都会影响
+- 上 production 前用 [promptfoo](https://github.com/promptfoo/promptfoo) eval 一下“LLM 在 5-10 个典型 query 是否选对 tool”
 
 ---
 

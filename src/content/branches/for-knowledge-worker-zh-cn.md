@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-knowledge-worker.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T03:19:15.007Z"
+syncedAt: "2026-08-03T14:46:03.480Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-knowledge-worker"
@@ -66,7 +66,7 @@ baseSlug: "for-knowledge-worker"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 34k+ |
+| Stars | ★ 36k+ |
 | License | AGPL-3.0 |
 
 **教什么**：自架的“第二大脑”——可以跟 web + 本地文件对话、排程自动化、自定义 agent。
@@ -81,7 +81,7 @@ baseSlug: "for-knowledge-worker"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 76k+ |
+| Stars | ★ 81k+ |
 | License | LobeHub Community License（基于 Apache-2.0 + 商用附加条款） |
 
 **教什么**：可部署的多 agent 聊天平台——含 plugin marketplace、知识库、团队协作。可自架的 AI workspace 代表选项之一。
@@ -109,7 +109,7 @@ baseSlug: "for-knowledge-worker"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 60k+ |
+| Stars | ★ 64k+ |
 | License | MIT |
 
 **教什么**：all-in-one 的私有 RAG 工作平台——上传文件、建 agent、相容 MCP、预设 on-device。**NotebookLM 的私有 self-hosted 替代方案**。

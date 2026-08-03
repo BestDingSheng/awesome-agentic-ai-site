@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-teacher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T03:19:15.007Z"
+syncedAt: "2026-08-03T14:46:03.480Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-teacher"
@@ -95,7 +95,7 @@ General writing / brainstorming skills. Adaptable for lesson prep.
 
 | Field | Value |
 |---|---|
-| Stars | ★ 28k+ |
+| Stars | ★ 30k+ |
 | License | Apache-2.0 |
 
 **What it teaches**: Hugging Face's official agents curriculum — notebooks, exercises, certifications. A ready-made **AI agent teaching artifact**.
@@ -235,4 +235,4 @@ This branch is the smallest curated section currently. Contributions especially 
 - Teacher-specific MCP servers (gradebook integrations, LMS connections like Canvas / Moodle / Google Classroom)
 - **Subject + grade-level case studies** (e.g., "I used AI to teach middle-school math for a semester — here's my workflow")
 
-See [CONTRIBUTING.md](../CONTRIBUTING.en.md).
+See [CONTRIBUTING.en.md](../CONTRIBUTING.en.md).

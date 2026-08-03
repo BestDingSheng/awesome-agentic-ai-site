@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-knowledge-worker.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T03:19:15.007Z"
+syncedAt: "2026-08-03T14:46:03.480Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-knowledge-worker"
@@ -66,7 +66,7 @@ Brainstorming, planning, and decision-making skills.
 
 | Field | Value |
 |---|---|
-| Stars | ★ 34k+ |
+| Stars | ★ 36k+ |
 | License | AGPL-3.0 |
 
 **What it teaches**: Self-hosted "second brain" — chat with web + local docs, schedule automations, build custom agents.
@@ -81,7 +81,7 @@ Brainstorming, planning, and decision-making skills.
 
 | Field | Value |
 |---|---|
-| Stars | ★ 76k+ |
+| Stars | ★ 81k+ |
 | License | LobeHub Community License (Apache-2.0 base + commercial conditions) |
 
 **What it teaches**: Deployable multi-agent chat platform — plugin marketplace, knowledge bases, team collaboration. One representative option for self-hosted AI workspaces.
@@ -109,7 +109,7 @@ Brainstorming, planning, and decision-making skills.
 
 | Field | Value |
 |---|---|
-| Stars | ★ 60k+ |
+| Stars | ★ 64k+ |
 | License | MIT |
 
 **What it teaches**: All-in-one private RAG workspace — upload documents, build agents, MCP-compatible, on-device by default. **A self-hosted alternative to NotebookLM**.

@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-teacher.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T03:19:15.007Z"
+syncedAt: "2026-08-03T14:46:03.480Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-teacher"
@@ -95,7 +95,7 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 28k+ |
+| Stars | ★ 30k+ |
 | License | Apache-2.0 |
 
 **教什么**：Hugging Face 官方的 agent 课程——notebook、练习、结业认证。是一份**现成的“AI agent 教学”素材**。
@@ -233,4 +233,4 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 - 教师专属的 MCP server（成绩册集成、LMS 串接如 Canvas / Moodle / Google Classroom）
 - **某学科 + 某年级的完整 case study**（例如“我用 AI 带初中数学一个学期，这是我的 workflow”）
 
-请见 [CONTRIBUTING.md](../CONTRIBUTING.zh-Hans.md)。
+请见 [CONTRIBUTING.zh-Hans.md](../CONTRIBUTING.zh-Hans.md)。

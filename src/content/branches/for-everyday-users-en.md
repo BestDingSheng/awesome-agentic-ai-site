@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T03:19:15.007Z"
+syncedAt: "2026-08-03T14:46:03.480Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-everyday-users"
@@ -185,4 +185,4 @@ Contributions especially welcome:
 - Chinese-friendly chat tools (Chinese LLMs, localized wrappers)
 - Privacy / safety best practices (what data is OK to send / what isn't)
 
-See [CONTRIBUTING.md](../CONTRIBUTING.en.md).
+See [CONTRIBUTING.en.md](../CONTRIBUTING.en.md).

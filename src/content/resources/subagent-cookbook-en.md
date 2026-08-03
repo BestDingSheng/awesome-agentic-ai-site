@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/subagent-cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/subagent-cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T03:19:15.007Z"
+syncedAt: "2026-08-03T14:46:03.480Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "subagent-cookbook"
@@ -373,6 +373,6 @@ Subagents are not free. Every dispatch **spends tokens and adds latency**. In th
 ## Next Steps
 
 - **Understand the full theory** (how subagents differ from skills / MCP, and the 3 multi-agent mechanisms) → [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature)
-- **CLI daily-use playbook** → [`tracks/cli/A3-cli-production.md` Playbook 4](/en/tracks/cli-a3-cli-production/#-playbook-4-dispatching-subagents-for-independent-tasks)
+- **CLI daily-use playbook** → [`tracks/cli/A3-cli-production.en.md` Playbook 4](/en/tracks/cli-a3-cli-production/#-playbook-4-dispatching-subagents-for-independent-tasks)
 - **See where subagents fit in the agent paradigm map** → [`resources/agent-paradigms.en.md`](/en/resources/agent-paradigms/#subagent--spawning-an-agent-inside-an-agent-runtime)
-- **Glossary lookup** → [`resources/glossary.md` § 5. Claude Code Ecosystem — Subagent](/en/resources/glossary/#subagent)
+- **Glossary lookup** → [`resources/glossary.en.md` § 5. Claude Code Ecosystem — Subagent](/en/resources/glossary/#subagent)

@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T03:19:15.007Z"
+syncedAt: "2026-08-03T14:46:03.480Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
@@ -44,6 +44,7 @@ After this stop, the CLI is no longer just your personal tool — it's part of y
 ## 🚪 Entry Conditions
 
 You should already:
+
 - Have completed [A1](/en/tracks/cli-a1-cli-intro/): CLI picked, installed, authenticated
 - Have completed [A2](/en/tracks/cli-a2-cli-workflow/): written a production CLAUDE.md, written slash commands, decomposed multi-step tasks
 - Be comfortable with GitHub Actions / CI basics (can read a `.yml` workflow)
@@ -62,6 +63,7 @@ Not there yet? → finish [A1](/en/tracks/cli-a1-cli-intro/) + [A2](/en/tracks/c
 
 ### Exercise CLI-9: MCP server connected to CLI
 Following [Stage 5.2 Exercise: MCP client](/en/stages/05-claude-code-ecosystem/#hands-on-exercises), connect at least one useful MCP server to your CLI:
+
 - `filesystem` server → let the CLI read files outside its default scope
 - `github` server → let it read PRs / issues directly
 - Custom server → connect your internal API / DB
@@ -70,6 +72,7 @@ Success: in a CLI conversation, ask "does my PR have conflicts?" and have the CL
 
 ### Exercise CLI-10: GitHub Actions + CLI
 Write `.github/workflows/cli-review.yml`:
+
 - Trigger: PR opened / synchronize
 - Run: in the GH Actions runner, execute Claude Code (or Codex), feed it `git diff` + your `.claude/commands/review.md`
 - Output: PR comment
@@ -80,12 +83,14 @@ Success: open a new PR, see a review comment within 1-2 minutes.
 
 ### Exercise CLI-11: Cost tracking
 Run a daily task. **Predict** the token usage first, then actually run it and check the usage. The gap is usually big (you typically underestimate).
+
 - Math: input tokens + output tokens × model price each
 - Connect langfuse or Helicone ([Stage 7 Observability](/en/stages/07-multi-agent-production/#exercise-3-observability)) for tracing
 - Observe: which sub-task consumes the most tokens? Are you sending unnecessary long context?
 
 ### Exercise CLI-12: Skill / plugin team sharing
 Package your `.claude/commands/` and `CLAUDE.md` into a plugin, publish to internal marketplace or GitHub. Teammates `claude plugin install` and get the same workflow.
+
 - Skill / plugin details in [Stage 5.3 + 5.4](/en/stages/05-claude-code-ecosystem/)
 - Template: [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official)
 
@@ -196,52 +201,21 @@ Track A users are **already using** [Stage 7.5 advanced concepts](/en/stages/07-
 
 ## 🎯 Curated Projects
 
-### MCP server collection (CLI-friendly)
+Four categories, nine projects, one table. **Pick an entry point from the "Who it's for" column; click through to the repo when you want the details.**
 
-> 💡 **Looking for MCPs that connect to daily tools** (Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma…): see [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) — 76+ entries grouped by category, each with stars / license / audience. The list below is for "writing your own MCP server / finding reference implementations".
+> 💡 **Looking for MCPs that connect to daily tools** (Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma…): see [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) — 76+ entries grouped by category, each with stars / license / audience. The table below is for "writing your own MCP server / finding reference implementations".
 
-#### [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) ⭐⭐⭐⭐⭐
-★ 85k+ — Official reference servers (7 today: everything, fetch, filesystem, git, memory, sequentialthinking, time; github and sqlite have moved to `servers-archived`).
-> See [Stage 5.2](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation).
-
-#### [wong2/awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers)
-Community MCP server catalog. 150+ servers categorized.
-
----
-
-### CI Integration Patterns
-
-#### [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action)
-Official GitHub Action template. PR review, issue triage, auto-fix.
-
-#### [continuedev/continue](https://github.com/continuedev/continue) ⭐⭐⭐⭐
-★ 33k+ — Wire AI checks into CI; enforce in PR pipeline.
-> Full intro in [`branches/for-developer.en.md`](/en/branches/for-developer/).
-
----
-
-### Observability + Cost
-
-#### [langfuse/langfuse](https://github.com/langfuse/langfuse) ⭐⭐⭐⭐⭐
-★ 31k+ — Open-source LLM observability. Trace, cost, sessions in one place.
-> See [Stage 7 Observability](/en/stages/07-multi-agent-production/#exercise-3-observability).
-
-#### [Helicone](https://github.com/Helicone/helicone) ⭐⭐⭐⭐
-★ 6k+ — Proxy-based monitoring. Just change `base_url` and you get logging + caching.
-
-#### [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) ⭐⭐⭐⭐⭐
-★ 23k+ — Eval framework. Run regression tests before promoting CLI workflows to production.
-> See [Stage 7 Eval](/en/stages/07-multi-agent-production/#exercise-2-eval).
-
----
-
-### Production CLI Workflow Templates
-
-#### [obra/superpowers](https://github.com/obra/superpowers) ⭐⭐⭐⭐
-★ 258k+ — Production-ready skill collection. See how someone else does a complete CLI workflow.
-
-#### [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace)
-★ 1.2k+ — Minimal marketplace template. Reference when packaging your team's CLI workflow.
+| Category | Project | ⭐ | Who it's for | Why recommended / notes |
+|---|---|---|---|---|
+| **MCP server collection**<br>(CLI-friendly) | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | ⭐⭐⭐⭐⭐ | Starting your first MCP from a reference implementation | Official reference servers (7 today: everything, fetch, filesystem, git, memory, sequentialthinking, time; github and sqlite have moved to `servers-archived`), ★ 89k+. See [Stage 5.2](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation) |
+| | [wong2/awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers) | ⭐⭐⭐⭐ | Hunting for a community MCP in a specific domain | Community MCP server catalog, 150+ servers categorized |
+| **CI Integration Patterns** | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | ⭐⭐⭐⭐⭐ | Starting your first CI workflow from the official template | Official GitHub Action template, PR review / issue triage / auto-fix |
+| | [continuedev/continue](https://github.com/continuedev/continue) | ⭐⭐⭐⭐ | Wiring AI checks into the PR pipeline and enforcing them | ★ 35k+. Full intro in [`branches/for-developer.en.md`](/en/branches/for-developer/) |
+| **Observability + Cost** | [langfuse/langfuse](https://github.com/langfuse/langfuse) | ⭐⭐⭐⭐⭐ | Wanting trace / cost / sessions all in one place | Open-source LLM observability, ★ 31k+. See [Stage 7 Observability](/en/stages/07-multi-agent-production/#exercise-3-observability) |
+| | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | Wanting the fastest logging there is (just change `base_url`) | Proxy-based monitoring, change `base_url` and you get logging + caching, ★ 6k+ |
+| | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | ⭐⭐⭐⭐⭐ | Running regression tests before promoting a CLI workflow to production | Eval framework, ★ 23k+. See [Stage 7 Eval](/en/stages/07-multi-agent-production/#exercise-2-eval) |
+| **Production CLI Workflow Templates** | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | Seeing what a complete, actually-in-use workflow looks like | Production-ready skill collection, ★ 265k+. See how someone else does a complete CLI workflow |
+| | [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | ⭐⭐⭐ | Packaging your team's CLI workflow for sharing | Minimal marketplace template, ★ 1.2k+ |
 
 > 💡 **Suggested order to pick these up**: start by wiring one reference MCP from `modelcontextprotocol/servers` into your CLI → run your first CI workflow with `claude-code-action` → add langfuse to see traces + cost → when you scale to production, package the workflow as a marketplace plugin.
 

@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-teacher.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T03:19:15.007Z"
+syncedAt: "2026-08-03T14:46:03.480Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-teacher"
@@ -95,7 +95,7 @@ AI 可以幫忙準備和輔助，但不應該直接取代教師判斷。近期 A
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 28k+ |
+| Stars | ★ 30k+ |
 | License | Apache-2.0 |
 
 **教什麼**：Hugging Face 官方的 agent 課程——notebook、練習、結業認證。是一份**現成的「AI agent 教學」素材**。

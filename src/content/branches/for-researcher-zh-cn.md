@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-researcher.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T03:19:15.007Z"
+syncedAt: "2026-08-03T14:46:03.480Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-researcher"
@@ -65,7 +65,7 @@ baseSlug: "for-researcher"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 27k+ |
+| Stars | ★ 28k+ |
 | License | Apache-2.0 |
 
 **教什么**：自主 deep-research agent——planner + multi-source crawl + report 合成。给定一个研究主题，自动产出 markdown / PDF brief。
@@ -80,7 +80,7 @@ baseSlug: "for-researcher"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 28k+ |
+| Stars | ★ 30k+ |
 | License | MIT |
 
 **教什么**：multi-perspective outline-then-write pipeline——**白话三步**：(1) 先模拟不同观点提出问题、(2) 把问题整理成大纲、(3) 最后生成 Wikipedia-style 草稿。Stanford OVAL 出品。

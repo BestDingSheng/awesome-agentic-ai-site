@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T03:19:15.007Z"
+syncedAt: "2026-08-03T14:46:03.480Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a3-cli-production"
@@ -44,6 +44,7 @@ CLI 跑得順了之後、下一步：**把 CLI 接到你的真實團隊流程**�
 ## 🚪 進入條件
 
 你應該已經：
+
 - 完成 [A1](/zh-tw/tracks/cli-a1-cli-intro/)：CLI 已選好、裝好、認證好
 - 完成 [A2](/zh-tw/tracks/cli-a2-cli-workflow/)：寫過 production CLAUDE.md、會寫 slash command、跑過多步驟拆解
 - 對 GitHub Actions / CI 基礎熟悉（會看 `.yml` workflow）
@@ -62,6 +63,7 @@ CLI 跑得順了之後、下一步：**把 CLI 接到你的真實團隊流程**�
 
 ### 動手練習 CLI-9：MCP server 接 CLI
 照 [Stage 5.2 練習：MCP client](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) 的步驟，把至少一個有用的 MCP server 接到你的 CLI：
+
 - `filesystem` server → 讓 CLI 在指定目錄外也能讀檔
 - `github` server → 讓 CLI 直接讀 PR / issue
 - 自架 server → 接你的 internal API / DB
@@ -70,6 +72,7 @@ CLI 跑得順了之後、下一步：**把 CLI 接到你的真實團隊流程**�
 
 ### 動手練習 CLI-10：GitHub Actions + CLI
 寫一個 `.github/workflows/cli-review.yml`：
+
 - 觸發：PR opened / synchronize
 - 跑：在 GH Actions runner 內執行 Claude Code（或 Codex），給它 `git diff` + 你的 `.claude/commands/review.md`
 - 輸出：PR comment
@@ -80,12 +83,14 @@ CLI 跑得順了之後、下一步：**把 CLI 接到你的真實團隊流程**�
 
 ### 動手練習 CLI-11：Cost tracking
 跑你日常的一個 task，**先預估** token 用量，再實際跑、查 token usage。差距通常很大（多半你低估）。
+
 - 算式：input tokens + output tokens 各乘以 model 單價
 - 接 langfuse 或 Helicone（[Stage 7 常用工具推薦](/zh-tw/stages/07-multi-agent-production/#-常用-multi-agent--production-工具推薦按用途分類) 表內 Observability 行）做 trace
 - 觀察：哪個 sub-task 花最多 token？是不是有不必要的 long context？
 
 ### 動手練習 CLI-12：Skill / plugin 跨 team 分享
 把你的 `.claude/commands/` 跟 `CLAUDE.md` 打包成 plugin，發布到內部 marketplace 或 GitHub。Team 其他人 `claude plugin install` 之後就有同樣的工作流。
+
 - Skill / plugin 細節見 [Stage 5.3 + 5.4](/zh-tw/stages/05-claude-code-ecosystem/)
 - 範本：[anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official)
 
@@ -202,15 +207,15 @@ Track A 的人**已經在用** [Stage 7.5 的進階概念](/zh-tw/stages/07-5-ad
 
 | 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|---|
-| **MCP server collection**<br>（接 CLI 用） | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | ⭐⭐⭐⭐⭐ | 第一個 MCP 從 reference 學起 | 官方 reference servers（現有 7 個：everything / fetch / filesystem / git / memory / sequentialthinking / time；github、sqlite 已移到 `servers-archived`），★ 85k+。詳見 [Stage 5.2](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) |
+| **MCP server collection**<br>（接 CLI 用） | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | ⭐⭐⭐⭐⭐ | 第一個 MCP 從 reference 學起 | 官方 reference servers（現有 7 個：everything / fetch / filesystem / git / memory / sequentialthinking / time；github、sqlite 已移到 `servers-archived`），★ 89k+。詳見 [Stage 5.2](/zh-tw/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基礎) |
 | | [wong2/awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers) | ⭐⭐⭐⭐ | 想找特定領域的社群 MCP | 社群 MCP catalog、150+ 個依分類整理 |
 | **CI 整合 patterns** | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | ⭐⭐⭐⭐⭐ | 第一個 CI workflow 從官方範本起步 | 官方 GitHub Action 範本、PR review / issue triage / 自動 fix |
-| | [continuedev/continue](https://github.com/continuedev/continue) | ⭐⭐⭐⭐ | 想把 AI checks 接到 PR pipeline 強制執行 | ★ 33k+。完整介紹見 [`branches/for-developer.md`](/zh-tw/branches/for-developer/) |
+| | [continuedev/continue](https://github.com/continuedev/continue) | ⭐⭐⭐⭐ | 想把 AI checks 接到 PR pipeline 強制執行 | ★ 35k+。完整介紹見 [`branches/for-developer.md`](/zh-tw/branches/for-developer/) |
 | **Observability + Cost** | [langfuse/langfuse](https://github.com/langfuse/langfuse) | ⭐⭐⭐⭐⭐ | 想把 trace / cost / session 都接起來 | open source LLM observability，★ 31k+。詳見 [Stage 7 常用推薦](/zh-tw/stages/07-multi-agent-production/#-常用-multi-agent--production-工具推薦按用途分類) |
-| | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | 想要最快的 logging（改 base_url 就好）| proxy-based 監控、改 base_url 就有 logging + caching，★ 5.7k+ |
-| | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | ⭐⭐⭐⭐⭐ | CLI workflow 升 production 前跑回歸測試 | eval framework，★ 22k+。詳見 [Stage 7 Agent Benchmark Landscape + Reward-Hacking 警告](/zh-tw/stages/07-multi-agent-production/#-agent-benchmark-landscape怎麼看不要只看排行榜---reward-hacking-警告) |
-| **Production CLI workflow 範本** | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看完整實際在用的 workflow 長什麼樣 | 整套 production-ready skill collection、★ 247k+。看別人怎麼把 CLI workflow 做完整 |
-| | [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | ⭐⭐⭐ | 要把 team 的 CLI workflow 打包共用 | 最簡 marketplace template、★ 1.1k+ |
+| | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | 想要最快的 logging（改 base_url 就好）| proxy-based 監控、改 base_url 就有 logging + caching，★ 6k+ |
+| | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | ⭐⭐⭐⭐⭐ | CLI workflow 升 production 前跑回歸測試 | eval framework，★ 23k+。詳見 [Stage 7 Agent Benchmark Landscape + Reward-Hacking 警告](/zh-tw/stages/07-multi-agent-production/#-agent-benchmark-landscape怎麼看不要只看排行榜---reward-hacking-警告) |
+| **Production CLI workflow 範本** | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看完整實際在用的 workflow 長什麼樣 | 整套 production-ready skill collection、★ 265k+。看別人怎麼把 CLI workflow 做完整 |
+| | [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | ⭐⭐⭐ | 要把 team 的 CLI workflow 打包共用 | 最簡 marketplace template、★ 1.2k+ |
 
 > 💡 **建議入手路徑**：先從 `modelcontextprotocol/servers` 挑一個 reference MCP 接到 CLI → 用 `claude-code-action` 跑第一個 CI workflow → 加 langfuse 看 trace + cost → production 規模化時把 workflow 打包成 marketplace plugin。
 
