@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-02T13:34:38.726Z"
+syncedAt: "2026-08-03T03:19:15.007Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "02-prompt-engineering"
@@ -416,7 +416,7 @@ print("💡 用 gemma4:e4b 跑这题特别有感——小 model 对 prompt 质�
 <details>
 <summary>📋 <b>起手码 — Path B（Anthropic API、选择性）</b>（复制到 <code>practice_4_anthropic.py</code>）</summary>
 
-把 Path A 的 client + 循环內 `client.chat.completions.create(...)` 改成：
+把 Path A 的 client + 循环内 `client.chat.completions.create(...)` 改成：
 
 ```python
 import anthropic
@@ -428,9 +428,9 @@ msg = client.messages.create(model="claude-haiku-4-5", max_tokens=200,
 text = msg.content[0].text
 ```
 
-其余 PROMPTS / outputs / assert 邏輯完全相同。**成本**：5 次 ≈ $0.002。
+其余 PROMPTS / outputs / assert 逻辑完全相同。**成本**：5 次 ≈ $0.002。
 
-**Claude vs gemma4 对 prompt 细致度的差别**：Claude haiku 通常 v1 已能写出 OK 段落、v5 加上约束后优化幅度较小；小 model v1 常空泛无用、v5 加禁忌后才開始能读。
+**Claude vs gemma4 对 prompt 细致度的差别**：Claude haiku 通常 v1 已能写出 OK 段落、v5 加上约束后优化幅度较小；小 model v1 常空泛无用、v5 加禁忌后才开始能读。
 
 </details>
 

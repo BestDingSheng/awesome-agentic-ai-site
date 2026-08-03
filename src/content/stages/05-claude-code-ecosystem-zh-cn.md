@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-02T13:34:38.726Z"
+syncedAt: "2026-08-03T03:19:15.007Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -274,6 +274,8 @@ MCP / Skills 是“给 agent 更多能力”；**Hooks 则是反过来：在 age
 **MCP = “**让 LLM 用任何外部工具 / 数据**”的开放协议**。在 MCP 之前每个 LLM 厂商都得自己定义 tool 规格、每个工具供应商都得为每个 LLM 写一份接法。MCP 把这层**标准化**——写一次 MCP server、Claude / Codex / Cursor / 任何支持 MCP 的 host 都能用。
 
 > 📈 **规模参考**（Anthropic 2026-07 [官方数字](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)）：MCP 的 SDK 月下载量已超过 **4 亿**（今年约成长 4 倍），Claude 的 connectors 目录收录 **950+ 个 MCP server**。
+
+> 🧩 **核心之外还有 extension（选读）**：2026-07-28 那版规格把“核心协议”跟“[extension](https://modelcontextprotocol.io/extensions/overview)”正式分开。官方 extension 目前有 [Tasks](https://modelcontextprotocol.io/extensions/tasks/overview)（长时间任务的异步执行、可轮询）、[Apps](https://modelcontextprotocol.io/extensions/apps/overview)（在对话里直接显示图表 / 表单等交互 UI）跟 Skills over MCP。**初学阶段不用学这些**——你写 `@app.tool()` 打不到它们。真正该记住的只有一条**不会过期**的规则：**extension 一律默认关闭、要双方明确支持才生效**，所以看到教程叫你用某个 extension，先确认你的 client 有支持，否则会静默退回核心行为。官方 extension 用 `io.modelcontextprotocol/` 前缀、放在 MCP 组织下 `ext-` 开头的 repo；`experimental-ext-` 开头的则还在孵化、随时可能改。
 
 **MCP 三个抽象**：
 

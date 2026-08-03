@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-02T13:34:38.726Z"
+syncedAt: "2026-08-03T03:19:15.007Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
@@ -40,6 +40,16 @@ After this stop, the CLI is no longer just your personal tool — it's part of y
 - Set up GitHub Actions to auto-run Claude Code (PR review, release notes, etc.)
 - Add observability (trace, cost, latency) to CLI workflows
 - Plan a cost budget — know roughly what a big task costs in tokens
+
+## 🚪 Entry Conditions
+
+You should already:
+- Have completed [A1](/en/tracks/cli-a1-cli-intro/): CLI picked, installed, authenticated
+- Have completed [A2](/en/tracks/cli-a2-cli-workflow/): written a production CLAUDE.md, written slash commands, decomposed multi-step tasks
+- Be comfortable with GitHub Actions / CI basics (can read a `.yml` workflow)
+- Have at least a rough idea of what MCP is (if not, skim [Stage 5.2](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation) first)
+
+Not there yet? → finish [A1](/en/tracks/cli-a1-cli-intro/) + [A2](/en/tracks/cli-a2-cli-workflow/) first. A3 is "combine everything so far → wire it into production"; skipping ahead won't make sense.
 
 ## 📚 Required Reading
 
@@ -232,6 +242,8 @@ Official GitHub Action template. PR review, issue triage, auto-fix.
 
 #### [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace)
 ★ 1.2k+ — Minimal marketplace template. Reference when packaging your team's CLI workflow.
+
+> 💡 **Suggested order to pick these up**: start by wiring one reference MCP from `modelcontextprotocol/servers` into your CLI → run your first CI workflow with `claude-code-action` → add langfuse to see traces + cost → when you scale to production, package the workflow as a marketplace plugin.
 
 ## ✅ Track A Full Self-Check
 
