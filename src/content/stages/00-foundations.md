@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/00-foundations.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T14:46:03.480Z"
+syncedAt: "2026-08-04T02:48:33.479Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "00-foundations"
@@ -69,7 +69,7 @@ order: 0
 | **CLI / Shell** | [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line) | 想系統性學命令列 | ★ 160k+、多語言版、新手到進階都涵蓋 |
 | | [Learn Shell](https://www.learnshell.org/) | 喜歡互動式練習 | 互動式 Bash 教學、瀏覽器內跑 |
 | | [explainshell.com](https://explainshell.com/) | debug shell 指令 | 把任何 shell 指令拆解講解（debug 救星）|
-| **REST API** | [MDN — HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) | 想搞懂 HTTP 協定 | 最 canonical 的 web reference |
+| **REST API** | [MDN — HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) | 想搞懂 HTTP 協定 | Mozilla 維護的 web 平台參考文件 |
 | | [Postman Learning Center](https://learning.postman.com/) | 用 GUI 探索 API | API 探索工具、視覺化好 |
 | | [HTTPie](https://github.com/httpie/cli) | 偏好 CLI、`curl` 太醜 | 比 `curl` 友善的命令列 HTTP client |
 | **YAML / JSON** | [YAML 官網](https://yaml.org/) | 需要查語法規格 | YAML 規格文件 |

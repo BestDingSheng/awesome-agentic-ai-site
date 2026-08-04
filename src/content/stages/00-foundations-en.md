@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/00-foundations.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T14:46:03.480Z"
+syncedAt: "2026-08-04T02:48:33.479Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "00-foundations"
@@ -70,7 +70,7 @@ Five prereq topics, 18 resources, one table. **Pick your entry point from "Who i
 | **CLI / Shell** | [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line) | Want to learn the command line systematically | ★ 160k+, multi-language, covers beginner to advanced |
 | | [Learn Shell](https://www.learnshell.org/) | Like interactive practice | Interactive Bash tutorial, runs in the browser |
 | | [explainshell.com](https://explainshell.com/) | Debugging shell commands | Breaks down any shell command (debug life-saver) |
-| **REST API** | [MDN — HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) | Want to understand the HTTP protocol | The most canonical web reference |
+| **REST API** | [MDN — HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) | Want to understand the HTTP protocol | Mozilla's web platform reference docs |
 | | [Postman Learning Center](https://learning.postman.com/) | Exploring APIs through a GUI | API exploration tool, good visuals |
 | | [HTTPie](https://github.com/httpie/cli) | Prefer the CLI, find `curl` ugly | Friendlier-than-`curl` command-line HTTP client |
 | **YAML / JSON** | [YAML official site](https://yaml.org/) | Need to look up the syntax spec | The YAML spec document |

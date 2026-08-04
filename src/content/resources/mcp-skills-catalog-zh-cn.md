@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T14:46:03.480Z"
+syncedAt: "2026-08-04T02:48:33.479Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "mcp-skills-catalog"
@@ -944,7 +944,7 @@ baseSlug: "mcp-skills-catalog"
 
 下面 3 个 skill 是**设计成一起用**的，不是独立工具：
 
-![Claude + 3 个 delegate skill 分工](/upstream/resources/diagrams/multi-llm-delegation-composition.png)
+![Claude + 3 个 delegate skill 分工](/upstream/resources/diagrams/multi-llm-delegation-composition.zh-Hans.png)
 
 Claude 不擅长 token-heavy 机械式工作（成本高、context 容易爆）；Codex 不擅长对话协作；Gemini 有 1M context 但中型推理稍弱。**分工 = Claude 负责 design / review、Codex 负责 implement、Gemini 负责 long-form draft / synthesis**。
 

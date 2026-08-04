@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-teacher.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T14:46:03.480Z"
+syncedAt: "2026-08-04T02:48:33.479Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-teacher"
@@ -24,7 +24,7 @@ baseSlug: "for-teacher"
 
 這樣的分類參考 AI in Education 文獻中常見的行政、教學與學習應用脈絡、也加入生成式 AI 在教材生成、回饋與互動支援上的近期討論（Chen et al., 2020；Mittal et al., 2024）。閱讀時建議先理解教師把關原則與使用邊界、再依自己的教學需求挑一個分支深入。
 
-![教師與 AI agent 使用情境總覽](/upstream/resources/diagrams/teacher-ai-use-cases-overview.jpg)
+![教師與 AI agent 使用情境總覽](/upstream/resources/diagrams/teacher-ai-use-cases-overview.png)
 
 ### 教師使用 AI 輔助時要注意什麼
 
@@ -48,7 +48,7 @@ AI 可以幫忙準備和輔助，但不應該直接取代教師判斷。近期 A
 
 ### 教學現場與學習輔助
 
-![教學現場與學習輔助應用場景](/upstream/resources/diagrams/teacher-ai-classroom-use-cases.jpg)
+![教學現場與學習輔助應用場景](/upstream/resources/diagrams/teacher-ai-classroom-use-cases.png)
 
 這類情境偏向「幫學生理解、練習、互動」，AI 比較像教學助教或活動輔助工具。特別注意：不需要在單一教學活動中加入所有要素，而是挑選適合的環節加入 AI agent 設計。
 

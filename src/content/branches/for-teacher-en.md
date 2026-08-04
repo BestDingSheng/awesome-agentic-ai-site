@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-teacher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-03T14:46:03.480Z"
+syncedAt: "2026-08-04T02:48:33.479Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-teacher"
@@ -24,7 +24,7 @@ Teacher-facing AI use cases can first be read as three branches: **lesson prep a
 
 This grouping follows common AI in Education discussions around administration, instruction, and learning, while also reflecting recent work on generative AI for material creation, feedback, and interactive support (Chen et al., 2020; Mittal et al., 2024). Start with teacher oversight principles and boundaries, then choose the branch that best matches your teaching need.
 
-![Teacher and AI agent use-case overview](/upstream/resources/diagrams/teacher-ai-use-cases-overview.jpg)
+![Teacher and AI agent use-case overview](/upstream/resources/diagrams/teacher-ai-use-cases-overview.en.png)
 
 ### What Teachers Should Watch For When Using AI
 
@@ -48,7 +48,7 @@ These workflows help teachers prepare materials. The output should still be revi
 
 ### Classroom and Learning Support
 
-![Classroom and learning support use cases](/upstream/resources/diagrams/teacher-ai-classroom-use-cases.jpg)
+![Classroom and learning support use cases](/upstream/resources/diagrams/teacher-ai-classroom-use-cases.en.png)
 
 These workflows help students understand, practice, and interact. AI acts more like a teaching assistant or activity support tool. Note that a single lesson does not need to include every element; choose the moments where an AI agent design actually fits the learning activity.
 
