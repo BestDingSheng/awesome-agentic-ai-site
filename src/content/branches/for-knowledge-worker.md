@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-knowledge-worker.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-04T02:48:33.479Z"
+syncedAt: "2026-08-04T14:22:41.633Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-knowledge-worker"
@@ -36,7 +36,7 @@ baseSlug: "for-knowledge-worker"
 
 ## 精選 Projects
 
-> 💡 **想把 AI agent 接到 Notion / Gmail / Outlook / Slack / Excel / 飛書？**（例：把 Gmail 來信自動整理成 Notion 待辦）76+ 個常用辦公整合工具表見 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)（按使用情境分類）。下面這節保留 workflow / 整合平台級的工具。
+> 💡 **想把 AI agent 接到 Notion / Gmail / Outlook / Slack / Excel / 飛書？**（例：把 Gmail 來信自動整理成 Notion 待辦）77+ 個常用辦公整合工具表見 [`resources/mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/)（按使用情境分類）。下面這節保留 workflow / 整合平台級的工具。
 
 ### 工作流工具
 

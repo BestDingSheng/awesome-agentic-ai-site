@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-researcher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-04T02:48:33.479Z"
+syncedAt: "2026-08-04T14:22:41.633Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-researcher"
@@ -36,7 +36,7 @@ Research days break into stages, and AI plays a different role at each stage. Us
 
 ## Curated Projects
 
-> 💡 **Want to wire Claude Code into NotebookLM, Obsidian, Notion, Excel, PDF, Excalidraw, and other research tools?** 76+ integrations in [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (grouped by use case). The section below keeps research-specific tools and marketplaces.
+> 💡 **Want to wire Claude Code into NotebookLM, Obsidian, Notion, Excel, PDF, Excalidraw, and other research tools?** 77+ integrations in [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (grouped by use case). The section below keeps research-specific tools and marketplaces.
 
 ### Research Workflow Marketplaces
 
