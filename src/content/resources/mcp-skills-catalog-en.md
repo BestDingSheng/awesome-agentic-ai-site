@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-04T14:22:41.633Z"
+syncedAt: "2026-08-05T02:46:00.762Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -30,6 +30,7 @@ baseSlug: "mcp-skills-catalog"
 - **Stars are a hint, not a gate**: community repos around 100+ tend to be maintained, but "niche but useful" repos are welcome via PR with a sentence explaining why
 - **Metadata when possible**: pull stars / license via `gh api`; refresh whenever
 - **Avoid (not forbidden)**: archived, long-stale, unclear-license repos — niche tools can be exceptions
+- **Self-submissions are labeled**: submitting your own project is fine (open an issue first, per CONTRIBUTING) and **the bar is the same as for any other entry, not relaxed**, but the entry carries a "⚠️ submitted by its author" marker so readers can weigh it themselves. (Sections 13 / 14 label the maintainer's own projects too; the difference is that those sections explicitly relax the star floor, whereas this does not.)
 
 ### Index
 
@@ -881,7 +882,7 @@ baseSlug: "mcp-skills-catalog"
 
 ---
 
-### [morluto/jacobian](https://github.com/morluto/jacobian) ⭐⭐⭐
+### [morluto/jacobian](https://github.com/morluto/jacobian) ⭐⭐⭐ (⚠️ submitted by its author)
 
 | Field | Value |
 |---|---|
