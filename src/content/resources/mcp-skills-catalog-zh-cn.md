@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-10T02:02:14.408Z"
+syncedAt: "2026-08-10T13:15:03.820Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "mcp-skills-catalog"
@@ -886,7 +886,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 14 |
+| Stars | ★ 16 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -908,7 +908,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 182 |
+| Stars | ★ 201 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（研究流程一整套） |
 
@@ -920,7 +920,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 10 |
+| Stars | ★ 12 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐（窄但深） |
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-10T02:02:14.408Z"
+syncedAt: "2026-08-10T13:15:03.820Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "08-agent-interfaces"
@@ -537,7 +537,7 @@ agent = Agent(
 ### Voice agents（語音介面）
 
 - [**Vapi**](https://vapi.ai/) / [**Retell**](https://www.retellai.com/) — 商業 voice agent platform
-- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS、★ 11k+
+- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS、★ 12k+
 - [**OpenAI Realtime API**](https://platform.openai.com/docs/guides/realtime) — speech-to-speech 直接做 agent
 
 ### VLA（Vision-Language-Action）機器人
