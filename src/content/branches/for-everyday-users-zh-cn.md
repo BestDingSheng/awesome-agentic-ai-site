@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-11T01:57:24.344Z"
+syncedAt: "2026-08-11T13:12:14.368Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-everyday-users"
@@ -97,7 +97,7 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 100k+ |
+| Stars | ★ 105k+ |
 | License | Apache-2.0 |
 
 **教什么**：OpenAI 出品的终端机 agent——可以在命令行帮你整理文件、批量处理文字、执行多步骤任务；写程序只是其中一种用途。跟 Claude Code 同类，但用的是 OpenAI 的模型。

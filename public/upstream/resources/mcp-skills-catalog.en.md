@@ -18,7 +18,6 @@
 - **Stars are a hint, not a gate**: community repos around 100+ tend to be maintained, but "niche but useful" repos are welcome via PR with a sentence explaining why
 - **Metadata when possible**: pull stars / license via `gh api`; refresh whenever
 - **Avoid (not forbidden)**: archived, long-stale, unclear-license repos — niche tools can be exceptions
-- **Self-submissions are labeled**: submitting your own project is fine (open an issue first, per CONTRIBUTING) and **the bar is the same as for any other entry, not relaxed**, but the entry carries a "⚠️ submitted by its author" marker so readers can weigh it themselves. (Sections 13 / 14 label the maintainer's own projects too; the difference is that those sections explicitly relax the star floor, whereas this does not.)
 
 ### Index
 
@@ -119,7 +118,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 394 |
+| Stars | ★ 430 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -251,7 +250,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 859 |
+| Stars | ★ 908 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (full M365) |
 
@@ -351,7 +350,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 414 |
+| Stars | ★ 443 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -387,7 +386,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 36k+ |
+| Stars | ★ 38k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (code intelligence) |
 
@@ -591,7 +590,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 53k+ |
+| Stars | ★ 57k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ |
 
@@ -874,7 +873,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 16 |
+| Stars | ★ 31 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -908,7 +907,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 12 |
+| Stars | ★ 11 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (narrow but deep) |
 
@@ -932,7 +931,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 42 |
+| Stars | ★ 46 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 

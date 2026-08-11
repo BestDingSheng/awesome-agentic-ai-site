@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-11T01:57:24.344Z"
+syncedAt: "2026-08-11T13:12:14.368Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "mcp-skills-catalog"
@@ -30,7 +30,6 @@ baseSlug: "mcp-skills-catalog"
 - **stars 看一下就好**：社群 repo 大致 100+ 比较有人在维护，但“小众但好用”也欢迎送 PR 解释为什么要收
 - **尽量有 metadata**：stars / license 用 `gh api` 抓、有空就更新一轮
 - **避免（不是禁止）**：archived、长期没 commit、license 不明的 repo——niche 工具可以例外
-- **作者自投会标示**：作者投稿自己的项目没问题（照 CONTRIBUTING 先开 issue 说明），**收录标准跟其他条目一样、不放宽**；但条目会加“⚠️ 作者本人投稿”，让读者自己权衡。（13 / 14 节的 maintainer 自家项目也有标示，差别是那两节有明讲 star 门槛放宽，这里没有）
 
 ### 目录
 
@@ -131,7 +130,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 394 |
+| Stars | ★ 430 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -263,7 +262,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 859 |
+| Stars | ★ 908 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（M365 全套） |
 
@@ -363,7 +362,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 414 |
+| Stars | ★ 443 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -399,7 +398,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 36k+ |
+| Stars | ★ 38k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（code intelligence） |
 
@@ -603,7 +602,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 53k+ |
+| Stars | ★ 57k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
@@ -886,7 +885,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 16 |
+| Stars | ★ 31 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -920,7 +919,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 12 |
+| Stars | ★ 11 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐（窄但深） |
 
@@ -944,7 +943,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 42 |
+| Stars | ★ 46 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 

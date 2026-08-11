@@ -5,7 +5,7 @@ section: "Walkthrough"
 sourcePath: "walkthroughs/build-first-agent-in-7-steps.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/walkthroughs/build-first-agent-in-7-steps.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-11T01:57:24.344Z"
+syncedAt: "2026-08-11T13:12:14.368Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "build-first-agent-in-7-steps"
@@ -527,7 +527,9 @@ tests:
 
 ```python
 # step7_observability.py
-from langfuse.decorators import observe
+# langfuse **3.0** 起 observe 就在套件頂層；只有 2.x 是 `from langfuse.decorators import observe`。
+# 3.x / 4.x 都用下面這行；裝到 2.x 才需要改回舊路徑。
+from langfuse import observe
 from step3_tool_use import run_agent  # 前面 stage 的 agent
 
 @observe(name="paper-summary-agent")

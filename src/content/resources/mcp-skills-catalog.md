@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-11T01:57:24.344Z"
+syncedAt: "2026-08-11T13:12:14.368Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "mcp-skills-catalog"
@@ -30,7 +30,6 @@ baseSlug: "mcp-skills-catalog"
 - **stars 看一下就好**：社群 repo 大致 100+ 比較有人在維護，但「小眾但好用」也歡迎送 PR 解釋為什麼要收
 - **盡量有 metadata**：stars / license 用 `gh api` 抓、有空就更新一輪
 - **避免（不是禁止）**：archived、長期沒 commit、license 不明的 repo——niche 工具可以例外
-- **作者自投會標示**：作者投稿自己的專案沒問題（照 CONTRIBUTING 先開 issue 說明），**收錄標準跟其他條目一樣、不放寬**；但條目會加「⚠️ 作者本人投稿」，讓讀者自己權衡。（13 / 14 節的 maintainer 自家專案也有標示，差別是那兩節有明講 star 門檻放寬，這裡沒有）
 
 ### 目錄
 
@@ -131,7 +130,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 394 |
+| Stars | ★ 430 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐ |
 
@@ -263,7 +262,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 859 |
+| Stars | ★ 908 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐（M365 全套） |
 
@@ -363,7 +362,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 414 |
+| Stars | ★ 443 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐ |
 
@@ -399,7 +398,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 36k+ |
+| Stars | ★ 38k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐⭐（code intelligence） |
 
@@ -603,7 +602,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 53k+ |
+| Stars | ★ 57k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐⭐⭐ |
 
@@ -887,7 +886,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 16 |
+| Stars | ★ 31 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐ |
 
@@ -921,7 +920,7 @@ npx -y jacobian mcp
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 12 |
+| Stars | ★ 11 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐（窄但深） |
 
@@ -945,7 +944,7 @@ npx -y jacobian mcp
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 42 |
+| Stars | ★ 46 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐ |
 

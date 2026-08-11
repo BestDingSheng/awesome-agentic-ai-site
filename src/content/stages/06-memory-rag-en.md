@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-11T01:57:24.344Z"
+syncedAt: "2026-08-11T13:12:14.368Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
@@ -753,7 +753,7 @@ Categorized for quick reference; **choose by use case ("Entry Point") and follow
 
 | Category | Project | ⭐ | Who It's For | Why Recommended / Notes |
 |---|---|---|---|---|
-| **RAG Framework**<br>(Full Pipeline) | [LlamaIndex](https://github.com/run-llama/llama_index) | ⭐⭐⭐⭐⭐ | Applications focused on documents | Core RAG library, provides document loaders / chunking / retrieval / query engines. ★ 49k+ |
+| **RAG Framework**<br>(Full Pipeline) | [LlamaIndex](https://github.com/run-llama/llama_index) | ⭐⭐⭐⭐⭐ | Applications focused on documents | Core RAG library, provides document loaders / chunking / retrieval / query engines. ★ 51k+ |
 | | [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | ⭐⭐⭐⭐⭐ | Teams shipping RAG to non-developers | Production-ready RAG engine, deep document understanding (layout/tables/OCR) + hybrid retrieval + agent loops + Web UI. ★ 86k+, Apache-2.0. |
 | | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | ⭐⭐⭐⭐ | Those exploring research-grade graph + long-context memory methods | Graph + vector hybrid retrieval + summarization-based memory, backed by EMNLP 2025 paper. ★ 38k+, MIT. Research-oriented codebase. |
 | **Vector DB**<br>(Local-First) | [Chroma](https://github.com/chroma-core/chroma) | ⭐⭐⭐⭐⭐ | Exercises 2 / 4, easiest vector DB to start with | Open-source embedding database, runs locally, in-memory/SQLite backend, zero ops. ★ 28k+, Apache-2.0. **Install**: `pip install chromadb` |
