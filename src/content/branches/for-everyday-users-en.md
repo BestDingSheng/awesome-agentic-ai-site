@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-12T02:10:08.268Z"
+syncedAt: "2026-08-12T13:16:05.660Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-everyday-users"
@@ -106,7 +106,7 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 
 | Field | Value |
 |---|---|
-| Stars | ★ 187k+ |
+| Stars | ★ 196k+ |
 | License | MIT |
 
 **What it teaches**: Open-source coding agent **not tied to any specific LLM provider** — use Claude, GPT, Gemini, or local Ollama, your choice. Community-maintained, fast iteration.

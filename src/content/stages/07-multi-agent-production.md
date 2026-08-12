@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-12T02:10:08.268Z"
+syncedAt: "2026-08-12T13:16:05.660Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "07-multi-agent-production"
@@ -19,7 +19,7 @@ order: 7
 
 > 💡 用語密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.md` 4 + 6](/zh-tw/resources/glossary/#4-multi-agent)。
 
-> 📋 **本章組成**：〔Multi-Agent · Production 化 是什麼（先定位）+ 三層工程分工 + 何時用 multi-agent〕→ 學習目標 → 進入條件 → 必修閱讀 → Harness Engineering（**8 個核心元件含 Cost/Latency**）→ 動手練習（含練習 6 Cost Optimization）→ **Agent Benchmark Landscape：怎麼看，不要只看排行榜** → 常用工具推薦 → 精選 Projects → 自我檢查
+> 📋 **本章組成**：〔Multi-Agent · Production 化 是什麼（先定位）+ 五層工程分工 + 何時用 multi-agent〕→ 學習目標 → 進入條件 → 必修閱讀 → Harness Engineering（**8 個核心元件含 Cost/Latency**）→ 動手練習（含練習 6 Cost Optimization）→ **Agent Benchmark Landscape：怎麼看，不要只看排行榜** → 常用工具推薦 → 精選 Projects → 自我檢查
 > 🔑 **關鍵名詞**：見 [`resources/glossary.md` 4 + 6](/zh-tw/resources/glossary/#4-multi-agent)（multi-agent / orchestration / handoff / eval / observability / harness（模型外圍的執行與控制層））
 
 最後一個階段。你正從「我會做 agent」走向「我能讓 agent **真的給人穩定用**——多個 agent 協作、有 eval、有 observability、能部署到可用環境」。**「Production 化」 ≠ enterprise scale**——只要 agent 能穩定產出 + 能讓別人使用、就算進入這 stage 範圍。
@@ -37,23 +37,51 @@ order: 7
 - **Stage 4** = 單 agent framework 怎麼挑、ReAct / Plan-Execute 等 pattern
 - **本 stage** = **多 agent 協作** + **harness engineering**（執行系統工程）+ **部署到可用環境 / observability / eval**
 
-### 三層工程分工：Prompt → Context → Harness
+### 五層工程分工：Prompt → Context → Harness → Loop → Graph
 
-工程分工可以分成三層、對應 stack 不同位置（不是 call 一次 vs 多次的差別）：
+> 📍 **這一節是這個 repo 講「分層」的 canonical 出處**。其他章節提到分層時只會指回這裡，不各自重述一遍——以前六個地方各講一次，結果講出三種版本。
 
-| 層級 | 概念 | 核心問題 | 關注單位 | 對應 stage |
-|---|---|---|---|---|
-| 1 | **Prompt Engineering** | 這一次要怎麼問？ | **單次 LLM call** | [Stage 2](/zh-tw/stages/02-prompt-engineering/) |
-| 2 | **Context Engineering** | 這次該給模型哪些資訊？ | **多次互動中的上下文** | [Stage 6](/zh-tw/stages/06-memory-rag/) |
-| **3** | **Harness Engineering**<br>（**本 stage**） | 整個流程怎麼跑起來？ | **可執行的 LLM workflow / system** | **本 stage** |
+這五層**不是難度階梯**，是「**你在管多大範圍**」。而且它們不是並列的清單，是**一層撞牆、才生出下一層**（跟「call 一次 vs 多次」無關）：
 
-> 🔁 **下一層：Loop Engineering（迴圈工程）**：prompt → context → harness 之後，2026 浮現的第四層是「**設計 agent 的迭代迴圈本身**」——目標、可用工具、context 管理、**終止條件**、錯誤處理，讓 agent 跑數百步、跨 session 仍可靠。Claude Code 的 `/goal`（給一個可驗證的完成條件、agent 自己 loop 到達成）就是這個方向；[Stage 5.6 Dynamic Workflows](/zh-tw/stages/05-claude-code-ecosystem/) 則是 agent 自己寫出 loop 腳本。譜系：ReAct（2022）→ AutoGPT（2023）→ /goal（2026）。
+| 層級 | 概念 | 目的（要解決什麼） | 撞到什麼牆 → 所以有下一層 | 對應 stage | 名稱來源 |
+|---|---|---|---|---|---|
+| 1 | **Prompt Engineering** | 這一次問對 | 它不知道你手上的資料 | [Stage 2](/zh-tw/stages/02-prompt-engineering/) | 官方採用 |
+| 2 | **Context Engineering** | 讓它讀到該讀的 | 知道了，也還動不了手 | [Stage 6](/zh-tw/stages/06-memory-rag/) | 官方採用 |
+| **3** | **Harness Engineering**<br>（**本 stage**） | 讓它真的動手，出錯不炸掉 | 一次跑不完一件大事 | **本 stage** | 官方採用 |
+| 4 | **Loop Engineering** | 讓它自己做完，不用你盯 | 它自己跑，你就看不見它在幹嘛 | [Stage 5.6](/zh-tw/stages/05-claude-code-ecosystem/) | ⚠️ 非官方名稱 |
+| 5 | **Graph Engineering** | 看得到、管得住、能重來 | —（目前最外一層） | [Stage 4](/zh-tw/stages/04-agent-frameworks/) | ⚠️ 非官方名稱 |
+
+![Agent 工程五層 Stack](/upstream/resources/diagrams/agent-engineering-5layer.png)
+
+> ⚠️ **「名稱來源」那一欄要看一下**。前三個詞廠商自己的文件在用（Anthropic 有 context engineering 專文、OpenAI 2026-02 用了 harness engineering）。**後兩個沒有**：Loop / Graph Engineering 是社群講出來的名字，概念真的成立，但 Anthropic 官方叫 *dynamic workflows*、Google ADK 與 Microsoft Agent Framework 叫 *graph-based workflow(s)*。你去查官方文件查不到「graph engineering」這個詞，不是你漏看。
 
 **白話差異**：
 
 - **Prompt** = 設計一個好的問法，讓模型這次回答準
 - **Context** = 動態決定要放入哪些背景、記憶、文件、工具結果，讓模型知道現在情境
 - **Harness** = 把 prompt、context、工具、狀態、流程控制、錯誤處理串成一套可以運作的系統
+- **Loop** = 交代一個目標，讓它自己重複做到夠好為止，並且決定「什麼時候該停」
+- **Graph** = 先把工作拆成幾個格子、畫出誰接誰，讓過程看得到、能從中間接著跑
+
+### 迴圈跟圖差在哪（這兩個最容易混）
+
+**迴圈**＝你交代一個目標，它自己一直做到覺得可以為止。中間你看不到，只看到結果。像洗碗：拿起來、洗、看乾不乾淨，不乾淨再洗一次。**路只有一條，轉幾圈它自己決定。**
+
+**圖**＝先把工作拆成幾個**格子**，用線畫出誰接誰。像餐廳出菜：切、炒、擺盤，順序先寫好，而且兩個爐可以同時開。
+
+最好記的一句：
+
+> **格子裡面，是 agent 自己繞圈；格子跟格子之間，是你安排的順序。**
+
+![一張「圖」裡面有什麼](/upstream/resources/diagrams/inside-a-graph.png)
+
+所以兩者不是二選一——**圖是把好幾個迴圈裝進格子、再排好順序**。而且格子裡放的不一定是 agent：**也可以是一個工具、一段檢查、或是「這裡要人按核准才能往下」**。
+
+**為什麼要多這一層**：格子畫出來，你才看得到它現在卡在哪一格、才能從中間接著跑、才能兩格同時跑。反過來說，**全部塞回同一個格子，就退回原本的迴圈了**。
+
+**代價要講清楚**：圖逼你事先想清楚要拆成哪幾格。如果事情就是「一直試到成功」、也沒人要回頭查，那先畫圖只是多做工——那種時候迴圈才是對的工具。**你越信得過它，格子畫得越少。**
+
+**譜系**：ReAct（2022）→ AutoGPT（2023）→ Claude Code 的 `/goal`（2026，給一個可驗證的完成條件、讓 agent 自己 loop 到達成）。[Stage 5.6 Dynamic Workflows](/zh-tw/stages/05-claude-code-ecosystem/) 則是 agent 自己寫出 loop 腳本；可以直接跑的圖範例在 [`examples/stage-4/03-graph-workflow/`](/zh-tw)。
 
 **本 stage 三個核心問題**：
 
@@ -107,7 +135,7 @@ order: 7
 
 ### 定位：模型外圍的執行與控制層
 
-要把 LLM 變成可用的 agent，通常會碰到三層工程問題。這三層對應的是不同工程位置，不是單純用「一次 call」或「多次 call」來區分。
+要把 LLM 變成可用的 agent，最先碰到的是**五層裡的前三層**（完整階梯見上面〈五層工程分工〉）。這三層對應的是不同工程位置，不是單純用「一次 call」或「多次 call」來區分。
 
 > 💡 **Simon Willison 2025**：「coding agent = LLM + harness」、harness = 所有**不是 model 本身**的程式碼。
 >
@@ -272,7 +300,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 > - 每次 model upgrade → 跑內部 eval set 驗證、不只看廠商公布的 benchmark 提升
 > - 接 [langfuse](https://github.com/langfuse/langfuse) / [promptfoo](https://github.com/promptfoo/promptfoo) 把 eval 自動化、每次 deploy 都跑
 
-> 📊 **observability 認一個可攜標準 + 兩個評估觀念**：(1) **OpenTelemetry GenAI 慣例**（`gen_ai.*` semantic conventions）——langfuse / Arize Phoenix / Helicone 都吐 OTel-相容 span，認這層才不被單一工具綁死；OTel-native 的 [Arize Phoenix](https://github.com/Arize-ai/phoenix)（★ 10k+）可看。(2) **pass^k**（同一題連對 k 次的機率 = 可靠度，不是只看過一次）+ [τ²-bench](https://github.com/sierra-research/tau2-bench)。(3) 多 agent 失敗有現成詞彙：**MAST**（[arXiv 2503.13657](https://arxiv.org/abs/2503.13657)、14 種失敗模式分 3 類）。
+> 📊 **observability 認一個可攜標準 + 兩個評估觀念**：(1) **OpenTelemetry GenAI 慣例**（`gen_ai.*` semantic conventions）——langfuse / Arize Phoenix / Helicone 都吐 OTel-相容 span，認這層才不被單一工具綁死；OTel-native 的 [Arize Phoenix](https://github.com/Arize-ai/phoenix)（★ 11k+）可看。(2) **pass^k**（同一題連對 k 次的機率 = 可靠度，不是只看過一次）+ [τ²-bench](https://github.com/sierra-research/tau2-bench)。(3) 多 agent 失敗有現成詞彙：**MAST**（[arXiv 2503.13657](https://arxiv.org/abs/2503.13657)、14 種失敗模式分 3 類）。
 
 ## 🎯 常用 Multi-Agent / Production 工具推薦（按用途分類）
 
@@ -283,7 +311,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | **第一次寫 multi-agent**（最快上手）| [crewAI](https://github.com/crewAIInc/crewAI) | role-based、幾行 code 跑起來、production pattern 直接 |
 | **想要 group debate / brainstorm pattern** | [AutoGen](https://github.com/microsoft/autogen) | GroupChat 自由辯論、Microsoft 出品 |
 | **production 要 audit trail / checkpoint / human-in-loop** | [LangGraph](https://github.com/langchain-ai/langgraph) | state machine、控制最完整 |
-| **eval 標準化**（CI / regression 必裝）| [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config、跨模型比較、★ 23k+ |
+| **eval 標準化**（CI / regression 必裝）| [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config、跨模型比較、★ 24k+ |
 | **eval + observability 同平台** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS、tracing + eval + prompt mgmt、★ 32k+ |
 | **不改程式、快速 instrumentation** | [Helicone](https://github.com/Helicone/helicone) | proxy 中介、不綁 framework |
 | **全 stack 在 LangChain** | [LangSmith](https://www.langchain.com/langsmith)（商業）| LangChain 官方 observability |
@@ -302,7 +330,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 
 ## 🎯 精選 Projects（範本 / SDK / 工具 collection）
 
-按用途分類、28 個項目一張表搞定。**挑入口看「適合誰」、想深入點連結看 repo**。
+按用途分類、29 個項目一張表搞定。**挑入口看「適合誰」、想深入點連結看 repo**。
 
 | 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|---|
@@ -310,7 +338,8 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | 想要 role-based 流水線 | 角色式 multi-agent（research → writer → reviewer），最簡單 production pattern |
 | | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | 需要 audit trail / checkpoint / human-in-the-loop | state machine 路線、production 控制最強 |
 | | [open-multi-agent/open-multi-agent](https://github.com/open-multi-agent/open-multi-agent) | ⭐⭐⭐⭐ | 寫 TypeScript、想在同一個 repo 裡對照「動態規劃」與「固定 pipeline」 | 由 coordinator 在 runtime 把 goal 規劃成 task DAG,再交給 scheduler 執行;`runTeam()` 從 goal 動態規劃、`runTasks()` 跑寫死的 pipeline,兩種寫法可以直接比。上面三個都是 Python 生態,這條補的是 TypeScript 路線。★ 6.8k+、MIT |
-| **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | 把 eval 流程標準化、CI 整合 | YAML config、跨模型比較。★ 23k+、MIT |
+| | [AMAP-ML/LongHorizon-Harness](https://github.com/AMAP-ML/LongHorizon-Harness) | ⭐⭐⭐ | 想看「驗證那一格」在真實專案裡長什麼樣 | 把長任務拆成 Manager / Executor / **Auditor** 三個角色，Executor 每輪用新 context，Auditor 獨立檢查後才寫進持久 state——就是上面那張圖裡「檢查對不對」那一格的實作。包在 Claude Code / Codex 外層，不用自己重寫 agent loop。**很新**：2026-08-04 建立、2 位 contributor，還沒有長期維護紀錄。★ 587、MIT |
+| **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | 把 eval 流程標準化、CI 整合 | YAML config、跨模型比較。★ 24k+、MIT |
 | | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | 學術 benchmark 主張（MMLU / HellaSwag / GSM8K）| 學術等級。★ 13k+、MIT |
 | | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | OpenAI 專屬 eval / 想回饋上游 | ★ 19k+ |
 | **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | 自架 production observability | OSS LangSmith 替代、traces + sessions + evals + prompt mgmt。★ 32k+、MIT |

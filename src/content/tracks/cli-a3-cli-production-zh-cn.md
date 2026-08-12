@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-12T02:10:08.268Z"
+syncedAt: "2026-08-12T13:16:05.660Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a3-cli-production"
@@ -213,7 +213,7 @@ Track A 的人**已经在用** [Stage 7.5 的进阶概念](/stages/07-5-advanced
 | | [continuedev/continue](https://github.com/continuedev/continue) | ⭐⭐⭐⭐ | 想把 AI checks 接到 PR pipeline 强制执行 | ★ 35k+。完整介绍见 [`branches/for-developer.zh-Hans.md`](/branches/for-developer/) |
 | **Observability + Cost** | [langfuse/langfuse](https://github.com/langfuse/langfuse) | ⭐⭐⭐⭐⭐ | 想把 trace、cost、session 都接起来 | open source LLM observability，★ 32k+。详见 [Stage 7 Observability](/stages/07-multi-agent-production/#练习-3observability) |
 | | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | 想要最快的 logging（改 base_url 就好） | proxy-based 监控、改 base_url 就有 logging + caching，★ 6k+ |
-| | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | ⭐⭐⭐⭐⭐ | CLI workflow 升级到 production 前跑回归测试 | eval framework，★ 23k+。详见 [Stage 7 Eval](/stages/07-multi-agent-production/#练习-2eval) |
+| | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | ⭐⭐⭐⭐⭐ | CLI workflow 升级到 production 前跑回归测试 | eval framework，★ 24k+。详见 [Stage 7 Eval](/stages/07-multi-agent-production/#练习-2eval) |
 | **Production CLI workflow 范本** | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看完整实际在用的 workflow 长什么样 | 整套 production-ready skill collection、★ 265k+。看别人怎么把 CLI workflow 做完整 |
 | | [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | ⭐⭐⭐ | 要把 team 的 CLI workflow 打包共用 | 最简 marketplace template、★ 1.2k+ |
 

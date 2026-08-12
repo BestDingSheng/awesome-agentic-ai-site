@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-12T02:10:08.268Z"
+syncedAt: "2026-08-12T13:16:05.660Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "mcp-skills-catalog"
@@ -886,7 +886,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 31 |
+| Stars | ★ 34 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐ |
 
@@ -920,7 +920,7 @@ npx -y jacobian mcp
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 11 |
+| Stars | ★ 12 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐（窄但深） |
 
@@ -1017,7 +1017,7 @@ Claude 不擅長 token-heavy 機械式工作（成本高、context 容易爆）�
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 93k+ |
+| Stars | ★ 97k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐ |
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-12T02:10:08.268Z"
+syncedAt: "2026-08-12T13:16:05.660Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -71,8 +71,8 @@ This stage uses the **work boundary** as the spine for organizing advanced agent
 
 > 💡 **What "stack" means**: software engineering convention splits a system into top-to-bottom layers, each layer doing one job, upper layers sitting on top of lower ones — collectively called a *stack*. A common web app is a 3-layer stack: frontend → backend → database. This stage splits an agent system into 4 layers (Types / Config / Repo / Service) and asks which layer the agent should be touching.
 
-> ⚠️ **These 4 layers are different from the Stage 7 prompt → context → harness layers. They are two different views**:
-> - **Prompt → Context → Harness** (Stage 7): **stack position** — are you engineering the string, the information, or the surrounding runtime?
+> ⚠️ **These 4 layers are different from Stage 7's five-layer engineering split. They are two different views**:
+> - **Prompt → Context → Harness → Loop → Graph** ([Stage 7](/en/stages/07-multi-agent-production/), the canonical source for layering): **how much scope you are managing** — one sentence / one window / one task / a stretch of time / a set of handoffs?
 > - **Types → Config → Repo → Service** (this stage): **scope of autonomy** — how deep into the stack can the agent act? Is crossing layers a violation?
 >
 > The two views are **orthogonal** and solve different problems. After this section, you should be able to look at agent systems through both lenses at the same time.

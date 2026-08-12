@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-12T02:10:08.268Z"
+syncedAt: "2026-08-12T13:16:05.660Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-everyday-users"
@@ -108,7 +108,7 @@ ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 Ap
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 187k+ |
+| Stars | ★ 196k+ |
 | License | MIT |
 
 **教什麼**：開源版的 coding agent，**不綁特定 LLM provider**——可以用 Claude、GPT、Gemini、本地 Ollama 任何一個。社群維護、迭代速度快。

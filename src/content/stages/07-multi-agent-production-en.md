@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-12T02:10:08.268Z"
+syncedAt: "2026-08-12T13:16:05.660Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -19,7 +19,7 @@ order: 7
 
 > 💡 High density of terminology (multi-agent / handoff / eval / observability / guardrails...) → Refer to [`resources/glossary.en.md` 4 + 6](/en/resources/glossary/#4-multi-agent).
 
-> 📋 **Chapter Composition**: [What is Multi-Agent · Productionization (Positioning) + Three-layer engineering split + When to use multi-agent] → Learning Objectives → Entry Conditions → Required Reading → Harness Engineering (**8 core components including Cost/Latency**) → Hands-on Exercises (including Exercise 6 Cost Optimization) → **Agent Benchmark Landscape: how to read it, not just the leaderboard** → Recommended Tools → Featured Projects → Self-Check
+> 📋 **Chapter Composition**: [What is Multi-Agent · Productionization (Positioning) + Five-layer engineering split + When to use multi-agent] → Learning Objectives → Entry Conditions → Required Reading → Harness Engineering (**8 core components including Cost/Latency**) → Hands-on Exercises (including Exercise 6 Cost Optimization) → **Agent Benchmark Landscape: how to read it, not just the leaderboard** → Recommended Tools → Featured Projects → Self-Check
 > 🔑 **Key Terms**: See [`resources/glossary.en.md` 4 + 6](/en/resources/glossary/#4-multi-agent) (multi-agent / orchestration / handoff / eval / observability / harness (the execution and control layer around the model))
 
 This is the final stage. You are moving from "I can build an agent" to "I can make an agent **truly stable for people to use**"—with multiple agents collaborating, with eval, with observability, and deployable to a usable environment. **"Productionization" ≠ enterprise scale**—as long as an agent can produce stable output and be used by others, it falls within the scope of this stage.
@@ -37,23 +37,51 @@ This is the final stage. You are moving from "I can build an agent" to "I can ma
 - **Stage 4** = how to choose a single-agent framework, patterns like ReAct / Plan-Execute
 - **This stage** = **multi-agent collaboration** + **harness engineering** (execution-system engineering) + **deployment to a usable environment / observability / eval**
 
-### The three-layer engineering split: Prompt → Context → Harness
+### The five-layer engineering split: Prompt → Context → Harness → Loop → Graph
 
-Engineering work can be split into three layers, corresponding to different positions in the stack (not the difference between one call and many calls):
+> 📍 **This section is the canonical source for this repo's "layering" model**. Other chapters that mention layers should point back here instead of restating the model each time. Previously, six places explained it separately and drifted into three different versions.
 
-| Layer | Concept | Core question | Unit of concern | Corresponding stage |
-|---|---|---|---|---|
-| 1 | **Prompt Engineering** | How should I ask this time? | **single LLM call** | [Stage 2](/en/stages/02-prompt-engineering/) |
-| 2 | **Context Engineering** | What information should the model receive this time? | **context across multiple interactions** | [Stage 6](/en/stages/06-memory-rag/) |
-| **3** | **Harness Engineering**<br>(**This stage**) | How does the whole workflow run? | **executable LLM workflow / system** | **This stage** |
+These five layers are **not a difficulty ladder**. They describe **how much scope you are managing**. They are also not a flat list: **each next layer appears because the previous layer hits a wall** (unrelated to "one call vs. many calls"):
 
-> 🔁 **The next layer: Loop Engineering**. After prompt → context → harness, the fourth discipline emerging in 2026 is **engineering the agent's iteration loop itself**: the goal, available tools, context management, **termination logic**, and error handling that keep an agent reliable across hundreds of steps and multiple sessions. Claude Code's `/goal` (give a verifiable completion condition and the agent loops until it is met) is exactly this; [Stage 5.6 Dynamic Workflows](/en/stages/05-claude-code-ecosystem/) is the agent writing its own loop script. Lineage: ReAct (2022) → AutoGPT (2023) → /goal (2026).
+| Layer | Concept | Purpose (what it solves) | Wall it hits → why the next layer exists | Corresponding stage | Name source |
+|---|---|---|---|---|---|
+| 1 | **Prompt Engineering** | Ask the right thing this time | It does not know the data you have | [Stage 2](/en/stages/02-prompt-engineering/) | Officially used |
+| 2 | **Context Engineering** | Let it read the right information | It knows, but still cannot act | [Stage 6](/en/stages/06-memory-rag/) | Officially used |
+| **3** | **Harness Engineering**<br>(**This stage**) | Let it actually act without blowing up on errors | One run cannot finish a large job | **This stage** | Officially used |
+| 4 | **Loop Engineering** | Let it finish by itself without you watching | It runs by itself, so you cannot see what it is doing | [Stage 5.6](/en/stages/05-claude-code-ecosystem/) | ⚠️ Unofficial name |
+| 5 | **Graph Engineering** | Make the process visible, controllable, and resumable | — (currently the outermost layer) | [Stage 4](/en/stages/04-agent-frameworks/) | ⚠️ Unofficial name |
+
+![Agent engineering five-layer stack](/upstream/resources/diagrams/agent-engineering-5layer.en.png)
+
+> ⚠️ **Pay attention to the "Name source" column**. The first three terms are used by vendor documentation (Anthropic has context engineering material, and OpenAI used harness engineering in 2026-02). **The last two are not**: Loop / Graph Engineering are community names. The concepts are real, but Anthropic calls similar mechanisms *dynamic workflows*, while Google ADK and Microsoft Agent Framework use *graph-based workflow(s)*. If you cannot find "graph engineering" in official docs, you are not missing it.
 
 **Plain-language difference**:
 
 - **Prompt** = design a good way of asking so the model answers correctly this time
 - **Context** = dynamically decide which background, memory, documents, and tool results to include so the model understands the current situation
 - **Harness** = connect prompt, context, tools, state, flow control, and error handling into a system that can actually run
+- **Loop** = give it a goal, let it repeat until the result is good enough, and decide when it should stop
+- **Graph** = split the work into boxes first, draw which box connects to which, and make the process visible and resumable
+
+### Loop vs. graph: what is the difference?
+
+**Loop** = you give it a goal, and it keeps working until it decides the result is good enough. You do not see much in the middle; you mostly see the result. Like washing dishes: pick one up, wash it, check whether it is clean, wash again if needed. **There is one path; the agent decides how many times to go around.**
+
+**Graph** = you first split the work into **boxes** and draw lines for who follows whom. Like a restaurant kitchen: chop, cook, plate. The order is written down, and two burners can run at the same time.
+
+The easiest sentence to remember:
+
+> **Inside a box, the agent loops; between boxes, you define the order.**
+
+![What is actually inside a "graph"](/upstream/resources/diagrams/inside-a-graph.en.png)
+
+So this is not either-or. **A graph puts several loops into boxes, then orders those boxes.** And a box does not have to contain an agent: **it can also be a tool, a check, or a "human must approve before continuing" gate**.
+
+**Why add this layer**: once the boxes are drawn, you can see which box is stuck, resume from the middle, and run two boxes in parallel. Conversely, **if you put everything back into one box, you are back to a plain loop**.
+
+**The cost matters**: a graph forces you to decide up front which boxes exist. If the job is simply "keep trying until it works" and nobody needs to inspect the path afterward, drawing a graph is extra work. In that case, a loop is the right tool. **The more you trust the agent, the fewer boxes you draw.**
+
+**Lineage**: ReAct (2022) → AutoGPT (2023) → Claude Code's `/goal` (2026, give a verifiable completion condition and let the agent loop until it is met). [Stage 5.6 Dynamic Workflows](/en/stages/05-claude-code-ecosystem/) is the agent writing its own loop script; the runnable graph example is in [`examples/stage-4/03-graph-workflow/`](/en).
 
 **This stage's 3 core questions**:
 
@@ -107,7 +135,7 @@ If not, go back and complete the previous stages. This stage is about "combining
 
 ### Positioning: The execution and control layer around the model
 
-To turn an LLM into a usable agent, you usually run into three layers of engineering problems. These three layers correspond to different engineering positions, not simply "one call" versus "many calls."
+To turn an LLM into a usable agent, the first thing you meet is **the first three of the five layers** (the full ladder is in "The five-layer engineering split" above). These three layers correspond to different engineering positions, not simply "one call" versus "many calls."
 
 > 💡 **Simon Willison 2025**: "coding agent = LLM + harness"; harness = all the code **that is not the model itself**.
 >
@@ -272,7 +300,7 @@ This means that for numbers on the leaderboard like "Claude 87.6% / GPT 85.0%", 
 > - Every time a model is upgraded → run it against your internal eval set for validation, don't just look at the vendor's published benchmark improvements.
 > - Connect to [langfuse](https://github.com/langfuse/langfuse) / [promptfoo](https://github.com/promptfoo/promptfoo) to automate eval and run it with every deployment.
 
-> 📊 **For observability, learn one portable standard + two eval ideas**: (1) **OpenTelemetry GenAI conventions** (`gen_ai.*`): langfuse / Arize Phoenix / Helicone all emit OTel-compatible spans, so learning this layer keeps you from being locked to one tool; the OTel-native [Arize Phoenix](https://github.com/Arize-ai/phoenix) (★ 10k+) is worth a look. (2) **pass^k**: the probability of solving the same task k times in a row (reliability, not a single pass), measured by [τ²-bench](https://github.com/sierra-research/tau2-bench). (3) Multi-agent failures have a ready vocabulary: **MAST** ([arXiv 2503.13657](https://arxiv.org/abs/2503.13657), 14 failure modes in 3 categories).
+> 📊 **For observability, learn one portable standard + two eval ideas**: (1) **OpenTelemetry GenAI conventions** (`gen_ai.*`): langfuse / Arize Phoenix / Helicone all emit OTel-compatible spans, so learning this layer keeps you from being locked to one tool; the OTel-native [Arize Phoenix](https://github.com/Arize-ai/phoenix) (★ 11k+) is worth a look. (2) **pass^k**: the probability of solving the same task k times in a row (reliability, not a single pass), measured by [τ²-bench](https://github.com/sierra-research/tau2-bench). (3) Multi-agent failures have a ready vocabulary: **MAST** ([arXiv 2503.13657](https://arxiv.org/abs/2503.13657), 14 failure modes in 3 categories).
 
 ## 🎯 Recommended Tools for Multi-Agent / Production (by Use Case)
 
@@ -283,7 +311,7 @@ Don't know where to start choosing tools? Below are the common pairings in the i
 | **Writing your first multi-agent** (fastest to get started) | [crewAI](https://github.com/crewAIInc/crewAI) | Role-based, get it running in a few lines of code, straightforward production patterns |
 | **Want a group debate / brainstorm pattern** | [AutoGen](https://github.com/microsoft/autogen) | GroupChat for free-form debate, from Microsoft |
 | **Need an audit trail / checkpoint / human-in-the-loop for production** | [LangGraph](https://github.com/langchain-ai/langgraph) | State machine approach, most complete control |
-| **Standardizing eval** (a must for CI / regression) | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config, cross-model comparison, ★ 23k+ |
+| **Standardizing eval** (a must for CI / regression) | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config, cross-model comparison, ★ 24k+ |
 | **Eval + observability on the same platform** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS, tracing + eval + prompt mgmt, ★ 32k+ |
 | **Quick instrumentation without code changes** | [Helicone](https://github.com/Helicone/helicone) | Proxy-based, not tied to a framework |
 | **Entire stack is on LangChain** | [LangSmith](https://www.langchain.com/langsmith) (Commercial) | Official observability from LangChain |
@@ -302,7 +330,7 @@ Don't know where to start choosing tools? Below are the common pairings in the i
 
 ## 🎯 Featured Projects (Templates / SDKs / Tool Collections)
 
-Categorized by use case, a single table to get you started with 28 projects. **Use "Who is it for" as your entry point, and click the repo link for a deeper dive.**
+Categorized by use case, a single table to get you started with 29 projects. **Use "Who is it for" as your entry point, and click the repo link for a deeper dive.**
 
 | Category | Project | ⭐ | Who is it for | Why it's recommended / Notes |
 |---|---|---|---|---|
@@ -310,7 +338,8 @@ Categorized by use case, a single table to get you started with 28 projects. **U
 | | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | Those who want a role-based assembly line | Role-based multi-agent (research → writer → reviewer), the simplest production pattern |
 | | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | Those needing an audit trail / checkpoint / human-in-the-loop | State machine approach, strongest for production control |
 | | [open-multi-agent/open-multi-agent](https://github.com/open-multi-agent/open-multi-agent) | ⭐⭐⭐⭐ | TypeScript users who want to compare dynamic planning against a fixed pipeline in one repo | A coordinator plans the task DAG at runtime and hands it to a scheduler; `runTeam()` plans from a goal while `runTasks()` runs an explicitly defined pipeline, so the two styles sit side by side. The three above are Python-ecosystem; this adds the TypeScript route. ★ 6.8k+, MIT |
-| **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | To standardize the eval process, CI integration | YAML config, cross-model comparison. ★ 23k+, MIT |
+| | [AMAP-ML/LongHorizon-Harness](https://github.com/AMAP-ML/LongHorizon-Harness) | ⭐⭐⭐ | Those who want to see what the "check" box looks like in a real project | Splits long tasks into Manager / Executor / **Auditor** roles. The Executor starts each round with fresh context, and the Auditor independently checks the result before it is written into persistent state. This is the concrete implementation of the "check whether it is right" box in the graph above. It wraps Claude Code / Codex externally, so you do not need to rewrite the agent loop yourself. **Very new**: created 2026-08-04, 2 contributors, no long-term maintenance record yet. ★ 587, MIT |
+| **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | To standardize the eval process, CI integration | YAML config, cross-model comparison. ★ 24k+, MIT |
 | | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | For academic benchmarks (MMLU / HellaSwag / GSM8K) | Academic grade. ★ 13k+, MIT |
 | | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | For OpenAI-specific evals / want to contribute upstream | ★ 19k+ |
 | **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | For self-hosting production observability | OSS LangSmith alternative, traces + sessions + evals + prompt mgmt. ★ 32k+, MIT |

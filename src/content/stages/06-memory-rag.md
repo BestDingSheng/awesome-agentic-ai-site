@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-12T02:10:08.268Z"
+syncedAt: "2026-08-12T13:16:05.660Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "06-memory-rag"
@@ -29,7 +29,7 @@ order: 6
 - **Memory 解決的是**：agent 應該跨對話、跨 session、跨任務記住什麼？
 - **Context Engineering 是更上層的問題**：每次 LLM call 前，該把哪些資訊組進 prompt，讓模型在有限 context window 內做出正確決策？
 
-→ 接著 Stage 7 三層工程分工：**Prompt = 單次怎麼問 / Context = 這次該給哪些資訊 / Harness = 整個 agent system 怎麼跑起來**。本 stage 是中間那層。
+→ 接著 Stage 7 五層工程分工：**Prompt = 單次怎麼問 / Context = 這次該給哪些資訊 / Harness = 整個 agent system 怎麼跑起來 / Loop = 讓它自己跑完 / Graph = 把流程攤開**。本 stage 是第 2 層。
 
 ### Agent 需要的兩種 context 能力
 
@@ -57,11 +57,11 @@ order: 6
 
 📺 **視覺學習**：[李宏毅 2025 第 2 講 — Context Engineering：AI Agent 背後的關鍵技術](https://www.youtube.com/watch?v=lVdajtNpaGI)（NTU 生成式人工智慧與機器學習導論 2025）
 
-### 三層 stack 中的位置
+### 五層 stack 中的位置
 
-![Prompt → Context → Harness 三層工程 stack](/upstream/resources/diagrams/prompt-context-harness-stack.png)
+![Agent 工程五層 Stack](/upstream/resources/diagrams/agent-engineering-5layer.png)
 
-詳細對照表見 [Stage 2 進階](/zh-tw/stages/02-prompt-engineering/#-進階prompt--context--harness-三層-engineering)。
+詳細對照表見 [Stage 7 五層工程分工](/zh-tw/stages/07-multi-agent-production/#五層工程分工prompt--context--harness--loop--graph)（分層的 canonical 出處）。
 
 ### 本 stage 處理 4 個 sub-problem 中的 2 個（Lance Martin 2025 framework）
 
