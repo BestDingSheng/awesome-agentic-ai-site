@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T02:10:20.313Z"
+syncedAt: "2026-08-14T13:12:41.069Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -646,4 +646,4 @@ Anthropic 2026-06 的報告用真實使用資料歸成一句大白話：**你決
 
 ---
 
-→ 接下來 [**Stage 8 — Agent 操作介面（Agent Interfaces）**](/zh-tw/stages/08-agent-interfaces/)（**兩 track 共用 hub**）：學 agent 怎麼跟非 API 世界互動（Computer Use / Browser Use / Code Sandbox）。或挑一個[特化分支](/zh-tw#️-學習地圖兩條學習路徑)、或回過頭來貢獻這份 repo。
+→ 接下來 [**Stage 8 — Agent 操作介面（Agent Interfaces）**](/zh-tw/stages/08-agent-interfaces/)（**兩 track 共用 hub**）：學 agent 怎麼跟非 API 世界互動（Computer Use / Browser Use / Code Sandbox）。或挑一個[特化分支](/zh-tw#-學習地圖兩條學習路徑)、或回過頭來貢獻這份 repo。

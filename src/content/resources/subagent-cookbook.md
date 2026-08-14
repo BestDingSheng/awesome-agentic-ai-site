@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/subagent-cookbook.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/subagent-cookbook.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T02:10:20.313Z"
+syncedAt: "2026-08-14T13:12:41.069Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "subagent-cookbook"
@@ -374,6 +374,6 @@ Subagent 不是免費的——每次派遣**燒 token、有延遲**。下面 4 �
 
 - **想理解完整理論**（subagent 跟 skill / MCP 的差別、3 種 multi-agent 機制）→ [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)
 - **想自己寫 / 組合 / debug subagent**（進階主題）→ [`subagent-advanced.md`](/zh-tw/resources/subagent-advanced/)（description 寫法 / composition pattern / debug 工具）
-- **CLI 日常用法 playbook** → [`tracks/cli/A3-cli-production.md` Playbook 4](/zh-tw/tracks/cli-a3-cli-production/#📋-playbook-4派遣-subagent-跑獨立任務)
+- **CLI 日常用法 playbook** → [`tracks/cli/A3-cli-production.md` Playbook 4](/zh-tw/tracks/cli-a3-cli-production/#-playbook-4派遣-subagent-跑獨立任務)
 - **想看 subagent 在 agent paradigm 體系內的定位** → [`resources/agent-paradigms.md`](/zh-tw/resources/agent-paradigms/#subagent--在-agent-runtime-裡再-spawn-agent)
 - **詞彙快查** → [`resources/glossary.md` § 5. Claude Code 生態 — Subagent](/zh-tw/resources/glossary/#subagent子-agent)

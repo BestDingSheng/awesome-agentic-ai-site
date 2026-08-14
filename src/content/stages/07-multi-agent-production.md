@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T02:10:20.313Z"
+syncedAt: "2026-08-14T13:12:41.069Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "07-multi-agent-production"
@@ -380,7 +380,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 - [ ] 在真實 workload 上量測 prompt caching 前後的成本差異
 - [ ] 把 agent deploy 到雲端（任何 provider）
 
-如果都可以 → 先進 [**Stage 7.5 — 進階 Agentic 概念地圖**](/zh-tw/stages/07-5-advanced-agentic-concepts/)（1 週、不寫 code、建立 frontier 概念地圖、定位業界還在討論哪些進階概念），再進 [**Stage 8 — Agent Interfaces**](/zh-tw/stages/08-agent-interfaces/)（**兩 track 共用 hub**）學 agent 怎麼跟非 API 世界互動（Computer Use / Browser Use / Sandbox）。或挑一個[特化分支](/zh-tw#️-學習地圖兩條學習路徑)、或回過頭來貢獻這份 repo。
+如果都可以 → 先進 [**Stage 7.5 — 進階 Agentic 概念地圖**](/zh-tw/stages/07-5-advanced-agentic-concepts/)（1 週、不寫 code、建立 frontier 概念地圖、定位業界還在討論哪些進階概念），再進 [**Stage 8 — Agent Interfaces**](/zh-tw/stages/08-agent-interfaces/)（**兩 track 共用 hub**）學 agent 怎麼跟非 API 世界互動（Computer Use / Browser Use / Sandbox）。或挑一個[特化分支](/zh-tw#-學習地圖兩條學習路徑)、或回過頭來貢獻這份 repo。
 
 ## 💡 接下來
 

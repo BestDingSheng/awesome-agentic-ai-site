@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T02:10:20.313Z"
+syncedAt: "2026-08-14T13:12:41.069Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "style-guide"
@@ -26,9 +26,9 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 - [2. 推荐星等定义](#2-推荐星等定义)
 - [3. 禁用词与替代](#3-禁用词与替代)
 - [4. 可保留的英文名词](#4-可保留的英文名词)
-- [5. License 标注惯例](#5-License-标注惯例)
-- [6. Stage 页面模板](#6-Stage-页面模板)
-- [7. Branch 页面模板](#7-Branch-页面模板)
+- [5. License 标注惯例](#5-license-标注惯例)
+- [6. Stage 页面模板](#6-stage-页面模板)
+- [7. Branch 页面模板](#7-branch-页面模板)
 - [8. 写作风格规范](#8-写作风格规范)
 - [9. 链接与引用](#9-链接与引用)
 

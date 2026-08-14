@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T02:10:20.313Z"
+syncedAt: "2026-08-14T13:12:41.069Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
@@ -229,7 +229,7 @@ Can you:
 - [ ] Packaged your CLAUDE.md / commands at least once (even just for yourself)
 - [ ] Know which tasks deserve observability and which don't
 
-If yes → **Track A complete**. We recommend continuing to [**Stage 8 — Agent Interfaces**](/en/stages/08-agent-interfaces/) (**a shared hub for both tracks**: Computer Use / Browser Use / Code Sandbox, ~1-2 weeks from the Track A angle), or pick a [specialized branch](/en#️-learning-map-two-tracks) and continue (researcher / developer / teacher / knowledge-worker / everyday-users).
+If yes → **Track A complete**. We recommend continuing to [**Stage 8 — Agent Interfaces**](/en/stages/08-agent-interfaces/) (**a shared hub for both tracks**: Computer Use / Browser Use / Code Sandbox, ~1-2 weeks from the Track A angle), or pick a [specialized branch](/en#-learning-map-two-tracks) and continue (researcher / developer / teacher / knowledge-worker / everyday-users).
 
 If you want to go deeper into "**how to write your own CLI agent**" (not use existing) → jump to [Track B Stage 3](/en/stages/03-tool-use-and-hello-agent/). Track A and Track B are complementary.
 

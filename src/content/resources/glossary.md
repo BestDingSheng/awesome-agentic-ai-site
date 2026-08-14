@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T02:10:20.313Z"
+syncedAt: "2026-08-14T13:12:41.069Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "glossary"
@@ -144,7 +144,7 @@ LLM 一次能「看」多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 
 「LLM → tool → 結果 → LLM」這個重複的循環。Loop 結束條件可能是：LLM 說「I'm done」、跑超過 N 步、超出 budget。
 
-⚠️ **這是「一次執行裡面」的迴圈**，是 harness 的一個零件，跟五層階梯第 4 層的 **Loop Engineering（迴圈工程）**（本表下方另有一條，管的是跨 session 的長時間執行）同名但不同層次。兩者的分界見 [Stage 7](/zh-tw/stages/07-multi-agent-production/)。
+⚠️ **這是「一次執行裡面」的迴圈**，是 harness 的一個零件，跟五層階梯第 4 層的 [Loop Engineering（迴圈工程）](#loop-engineering迴圈工程)（管的是跨 session 的長時間執行）同名但不同層次。兩者的分界見 [Stage 7](/zh-tw/stages/07-multi-agent-production/)。
 
 ### Self-Refine（基本版反思 / 無記憶）
 
