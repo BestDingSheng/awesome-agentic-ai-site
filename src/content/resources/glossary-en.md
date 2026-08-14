@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-13T13:18:04.398Z"
+syncedAt: "2026-08-14T02:10:20.313Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -143,6 +143,8 @@ Make the LLM output **JSON or another fixed schema** instead of free text. All m
 ### Agent Loop
 
 The "LLM → tool → result → LLM" repeated cycle. Termination: LLM says "done" / step budget exhausted / cost cap hit.
+
+⚠️ **This is the loop *inside a single run*** — one component of a harness. It shares a name with [Loop Engineering](#loop-engineering), Layer 4 of the five-layer ladder, which governs long-horizon execution *across* sessions. Different levels, same word. The boundary is drawn in [Stage 7](/en/stages/07-multi-agent-production/).
 
 ### Self-Refine (Basic reflection / no memory)
 
@@ -418,6 +420,8 @@ Contrast:
 ### Loop Engineering
 
 Layer 4 in the five-layer engineering split (see [Stage 7](/en/stages/07-multi-agent-production/), the canonical source for the full ladder and each layer's purpose): designing and tuning an agent's iteration loop itself (goal, tools, context management, termination logic, error handling) so long-running, multi-step, cross-session execution stays reliable and on-target. Related: harness, Dynamic Workflows, ReAct.
+
+⚠️ **Do not confuse this with the [Agent Loop](#agent-loop) inside a harness**. This layer governs the long-horizon problem *across many runs*; `Agent Loop` is a harness component governing the mechanical cycle *within one run*.
 
 ### Graph Engineering
 
