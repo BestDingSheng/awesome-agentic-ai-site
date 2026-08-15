@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T13:12:41.069Z"
+syncedAt: "2026-08-15T01:23:27.558Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "08-agent-interfaces"
@@ -223,7 +223,7 @@ Agent receives a task
 | **Gemini in Chrome**| Google (Gemini 3) | All Chrome platforms + Android | ✅ **Auto Browse** + **Chrome Skills** | Enterprise Premium $6/user/month |
 | **Operator** | OpenAI | — | ❌ **Discontinued Aug 2025** | Unstable handling of CAPTCHA, JS, and sessions. |
 
-→ For a full comparison: [Best AI Browsers 2026 Tested](https://kahana.co/blog/best-ai-browsers-2026-tested-real-workflows), [AI Browser Comparison 2026](https://www.webfx.com/blog/ai/best-ai-browsers/).
+→ For a full comparison: [AI Browser Comparison (2027 update)](https://www.webfx.com/blog/ai/best-ai-browsers/).
 
 ### Open-Source Browser Use Frameworks
 

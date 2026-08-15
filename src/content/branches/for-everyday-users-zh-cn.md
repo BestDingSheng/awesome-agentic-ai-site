@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T13:12:41.069Z"
+syncedAt: "2026-08-15T01:23:27.558Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-everyday-users"
@@ -75,7 +75,7 @@ Google 出品。长 context（一次能读很长文件、约一本厚书的量�
 #### [Claude Desktop](https://claude.ai/download) ⭐⭐⭐⭐⭐
 比网页版多了：拖文件进去、本地文件读取、保留长期对话脉络。**也是进入 AI 工具整合生态（MCP）的入口**——可以接 Slack / Gmail / 日历，让你在 Claude 里直接操作这些服务。
 
-#### [ChatGPT Desktop](https://openai.com/chatgpt/desktop) ⭐⭐⭐⭐
+#### [ChatGPT Desktop](https://chatgpt.com/download/) ⭐⭐⭐⭐
 ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 App 集成。
 
 ---

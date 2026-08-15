@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T13:12:41.069Z"
+syncedAt: "2026-08-15T01:23:27.558Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -134,6 +134,7 @@ If not, go back and complete the previous stages. This stage is about "combining
 5. **Documentation for any eval framework** — promptfoo, LangSmith, or weave
 6. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering) (★ 3.4k+) — A collection of tools / patterns / eval / memory / MCP / observability for agent harnesses
 7. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) (★ 1.5k+) — Learning harness design from Claude Code's source code (in Chinese)
+8. **(Optional — this one is still a developer preview)** [**deepseek-ai/deepseek-harness**](https://github.com/deepseek-ai/deepseek-harness) (★ 88k+, MIT) — DeepSeek's agent harness, open-sourced 2026-08-13. Its thesis is "**everything is a plugin**": models, tools, skills, sessions, sandboxes, storage, the loop, scheduling and the UI are all supplied by plugins. **Read it, don't depend on it** — the README itself says it is "currently in *developer preview* and is iterating rapidly. **THERE WILL BE COMPATIBILITY-BREAKING CHANGES.**", the version is `0.1.0-rc.5`, and there are no GitHub releases yet. It earns a place here because it is one of the few complete implementations you can open up and see **what parts a harness is actually made of** — which maps directly onto the eight core components below. If you do read it, start from [`docs/architecture.md`](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md) rather than diving into the monorepo. It is not locked to DeepSeek models: the [model configuration guide](https://deepseek-harness.github.io/deepseek-harness/guide/providers) covers Anthropic, OpenAI, Bedrock, Vertex, Azure and custom OpenAI-compatible endpoints. It is absent from [`resources/cli-agents-guide.md`](/en/resources/cli-agents-guide/) because **the interactive interface is a Web UI** (`npx @deepseek-ai/dsh web`); the shipped non-web mode, `dsh --profile headless "job"`, runs once and exits rather than being an interactive terminal agent (the plugin repo that `--profile tui` points at currently 404s).
 
 ## 🏗 Harness Engineering — Engineering Design for a Production Agent Runtime ⭐ Core Concept of This Stage
 

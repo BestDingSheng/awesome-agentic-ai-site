@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T13:12:41.069Z"
+syncedAt: "2026-08-15T01:23:27.558Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-everyday-users"
@@ -73,7 +73,7 @@ Search engine × LLM — every answer cites sources. Better than ChatGPT for "ne
 #### [Claude Desktop](https://claude.ai/download) ⭐⭐⭐⭐⭐
 Beyond the web version: drag files in, read local files, retain long conversation context. **Also the gateway to AI-tool integration (MCP)** — you can connect Slack / Gmail / Calendar and operate them directly inside Claude.
 
-#### [ChatGPT Desktop](https://openai.com/chatgpt/desktop) ⭐⭐⭐⭐
+#### [ChatGPT Desktop](https://chatgpt.com/download/) ⭐⭐⭐⭐
 Desktop version of ChatGPT. Ask questions about screenshots, voice conversation, integrate with other apps.
 
 ---

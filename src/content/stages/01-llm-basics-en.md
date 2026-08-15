@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T13:12:41.069Z"
+syncedAt: "2026-08-15T01:23:27.558Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "01-llm-basics"
@@ -164,7 +164,7 @@ If not — go back to Stage 0 first.
 **🎥 Video supplements (highly recommended)**:
 
 - [**Hung-yi Lee — Introduction to Generative AI (NTU, Spring 2024)**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — episodes 1-5 cover what an LLM is, how it works, and how token / context window / temperature shape the output. a university-level Mandarin-language course taught at National Taiwan University; the course page carries slides plus YouTube. Latest consolidated edition: [**GenAI-ML, Fall 2025**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
-- [**3Blue1Brown — Transformers, visually explained**](https://www.youtube.com/watch?v=wjZofJX0v4M) (Mandarin dub: [3Blue1Brown 中文](https://www.youtube.com/@3Blue1BrownCN)) — a visual intro to what happens inside an LLM
+- [**3Blue1Brown — Transformers, visually explained**](https://www.youtube.com/watch?v=wjZofJX0v4M) (Mandarin dub: [3Blue1Brown 中文](https://space.bilibili.com/88461692)) — a visual intro to what happens inside an LLM
 - [**Andrej Karpathy — Intro to LLMs**](https://www.youtube.com/watch?v=zjkBMFhNj_g) — English, 1 hr, the most widely recommended LLM primer in English
 
 ## 🛠 Hands-on Exercises (foundational, illustrative)

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T13:12:41.069Z"
+syncedAt: "2026-08-15T01:23:27.558Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -73,18 +73,18 @@ order: 3
 >
 > 这些都是 advanced pattern——Stage 3 教最小可行 agent、后面 stage 教怎么变强。
 
-### 📚 深度入门资源（中英文 / 影片优先）
+### 📚 深度入门资源（中英文 / 视频优先）
 
 **🀄 中文**：
 
 1. [**李宏毅 — 生成式 AI 导论（2024 春台大课程）**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — 中文圈最高质量的 AI / LLM / agent 学术级导论。每集 30-60 分钟、台大授课、官方页含投影片 + YouTube 链接。LLM / agent 概念都涵盖。最新整合版见 [**GenAI-ML 2025 秋**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)、YouTube 主频道 [**@HungyiLeeNTU**](https://www.youtube.com/@HungyiLeeNTU)
 2. [**datawhalechina/hello-agents** Ch1“初识智能体”](https://github.com/datawhalechina/hello-agents) ⭐ — 文字版最完整中文 agent 导论
 3. [**datawhalechina/hello-agents** Ch2“智能体发展史”](https://github.com/datawhalechina/hello-agents) — BabyAGI → AutoGPT → Claude Code 演化脉络
-4. [**3Blue1Brown 中文配音版**](https://www.youtube.com/@3Blue1BrownCN) — LLM / Transformer 视觉化解说（中文配音）
+4. [**3Blue1Brown 中文配音版**](https://space.bilibili.com/88461692) — LLM / Transformer 视觉化解说（中文配音）
 
 **🇺🇸 English**：
 
-1. [**Andrej Karpathy — "Intro to Large Language Models"**](https://www.youtube.com/watch?v=zjkBMFhNj_g) ⭐⭐⭐（1hr）— LLM 从零开始 visual intro（ex-OpenAI / ex-Tesla AI Director、英文圈最重视的 LLM 入门影片）
+1. [**Andrej Karpathy — "Intro to Large Language Models"**](https://www.youtube.com/watch?v=zjkBMFhNj_g) ⭐⭐⭐（1hr）— LLM 从零开始 visual intro（ex-OpenAI / ex-Tesla AI Director、英文圈最重视的 LLM 入门视频）
 2. [**Andrej Karpathy — "Let's build GPT from scratch"**](https://www.youtube.com/watch?v=kCc8FmEb1nY) ⭐⭐（2hr）— 想看 LLM 内部到代码级的人
 3. [**3Blue1Brown — "But what is a Transformer?"**](https://www.youtube.com/watch?v=wjZofJX0v4M) ⭐⭐⭐ — visual 解释 LLM，英文圈最被推荐的视觉化教材
 4. [**Lilian Weng — "LLM Powered Autonomous Agents"**](https://lilianweng.github.io/posts/2023-06-23-agent/) ⭐⭐⭐ — canonical 1-page agent anatomy（Planning / Memory / Tool use / Action）、英文圈被引用最多的 agent 解剖文
@@ -100,7 +100,7 @@ order: 3
 
 > 📌 **资源清单上限规则**：本 section 是 router 不是 tutorial。主清单合计上限 **10 条**（中 4 + 英 6），要加新资源前**必须先移除一条**。选读区不计入主清单上限。
 
-> 💡 **推荐学习路径**：先看 1-2 个影片（中：李宏毅、英：Karpathy / 3Blue1Brown）建立 visual mental model → 再读 1-2 个 blog（Lilian Weng / Anthropic）拿到 working definition → 再回本 stage 动手练习。**不必全部看完**，这是 reference library 不是 reading list。
+> 💡 **推荐学习路径**：先看 1-2 个视频（中：李宏毅、英：Karpathy / 3Blue1Brown）建立 visual mental model → 再读 1-2 个 blog（Lilian Weng / Anthropic）拿到 working definition → 再回本 stage 动手练习。**不必全部看完**，这是 reference library 不是 reading list。
 
 ---
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-14T13:12:41.069Z"
+syncedAt: "2026-08-15T01:23:27.558Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "08-agent-interfaces"
@@ -223,7 +223,7 @@ agent 收到任務
 | **Gemini in Chrome** | Google（Gemini 3）| Chrome 全平台 + Android | ✅ **Auto Browse** + **Chrome Skills** | Enterprise Premium $6/user/月 |
 | **Operator** | OpenAI | — | ❌ **停運 2025-08** | CAPTCHA / JS / session 處理不穩 |
 
-→ 完整比較：[Best AI Browsers 2026 Tested](https://kahana.co/blog/best-ai-browsers-2026-tested-real-workflows)、[AI Browser Comparison 2026](https://www.webfx.com/blog/ai/best-ai-browsers/)
+→ 完整比較：[AI Browser Comparison（2027 更新版）](https://www.webfx.com/blog/ai/best-ai-browsers/)
 
 ### 開源 Browser Use 框架
 
