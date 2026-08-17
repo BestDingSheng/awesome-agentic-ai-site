@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-17T01:25:43.043Z"
+syncedAt: "2026-08-17T12:49:37.528Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -182,7 +182,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 5.9k+ |
+| Stars | ★ 6.5k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (agent-native slide framework) |
 
@@ -885,7 +885,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 34 |
+| Stars | ★ 49 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -919,7 +919,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 12 |
+| Stars | ★ 17 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (narrow but deep) |
 
