@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-19T01:24:00.100Z"
+syncedAt: "2026-08-19T12:52:23.936Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -318,7 +318,7 @@ MCP / Skills give the agent *more* abilities; **Hooks are the reverse: you attac
 ### Curated Projects (for spec / SDK / template reference)
 
 > 💡 **Looking for MCP servers for everyday tools (Notion / Obsidian / Excel / Postgres / Playwright / Figma, etc.)?**
-> Check out [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/)—it organizes 77+ common MCP servers / Skills into 16 categories, each with stars / license / intended audience. The table below retains official servers / SDKs that serve as a "**reference for writing your own MCP server**."
+> Check out [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/)—it organizes 79+ common MCP servers / Skills into 16 categories, each with stars / license / intended audience. The table below retains official servers / SDKs that serve as a "**reference for writing your own MCP server**."
 
 | Project | ⭐ | Best for | Why it's recommended / Notes |
 |---|---|---|---|
