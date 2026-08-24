@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "08-agent-interfaces"
@@ -201,7 +201,7 @@ agent 收到任務
 
 **結論 — production browser agent pattern**：**DOM-first + screenshot fallback**——先嘗試 DOM、抓不到再用 vision。browser-use / Atlas / Comet 都用這 pattern。
 
-> 🌐 **瀏覽器 agent 的第三種模態：accessibility tree**：除了 DOM-aware 跟 screen-pixel（看截圖點座標），2026 production 主流是讀**無障礙樹**——比 pixel 穩、比原始 DOM 省 token。要實際接，[microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp)（★ 35k+、Apache-2.0、走 accessibility tree）是 Track A 直接掛 Claude Code 就能用的瀏覽器 MCP。
+> 🌐 **瀏覽器 agent 的第三種模態：accessibility tree**：除了 DOM-aware 跟 screen-pixel（看截圖點座標），2026 production 主流是讀 **accessibility tree**——比 pixel 穩、比原始 DOM 省 token。要實際接，[microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp)（★ 35k+、Apache-2.0、走 accessibility tree）是 Track A 直接掛 Claude Code 就能用的瀏覽器 MCP。
 
 ### Mini-glossary（就地解釋）
 

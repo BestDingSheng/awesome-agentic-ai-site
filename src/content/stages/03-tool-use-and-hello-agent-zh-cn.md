@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -146,7 +146,7 @@ order: 3
 
 ### ⚠️ 先懂风险：给 agent 工具 = 给它一个攻击面
 
-把工具交给 LLM 的那一刻，你也给了它一个攻击面。最清楚的框架是 Simon Willison 的 **lethal trifecta（致命三角）**：当一个 agent 同时具备这三件事，就可能被攻击者操控去偷数据再外传——
+最清楚的框架是 Simon Willison 的 **lethal trifecta（致命三角）**：当一个 agent 同时具备这三件事，就可能被攻击者操控去偷数据再外传——
 
 1. **能访问私密数据**（你的文件 / DB / API key）
 2. **会接触不可信内容**（网页、Email、别人传的文档，里面可能藏指令）
@@ -466,7 +466,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 
 → **基础 starter 范本** → [`examples/stage-3/06-schema-design/`](../examples/stage-3/06-schema-design/)（含 bad schema vs good schema 两个版本对照；illustrative，**不是 chapter-length 完整教程**——深度章节见 stage 开头 📚 hello-agents callout）
 
-> 💡 **手写 schema 之后，认识 MCP**：你上面手写的 tool schema，真实世界已经有标准——**MCP（Model Context Protocol）** 把“工具长什么样、怎么调用”标准化成跨 agent 可复用的协定：写一次，任何支持 MCP 的 agent（Claude Code / Cursor / …）都能用。这里先记得这个名字，[Stage 5.2](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) 细讲。
+> 💡 **手写 schema 之后，认识 MCP**：你上面手写的 tool schema，真实世界已经有标准——**MCP（Model Context Protocol）** 把“工具长什么样、怎么调用”标准化成跨 agent 可复用的协议：写一次，任何支持 MCP 的 agent（Claude Code / Cursor / …）都能用。这里先记得这个名字，[Stage 5.2](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) 细讲。
 
 ## 🪞 反思（Reflexion / Self-Refine）— 概念 + 路由
 

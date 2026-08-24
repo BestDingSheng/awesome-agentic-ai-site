@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/README.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "readme"
@@ -26,7 +26,7 @@ baseSlug: "readme"
 |---|---|---|---|
 | [`glossary.en.md`](/en/resources/glossary/) | **30-second term lookup** | You hit terms like LLM / RAG / token / agent / vector DB / streaming / batch API while reading a stage | ~210 |
 | [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) | **8 CLI agents compared** | First time choosing among Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent / Grok Build | ~134 |
-| [`mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) | **79+ integration catalog** | You want Claude Code connected to Notion / Obsidian / Excel / Postgres / Slack / other real tools | ~775 |
+| [`mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) | **81+ integration catalog** | You want Claude Code connected to Notion / Obsidian / Excel / Postgres / Slack / other real tools | ~775 |
 | [`schema-design-cheatsheet.en.md`](/en/resources/schema-design-cheatsheet/) | **5 function-schema rules + 5 anti-patterns** | You are writing a tool schema / MCP server schema / function calling and the LLM picks the wrong tool or arguments | ~159 |
 | [`cookbook.en.md`](/en/resources/cookbook/) | **6 step-by-step recipes** | You want to build a first Skill / MCP server / Office integration / NotebookLM flow / Zotero flow / local LLM in 30-50 minutes | ~620 |
 | [`setup-guide.en.md`](/en/resources/setup-guide/) | **From-zero setup guide** | No dev background; first time creating an API key, installing Python, or using Claude Code | ~400 |
@@ -52,7 +52,7 @@ You do not need any reference first. **Start with the main [README](/en) → [St
 
 ### 🔌 I Want to Connect Claude Code to Tool X (Notion / Excel / Postgres / etc.)
 
-→ [`mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (79+ integrations in 16 categories)
+→ [`mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (81+ integrations in 16 categories)
 
 ### 🍳 I Want to Build My First Skill / MCP Server / Word Integration
 

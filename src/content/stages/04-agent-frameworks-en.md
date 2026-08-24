@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "04-agent-frameworks"
@@ -59,7 +59,7 @@ To understand multi-agent frameworks, a useful clarification is to treat **workf
 | **Single LLM** | Linear pipeline, no branching logic | One LLM + ReAct loop, plans and adapts on its own<br>(**This is what you built in Stage 3**) |
 | **Multi LLM** | Pre-defined routing (e.g., "sales questions → agent A, tech questions → agent B") | 2+ agents handing off to each other, with an orchestrator dynamically assigning tasks<br>(**The topic of this stage**) |
 
-**Why this distinction is useful**: Most production scenarios fall into the "single agent workflow" + "single agent" quadrants. Most tasks simply don't require multi-agent setups. **The quadrant that truly needs a multi-agent framework is the bottom right**—high LLM autonomy + multi-role collaboration. In practice, the boundaries between these quadrants can be blurry (LangGraph's conditional edges can be seen as both workflow routing and dynamic agent decision-making). Don't treat this matrix as a mutually exclusive classification.
+**Why this distinction is useful**: Most production scenarios sit in the **Single LLM** row, whether in the Workflow column (a linear pipeline) or the Agent column (a ReAct loop). Most tasks simply don't require multi-agent setups. **The quadrant that truly needs a multi-agent framework is the bottom right**—high LLM autonomy + multi-role collaboration. In practice, the boundaries between these quadrants can be blurry (LangGraph's conditional edges can be seen as both workflow routing and dynamic agent decision-making). Don't treat this matrix as a mutually exclusive classification.
 
 → All later discussion in this stage assumes you already know: **a multi-agent framework mainly handles the coordination, handoff, state management, and repetitive scaffolding code between multiple agents, so you don't have to write the whole collaboration flow from scratch** (the orchestration boilerplate in the lower-right quadrant).
 
@@ -93,7 +93,7 @@ You typically need multi-agent when one of these four signals appears:
 | **3. Role Conflict** | Having the same LLM act as both writer and critic leads to self-justification. | Debate / Peer review |
 | **4. Parallel Acceleration**| Running 3 research sub-tasks concurrently reduces wall-clock time to 1/3. | Parallel / Map-Reduce variant |
 
-**None of these four signals present?** → A single agent + a good prompt + tool use is enough. **Forcing a multi-agent setup will cost you 3-10x in tokens, be a pain to debug, and won't necessarily be more accurate.**
+**None of these four signals present?** → A single agent + a good prompt + tool use is enough, without paying the three costs listed above, and multi-agent is not guaranteed to be more accurate either.
 
 > 💡 **Further Reading**: [Stage 7 But do you really need multi-agent?](/en/stages/07-multi-agent-production/#-but-do-you-really-need-multi-agent) will revisit this decision from a production perspective. This section covers the design-phase decision; that one is the final check before deployment.
 
@@ -113,11 +113,11 @@ You typically need multi-agent when one of these four signals appears:
 
 > **This section is on a different level than the 5 patterns above**: The 5 patterns are design choices that can be implemented with or without a framework. The **Claude Code subagent** introduced here is another execution model (built-in runtime orchestration, no framework code). After reading about the 5 patterns, this section shows you "there's a second path for multi-agent."
 
-**Frameworks aren't the only way to do multi-agent.** Anthropic's own Claude Code offers another layer of abstraction: the [subagent](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature). You create a subagent by writing a `.claude/agents/<name>.md` file—**no framework required**.
+Anthropic's own Claude Code offers another layer of abstraction: the [subagent](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature). You create a subagent by writing a `.claude/agents/<name>.md` file—**no framework required**.
 
 The fundamental difference from the framework path (in one line): the **framework path** is cross-LLM-provider, written as Python orchestration code, with full checkpointing / audit trail; **Claude Code subagent** runs only inside the Claude Code runtime, written as markdown not code, with built-in context isolation.
 
-> 📌 **The full dimension-by-dimension comparison table (startup / runtime / context isolation / provider lock-in / learning curve) lives canonically at [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature)** — this stage only needs you to know "there's a second, Claude-Code-native path"; see 5.5 for the per-item implementation differences.
+> 📌 **The full dimension-by-dimension comparison table (startup / runtime / context isolation / provider lock-in / learning curve) lives canonically at [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature)** — see 5.5 for the per-item implementation differences.
 
 **When to choose subagents over a framework**:
 
@@ -203,14 +203,14 @@ Use Pydantic AI to build an agent that returns structured output (e.g., for a gi
 
 ## 🎯 Curated Projects
 
-17 projects across 5 categories, all in one table. **Start by looking at "Who it's for", then if you want to dive deeper, check out the repo / quickstart link.**
+18 projects across 5 categories, all in one table. **Start by looking at "Who it's for", then if you want to dive deeper, check out the repo / quickstart link.**
 
 | Category | Project | ⭐ | Who it's for | Why it's recommended / Notes |
 | ------------------------------------------ | ---------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Production-tier**<br>(Complex multi-agent / needs audit) | [LangGraph](https://github.com/langchain-ai/langgraph) ⭐ **This stage's #1 recommendation** | ⭐⭐⭐⭐⭐ | Production multi-agent systems that require audit trails / rollback / replay. | Graph-based orchestration + checkpointing + time-travel debugging. Widely adopted across enterprises. ★ 39k+, MIT, Python+TS. Pairs with LangSmith for observability. |
 | | [microsoft/semantic-kernel](https://github.com/microsoft/semantic-kernel) | ⭐⭐⭐⭐ | Building agents in .NET / Java environments, within the Microsoft tech stack. | Official SDKs in C#, Python, and Java. Follows a kernel + plugin + planner pattern. ★ 28k+, MIT. Thick abstraction, not for beginners. |
 | | [agno-agi/agno](https://github.com/agno-agi/agno) | ⭐⭐⭐⭐ | Those who want a "build + serve + monitor" solution without the full LangGraph + LangSmith suite. | Multi-modal agent runtime + control plane. ★ 41k+, Apache-2.0. Learn the API in Stage 4, use the runtime in Stage 7. |
-| | [microsoft/agent-framework](https://github.com/microsoft/agent-framework) | ⭐⭐⭐⭐ | Teams wanting Microsoft's unified successor to AutoGen + Semantic Kernel, in Python or .NET. | Microsoft's open framework for getting multiple agents to work together — the successor that merges AutoGen and Semantic Kernel. ★ 12k+, MIT, Python + .NET. |
+| | [microsoft/agent-framework](https://github.com/microsoft/agent-framework) | ⭐⭐⭐⭐ | Teams wanting Microsoft's unified successor to AutoGen + Semantic Kernel, in Python or .NET. | Microsoft's open framework for getting multiple agents to work together — the successor that merges AutoGen and Semantic Kernel. ★ 13k+, MIT, Python + .NET. |
 | **Rapid Prototyping / Multi-agent**<br>(Role-based / handoff) | [CrewAI](https://github.com/crewAIInc/crewAI) ⭐ **This stage's #2 recommendation** | ⭐⭐⭐⭐ | Rapidly prototyping "researcher → writer → critic" pipelines. | Build a crew in ~20 lines of code. Lowest learning curve. ★ 55k+, MIT. ⚠️ No checkpointing for long workflows; use CrewAI for prototypes, LangGraph for production. |
 | | [Microsoft AutoGen / AG2](https://github.com/microsoft/autogen) | ⭐⭐⭐⭐ | Multi-agent debate / brainstorming / peer review patterns. | Conversational multi-agent, strong group-chat capabilities. ★ 60k+, CC-BY-4.0 (for docs). ⚠️ AG2 v0.4 was a major async-first rewrite; older tutorials still target v0.2 while newer ones use v0.4, mind the version. |
 | | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | Teams already committed to the OpenAI ecosystem. | OpenAI's official library. Clean API for agent hand-off + structured output. MIT. **Built-in since April 2026**: a sandbox (7 providers) + harness abstraction layer. The first architecturally sound approach for production coding agents ([details in Stage 8](/en/stages/08-agent-interfaces/#why-the-april-2026-openai-agents-sdk-update-is-a-milestone)). |
@@ -242,6 +242,6 @@ If yes → Proceed to [Stage 5 — The Claude Code Ecosystem](/en/stages/05-clau
 
 ## 💡 Strategic Tips + Potential Pitfalls
 
-Don't try to learn all of these. Pick **one for production deployment (LangGraph)** and **one for rapid prototyping (CrewAI)** to learn in depth. For the others, just skim their READMEs to know they exist as options.
+The reading path is in the **Selected Projects** callout above (go deep on LangGraph + CrewAI, skim the rest); it is not repeated here.
 
 **A heads-up on Memory** (you might encounter this while learning, no need to read ahead): Some framework features use memory concepts—LangGraph's checkpointing (state persistence), CrewAI agents passing task results to each other (lightweight memory). These are covered in full in [Stage 6 — Memory & RAG](/en/stages/06-memory-rag/). If you get stuck on a framework feature in this stage, check that section, but **you don't need to read it all before continuing this stage**.

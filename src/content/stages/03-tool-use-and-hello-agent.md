@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -146,7 +146,7 @@ order: 3
 
 ### ⚠️ 先懂風險：給 agent 工具 = 給它一個攻擊面
 
-把工具交給 LLM 的那一刻，你也給了它一個攻擊面。最清楚的框架是 Simon Willison 的 **lethal trifecta（致命三角）**：當一個 agent 同時具備這三件事，就可能被攻擊者操控去偷資料再外傳——
+最清楚的框架是 Simon Willison 的 **lethal trifecta（致命三角）**：當一個 agent 同時具備這三件事，就可能被攻擊者操控去偷資料再外傳——
 
 1. **能存取私密資料**（你的檔案 / DB / API key）
 2. **會接觸不可信內容**（網頁、Email、別人傳的文件，裡面可能藏指令）

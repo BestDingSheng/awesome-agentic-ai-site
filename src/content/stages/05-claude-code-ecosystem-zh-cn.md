@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -277,6 +277,8 @@ MCP / Skills 是“给 agent 更多能力”；**Hooks 则是反过来：在 age
 
 > 📈 **规模参考**（Anthropic 2026-07 [官方数字](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)）：MCP 的 SDK 月下载量已超过 **4 亿**（今年约成长 4 倍），Claude 的 connectors 目录收录 **950+ 个 MCP server**。
 
+> 🔄 **2026-07-28 那版把 MCP 改成无状态（stateless），是目前为止最大的一次改动**：拿掉 `initialize` 握手与 `Mcp-Session-Id`，每个请求自己带协议版本与能力宣告；server 要跨调用记东西，改用自己发的 handle 当普通 tool 参数传。新增 `server/discover`，client 可以先问“你支持哪些版本”。**Roots / Sampling / Logging 三个功能与旧的 HTTP+SSE transport 都标成 deprecated**，server 主动发请求的做法由 MRTR 取代（server 回一个 `input_required`、client 补齐信息后重送原请求）。**为什么你该在意**：2025 年写的 MCP 教程几乎都在讲那个握手流程，照着做会对不上现在的规格。deprecated 不等于今天就不能用，官方保证至少 12 个月过渡期，但新写的东西不该再用它们。
+
 > 🧩 **核心之外还有 extension（选读）**：2026-07-28 那版规格把“核心协议”跟“[extension](https://modelcontextprotocol.io/extensions/overview)”正式分开。官方 extension 目前有 [Tasks](https://modelcontextprotocol.io/extensions/tasks/overview)（长时间任务的异步执行、可轮询）、[Apps](https://modelcontextprotocol.io/extensions/apps/overview)（在对话里直接显示图表 / 表单等交互 UI）跟 Skills over MCP。**初学阶段不用学这些**——你写 `@app.tool()` 打不到它们。真正该记住的只有一条**不会过期**的规则：**extension 一律默认关闭、要双方明确支持才生效**，所以看到教程叫你用某个 extension，先确认你的 client 有支持，否则会静默退回核心行为。官方 extension 用 `io.modelcontextprotocol/` 前缀、放在 MCP 组织下 `ext-` 开头的 repo；`experimental-ext-` 开头的则还在孵化、随时可能改。
 
 **MCP 三个抽象**：
@@ -318,7 +320,7 @@ MCP / Skills 是“给 agent 更多能力”；**Hooks 则是反过来：在 age
 ### 精选 Projects（spec / SDK / 范本参考）
 
 > 💡 **找日常工具的 MCP（Notion / Obsidian / Excel / Postgres / Playwright / Figma 等）？**
-> 看 [`resources/mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)——按 16 个分类整理 79+ 个常用 MCP server / Skill，每个都附 stars / license / 适合谁。下表保留的是“**写自己 MCP server 时的 reference**”性质的官方 server / SDK。
+> 看 [`resources/mcp-skills-catalog.zh-Hans.md`](/resources/mcp-skills-catalog/)——按 16 个分类整理 81+ 个常用 MCP server / Skill，每个都附 stars / license / 适合谁。下表保留的是“**写自己 MCP server 时的 reference**”性质的官方 server / SDK。
 
 | Project | ⭐ | 适合谁 | 为什么推荐 / 备注 |
 |---|---|---|---|
@@ -402,7 +404,7 @@ Skill = **一个 markdown 文件**（`.claude/skills/<name>/SKILL.md`），告�
 
 - 一句话设置 → 写进 `CLAUDE.md`
 - 多步骤流程、某情境才用 → 写 **Skill**（本节主题）
-- 需要访问外部资源（API / DB） → 写 **MCP server**
+- 要接的是**外部系统本身**、不只是规则 → 写 **MCP server**（skill 生不出数据，只有 MCP 能真的打 API / 查 DB）
 - Skill 跑起来太大、会吃光主 session window → 改成 **Subagent**
 - Skill / command / MCP / hook 想打包送人 → 包成 **Plugin**
 
@@ -611,7 +613,7 @@ multi-agent CLI 一度是 Claude Code 独有——2026 年 Codex CLI 与 Gemini 
 
 - 任务独立、worker 不互动、结果回主 session 即可 → **Subagent**（最简单、token 最省）
 - Worker 需要互相沟通 / debate / 共享 task list → **Agent team**（已正式有 docs、但仍需 opt-in env var；token 3-5x、适合 research / debug 竞争假设）
-- 多个独立任务各自跑、想用 1 个界面监控全部 → **Background agent**（research preview、适合长时间任务并行）
+- 不需要 worker 之间互相沟通、你只想不定期回来看进度 → **Background agent**（research preview、适合长时间任务并行）
 
 ---
 

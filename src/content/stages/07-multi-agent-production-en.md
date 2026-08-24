@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -22,7 +22,7 @@ order: 7
 > 📋 **Chapter Composition**: [What is Multi-Agent · Productionization (Positioning) + Five-layer engineering split + When to use multi-agent] → Learning Objectives → Entry Conditions → Required Reading → Harness Engineering (**8 core components including Cost/Latency**) → Hands-on Exercises (including Exercise 6 Cost Optimization) → **Agent Benchmark Landscape: how to read it, not just the leaderboard** → Recommended Tools → Featured Projects → Self-Check
 > 🔑 **Key Terms**: See [`resources/glossary.en.md` 4 + 6](/en/resources/glossary/#4-multi-agent) (multi-agent / orchestration / handoff / eval / observability / harness (the execution and control layer around the model))
 
-This is the final stage. You are moving from "I can build an agent" to "I can make an agent **truly stable for people to use**"—with multiple agents collaborating, with eval, with observability, and deployable to a usable environment. **"Productionization" ≠ enterprise scale**—as long as an agent can produce stable output and be used by others, it falls within the scope of this stage.
+This is the final stage. You are moving from "I can build an agent" to "I can make an agent **truly stable for people to use**"—with multiple agents collaborating, with eval, with observability, and deployable to a usable environment. How the scope is drawn is in the three lines below.
 
 ## 🎯 What Is Multi-Agent · Productionization (Positioning)
 
@@ -208,6 +208,14 @@ Want to see what a harness running in production looks like? Two references:
 
 - **The entire Claude Code runtime** — is a reference harness implementation. **For a source-reading exercise, see [Stage 5.7](/en/stages/05-claude-code-ecosystem/#57--dissecting-claude-code-source-reference-harness-implementation--a-must-read-for-track-b)** (clone `claude-agent-sdk-python` and dissect the main loop + where the first 6 runtime components from the table above live; the 7th, Eval harness, is a plugin, and the 8th, Cost / Latency, is cross-cutting, see the deep-dive below)
 - **`anthropics/claude-agent-sdk-python`** source — the specific repo used in the exercise above
+
+
+**Full harnesses you can just open and read** (all open-sourced in 2026 and large enough to be worth it; read them against the eight core components above):
+
+| Project | ⭐ | Language / License | What it demonstrates |
+|---|---|---|---|
+| [xai-org/grok-build](https://github.com/xai-org/grok-build) | ★ 25k+ | Rust / Apache-2.0 | SpaceXAI's terminal coding agent. One core serves an interactive TUI, a headless mode for CI, and editor embedding, which makes it a complete example of **how many execution modes one harness has to serve** |
+| [NVIDIA/NemoClaw](https://github.com/NVIDIA/NemoClaw) | ★ 22k+ | TypeScript / Apache-2.0 | A reference stack for running other people's agents (Hermes, LangChain Deep Agents, OpenClaw) inside a managed runtime. The interesting part is **where responsibility splits between harness and sandbox**: it builds no agent of its own, only inference management and lifecycle. **⚠️ The maintainers call it alpha** and handle issues and PRs on a best-effort basis |
 
 → The remaining 6 exercises in this stage (multi-agent / eval / observability / SDK / deploy / cost) each cover one facet of the harness. Completing the full stage = assembling a complete mental model of harness engineering.
 

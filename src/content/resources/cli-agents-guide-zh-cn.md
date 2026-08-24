@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cli-agents-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-agents-guide"
@@ -36,7 +36,7 @@ baseSlug: "cli-agents-guide"
 | [goose](https://github.com/block/goose) | Agentic AI Foundation（repo 已迁至 `aaif-goose/goose`） | Apache-2.0 | 15+ provider（含 Ollama） | BYO API key 或既有 Claude / ChatGPT / Gemini 订阅（ACP） | ★ 51k+ |
 | [Aider](https://github.com/Aider-AI/aider) | Aider-AI（社群） | Apache-2.0 | 任意 | BYO API key | ★ 47k+ |
 | [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research | MIT | 200+ via OpenRouter / NVIDIA NIM / 智谱 GLM / Kimi / 小米 MiMo / MiniMax / HF / OpenAI | BYO API key（多 provider） | ★ 224k+ |
-| [Grok Build](https://github.com/xai-org/grok-build) | SpaceXAI（xAI，官方） | Apache-2.0 | Grok | 首次启动开浏览器完成登录 | ★ 24k+ |
+| [Grok Build](https://github.com/xai-org/grok-build) | SpaceXAI（xAI，官方） | Apache-2.0 | Grok | 首次启动开浏览器完成登录 | ★ 25k+ |
 
 ---
 

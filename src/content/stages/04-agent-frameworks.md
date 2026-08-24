@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "04-agent-frameworks"
@@ -59,7 +59,7 @@ order: 4
 | **Single LLM** | 線性 pipeline、無分支判斷 | 一個 LLM + ReAct loop、自己 plan + adapt<br>（**Stage 3 寫的就是這個**） |
 | **Multi LLM** | 預設 routing（譬如「銷售問題 → agent A、技術問題 → agent B」） | 2+ agent 互相 handoff、orchestrator 動態分配<br>（**本 stage 主題**） |
 
-**為什麼這個區分有用**：production 場景大多落在「single agent workflow」+「single agent」象限——多數任務根本不需要 multi-agent。**真正需要 multi-agent framework 的是右下角象限**——LLM 自主性高 + 多角色協作。但實作上四個象限的邊界有時模糊（LangGraph 的 conditional edge 可以同時看成 workflow routing 跟 agent 動態決策）、不要把這個 matrix 當互斥分類。
+**為什麼這個區分有用**：production 場景大多落在「Single LLM」那一行——不管是 Workflow 象限（線性 pipeline）還是 Agent 象限（ReAct loop）——多數任務根本不需要 multi-agent。**真正需要 multi-agent framework 的是右下角象限**——LLM 自主性高 + 多角色協作。但實作上四個象限的邊界有時模糊（LangGraph 的 conditional edge 可以同時看成 workflow routing 跟 agent 動態決策）、不要把這個 matrix 當互斥分類。
 
 → 本 stage 後續討論都假設你已經知道：**Multi-agent framework 主要幫你處理多個 agent 之間的協調、交接、狀態管理與重複性程式碼，讓你不用從零寫整套協作流程**（右下角象限的 orchestration boilerplate）。
 
@@ -93,7 +93,7 @@ order: 4
 | **3. 角色衝突** | 同一個 LLM 既當 writer 又當 critic 會 self-justify | Debate / Peer review |
 | **4. 平行加速** | 3 個 research 子任務同時跑、wall-clock 1/3 | Parallel / Map-Reduce 變種 |
 
-**4 個信號都不在？** → single agent + 好 prompt + tool use 就夠。**硬上 multi-agent 會付 3-10x token、debug 痛苦、其實不會比較準**。
+**4 個信號都不在？** → single agent + 好 prompt + tool use 就夠，不必為此付出前面說的那三個代價，而且 multi-agent 也不保證會比較準。
 
 > 💡 **後續閱讀**：到 [Stage 7 但你真的需要 multi-agent 嗎？](/zh-tw/stages/07-multi-agent-production/#-但你真的需要-multi-agent-嗎) 會再帶 production 視角的決策——本節是設計階段的決策、那邊是 deploy 前的最後一次回頭檢查。
 
@@ -113,11 +113,11 @@ order: 4
 
 > **這節跟上面的 5 個 pattern 不同層**：上面 5 個 pattern 是 framework / 自己 code 都能實作的設計選擇；本節介紹的 **Claude Code subagent 是另一個 execution model**（runtime 內建的 orchestration、不寫 framework code）。讀完 5 個 pattern 後、本節讓你知道「multi-agent 還有第二條路」。
 
-**Multi-agent 不只有 framework 這條路**。Anthropic 自家的 Claude Code 提供另一個 abstraction 層：[subagent](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能) — 寫一個 `.claude/agents/<name>.md` 檔就是一個 subagent，**不需要 framework**。
+Anthropic 自家的 Claude Code 提供另一個 abstraction 層：[subagent](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能) — 寫一個 `.claude/agents/<name>.md` 檔就是一個 subagent，**不需要 framework**。
 
 跟 framework 路線的根本差異（一句話）：**framework 路線**跨 LLM provider、寫 Python orchestration code、checkpointing / audit trail 完整；**Claude Code subagent** 只在 Claude Code runtime 內、寫 markdown 不寫 code、天生 context 隔離。
 
-> 📌 **完整逐維度對照表（啟動方式 / runtime / context 隔離 / provider lock-in / 學習曲線）的 canonical 在 [Stage 5.5 開頭](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)**——本 stage 只需知道「multi-agent 還有 Claude Code 原生這第二條路」、逐項實作差異到 5.5 再看。
+> 📌 **完整逐維度對照表（啟動方式 / runtime / context 隔離 / provider lock-in / 學習曲線）的 canonical 在 [Stage 5.5 開頭](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)**——逐項實作差異到 5.5 再看。
 
 **何時選 subagent 而非 framework**：
 
@@ -203,14 +203,14 @@ Stage 3 教你寫 single tool / multi-tool selection（手寫 `if/elif/else` 路
 
 ## 🎯 精選 Projects
 
-按用途分 5 類、17 個項目一張表搞定。**挑入口看「適合誰」、想深入點連結看 repo / quickstart**。
+按用途分 5 類、18 個項目一張表搞定。**挑入口看「適合誰」、想深入點連結看 repo / quickstart**。
 
 | 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|---|
 | **Production 級**<br>（複雜 multi-agent / 需要 audit） | [LangGraph](https://github.com/langchain-ai/langgraph) ⭐ **本 stage 推薦 #1** | ⭐⭐⭐⭐⭐ | Production multi-agent + 稽核軌跡 / rollback / replay | 圖式 orchestration + checkpointing + time-travel debug、企業廣泛採用，★ 39k+、MIT、Python+TS。搭 LangSmith 做 observability |
 | | [microsoft/semantic-kernel](https://github.com/microsoft/semantic-kernel) | ⭐⭐⭐⭐ | 在 .NET / Java 環境做 agent、Microsoft 技術棧 | C# / Python / Java 三語官方 SDK、kernel + plugin + planner pattern，★ 28k+、MIT。抽象厚、不適合初學者 |
 | | [agno-agi/agno](https://github.com/agno-agi/agno) | ⭐⭐⭐⭐ | 要「build + serve + monitor」一條龍但不想全套 LangGraph + LangSmith | multi-modal agent runtime + control plane，★ 41k+、Apache-2.0。Stage 4 學 API、Stage 7 用 runtime |
-| | [microsoft/agent-framework](https://github.com/microsoft/agent-framework) | ⭐⭐⭐⭐ | 想用微軟整合 AutoGen + Semantic Kernel 的後繼框架（Python 或 .NET）的團隊 | 微軟開源框架、讓多個 agent 一起協作——合併 AutoGen 與 Semantic Kernel 的後繼者，★ 12k+、MIT、Python + .NET |
+| | [microsoft/agent-framework](https://github.com/microsoft/agent-framework) | ⭐⭐⭐⭐ | 想用微軟整合 AutoGen + Semantic Kernel 的後繼框架（Python 或 .NET）的團隊 | 微軟開源框架、讓多個 agent 一起協作——合併 AutoGen 與 Semantic Kernel 的後繼者，★ 13k+、MIT、Python + .NET |
 | **快速雛形 / 多 agent**<br>（role-based / handoff） | [CrewAI](https://github.com/crewAIInc/crewAI) ⭐ **本 stage 推薦 #2** | ⭐⭐⭐⭐ | 快速雛形「researcher → writer → critic」pipeline | ~20 行寫完 crew、學習曲線最低，★ 55k+、MIT。⚠️ 長 workflow 沒 checkpointing；雛形用 CrewAI、production 用 LangGraph |
 | | [Microsoft AutoGen / AG2](https://github.com/microsoft/autogen) | ⭐⭐⭐⭐ | 多 agent 辯論 / 腦力激盪 / peer review pattern | 對話式多 agent、group-chat 強，★ 60k+、CC-BY-4.0（文件 license）。⚠️ AG2 v0.4 重寫成 async-first、舊教學多半還在 v0.2、新教學用 v0.4、留意版本分支 |
 | | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | 已 commit OpenAI 生態 | OpenAI 官方、agent hand-off + 結構化輸出、API 乾淨、MIT。**2026-04 起內建** sandbox（7 個 provider）+ harness 抽象層、production coding agent 首次 architecturally sound（[詳見 Stage 8](/zh-tw/stages/08-agent-interfaces/#openai-agents-sdk-april-2026-更新--why-是-milestone)）|
@@ -242,6 +242,6 @@ Stage 3 教你寫 single tool / multi-tool selection（手寫 `if/elif/else` 路
 
 ## 💡 策略提示 + 過程中可能踩到的坑
 
-不要想把這些全部學完。挑**一個 production 等級的（LangGraph）**跟**一個快速雛形用的（CrewAI）**深入學。其他的 README 瀏覽過去就好，知道有這些選項存在即可。
+閱讀路徑見上面【精選 Projects】那則提示（LangGraph + CrewAI 深入、其他瀏覽過去即可），這裡不重複。
 
 **Memory 預備**（學的時候可能碰到、不用先讀）：有些 framework 功能會用到 memory 概念 — LangGraph 的 checkpointing（狀態持久化）、CrewAI agent 之間傳遞任務結果（輕量 memory）。這些在 [Stage 6 — Memory & RAG](/zh-tw/stages/06-memory-rag/) 完整講；本 stage 看不懂某個 framework 功能時、再去那邊查就好，**不用先讀完才能繼續本 stage**。

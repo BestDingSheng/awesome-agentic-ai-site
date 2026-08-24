@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -449,7 +449,7 @@ for label, prompt in PROMPTS.items():
 
 </details>
 
-**Going further**: dump all 5 rounds of output to a CSV. Stage 7 Exercise 2 shows how to turn that into an eval harness (the evaluation scaffold, i.e. the outer program / control layer used to run evals; see Advanced: what layers sit above prompting?) so you can quantify *how much* a prompt actually improved.
+**Going further**: dump all 5 rounds of output to a CSV. Stage 7 Exercise 2 shows how to turn that into an eval harness (the outer program / control layer used to run evals; see Advanced: what layers sit above prompting?) so you can quantify *how much* a prompt actually improved.
 
 ## 🎯 Curated Projects
 
@@ -475,9 +475,7 @@ for label, prompt in PROMPTS.items():
 
 Engineering practice for LLM-powered systems is layered. This is not about "one call vs. many calls." **Here we only look at the three layers directly adjacent to prompt writing**; the full model has **five layers**, with Loop and Graph further out. See [Stage 7 five-layer engineering split](/en/stages/07-multi-agent-production/#the-five-layer-engineering-split-prompt--context--harness--loop--graph), the canonical source for the layering model. Each layer engineers a different object:
 
-- **Prompt Engineering** (this stage) = engineering **the string sent into the model**
-- **Context Engineering** (Stage 6) = engineering **what information goes into the context window on each call** — dynamically assembling RAG retrieval results, memory, tool definitions, and conversation history
-- **Harness Engineering** (Stage 7) = engineering **the execution and control layer around the model** — agent loops, retry, sandboxing, observability, deployment, and all other non-LLM code
+The three layers engineer, respectively: **the string sent into the model** (this stage), **what goes into the context window** (Stage 6), and **the execution and control layer outside the model** (Stage 7). Definitions and which stage covers each are in the table below.
 
 → The three layers are **orthogonal**: a one-call RAG app is still doing context engineering (the point is assembling context, not how many calls happen); a 50-call chatbot with no retrieval is still only doing prompt engineering.
 

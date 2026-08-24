@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "01-llm-basics"
@@ -172,7 +172,7 @@ order: 1
 >
 > 💰 **Stage 1 预算估算**（全 6 练习各跑 3-5 次）：**全本机 = $0**、**全 haiku ≈ $0.30**、**全 sonnet ≈ $0.90**。完整 model 清单 + Stage 1-7 全程预算估算见 [`examples/README.zh-Hans.md#推荐-llm-清单`](/#推荐-llm-清单)。
 >
-> 💡 **不装 Ollama 也能读** — 每个练习的 Path B 区块就是 Anthropic 版、选一个跑就行。先 [`pip install openai && ollama pull gemma4:e4b`](https://ollama.com) 就装好 Path A 环境。
+> 💡 **只想读、不想装 Ollama** — 直接看每个练习的 Path B（Anthropic）区块就好。想实际跑 Path A 才需要 [`pip install openai && ollama pull gemma4:e4b`](https://ollama.com) 就装好 Path A 环境。
 
 ### 练习 1：LLM API（hello world）
 五行 Python 调用 LLM 并打印响应。**默认用 Ollama 本机跑（免费、offline）**；想看 cloud 答案质量改 Path B Anthropic。详见 [`examples/README.zh-Hans.md`](/#三条路径--默认用-ollama成本考量)。

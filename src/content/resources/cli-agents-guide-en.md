@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cli-agents-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-agents-guide"
@@ -38,7 +38,7 @@ Only terminal-based CLI agents are included. IDE-based agents (Cursor / Cline / 
 | [goose](https://github.com/block/goose) | Agentic AI Foundation (repo now at `aaif-goose/goose`) | Apache-2.0 | 15+ providers (incl. Ollama) | BYO API key, or existing Claude / ChatGPT / Gemini subscription via ACP | ★ 51k+ |
 | [Aider](https://github.com/Aider-AI/aider) | Aider-AI (community) | Apache-2.0 | Any | BYO API key | ★ 47k+ |
 | [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research | MIT | 200+ via OpenRouter / NVIDIA NIM / Zhipu GLM / Kimi / Xiaomi MiMo / MiniMax / HF / OpenAI | BYO API key (multi-provider) | ★ 224k+ |
-| [Grok Build](https://github.com/xai-org/grok-build) | SpaceXAI (xAI, official) | Apache-2.0 | Grok | Browser sign-in on first launch | ★ 24k+ |
+| [Grok Build](https://github.com/xai-org/grok-build) | SpaceXAI (xAI, official) | Apache-2.0 | Grok | Browser sign-in on first launch | ★ 25k+ |
 
 ---
 

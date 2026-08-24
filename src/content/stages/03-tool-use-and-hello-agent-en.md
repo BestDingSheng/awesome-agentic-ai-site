@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -146,7 +146,7 @@ You should already have:
 
 ### ⚠️ Know the risk first: giving an agent tools = giving it an attack surface
 
-The moment you hand an LLM tools, you also hand it an attack surface. The clearest framing is Simon Willison's **lethal trifecta**: an agent is exploitable when it simultaneously has all three of —
+The clearest framing is Simon Willison's **lethal trifecta**: an agent is exploitable when it simultaneously has all three of —
 
 1. **access to private data** (your files / DB / API keys)
 2. **exposure to untrusted content** (web pages, emails, documents others send — any of which can hide instructions)

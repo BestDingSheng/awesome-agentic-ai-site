@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
@@ -203,7 +203,7 @@ Track A users are **already using** [Stage 7.5 advanced concepts](/en/stages/07-
 
 Four categories, nine projects, one table. **Pick an entry point from the "Who it's for" column; click through to the repo when you want the details.**
 
-> 💡 **Looking for MCPs that connect to daily tools** (Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma…): see [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) — 79+ entries grouped by category, each with stars / license / audience. The table below is for "writing your own MCP server / finding reference implementations".
+> 💡 **Looking for MCPs that connect to daily tools** (Notion / Obsidian / Excel / Postgres / Playwright / Slack / Linear / Figma…): see [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) — 81+ entries grouped by category, each with stars / license / audience. The table below is for "writing your own MCP server / finding reference implementations".
 
 | Category | Project | ⭐ | Who it's for | Why recommended / notes |
 |---|---|---|---|---|

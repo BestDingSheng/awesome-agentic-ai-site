@@ -1,11 +1,11 @@
 ---
 title: "Stage 7 — 多 Agent 系統與穩定運作（Multi-Agent & Production）"
-description: "最後一個階段。你正從「我會做 agent」走向「我能讓 agent 真的給人穩定用——多個 agent 協作、有 eval、有 observability、能部署到可用環境」。「Production 化」 ≠ enterprise scale——只要 agent 能穩定產出 + 能讓別人使用、就算進入這 stage 範圍。"
+description: "最後一個階段。你正從「我會做 agent」走向「我能讓 agent 真的給人穩定用——多個 agent 協作、有 eval、有 observability、能部署到可用環境」。範圍怎麼界定，看下面三句話。"
 section: "Stage"
 sourcePath: "stages/07-multi-agent-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-23T12:45:34.840Z"
+syncedAt: "2026-08-24T01:27:37.865Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "07-multi-agent-production"
@@ -22,7 +22,7 @@ order: 7
 > 📋 **本章組成**：〔Multi-Agent · Production 化 是什麼（先定位）+ 五層工程分工 + 何時用 multi-agent〕→ 學習目標 → 進入條件 → 必修閱讀 → Harness Engineering（**8 個核心元件含 Cost/Latency**）→ 動手練習（含練習 6 Cost Optimization）→ **Agent Benchmark Landscape：怎麼看，不要只看排行榜** → 常用工具推薦 → 精選 Projects → 自我檢查
 > 🔑 **關鍵名詞**：見 [`resources/glossary.md` 4 + 6](/zh-tw/resources/glossary/#4-multi-agent)（multi-agent / orchestration / handoff / eval / observability / harness（模型外圍的執行與控制層））
 
-最後一個階段。你正從「我會做 agent」走向「我能讓 agent **真的給人穩定用**——多個 agent 協作、有 eval、有 observability、能部署到可用環境」。**「Production 化」 ≠ enterprise scale**——只要 agent 能穩定產出 + 能讓別人使用、就算進入這 stage 範圍。
+最後一個階段。你正從「我會做 agent」走向「我能讓 agent **真的給人穩定用**——多個 agent 協作、有 eval、有 observability、能部署到可用環境」。範圍怎麼界定，看下面三句話。
 
 ## 🎯 Multi-Agent · Production 化 是什麼（先定位）
 
@@ -135,7 +135,7 @@ order: 7
 6. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering)（★ 3.4k+）— agent harness 的工具 / pattern / eval / memory / MCP / observability 全集合
 7. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)（★ 1.5k+）— 從 Claude Code 原始碼學 harness 設計（中文）
 8. [**stablyai/orca**](https://github.com/stablyai/orca)（★ 48k+、MIT）— 目前規模最大的「**多 agent 同時跑**」桌面環境：一個 prompt 可以同時發給多個 agent，每個跑在自己的 git worktree 裡，跑完並排比較、挑一個 merge。它把 Codex / Claude Code / OpenCode / Pi 當成可替換的後端，所以真正的看點不是它支援誰，而是**當五個 agent 同時在改同一份 repo，介面要解決哪些問題**：隔離、比較、審查，以及「agent 做完了怎麼通知你」。附 iOS app，可以在手機上盯進度。
-9. [**yc-software/qm**](https://github.com/yc-software/qm)（★ 13k+、MIT）— Y Combinator 自己開源的 **quartermaster**，跑在 Slack 與 web 上。跟 orca 的分工不同：orca 處理「一個人開很多 agent」，qm 處理「**一整間公司共用 agent**」。每個員工有自己隔離的 workspace（獨立的 memory、檔案、金鑰視野、權限、排程、沙箱），同時又能在 channel 與 project 裡協作；harness 與模型都可抽換（Pi / OpenCode / Codex / Claude Code 共用同一個核心），所以部署不會綁死單一廠商。想看「**組織層級的 agent 權限與治理**長什麼樣」，這是目前少數能直接打開來讀的實作。
+9. [**yc-software/qm**](https://github.com/yc-software/qm)（★ 13k+、MIT）— Y Combinator 自己開源的 **quartermaster**，跑在 Slack 與 web 上。跟 orca 的分工不同：orca 處理「一個人開很多 agent」，qm 處理「**一整間公司共用 agent**」。每個員工有自己隔離的 workspace（獨立的 memory、檔案、金鑰視野、權限、排程、sandbox），同時又能在 channel 與 project 裡協作；harness 與模型都可抽換（Pi / OpenCode / Codex / Claude Code 共用同一個核心），所以部署不會綁死單一廠商。想看「**組織層級的 agent 權限與治理**長什麼樣」，這是目前少數能直接打開來讀的實作。
 10. [**cft0808/edict**](https://github.com/cft0808/edict)（★ 16k+、MIT）— 中文專案，拿**三省六部制**這個一千三百年前的官制來設計多 agent 分工：分揀 → 中書省規劃 → 門下省審議 → 尚書省派發 → 六部並行執行 → 奏摺回報。收它不是因為典故有趣，而是它把「**誰有權決定、誰負責審、誰只能執行**」寫成了明確的角色與交接流程，正好對照本 stage 的 planner-executor 與 peer review 兩個 pattern。附即時看板，看得到每個 agent 當下在做什麼。屬 OpenClaw 生態，另提供 docker 一行起 demo。
 11. **（選讀，這一項還在 developer preview）** [**deepseek-ai/deepseek-harness**](https://github.com/deepseek-ai/deepseek-harness)（★ 137k+、MIT）— DeepSeek 2026-08-13 開源的 agent harness，主張是「**everything is a plugin**」：模型、工具、技能、會話、沙箱、儲存、迴圈、排程、UI 全部由外掛提供。**拿來讀，不是拿來依賴**——官方 README 自己寫著「currently in *developer preview* and is iterating rapidly. **THERE WILL BE COMPATIBILITY-BREAKING CHANGES.**」，版本是 `0.1.0-rc.5`、GitHub 上還沒有任何 release。收它的理由是：這是少數可以直接打開來看「**一個 harness 到底由哪些零件組成**」的完整實作，剛好對照下面那八個核心元件——真的要讀就先看 [`docs/architecture.md`](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md)（[中文版](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.zh.md)），不要一頭栽進整個 monorepo。模型不綁 DeepSeek：[模型設定指南](https://deepseek-harness.github.io/deepseek-harness/guide/providers)寫了 Anthropic / OpenAI / Bedrock / Vertex / Azure 以及自訂的 OpenAI-compatible endpoint。它不在 [`resources/cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) 那張表裡，因為**互動介面是 Web UI**（`npx @deepseek-ai/dsh web`）；隨附的非 web 模式 `dsh --profile headless "job"` 是跑完一次就結束、不是互動式 terminal agent（`--profile tui` 指向的外掛 repo 目前是 404）。
 
@@ -208,6 +208,14 @@ order: 7
 
 - **Claude Code 整個 runtime** — 是 reference harness 實作。**讀 source 練習見 [Stage 5.7](/zh-tw/stages/05-claude-code-ecosystem/#57--claude-code-source-解剖reference-harness-implementation-track-b-必看)**（clone `claude-agent-sdk-python` 解剖 main loop + 上表前 6 個 runtime 元件位置；第 7 個 Eval harness 是外掛、第 8 個 Cost / Latency 是 cross-cutting、見下方深入段）
 - **`anthropics/claude-agent-sdk-python`** source — 上面練習用的具體 repo
+
+
+**可以直接打開來讀的完整 harness**（都是 2026 年開源、量級夠大，適合對照上面 8 個核心元件看）：
+
+| Project | ⭐ | 語言 / License | 它示範哪一塊 |
+|---|---|---|---|
+| [xai-org/grok-build](https://github.com/xai-org/grok-build) | ★ 25k+ | Rust / Apache-2.0 | SpaceXAI 的 terminal coding agent。同一份 core 同時支援互動 TUI、headless（CI 用）與編輯器嵌入，是「**一個 harness 要服務幾種執行模式**」的完整範例 |
+| [NVIDIA/NemoClaw](https://github.com/NVIDIA/NemoClaw) | ★ 22k+ | TypeScript / Apache-2.0 | 把別人的 agent（Hermes、LangChain Deep Agents、OpenClaw）跑在受管執行環境裡的 reference stack。看點是 **harness 與 sandbox 的責任邊界**：它自己不做 agent，只負責 inference 管理與生命週期。**⚠️ 官方自述是 alpha**，issue 與 PR 為 best-effort 回覆 |
 
 → 本 stage 剩下的 6 個練習（multi-agent / eval / observability / SDK / deploy / cost）每個都是 harness 的一個面向。學完整 stage = 拼出完整的 harness engineering mental model。
 
