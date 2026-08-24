@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-24T01:27:37.865Z"
+syncedAt: "2026-08-24T12:55:34.984Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a1-cli-intro"
@@ -79,7 +79,7 @@ Two categories, 10 projects, one table covers it. **Pick your entry point from t
 | Category | Project | ⭐ | Who it's for | Why recommended / notes |
 |---|---|---|---|---|
 | **8 mainstream CLI agents** | [anthropics/claude-code](https://github.com/anthropics/claude-code) | ⭐⭐⭐⭐⭐ | **Recommended as your first CLI agent** | Built-in SKILL / plugin ecosystem, CLAUDE.md prompt system, rich community resources (★ 140k+) |
-| | [openai/codex](https://github.com/openai/codex) | ⭐⭐⭐⭐⭐ | People already subscribed to ChatGPT Plus / Pro | The same account works in the terminal (★ 105k+) |
+| | [openai/codex](https://github.com/openai/codex) | ⭐⭐⭐⭐⭐ | People already subscribed to ChatGPT Plus / Pro | The same account works in the terminal (★ 115k+) |
 | | [sst/opencode](https://github.com/sst/opencode) | ⭐⭐⭐⭐⭐ | Self-hosting / avoiding vendor lock-in | Open-source, not tied to any LLM provider, fastest community iteration (★ 190k+) |
 | | [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | ⭐⭐⭐⭐ | Working on big codebases / large PDFs | 1M-token long context (★ 103k+) |
 | | [block/goose](https://github.com/block/goose) | ⭐⭐⭐⭐ | Using existing Claude / ChatGPT / Gemini subscriptions + local Ollama | 15+ provider support (incl. Ollama), ★ 51k+. **Now at `aaif-goose/goose` (AAIF / Linux Foundation)** |

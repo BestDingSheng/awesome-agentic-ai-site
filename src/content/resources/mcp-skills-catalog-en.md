@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-24T01:27:37.865Z"
+syncedAt: "2026-08-24T12:55:34.984Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -795,7 +795,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 8.3k+ |
+| Stars | ★ 9.2k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -886,7 +886,7 @@ baseSlug: "mcp-skills-catalog"
 
 | Field | Value |
 |---|---|
-| Stars | ★ 49 |
+| Stars | ★ 58 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -908,7 +908,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 201 |
+| Stars | ★ 222 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (full research workflow) |
 
@@ -932,7 +932,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 45 |
+| Stars | ★ 50 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -944,7 +944,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 46 |
+| Stars | ★ 52 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
