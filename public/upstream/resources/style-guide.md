@@ -202,8 +202,6 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 
 > [English](./0N-slug.en.md) | **繁體中文**
 
-⏱ **時間估算**：N-M 週（約 X-Y 小時）
-
 [1-2 句話描述這個 stage 的核心問題]
 
 ## 📌 學習目標
@@ -212,17 +210,38 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 ...
 
 ## 🚪 進入條件（Stage 1+ 才需要）
+<details markdown="1">
+<summary>⏱ 開始前先看：時間、先備工具與預算</summary>
+
+**時間估算**：N-M 週（約 X-Y 小時）
+
 你應該已經：
 - ...
 
+</details>
+
 ## 📚 必修閱讀
+這些資料會在練習中用到；需要時再展開。
+
+<details markdown="1">
+<summary>展開 3-5 個必讀來源</summary>
+
 1. [連結](url) — 描述
 2. ...
+
+</details>
 
 ## 🛠 動手練習（不是看過就好）
 
 ### 練習 N：標題
-描述。
+一句話描述完成後會看到什麼。標題留在 details 外，讓深連結可見。
+
+<details markdown="1">
+<summary>展開詳細步驟</summary>
+
+時間、費用、程式碼、預期輸出與疑難排解。
+
+</details>
 
 [3-5 個動手練習 items]
 
@@ -245,7 +264,45 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 ## 💡 接下來（選填，多在最後一個 stage 用）
 ```
 
-**Stage 0 例外**：可以省略 `精選 Projects`、`進入條件`，因為它是 prerequisite gateway。
+練習標題、成果和第一步保持可見。次要 `<details>` 預設不加 `open`。雙路徑練習仍以 Ollama Path A 為主要路徑，但不是看到 Path A 就一律展開：只有它是讀者眼前唯一要做的事，而且展開後內容很短時才可加 `open`。長程式碼與疑難排解預設收合；Anthropic Path B 也預設收合。不要把可被連結的 heading 包進 `<details>`，也不要用三層以上的巢狀收合。
+
+### 全站白話規則（ELI5）
+
+這份規則適用整個學習地圖。目標是讓五歲小孩也能跟得上「現在要做什麼」，但不能犧牲技術正確性。
+
+- 第一次出現技術詞時，先說白話用途，再保留正確術語；例如「讓程式拿資料的入口（API）」。
+- 一句只講一件事，一個步驟只要求一個主要動作。看見長句、縮寫或 jargon，先拆開或補一句定義。
+- 指令、檔名、錯誤碼、模型名稱、價格、數字與安全提醒必須保持精確。
+- 不展開任何 `<details>` 時，讀者仍要知道下一步要做什麼，以及完成時會看到什麼。
+- Review 時抽查可見主線：第一次來的讀者若無法用自己的話說出下一步，就先改寫；需要多段的原理移入預設收合內容。
+
+### Reader UX ratchet
+
+- 章節完成三語遷移與人工複查後，才加入 `scripts/reader-ux-pages.yml`。這是逐章收緊，不要求尚未整理的頁面一次全部通過。
+- `scripts/check-reader-ux.py` 使用保守的 source-level proxy，計算第一次開頁時可見 Markdown 的非空白字元。預設展開內容與可見 fenced code 算入；HTML comment 與收合內容不算。這是可重複的 ratchet，不是瀏覽器 DOM 字數。
+- 設定檔會保存三語各自的字數上限、允許預設展開的數量、必須保持可見的精確 heading／anchor，以及資源表的分組列數。沒有重新審查，不得調高上限或刪除保護項目。
+- 自動 gate 只能防止已知結構倒退。人工 review 仍要確認：不展開任何選單時，讀者知道要做什麼，也知道成功會看到什麼。
+
+### 分組資源表
+
+- 同一分類連續出現兩列以上時，改用 HTML `<table>`，並以 `<th scope="rowgroup" rowspan="N">` 合併分類欄。
+- 每個 `<thead>` 欄位標題 `<th>` 都要加 `scope="col"`。
+- 每個分類使用一個獨立的 `<tbody>`；分類的第一列保留 `<th scope="rowgroup" rowspan="N">`。
+- 只合併真正共用的分類。不同分類不可因狀態、Context 或其他文字剛好相同而跨組合併。
+- 轉換後保留原有資源數量、順序、連結與三語對應，並用 MkDocs 檢查實際渲染。
+- 沒有重複分類的短表格繼續使用 Markdown，避免為了格式增加維護成本。
+
+含模型、價格、context、授權或生命週期狀態的頁面，在資料附近加入可見查核日期與機器 marker：
+
+```markdown
+> 資料查核：YYYY-MM-DD UTC。價格與可用性之後可能改變，使用前請再看官方頁面。
+
+<!-- freshness: canonical=stages/0N-slug.md; verified_on=YYYY-MM-DD; scope=models,pricing,availability,deprecations; max_age_days=90 -->
+```
+
+三語 marker 必須完全一致；`canonical` 一律指向繁中主頁。官方沒有公布的欄位寫「官方未公布」，不要從第三方榜單反推；第三方 benchmark 只能教讀者怎麼自己評測。
+
+**Stage 0 例外**：可以省略 `精選 Projects`、`進入條件`，因為它是 prerequisite gateway。可見主線依序保留 skip 判斷、4 個學習目標、1 個整合練習與短版完成檢查；時間、環境、補充練習、名詞與學習資源預設收合。
 
 ---
 

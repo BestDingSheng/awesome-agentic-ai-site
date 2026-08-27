@@ -205,8 +205,6 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 
 > [English](./0N-slug.en.md) | **简体中文**
 
-⏱ **时间估算**：N-M 周（约 X-Y 小时）
-
 [1-2 句话描述这个 stage 的核心问题]
 
 ## 📌 学习目标
@@ -215,17 +213,38 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 ...
 
 ## 🚪 进入条件（Stage 1+ 才需要）
+<details markdown="1">
+<summary>⏱ 开始前先看：时间、先备工具与预算</summary>
+
+**时间估算**：N-M 周（约 X-Y 小时）
+
 你应该已经：
 - ...
 
+</details>
+
 ## 📚 必修阅读
+这些资料会在练习中用到；需要时再展开。
+
+<details markdown="1">
+<summary>展开 3-5 个必读来源</summary>
+
 1. [链接](url) — 描述
 2. ...
+
+</details>
 
 ## 🛠 动手练习（不是看过就好）
 
 ### 练习 N：标题
-描述。
+一句话描述完成后会看到什么。标题留在 details 外，让深链接可见。
+
+<details markdown="1">
+<summary>展开详细步骤</summary>
+
+时间、费用、代码、预期输出与疑难排解。
+
+</details>
 
 [3-5 个动手练习 items]
 
@@ -248,7 +267,45 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 ## 💡 接下来（选填，多在最后一个 stage 用）
 ```
 
-**Stage 0 例外**：可以省略 `精选 Projects`、`进入条件`，因为它是 prerequisite gateway。
+保留标题、成果和第一步可见。次要 `<details>` 默认不加 `open`。Ollama Path A 仍是主要路径，但不要看到 Path A 就一律展开：只有它是读者眼前唯一要做的事，而且内容很短时才可加 `open`。长代码和排错默认收合；Anthropic Path B 也默认收合。不要把可被链接的 heading 放进 `<details>`，也不要使用三层以上的嵌套收合。
+
+### 全站白话规则（ELI5）
+
+这条规则适用于整个学习地图。目标是让五岁孩子也能明白“现在要做什么”，但不能牺牲技术准确性，也不要使用幼稚的语气。
+
+- 技术词第一次出现时，先说明它的白话用途，再保留正确术语。例如：“让程序获取数据的入口（API）”。
+- 一句话只讲一个想法。一个步骤只要求一个主要动作。遇到长句、缩写或 jargon，先拆开，或补一句定义。
+- 指令、文件名、错误码、模型名称、价格、数字和安全提醒必须保持精确。
+- 即使不展开任何 `<details>`，读者也应该知道下一步要做什么，以及成功时会看到什么。
+- Review 时抽查可见主线。如果第一次来的读者无法用自己的话说出下一步，就先改写。需要多段的原理移入默认收合的内容。
+
+### Reader UX ratchet
+
+- 只有在一个章节完成三语迁移和人工复查后，才把它加入 `scripts/reader-ux-pages.yml`。这是逐章收紧规则；尚未整理的页面不必一次通过全部检查。
+- `scripts/check-reader-ux.py` 使用保守的 source-level proxy，计算第一次打开页面时可见 Markdown 的非空白字符。默认展开内容与可见 fenced code 会计入；HTML comment 与收合内容不计入。这是可重复的 ratchet，不是浏览器 DOM 字数。
+- 配置会保存各语言的字数上限、允许默认展开的区块数量、必须保持可见的精确 heading／anchor，以及资源表的分组行数。没有重新审查，不得提高上限或删除保护项。
+- 自动 gate 只能防止已知的结构倒退。人工 review 仍须确认：不展开任何 `<details>` 时，读者知道要做什么，也知道成功时会看到什么。
+
+### 分组资源表
+
+- 同一分类连续出现两行以上时，改用 HTML `<table>`，并通过 `<th scope="rowgroup" rowspan="N">` 合并分类栏。
+- 每个 `<thead>` 列标题 `<th>` 都要加 `scope="col"`。
+- 每个分类使用一个独立的 `<tbody>`；分类第一行保留 `<th scope="rowgroup" rowspan="N">`。
+- 只合并真正共用的分类。不同分类不能因为状态、Context 或其他文字相同就跨组合并。
+- 转换后保留原有资源数量、顺序、链接和三语对应，并用 MkDocs 检查实际渲染。
+- 没有重复分类的短表格继续使用 Markdown，避免增加不必要的维护成本。
+
+含模型、价格、context、授权或生命周期状态的页面，要在资料附近加入可见查核日期与机器 marker：
+
+```markdown
+> 资料查核：YYYY-MM-DD UTC。价格与可用性之后可能改变，使用前请再看官方页面。
+
+<!-- freshness: canonical=stages/0N-slug.md; verified_on=YYYY-MM-DD; scope=models,pricing,availability,deprecations; max_age_days=90 -->
+```
+
+三语 marker 必须完全一致；`canonical` 一律指向繁中主页。官方没有公布的字段写“官方未公布”，不要从第三方榜单反推；第三方 benchmark 只能教读者怎样自行评测。
+
+**Stage 0 例外**：可以省略 `精选 Projects`、`进入条件`，因为它是 prerequisite gateway。可见主线依次保留跳过判断、4 个学习目标、1 个整合练习和简短完成检查；时间、环境、补充练习、名词与学习资源默认收合。
 
 ---
 

@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-26T12:57:43.523Z"
+syncedAt: "2026-08-27T08:19:02.582Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a1-cli-intro"
@@ -89,7 +89,7 @@ order: 1
 | | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | ⭐⭐⭐⭐⭐ | 想要 cloud-deployed agent（Telegram / Discord / Slack 介面）+ 中文 LLM 生態 | 自動演化型 agent、200+ provider routing、含 GLM / Kimi / 小米 MiMo / MiniMax、內建 cron + skill 自動演化迴圈（★ 數據截至 2026-05；以官方 GitHub 為準）。⚠️ 自動演化 skill 是實驗性功能、缺第三方獨立審計、production 用前請自行驗證安全性與維護狀態、先在低風險場景試 |
 | | [xai-org/grok-build](https://github.com/xai-org/grok-build) | ⭐⭐⭐ | 已在用 Grok / X 生態、想嘗鮮的人 | SpaceXAI（xAI）官方 TUI coding agent、Rust、支援 headless / ACP 編輯器嵌入（★ 25k+）。⚠️ 2026-07-14 才開源、非常新——先觀察、不建議當第一個 CLI agent |
 | **進階：互補工具**<br>（不是 CLI、但常搭配） | [LM Studio](https://lmstudio.ai/) | ⭐⭐⭐ | Windows / Mac 不想學 command line、想跑本機 LLM | 非開源 desktop app、拖拉介面跑本地 LLM |
-| | [Ollama](https://github.com/ollama/ollama) | ⭐⭐⭐⭐⭐ | 想本機跑 LLM 給 CLI agent 用 | 本地 LLM runner、跟 OpenCode / goose 搭配（★ 170k+）。詳見 [Stage 1 — Local LLM 執行](/zh-tw/stages/01-llm-basics/#-精選-projects) |
+| | [Ollama](https://github.com/ollama/ollama) | ⭐⭐⭐⭐⭐ | 想本機跑 LLM 給 CLI agent 用 | 本地 LLM runner、跟 OpenCode / goose 搭配（也能單獨提供 OpenAI-compatible API），★ 170k+。詳見 [Stage 1 — Local LLM 執行](/zh-tw/stages/01-llm-basics/#練習-6local-llm) |
 
 > 💡 **建議入手路徑**：第一個 CLI 選 Claude Code（生態最完整）→ 試裝第二個（Codex / OpenCode）感受風格差異 → 想跑本機就加 Ollama → 想 cloud-deployed 跨平台用 Hermes Agent。
 

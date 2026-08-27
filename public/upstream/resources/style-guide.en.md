@@ -205,8 +205,6 @@ Every stage (except Stage 0) should have:
 
 > **English** | [繁體中文](./0N-slug.md)
 
-⏱ **Time estimate**: N-M weeks (~X-Y hours)
-
 [1-2 sentence description of the stage's core question]
 
 ## 📌 Learning Goals
@@ -214,17 +212,38 @@ Every stage (except Stage 0) should have:
 - bullet 2
 
 ## 🚪 Entry Conditions (Stage 1+ only)
+<details markdown="1">
+<summary>⏱ Before you start: time, prerequisites, and budget</summary>
+
+**Time estimate**: N-M weeks (~X-Y hours)
+
 You should have:
 - ...
 
+</details>
+
 ## 📚 Required Reading
+You will use these sources during the exercises; expand them when needed.
+
+<details markdown="1">
+<summary>Show 3-5 required sources</summary>
+
 1. [Link](url) — description
 2. ...
+
+</details>
 
 ## 🛠 Hands-on Exercises (do them, not just read)
 
 ### Exercise N: Title
-Description.
+One sentence describing the observable result. Keep the heading outside details so deep links remain visible.
+
+<details markdown="1">
+<summary>Show detailed steps</summary>
+
+Time, cost, code, expected output, and troubleshooting.
+
+</details>
 
 [3-5 hands-on exercise items]
 
@@ -247,7 +266,45 @@ If no → ...
 ## 💡 What's Next (optional, mostly used in the last stage)
 ```
 
-**Stage 0 exception**: can omit `Curated Projects` and `Entry Conditions` — it's a prerequisite gateway.
+Keep the title, outcome, and first action visible. Secondary `<details>` blocks omit `open` by default. Ollama Path A remains the primary path, but do not expand every Path A automatically: use `open` only when it is the reader's single immediate action and its content is short. Keep long code and troubleshooting collapsed by default; Anthropic Path B is also collapsed by default. Do not place a linkable heading inside `<details>`, and do not nest more than three disclosure levels.
+
+### Site-wide plain-language rule (ELI5)
+
+This rule applies to the entire learning map. The goal is for a five-year-old to understand “what to do now,” without losing technical accuracy or using a childish voice.
+
+- When a technical term appears for the first time, explain its plain-language purpose first, then keep the correct term. Example: “an entry that lets a program get data (API).”
+- Put one idea in each sentence. Give each step one main action. Split long sentences, abbreviations, and jargon, or add a short definition.
+- Keep commands, file names, error codes, model names, prices, numbers, and security warnings exact.
+- Even with every `<details>` closed, the reader should know the next step and what they will see when it works.
+- During review, sample the visible main path. If a first-time reader cannot say the next step in their own words, rewrite it. Move multi-paragraph theory into collapsed content.
+
+### Reader UX ratchet
+
+- Add a chapter to `scripts/reader-ux-pages.yml` only after its three-language migration and human review are complete. This tightens the rules chapter by chapter; pages not yet organized do not need to pass all checks at once.
+- `scripts/check-reader-ux.py` uses a conservative source-level proxy: non-whitespace Markdown visible on first load. Default-open content and visible fenced code count; HTML comments and collapsed bodies do not. This is a repeatable ratchet, not a browser DOM text-length claim.
+- The configuration keeps per-language character limits, the number of blocks allowed open by default, exact headings/anchors that must remain visible, and grouped row counts for resource tables. Do not raise limits or remove protections without re-review.
+- An automated gate can only prevent known structural regressions. Human review must still confirm that, with every disclosure closed, readers know what to do and what success looks like.
+
+### Grouped resource tables
+
+- When the same category spans two or more consecutive resources, use an HTML `<table>` and merge the category with `<th scope="rowgroup" rowspan="N">`.
+- Add `scope="col"` to every column-header `<th>` in `<thead>`.
+- Give each category its own `<tbody>`; keep `<th scope="rowgroup" rowspan="N">` on the category's first row.
+- Merge only a genuinely shared category. Do not merge unrelated groups merely because their status, context, or other text happens to match.
+- Preserve the resource count, order, links, and three-locale correspondence, then verify the rendered result with MkDocs.
+- Keep short tables without repeated categories in Markdown to avoid needless maintenance cost.
+
+Pages containing models, prices, context limits, licenses, or lifecycle states place a visible verification date and a machine-readable marker near those facts:
+
+```markdown
+> Data verified: YYYY-MM-DD UTC. Prices and availability may change; check the official page before use.
+
+<!-- freshness: canonical=stages/0N-slug.md; verified_on=YYYY-MM-DD; scope=models,pricing,availability,deprecations; max_age_days=90 -->
+```
+
+All three locale markers must be identical; `canonical` always points to the Traditional Chinese source page. If an official source does not publish a field, write “not published by the official source” instead of inferring it from a third-party leaderboard. Third-party benchmarks may only teach readers how to run their own evaluation.
+
+**Stage 0 exception**: it may omit `Curated Projects` and `Entry Conditions` because it is a prerequisite gateway. The visible path keeps the skip check, four learning goals, one integrated practice, and a short completion check. Time, environment, extra practice, terms, and learning resources stay collapsed by default.
 
 ---
 
