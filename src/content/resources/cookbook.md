@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cookbook.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T08:19:02.582Z"
+syncedAt: "2026-08-27T21:59:30.098Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cookbook"
@@ -603,7 +603,7 @@ Claude Code 目前需要 Anthropic OAuth / API key，沒有官方設定可以把
 ### 進一步
 
 - Stage 1 [Local LLM 練習](/zh-tw/stages/01-llm-basics/#練習-6local-llm)：Ollama / llama.cpp / vLLM 的差異
-- [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)：8 個 CLI agent 怎麼選
+- [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)：CLI agent 怎麼選
 - Hermes Agent README：多平台 gateway（Telegram / Discord / Slack）與 provider 設定
 
 ---
@@ -613,6 +613,6 @@ Claude Code 目前需要 Anthropic OAuth / API key，沒有官方設定可以把
 - 看 [Stage 5](/zh-tw/stages/05-claude-code-ecosystem/) 完整概念
 - 看 [`mcp-skills-catalog.md`](/zh-tw/resources/mcp-skills-catalog/) 完整工具清單
 - 看 [`schema-design-cheatsheet.md`](/zh-tw/resources/schema-design-cheatsheet/) 寫 tool schema 的細節
-- 看 [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) 8 個主流 CLI agent 比較
+- 看 [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) 的 CLI agent 身分與選擇指南
 
 要新 recipe → 開 issue 或直接 PR 一份。recipe 格式：**為什麼 + 步驟 + 範本 prompt + 常見 pitfall + 進一步**。

@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T08:19:02.582Z"
+syncedAt: "2026-08-27T21:59:30.098Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-everyday-users"
@@ -84,7 +84,7 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 
 > 这些工具虽然定位给开发者，但**日常用户也能用**——例如批量重命名文件、整理下载文件夹、自动写每周回顾、把 PDF 摘要存成 Markdown。
 >
-> 想看详细比较？见 [`resources/cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/)（8 个主流 CLI agent 并列、依 use case 推荐、常见坑、实用搭配）。
+> 想知道哪种 CLI agent 适合你？见 [`resources/cli-agents-guide.zh-Hans.md`](/resources/cli-agents-guide/)（依工作方式选工具、常见坑、实用搭配）。
 >
 > 想要 step-by-step 上手？见 [`tracks/cli/A1-cli-intro.zh-Hans.md`](/tracks/cli-a1-cli-intro/)（Track A 第一站，从安装到第一个任务）。
 >
@@ -104,7 +104,7 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 
 **适合谁**：已经订 ChatGPT Plus / Pro，想在终端机用同一个账号做事的人。
 
-#### [sst/opencode](https://github.com/sst/opencode) ⭐⭐⭐⭐⭐
+#### [anomalyco/opencode](https://github.com/anomalyco/opencode) ⭐⭐⭐⭐⭐
 
 | 栏位 | 内容 |
 |---|---|

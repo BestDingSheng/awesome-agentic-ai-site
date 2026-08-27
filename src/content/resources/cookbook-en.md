@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cookbook.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cookbook.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T08:19:02.582Z"
+syncedAt: "2026-08-27T21:59:30.098Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cookbook"
@@ -604,7 +604,7 @@ For local LLM work, treat "Claude Code" and "BYO-LLM CLI agents" as separate too
 ### Further Reading
 
 - Stage 1 [Local LLM exercise](/en/stages/01-llm-basics/#exercise-6-local-llm): Ollama / llama.cpp / vLLM tradeoffs
-- [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/): how to choose among 8 CLI agents
+- [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/): how to choose a CLI agent
 - Hermes Agent README: multi-platform gateway setup for Telegram / Discord / Slack and providers
 
 ---
@@ -614,6 +614,6 @@ For local LLM work, treat "Claude Code" and "BYO-LLM CLI agents" as separate too
 - See [Stage 5](/en/stages/05-claude-code-ecosystem/) for the full concept.
 - See [`mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) for a comprehensive list of tools.
 - See [`schema-design-cheatsheet.en.md`](/en/resources/schema-design-cheatsheet/) for details on writing tool schemas.
-- See [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) for a comparison of 7 popular CLI agents.
+- See [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) for the CLI agent identity and selection guide.
 
 Want a new recipe? Open an issue or submit a PR. Recipe format: **Why + Steps + Sample Prompt + Common Pitfalls + Further Reading**.

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/DESIGN.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/DESIGN.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T08:19:02.582Z"
+syncedAt: "2026-08-27T21:59:30.098Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "design"
@@ -39,30 +39,54 @@ baseSlug: "design"
 | 草稿 | 草稿主題 | 最終歸屬 |
 |---|---|---|
 | A1 | CLI 入門 + 選擇 | → 最終 A1 |
-| A2 | Workflow（CLAUDE.md / slash command / 任務拆解 / portable prompt） | → 最終 A2 |
-| A3 | MCP 接 CLI | → 合進最終 A3 |
-| A4 | 多 CLI 並用 | → 合進最終 A3 |
-| A5 | Production CLI workflow（CI / cost / observability / plugin 打包） | → 合進最終 A3 |
+| A2 | Workflow（project instructions / Skill / 任務拆解 / portable prompt） | → 最終 A2 |
+| A3 | MCP 接 CLI | → 最終 A3 |
+| A4 | 多 CLI 並用 | → 移到最終 A1／A2 的工具比較與 portable prompt |
+| A5 | Production CLI workflow（CI / cost / observability / team sharing） | → 最終 A3 |
 
 合併邏輯：
 
-- 草稿 A3 + A4 + A5 都是「**把 CLI 跟外部系統 / 流程接起來**」這同一件事的不同面向，砍 3 為 1 不會切碎概念
+- 草稿 A3 + A5 都是「**把 CLI 安全接到外部系統 / 團隊流程**」這同一件事，合併後仍是一條完整主線
+- 草稿 A4 的工具比較放到 A1，跨工具可攜做法放到 A2；A3 不先教同時放出多個 agent，避免初學者在學會安全界線前把流程變複雜
 - 草稿 A1 邊界清楚（入門 + 選擇），保留為最終 A1
 - 草稿 A2 邊界清楚（一個人在 CLI 內部如何工作），保留為最終 A2
 
 最終 3 個 stage：
 
 - **A1**：入門 + 選擇（CLI 安裝、認證、第一個任務）
-- **A2**：Workflow Patterns（CLAUDE.md / slash command / 多步拆解 / portable prompt）
-- **A3**：Integration & Production（MCP 接 CLI、多 CLI 並用、CI 自動化、cost / observability、plugin 打包）
+- **A2**：Workflow Patterns（project instructions / Skill / 多步拆解 / portable prompt）
+- **A3**：Integration & Production（單一受限 MCP、唯讀 PR CI、usage / cost receipt、版本化 team Skill）
 
 判準：**3 個 stage 邊界清楚、不互相浸蝕**，每個 stage 對應一個明確的「我能跑出什麼」outcome。
+
+### A1 的固定閱讀形狀
+
+- 第一遍先用五個可見核心詞分清 **LLM**、**Provider API**、**Router**、**Coding agent** 與 **Local runtime**。OpenRouter 放在 Router；OpenCode V2 與 Pi 放在 coding agent／harness；Ollama 放在 local runtime。
+- `📌`、`📚`、`🛠`、`🎯`、`✅` 路標保持可見。時間、帳號、費用、完整步驟與 11 筆工具表預設收合。
+- CLI-1 的第一個請求使用可直接複製的完整 `text` block。CLI-1 至 CLI-4 的標題、anchor 與一句話成果保持可見。
+- 11 筆工具表固定為 `4／5／2` 三組，保留既有五星編輯評分並移除會變動的 GitHub stars 數字。評分是路徑建議，不是總排名。
+
+### A2 的固定閱讀形狀
+
+- 第一遍只教三個可見核心詞：「Project instructions 像共同守則、Skill 像按需操作卡、One-off prompt 像臨時交代」，並保留 CLI-5 至 CLI-8 的標題、anchor、成果與 A3 入口。
+- CLI-5 用「用途／禁止事項／驗證指令／交付格式」四欄做最小規則卡；不把 persona 或行數門檻當成跨 CLI 通則。
+- CLI-6 教目前的 `SKILL.md`，只在相容說明提 `.claude/commands/`。核心內容可以共用，工具專屬的資料夾、frontmatter、permission 與 tool 名稱分開說。
+- 時間、先備條件、完整工具位置、CLI-7／CLI-8 步驟、multi-agent、疑難排解與完整資源表預設收合。
+- `📌`、`📚`、`🛠`、`🎯`、`✅` 路標保持可見。完整資源表按語意分組；每組一個 `<tbody>`，分類欄用真正 `rowspan` 合併。三語的 rowgroup、URL、評分、命令、日期與安全限制必須一致。
+
+### A3 的固定閱讀形狀
+
+- 第一遍先用三個可見核心詞 **MCP**、**CI**、**Observability** 與一條安全階梯說清楚主線：唯讀 → 最小權限 → 示範 repo → 人工檢查 → 最後才考慮寫入。
+- CLI-9 至 CLI-12 的標題、anchor、一句話成果與最短路徑留在可見區；時間、閱讀、完整步驟、疑難排解與 playbook 放進預設關閉的 `<details>`。
+- Playbook 4 的標題與成果留在可見區，保護既有跨頁深連結；多 agent、fallback 與 failure injection 的理論導回 Stage 7.5，不在 A3 重寫一次。
+- `📌`、`📚`、`🛠`、`🎯`、`✅` 路標保持可見。完整資源表固定為 18 筆、五個語意群組，`rowspan` 為 `4／5／4／3／2`。同類型只顯示一次分類名稱；保留五星編輯評分，不放 GitHub stars、排行榜或會自然變舊的數量。
+- A3 的自動化預設只讀、最小權限、可留下 receipt，且必須有人檢查。不能把自動 merge、push、deploy 或未受限的 MCP 寫成初學者第一步。
 
 ### 為什麼 Stage 5 特別放在「兩軌共用」
 
 Stage 5（Claude Code 生態）兩條軌都會碰到：
 
-- Track A：A2 用 5.1（Claude Code 基礎）；A3 用 5.2（MCP）+ 選擇性用到 5.3（Skills）跟 5.4（Plugins）——A3 的 動手練習 CLI-12 會教 plugin 打包。讀的角度是「**怎麼用 Claude Code 把工作做好**」
+- Track A：A2 以多家官方 project-instructions／Skill 文件為主，Stage 5.1／5.3 只作 Claude Code 延伸；A3 用 5.2（MCP）+ 選擇性用到 5.3（Skills）跟 5.4（Plugins）。A3 的 CLI-12 教可版本化的 team Skill；plugin 是 Claude Code 的延伸選項，不假裝成每個 CLI 都通用的打包格式。讀的角度是「**怎麼用 CLI agent 把工作做好**」
 - Track B：把整個 Stage 5 當「**Claude Code 內部運作**」的深度學，從 5.1 完整走到 5.7
 
 但兩條軌**不需要重新讀整份 Stage 5**——Track A 看「用法」、Track B 看「內部結構」。同一份內容，兩種讀法。
@@ -111,8 +135,8 @@ stage 的價值 = 讀者學完後**能回答這個問題**。
 |---|---|---|
 | **0** 基礎準備 | 「我的開發環境準備好了嗎？」 | 4 個 動手練習 self-test |
 | **1** LLM 入門 | 「LLM 是什麼、token 怎麼算、不同 LLM 的差別？」 | 從 API call 到本地 LLM，含 from-scratch 訓練 |
-| **2** Prompt 設計 | 「怎麼讓 LLM 照我的意思做事？」 | system / few-shot / CoT / DSPy |
-| **3** ⭐ Tool Use & Agent 入門 | 「怎麼讓 LLM 呼叫外部工具？」 | function calling + ReAct + 5 個動手練習 必跑 |
+| **2** Prompt 設計 | 「怎麼讓 LLM 照我的意思做事，而且知道修改有沒有用？」 | 四格 prompt / few-shot / 固定 eval / 一次只改一件事 |
+| **3** ⭐ Tool Use & Agent 入門 | 「怎麼讓 LLM 呼叫外部工具？」 | 完整 tool round trip + 有界 ReAct loop + 6 個動手練習 |
 | **4** Agent 框架 | 「哪個 framework 該學、為什麼？」 | LangGraph / AutoGen / CrewAI / Smolagents 對比 |
 | **5** ⭐⭐ Claude Code 生態 | 「Claude Code 生態系怎麼吃？」 | MCP / Skills / Plugins / Marketplace 4 個 sub-stage |
 | **6** Memory · RAG | 「怎麼讓 agent 記得事情？怎麼讓它能查自家文件？」 | embedding / vector DB / RAG / contextual retrieval |
@@ -128,10 +152,16 @@ stage 的價值 = 讀者學完後**能回答這個問題**。
 
 多數 stage 保留以下 section；**呈現順序採漸進式揭露**。Stage 1 是第一個完成遷移的 pilot，其他 stage 在各自內容更新時逐章遷移，不要求在同一個 PR 一次重寫：
 
+Stage 2 的固定主線是「目標／資料／規則／輸出 → Zero-Shot／One-Shot／Few-Shot → Chain-of-Thought 的正確邊界 → 六筆固定案例 → 一次只改一件事 → 比較分數」。程式碼、模型比較、安全補充與 18 筆完整資源表預設收合。CoT 必須先用白話解釋，但不當成要求模型公開完整內部推理的通用步驟。
+
+Stage 3 的固定主線是「八個可見核心詞 → 一般回答／Structured Output／Function Calling 的選擇 → 五條安全底線 → schema → Tool Call → 程式執行 → Tool Result → final answer → 有界 Agent Loop」。六題的標題、成果與第一個可複製動作保持可見；完整程式、供應商差異、費用、排錯、Reflection 路由與 21 筆資源表預設收合。ReAct 使用可觀察的 action／observation loop 教學，不要求公開私人 Chain-of-Thought。
+
+Stage 3 的六題也各有一個 `examples/stage-3/NN-*` 可執行資料夾。每題同時提供 Ollama Path A、Anthropic Path B，以及兩個不連網的 mock tests。模型產生的工具名稱、JSON 與欄位一律視為不可信輸入：程式先做 allowlist 與參數驗證，再執行工具；錯誤要帶回原本的 call ID，Anthropic client tool 使用 `is_error: true`。多輪迴圈必須有最大步數，並把正常完成、token 截斷、拒絕／其他停止原因分開。README 以 PowerShell 為第一條可複製路徑，再收合 macOS／Linux 指令；SDK 使用已查核的 major 範圍、雲端模型使用固定 ID，費用寫公式與查核日，不用沒有 token 假設的固定小數，也不用單次結果宣稱某模型一定更快或更穩。
+
 ```
 1. 1-2 句核心問題
 2. ## 📌 學習目標
-3. 該 stage 的核心詞 / 最短選擇路徑
+3. 該 stage 的可見核心詞（首次粗體、逐詞白話解釋）／最短選擇路徑
 4. ## 🚪 進入條件 + ⏱ 時間估算（預設收合；Stage 6 / 7 可省略）
 5. ## 📚 必修閱讀（清單預設收合）
 6. ## 🛠 動手練習（核心練習先出現，延伸練習細節收合）
@@ -142,6 +172,8 @@ stage 的價值 = 讀者學完後**能回答這個問題**。
 ### 漸進式揭露
 
 - 不展開任何 `<details>` 時，讀者仍要看得懂「這章要學什麼、先做哪一題、成功長什麼樣」。
+- 核心路標的 icon 必須保留並保持一致：`📌` 學習目標、`📚` 必修閱讀、`🛠` 動手練習、`🎯` 精選 Projects、`✅` 自我檢查。可調整白話標題，但不能在精簡時拿掉路標。
+- 動手練習的第一個動作優先給可直接複製、貼上或執行的最小成品。不要先叫初學者抄空白模板；空白模板只適合放在讀者看過成品之後的自行改寫步驟。
 - 時間、先備工具、費用、長表格、補充原理、疑難排解與延伸清單預設收合；`<details>` 不加 `open`。
 - 可被其他頁面深連結的 heading 必須留在 `<details>` 外。標題後先給一句成果，再收合詳細步驟，否則瀏覽器會跳到一個仍然看不見的位置。
 - 雙路徑練習仍以 Ollama Path A 為主要可執行路徑，但不再一律展開。練習標題、成果與第一個動作保持可見；只有在 Path A 是讀者眼前唯一要做的事，而且展開後內容很短時，才可使用 `open`。長程式碼與疑難排解預設收合。Anthropic Path B 仍預設收合；外層若已是延伸練習的收合區，內層不得預設展開。
@@ -150,7 +182,7 @@ stage 的價值 = 讀者學完後**能回答這個問題**。
 
 - `scripts/reader-ux-pages.yml` 只登記已完成三語遷移與人工複查的頁面。未遷移頁面不會因新規則一次全部失敗。
 - `scripts/check-reader-ux.py` 使用保守的 source-level proxy：計算第一次開頁時可見 Markdown 的非空白字元。預設展開內容與可見 fenced code 會計入；HTML comment 與收合內容不計入。這是可重複的 ratchet，不宣稱等於瀏覽器 DOM 字數。
-- 每頁分別設定三語字數上限、預設展開數量、必須留在 `<details>` 外的精確 heading／anchor，以及分組資源表的 `rowspan`。完成一次精簡後只能維持或收緊，不可靜默放寬。
+- 每頁分別設定三語字數上限、預設展開數量、必須留在 `<details>` 外的精確 heading／anchor、核心詞契約，以及分組資源表的 `rowspan`。完成一次精簡後只能維持或收緊，不可靜默放寬。
 - 時間、先備條件、環境、費用、預算、必修閱讀、選修、補充資料、疑難排解與完整資源表不得預設展開。
 - Gate 只證明可量測的結構沒有倒退。第一次讀者能不能用自己的話說出下一步，仍要在人工審查確認。
 
@@ -158,11 +190,20 @@ stage 的價值 = 讀者學完後**能回答這個問題**。
 
 這是整份學習地圖的共同 gate，不是 Stage 0 的特殊語氣。目標是讓五歲小孩也能跟得上「現在要做什麼」，但不把技術內容寫錯或寫成幼稚口吻。
 
-- 第一次使用技術詞時，先用白話說用途，再保留正確術語；例如「讓程式拿資料的入口（API）」。
+- 技術詞第一次出現在可見教學文字時，用**粗體**標出；緊接著先說白話用途，再保留正確術語。例如：「讓程式拿資料的入口（**API**）」。頁面 H1 可以直接使用章名，但正文第一次使用仍要套用這條規則。
+- 漸進式揭露只能收起次要細節。後文、練習或 self-check 會用到的核心名詞，必須留在可見主線，並在第一次出現時用白話解釋；不能為了縮短頁面而刪掉。
 - 一句只說一件事，一個步驟只要求一個主要動作。長句拆開，縮寫與 jargon 不可在可見主線中突然出現。
 - 指令、檔名、錯誤碼、模型名稱、價格與數字保持精確；ELI5 不能拿來刪除必要條件或安全提醒。
 - 若一個概念需要多段說明，主線先留一句「它有什麼用」與下一步，完整原理放進預設收合的 `<details>`。
 - Review 時不只問內容是否正確，也要問第一次來的讀者能否在不展開選單時，說出下一步與完成標準。
+
+### 核心詞契約
+
+- 每個完成回溯的 Stage／Track，都要在第一個練習前放一個可見核心詞區；不能藏進 `<details>`。
+- 每個詞獨立說明「它是什麼、像什麼、這章用它做什麼、正確技術名稱」。先用白話搭橋，再保留英文名、縮寫或規格名稱，讓讀者之後查得到。
+- 核心詞只收後文、練習或 self-check 真的會用到的概念。普通名詞不為了湊數拉進來；也不能為了縮短頁面刪除重要術語。
+- 三語使用相同概念 ID 與順序，內容意思一致。翻譯可以自然，但不能一種語言多講限制、另一種語言少講用途。
+- `scripts/reader-ux-pages.yml` 的 `core_terms` 會鎖住核心區與第一題的位置、第一次可見用法的粗體、定義標籤順序和最低解釋長度。這是結構 gate；比喻與定義是否正確仍由人工 review 判斷。
 
 ### 易變資訊與查核日期
 
@@ -220,11 +261,11 @@ stage 的價值 = 讀者學完後**能回答這個問題**。
 
 ### 為什麼必跑、不能只是讀
 
-Stage 3 的 5 個動手練習 是整個 catalog 最重要的設計決定。理由：
+Stage 3 的 6 個動手練習是整個 catalog 最重要的設計決定。理由：
 
 agent 寫過 vs 沒寫過 ≠ 多讀一篇 paper vs 少讀一篇。寫過的人後面學 LangGraph 知道 framework 在抽象什麼；沒寫過直接學 framework 會被 magic 困住。
 
-所以 Stage 3 結尾的「進 Stage 4 前的自我檢查」第一條就是：**「用不到 100 行 Python、不靠任何 framework，把 ReAct 迴圈寫出來」**——這是 binary 的 gate，跳不過就回去再跑一次。
+所以 Stage 3 結尾的 gate 會直接檢查：讀者能否說出 `schema → call → execute → result → answer`，並寫出有 allowlist、參數驗證、最大步數與停止條件的 loop。跳不過就回練習 1 或 3 重跑，不必重讀整章。
 
 ### 具體成功標準（不是「了解 X」）
 反例：「了解 ReAct pattern」→ 不可量化
@@ -234,6 +275,7 @@ agent 寫過 vs 沒寫過 ≠ 多讀一篇 paper vs 少讀一篇。寫過的人�
 - 3-5 個是 sweet spot
 - 多會 dilute（讀者覺得負擔大、跳過）
 - 少會 under-cover（譬如 Stage 1 只有 3 個 動手練習，但要涵蓋 API call / token / pricing / cross-provider / error handling / local LLM——所以該 stage 後來補到 6 個）
+- Stage 3 也是明確的 6 題例外：完整來回、多工具、ReAct loop、多步任務、錯誤處理與 schema eval 各自有不同成功條件；主線先要求 1–3，4–6 作為穩定性加固，避免一次造成負擔。
 - Stage 5 因為 4 個 sub-section，每個 sub-section 再有 2-3 個 動手練習
 
 ---

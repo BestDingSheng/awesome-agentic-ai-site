@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/setup-guide.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T08:19:02.582Z"
+syncedAt: "2026-08-27T21:59:30.098Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "setup-guide"
@@ -70,12 +70,12 @@ baseSlug: "setup-guide"
 | **Claude Code** | https://code.claude.com/docs/en/quickstart | Claude |
 | **Codex CLI** | https://github.com/openai/codex | GPT 系列 |
 | **Gemini CLI** | https://github.com/google-gemini/gemini-cli | Gemini |
-| **OpenCode** | https://github.com/sst/opencode | 任意（多 provider） |
+| **OpenCode** | https://github.com/anomalyco/opencode | 任意（多 provider） |
 | **goose** | https://block.github.io/goose | 任意 |
 | **Aider** | https://aider.chat | 任意（git-native） |
 | **Hermes Agent** | https://github.com/NousResearch/hermes-agent | 200+（model-neutral） |
 
-→ 想看 8 個 CLI 完整比較 → [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)
+→ 想看 CLI agent 身分與選擇指南 → [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/)
 → Claude Code 第一次裝的詳細步驟 → 本指南 [D](#d--第一次裝-claude-code約-10-分鐘stage-5--for-developer-會用到)
 
 > 💡 **IDE-based 跟 CLI agent 怎麼選？** 邊寫 code 邊要 AI 幫忙 → IDE；下單一 prompt 讓 agent 自己跑完一整個任務 → CLI。兩個可以並用。

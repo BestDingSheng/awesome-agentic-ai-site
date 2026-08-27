@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-developer.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-developer.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T08:19:02.582Z"
+syncedAt: "2026-08-27T21:59:30.098Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-developer"
@@ -36,7 +36,7 @@ The table below splits a developer's day into 7 common scenarios. Each has a dif
 
 ## Curated Projects
 
-> **CLI agent comparison**: 8 major CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent / Grok Build) compared side-by-side in [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/). New to CLI agents and want step-by-step onboarding → [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) (Track A first stop).
+> **CLI agent identity & selection guide**: choose a tool by how you work in [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/). New to CLI agents and want step-by-step onboarding → [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) (Track A first stop).
 >
 > **MCP catalog**: Looking for integrations to wire CLI into daily tools (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.en.md`](/en/resources/mcp-skills-catalog/) (81+ entries by category).
 >
@@ -62,7 +62,7 @@ Editor-integrated AI pair-programming tool. Widely adopted in AI editor tools an
 #### [OpenHands (formerly OpenDevin)](https://github.com/All-Hands-AI/OpenHands) ⭐⭐⭐⭐
 ★ 81k+ · MIT — open-source autonomous software development agent. More aggressive design than Aider / Claude Code — agent runs in its own sandbox and commits autonomously. Best for "throw a whole issue at it" scenarios.
 
-#### [block/goose](https://github.com/block/goose) ⭐⭐⭐⭐
+#### [aaif-goose/goose](https://github.com/aaif-goose/goose) ⭐⭐⭐⭐
 ★ 51k+ · Apache-2.0 — Open-source, extensible AI agent that goes beyond code suggestions — install / execute / edit / test, with any LLM. Supports multiple LLM providers and MCP, ships as desktop app, CLI, and API. (Repo now resolves to `aaif-goose/goose`.)
 
 #### [RooCodeInc/Roo-Code](https://github.com/RooCodeInc/Roo-Code) ⭐⭐⭐ (⚠️ archived)
@@ -151,7 +151,7 @@ Recommended progression:
 | Tier | Tools | Best for | Learning cost |
 |---|---|---|---|
 | **Tier 0** | Cursor / Copilot / Claude.ai | IDE chat, autocomplete, no custom agents | 0 (if you can use an editor) |
-| **Tier 1** | Claude Code / Cline / OpenCode + `CLAUDE.md` | CLI with file-system access, human-in-the-loop | 1-2 days |
+| **Tier 1** | Claude Code (`CLAUDE.md`) / Cline / OpenCode V2 (`AGENTS.md`) | CLI with file-system access, human-in-the-loop | 1-2 days |
 | **Tier 2** | Custom Skills + MCP server | Packaging dev workflows as shared team skills | 1 week of setup |
 | **Tier 3** | Auto-running agents in CI + production observability | [Stage 7](/en/stages/07-multi-agent-production/) territory | Several weeks, governance required |
 

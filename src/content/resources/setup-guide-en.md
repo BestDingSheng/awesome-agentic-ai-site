@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/setup-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T08:19:02.582Z"
+syncedAt: "2026-08-27T21:59:30.098Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "setup-guide"
@@ -70,12 +70,12 @@ Agents that live in your terminal — you give one prompt (e.g. "refactor this m
 | **Claude Code** | https://code.claude.com/docs/en/quickstart | Claude |
 | **Codex CLI** | https://github.com/openai/codex | GPT family |
 | **Gemini CLI** | https://github.com/google-gemini/gemini-cli | Gemini |
-| **OpenCode** | https://github.com/sst/opencode | Any (multi-provider) |
+| **OpenCode** | https://github.com/anomalyco/opencode | Any (multi-provider) |
 | **goose** | https://block.github.io/goose | Any |
 | **Aider** | https://aider.chat | Any (git-native) |
 | **Hermes Agent** | https://github.com/NousResearch/hermes-agent | 200+ (model-neutral) |
 
-→ Full 8-CLI comparison → [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/)
+→ CLI agent identity & selection guide → [`cli-agents-guide.en.md`](/en/resources/cli-agents-guide/)
 → Detailed Claude Code first install → [D](#d--install-claude-code-for-the-first-time-about-10-minutes-needed-for-stage-5--for-developer) below
 
 > 💡 **IDE vs CLI — how to pick?** Want AI alongside you while you code → IDE. Want to give one prompt and let the agent run a multi-step task → CLI. Many people use both.

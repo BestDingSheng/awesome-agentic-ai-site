@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T08:19:02.582Z"
+syncedAt: "2026-08-27T21:59:30.098Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-everyday-users"
@@ -82,7 +82,7 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 
 > These tools are positioned for developers but **everyday users can use them too** — e.g. batch-rename files, organize the Downloads folder, auto-write weekly reviews, summarize PDFs into Markdown.
 >
-> Want a detailed comparison? See [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) — eight major CLI agents side by side, recommendations by use case, common pitfalls, real-world setups.
+> Want to know which kind of CLI agent fits you? See [`resources/cli-agents-guide.en.md`](/en/resources/cli-agents-guide/) — choose by how you work, common pitfalls, and real-world setups.
 >
 > Want step-by-step onboarding? See [`tracks/cli/A1-cli-intro.en.md`](/en/tracks/cli-a1-cli-intro/) — Track A first stop, from install to your first task.
 >
@@ -102,7 +102,7 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 
 **Best for**: People who already subscribe to ChatGPT Plus / Pro and want to use the same account in the terminal.
 
-#### [sst/opencode](https://github.com/sst/opencode) ⭐⭐⭐⭐⭐
+#### [anomalyco/opencode](https://github.com/anomalyco/opencode) ⭐⭐⭐⭐⭐
 
 | Field | Value |
 |---|---|

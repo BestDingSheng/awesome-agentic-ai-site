@@ -17,6 +17,9 @@
 | Harness Engineering | Agent 執行系統設計 | Stage 7 |
 | Tool Use | 工具使用 | Stage 3 |
 | Function Calling | 函式 / 工具呼叫 | Stage 3 |
+| Tool Schema | 工具綱要 / 工具說明卡 | Stage 3 |
+| Tool Call | 工具請求 | Stage 3 |
+| Tool Result | 工具結果 | Stage 3 |
 | Structured Output | 結構化輸出 | Stage 3 |
 | Agent Loop | Agent 執行迴圈 | Stage 3 |
 | Framework | 框架 | Stage 4 |
@@ -52,9 +55,19 @@
 
 ### LLM（Large Language Model，大語言模型）
 
-GPT、Claude、Gemini 這類「給文字、回文字」的模型。本身是純函式：input prompt → output text。它**不會自己上網、不會記住上次對話**——這些都要外接系統來做。
+GPT、Claude、Gemini 這類模型會依輸入預測下一個 token。不同模型可以接收文字、圖片或聲音，也可能產生不同媒體。模型不會自行執行你的 client tool；網路、檔案、工具與跨 session 記憶要由外部系統接上。
 
 📍 詳細：[Stage 1](../stages/01-llm-basics.md)
+
+### Model Provider / Provider API（模型供應商／模型 API）
+
+**直接通往模型公司的門。** 例如 Anthropic API、OpenAI API、Gemini API。你選模型、送出 prompt，供應商回傳結果並向你計費。它提供模型服務，但不是會讀寫你電腦檔案的 CLI agent。
+
+### LLM Router / API Router（模型路由器）
+
+**一個入口，替你轉接多家模型或多個後端。** [OpenRouter](https://openrouter.ai/docs/faq) 是例子：同一個 API 與帳務入口可以選不同模型，並依設定處理 provider routing 或 fallback。Router 不是模型，也不是 OpenCode、Pi 這類 coding agent。
+
+📍 五種身分對照：[Track A A1](../tracks/cli/A1-cli-intro.md)
 
 ### Token
 
@@ -68,7 +81,7 @@ LLM 一次能「看」多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 
 ### Prompt（提示詞）
 
-你給 LLM 的輸入文字。**Prompt engineering** 就是設計這段輸入讓 LLM 給好答案。System prompt（角色設定）+ user prompt（這次的問題）是基本結構。
+你交給 LLM 的完整任務包。它不一定只有一句問題，可以包含**指令、輸入資料、背景、範例與輸出限制**，也可能分放在多個 message 裡。**Prompt engineering** 是設計並測試這份任務包，讓結果更符合成功條件。`system`、`developer`、`user` 是 API 的 message role（訊息角色），不是 prompt 的固定三段，也不能直接當成「指令」的同義詞。
 
 📍 詳細：[Stage 2](../stages/02-prompt-engineering.md)
 
@@ -78,16 +91,16 @@ LLM 一次能「看」多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 
 - **Zero-shot**（0 個範例）：直接問、不給任何範例。
 - **One-shot**（1 個範例）：先給 **1 個** input → output 範例再問。
-- **Few-shot**（少數幾個）：給 **2-5 個** input → output 範例後再問。**Few-shot 通常顯著提升準確度**，特別是格式要求嚴的任務。
+- **Few-shot**（少數幾個）：先給少量 input → output 範例再問。沒有通用的固定數字；它能展示格式與邊界案例，但是否變好仍要用固定 eval 檢查。
 
 ### Chain-of-Thought（CoT，思維鏈）
 
-要 LLM「先想再答」——讓它輸出推理過程再給結論。**兩種形式**：
+早期 prompting 技巧會要求 LLM 寫出中間推理，再給答案。常見研究形式有兩種：
 
 - **Few-shot CoT**（原始 paper、[Wei et al. 2022](https://arxiv.org/abs/2201.11903)）：在 prompt 裡放幾個含推理步驟的範例、LLM 模仿著想
-- **Zero-shot CoT**（[Kojima et al. 2022](https://arxiv.org/abs/2205.11916)）：prompt 結尾加「Let's think step by step」就觸發 reasoning trace
+- **Zero-shot CoT**（[Kojima et al. 2022](https://arxiv.org/abs/2205.11916)）：在 prompt 結尾加「Let's think step by step」。
 
-**準確度通常會提升**、代價是 token 數變多。Few-shot 通常比 zero-shot 準。
+現在不要把輸出完整思維鏈當成通用要求。推理模型通常會在內部完成推理；需要核對時，要求**最後答案加一段簡短、可驗證的理由**。哪種寫法較好，必須用同一組 eval 比較。
 
 ---
 
@@ -95,48 +108,60 @@ LLM 一次能「看」多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 
 ### Agent（代理人）
 
-以 LLM 為核心、能在**迴圈**中**感知狀態 → 做決策 → 採取行動 → 觀察結果**、重複到完成目標的系統。**核心三要素**：
+以模型為核心、能在**有界迴圈**中**讀狀態 → 選動作 → 執行 → 觀察結果**，直到完成、失敗或碰到上限的系統。本學習地圖使用三個零件來教入門：
 
 - **LLM**（推理 / 規劃 / decide）
 - **Actions**（做事的手段——不限於 function call。可以是寫程式碼執行（CodeAct）、操作瀏覽器（computer use）、查 KB（RAG retrieval）、call MCP server、純規劃分解任務等）
-- **Loop**（心跳——agent 跟純 LLM Q&A 的根本差別）
+- **Loop**（有最大步數、timeout、費用與停止條件的執行迴圈）
 
-差別在於：純 LLM = Q&A、agent = 三要素 + 持續迴圈直到目標達成或耗盡 budget。**ReAct 是其中一種 agent pattern、不是 agent 的定義**——CodeAct、computer-use、planning agent 都是 agent。
+這是本路線圖的 **working definition**，不是唯一學術定義。**ReAct 是其中一種 agent pattern、不是 agent 的定義**；CodeAct、computer-use、planning agent 也可能使用不同的 action 與 loop。
 
 📍 詳細：[Stage 3](../stages/03-tool-use-and-hello-agent.md)
 
 ### Tool Use / Function Calling
 
-讓 LLM 呼叫你定義好的 function（查 DB、算數學、開瀏覽器…）。LLM 回的不是文字而是 `{"function": "search", "args": {...}}`、你的程式去執行、把結果再丟回 LLM。
+模型需要查資料或採取動作時，回傳一個有工具名稱、call ID 與參數的結構化請求。對 client tool 而言，**模型只提出請求**；你的程式驗證參數、執行函式，再把對應結果送回模型。
 
-**兩個詞概念相同、API schema 不一樣**：
+**Tool Use** 是較廣的能力名稱；**Function Calling** 是常見的結構化呼叫機制。供應商的 schema 與訊息格式不同：
 
 - **Anthropic「Tool Use」**：schema 用 `input_schema`（JSON Schema 直接放）
 - **OpenAI / Ollama「Function Calling」**：包一層 `{"type": "function", "function": {...}}` 外層
-- LLM 內部接收的 token 表達不同、寫 SDK 跨家時要記得對應好
+- 寫跨供應商 SDK 時，要分別處理 Tool Call、Tool Result、錯誤旗標與停止原因
 
 📍 詳細：[Stage 3](../stages/03-tool-use-and-hello-agent.md)
 📍 schema 怎麼寫好：[Function Schema 設計 cheatsheet](schema-design-cheatsheet.md)
 
+### Tool Schema（工具綱要）
+
+工具的說明卡：名稱、用途、輸入欄位、型別與限制。Schema 能限制請求外形，但不能代替權限、數值範圍與業務規則驗證。供應商的 strict mode 支援也不完全相同。
+
+### Tool Call（工具請求）
+
+模型依 Tool Schema 填好的工作單，通常包含工具名稱、call ID 與參數。它只是**請求**，不是函式已經執行的證明。程式應先比對 allowlist，再解析和驗證參數。
+
+### Tool Result（工具結果）
+
+程式執行工具後回傳的資料，並用 call ID 對回正確的 Tool Call。成功與錯誤都要明確表示；外部工具結果可能含錯誤、惡意內容或 prompt injection，必須視為不可信資料。
+
 ### ReAct（Reasoning + Acting）
 
-最經典的 agent pattern：**Thought（想）→ Action（叫工具）→ Observation（看結果）→ Thought ...** 一直 loop 到答得出來。多數 agent framework 內部都實作這個。
+一種交替 **Reasoning → Action → Observation** 的 agent pattern。本路線圖只要求可觀察的 Tool Call、Tool Result、停止原因和簡短可驗證摘要；不要求模型公開私人 Chain-of-Thought。迴圈必須有步數、時間與費用上限。
 
 📍 詳細：[Stage 3](../stages/03-tool-use-and-hello-agent.md)
 
 ### Structured Output（結構化輸出）
 
-要 LLM 輸出 **JSON / 其他固定 schema**，而不是自由文字。各家 LLM API 都有 `response_format` 或類似旗標支援。Agent 框架幾乎都靠這個跟 LLM 溝通。
+要模型輸出 **JSON 或其他固定 schema**，而不是自由文字。它和 Function Calling 都可能使用 schema，但目的不同：Structured Output 要固定形狀的資料；Function Calling 要應用程式採取動作。供應商支援不一，schema 合法也不保證內容正確，程式仍要處理 refusal、截斷、解析與語意錯誤。
 
 ### Agent Loop
 
-「LLM → tool → 結果 → LLM」這個重複的循環。Loop 結束條件可能是：LLM 說「I'm done」、跑超過 N 步、超出 budget。
+「模型 → Tool Call → 程式執行 → Tool Result → 模型」這個重複循環。每個結果要對回原 call ID。Loop 必須在完成、拒答、錯誤、最大步數、timeout 或費用上限時停止；不能把 retry 全交給模型。
 
 ⚠️ **這是「一次執行裡面」的迴圈**，是 harness 的一個零件，跟五層階梯第 4 層的 [Loop Engineering（迴圈工程）](#loop-engineering迴圈工程)（管的是跨 session 的長時間執行）同名但不同層次。兩者的分界見 [Stage 7](../stages/07-multi-agent-production.md)。
 
 ### Self-Refine（基本版反思 / 無記憶）
 
-agent 自我評估上一回合輸出、改下一回合的 pattern——「Actor 出答案 → Critic 找問題 → Actor 看 feedback 再答」的 single-session loop。**不需要持久記憶層**，純粹是 reasoning loop 機制、是 ReAct 的 sibling pattern。production agent（Cursor / Cline / Claude Code）每天在跑這個變種。
+模型自我評估上一回合輸出、改下一回合的 pattern——「Actor 出答案 → Critic 找問題 → Actor 看 feedback 再答」的 single-session loop。**不一定需要持久記憶層**，是 ReAct 的 sibling pattern，不是 Tool Use 的同義詞。
 
 代表 paper：[Self-Refine (Madaan 2023)](https://arxiv.org/abs/2303.17651)。**完整版 Reflexion**（含 episodic memory）見 3 Memory / Retrieval / RAG（不同層的東西）。
 
@@ -259,13 +284,25 @@ Anthropic 2024 推的開放協定、讓任何 LLM host（Claude Code、Cursor、
 
 📍 詳細：[Stage 5.2](../stages/05-claude-code-ecosystem.md#52--mcpmodel-context-protocol-基礎)
 
+### Project Instructions（專案規則）
+
+CLI agent 每次進入專案時都要讀的共同守則，像貼在工作室牆上的規則。它適合放專案用途、禁止事項、驗證指令與交付格式。不同工具使用不同檔名與載入順序，例如 Codex／OpenCode V2 的 `AGENTS.md`、Claude Code 的 `CLAUDE.md`、Gemini CLI 的 `GEMINI.md`。
+
+📍 入門：[Track A A2](../tracks/cli/A2-cli-workflow.md)
+
 ### Skills / SKILL.md
 
-Claude Code 的「行為包」。一個 Skill = 一個資料夾含 `SKILL.md`（描述「在什麼情境要做什麼、可呼叫哪些 tool」）+ 可選的 reference files / scripts。
+需要時才拿出的可重用「操作卡」。一個 Skill 通常是一個含 `SKILL.md` 的資料夾，還可以附 references、scripts 或其他檔案。Codex、Claude Code、Gemini CLI 與 OpenCode V2 都有 Skill 機制，但搜尋路徑、frontmatter、載入方式與權限不完全相同。
 
-**觸發機制**（很多人不知道、很關鍵）：Claude Code 每次處理你訊息**前**、會掃所有可用 skill 的 **frontmatter `description` 欄位**——匹配當下情境就把對應 SKILL.md 自動載入。**所以 description 寫得好不好直接決定 skill 會不會被觸發**。寫法：以「Use when ...」開頭最有效。
+`description` 要清楚說明「什麼情況使用」與「能做什麼」，讓 agent 能選到正確 Skill。第三方 Skill 可能執行程式或呼叫外部工具；安裝前要讀完內容與權限，不把 Skill 當成安全邊界。
 
-📍 詳細：[Stage 5.3](../stages/05-claude-code-ecosystem.md#53--skillsclaude-code-的行為層-claude-code-生態最關鍵的一層)
+📍 入門：[Track A A2](../tracks/cli/A2-cli-workflow.md)；Claude Code 深入：[Stage 5.3](../stages/05-claude-code-ecosystem.md#53--skillsclaude-code-的行為層-claude-code-生態最關鍵的一層)
+
+### One-off Prompt（單次提示）
+
+只為眼前任務使用的一次性交代，像今天才要用的便條。它放本次任務、範圍、輸入、禁止事項與成功條件；每次都相同的專案規則應移到 project instructions，重複流程應移到 Skill。
+
+📍 練習：[Track A A2 CLI-8](../tracks/cli/A2-cli-workflow.md#cli-8)
 
 ### Plugin / Marketplace
 
@@ -275,7 +312,7 @@ Claude Code 的「行為包」。一個 Skill = 一個資料夾含 `SKILL.md`（
 
 ### Slash Command
 
-Claude Code 內以 `/` 開頭的指令（`/help`、`/compact`、`/plan` 等）。可以自訂——把一段 prompt 存到 `.claude/commands/<name>.md` 就變成 `/name`。
+Claude Code 內以 `/` 開頭的指令，例如 `/help`、`/compact`、`/plan`。舊專案可能把自訂 prompt 放在 `.claude/commands/<name>.md`；這是相容舊做法。新的可重用流程建議寫成 `.claude/skills/<name>/SKILL.md`。
 
 ### CLAUDE.md
 
@@ -313,17 +350,23 @@ Claude Code 內以 `/` 開頭的指令（`/help`、`/compact`、`/plan` 等）�
 
 ## 6. Production / Eval / Cost
 
-### Eval（評估框架）
+### CI（Continuous Integration，持續整合）
 
-針對 agent 跑一組 test case，量化它的準確度 / latency / cost。**production agent 沒有 eval 等於沒有測試**。常見工具：promptfoo、LangSmith、langfuse evals。
+push 或 PR 出現時自動執行固定工作的檢查站。CI 可以跑測試、lint 或只讀 agent review，但它使用的 token、secret、repo 權限與觸發條件都要另外限制。CI 成功不代表可以自動 merge 或跳過人類 review。
 
-📍 詳細：[Stage 7](../stages/07-multi-agent-production.md)
+📍 練習：[Track A A3 CLI-10](../tracks/cli/A3-cli-production.md#cli-10)
+
+### Eval（評估）
+
+拿一組固定 test case 檢查 prompt 或 agent。最小的 eval 就像一張小答案卡：同一組題目、清楚的正確條件、每次修改後重跑。規模變大後，還能一起記錄準確度、latency 與 cost。常見工具有 promptfoo、LangSmith 與 Langfuse evals。
+
+📍 入門：[Stage 2](../stages/02-prompt-engineering.md)；完整 eval harness：[Stage 7](../stages/07-multi-agent-production.md)
 
 ### Observability
 
-把 agent 內部跑的每一步（哪個 LLM call、哪個 tool、什麼結果）都記下來。出 bug 時能 replay。常見：langfuse、Helicone、weave。
+把 agent 執行過的步驟、模型、tool、usage、時間與結果留下來，像收據加行車紀錄。出 bug 時可以找出哪一步失敗；拿不到的欄位要寫「未確認」，不能靠猜。常見工具有 Langfuse、Phoenix、Helicone。
 
-📍 詳細：[Stage 7](../stages/07-multi-agent-production.md)
+📍 入門：[Track A A3 CLI-11](../tracks/cli/A3-cli-production.md#cli-11)；深入：[Stage 7](../stages/07-multi-agent-production.md)
 
 ### Prompt Caching
 
@@ -359,17 +402,17 @@ Simon Willison 提出：agent 同時有（1）存取私密資料、（2）接觸
 
 ### CLI Agent
 
-跑在終端機的 agent（Claude Code、Codex、Aider、Gemini CLI 等）。對比於跑在 IDE 內（Cursor、Continue）或 web 上（ChatGPT、Claude.ai）。
+跑在終端機、能在你允許的範圍內讀檔、改檔與執行命令的 agent / harness（Claude Code、Codex、OpenCode、Pi、Aider、Gemini CLI 等）。**它是工作台，不是裡面的 LLM。** 同一個 CLI 可能綁一個模型生態，也可能讓你切換 provider。
 
 📍 詳細：[Track A A1](../tracks/cli/A1-cli-intro.md)、[`resources/cli-agents-guide.md`](cli-agents-guide.md)
 
 ### BYO API Key（Bring Your Own）
 
-工具支援你自己提供 API key 而不是綁訂閱。Aider / OpenCode / goose 等 CLI 都是 BYO；Claude Code / Codex 預設是訂閱制。
+工具讓你提供自己的 provider API key，而不是只使用工具內建的訂閱登入。Aider、OpenCode、goose、Pi 等可以接一個或多個 provider；Claude Code、Codex 也各有官方文件列出的訂閱或 API 認證路徑。實際支援方式會改，使用前看該工具的官方認證文件。
 
 ### Local LLM / On-Device
 
-模型跑在你自己機器上（Ollama、llama.cpp、MLX、LocalAI 等），資料不外傳。隱私 OK 但能力比 frontier 模型有差。
+模型在自己的機器上執行。Ollama、llama.cpp、MLX、LocalAI 是 **local runtime**：它們負責把模型跑起來，不等於 coding agent。只有模型、工具與資料路徑都留在本機，而且沒有另外呼叫雲端服務時，資料才不會因這次流程送到雲端；能力與速度要用自己的任務和硬體測試。
 
 📍 詳細：[Stage 1](../stages/01-llm-basics.md)
 
