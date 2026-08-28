@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/04-agent-frameworks.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T10:20:14.643Z"
+syncedAt: "2026-08-28T21:54:08.645Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "04-agent-frameworks"
@@ -16,8 +16,6 @@ order: 4
 > [Traditional Chinese](/zh-tw/stages/04-agent-frameworks/) | [Simplified Chinese](/stages/04-agent-frameworks/) | **English**
 
 In Stage 3, you wrote a tool loop yourself. This stage has a simple purpose: see which repeated tasks can be handed to an existing toolkit, and learn when *not* to make the system more complex.
-
-> Fact check: 2026-08-27 UTC. Tool versions, maintenance status, and licenses may change; check the official pages again before adopting one.
 
 <!-- freshness: canonical=stages/04-agent-frameworks.md; verified_on=2026-08-27; scope=frameworks,releases,maintenance,licenses,security; max_age_days=90 -->
 
@@ -254,6 +252,8 @@ Choose [LangGraph](https://github.com/langchain-ai/langgraph) ⭐⭐⭐⭐⭐ as
 
 <details markdown="1">
 <summary>Expand 18 frameworks, harnesses, and infrastructure tools</summary>
+
+<small>Framework information checked: 2026-08-27 UTC</small>
 
 <table>
   <thead>

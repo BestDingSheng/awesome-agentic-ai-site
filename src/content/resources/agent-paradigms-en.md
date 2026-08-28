@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/agent-paradigms.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T10:20:14.643Z"
+syncedAt: "2026-08-28T21:54:08.645Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "agent-paradigms"
@@ -156,7 +156,7 @@ There are two main implementation paths:
 | Path | How it starts | Examples |
 |---|---|---|
 | **Framework-based** (Stage 4) | `pip install langgraph / crewai / autogen` + Python orchestration code | LangGraph / CrewAI / AutoGen / Swarm / Strands |
-| **Claude Code native** (Stage 5.5) | Write `.claude/agents/<name>.md`; invoke it from the main session with the Task tool | Claude Code subagents + Claude Agent SDK |
+| **Claude Code native** (Stage 5.5) | Write `.claude/agents/<name>.md`; invoke it from the main session with the **Agent tool** | Claude Code subagents + Claude Agent SDK |
 
 **The difference is runtime ownership**:
 

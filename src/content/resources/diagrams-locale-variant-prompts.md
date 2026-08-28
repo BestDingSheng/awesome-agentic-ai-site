@@ -1,11 +1,11 @@
 ---
 title: "語系變體圖 — 生成流程與教訓"
-description: "新增 prompt-engineering-map.png、.en.png、.zh-Hans.png。三張皆為 16:9 亮色白底卡片圖，保持同一閱讀順序："
+description: "新增 tool-use-loop.png、.en.png、.zh-Hans.png。三張都使用 16:9 亮色白底卡片，固定呈現 模型 → Tool Call → 程式驗證 → 工具執行 → Tool Result → 模型答案，並用盾牌框住程式驗證與工具執行。底部只保留三個安全提示：allowlist、敏感動作先問人、設定最大輪數。"
 section: "Resource"
 sourcePath: "resources/diagrams/locale-variant-prompts.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/diagrams/locale-variant-prompts.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T10:20:14.643Z"
+syncedAt: "2026-08-28T21:54:08.645Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "diagrams-locale-variant-prompts"
@@ -14,6 +14,14 @@ baseSlug: "diagrams-locale-variant-prompts"
 
 > 姊妹檔：[`concept-prompts.md`](/zh-tw/resources/diagrams-concept-prompts/)（Stage 7.5 那 3 張概念圖的 ChatGPT prompt）。
 > 這份記錄的是 **2026-08-02 那批 5 張圖 × 3 語系** 是怎麼產出來的，以及過程中踩到的坑。
+
+## 2026-08-27：Stage 3 Tool Use 六步圖
+
+新增 `tool-use-loop.png`、`.en.png`、`.zh-Hans.png`。三張都使用 16:9 亮色白底卡片，固定呈現 `模型 → Tool Call → 程式驗證 → 工具執行 → Tool Result → 模型答案`，並用盾牌框住程式驗證與工具執行。底部只保留三個安全提示：allowlist、敏感動作先問人、設定最大輪數。
+
+使用 Codex 內建 image generation 先做繁中母版，再以母版產生英文。簡中直接從繁中母版在地化時，兩次殘留 `請／設`；最終改用英語版作版面母版重新生成，才得到完整簡體字形。三張圖均逐字檢查標題、六步、中心句與三個安全提示；沒有放版本、價格、stars 或其他易變資訊。
+
+最終 prompt 的核心限制是：六張編號卡必須依 `1→2→3→4→5→6` 連接；模型只能提出請求，程式才執行工具；所有文字逐字提供，三語只改文字，不改 icon、箭頭、配色和版面。圖固定放在 Stage 3 八個核心詞之後，先讀定義再看關係。
 
 ## 2026-08-27：Stage 2 Prompt Engineering 概念圖
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T10:20:14.643Z"
+syncedAt: "2026-08-28T21:54:08.645Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
@@ -263,7 +263,7 @@ Path A 六題兩輪的 API 費用是 `$0`。Path B 先設 `$0.05` 上限；若�
 <details markdown="1">
 <summary>展開 18 筆課程、cookbook、範例與 eval 資源</summary>
 
-> 資源狀態與 repo metadata 查核：2026-08-27 UTC。GitHub stars 會變動，所以本表不列 stars。
+<small>資源查核：2026-08-27 UTC</small>
 
 > 推薦度是本 Stage 的閱讀順序，不是人氣排名：`⭐⭐⭐⭐⭐`＝不做會卡住；`⭐⭐⭐⭐`＝建議優先；`⭐⭐⭐`＝有需要再看；`⭐⭐`＝歷史或少數情境。本表是選修工具箱，所以沒有硬標五星。
 

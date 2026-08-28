@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T10:20:14.643Z"
+syncedAt: "2026-08-28T21:54:08.645Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "glossary"
@@ -356,7 +356,7 @@ Claude Code 內以 `/` 開頭的指令，例如 `/help`、`/compact`、`/plan`�
 
 主 Claude Code session 之外，spawn 出來跑特定任務的 agent。有自己的 context window。例如「給我一個 code-reviewer subagent 看看 diff」。
 
-寫法：在 `.claude/agents/<name>.md` 放 frontmatter + system prompt + tool whitelist。主 session 用 Task tool invoke（自動 parallel / sequential）。**跟 framework-based multi-agent 對照**：subagent 不需要裝 LangGraph / CrewAI 等 framework、直接寫 markdown 即可；但綁 Claude Code runtime。完整教學見 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)；**15 個複製貼上即用的 dispatch recipe** → [`subagent-cookbook.md`](/zh-tw/resources/subagent-cookbook/)；**自己寫 / 組合 / debug 進階主題** → [`subagent-advanced.md`](/zh-tw/resources/subagent-advanced/)。
+寫法：在 `.claude/agents/<name>.md` 放 frontmatter + system prompt + tool whitelist。主 session 用 **Agent tool** invoke（自動 parallel / sequential）。**跟 framework-based multi-agent 對照**：subagent 不需要裝 LangGraph / CrewAI 等 framework、直接寫 markdown 即可；但綁 Claude Code runtime。完整教學見 [Stage 5.5](/zh-tw/stages/05-claude-code-ecosystem/#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)；**15 個複製貼上即用的 dispatch recipe** → [`subagent-cookbook.md`](/zh-tw/resources/subagent-cookbook/)；**自己寫 / 組合 / debug 進階主題** → [`subagent-advanced.md`](/zh-tw/resources/subagent-advanced/)。
 
 ---
 

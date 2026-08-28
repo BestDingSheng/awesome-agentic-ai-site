@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T10:20:14.643Z"
+syncedAt: "2026-08-28T21:54:08.645Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -356,7 +356,7 @@ An agent design that comes "fully equipped" — beyond just calling tools, it ha
 
 A spawned agent from the main Claude Code session, with its own context window, dedicated to a specific task. E.g. "spin up a code-reviewer subagent for this diff."
 
-How to set up: put frontmatter + system prompt + tool whitelist in `.claude/agents/<name>.md`. The main session invokes it with the Task tool (automatic parallel / sequential). **Compared with framework-based multi-agent**: a subagent does not require LangGraph / CrewAI or similar frameworks; markdown is enough, but it is tied to the Claude Code runtime. Full guide: [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature); **15 copy-paste dispatch recipes** → [`subagent-cookbook.en.md`](/en/resources/subagent-cookbook/).
+How to set up: put frontmatter + system prompt + tool whitelist in `.claude/agents/<name>.md`. The main session invokes it with the **Agent tool** (automatic parallel / sequential). **Compared with framework-based multi-agent**: a subagent does not require LangGraph / CrewAI or similar frameworks; markdown is enough, but it is tied to the Claude Code runtime. Full guide: [Stage 5.5](/en/stages/05-claude-code-ecosystem/#55--subagents-claude-codes-native-multi-agent-mechanism--2025-new-feature); **15 copy-paste dispatch recipes** → [`subagent-cookbook.en.md`](/en/resources/subagent-cookbook/).
 
 ---
 

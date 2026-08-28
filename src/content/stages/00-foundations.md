@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/00-foundations.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T10:20:14.643Z"
+syncedAt: "2026-08-28T21:54:08.645Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "00-foundations"
@@ -16,8 +16,6 @@ order: 0
 > **繁體中文** | [简体中文](/stages/00-foundations/) | [English](/en/stages/00-foundations/)
 
 這一關先檢查：你會不會使用後面一定會用到的四種工具？會就直接跳過。不會也沒關係，照著下面的小練習做一次。
-
-資料查核：2026-08-27 UTC（學習資源與 GitHub 驗證指引）
 
 ## 何時可以跳過這個階段
 
@@ -194,6 +192,8 @@ Token 就像程式使用的臨時鑰匙。拿到它的人可能以你的身分�
 
 <details markdown="1">
 <summary>📚 展開依主題分組的 18 個學習資源</summary>
+
+<small>學習資源與 GitHub 驗證指引查核：2026-08-27 UTC</small>
 
 `推薦度` 是學習優先順序，不是 GitHub 的熱門數字。依專案規則，⭐⭐⭐⭐⭐ 代表「不看會卡住」；下面都是補充資源，所以誠實使用 ⭐⭐⭐⭐（強烈建議）或 ⭐⭐⭐（紮實參考），不用假五星。
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/00-foundations.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T10:20:14.643Z"
+syncedAt: "2026-08-28T21:54:08.645Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "00-foundations"
@@ -16,8 +16,6 @@ order: 0
 > [繁體中文](/zh-tw/stages/00-foundations/) | **English** | [简体中文](/stages/00-foundations/)
 
 This stage checks four tools that you will use later. If you already know them, skip ahead. If not, no problem: do the small practice below once.
-
-Data checked: 2026-08-27 UTC (learning resources and GitHub verification guidance)
 
 ## When to skip this stage
 
@@ -194,6 +192,8 @@ Use an entry that matches the skill you need. You do not need to read all 18 res
 
 <details markdown="1">
 <summary>📚 18 learning resources grouped by topic</summary>
+
+<small>Learning resources and GitHub verification guidance checked: 2026-08-27 UTC</small>
 
 `Recommendation` is the learning priority, not a GitHub popularity number. Under the project rules, ⭐⭐⭐⭐⭐ means “you will get stuck without it”; everything below is supplemental, so it honestly uses ⭐⭐⭐⭐ (strongly recommended) or ⭐⭐⭐ (solid reference), without fake five-star ratings.
 

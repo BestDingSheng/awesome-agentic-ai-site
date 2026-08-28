@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/subagent-advanced.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/subagent-advanced.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T10:20:14.643Z"
+syncedAt: "2026-08-28T21:54:08.645Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "subagent-advanced"
@@ -128,7 +128,7 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 - 4 個 file 都要做同樣的 audit（spawn 4 個 `general-purpose`）
 - 同時跑「code review」+「找相關 paper」+「寫 changelog」3 個獨立任務
 
-**怎麼跑**：在**一個 prompt 裡**列出 N 個獨立任務（譬如「請同時 audit 這 4 個檔案：A.md / B.md / C.md / D.md」）——Claude 在單一 turn 內**多次呼叫 Task tool**、自動並行。**不是**連續輸入 N 個 prompt（那是 sequential、要等前一個結束）。要長時間獨立背景跑用 `/bg`。
+**怎麼跑**：在**一個 prompt 裡**列出 N 個獨立任務（譬如「請同時 audit 這 4 個檔案：A.md / B.md / C.md / D.md」）——Claude 在單一 turn 內多次呼叫 **Agent tool**、自動並行。**不是**連續輸入 N 個 prompt（那是 sequential、要等前一個結束）。要長時間獨立背景跑用 `/bg`。
 
 **成本**：低（不需 coordination）
 
