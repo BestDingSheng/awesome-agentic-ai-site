@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T21:59:30.098Z"
+syncedAt: "2026-08-28T10:20:14.643Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -444,7 +444,7 @@ The 5 principles above apply to all agents, but **coding agents** (Claude Code /
 
 **Why this line is especially hot in 2026**:
 
-- The **OpenAI Agents SDK April-2026 update** built in a sandbox (7 providers) + a harness abstraction layer — [Stage 4 already flags](/en/stages/04-agent-frameworks/) this as the first time a production coding agent is "architecturally sound." The harness is no longer everyone hand-rolling their own; shared abstractions are emerging.
+- **OpenAI Agents SDK Sandbox Agents** connect workspaces, sessions, approvals, and sandbox clients through the same Agent API. [Stage 4 now flags](/en/stages/04-agent-frameworks/) that this is still beta, so it does not prove every production problem is solved. The useful signal is narrower: shared harness abstractions are emerging.
 - **Aider / Claude Code / Codex side by side**: all coding agents, but the harness trade-offs differ — Aider goes minimal git-commit-per-edit repo state, Claude Code goes CLAUDE.md + plan mode + subagents, Codex goes cloud sandbox + harness abstraction. **What readers should learn is "how harness trade-offs shape agent behavior," not which vendor's API to memorize**.
 
 > 📚 **Want to go deeper on coding-agent harness design**: start with [OpenAI — Harness Engineering](https://openai.com/index/harness-engineering/) (Codex case study) + the tool-design section of [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents); for hands-on comparison, run [Stage 5 Claude Code ecosystem](/en/stages/05-claude-code-ecosystem/) + [Stage 8 Code Sandbox](/en/stages/08-agent-interfaces/).

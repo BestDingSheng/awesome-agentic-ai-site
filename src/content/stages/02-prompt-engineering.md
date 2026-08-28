@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T21:59:30.098Z"
+syncedAt: "2026-08-28T10:20:14.643Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
@@ -44,6 +44,10 @@ order: 2
 > **Message Role（訊息角色）**像信封，決定內容來自誰、優先順序多高；**Instruction（指令）**才是信封裡寫的要求。不同 API 會使用 `system`、`developer`、`user` 等不同角色名稱，不能把其中一個角色直接當成「指令」的定義。
 
 一句口訣：**目標 → 資料 → 規則 → 輸出**。
+
+![Prompt Engineering 一張圖看懂：Prompt 四格、範例數量、檢查迴圈，以及不要求完整內部想法的 CoT 可檢查步驟](/upstream/resources/diagrams/prompt-engineering-map.png)
+
+先照上半部把 Prompt 說清楚，再選要不要給範例；最後用固定題目檢查，改一處，再試一次。右下角的 CoT 只要求可檢查步驟，不要求完整內部想法。
 
 ## 🚪 進入條件
 

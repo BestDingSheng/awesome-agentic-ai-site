@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T21:59:30.098Z"
+syncedAt: "2026-08-28T10:20:14.643Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "style-guide"
@@ -306,6 +306,13 @@ This rule applies to the entire learning map. The goal is for a five-year-old to
 - Collect only key concepts used later in the text, exercises, or self-check. Do not pull out every ordinary noun just to fill a quota, and do not delete necessary terms such as Zero-Shot, Token, or MCP because they seem “too detailed.”
 - Keep the concept, order, purpose, and limits consistent across the three languages. Keep English names, abbreviations, commands, and specification names exact.
 - `scripts/reader-ux-pages.yml` uses `core_terms` to record the core section, first exercise, terms/labels in all three languages, their order, and the minimum explanation length. Once added, it may only be maintained or strengthened; it must not be silently removed.
+
+### Concept-diagram writing
+
+- Define core terms in plain text first, then use a diagram to organize their relationships. A diagram must not be the reader's first encounter with a term.
+- Keep the same layout, order, numbers, and limits in all three locales. Provide a correctly localized image and alt text for each page.
+- Exact numbers inside a diagram need the same official evidence as prose. When no fixed rule exists, write “multiple” or “varies by model” instead of inventing a neat range.
+- Inspect every image at original size for text, locale characters, arrow direction, and contrast; then run the image-locale gate and all three MkDocs builds.
 
 ### Reader UX ratchet
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T21:59:30.098Z"
+syncedAt: "2026-08-28T10:20:14.643Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -44,6 +44,10 @@ After finishing, you can:
 > **Message Role** is like an envelope: it says who the content comes from and how high its priority is. **Instruction** is the request written inside the envelope. Different APIs use roles such as `system`, `developer`, and `user`; do not treat one role as the definition of an instruction.
 
 One-line reminder: **goal → data → rules → output**.
+
+![Prompt Engineering at a glance: four prompt parts, example counts, the evaluation loop, and checkable CoT steps without requesting private internal thoughts](/upstream/resources/diagrams/prompt-engineering-map.en.png)
+
+Use the top row to make the prompt clear, then decide whether to add examples. Finally, check it with fixed questions, change one part, and try again. The CoT box asks only for checkable steps, not private internal thoughts.
 
 ## 🚪 Entry Conditions
 

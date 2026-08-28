@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T21:59:30.098Z"
+syncedAt: "2026-08-28T10:20:14.643Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -102,7 +102,7 @@ So this is not either-or. **A graph puts several loops into boxes, then orders t
 
 ### ⚠ But do you really need multi-agent?
 
-**Multi-agent is not the default; it is a design you use only when the task truly needs it.** In most scenarios, you should first try a simple workflow or a single agent; **only when the task is naturally decomposable, needs parallel exploration, a single context is not enough, or explicit role separation is needed, is multi-agent worth introducing**. Forcing it brings **3-10× token cost, difficult debugging, and severe context fragmentation (context gets split across multiple agents, and no one sees the whole picture)**.
+**Multi-agent is not the default; it is a design you use only when the task truly needs it.** In most scenarios, you should first try a simple workflow or a single agent; **only when the task is naturally decomposable, needs parallel exploration, a single context is not enough, or explicit role separation is needed, is multi-agent worth introducing**. Forcing it increases **token, latency, debugging, and context-fragmentation costs**; measure the multiplier on your own task. Anthropic's Research system used about `15×` the tokens of ordinary chat, but that is a result from one specific system, not a universal rule.
 
 > 📌 **The decision framework's canonical home is Stage 4**: the full Anthropic / Cognition stance comparison + the 4 "should you go multi-agent" signals + each signal's corresponding pattern live in [Stage 4 §When do you really need multi-agent](/en/stages/04-agent-frameworks/#when-do-you-really-need-multi-agent-dont-force-it) (design-phase decision). This section is only the last sanity check before production — **none of the 4 signals present?** → a single agent + good prompts + tool use is enough; don't force multi-agent. **The harness engineering part of this stage (8 components / eval / observability) still applies even if you end up using a single agent**—so this stage is still required reading even if you decide against multi-agent.
 

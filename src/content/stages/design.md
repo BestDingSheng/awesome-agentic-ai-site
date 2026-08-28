@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/DESIGN.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/DESIGN.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T21:59:30.098Z"
+syncedAt: "2026-08-28T10:20:14.643Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "design"
@@ -152,11 +152,17 @@ stage 的價值 = 讀者學完後**能回答這個問題**。
 
 多數 stage 保留以下 section；**呈現順序採漸進式揭露**。Stage 1 是第一個完成遷移的 pilot，其他 stage 在各自內容更新時逐章遷移，不要求在同一個 PR 一次重寫：
 
-Stage 2 的固定主線是「目標／資料／規則／輸出 → Zero-Shot／One-Shot／Few-Shot → Chain-of-Thought 的正確邊界 → 六筆固定案例 → 一次只改一件事 → 比較分數」。程式碼、模型比較、安全補充與 18 筆完整資源表預設收合。CoT 必須先用白話解釋，但不當成要求模型公開完整內部推理的通用步驟。
+Stage 2 的固定主線是「目標／資料／規則／輸出 → Zero-Shot／One-Shot／Few-Shot → Chain-of-Thought 的正確邊界 → 六筆固定案例 → 一次只改一件事 → 比較分數」。三語概念圖固定放在可見核心詞之後：先由正文定義，再用同構圖整理關係；圖片不能取代定義，也不能畫入正文已撤掉的固定數字。程式碼、模型比較、安全補充與 18 筆完整資源表預設收合。CoT 必須先用白話解釋，但不當成要求模型公開完整內部推理的通用步驟。
 
 Stage 3 的固定主線是「八個可見核心詞 → 一般回答／Structured Output／Function Calling 的選擇 → 五條安全底線 → schema → Tool Call → 程式執行 → Tool Result → final answer → 有界 Agent Loop」。六題的標題、成果與第一個可複製動作保持可見；完整程式、供應商差異、費用、排錯、Reflection 路由與 21 筆資源表預設收合。ReAct 使用可觀察的 action／observation loop 教學，不要求公開私人 Chain-of-Thought。
 
 Stage 3 的六題也各有一個 `examples/stage-3/NN-*` 可執行資料夾。每題同時提供 Ollama Path A、Anthropic Path B，以及兩個不連網的 mock tests。模型產生的工具名稱、JSON 與欄位一律視為不可信輸入：程式先做 allowlist 與參數驗證，再執行工具；錯誤要帶回原本的 call ID，Anthropic client tool 使用 `is_error: true`。多輪迴圈必須有最大步數，並把正常完成、token 截斷、拒絕／其他停止原因分開。README 以 PowerShell 為第一條可複製路徑，再收合 macOS／Linux 指令；SDK 使用已查核的 major 範圍、雲端模型使用固定 ID，費用寫公式與查核日，不用沒有 token 假設的固定小數，也不用單次結果宣稱某模型一定更快或更穩。
+
+Stage 4 的固定主線是「八個可見核心詞 → workflow／agent × single／multi 選擇圖 → 先用最簡單能完成任務的形狀 → 五種協作 pattern → 依需求選工具 → 五題練習」。八個主核心詞是 **Framework**、**Workflow**、**Agent**、**Orchestration**、**State**、**Checkpoint**、**Handoff** 與 **Human-in-the-loop（HITL）**；Supervisor、Worker、CodeAct 與 Type-safe 也必須在第一次可見使用時粗體解釋，不能為了縮短頁面刪掉。三語亮色圖只整理正文已先定義的關係，不放版本、價格、stars 或沒有通則的數字。
+
+Stage 4 的時間、環境、完整閱讀、研究證據、進階 tool patterns、五題完整步驟、疑難排解與 18 筆完整資源表預設收合。`📌`、`🚪`、`📚`、`🛠`、`🎯`、`✅`，簡短進入條件、五題 heading／anchor、每題成果、第一個可複製 PowerShell 動作與預算提醒保持可見。資源表固定為五組 `4／6／4／3／1`，使用真正 HTML `rowspan`，保留編輯推薦星級、移除會變動的 GitHub stars；Preview、維護、凍結／歷史與遷移狀態依官方來源明寫。OpenAI Swarm 只作教育參考，不能再有 production 評分；框架版本、維護、授權與安全資訊使用 90 天 freshness marker。
+
+Stage 4 使用兩層 stacked PR：第一層只定稿三語教材、官方事實包、圖、資源表與 reader-UX gate；第二層才更新五個 `examples/stage-4/` 資料夾的 current-major SDK、Ollama／Anthropic 雙路徑、安全邊界與離線測試。這讓閱讀設計和 executable API migration 可以各自回溯、review 與驗證。
 
 ```
 1. 1-2 句核心問題
@@ -204,6 +210,13 @@ Stage 3 的六題也各有一個 `examples/stage-3/NN-*` 可執行資料夾。�
 - 核心詞只收後文、練習或 self-check 真的會用到的概念。普通名詞不為了湊數拉進來；也不能為了縮短頁面刪除重要術語。
 - 三語使用相同概念 ID 與順序，內容意思一致。翻譯可以自然，但不能一種語言多講限制、另一種語言少講用途。
 - `scripts/reader-ux-pages.yml` 的 `core_terms` 會鎖住核心區與第一題的位置、第一次可見用法的粗體、定義標籤順序和最低解釋長度。這是結構 gate；比喻與定義是否正確仍由人工 review 判斷。
+
+### 概念圖契約
+
+- 圖只整理已經用白話定義過的關係，不能讓新名詞先在圖裡突然出現，也不能用圖片取代可搜尋、可翻譯、可被螢幕閱讀器讀到的正文。
+- 三語頁使用同一構圖與同一語意，各自引用 `.png`、`.en.png`、`.zh-Hans.png`；每張都要有在地化 alt text。
+- 型號、價格、數量與狀態等易變事實，必須和正文採用同一官方證據。沒有通則就不用看似精確的固定數字。
+- 產出後逐張以原尺寸人工檢查文字、繁簡字形、箭頭方向與對比，再跑 image-locale gate 與三語網站 build。
 
 ### 易變資訊與查核日期
 

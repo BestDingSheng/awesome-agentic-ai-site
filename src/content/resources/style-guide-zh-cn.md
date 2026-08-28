@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T21:59:30.098Z"
+syncedAt: "2026-08-28T10:20:14.643Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "style-guide"
@@ -307,6 +307,13 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 - 只收后文、练习或 self-check 真的会用到的关键概念。不要把每个普通名词拉出来凑数，也不能用“太细”当理由删掉 Zero-Shot、Token、MCP 等必要术语。
 - 三语的概念、顺序、用途与限制一致；英文名、缩写、指令与规格名称保持精确。
 - `scripts/reader-ux-pages.yml` 的 `core_terms` 会记录核心区、第一个练习、三语 term／label、顺序与最低解释长度。加入后只能维持或加强，不能静默移除。
+
+### 概念图写法
+
+- 先在正文用白话定义核心词，再用图整理它们的关系；不要让图片成为读者第一次遇到术语的地方。
+- 三语图保持相同构图、顺序、数字和限制，并分别提供正确语言的图片与 alt text。
+- 图里的精确数字也要有官方依据。没有固定规则时，写“多个”“依模型而异”等诚实文字，不要为了好看造出范围。
+- 逐张以原始尺寸检查文字、简繁字形、箭头和对比；最后运行 image-locale gate 和三语 MkDocs build。
 
 ### Reader UX ratchet
 

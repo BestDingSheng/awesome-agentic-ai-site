@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-27T21:59:30.098Z"
+syncedAt: "2026-08-28T10:20:14.643Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -444,7 +444,7 @@ OpenAI 那 5 原则 Anthropic 大部分也都讨论过、用的词不同。下�
 
 **为什么这条线 2026 特别热**：
 
-- **OpenAI Agents SDK 2026-04 更新**把 sandbox（7 个 provider）+ harness 抽象层内建——[Stage 4 已标注](/stages/04-agent-frameworks/)这是"production coding agent 首次 architecturally sound"。harness 不再是各家自己拼、开始有共用抽象。
+- **OpenAI Agents SDK 的 Sandbox Agents** 把 workspace、session、approval 与 sandbox client 接进同一套 Agent API；[Stage 4 已标注](/stages/04-agent-frameworks/)这仍是 beta，不能因此宣称所有 production 问题都已解决。更值得观察的是：harness 的共用抽象正在成形。
 - **Aider / Claude Code / Codex 三家对照**：同样是 coding agent，但 harness 取舍不同——Aider 走 git-commit-per-edit 的极简 repo 状态、Claude Code 走 CLAUDE.md + plan mode + subagent、Codex 走 cloud sandbox + harness 抽象。**读者要学的是"harness 取舍怎么影响 agent 行为"、不是记哪家 API**。
 
 > 📚 **想深入 coding-agent harness 设计**：先读 [OpenAI — Harness Engineering](https://openai.com/index/harness-engineering/)（Codex case study）+ [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) 的 tool design 段；想看实作对照就跑 [Stage 5 Claude Code 生态](/stages/05-claude-code-ecosystem/) + [Stage 8 Code Sandbox](/stages/08-agent-interfaces/)。
