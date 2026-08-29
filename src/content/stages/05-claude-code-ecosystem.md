@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -15,7 +15,7 @@ order: 5
 
 > **繁體中文** | [简体中文](/stages/05-claude-code-ecosystem/) | [English](/en/stages/05-claude-code-ecosystem/)
 
-<!-- freshness: canonical=stages/05-claude-code-ecosystem.md; verified_on=2026-08-28; scope=claude-code,mcp,skills,plugins,subagents,workflows,agent-sdk,security; max_age_days=90 -->
+<!-- freshness: canonical=stages/05-claude-code-ecosystem.md; verified_on=2026-08-29; scope=claude-code,mcp,skills,plugins,subagents,workflows,agent-sdk,security; max_age_days=90 -->
 
 **Claude Code** 像一位會使用檔案和終端機的助手。本章教你怎麼給它規則、工具和安全邊界，不是叫你一次裝完所有東西。
 
@@ -87,7 +87,7 @@ order: 5
 
 ## 🚪 進入條件與閱讀路線
 
-- **Track A（CLI 使用者）**：先讀 5.1–5.4，學會專案守則、Skill、MCP 和 Plugin 就可以停。
+- **Track A（CLI 使用者）**：完成 [A2](/zh-tw/tracks/cli-a2-cli-workflow/) 後讀 5.1–5.4，學會專案守則、Skill、MCP 和 Plugin，再前往 [A3](/zh-tw/tracks/cli-a3-cli-production/)。
 - **Track B（Agent 開發者）**：完成 [Stage 3](/zh-tw/stages/03-tool-use-and-hello-agent/) 與 [Stage 4](/zh-tw/stages/04-agent-frameworks/) 後，再讀 5.5–5.8。
 
 <details markdown="1">
@@ -103,7 +103,7 @@ order: 5
 
 ## 📚 必修閱讀
 
-先做練習，遇到名詞再回來查。第一次不用把全部文件讀完。
+開始前只看兩個入口：[Claude Code quickstart](https://code.claude.com/docs/en/quickstart) 幫你安裝並開啟第一個工作階段；[How Claude remembers your project](https://code.claude.com/docs/en/memory) 幫你寫第一題的 `CLAUDE.md`。其他文件遇到對應名詞時再查，不用一次讀完。
 
 <details markdown="1">
 <summary>展開官方閱讀順序</summary>
@@ -111,7 +111,7 @@ order: 5
 1. [Claude Code quickstart](https://code.claude.com/docs/en/quickstart) — 安裝與第一個工作階段。
 2. [Extend Claude Code](https://code.claude.com/docs/en/features-overview) — 一張官方表分清 CLAUDE.md、Skill、MCP、Hook、Plugin 與 Subagent。
 3. [How Claude remembers your project](https://code.claude.com/docs/en/memory) — `CLAUDE.md`、Rules 和 auto memory 的邊界。
-4. [Skills](https://code.claude.com/docs/en/slash-commands) — 舊 `.claude/commands/` 仍相容；新教學先用 `SKILL.md`。
+4. [Skills](https://code.claude.com/docs/en/skills) — 舊 `.claude/commands/` 仍相容；新教學先用 `SKILL.md`。
 5. [MCP specification](https://modelcontextprotocol.io/specification) — 查協定時看日期版號。
 6. [Hooks reference](https://code.claude.com/docs/en/hooks) — 事件、輸入輸出與阻擋規則。
 7. [Plugins](https://code.claude.com/docs/en/plugins) — 打包與分享擴充元件。
@@ -305,6 +305,12 @@ Subagent 由現行 `Agent` tool 派遣。它有獨立 context 與權限設定，
 
 </details>
 
+## 先看 5.1–5.7 怎麼接在一起
+
+這張圖整理各零件的關係，不是安裝順序。先讀上面的粗體定義，再用圖找 context、動作、檢查、隔離與打包的邊界。
+
+![Claude Code 5.1–5.7 關係圖：CLAUDE.md 與 Skill 提供 context，Agent loop 透過 MCP 使用外部工具，Hook 依事件檢查，Subagent 與 Worktree 分別隔離 context 和檔案，Plugin 只負責打包](/upstream/resources/diagrams/claude-code-system-flow.png)
+
 ## 5.1 — Claude Code 基礎
 
 <a id="-claudemd-設計-prompts依-5-原則"></a>
@@ -343,7 +349,7 @@ Claude Code 可在 CLI、Desktop、VS Code 與 JetBrains 等 surface 使用。�
 - **Skill**：教 agent 何時、如何使用能力；它不會憑空建立外部連線。
 - **Plugin**：把 Skill、Hook、Subagent、MCP 設定等打包分享。
 
-官方 `modelcontextprotocol/servers` 是 reference implementations，不等於 production-ready server。連第三方 server 前要看來源、權限、資料流向與移除方式。Tool result 也是不可信輸入，不能直接當成高權限指令。
+官方 [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) 是 reference implementations，不等於 production-ready server。連第三方 server 前要看來源、權限、資料流向與移除方式。Tool result 也是不可信輸入，不能直接當成高權限指令。
 
 `2026-07-28` 是目前查核到的正式規格版。它採 stateless core、header routing、MRTR 和 extensions framework；舊版功能有至少 12 個月 deprecation window。不要把 2025 的初始化流程直接貼進新 server。
 
@@ -516,10 +522,12 @@ SDK 會執行命令並保存 session state，不能把它當成普通 stateless 
 
 第一次只選一個跟眼前練習相符的入口。五星是本學習地圖的編輯建議，不是人氣排行榜。
 
+**本章先做這個：** [`tool-calling-tutor`](/zh-tw) ⭐⭐⭐⭐⭐ — 它是 repo 內可直接照著做的 Skill 範例。要查 Claude Code 本身的版本與問題，再看 [`anthropics/claude-code`](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐。
+
 <details markdown="1">
 <summary>展開 35 筆分組資源與查核日期</summary>
 
-<small>資料查核：2026-08-28 UTC</small>
+<small>資料查核：2026-08-29 UTC</small>
 
 <table>
 <thead>
@@ -576,7 +584,9 @@ SDK 會執行命令並保存 session state，不能把它當成普通 stateless 
 
 </details>
 
-## ✅ 進入 Stage 6 前的自我檢查
+<a id="-進入-stage-6-前的自我檢查"></a>
+
+## ✅ 進入下一站前的自我檢查
 
 你能不能：
 
@@ -586,4 +596,4 @@ SDK 會執行命令並保存 session state，不能把它當成普通 stateless 
 - [ ] 說出 Claude Code、OpenRouter、OpenCode／Pi 和 Ollama 各是哪一類東西？
 - [ ] 判斷自己的需求是「使用 CLI」還是「真的需要 Agent SDK」？
 
-如果可以，前往 [Stage 6 — Memory & RAG](/zh-tw/stages/06-memory-rag/)。如果還不行，回到「一張表先選對零件」，只重做你分不清的那一列。
+如果可以，依你的路線前進：**Track A** 前往 [A3 — 安全的團隊流程](/zh-tw/tracks/cli-a3-cli-production/)；**Track B** 前往 [Stage 6 — Memory & RAG](/zh-tw/stages/06-memory-rag/)。如果還不行，回到「一張表先選對零件」，只重做你分不清的那一列。

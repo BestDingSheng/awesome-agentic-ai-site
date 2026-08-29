@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a2-cli-workflow"
@@ -15,7 +15,7 @@ order: 2
 
 > **繁體中文** | [简体中文](/tracks/cli-a2-cli-workflow/) | [English](/en/tracks/cli-a2-cli-workflow/)
 
-> [← A1 — 安全完成第一個 CLI 任務](/zh-tw/tracks/cli-a1-cli-intro/) · **Track A: CLI Power User** 第 2 站 · [下一站：A3](/zh-tw/tracks/cli-a3-cli-production/)
+> [← A1 — 安全完成第一個 CLI 任務](/zh-tw/tracks/cli-a1-cli-intro/) · **Track A: CLI Power User** 第 2 站 · [下一站：Stage 5 的 Track A 核心](/zh-tw/stages/05-claude-code-ecosystem/#-進入條件與閱讀路線)
 
 這一站只解決一個問題：**怎麼讓 CLI agent 下次進到同一個 repo，還記得同一套做事方法？**
 
@@ -52,7 +52,7 @@ order: 2
 <summary>展開必修閱讀與建議順序</summary>
 
 1. 先看你主用工具的 project-instructions 官方文件：Codex 看 [`AGENTS.md`](https://learn.chatgpt.com/docs/agent-configuration/agents-md)、Claude Code 看 [`CLAUDE.md`](https://code.claude.com/docs/en/memory)、Gemini CLI 看 [`GEMINI.md`](https://geminicli.com/docs/cli/gemini-md/)、OpenCode V2 看 [`AGENTS.md`](https://opencode.ai/v2/docs/instructions)。
-2. 再看你主用工具的 Skill 文件：[Codex／ChatGPT](https://learn.chatgpt.com/docs/build-skills)、[Claude Code](https://code.claude.com/docs/en/slash-commands)、[Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/)、[OpenCode V2](https://opencode.ai/v2/docs/skills)。
+2. 再看你主用工具的 Skill 文件：[Codex／ChatGPT](https://learn.chatgpt.com/docs/build-skills)、[Claude Code](https://code.claude.com/docs/en/skills)、[Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/)、[OpenCode V2](https://opencode.ai/v2/docs/skills)。
 3. 最後回看 [Stage 2 — Prompt 設計](/zh-tw/stages/02-prompt-engineering/)，把「任務、範圍、成功條件」補進單次 prompt。
 </details>
 
@@ -194,7 +194,7 @@ Claude Code 的 `.claude/commands/<name>.md` 目前仍能建立同名 `/name`，
 </tbody>
 <tbody>
 <tr><th scope="rowgroup" rowspan="4">官方 Skill 文件</th><td>Codex／ChatGPT Build skills</td><td><code>SKILL.md</code> 結構與載入位置</td><td>做 Codex 可重用流程</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://learn.chatgpt.com/docs/build-skills">官方文件</a></td></tr>
-<tr><td>Claude Code Skills</td><td>按需載入、legacy commands、權限</td><td>做 Claude Code Skill</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://code.claude.com/docs/en/slash-commands">官方文件</a></td></tr>
+<tr><td>Claude Code Skills</td><td>按需載入、legacy commands、權限</td><td>做 Claude Code Skill</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://code.claude.com/docs/en/skills">官方文件</a></td></tr>
 <tr><td>Gemini CLI Agent Skills</td><td>discovery、安裝同意與啟用同意</td><td>管理 Gemini CLI Skill</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://geminicli.com/docs/cli/using-agent-skills/">官方文件</a></td></tr>
 <tr><td>OpenCode V2 Agent Skills</td><td>支援位置、frontmatter、permission</td><td>做 OpenCode Skill</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://opencode.ai/v2/docs/skills">官方文件</a></td></tr>
 </tbody>
@@ -215,14 +215,16 @@ Claude Code 的 `.claude/commands/<name>.md` 目前仍能建立同名 `/name`，
 </table>
 </details>
 
-## ✅ 進 A3 前的自我檢查
+<a id="-進-a3-前的自我檢查"></a>
+
+## ✅ 進 Stage 5 前的自我檢查
 
 - [ ] 我能用自己的話分清專案規則、Skill、單次 prompt。
 - [ ] 我的規則卡有用途、禁止事項、驗證指令、交付格式，而且 agent 能讀到。
 - [ ] 我的 review Skill 只讀取變更，測試後 `git status --short` 沒有多出非預期修改。
 - [ ] 我知道「共用核心」不等於「所有 CLI 的檔名與權限都一樣」。
 
-四項都做到，就進入 [A3 — 把 CLI agent 接進安全的 production 流程](/zh-tw/tracks/cli-a3-cli-production/)。若還沒做到，先回 demo repo 重跑 CLI-5 或 CLI-6，不必先讀完所有補充資料。
+四項都做到，就進入 [Stage 5 的 Track A 核心](/zh-tw/stages/05-claude-code-ecosystem/#-進入條件與閱讀路線)，先讀 5.1–5.4，再前往 A3。若還沒做到，先回 demo repo 重跑 CLI-5 或 CLI-6，不必先讀完所有補充資料。
 
 <details markdown="1">
 <summary>展開常見問題與修正方式</summary>

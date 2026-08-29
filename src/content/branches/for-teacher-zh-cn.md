@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-teacher.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-teacher"
@@ -124,7 +124,7 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 
 ### Prompt 素材库
 
-#### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) ⭐⭐⭐⭐
+#### [f/prompts.chat](https://github.com/f/prompts.chat) ⭐⭐⭐⭐
 
 | 栏位 | 内容 |
 |---|---|

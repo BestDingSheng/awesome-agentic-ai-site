@@ -1,11 +1,11 @@
 ---
 title: "Stage 設計筆記"
-description: "從 Phase 7 開始 catalog 拆成兩條軌道。原本的線性 Stage 結構還在（現為 Stage 1-8，後來補了 Stage 7.5 進階概念 reading-map 跟 Stage 8 Agent Interfaces），但定位變成「Track B — Agent Builder」（從零打造 agent 的路線）。新增的 tracks/cli/A1-A3 是「Track A — CLI Power User」（用現成 CL"
+description: "README、PROGRESS、CAPSTONE、章節頁首、章末下一站與路線圖必須使用同一順序。先改可存取的文字與測試，再重畫圖片；圖片不能成為唯一導航。"
 section: "Stage"
 sourcePath: "stages/DESIGN.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/DESIGN.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "design"
@@ -15,6 +15,17 @@ baseSlug: "design"
 > 給 maintainer 的內部文件，不是讀者面向的內容。
 >
 > 為什麼是 8 個 stage、每個 stage 結構為什麼這樣切、動手練習 為什麼必跑、self-check 怎麼設計——這些設計決定的記錄。
+
+---
+
+## 全站唯一學習順序
+
+- 共用基礎：`Stage 0 → Stage 1 → Stage 2`。
+- Track A 建議順序：`A1 → A2 → Stage 5（只讀 Track A 核心 5.1–5.4）→ A3 → Stage 8`。
+- Track B：`Stage 3 → Stage 4 → Stage 5 → Stage 6 → Stage 7 → Stage 7.5 → Stage 8`。
+- Track A 做完 A3 就能開始 Capstone；Stage 8 建議完成，但不擋入場。
+
+README、PROGRESS、CAPSTONE、章節頁首、章末下一站與路線圖必須使用同一順序。先改可存取的文字與測試，再重畫圖片；圖片不能成為唯一導航。
 
 ---
 
@@ -108,6 +119,8 @@ Stage 5（Claude Code 生態）兩條軌都會碰到：
 
 走完 Track A 的 A3 或 Track B 的 Stage 7 後，都接到 5 條 branch（researcher / developer / teacher / knowledge-worker / everyday-users）。Branch entry 的 curation **不依軌道區分**——同一個工具不論是 Track A 用法還是 Track B 用法，都放在對應的 branch。
 
+Branch 的可見主線沿用 Stage 的漸進式揭露規則：先定位角色、說清目標與核心詞，再給一個可直接複製的最小任務、三個起點、完成條件與回到主路線的下一站。研究人員與開發者頁另外以 `scripts/test_role_paths.py` 鎖住 citation 核對、私人資料、read-only plan、diff／test／rollback、工具身分與多 surface、三語資源表及 archived 狀態；長閱讀與完整 project catalog 不得重新攤回首屏。
+
 ---
 
 ## 為什麼是 8 個 stage（不是 5 個或 10 個）
@@ -166,26 +179,50 @@ Stage 4 使用兩層 stacked PR：第一層只定稿三語教材、官方事實�
 
 Stage 4 的五個可執行資料夾必須各自建立 Python 3.11 `.venv`，不能把不同 framework 的 `requirements.txt` 合併安裝。每題的 Path A 與 Path B 測試都要實際走過核心行為；只確認 import 成功不算驗收。LangGraph 要測分支、checkpoint、`interrupt()` 與 `Command(resume=...)`；CrewAI 要測角色、handoff 與有界停止；CodeAct 只在受限 Docker executor 示範模型程式碼，Jupyter 控制埠只綁 loopback，並明說一般 bridge 仍可對外連線、不是 production sandbox；typed output 要明說格式正確不等於內容真實。
 
-Stage 5 的固定主線是「九個可見核心詞 → 依問題選最小零件 → Track A／B 閱讀路線 → 五題累加式練習 → 5.1–5.8 延伸入口」。九個核心詞是 **Claude Code**、**CLAUDE.md**、**Skill**、**MCP**、**Hook**、**Plugin／Marketplace**、**Subagent**、**Worktree** 與 **Claude Agent SDK**。5.1–5.8 heading、練習標題、成果與第一個可複製動作保持可見；時間、認證、費用、完整閱讀、語法、prompt、排錯與資源表預設收合。不得用「精簡」刪掉 MCP 的 Tools／Resources／Prompts、Skill／Subagent 差異、Hook 阻擋邊界、Worktree 檔案隔離或 Agent SDK hosting 安全。
+Stage 5 的固定主線是「九個可見核心詞 → 依問題選最小零件 → Track A／B 閱讀路線 → 五題累加式練習 → 5.1–5.8 延伸入口」。九個核心詞是 **Claude Code**、**CLAUDE.md**、**Skill**、**MCP**、**Hook**、**Plugin／Marketplace**、**Subagent**、**Worktree** 與 **Claude Agent SDK**。5.1–5.8 heading、練習標題、成果、第一個可複製動作、第一題會用到的兩份官方資料與本章推薦專案保持可見；時間、認證、費用、完整閱讀順序、語法、prompt、排錯與完整資源表預設收合。不得用「精簡」刪掉 MCP 的 Tools／Resources／Prompts、Skill／Subagent 差異、Hook 阻擋邊界、Worktree 檔案隔離或 Agent SDK hosting 安全。
 
 Stage 5 的 35 筆學習資源固定分成 `4／8／8／7／4／4` 六組，使用真正 HTML `rowspan`；三語保留相同 URL、順序與五星編輯評分，移除會變動的 GitHub stars。Claude Code、MCP、Skills、Plugins、Subagents、Dynamic workflows、Agent SDK 與 security 使用 90 天 freshness marker；查核日期只在最相關的關閉資源區以小字呈現。
 
-Stage 5 的概念圖只回答「遇到哪種問題先用哪個零件」，不把 maintainer 的任意分層畫成產品架構真理。三語圖同構、亮色、低文字密度；八張選擇卡不加 1–8 編號，避免把選擇誤讀成固定順序。Subagent、agent view、agent teams、Dynamic workflows、Worktree 與 `/batch` 的成熟度與責任邊界以官方現行文件為準。Dynamic workflows 要教成可讀、可重跑的 JavaScript 編排，不得綁成某個 Claude 型號專屬功能；現行觸發方式是明說要 use／run a workflow 或使用 `ultracode`，literal `workflow` 只可放在 v2.1.160 前的歷史說明。找不到官方正式來源的功能名稱或模型綁定不得當成一般可用功能教學。
+Stage 5 的第一張概念圖只回答「遇到哪種問題先用哪個零件」，不把 maintainer 的任意分層畫成產品架構真理。第二張關係圖固定放在 5.1 前，回答 CLAUDE.md／Skill 如何提供 context、Agent loop 如何經 MCP 交換 request／result、Hook 如何依 event 檢查、Subagent／Worktree 如何分開隔離 context 與檔案，以及 Plugin 如何只負責打包。三語圖同構、亮色、低文字密度；選擇圖不加 1–8 編號，關係圖明寫不是安裝順序。Worktree 不能畫成完整 sandbox，Plugin 不能畫成 runtime 必經步驟，**Plugin 不連到 Worktree**；Worktree 是另外選用的檔案樹隔離方式。Hook 不能畫成每次都阻擋。Subagent、agent view、agent teams、Dynamic workflows、Worktree 與 `/batch` 的成熟度與責任邊界以官方現行文件為準。Dynamic workflows 要教成可讀、可重跑的 JavaScript 編排，不得綁成某個 Claude 型號專屬功能；現行觸發方式是明說要 use／run a workflow 或使用 `ultracode`，literal `workflow` 只可放在 v2.1.160 前的歷史說明。找不到官方正式來源的功能名稱或模型綁定不得當成一般可用功能教學。Repo 或規格第一次在正文被點名時就要有官方超連結；完整資源表再補狀態、授權、限制與五星編輯評分。
 
 Stage 5 使用兩層 stacked PR：第一層定稿三語教材、官方事實包、圖、資源表與 reader-UX gate，也必須同步修正正文直接連到的 cookbook／glossary／Stage 7.5 術語矛盾，不能讓讀者點出去立刻看見舊說法；第二層才更新 `examples/stage-5/tool-calling-tutor/` 的可執行實作。兩層都保留 branch 與 upstream，未經使用者明確同意不合併、不清理。
+
+Stage 6 的固定主線是「七個可見核心詞 → RAG／Memory 選擇 → 五題累加式練習 → 一個同時檢索與記憶的小專案 → 精選資源 → Stage 7 檢查」。七個核心詞是 **Retrieval**、**RAG**、**Embedding**、**Vector Store／Vector Database**、**Chunk**、**Reranking** 與 **Memory**；BM25、Hybrid Search、GraphRAG、Contextual Retrieval、HyDE、Multi-Query、RAG Fusion、Self-RAG、CRAG、Adaptive RAG、RAPTOR、DSPy、episodic／semantic／procedural memory、CoALA、Generative Agents 與 Reflexion 仍要保留白話定義，但放在有明確 summary 的關閉區，不能在第一遍淹沒練習。
+
+Stage 6 的亮色三語圖固定畫成三條同構路徑：文件進入知識庫的 ingest path、問題取回證據再回答的 query path，以及重要狀態的 Memory write／read loop。圖片只整理正文已定義的關係，不把 vendor benchmark、固定 chunk size、top-k、成本倍數或模型排名畫成通則。五題 heading、anchor、成果、第一個可複製 PowerShell 動作與資料／預算提醒保持可見；時間、環境、完整閱讀、進階 RAG、Memory taxonomy、Chunking、Reflection、評測與完整資源表預設收合。
+
+Stage 6 的 18 筆資源固定分成 `4／5／4／3／2` 五組，每組使用獨立 `<tbody>` 與真正 HTML `rowspan`。保留五星編輯評分，移除 GitHub stars 數字；官方文件、paper 與 canonical repo 負責證明事實，知名或活躍專案只負責提供動手入口。GraphRAG 維護狀態、Ragas canonical owner、Letta 現行開發入口、Zep Community Edition 歷史狀態，以及 RAG／retrieval／embedding／vector store／memory／evaluation／project status 使用 90 天 freshness marker。
+
+Stage 6 同樣使用兩層 stacked PR：第一層定稿三語教材、官方事實包、圖、glossary 直接矛盾、資源表與 reader-UX gate；第二層才修正五個 `examples/stage-6/` 的 chunk 邊界、collection 隔離、真正 persistent memory、雙路徑與離線測試。兩層都保留 branch 與 upstream，未經使用者明確同意不合併、不清理。
+
+Stage 7 的固定主線是「單一 Agent／Multi-Agent 決策 → 九個可見核心詞 → Prompt／Context／Harness／Loop／Graph 五層分工 → Harness 八項 production 檢查 → 工具角色辨識 → 五題可執行練習 → execution receipt 小專案 → benchmark 閱讀紀律 → 精選資源 → 自我檢查」。九個核心詞是 **Multi-Agent**、**Orchestration**、**Handoff**、**Harness**、**Eval**、**Observability**、**Guardrail**、**Loop Engineering** 與 **Graph Engineering**；先用白話和生活比喻定義，再保留正確術語。Agent Loop 是 Stage 3 的入門，Workflow Graph 是 Stage 4 的入門，Stage 7 才把兩者加上預算、驗證、checkpoint、人工核准、觀測與復原。五層圖表達控制範圍，不是章節編號；Agent framework 是工具箱，Graph Engineering 是設計工作。OpenRouter 是模型 API 入口，Pi／OpenCode 是 Agent runtime／coding agent，Orca／QM 是多 Agent 協作層；不得把三層寫成可互換的同類產品。
+
+Stage 7 的時間、環境、費用、安全提醒、延伸閱讀、Loop／Graph 補充、回饋與復原細節、練習步驟及 benchmark 長清單預設收合。五份必修閱讀、20 筆精選資源表、五題 heading／anchor／成果與第一個可複製測試命令保持可見；成本／延遲仍是 Harness 第八項與 SDK 練習的必要觀念，但沒有對應資料夾時不得虛構第六題。外部排行榜只能教讀法，不能凍結 SOTA 分數、模型名次或第三方「最強」結論。
+
+Stage 7 的 20 筆資源固定分成 `4／6／5／5` 四組，每組使用獨立 `<tbody>`、`scope="rowgroup"` 與真正 HTML `rowspan`。保留五星編輯評分，移除 GitHub stars；已封存、Preview、Alpha、best-effort 或維護紀錄不足的專案必須在限制欄明寫。Stage 7 同樣拆成 content 與 example-hardening 兩層 stacked PR：第一層定稿三語教材、來源、圖、資源與 reader-UX gate；第二層才更新五個 `examples/stage-7/` 的 SDK、模型、直接執行步驟、安全邊界與離線測試。未經使用者明確同意不合併、不清理 branch。
+
+五個 Stage 7 範例 README 的第一個可見動作固定是 PowerShell 建立該題自己的 Python 3.11 `.venv`，再直接跑 Ollama／Anthropic 兩份離線測試；不再要求讀者先改名完整解答或抄一份空白文字檔。實際模型路徑、macOS／Linux、程式走查、排錯與延伸資源預設收合，但學習目標、核心詞、「只改一件事」與成功檢查保持可見。共用模型選擇器必須按能力需求分段：目前 Stage 3–6 function-calling 題使用 `qwen2.5:3b`，Stage 7 的辯論、評測、觀測、串流與部署機制使用 `qwen3.5:4b`；不得用「Stage 3+」把兩者寫成同一個預設，也不得暗示換模型就一定更穩。Ollama 只能寫「沒有供應商模型 API 帳單」，仍要提醒硬體、電力、下載、時間以及裝置／log／權限安全；Anthropic 使用當期 input／output token 公式與保守 spend limit，不保存固定每次費用。
+
+Stage 7 範例程式必須拒絕空白模型輸出；streaming 只有看見非空白文字才算成功，first-token latency 也從第一段可見文字開始。PRO／CON Judge 與 LLM-as-judge 只接受完整 output contract，不得以 `PASS in text` 或 `WINNER in text` 猜測；角色變多不等於 bias 降低或答案變正確，重要結論仍要用固定 eval 與合格人員審查。Observability 只記安全的 exception 類別，不把可能含 secret、Prompt 或文件內容的原始 exception 訊息寫入 trace／log。Prompt caching 示範要跨過所選模型的官方最低長度，並只依 `cache_creation_input_tokens`／`cache_read_input_tokens` 說明建立或命中。Deploy 範例要限制 message 與 `max_tokens`、讓 liveness 不呼叫模型、區分 422／429／502／503，且 Docker 使用非 root user；README 以 loopback port、read-only filesystem 與必要環境變數教最小安全預設，同時明說不能把這些設定當成 sandbox。
 
 Stage 5 的練習不能只叫讀者「看文件」卻宣稱已建立元件。Hook 練習至少要給一份可直接複製的最小設定、離線 smoke test、`/hooks` 落腳檢查與不保存 prompt／secret 的邊界；設定引用 project path 時使用 `command` + `args` 的跨平台 exec form，不能把 PowerShell 無法展開的 shell 變數寫進單一 command 字串。Agent SDK snippet 必須依現行 message type 實際讀到文字內容，regression 也要餵入 fake async `query()` 並驗證真的印出 `TextBlock`，只 compile 或比對字串不算通過。
 
 Stage 5 的 installable Skill 範例使用 `${CLAUDE_SKILL_DIR}` 指向 bundled references，讓 personal、project 與翻譯版安裝後都能找到同一包檔案。README 先給 PowerShell 可複製安裝，再收合 POSIX；驗收先跑無網路 contract checker，再用 `/skill-name` 做產品內手動檢查。自訂 JSON 不能冒充 promptfoo config，結構測試也不能冒充 model-quality eval；要教 promptfoo 時，必須另給合法 provider／prompt／test 設定或明說只提供延伸入口。範例不能保存無來源成功率、原因比例、固定省時百分比或要求私人 Chain-of-Thought。
+
+Stage 7.5 是 reading-map，不是第六個實作章。固定可見主線是「四個學習目標 → 六個粗體核心詞 → 12 個概念按問題分四組 → 我卡在哪裡的選擇圖與短表 → 可直接複製的四行工作邊界卡 → 五筆優先閱讀 → 自我檢查」。六個核心詞是 **Work Boundary**、**Contract**、**Reflection**、**Autonomy**、**Budget Gate** 與 **Graceful Degradation**；Reflection 只要求可觀察的計畫、Action、Observation、測試與結果，不要求公開私人 Chain-of-Thought。12 個概念全部保留，但每次只選一組的一到兩個，不能把表格讀成全部都要安裝的清單。
+
+時間、先備詞、12 個概念的來源與限制、失敗案例、cross-vendor harness、coding harness、benchmark、Dynamic Workflows、Model–Harness Fit 與 24 筆完整資源表預設收合。資源固定分成 `5／5／5／5／4` 五組，使用獨立 `<tbody>` 與真正 HTML `rowspan`，三語 URL、順序與五星編輯評分一致。AutoGen 的 maintenance mode、Microsoft Agent Framework 的後繼定位、Sandbox Agents 的 Beta 狀態，以及 Dynamic Workflows 的版本、觸發、限制與供應環境使用 90 天 freshness marker；來源衝突時以現行官方產品文件優先。
+
+Stage 7.5 只保留兩組低文字密度三語圖：四問題群組的 12 概念卡，以及「症狀 → 先讀哪一組」決策樹。圖不放文章名稱、閱讀時間、產品版本或任意固定門檻，避免正文更新後圖片仍殘留舊事實。OpenAI `Types → Config → Repo → Service → Runtime → UI` 只能教成特定 codebase 案例，不能畫成通用 Agent stack；舊 `stack-4layer`、`failure-lifecycle` 與 `principle-dependency` 圖組完成引用掃描後移除。Stage 7.5 沒有 example-hardening 第二層，本層完成三語內容、圖、freshness、reader-UX 與 content tests 後即形成一個可回溯 commit；未經使用者明確同意仍不推送、合併或清理 branch。
 
 ```
 1. 1-2 句核心問題
 2. ## 📌 學習目標
 3. 該 stage 的可見核心詞（首次粗體、逐詞白話解釋）／最短選擇路徑
 4. ## 🚪 進入條件 + ⏱ 時間估算（預設收合；Stage 6 / 7 可省略）
-5. ## 📚 必修閱讀（清單預設收合）
+5. ## 📚 必修閱讀（全部必修項目直接可見；只有延伸閱讀收合）
 6. ## 🛠 動手練習（核心練習先出現，延伸練習細節收合）
-7. ## 🎯 精選 Projects（一個推薦項目先出現，其餘分級收合）
+7. ## 🎯 精選 Projects 與學習資源（精選項目直接可見；只有完整 catalog 收合）
 8. ## ✅ 進 Stage N+1 前的自我檢查
 ```
 
@@ -194,7 +231,7 @@ Stage 5 的 installable Skill 範例使用 `${CLAUDE_SKILL_DIR}` 指向 bundled 
 - 不展開任何 `<details>` 時，讀者仍要看得懂「這章要學什麼、先做哪一題、成功長什麼樣」。
 - 核心路標的 icon 必須保留並保持一致：`📌` 學習目標、`📚` 必修閱讀、`🛠` 動手練習、`🎯` 精選 Projects、`✅` 自我檢查。可調整白話標題，但不能在精簡時拿掉路標。
 - 動手練習的第一個動作優先給可直接複製、貼上或執行的最小成品。不要先叫初學者抄空白模板；空白模板只適合放在讀者看過成品之後的自行改寫步驟。
-- 時間、先備工具、費用、長表格、補充原理、疑難排解與延伸清單預設收合；`<details>` 不加 `open`。
+- 折疊與否看讀者現在需不需要。所有被稱為「必修閱讀」的項目、精選 Projects、精選學習資源與安全警告保持可見；時間、先備工具、費用、完整 catalog、補充原理、疑難排解與延伸清單預設收合，且 `<details>` 不加 `open`。若一張長表本身就是本章的精選清單，它仍保持可見，不能只因為列數多就藏起來。
 - 可被其他頁面深連結的 heading 必須留在 `<details>` 外。標題後先給一句成果，再收合詳細步驟，否則瀏覽器會跳到一個仍然看不見的位置。
 - 雙路徑練習仍以 Ollama Path A 為主要可執行路徑，但不再一律展開。練習標題、成果與第一個動作保持可見；只有在 Path A 是讀者眼前唯一要做的事，而且展開後內容很短時，才可使用 `open`。長程式碼與疑難排解預設收合。Anthropic Path B 仍預設收合；外層若已是延伸練習的收合區，內層不得預設展開。
 
@@ -203,7 +240,7 @@ Stage 5 的 installable Skill 範例使用 `${CLAUDE_SKILL_DIR}` 指向 bundled 
 - `scripts/reader-ux-pages.yml` 只登記已完成三語遷移與人工複查的頁面。未遷移頁面不會因新規則一次全部失敗。
 - `scripts/check-reader-ux.py` 使用保守的 source-level proxy：計算第一次開頁時可見 Markdown 的非空白字元。預設展開內容與可見 fenced code 會計入；HTML comment 與收合內容不計入。這是可重複的 ratchet，不宣稱等於瀏覽器 DOM 字數。
 - 每頁分別設定三語字數上限、預設展開數量、必須留在 `<details>` 外的精確 heading／anchor、核心詞契約，以及分組資源表的 `rowspan`。完成一次精簡後只能維持或收緊，不可靜默放寬。
-- 時間、先備條件、環境、費用、預算、必修閱讀、選修、補充資料、疑難排解與完整資源表不得預設展開。
+- 時間、先備條件、環境、費用、預算、選修、補充資料、疑難排解與完整 catalog 可預設收合。必修閱讀、精選 Projects 與精選學習資源直接可見。
 - Gate 只證明可量測的結構沒有倒退。第一次讀者能不能用自己的話說出下一步，仍要在人工審查確認。
 
 ### 全站白話規則（ELI5）
@@ -245,7 +282,7 @@ Stage 5 的 installable Skill 範例使用 `${CLAUDE_SKILL_DIR}` 指向 bundled 
 - **Stage 5**：分 7 個核心 sub-stage（5.1-5.7）+ 5.8 SDK（選修、包成產品或服務才需要），每個 sub-stage 各有自己的 學習目標 / 必修閱讀 / 動手練習 / 精選 Projects
 - **Stage 6 / 7**：直接跳過 進入條件 section（前面 stage 已隱含 prerequisite）
 - **Stage 7.5**：reading-map（進階概念 + reading path），沒有 動手練習、只有輕量 self-check——是 production 之後的 frontier 概念地圖，不寫 code
-- **Stage 8**：跟 Stage 5 一樣是兩軌共用 hub，分 3 層 interface（Computer Use / Browser Use / Code Sandbox）+ Safety / Security section，各層有自己的工具與練習
+- **Stage 8**：兩軌共用的 interface 選擇 hub。可見主線先定義 8 個粗體核心詞，再用平行選擇圖分清 Search／Fetch、Browser Use、Computer Use、Sandbox，接著保留四道安全檢查、兩題第一步與短版 self-check。Computer Use／benchmark、Browser Use、Sandbox、兩軌進階做法、安全案例、21 筆資源與未來介面放進 10 個預設關閉選單；四張介面卡不是固定升級順序，舊 heading 以空 anchor 保留深連結。
 
 每個 section 的功能：
 
@@ -262,7 +299,7 @@ Stage 5 的 installable Skill 範例使用 `${CLAUDE_SKILL_DIR}` 指向 bundled 
 - 3-5 個 link（多會讀不完、少會 under-cover）
 - 該 stage 開始前 / 中 / 後都行，但「不讀就跟不上」是判準
 - 偏好官方 doc / 經典論文，不放長部落格
-- section heading 與一句閱讀目的保持可見；連結清單預設收合，避免讀者還沒開始實作就先撞上資源牆
+- section heading、閱讀目的與全部必修連結直接可見；延伸閱讀才收合，避免把「必修」藏起來後又要求讀者記得打開
 
 ### 動手練習 Projects
 - 通常 3-5 個（Stage 1 / 3 因為要 cover 多個概念，會到 5-6 個）
@@ -273,6 +310,7 @@ Stage 5 的 installable Skill 範例使用 `${CLAUDE_SKILL_DIR}` 指向 bundled 
 
 ### 精選 Projects
 - 跑完 動手練習 後的延伸學習
+- 精選項目與五星編輯推薦度直接可見；只有更長的完整 catalog、安裝細節與替代方案收合
 - 每個 entry 照 [style guide](/zh-tw/resources/style-guide/) 1 schema
 - 事實由現行官方文件、規格或 model card 證明；動手路徑再搭配知名或廣泛使用的代表 repo。人氣只能幫忙找候選，不能取代維護、License、安全、用途與限制的查核，也不保存會變動的 GitHub stars 數字。
 - 數量：通常 7-15 個（Stage 5 例外，20 個分散在 4 個 sub-section）

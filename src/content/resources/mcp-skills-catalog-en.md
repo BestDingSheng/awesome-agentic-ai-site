@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -215,7 +215,7 @@ baseSlug: "mcp-skills-catalog"
 **Audience**: people who find the official docx/xlsx/pptx skills too coarse-grained.
 **Notes**: complements `anthropics/skills`, not a replacement.
 
-### [kreuzberg-dev/kreuzberg](https://github.com/kreuzberg-dev/kreuzberg) ⭐⭐⭐⭐
+### [xberg-io/xberg](https://github.com/xberg-io/xberg) ⭐⭐⭐⭐
 
 | Field | Value |
 |---|---|
@@ -371,7 +371,7 @@ baseSlug: "mcp-skills-catalog"
 **Audience**: maintainers running OSS / community Discord servers.
 **Notes**: requires Discord bot token; watch rate limits.
 
-### [safishamsi/graphify](https://github.com/safishamsi/graphify) ⭐⭐⭐⭐⭐
+### [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) ⭐⭐⭐⭐⭐
 
 | Field | Value |
 |---|---|
@@ -435,7 +435,7 @@ baseSlug: "mcp-skills-catalog"
 **Audience**: engineers who don't want the Google Cloud SDK and need cross-OSS-DB support.
 **Notes**: overlaps with `googleapis/mcp-toolbox` but lighter weight.
 
-### [supabase-community/supabase-mcp](https://github.com/supabase-community/supabase-mcp) ⭐⭐⭐⭐⭐
+### [supabase/mcp](https://github.com/supabase/mcp) ⭐⭐⭐⭐⭐
 
 | Field | Value |
 |---|---|
@@ -1005,7 +1005,7 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 **What it does**: Claude Code marketplace for multi-agent collaboration — task splitter, output reconciler, adversarial debate, shared memory, acceptance gate. Composes with codex-delegate / gemini-delegate.
 **Audience**: people running 2+ delegate agents per round who want to see one way of packaging multi-agent coordination into a marketplace.
-**Notes**: **experimental** — don't treat this as a framework ready for production use. It's the maintainer's own setup made public as a reference. For multi-agent frameworks built for production, see LangGraph / AutoGen / CrewAI in Stage 7.
+**Notes**: **experimental** — don't treat this as a framework ready for production use. It's the maintainer's own setup made public as a reference. For multi-agent frameworks built for production, see LangGraph / Microsoft Agent Framework / CrewAI in Stage 7.
 
 ---
 

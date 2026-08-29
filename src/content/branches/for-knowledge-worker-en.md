@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-knowledge-worker.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-knowledge-worker.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-knowledge-worker"
@@ -77,7 +77,7 @@ Brainstorming, planning, and decision-making skills.
 
 ---
 
-#### [lobehub/lobe-chat](https://github.com/lobehub/lobe-chat) ⭐⭐⭐⭐⭐
+#### [lobehub/lobehub](https://github.com/lobehub/lobehub) ⭐⭐⭐⭐⭐
 
 | Field | Value |
 |---|---|

@@ -1,7 +1,74 @@
 # 語系變體圖 — 生成流程與教訓
 
-> 姊妹檔：[`concept-prompts.md`](concept-prompts.md)（Stage 7.5 那 3 張概念圖的 ChatGPT prompt）。
+> 姊妹檔：[`concept-prompts.md`](concept-prompts.md)（Stage 7.5 兩組三語概念圖的 Image 2.0 重產規格）。
 > 這份記錄的是 **2026-08-02 那批 5 張圖 × 3 語系** 是怎麼產出來的，以及過程中踩到的坑。
+
+## 2026-08-29：Stage 5 的 5.1–5.7 關係與資料流
+
+新增 `claude-code-system-flow.png`、`.en.png`、`.zh-Hans.png`。這組圖補上原本選擇圖沒有回答的問題：各零件如何接進同一次工作。三語都固定使用同一個 16:9 亮色版面與四種線條語意：
+
+- CLAUDE.md 與 Skill 用虛線把 always-on／on-demand context 送進 Agent loop。
+- Agent loop 與 MCP 用實線交換 request／result；MCP 是外部工具與資料的連線，不是另一個 agent。
+- Hook 以獨立虛線接到 Agent loop 外框，表示符合 lifecycle event 時才執行；它不能貼在 MCP request／result 箭頭上，避免誤教成只檢查 MCP。文字只說可記錄、補充或阻擋，不暗示每種 event／handler 都會阻擋。
+- Subagent 用獨立 context 工作，只把摘要送回；Worktree 是可選的檔案樹隔離，不冒充完整 sandbox。
+- Plugin 以點線表示它能包裝 Skill、Hook、Subagent 與 MCP 設定，不放進 runtime loop。**Plugin 不連到 Worktree**；Worktree 是另外選用的檔案樹隔離方式，不是 Plugin 內容。
+
+繁中使用 Codex 內建 Image 2.0 產生母版；英文只替換文字，簡中再以英文幾何作母版，避免繁體字形殘留。2026-08-29 再用內建 Image 2.0 移除誤碰 Worktree 的橘色 Plugin 點線，其他文字與幾何不變。三張最終圖皆為 `1672×941`，無模型、版本、價格、排行、benchmark 或 stars。可見底線固定為：Worktree 只隔開檔案；安裝 MCP server 或 Plugin 前仍要查來源、權限與資料流向。
+
+人工逐張驗收標題、八個節點、request／result、summary、optional、Plugin 點線不接觸 Worktree、Hook lifecycle event 線與底部安全邊界。`scripts/test_stage05_content.py` 另鎖住三語引用、尺寸、不同 hash、圖確實位於 5.1 前的未收合區、頁面不混入其他語系版本，以及 `modelcontextprotocol/servers` 第一次正文出現就是官方超連結。
+
+## 2026-08-28：Stage 8 介面選擇圖與四道安全檢查
+
+新增 `interface-choice-map.{png,en.png,zh-Hans.png}`，並原檔名重畫
+`agent-guardrail-patterns.{png,en.png,zh-Hans.png}`。兩組都是 16:9 暖白底、亮色卡片、
+深藍大字與簡單 icon；每張由 Codex 內建 Image 2.0 生成，再以原尺寸逐字檢查。
+
+介面圖先問「你要做什麼」，再平行分成四張卡：
+
+- 只讀公開資料 → Search／Fetch
+- 只操作網頁 → Browser Use
+- 跨桌面 App → Computer Use
+- 執行程式／改檔 → Sandbox
+
+頂部固定提醒「正式 API／Typed Tool 優先」。四張卡不是 maturity ladder，也不是一定要
+由左到右升級；prompt 明確禁止線性階級意象。這讓正文可以用一張圖說清楚「選最小、可檢查
+的門」，又不會誤教 Sandbox 是 Computer Use 的下一層。
+
+安全圖把舊的巢狀護盾改成四張獨立卡：隔離、限制、先問、驗證與紀錄。第二張只處理網域、
+檔案與動作 allowlist；第四張才處理結果驗證與 log，不再把 destination allowlist 和 output
+verification 混成同一件事。箭頭表示每次 action 會依序接受檢查，不表示四種技術彼此包含。
+
+生成順序是繁中母版 → 英語／簡中各自以母版做 text-localization。每次都提供完整逐字文字表，
+只保留穩定概念，不放 model ID、版本、價格、stars、benchmark 或 provider 排名。
+`scripts/test_stage08_content.py` 鎖住六張 PNG 的最小尺寸、不同 hash 與三語正文引用；
+`scripts/check-image-locale.py` 再檢查全站 locale 圖不會串錯。
+
+## 2026-08-28：Stage 7.5 問題分組圖與閱讀決策樹
+
+重畫 `concept-cluster.{png,en.png,zh-Hans.png}` 與
+`reading-decision-tree.{png,en.png,zh-Hans.png}`。兩組都採 16:9 暖白底、亮色卡片、
+深藍大字與固定三語版面；每張圖都由 Codex 內建 Image 2.0 獨立生成後人工逐字檢查。
+
+概念圖不再把 12 個概念硬塞進 `Service／Repo／Config／Types` 矩陣。那組層級來自
+OpenAI 某個 codebase 的架構案例，不是通用 Agent stack。新版只按讀者會遇到的四種問題
+分組：邊界與契約、規劃與合作、檢查與學習、控制與復原；每組三張卡，中央提醒每次只選
+1–2 個。
+
+決策樹也不再把容易過期的文章名稱與閱讀時間畫進圖裡，只保留五個症狀與兩個入口群組。
+正文的官方來源和 24 筆資源可以更新，圖不必跟著每次重畫。舊的 `stack-4layer`、
+`failure-lifecycle`、`principle-dependency` 三組共九張圖已完成引用掃描後移除；它們仍可從
+Git 歷史復原。
+
+三語圖必須各自引用 locale 檔，並由 `scripts/test_stage075_content.py` 鎖住六張 PNG 的尺寸、
+不同 hash 與正文引用。完整文字表與重產限制在 [`concept-prompts.md`](concept-prompts.md)。
+
+## 2026-08-28：Stage 6 RAG 與 Memory 三路圖
+
+新增 `rag-memory-map.png`、`.en.png`、`.zh-Hans.png`。三張都使用 16:9 亮色白底卡片，固定畫出三條互不串線的路：文件切成 Chunk、轉成 Embedding 並寫進 Vector Database；問題取回相關片段、經 Reranking 後產生有來源的答案；重要狀態寫進 Memory，下一次再讀回來。每條箭頭只在自己的色框內由左往右，不暗示 Vector Database 會自動寫入 Memory。
+
+用 Codex 內建 image generation 產生三個語系，逐張檢查節點、箭頭、語言與安全提示。獨立 review 抓到第一版有跨色框箭頭，會讓讀者誤以為 RAG 的資料庫與 Memory 是同一條自動流程；最終版改成三個獨立色框，Memory 只保留「這次結果 → 選重要狀態 → 寫入 → 下次讀回」與重複圖示。簡中初稿另在「重要狀態／下次讀回」殘留兩個繁體字；最終版已修成「重要状态／下次读回」。圖片不放固定 chunk size、top-k、價格、benchmark、模型排名或 GitHub stars；底部只保留「只記必要資料」的資料最小化提醒。三語維持相同 icon、配色、節點與閱讀順序，各自使用在地化文字與 alt text。
+
+這組圖固定放在 Stage 6 七個可見核心詞之後。圖的目的不是取代定義，而是讓初學者一眼分清：RAG 是先找外部證據再回答，Memory 是把重要狀態留給下一次使用。
 
 ## 2026-08-27：Stage 3 Tool Use 六步圖
 
@@ -49,8 +116,9 @@
 3. brief 裡指定 repo 內的既有圖當**風格參考**（Codex 能直接讀圖檔），並附完整逐字文字表
 4. **委派者自己逐張開圖驗收**，不採信 `.result.json` 的 status
 
-風格基準檔：`stack-4layer.zh-Hans.png`、`agent-guardrail-patterns.zh-Hans.png`、
-`teacher-ai-use-cases-overview.png`（本批做得最好的一張，可當樣板）。
+風格基準檔：`agent-guardrail-patterns.zh-Hans.png` 與
+`teacher-ai-use-cases-overview.png`（本批做得最好的一張，可當樣板）。舊的
+`stack-4layer` 已在 Stage 7.5 漸進式重整時移除，不能再當通用 Agent stack 樣板。
 
 ## ⚠️ 驗收教訓（這批最值得記的部分）
 
@@ -105,3 +173,36 @@ python scripts/check-image-locale.py
 該 gate 把「同語系變體已存在但頁面沒用」當錯誤直接擋，「變體還沒做」則記在它的
 `KNOWN_MISSING` 白名單裡——所以**新增一張缺變體的圖會讓 build 失敗**，不會默默累積。
 補完變體後記得把對應的 `KNOWN_MISSING` 條目一起移除。
+
+## 2026-08-29：Stage 7 五層圖名詞與順序修正
+
+`agent-engineering-5layer.{png,en.png,zh-Hans.png}` 與
+`inside-a-graph.{png,en.png,zh-Hans.png}` 保留原檔名重繪，因此 README、Stage 7.5、
+Stage 8 與 glossary 的既有深連結不用改。Stage 7 三語頁改成各自引用對應 locale 檔，
+不再讓英語／簡中讀者看到繁中圖。
+
+本批使用 Codex 內建 imagegen 的 edit／text-localization 路徑：
+
+1. 先讀原圖，保留 16:9 與由下往上的 Prompt → Context → Harness → Loop → Graph。
+2. 左側只留一支向上箭頭，表示控制範圍變大；這不是 Stage 編號或閱讀順序。
+3. 移除所有「官方採用／非官方名稱／Industry term／Community term」badge 與底部二分圖例。
+4. Graph 列同時寫 Workflow Graph；Loop 列同時寫 Bounded Agent Loops，讓讀者找到官方文件常用的搜尋詞。
+5. 以通過人工檢查的繁中版為構圖 reference，再逐字提供英語與簡中文字表；不得混合語言或繁簡字形。
+6. 用 `python scripts/check-image-locale.py` 確認所有 mirror 實際引用自己的圖。
+
+共同 prompt 約束：
+
+> Preserve the exact bottom-up Prompt → Context → Harness → Loop → Graph order,
+> icons, one upward scope arrow, 16:9 composition, and hierarchy. Use a warm
+> off-white background, soft bright pastel cards, dark navy text, high contrast,
+> and no watermark. Remove all maturity badges. Pair Graph Engineering with
+> Workflow Graph and Loop Engineering with Bounded Agent Loops. Use only the
+> supplied verbatim locale text; do not add rankings, versions, prices, dates,
+> standards claims, or new facts.
+
+人工驗收除了看文字，也逐一確認：
+
+- 五層仍是 Prompt → Context → Harness → Loop → Graph，只有一支向上的「控制範圍變大」箭頭；沒有任何官方／非官方 badge。
+- 圖只表達範圍，不暗示 Stage 2→6→7→5→4 的閱讀順序；正文另外提供 Stage 3、4、7 的入門／加深路線。
+- Graph 圖仍保留平行草稿、獨立驗證、人工核准與失敗返回，沒有把每個節點都畫成 Agent。
+- 英語圖沒有中文；簡中圖沒有肉眼可見的繁體字；繁中圖沒有簡中用語。

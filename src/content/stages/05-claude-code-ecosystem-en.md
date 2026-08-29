@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -15,7 +15,7 @@ order: 5
 
 > [Traditional Chinese](/zh-tw/stages/05-claude-code-ecosystem/) | [Simplified Chinese](/stages/05-claude-code-ecosystem/) | **English**
 
-<!-- freshness: canonical=stages/05-claude-code-ecosystem.md; verified_on=2026-08-28; scope=claude-code,mcp,skills,plugins,subagents,workflows,agent-sdk,security; max_age_days=90 -->
+<!-- freshness: canonical=stages/05-claude-code-ecosystem.md; verified_on=2026-08-29; scope=claude-code,mcp,skills,plugins,subagents,workflows,agent-sdk,security; max_age_days=90 -->
 
 **Claude Code** is an assistant that can use files and a terminal. This chapter shows you how to give it rules, tools, and safety boundaries—not how to install everything at once.
 
@@ -87,7 +87,7 @@ It is a toolkit that lets your Python or TypeScript program control an agent. Th
 
 ## 🚪 Entry requirements and reading paths
 
-- **Track A (CLI user):** Read 5.1–5.4 first. You can stop after learning the project rulebook, Skills, MCP, and Plugins.
+- **Track A (CLI user):** After [A2](/en/tracks/cli-a2-cli-workflow/), read 5.1–5.4 to learn project instructions, Skills, MCP, and Plugins, then continue to [A3](/en/tracks/cli-a3-cli-production/).
 - **Track B (agent developer):** Complete [Stage 3](/en/stages/03-tool-use-and-hello-agent/) and [Stage 4](/en/stages/04-agent-frameworks/), then read 5.5–5.8.
 
 <details markdown="1">
@@ -103,7 +103,7 @@ It is a toolkit that lets your Python or TypeScript program control an agent. Th
 
 ## 📚 Required reading
 
-Do the exercises first and return here when you encounter a term. You do not need to read every document on the first pass.
+Read only two starting points before you begin: [Claude Code quickstart](https://code.claude.com/docs/en/quickstart) helps you install and open a first session, while [How Claude remembers your project](https://code.claude.com/docs/en/memory) helps you write the `CLAUDE.md` used in Exercise 1. Return to the other documents only when you meet the matching term; you do not need to read everything at once.
 
 <details markdown="1">
 <summary>Expand the official reading order</summary>
@@ -111,7 +111,7 @@ Do the exercises first and return here when you encounter a term. You do not nee
 1. [Claude Code quickstart](https://code.claude.com/docs/en/quickstart) — installation and your first session.
 2. [Extend Claude Code](https://code.claude.com/docs/en/features-overview) — one official table distinguishing CLAUDE.md, Skills, MCP, Hooks, Plugins, and Subagents.
 3. [How Claude remembers your project](https://code.claude.com/docs/en/memory) — the boundaries among `CLAUDE.md`, Rules, and auto memory.
-4. [Skills](https://code.claude.com/docs/en/slash-commands) — the older `.claude/commands/` remains compatible; new instruction starts with `SKILL.md`.
+4. [Skills](https://code.claude.com/docs/en/skills) — the older `.claude/commands/` remains compatible; new instruction starts with `SKILL.md`.
 5. [MCP specification](https://modelcontextprotocol.io/specification) — check the dated revision when consulting the protocol.
 6. [Hooks reference](https://code.claude.com/docs/en/hooks) — events, input/output, and blocking rules.
 7. [Plugins](https://code.claude.com/docs/en/plugins) — packaging and sharing extensions.
@@ -305,6 +305,12 @@ A Subagent is dispatched through the current `Agent` tool. It has an independent
 
 </details>
 
+## See how 5.1–5.7 fit together
+
+This diagram organizes relationships, not an installation order. Read the bold definitions above first, then use the diagram to locate the context, action, event-check, isolation, and packaging boundaries.
+
+![Claude Code 5.1–5.7 relationship map: CLAUDE.md and Skills supply context, the Agent loop uses external tools through MCP, Hooks check matching events, Subagents and Worktrees isolate context and files respectively, and Plugins only package extensions](/upstream/resources/diagrams/claude-code-system-flow.en.png)
+
 ## 5.1 — Claude Code fundamentals
 
 <a id="51--claude-code-basics"></a>
@@ -344,7 +350,7 @@ The outcome of this section: you can describe MCP as a “shared socket” and d
 - **Skill:** teaches an agent when and how to use a capability; it does not create an external connection by itself.
 - **Plugin:** packages and shares Skills, Hooks, Subagents, MCP configuration, and more.
 
-The official `modelcontextprotocol/servers` repository contains reference implementations; it is not a guarantee that a server is production-ready. Before connecting a third-party server, inspect its source, permissions, data flow, and removal procedure. Tool results are also untrusted input and must not be treated directly as high-privilege instructions.
+The official [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) repository contains reference implementations; it is not a guarantee that a server is production-ready. Before connecting a third-party server, inspect its source, permissions, data flow, and removal procedure. Tool results are also untrusted input and must not be treated directly as high-privilege instructions.
 
 `2026-07-28` is the currently verified formal specification revision. It uses a stateless core, header routing, MRTR, and an extensions framework; older capabilities have a deprecation window of at least 12 months. Do not paste 2025 initialization flows directly into a new server.
 
@@ -520,10 +526,12 @@ The SDK can execute commands and retain session state, so it is not an ordinary 
 
 On your first pass, choose only one entry that matches the exercise at hand. Five stars are this learning map’s editorial guidance, not a popularity ranking.
 
+**Start with this chapter project:** [`tool-calling-tutor`](/en) ⭐⭐⭐⭐⭐ — it is a Skill example in this repository that you can follow directly. For Claude Code releases and issues, use [`anthropics/claude-code`](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐.
+
 <details markdown="1">
 <summary>Expand the 35 grouped resources and verification date</summary>
 
-<small>Information checked: 2026-08-28 UTC</small>
+<small>Information checked: 2026-08-29 UTC</small>
 
 <table>
 <thead>
@@ -580,7 +588,9 @@ On your first pass, choose only one entry that matches the exercise at hand. Fiv
 
 </details>
 
-## ✅ Self-check before Stage 6
+<a id="-self-check-before-stage-6"></a>
+
+## ✅ Self-check before your next stop
 
 Can you:
 
@@ -590,4 +600,4 @@ Can you:
 - [ ] Identify the categories of Claude Code, OpenRouter, OpenCode/Pi, and Ollama?
 - [ ] Decide whether your need is “use the CLI” or “actually need the Agent SDK”?
 
-If yes, continue to [Stage 6 — Memory & RAG](/en/stages/06-memory-rag/). If not, return to “Choose the right component with one table” and redo only the row you cannot distinguish.
+If yes, follow your route: **Track A** continues to [A3 — Safe team workflows](/en/tracks/cli-a3-cli-production/); **Track B** continues to [Stage 6 — Memory & RAG](/en/stages/06-memory-rag/). If not, return to “Choose the right component with one table” and redo only the row you cannot distinguish.

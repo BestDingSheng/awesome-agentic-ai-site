@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a3-cli-production"
@@ -15,7 +15,7 @@ order: 3
 
 > [繁體中文](/zh-tw/tracks/cli-a3-cli-production/) | **简体中文** | [English](/en/tracks/cli-a3-cli-production/)
 
-> [← A2 — 让 CLI agent 每次都按同一套方法做事](/tracks/cli-a2-cli-workflow/) · **Track A: CLI Power User** 第 3 站（最后）
+> [← Stage 5 — Track A 核心](/stages/05-claude-code-ecosystem/#-进入条件与阅读路径) · **Track A: CLI Power User** 第 3 站（核心最后一站）
 
 这一站只做一件事：**让 CLI agent 在测试用 PR 做一次只读检查。它可以提出意见，但不能自己合并、部署或取得额外权限。**
 
@@ -50,7 +50,7 @@ order: 3
 <summary>展开时间、前置条件、环境和费用</summary>
 
 - **时间**：先完成四个最小成果，通常可以拆成几次短练习；不要为了赶时间一次接入很多服务。
-- **前置条件**：完成 [A1](/tracks/cli-a1-cli-intro/) 和 [A2](/tracks/cli-a2-cli-workflow/)，并能看懂 `git status`、PR 和 GitHub Actions 的基本界面。
+- **前置条件**：完成 [A1](/tracks/cli-a1-cli-intro/)、[A2](/tracks/cli-a2-cli-workflow/) 和 [Stage 5 的 Track A 核心 5.1–5.4](/stages/05-claude-code-ecosystem/#-进入条件与阅读路径)，并能看懂 `git status`、PR 和 GitHub Actions 的基本界面。
 - **环境**：一个没有真实 secrets 的 demo repo；第一轮使用 GitHub-hosted Linux runner，更容易套用 sandbox。
 - **费用**：GitHub Actions、CLI 订阅和模型 API 可能分别计费。运行前先查看自己使用的方案，不要把别人的价格当成自己的价格。
 
@@ -270,4 +270,4 @@ Skill 的核心意思可以共用，但文件夹、权限、frontmatter 和安�
 - [ ] 我能指出一次运行的结果和 usage；拿不到的数据没有乱猜。
 - [ ] 队友能在干净的 demo repo 运行 Skill，之后 `git status` 没有非预期修改。
 
-五项都做到，就完成 Track A。接着按目的选择路径：想做应用，回到 [Stage 3](/stages/03-tool-use-and-hello-agent/)；想研究 production 系统，进入 [Stage 7](/stages/07-multi-agent-production/)；想更深入理解 agent 概念，再读 [Stage 7.5](/stages/07-5-advanced-agentic-concepts/)。
+五项都做到，就完成 Track A 核心。建议下一站读 [Stage 8 — Agent 操作界面](/stages/08-agent-interfaces/)，学习怎样给 Browser、Computer 和 Sandbox 设置安全边界；Stage 8 不影响 Track A Capstone 入场。想自己写 agent，再回到 [Stage 3](/stages/03-tool-use-and-hello-agent/)。

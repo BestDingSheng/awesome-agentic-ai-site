@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-teacher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-teacher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-teacher"
@@ -124,7 +124,7 @@ General writing / brainstorming skills. Adaptable for lesson prep.
 
 ### Prompt Libraries
 
-#### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) ⭐⭐⭐⭐
+#### [f/prompts.chat](https://github.com/f/prompts.chat) ⭐⭐⭐⭐
 
 | Field | Value |
 |---|---|

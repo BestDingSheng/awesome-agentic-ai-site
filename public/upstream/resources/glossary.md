@@ -157,7 +157,7 @@ LLM 一次能「看」多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 
 「模型 → Tool Call → 程式執行 → Tool Result → 模型」這個重複循環。每個結果要對回原 call ID。Loop 必須在完成、拒答、錯誤、最大步數、timeout 或費用上限時停止；不能把 retry 全交給模型。
 
-⚠️ **這是「一次執行裡面」的迴圈**，是 harness 的一個零件，跟五層階梯第 4 層的 [Loop Engineering（迴圈工程）](#loop-engineering迴圈工程)（管的是跨 session 的長時間執行）同名但不同層次。兩者的分界見 [Stage 7](../stages/07-multi-agent-production.md)。
+⚠️ **這是 runner 裡面真的會跑的機械迴圈**：模型回答、呼叫工具或 Handoff、讀回結果，再決定下一步。[Loop Engineering（迴圈工程）](#loop-engineering迴圈工程)則是設計這個迴圈和外圍規則的工程工作；兩者不是互斥的東西。完整分界見 [Stage 7](../stages/07-multi-agent-production.md)。
 
 ### Self-Refine（基本版反思 / 無記憶）
 
@@ -178,7 +178,7 @@ LLM 一次能「看」多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 - **時效軸**：short-term（當前對話） vs long-term（跨 session 持久）
 - **內容軸**（CoALA framework）：**Working**（暫存）/ **Episodic**（過去經歷）/ **Semantic**（事實知識）/ **Procedural**（怎麼做）
 
-→ 兩軸不互斥：long-term memory 裡可以**同時**有 episodic（user 上次說了什麼）+ semantic（公司知識庫事實）+ procedural（用過的 tool sequence）。
+→ 兩軸不互斥：long-term memory 可以保存 episodic（user 上次說了什麼）、semantic（穩定的小型事實）與 procedural（用過的 tool sequence）。大型外部語料庫通常放進 RAG 知識庫，不是全部塞進 agent memory。
 
 📍 詳細：[Stage 6 Memory 是什麼 + 怎麼設計](../stages/06-memory-rag.md#-memory-是什麼--怎麼設計) + [Stage 6 CoALA framework](../stages/06-memory-rag.md#進階coala-framework--agent-memory-的-4-層-taxonomy)
 
@@ -189,16 +189,16 @@ LLM 一次能「看」多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 1. **Ingest**（一次性 / 定期）：document → chunk → embed → 存進 vector store（建可檢索的 KB）
 2. **Query**（每次 user 問問題）：question embed → semantic search（或 hybrid + BM25）→ top-K chunks → 塞進 prompt → LLM 答
 
-**解決 LLM 不知道你私有 / 變動 / 過期資料**。Retrieval **不限於 dense embedding**——production 標配是 hybrid（dense + BM25）+ reranker。
+**解決 LLM 不知道你私有 / 變動 / 過期資料**。Retrieval 可以用 dense vector、keyword、SQL、web search 或組合；是否加入 hybrid、BM25 或 reranker，必須用自己的資料與成功條件評測。
 
 📍 詳細：[Stage 6](../stages/06-memory-rag.md)
 📍 paper：[Lewis et al. 2020](https://arxiv.org/abs/2005.11401)
 
 ### Reflexion（完整版反思 / 帶 episodic memory）
 
-跟 Self-Refine（2 Agent）不同：Reflexion **需要持久 episodic memory store**——agent 跑完 trial 後**寫一段 reflection summary 進 memory**、下一次 trial 開始時 retrieve 進 prompt。**跨 trial 累積教訓**是 Reflexion 的本質（不是 single-session loop）。
+跟 Self-Refine（2 Agent）不同：Reflexion 的 paper 以 episodic memory 跨 trial 累積教訓——agent 跑完 trial 後**寫一段 reflection summary 進 memory**、下一次 trial 開始時 retrieve 進 prompt。若教訓必須跨程式重啟保存，才需要 process-persistent storage；持久化不是 Reflexion 永遠內建的條件。
 
-放在 3 而非 2 Agent 因為它**本質是 memory pattern**——episodic memory store 是核心、不是 optional。
+放在 3 而非 2 Agent 因為它示範了以 episodic memory 跨 trial 學習的 pattern；是否使用持久儲存取決於生命週期需求。
 
 代表 paper：[Reflexion (Shinn 2023)](https://arxiv.org/abs/2303.11366)。
 
@@ -206,19 +206,19 @@ LLM 一次能「看」多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 
 ### Embedding（嵌入）
 
-把文字 / 圖片轉成 N 維**向量**、讓「意思接近的東西距離近」。本路線圖預設指 **dense embedding**（稠密向量、sentence-transformers / OpenAI ada-002 等產生）；另有 **sparse embedding**（BM25 / SPLADE 等、用字面 token 比對）——production RAG 兩者並用做 hybrid search。
+把文字 / 圖片轉成 N 維**向量**、讓「意思接近的東西距離近」。**Dense embedding** 用連續向量表達語意；**sparse representation** 保留較少的非零 token 權重、擅長字面匹配（BM25、SPLADE 等）。兩者可組合，但要用自己的查詢集評測。
 
 📍 詳細：[Stage 6](../stages/06-memory-rag.md)
 
 ### Vector DB（向量資料庫）
 
-存 + 高效查 embedding 的儲存層。**主要查詢類型 = approximate nearest-neighbor (ANN)**——所以 Vector DB 存在的意義就是「ANN 比直接 cosine 全掃快幾百倍」。代表：Pinecone / Chroma / Qdrant / Weaviate / pgvector。
+保存並查詢 embedding 的儲存層。Vector store 與 vector database 的索引、metadata、過濾、持久化、備份與維運能力各不相同；ANN 只是常見查詢方式。代表：Pinecone / Chroma / Qdrant / Weaviate / pgvector。
 
 📍 詳細：[Stage 6](../stages/06-memory-rag.md)
 
 ### Semantic Search（語意搜尋）
 
-用 embedding 比較「意思相似」而不是「字串完全相同」。「電動車怎麼充電」可以撈到「EV charging tutorial」。傳統關鍵字搜尋（BM25 等）做不到這個。
+用 embedding 比較「意思相似」而不是「字串完全相同」。「電動車怎麼充電」可以撈到「EV charging tutorial」。關鍵字搜尋可能漏掉改寫句，但擅長精確詞與識別碼，通常是互補方法。
 
 ### Chunking（切塊）
 
@@ -444,26 +444,30 @@ LLM 「自信地說錯」——把不存在的 API 編出來、把錯的數字�
 - **Framework**（Stage 4）規範 **API**：你呼叫的介面長什麼樣
 - **Harness**（本詞）規範 **runtime**：怎麼跑、怎麼 recovery、怎麼觀測
 
-📍 **學科級概念**（**8 個核心元件** / prompt→context→harness 五層工程分工 / framework vs harness）：[Stage 7 Harness Engineering](../stages/07-multi-agent-production.md#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念)
+📍 **學科級概念**（**8 個核心元件** / Prompt→Context→Harness→Loop→Graph 五層工程分工 / framework vs harness）：[Stage 7 Harness Engineering](../stages/07-multi-agent-production.md#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念)
 📍 **Reference implementation case study**（讀 Claude Code source）：[Stage 5 5.7](../stages/05-claude-code-ecosystem.md#57--claude-code-source-解剖reference-harness-implementation-track-b-必看)
 📍 延伸：[`anthropics/claude-agent-sdk-python`](https://github.com/anthropics/claude-agent-sdk-python)、[`ai-boost/awesome-harness-engineering`](https://github.com/ai-boost/awesome-harness-engineering)、[`ZhangHanDong/harness-engineering-from-cc-to-ai-coding`](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)
 
 ### Loop Engineering（迴圈工程）
 
-五層工程分工的第 4 層（完整階梯與各層目的見 [Stage 7](../stages/07-multi-agent-production.md)，那裡是 canonical）：設計 / 調校 agent 的「迭代迴圈」本身——目標、工具、context 管理、終止條件、錯誤處理，讓長時間（數百步、跨 session）運行仍可靠、可控、不跑偏。相關：harness、Dynamic Workflows、ReAct。
+設計 Agent「怎麼開始、怎麼做一步、怎麼檢查、何時再做、何時停止或找人」的工程工作。它會一起處理目標、工具、context、驗證、預算、state、錯誤與人工升級。**可以在一次長 run 裡，也可以跨 session／排程**；跨 session 是常見案例，不是這個詞的門檻。
 
-⚠️ **不要跟 harness 裡那個 [Agent Loop](#agent-loop) 搞混**。這一層管的是**跨越好幾次執行**的長時間問題；`Agent Loop` 是 harness 的一個零件，管的是**一次執行裡面**的機械迴圈。
+**Agent Loop** 是 runner 裡真的執行的「model → tool／handoff → observation → next turn」；**Loop Engineering** 是設計這個迴圈與外圍規則。像「輪子」和「設計整台腳踏車」：有關係，但不是同一件事。
+
+這是正在形成的名稱，不是本專案自創，也不是所有供應商共同制定的標準。入門來源：[IBM — Loop Engineering](https://www.ibm.com/think/topics/loop-engineering)；採用狀態可看 [2026-08 exploratory preprint](https://arxiv.org/abs/2608.21884)。完整五層與實作入口見 [Stage 7](../stages/07-multi-agent-production.md)。
 
 ### Graph Engineering（圖工程）
 
-把 agent 的執行流程設計成**顯式的圖**：node = 一個步驟（2026 起一個 node 裡可以塞一整個 agent run，不再只是一個 function），edge = 轉移條件，node 之間傳遞一個有 schema、可 checkpoint、可 replay 的 state。**讀到這個詞要知道兩件事**：
+把 Agent 的工作設計成一張**顯式的 Workflow Graph**：node 是一個步驟，edge 告訴它下一站，node 之間傳遞有 schema、可 checkpoint、可 replay 的 state。一個 node 可以放 Agent Loop、工具、固定檢查或人工核准。
 
 - **這裡的「圖」是執行流程圖（control / execution graph），不是 GraphRAG 那種知識圖譜檢索**——後者見 [Stage 6](../stages/06-memory-rag.md)。兩者常被混為一談。
-- **這是 2026-07 才流行的新名字，不是新技術**。LangGraph 從 2023 就是這樣運作，LangChain 官方也直言這不是新想法；Anthropic 稱同類機制為 *dynamic workflows*、Google ADK 與 Microsoft Agent Framework 用 *graph-based workflow(s)*，三家官方文件都沒有採用「graph engineering」這個說法。
+- **名稱新，底下的做法不新。** 2026-08 的 survey preprint 把 Graph Engineering 提為新興典範；workflow、state machine、node、edge 與 checkpoint 更早就存在。主流 SDK 目前仍常寫 **workflow**、**graph-based workflow** 或 **orchestration**。
+
+可搜尋的實作名稱與來源：[LangGraph — Workflows and agents](https://docs.langchain.com/oss/python/langgraph/workflows-agents)、[Microsoft Agent Framework — Workflow concepts](https://learn.microsoft.com/en-us/agent-framework/concepts/workflows/)、[Graph Engineering survey preprint](https://arxiv.org/abs/2608.21156)。Preprint 證明這個總稱正在形成，不代表它已成為官方標準。
 
 **跟迴圈的關係**：不是二選一。**格子裡面是 agent 自己繞圈，格子跟格子之間才是你安排的順序**——所以圖是把好幾個迴圈裝進格子再排順序；全部塞回同一個格子，就退回單純的迴圈了。格子裡也不一定是 agent，可以是一個工具、一段檢查、或「這裡要人按核准才能往下」。五層階梯的完整說明見 [Stage 7](../stages/07-multi-agent-production.md)（canonical）。
 
-真正要學的東西在 [Stage 4 的 multi-agent pattern](../stages/04-agent-frameworks.md) 跟可以直接跑的 [`examples/stage-4/03-graph-workflow/`](../examples/stage-4/03-graph-workflow/README.md)（`StateGraph` / conditional edge / checkpointer）。相關：harness、Loop Engineering、orchestration。
+先在 [Stage 4 的 Agent framework／Workflow Graph](../stages/04-agent-frameworks.md) 學工具和基本圖，再到 [Stage 7](../stages/07-multi-agent-production.md) 加上預算、驗證、觀測與復原。可直接跑的入口是 [`examples/stage-4/03-graph-workflow/`](../examples/stage-4/03-graph-workflow/README.md)（`StateGraph` / conditional edge / checkpointer）。相關：harness、Loop Engineering、orchestration。
 
 ---
 
@@ -471,37 +475,37 @@ LLM 「自信地說錯」——把不存在的 API 編出來、把錯的數字�
 
 ### Computer Use（螢幕級 agent）
 
-Agent 透過 **screenshot → vision → 算座標 → 模擬鍵鼠** 操作真實桌面 app——不靠 API、直接像人類用螢幕。代表：Anthropic Claude Computer Use（Opus 5 / Sonnet 5）/ OpenAI Codex desktop / Google Gemini in Chrome。**2024-10 Anthropic 公開 beta 開啟；OSWorld v1 2026-05 達 76.26% 後接近飽和，OSWorld 2.0（2026-06、long-horizon）把 SOTA 重設到 ~20%（Opus 4.8）**。
+模型讀 screenshot 並提出滑鼠或鍵盤動作；**harness 先檢查規則，executor 才真的執行**。只有工作跨桌面 app、又沒有更小的正式 API 或 typed tool 時，才需要這扇大門。OSWorld 2.0 的分數必須連同 108 個 long-horizon workflows、計分方式、step budget 與 harness 一起讀，不能當成永久模型排行。
 
-📍 完整解說 + 4 強對比：[Stage 8 Computer Use](../stages/08-agent-interfaces.md#-computer-use--螢幕級-agent)
+📍 完整 loop、現行工具與 benchmark 讀法：[Stage 8 Computer Use](../stages/08-agent-interfaces.md#-computer-use--螢幕級-agent)
 
 ### Browser Use（web 級 agent）
 
-Agent 操作網頁、主要用 **DOM-aware navigation**（直接 query CSS selector）+ 必要時 vision fallback。代表閉源：Comet / Dia / Gemini in Chrome（Atlas 2026-08 停運）。代表 OSS：[browser-use](https://github.com/browser-use/browser-use)（★ 105k+）。
+Agent 在網頁內讀資料、找元素、填表單或切換分頁。它可以一起使用 **DOM、Accessibility Tree 與 screenshot／pixel fallback**，不等於只查 CSS selector。代表開源入口：[browser-use](https://github.com/browser-use/browser-use)；Gemini in Chrome 仍採 gradual rollout，不是每個帳戶都能使用。
 
-📍 完整解說 + 5 強對比 + OSS 框架：[Stage 8 Browser Use](../stages/08-agent-interfaces.md#-browser-use--web-級-agent)
+📍 完整訊號比較與現行框架：[Stage 8 Browser Use](../stages/08-agent-interfaces.md#-browser-use--web-級-agent)
 
 ### Sandbox（程式碼隔離環境）
 
-讓 agent 寫的 code 在隔離環境跑、不在 host 機器——避免 agent `rm -rf /` / 連 internet 泄資料 / 偷 credentials 等災難。代表：E2B（Firecracker microVM）/ Daytona（Container）/ Modal（GPU sandbox）/ Vercel / Cloudflare。**OpenAI Agents SDK 2026-04 內建支援這些 provider**。
+讓 agent 寫的 code 在獨立 workspace 執行，只看見任務需要的檔案、網路與工具。Sandbox 會降低錯誤碰到 host、祕密或外部系統的機會，但仍要另外設定 filesystem、network、secret、lifecycle 與 log。E2B、Cloudflare、Modal、Vercel 等 provider 的隔離邊界不同；OpenAI Agents SDK 的 Sandbox Agents 目前仍是 Beta。
 
-📍 完整 9-row 術語小辭典（含 microVM / Container 差異）+ 7 強對比：[Stage 8 Code Sandbox](../stages/08-agent-interfaces.md#-code-execution-sandbox--隔離環境含術語小辭典)
+📍 完整 9-row 術語小辭典與 provider 選擇：[Stage 8 Code Sandbox](../stages/08-agent-interfaces.md#-code-execution-sandbox--隔離環境含術語小辭典)
 
 ### microVM（micro Virtual Machine）
 
-VM 的精簡版、極小 footprint、啟動 < 100ms 但仍**獨立 kernel**——介於 Docker container（快 + 弱隔離）跟 full VM（慢 + 強隔離）之間。**Agent sandbox 多半選 microVM**。代表實作：[Firecracker](#firecracker)（AWS、E2B 用）。
+把 VM 做得較小的隔離技術，仍有自己的 kernel。它通常比完整 VM 輕，但啟動時間、相容性與隔離強度都要看實作與量測方式；不是每個 agent sandbox 都使用 microVM。代表實作：[Firecracker](#firecracker)。
 
 📍 完整對比：[Stage 8 術語小辭典](../stages/08-agent-interfaces.md#-隔離技術術語小辭典)
 
 ### Firecracker
 
-AWS 開源的 microVM、Rust 寫、**AWS Lambda 底層** + E2B sandbox 用它做 isolation。強隔離 + 快啟動兼顧。
+AWS 開源、以 Rust 撰寫的 microVM 技術。它提供建立輕量 VM 的底層能力；真正的 sandbox 還要再加上網路、檔案、祕密、生命週期與稽核政策。
 
 📍 [Stage 8 術語小辭典](../stages/08-agent-interfaces.md#-隔離技術術語小辭典)
 
 ### gVisor
 
-Google 寫的「用戶空間 kernel」、攔截 syscall 自己模擬、**不用 hypervisor**——介於 container 跟 VM。
+Google 開源的使用者空間 application kernel，會攔截並處理系統呼叫，在程式與 host kernel 之間增加隔離層。它和 microVM 的做法不同，相容性與效能要依工作負載實測。
 
 📍 [Stage 8 術語小辭典](../stages/08-agent-interfaces.md#-隔離技術術語小辭典)
 

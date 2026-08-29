@@ -203,7 +203,7 @@
 **適合誰**：覺得官方 docx/xlsx/pptx skill 不夠細的人。
 **備註**：跟 anthropics/skills 是補充關係，不是替代。
 
-### [kreuzberg-dev/kreuzberg](https://github.com/kreuzberg-dev/kreuzberg) ⭐⭐⭐⭐
+### [xberg-io/xberg](https://github.com/xberg-io/xberg) ⭐⭐⭐⭐
 
 | 欄位 | 內容 |
 |---|---|
@@ -359,7 +359,7 @@
 **適合誰**：用 Discord 跑社群 / 開源專案的 maintainer。
 **備註**：要 Discord bot token；要小心 rate limit。
 
-### [safishamsi/graphify](https://github.com/safishamsi/graphify) ⭐⭐⭐⭐⭐
+### [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) ⭐⭐⭐⭐⭐
 
 | 欄位 | 內容 |
 |---|---|
@@ -423,7 +423,7 @@
 **適合誰**：不想裝 Google Cloud SDK、要跨多種 OSS DB 的工程師。
 **備註**：跟 googleapis/mcp-toolbox 重疊，但更輕量。
 
-### [supabase-community/supabase-mcp](https://github.com/supabase-community/supabase-mcp) ⭐⭐⭐⭐⭐
+### [supabase/mcp](https://github.com/supabase/mcp) ⭐⭐⭐⭐⭐
 
 | 欄位 | 內容 |
 |---|---|
@@ -994,7 +994,7 @@ Claude 不擅長 token-heavy 機械式工作（成本高、context 容易爆）�
 
 **教什麼**：Claude Code marketplace for multi-agent collaboration——task splitter、output reconciler、adversarial debate、shared memory、acceptance gate。跟 codex-delegate / gemini-delegate 組合用。
 **適合誰**：要跑 2+ delegate agent 在同一輪、想看 multi-agent coordination 怎麼包成 marketplace 的人。
-**備註**：experimental——別把它當生產級 framework，當作維護者把自己 setup 公開的 reference 看就好。要可上線部署的請看 Stage 7 的 LangGraph / AutoGen / CrewAI。
+**備註**：experimental——別把它當生產級 framework，當作維護者把自己 setup 公開的 reference 看就好。要可上線部署的請看 Stage 7 的 LangGraph / Microsoft Agent Framework / CrewAI。
 
 ---
 

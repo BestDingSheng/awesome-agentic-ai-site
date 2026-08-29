@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
@@ -15,7 +15,7 @@ order: 3
 
 > [繁體中文](/zh-tw/tracks/cli-a3-cli-production/) | [简体中文](/tracks/cli-a3-cli-production/) | **English**
 
-> [← A2 — Make the CLI agent follow the same method every time](/en/tracks/cli-a2-cli-workflow/) · **Track A: CLI Power User** Stop 3 (final)
+> [← Stage 5 — Track A core](/en/stages/05-claude-code-ecosystem/#-entry-requirements-and-reading-paths) · **Track A: CLI Power User** Stop 3 (final core stop)
 
 This stop has one goal: **have a CLI agent perform a read-only check on a test PR. It may give feedback, but it must not merge, deploy, or obtain extra permissions by itself.**
 
@@ -50,7 +50,7 @@ The three terms appear together but are not the same thing: MCP connects tools, 
 <summary>Expand for time, prerequisites, environment, and cost</summary>
 
 - **Time**: finish the four smallest outcomes first. You can usually split them into several short practices; do not connect many services at once just to save time.
-- **Prerequisites**: complete [A1](/en/tracks/cli-a1-cli-intro/) and [A2](/en/tracks/cli-a2-cli-workflow/), and be able to recognize the basic screens for `git status`, PRs, and GitHub Actions.
+- **Prerequisites**: complete [A1](/en/tracks/cli-a1-cli-intro/), [A2](/en/tracks/cli-a2-cli-workflow/), and the [Stage 5 Track A core, sections 5.1–5.4](/en/stages/05-claude-code-ecosystem/#-entry-requirements-and-reading-paths), and be able to recognize the basic screens for `git status`, PRs, and GitHub Actions.
 - **Environment**: a demo repo with no real secrets; use a GitHub-hosted Linux runner for the first round because a sandbox is easier to apply there.
 - **Cost**: GitHub Actions, a CLI subscription, and model APIs may be billed separately. Check your own plan before running; do not treat someone else’s prices as yours.
 
@@ -270,4 +270,4 @@ The directory only helps you “find candidates”; it does not guarantee a cand
 - [ ] I can point to the result and usage for one run; unavailable data was not guessed.
 - [ ] A teammate can run the Skill in a clean demo repo, and `git status` shows no unexpected changes afterward.
 
-Once all five are true, Track A is complete. Then choose by purpose: return to [Stage 3](/en/stages/03-tool-use-and-hello-agent/) to build an application; go to [Stage 7](/en/stages/07-multi-agent-production/) to study production systems; or read [Stage 7.5](/en/stages/07-5-advanced-agentic-concepts/) to understand agent concepts more deeply.
+Once all five are true, the Track A core is complete. The recommended next stop is [Stage 8 — Agent Interfaces](/en/stages/08-agent-interfaces/), where you set safe boundaries for browsers, computers, and sandboxes. Stage 8 does not block Track A Capstone entry. If you want to build your own agent, return to [Stage 3](/en/stages/03-tool-use-and-hello-agent/).

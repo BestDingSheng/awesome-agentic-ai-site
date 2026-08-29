@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-everyday-users"
@@ -140,7 +140,7 @@ ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 Ap
 
 ### Prompt 素材庫
 
-#### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) ⭐⭐⭐⭐
+#### [f/prompts.chat](https://github.com/f/prompts.chat) ⭐⭐⭐⭐
 ★ 161k+ — 社群維護的 prompt 大全。「act as 翻譯家 / 履歷顧問 / 廚師...」幾百種角色。**不知道怎麼開頭時從這裡找靈感**。
 
 ---

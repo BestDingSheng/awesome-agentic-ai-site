@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/DESIGN.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/DESIGN.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "design"
@@ -63,6 +63,16 @@ audience 切太細會：
 
 每個 branch 的 entry 選入都應該回到「能不能解決核心 pain」這個問題。如果不能，就是 entry 該放別的地方。
 
+## Branch 頁的閱讀順序
+
+完成回溯並加入 `scripts/reader-ux-pages.yml` 的 Branch，不是工具倉庫。讀者第一次打開頁面時，必須依序看到 `📌` 這條路解決什麼、`🎯` 四個目標、`🧩` 粗體核心詞、`🛠` 一個可直接複製的安全任務、`📚` 三個起點，以及 `✅` 完成條件與下一站。收合與否看讀者是否立刻需要：第一題會用到的來源、三個推薦入口與安全警告必須可見；時間、帳號、費用、完整閱讀順序、長資源表、替代方案、進階流程與排錯才放進預設關閉的 `<details markdown="1">`。舊深連結的空 anchor 要放在語意相符的新 heading 或收合摘要旁，不能全部堆在頁首。尚未回溯的 teacher、knowledge-worker 與 everyday-users 依後續 stacked layer 逐頁加入，不能宣稱已符合本契約。
+
+白話只能降低理解門檻，不能刪掉專業詞。研究人員頁要保留 Source、Claim、Citation、Source Verification、Literature RAG、Reproducibility、Private Data 與 Human Review；第一個任務固定教「公開 paper → 三個問題 → 逐 citation 對原文 → 未支持就標出」。開發者頁要保留 IDE、Coding Agent、Provider／Router、Model／Runtime、Sandbox、Approval、Diff／Rollback 與 Eval／Observability；第一個任務固定教 `read-only plan → 小改 → diff → test → 人工批准 → rollback`，且不授權 push、merge 或 deploy。
+
+開發工具的「核心身分」和「surface」必須分欄。Coding agent 可以同時有 CLI、IDE、desktop、cloud、CI 或 SDK surface；IDE／CLI 不是互斥產品分類。OpenRouter 是 API Router，Ollama 是 local model runtime，OpenCode／Pi 等才是 coding agent／harness，不能因名字相近而混在一起。
+
+完整資源表保留五星編輯評分，但不保存 GitHub stars。研究人員頁固定 10 筆、`3／4／2／1` 四組；開發者頁固定 12 筆、`9／2／1` 三組。每組使用獨立 `<tbody>` 與真正 `rowspan`；三語的 URL、順序、評分、狀態、授權與安全限制要結構化比對。已封存的 `open_deep_research` 與 Roo Code 只能放歷史組；Gemini Notebook 第一次出現時可附舊名 NotebookLM 幫助辨識。
+
 ---
 
 ## Branch 之間的邊界
@@ -79,7 +89,7 @@ audience 切太細會：
 同一個工具在不同場景下歸類不同。例如：
 
 - **Ollama**：給 everyday-users 是「隱私場景跑本地 LLM」（Tier 3），給 developer 是「開發 agent 的本地測試 backend」——但這份 catalog 把它放在 **Stage 1**（基礎設施層級），各 branch 從那裡引用。
-- **f/awesome-chatgpt-prompts**：放 for-teacher（給教師當教材參考）、也放 for-everyday-users（不寫 code 也能用的 prompt 庫）。
+- **f/prompts.chat**：放 for-teacher（給教師當教材參考）、也放 for-everyday-users（不寫 code 也能用的 prompt 庫）。
 
 ### 灰色地帶處理（同一 repo 出現在多 branch）
 

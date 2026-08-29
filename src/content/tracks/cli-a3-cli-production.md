@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a3-cli-production"
@@ -15,7 +15,7 @@ order: 3
 
 > **繁體中文** | [简体中文](/tracks/cli-a3-cli-production/) | [English](/en/tracks/cli-a3-cli-production/)
 
-> [← A2 — 讓 CLI agent 每次都照同一套方法做事](/zh-tw/tracks/cli-a2-cli-workflow/) · **Track A: CLI Power User** 第 3 站（最後）
+> [← Stage 5 — Track A 核心](/zh-tw/stages/05-claude-code-ecosystem/#-進入條件與閱讀路線) · **Track A: CLI Power User** 第 3 站（核心最後一站）
 
 這一站只做一件事：**讓 CLI agent 在測試用 PR 做一個只讀檢查。它可以提出意見，但不能自己合併、部署或取得多餘權限。**
 
@@ -50,7 +50,7 @@ order: 3
 <summary>展開時間、先備條件、環境與費用</summary>
 
 - **時間**：先完成四個最小成果，通常可拆成數次短練習；不要為了趕時間一次接很多服務。
-- **先備條件**：完成 [A1](/zh-tw/tracks/cli-a1-cli-intro/) 與 [A2](/zh-tw/tracks/cli-a2-cli-workflow/)，並能看懂 `git status`、PR 與 GitHub Actions 的基本畫面。
+- **先備條件**：完成 [A1](/zh-tw/tracks/cli-a1-cli-intro/)、[A2](/zh-tw/tracks/cli-a2-cli-workflow/) 與 [Stage 5 的 Track A 核心 5.1–5.4](/zh-tw/stages/05-claude-code-ecosystem/#-進入條件與閱讀路線)，並能看懂 `git status`、PR 與 GitHub Actions 的基本畫面。
 - **環境**：一個沒有真實 secrets 的 demo repo；第一輪使用 GitHub-hosted Linux runner，較容易套用 sandbox。
 - **費用**：GitHub Actions、CLI 訂閱與模型 API 可能分開計費。執行前先看自己使用的方案，不要把別人的價格當成自己的價格。
 
@@ -270,4 +270,4 @@ Skill 的核心意思可以共用，但資料夾、權限、frontmatter 與安�
 - [ ] 我能指出一次執行的結果與 usage；拿不到的資料沒有亂猜。
 - [ ] 隊友能在乾淨 demo repo 執行 Skill，之後 `git status` 沒有非預期修改。
 
-五項都做到，就完成 Track A。接著依目的選路：想做應用，回到 [Stage 3](/zh-tw/stages/03-tool-use-and-hello-agent/)；想研究 production 系統，進 [Stage 7](/zh-tw/stages/07-multi-agent-production/)；想理解更深的 agent 概念，再讀 [Stage 7.5](/zh-tw/stages/07-5-advanced-agentic-concepts/)。
+五項都做到，就完成 Track A 核心。建議下一站讀 [Stage 8 — Agent 操作介面](/zh-tw/stages/08-agent-interfaces/)，學會怎麼替 Browser、Computer 與 Sandbox 設安全邊界；Stage 8 不擋 Track A Capstone 入場。想自己寫 agent，再回到 [Stage 3](/zh-tw/stages/03-tool-use-and-hello-agent/)。

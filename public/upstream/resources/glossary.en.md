@@ -157,7 +157,7 @@ Ask a model for **JSON or another fixed schema** instead of free text. It may us
 
 The repeated cycle “model → Tool Call → program execution → Tool Result → model.” Each result must match the original call ID. The Loop must stop on completion, refusal, error, maximum steps, timeout, or a cost limit; retries must not be left entirely to the model.
 
-⚠️ **This is the loop *inside a single run*** — one component of a harness. It shares a name with [Loop Engineering](#loop-engineering), Layer 4 of the five-layer ladder, which governs long-horizon execution *across* sessions. Different levels, same word. The boundary is drawn in [Stage 7](../stages/07-multi-agent-production.en.md).
+⚠️ **This is the mechanical loop that actually runs inside the runner**: the model answers, calls a tool or makes a Handoff, reads the result, then chooses the next step. [Loop Engineering](#loop-engineering) designs this loop and its surrounding rules; they are related, not mutually exclusive. See [Stage 7](../stages/07-multi-agent-production.en.md) for the full boundary.
 
 ### Self-Refine (Basic reflection / no memory)
 
@@ -178,7 +178,7 @@ Representative paper: [Self-Refine (Madaan 2023)](https://arxiv.org/abs/2303.176
 - **Time axis**: short-term (current conversation) vs long-term (persistent across sessions)
 - **Content axis** (CoALA framework): **Working** (scratch space) / **Episodic** (past experiences) / **Semantic** (factual knowledge) / **Procedural** (how to do things)
 
-→ The two axes do not conflict: long-term memory can contain **at the same time** episodic memory (what the user said last time), semantic memory (facts from the company's knowledge base), and procedural memory (tool sequences that worked before).
+→ The two axes do not conflict: long-term memory can contain episodic memory (what the user said last time), semantic memory (small stable facts), and procedural memory (tool sequences that worked before). Large external corpora usually belong in a RAG knowledge base, not all in agent memory.
 
 📍 Detail: [Stage 6 What is Memory + How to Design It](../stages/06-memory-rag.en.md#-what-is-memory--how-to-design-it) + [Stage 6 CoALA Framework](../stages/06-memory-rag.en.md#advanced-coala-framework--a-4-layer-taxonomy-for-agent-memory)
 
@@ -189,16 +189,16 @@ Two-stage architectural pattern:
 1. **Ingest** (one-time / periodic): document → chunk → embed → store in a vector store (build a retrievable KB)
 2. **Query** (every user question): embed the question → semantic search (or hybrid + BM25) → top-K chunks → put them into the prompt → LLM answers
 
-**Solves the problem that the LLM does not know your private / changing / stale data**. Retrieval is **not limited to dense embeddings** — the production default is hybrid (dense + BM25) + reranker.
+**Solves the problem that the LLM does not know your private / changing / stale data**. Retrieval can use dense vectors, keywords, SQL, web search, or combinations. Whether to add hybrid search, BM25, or a reranker must be evaluated on your data and success criteria.
 
 📍 Detail: [Stage 6](../stages/06-memory-rag.en.md)
 📍 Paper: [Lewis et al. 2020](https://arxiv.org/abs/2005.11401)
 
 ### Reflexion (Full reflection / with episodic memory)
 
-Unlike Self-Refine (2 Agents), Reflexion **requires a persistent episodic memory store** — after each trial, the agent **writes a reflection summary into memory**, then retrieves it into the prompt at the start of the next trial. **Accumulating lessons across trials** is the essence of Reflexion (not a single-session loop).
+Unlike Self-Refine (2 Agents), the Reflexion paper accumulates lessons across trials with episodic memory — after each trial, the agent **writes a reflection summary into memory**, then retrieves it into the prompt at the start of the next trial. Process-persistent storage is needed only when lessons must survive program restarts; persistence is not always intrinsic.
 
-It is placed in 3 instead of 2 because it is **fundamentally a memory pattern** — the episodic memory store is core, not optional.
+It is placed in 3 instead of 2 because it demonstrates an episodic-memory pattern across trials; whether storage must persist depends on the lifecycle you need.
 
 Representative paper: [Reflexion (Shinn 2023)](https://arxiv.org/abs/2303.11366).
 
@@ -206,19 +206,19 @@ Representative paper: [Reflexion (Shinn 2023)](https://arxiv.org/abs/2303.11366)
 
 ### Embedding
 
-Turn text / images into N-dimensional **vectors** so that things with similar meanings are close together. This roadmap defaults to **dense embeddings** (dense vectors produced by sentence-transformers / OpenAI ada-002, etc.); there are also **sparse embeddings** (BM25 / SPLADE, etc., based on lexical token matching) — production RAG often uses both together for hybrid search.
+Turn text / images into N-dimensional **vectors** so that things with similar meanings are close together. **Dense embeddings** use continuous vectors for semantics; **sparse representations** keep fewer nonzero token weights and excel at lexical matching (BM25, SPLADE, etc.). They can be combined, but evaluate the choice on your query set.
 
 📍 Detail: [Stage 6](../stages/06-memory-rag.en.md)
 
 ### Vector DB
 
-The storage layer for storing + efficiently querying embeddings. **The main query type = approximate nearest-neighbor (ANN)** — the whole point of a vector DB is that ANN is hundreds of times faster than brute-force cosine scanning. Examples: Pinecone / Chroma / Qdrant / Weaviate / pgvector.
+The storage layer for storing and querying embeddings. Vector-store and vector-database capabilities differ across indexing, metadata, filtering, persistence, backup, and operations; ANN is only one common query method. Examples: Pinecone / Chroma / Qdrant / Weaviate / pgvector.
 
 📍 Detail: [Stage 6](../stages/06-memory-rag.en.md)
 
 ### Semantic Search
 
-Use embeddings to compare "meaning similarity" rather than "exact string match". "How do I charge an EV" can retrieve "electric car battery tutorial". Traditional keyword search (BM25, etc.) can't do this.
+Use embeddings to compare "meaning similarity" rather than "exact string match". "How do I charge an EV" can retrieve "electric car battery tutorial". Keyword search may miss paraphrases, but it is complementary and strong for exact terms and identifiers.
 
 ### Chunking
 
@@ -444,26 +444,30 @@ Contrast:
 - **Framework** (Stage 4) defines the **API**: what the interface you call looks like
 - **Harness** (this term) defines the **runtime**: how it runs, how it recovers, how it is observed
 
-📍 Discipline-level concept (**8 core components** / prompt→context→harness five-layer engineering split / framework vs harness): [Stage 7 Harness Engineering](../stages/07-multi-agent-production.en.md)
+📍 Discipline-level concept (**8 core components** / Prompt→Context→Harness→Loop→Graph five-layer engineering split / framework vs harness): [Stage 7 Harness Engineering](../stages/07-multi-agent-production.en.md)
 📍 Reference implementation case study (reading Claude Code source): [Stage 5 5.7](../stages/05-claude-code-ecosystem.en.md)
 📍 Further: [`anthropics/claude-agent-sdk-python`](https://github.com/anthropics/claude-agent-sdk-python), [`ai-boost/awesome-harness-engineering`](https://github.com/ai-boost/awesome-harness-engineering), [`ZhangHanDong/harness-engineering-from-cc-to-ai-coding`](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)
 
 ### Loop Engineering
 
-Layer 4 in the five-layer engineering split (see [Stage 7](../stages/07-multi-agent-production.en.md), the canonical source for the full ladder and each layer's purpose): designing and tuning an agent's iteration loop itself (goal, tools, context management, termination logic, error handling) so long-running, multi-step, cross-session execution stays reliable and on-target. Related: harness, Dynamic Workflows, ReAct.
+The engineering work of designing how an Agent starts, takes a step, checks it, decides whether to continue, stops, or asks a person. It handles goals, tools, context, verification, budgets, state, errors, and human escalation. It **can happen inside one long run or across sessions and schedules**; cross-session operation is common, not a requirement for the term.
 
-⚠️ **Do not confuse this with the [Agent Loop](#agent-loop) inside a harness**. This layer governs the long-horizon problem *across many runs*; `Agent Loop` is a harness component governing the mechanical cycle *within one run*.
+**Agent Loop** is the runner's actual “model → tool / handoff → observation → next turn”; **Loop Engineering** designs that loop and its surrounding rules. Think of a wheel versus designing the whole bicycle: related, but not identical.
+
+This name is still emerging, not invented by this project and not a standard jointly defined by every vendor. Introductory sources: [IBM — Loop Engineering](https://www.ibm.com/think/topics/loop-engineering); adoption status: [2026-08 exploratory preprint](https://arxiv.org/abs/2608.21884). See [Stage 7](../stages/07-multi-agent-production.en.md) for the full five-layer map and practice entry points.
 
 ### Graph Engineering
 
-Designing an agent's execution flow as an **explicit graph**: nodes are steps (as of 2026 a node can hold an entire agent run, not just a single function), edges are transition conditions, and nodes pass around a schema'd state that can be checkpointed and replayed. **Two things to know when you meet this term**:
+Designing an Agent's work as an **explicit Workflow Graph**: a node is a step, an edge points to the next stop, and nodes pass around schema'd state that can be checkpointed and replayed. A node can contain an Agent Loop, a tool, a fixed check, or human approval.
 
 - **The "graph" here is a control / execution graph, not the knowledge-graph retrieval of GraphRAG** — for that, see [Stage 6](../stages/06-memory-rag.en.md). The two are frequently conflated.
-- **It is a name that became popular in July 2026, not a new technique.** LangGraph has worked this way since 2023, and LangChain itself says the idea is not new; Anthropic calls the equivalent mechanism *dynamic workflows*, while Google ADK and Microsoft Agent Framework say *graph-based workflow(s)* — none of the three vendors' docs use the phrase "graph engineering".
+- **The name is new; the underlying practice is not.** A 2026-08 survey preprint presents Graph Engineering as an emerging paradigm; workflows, state machines, nodes, edges, and checkpoints are older. Mainstream SDKs still commonly say **workflow**, **graph-based workflow**, or **orchestration**.
+
+Searchable implementation names and sources: [LangGraph — Workflows and agents](https://docs.langchain.com/oss/python/langgraph/workflows-agents), [Microsoft Agent Framework — Workflow concepts](https://learn.microsoft.com/en-us/agent-framework/concepts/workflows/), and [Graph Engineering survey preprint](https://arxiv.org/abs/2608.21156). The preprint shows that this umbrella term is emerging; it does not make it an official standard.
 
 **Relationship to loops**: this is not either-or. **Inside a box, the agent loops; between boxes, you define the order**. A graph puts several loops into boxes, then orders those boxes. If you put everything back into one box, you are back to a plain loop. A box does not have to contain an agent either; it can be a tool, a check, or a "human approval required before continuing" gate. For the full five-layer ladder, see [Stage 7](../stages/07-multi-agent-production.en.md) (canonical).
 
-What is actually worth learning lives in [Stage 4's multi-agent patterns](../stages/04-agent-frameworks.en.md) and the runnable [`examples/stage-4/03-graph-workflow/`](../examples/stage-4/03-graph-workflow/README.en.md) (`StateGraph` / conditional edges / checkpointer). Related: harness, Loop Engineering, orchestration.
+Start with tools and basic graphs in [Stage 4's Agent framework / Workflow Graph](../stages/04-agent-frameworks.en.md), then go to [Stage 7](../stages/07-multi-agent-production.en.md) for budgets, verification, observability, and recovery. The runnable entry point is [`examples/stage-4/03-graph-workflow/`](../examples/stage-4/03-graph-workflow/README.en.md) (`StateGraph` / conditional edges / checkpointer). Related: harness, Loop Engineering, orchestration.
 
 ---
 
@@ -471,35 +475,39 @@ What is actually worth learning lives in [Stage 4's multi-agent patterns](../sta
 
 ### Computer Use (screen-level agent)
 
-An agent operates real desktop apps via **screenshot → vision → coordinates → simulated mouse/keyboard** — no API needed, the agent uses the screen like a human. Representative: Anthropic Claude Computer Use (Opus 5 / Sonnet 5), OpenAI Codex desktop, Google Gemini in Chrome. **Anthropic public beta opened Oct 2024; OSWorld v1 hit 76.26% by May 2026 but then approached saturation — OSWorld 2.0 (2026-06, long-horizon) reset SOTA to ~20% (Opus 4.8)**.
+A model reads screenshots and proposes mouse or keyboard actions; **a harness checks policy before an executor performs them**. Use this large door only when work crosses desktop apps and no smaller formal API or typed tool can do the job. Read any OSWorld 2.0 score together with its 108 long-horizon workflows, scoring rule, step budget, and harness—not as a permanent model ranking.
 
-📍 Full coverage + 4-vendor comparison: [Stage 8 Computer Use](../stages/08-agent-interfaces.en.md)
+📍 Complete loop, current tools, and benchmark reading: [Stage 8 Computer Use](../stages/08-agent-interfaces.en.md#-computer-use--the-screen-level-agent)
 
 ### Browser Use (web-level agent)
 
-An agent operates web pages, primarily via **DOM-aware navigation** (direct CSS selector queries) with vision fallback. Closed-source: Comet / Dia / Gemini in Chrome (Atlas discontinued Aug 2026). OSS leader: [browser-use](https://github.com/browser-use/browser-use) (★ 105k+).
+An agent reads data, finds elements, fills forms, or changes tabs inside webpages. It can combine the **DOM, Accessibility Tree, and screenshot / pixel fallback**; Browser Use is not only CSS selectors. A representative open-source entry is [browser-use](https://github.com/browser-use/browser-use). Gemini in Chrome remains a gradual rollout, so access differs by account.
 
-📍 Full coverage + 5-vendor comparison + OSS frameworks: [Stage 8 Browser Use](../stages/08-agent-interfaces.en.md)
+📍 Complete signal comparison and current frameworks: [Stage 8 Browser Use](../stages/08-agent-interfaces.en.md#-browser-use--the-web-level-agent)
 
 ### Sandbox (code execution isolation)
 
-Runs agent-written code in an isolated environment instead of the host — avoids `rm -rf /`, internet data exfiltration, credential theft. Representatives: E2B (Firecracker microVM), Daytona (container), Modal (GPU sandbox), Vercel, Cloudflare. **OpenAI Agents SDK natively supports these as of April 2026**.
+Runs agent-written code in a separate workspace that sees only the files, network, and tools the task needs. A sandbox reduces the chance that mistakes reach the host, secrets, or outside systems, but filesystem, network, secret, lifecycle, and log policy still matter. E2B, Cloudflare, Modal, and Vercel have different boundaries; OpenAI Agents SDK Sandbox Agents remain Beta.
 
-📍 Full 9-row terminology glossary + 7-vendor comparison: [Stage 8 Code Sandbox](../stages/08-agent-interfaces.en.md)
+📍 Full nine-row terminology glossary and provider choice: [Stage 8 Code Sandbox](../stages/08-agent-interfaces.en.md#-code-execution-sandbox--the-isolated-environment-with-mini-glossary)
 
 ### microVM (micro Virtual Machine)
 
-A slimmed-down VM with minimal footprint, < 100ms startup, yet still has an **independent kernel** — sits between Docker containers (fast + weak isolation) and full VMs (slow + strong isolation). **Most agent sandboxes choose microVM**. Implementation example: Firecracker (AWS, used by E2B).
+A smaller kind of VM that still has its own kernel. It is often lighter than a full VM, but startup time, compatibility, and isolation strength depend on the implementation and measurement. Not every agent sandbox uses a microVM. Example: [Firecracker](#firecracker).
 
-📍 Full comparison: [Stage 8 terminology glossary](../stages/08-agent-interfaces.en.md)
+📍 Full comparison: [Stage 8 terminology glossary](../stages/08-agent-interfaces.en.md#-mini-glossary-of-isolation-technologies)
 
 ### Firecracker
 
-AWS's open-source microVM, written in Rust, **the underlying technology of AWS Lambda** and E2B sandbox isolation. Provides strong isolation + fast startup.
+AWS's open-source microVM technology, written in Rust. It provides a low-level way to create lightweight VMs; a complete sandbox must still add network, file, secret, lifecycle, and audit policy.
+
+📍 [Stage 8 terminology glossary](../stages/08-agent-interfaces.en.md#-mini-glossary-of-isolation-technologies)
 
 ### gVisor
 
-Google's "user-space kernel" — intercepts syscalls and emulates them itself, no hypervisor required. Sits between containers and VMs.
+Google's open-source userspace application kernel. It handles system calls between a program and the host kernel, adding an isolation layer. It takes a different approach from a microVM, so compatibility and performance must be tested for the workload.
+
+📍 [Stage 8 terminology glossary](../stages/08-agent-interfaces.en.md#-mini-glossary-of-isolation-technologies)
 
 ---
 

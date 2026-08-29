@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "mcp-skills-catalog"
@@ -215,7 +215,7 @@ baseSlug: "mcp-skills-catalog"
 **适合谁**：觉得官方 docx/xlsx/pptx skill 不够细的人。
 **备注**：跟 anthropics/skills 是补充关系，不是替代。
 
-### [kreuzberg-dev/kreuzberg](https://github.com/kreuzberg-dev/kreuzberg) ⭐⭐⭐⭐
+### [xberg-io/xberg](https://github.com/xberg-io/xberg) ⭐⭐⭐⭐
 
 | 栏位 | 内容 |
 |---|---|
@@ -371,7 +371,7 @@ baseSlug: "mcp-skills-catalog"
 **适合谁**：用 Discord 跑社群 / 开源项目的 maintainer。
 **备注**：要 Discord bot token；要小心 rate limit。
 
-### [safishamsi/graphify](https://github.com/safishamsi/graphify) ⭐⭐⭐⭐⭐
+### [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) ⭐⭐⭐⭐⭐
 
 | 栏位 | 内容 |
 |---|---|
@@ -435,7 +435,7 @@ baseSlug: "mcp-skills-catalog"
 **适合谁**：不想装 Google Cloud SDK、要跨多种 OSS DB 的工程师。
 **备注**：跟 googleapis/mcp-toolbox 重叠，但更轻量。
 
-### [supabase-community/supabase-mcp](https://github.com/supabase-community/supabase-mcp) ⭐⭐⭐⭐⭐
+### [supabase/mcp](https://github.com/supabase/mcp) ⭐⭐⭐⭐⭐
 
 | 栏位 | 内容 |
 |---|---|
@@ -1005,7 +1005,7 @@ Claude 不擅长 token-heavy 机械式工作（成本高、context 容易爆）�
 
 **教什么**：Claude Code marketplace for multi-agent collaboration——task splitter、output reconciler、adversarial debate、shared memory、acceptance gate。跟 codex-delegate / gemini-delegate 组合用。
 **适合谁**：要跑 2+ delegate agent 在同一轮、想看 multi-agent coordination 怎么打包成 marketplace 的人。
-**备注**：experimental——别把它当作生产级 framework，当作维护者把自己 setup 公开的 reference 看就好。要可上线部署的请看 Stage 7 的 LangGraph / AutoGen / CrewAI。
+**备注**：experimental——别把它当作生产级 framework，当作维护者把自己 setup 公开的 reference 看就好。要可上线部署的请看 Stage 7 的 LangGraph / Microsoft Agent Framework / CrewAI。
 
 ---
 

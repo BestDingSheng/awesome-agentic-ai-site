@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-28T21:54:08.645Z"
+syncedAt: "2026-08-29T06:20:01.874Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-everyday-users"
@@ -138,7 +138,7 @@ Closed-source but the most beginner-friendly option — drag-and-drop UI, no com
 
 ### Prompt Library
 
-#### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) ⭐⭐⭐⭐
+#### [f/prompts.chat](https://github.com/f/prompts.chat) ⭐⭐⭐⭐
 ★ 161k+ — Community-maintained prompt megacatalog. "Act as a translator / résumé consultant / chef..." in hundreds of roles. **When stuck on how to start, browse here.**
 
 ---
