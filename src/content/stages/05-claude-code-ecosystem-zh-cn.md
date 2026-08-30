@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-30T04:29:27.228Z"
+syncedAt: "2026-08-30T16:19:33.353Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -105,9 +105,6 @@ order: 5
 
 开始前只看两个入口：[Claude Code quickstart](https://code.claude.com/docs/en/quickstart) 帮你安装并打开第一个会话；[How Claude remembers your project](https://code.claude.com/docs/en/memory) 帮你编写练习 1 使用的 `CLAUDE.md`。其他文档等遇到对应术语时再查，不必一次读完。
 
-<details markdown="1">
-<summary>展开官方阅读顺序</summary>
-
 1. [Claude Code quickstart](https://code.claude.com/docs/en/quickstart) — 安装与第一个会话。
 2. [Extend Claude Code](https://code.claude.com/docs/en/features-overview) — 一张官方表区分 CLAUDE.md、Skill、MCP、Hook、Plugin 和 Subagent。
 3. [How Claude remembers your project](https://code.claude.com/docs/en/memory) — `CLAUDE.md`、Rules 和 auto memory 的边界。
@@ -117,8 +114,6 @@ order: 5
 7. [Plugins](https://code.claude.com/docs/en/plugins) — 打包与共享扩展。
 8. [Subagents](https://code.claude.com/docs/en/sub-agents)、[parallel agents](https://code.claude.com/docs/en/agents) 与 [Dynamic workflows](https://code.claude.com/docs/en/workflows) — 隔离、协作与大规模脚本编排。
 9. [Agent SDK overview](https://code.claude.com/docs/en/agent-sdk/overview) — 仅在要嵌入程序时再读。
-
-</details>
 
 ## 🛠 动手练习
 
@@ -524,9 +519,6 @@ SDK 会执行命令并保存 session state，不能把它当普通 stateless tex
 
 **本章先做这个：** [`tool-calling-tutor`](/) ⭐⭐⭐⭐⭐ — 它是仓库内可直接照着做的 Skill 示例。要查看 Claude Code 本身的版本与问题，再看 [`anthropics/claude-code`](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐。
 
-<details markdown="1">
-<summary>展开 35 项分组资源与查核日期</summary>
-
 <small>资料查核：2026-08-29 UTC</small>
 
 <table>
@@ -579,8 +571,6 @@ SDK 会执行命令并保存 session state，不能把它当普通 stateless tex
 <tr><td><a href="https://github.com/wshobson/agents">wshobson/agents</a></td><td>⭐⭐⭐⭐</td><td>从实际 Agent 定义观察 harness 的可读性与权限表面。</td></tr>
 </tbody>
 </table>
-
-</details>
 
 <a id="-进入-stage-6-前的自我检查"></a>
 

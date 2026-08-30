@@ -95,6 +95,12 @@ Git 歷史復原。
 
 這組圖固定放在 Stage 6 七個可見核心詞之後。圖的目的不是取代定義，而是讓初學者一眼分清：RAG 是先找外部證據再回答，Memory 是把重要狀態留給下一次使用。
 
+## 2026-08-30：Stage 6 RAG 詳細流水線重畫
+
+重畫 `rag-pipeline-overview.png`、`.en.png`、`.zh-Hans.png`，並放回預設關閉的「RAG 基礎流水線」。舊圖只有兩排方塊與直線箭頭，且沒有正文引用；新圖沿用 `rag-memory-map` 的亮色白底卡片 house style，明確分成「先整理資料」與「問題來了」兩條 lane。Contextualization、query rewrite、fusion 與 reranking 都以虛線和「可選」標籤呈現；候選來源並列 semantic、BM25、SQL／Web，不暗示 vector database 是唯一 retriever。
+
+繁中第一版的 `retrieve` 箭頭錯落在最終答案，視覺檢查後改為從可搜尋資料庫落到「多路找候選」。英語與簡中沿用修正版幾何；簡中初稿 footer 的「記錄」另修成「记录」。三語均不放固定 chunk size、top-k、價格、模型、排名、benchmark、日期或 GitHub stars。
+
 ## 2026-08-27：Stage 3 Tool Use 六步圖
 
 新增 `tool-use-loop.png`、`.en.png`、`.zh-Hans.png`。三張都使用 16:9 亮色白底卡片，固定呈現 `模型 → Tool Call → 程式驗證 → 工具執行 → Tool Result → 模型答案`，並用盾牌框住程式驗證與工具執行。底部只保留三個安全提示：allowlist、敏感動作先問人、設定最大輪數。
@@ -180,9 +186,9 @@ Git 歷史復原。
 
 ## 已退役的舊圖
 
-2026-08-30 全站引用掃描確認下列舊圖已沒有任何頁面使用，因此直接移除，不再重畫：
+2026-08-30 全站引用掃描確認下列舊圖已沒有任何頁面使用，因此移除；
+`rag-pipeline-overview` 的舊平面箭頭版則由已通過人工檢查的 Image 2.0 三語版本取代並重新上線：
 
-- `rag-pipeline-overview` 三語圖：由 Stage 6 的 `rag-memory-map` 三語圖取代。
 - `chunking-strategies` 三語圖：內容已放入 Stage 6 漸進式文字教學，不再保留素面流程框。
 - `reflexion-persistent-memory-loop` 三語圖：內容已整合進 Stage 6 的 RAG／Memory 路線。
 - `multi-agent-debate-flow` 三語圖：沒有頁面使用，且深色霓虹風不符合目前主頁式視覺規範。
@@ -246,3 +252,30 @@ python scripts/check-image-locale.py
 > verbatim locale text. AI drafts; the teacher checks privacy, facts, and bias;
 > the teacher observes and revises. No autonomous grading, diagnosis, learner
 > score, product logo, badge, extra caption, mixed language, or watermark.
+
+## 2026-08-30：首頁學習路徑 Banner
+
+`banner.png`、`.en.png`、`.zh-Hans.png` 以 Image 2.0 重新產生，取代含固定週數的舊版。
+三語共用 `1672×941` 橫式母版、奶油白背景、深藍字、亮藍／橘兩條路、紫色共用 hub、
+圓角卡與大留白。路徑固定為：
+
+- 共用基礎 `Stage 0–1–2` 後分流。
+- Track A：`A1 → A2 → Stage 5 → A3 → Stage 8`。
+- Track B：`3 → 4 → Stage 5 → 6 → 7 → 7.5 → Stage 8`。
+- Stage 5 後用上下兩條不交叉的路分開畫 A3 與 6／7／7.5，再於 Stage 8 匯合。
+- Stage 8 後才分到研究人員、開發者、教師、知識工作者與日常使用者。
+
+底部只保留三個不會因時間改變的提示：「使用現成 CLI Agent」、「打造自己的 Agent」、
+「一站一個小成果」與 repository URL。不得放週數、月份、每週時數、價格、版本、年份、
+GitHub stars 或其他容易漂移的指標。箭頭只能落在卡片／節點邊緣；不得穿過文字、icon、
+框線或其他箭頭。三語必須使用同一節點、同一方向、同一色彩角色與同一欄位位置。
+
+共同重產 prompt 核心：
+
+> Preserve the wide 1672×941 cream-white README infographic, exact route,
+> bright blue/orange paths, purple shared hubs, rounded cards, generous whitespace,
+> and locale-specific text. Show Stage 0–1–2, A1–A2, 3–4, Stage 5,
+> then separate Stage 5–A3–Stage 8 and Stage 5–6–7–7.5–Stage 8 lanes before
+> the five role paths. Replace mutable duration metrics with
+> stable Track A, Track B, and one-result-per-stop guidance. Every arrow must land
+> on a card or node edge. No text, icon, border, node, or arrow may overlap.

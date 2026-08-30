@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-30T04:29:27.228Z"
+syncedAt: "2026-08-30T16:19:33.353Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -67,16 +67,11 @@ Choose either path for each exercise. Path A is for free practice. Path B is for
 
 Do the exercises first. Open the reading order when you get stuck.
 
-<details markdown="1">
-<summary>Expand three starting points and the reading order</summary>
-
 1. [Anthropic Prompt Engineering Tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial) — Follow the first notebook chapter once.
 2. [OpenAI Prompt Engineering](https://developers.openai.com/api/docs/guides/prompt-engineering) — Read about message roles, examples, and evals.
 3. [Google Prompt Design Strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies) — Read about clear instructions, fixed structures, and repeated testing.
 
 The official sources share a simple point: define success first, then test with fixed cases. Do not judge from one pretty answer.
-
-</details>
 
 ## 🛠 Hands-on Exercises
 
@@ -260,9 +255,6 @@ Writing only “return JSON” does not guarantee valid JSON every time. The pro
 
 Start with one of the three starting points above. The full list is a toolbox, not a to-do list.
 
-<details markdown="1">
-<summary>Expand 18 course, cookbook, example, and eval resources</summary>
-
 <small>Resources checked: 2026-08-27 UTC</small>
 
 > Recommendation is this Stage's reading order, not a popularity ranking: `⭐⭐⭐⭐⭐` = skipping it would block progress; `⭐⭐⭐⭐` = start here; `⭐⭐⭐` = read when needed; `⭐⭐` = historical or niche. This is an optional toolbox, so no forced five-star ratings.
@@ -306,8 +298,6 @@ Start with one of the three starting points above. The full list is a toolbox, n
     <tr><th scope="rowgroup" rowspan="1">Historical material</th><td><a href="https://github.com/microsoft/prompt-engine">Microsoft Prompt Engine</a></td><td>Use it only to see an early approach.</td><td>Archived; MIT; do not use for new projects</td><td>⭐⭐</td></tr>
   </tbody>
 </table>
-
-</details>
 
 ## 🔭 Advanced: What layers sit above prompting?
 

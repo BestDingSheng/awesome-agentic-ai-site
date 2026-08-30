@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/00-foundations.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-30T04:29:27.228Z"
+syncedAt: "2026-08-30T16:19:33.353Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "00-foundations"
@@ -190,9 +190,6 @@ For other unfamiliar words, check the [glossary](/en/resources/glossary/). To se
 
 Use an entry that matches the skill you need. You do not need to read all 18 resources.
 
-<details markdown="1">
-<summary>📚 18 learning resources grouped by topic</summary>
-
 <small>Learning resources and GitHub verification guidance checked: 2026-08-27 UTC</small>
 
 `Recommendation` is the learning priority, not a GitHub popularity number. Under the project rules, ⭐⭐⭐⭐⭐ means “you will get stuck without it”; everything below is supplemental, so it honestly uses ⭐⭐⭐⭐ (strongly recommended) or ⭐⭐⭐ (solid reference), without fake five-star ratings.
@@ -228,8 +225,6 @@ Use an entry that matches the skill you need. You do not need to read all 18 res
     <tr><td><a href="https://github.com/jqlang/jq">jq</a></td><td>Want to organize JSON from the command line</td><td>⭐⭐⭐⭐</td><td>Filters and organizes data returned by an API.</td></tr>
   </tbody>
 </table>
-
-</details>
 
 ---
 

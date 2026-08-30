@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-30T04:29:27.228Z"
+syncedAt: "2026-08-30T16:19:33.353Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -274,8 +274,7 @@ Anthropic’s analysis of Claude Code usage from 2025-10 through 2026-04 reporte
 4. [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) ⭐⭐⭐⭐⭐: Current Microsoft multi-agent/workflow implementation; do not start new projects with maintenance-mode AutoGen.
 5. [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents) ⭐⭐⭐⭐⭐: Connect concepts to complete implementations in Chinese.
 
-<details markdown="1">
-<summary>📚 24 complete learning resources and their limits</summary>
+## 📚 Complete learning resources and limits
 
 <table>
   <thead>
@@ -316,8 +315,6 @@ Anthropic’s analysis of Claude Code usage from 2025-10 through 2026-04 reporte
     <tr><td><a href="https://speech.ee.ntu.edu.tw/~hylee/">Li Hongyi Agent course</a></td><td>Chinese course and research background</td><td>⭐⭐⭐⭐⭐</td><td>Choose topics by year; check official docs for product interfaces</td></tr>
   </tbody>
 </table>
-
-</details>
 
 ## ✅ Self-check
 

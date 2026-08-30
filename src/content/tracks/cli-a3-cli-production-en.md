@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-30T04:29:27.228Z"
+syncedAt: "2026-08-30T16:19:33.353Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
@@ -59,8 +59,7 @@ If A2’s `review-changes` Skill cannot yet reliably output `PASS` or concrete i
 
 ## 📚 Required Reading
 
-<details markdown="1">
-<summary>Expand for required reading and reading order (checked 2026-08-27 UTC)</summary>
+<small>Required reading and learning resources checked: 2026-08-27 UTC</small>
 
 1. First read [MCP Connect to local servers](https://modelcontextprotocol.io/docs/2026-07-28/develop/connect-local-servers) to learn that a server can receive only the paths you give it.
 2. Then read [GitHub Actions Security Hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions) to understand least privilege and untrusted PRs first.
@@ -68,9 +67,6 @@ If A2’s `review-changes` Skill cannot yet reliably output `PASS` or concrete i
    - Claude Code: [official GitHub Actions documentation](https://code.claude.com/docs/en/github-actions)
    - Codex: [official GitHub Action documentation](https://learn.chatgpt.com/docs/github-action)
 4. When you need trace, eval, or complete production theory, continue to [Stage 7](/en/stages/07-multi-agent-production/) and [Stage 7.5](/en/stages/07-5-advanced-agentic-concepts/).
-
-The check date means the material was checked that day; it does not mean it will never change.
-</details>
 
 ## 🛠 Hands-on Exercises
 
@@ -222,9 +218,6 @@ Further reading: [`resources/subagent-cookbook.en.md`](/en/resources/subagent-co
 
 Editorial ratings are learning-map guidance, not GitHub stars. `⭐⭐⭐⭐⭐` marks a must-read or must-run entry for this path; it does not mean the tool is always safe or that production can skip its own threat model.
 
-<details markdown="1">
-<summary>Expand the complete learning resource table (18 items, checked 2026-08-27 UTC)</summary>
-
 <table>
 <thead>
 <tr><th scope="col">Type</th><th scope="col">Resource</th><th scope="col">Read first</th><th scope="col">When to use</th><th scope="col">Rating</th><th scope="col">Source</th></tr>
@@ -260,8 +253,6 @@ Editorial ratings are learning-map guidance, not GitHub stars. `⭐⭐⭐⭐⭐`
 </table>
 
 The directory only helps you “find candidates”; it does not guarantee a candidate is safe. Before installing any MCP, Action, Skill, or plugin, check its source, permissions, recent maintenance, and removal method again.
-</details>
-
 ## ✅ Track A Completion Check
 
 - [ ] MCP received only the demo folder or a minimal read-only toolset.

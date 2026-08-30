@@ -5,7 +5,7 @@ section: "Walkthrough"
 sourcePath: "walkthroughs/build-first-agent-in-7-steps.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/walkthroughs/build-first-agent-in-7-steps.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-30T04:29:27.228Z"
+syncedAt: "2026-08-30T16:19:33.353Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "build-first-agent-in-7-steps"
@@ -30,24 +30,24 @@ This is a **concrete cross-stage walkthrough** — the same agent, traced from S
 
 The agent to build: **Paper Summary Bot** — given an arXiv paper URL, output a 3-paragraph summary + 5 keywords + comparison with related work.
 
-Each stage **adds one capability** to the same agent. By the end it's a multi-LLM, memory-equipped, deployable agent.
+Each Stage **adds one capability** to the same agent. By the end, it can use multiple LLMs, remember the data it needs, and run as a deployed service.
 
 ---
 
 ## 📋 Overview
 
-| Stage | Capability you add | Code complexity |
+| Stage | Capability you add | Size of this step |
 |---|---|---|
-| 0 | Environment (Python, API key, git) | — |
-| 1 | First LLM API call | ~10 lines |
-| 2 | Write a professional prompt | ~20 lines |
-| 3 | Tool use: auto-fetch arXiv | ~80 lines |
-| 4 | Rewrite with framework + reflection | ~40 lines (framework abstracts the loop) |
-| 5 | Package as Claude Code Skill | SKILL.md + 30 lines |
-| 6 | Add RAG memory: compare with past papers | ~60 lines |
-| 7 | Add eval, observability, deploy | ~100 lines |
+| 0 | Environment (Python, API key, git) | Setup |
+| 1 | First LLM API call | Small |
+| 2 | Write a professional prompt | Small |
+| 3 | Tool use: auto-fetch arXiv | Medium |
+| 4 | Rewrite with a framework + a reflection check | Medium; the framework wraps some details |
+| 5 | Package as a Claude Code Skill | One config file + a small helper |
+| 6 | Add RAG and Memory: retrieve old papers, then compare | Medium |
+| 7 | Add Evals, Observability (run records), and Deployment | Larger |
 
-**Total**: ~300 lines of Python + structured config = a concrete example you watch grow from zero to production.
+**Final result**: one concrete example that grows from a small Python program into a service you can evaluate, inspect, and deploy.
 
 ---
 
@@ -613,7 +613,15 @@ docker run -p 8000:8000 \
 - [ ] Add RAG memory to make the agent stateful (Stage 6)
 - [ ] Write evals + connect observability + deploy (Stage 7)
 
-**This example is ~300 lines of Python** — more than a typical framework example, but every line is something you'll actually use.
+This walkthrough is longer than a single framework exercise because it shows the same agent growing one layer at a time. Each step should still run and be checkable on its own.
+
+---
+
+## ➡️ Next: return this Agent to the main route
+
+1. Read [Stage 7.5 — Advanced Agentic Concepts](/en/stages/07-5-advanced-agentic-concepts/) and choose only the advanced ideas this system actually needs.
+2. Then read [Stage 8 — Agent Interfaces](/en/stages/08-agent-interfaces/) to choose Search, Browser Use, Computer Use, or a Sandbox and add safety boundaries.
+3. To choose a different route, return to the [main-path README](/en).
 
 ---
 
@@ -621,9 +629,9 @@ docker run -p 8000:8000 \
 
 If you want to go deeper, this paper-summary-bot can extend into:
 
-- **Multi-agent paper review**: two agents play supportive vs adversarial reviewer, a third plays area chair → for-researcher branch
-- **Conference report generator**: given a conference proceedings URL, produce per-track high-level summaries → knowledge-worker branch
-- **Topic trend tracker**: weekly arXiv scan, compare new papers against existing memory, produce a weekly digest → personal-assistant branch
+- **Multi-agent paper review**: two agents play supportive vs adversarial reviewer, while a third plays area chair → [researcher path](/en/branches/for-researcher/)
+- **Conference report generator**: given a conference proceedings URL, produce per-track high-level summaries → [knowledge-worker path](/en/branches/for-knowledge-worker/)
+- **Topic trend tracker**: scan arXiv weekly, compare new papers with existing Memory, and produce a weekly digest → [everyday-user path](/en/branches/for-everyday-users/)
 
 Each maps to a specialized branch.
 

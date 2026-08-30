@@ -314,6 +314,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 - 图里的精确数字也要有官方依据。没有固定规则时，写“多个”“依模型而异”等诚实文字，不要为了好看造出范围。
 - 箭头只走留白通道，不穿过文字、icon 或其他卡片；arrowhead、icon、标签和框线不得互相重叠。同层卡片使用共同网格、等高和一致内边距。
 - 逐张以原始尺寸检查安全边距、文字、简繁字形、箭头、共同网格和对比；任何文字、icon、箭头或边框重叠都视为失败。最后运行 image-locale gate 和三语 MkDocs build。
+- 文档站会自动为非首屏教学图加入 lazy loading、async decoding 和可用键盘操作的“打开原图”入口；README 顶端 banner 保持 eager，不要在各章重复手写这些 HTML。新增或替换图片必须通过 `scripts/check-image-delivery.py` 的单图、单页、总量和构建后 HTML ratchet，并以 320／375／768／1440 px 人工确认 caption、表格、触控目标和图中文字确实能读。
 
 ### Reader UX ratchet
 
@@ -331,7 +332,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 - 转换后保留原有资源数量、顺序、链接和三语对应，并用 MkDocs 检查实际渲染。
 - 没有重复分类的短表格继续使用 Markdown，避免增加不必要的维护成本。
 
-含模型、价格、context、授权或生命周期状态的页面，把可见核查日期放进最相关的默认收起区，并用小字呈现；页首只保留不显示的机器 marker：
+含模型、价格、context、授权或生命周期状态的页面，把可见核查日期用小字放在受影响的表格或段落附近。只有该内容本身是补充资料时，日期才跟着收起；页首只保留不显示的机器 marker：
 
 ```markdown
 <small>资料核查：YYYY-MM-DD UTC</small>
@@ -341,7 +342,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 
 日期只写核查范围与日期，不重复加入“资料不会永久正确”等通用提醒。三语 marker 必须完全一致；`canonical` 一律指向繁中主页。官方没有公布的字段写“官方未公布”，不要从第三方榜单反推；第三方 benchmark 只能教读者怎样自行评测。
 
-**Stage 0 例外**：可以省略 `精选 Projects`、`进入条件`，因为它是 prerequisite gateway。可见主线依次保留跳过判断、4 个学习目标、1 个整合练习和简短完成检查；时间、环境、补充练习、名词与学习资源默认收合。
+**Stage 0 例外**：可以省略 `精选 Projects`、`进入条件`，因为它是 prerequisite gateway。可见主线依次保留跳过判断、4 个学习目标、1 个整合练习、18 项五星学习资源和简短完成检查；时间、环境、补充练习与名词默认收起。
 
 ---
 
@@ -412,7 +413,7 @@ Branch 的 entry 格式可以比 stage 简洁（不一定要完整 schema 表格
 
 完成回溯并加入 `scripts/reader-ux-pages.yml` 的角色页，在每个语系都保留可见主线 `📌 → 🎯 → 🧩 → 🛠 → 📚 → ✅`：先说明这条路线解决什么，再列学习目标、用粗体定义核心词、给出可复制的小任务、提供入口，最后做完成检查。先用白话定义核心词，再保留准确的英文术语；不能因为简化而删除后文会用到的技术词。
 
-第一个任务必须小、可测试、可回滚。若任务会修改文件，要写清 read-only plan、人工批准、diff、test、rollback，以及 agent 不得自行 push／merge／deploy。折叠与否看“读者现在需不需要”，不看内容叫阅读或项目：开始第一题必须用到的 1–3 个来源、推荐入口与安全警告保持可见；完整阅读顺序、长资源表、替代方案、费用、进阶流程和排错才放进默认关闭的 `<details markdown="1">`。把已有深链接的空 anchor 放到语意对应的新 heading 或 summary 旁，并保留可见的回到主路线链接。
+第一个任务必须小、可测试、可回滚。若任务会修改文件，要写清 read-only plan、人工批准、diff、test、rollback，以及 agent 不得自行 push／merge／deploy。必修阅读、精选项目、完整五星学习资源和安全警告保持可见；替代方案、费用、进阶流程和排错才放进默认关闭的 `<details markdown="1">`。专门的大型 catalog 可以让每个分类入口与安全边界可见，再让读者按分类展开其中上百项内容。把已有深链接的空 anchor 放到语意对应的新 heading 或 summary 旁，并保留可见的回到主路线链接。
 
 工具的核心身份和 surface 分开写。IDE、CLI、desktop、cloud、CI、SDK 可以同时出现，不能当成互斥分类。OpenRouter 是 Provider／Router，Ollama 是 Model／Runtime，coding agent／harness 是另一条身份轴。
 

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-30T04:29:27.228Z"
+syncedAt: "2026-08-30T16:19:33.353Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -274,8 +274,7 @@ Anthropic 對 2025-10 到 2026-04 Claude Code 使用資料的分析，平均觀�
 4. [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) ⭐⭐⭐⭐⭐：要看現行 Microsoft multi-agent／workflow 實作；不要從 maintenance-mode AutoGen 開新專案。
 5. [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents) ⭐⭐⭐⭐⭐：想用中文把概念接到完整實作。
 
-<details markdown="1">
-<summary>📚 展開：24 筆完整學習資源與限制</summary>
+## 📚 完整學習資源與限制
 
 <table>
   <thead>
@@ -316,8 +315,6 @@ Anthropic 對 2025-10 到 2026-04 Claude Code 使用資料的分析，平均觀�
     <tr><td><a href="https://speech.ee.ntu.edu.tw/~hylee/">李宏毅生成式 AI 課程</a></td><td>中文課程與研究背景</td><td>⭐⭐⭐⭐⭐</td><td>依年份挑主題；產品介面仍查官方 docs</td></tr>
   </tbody>
 </table>
-
-</details>
 
 ## ✅ 自我檢查
 

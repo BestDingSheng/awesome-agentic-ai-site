@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-30T04:29:27.228Z"
+syncedAt: "2026-08-30T16:19:33.353Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -105,9 +105,6 @@ It is a toolkit that lets your Python or TypeScript program control an agent. Th
 
 Read only two starting points before you begin: [Claude Code quickstart](https://code.claude.com/docs/en/quickstart) helps you install and open a first session, while [How Claude remembers your project](https://code.claude.com/docs/en/memory) helps you write the `CLAUDE.md` used in Exercise 1. Return to the other documents only when you meet the matching term; you do not need to read everything at once.
 
-<details markdown="1">
-<summary>Expand the official reading order</summary>
-
 1. [Claude Code quickstart](https://code.claude.com/docs/en/quickstart) — installation and your first session.
 2. [Extend Claude Code](https://code.claude.com/docs/en/features-overview) — one official table distinguishing CLAUDE.md, Skills, MCP, Hooks, Plugins, and Subagents.
 3. [How Claude remembers your project](https://code.claude.com/docs/en/memory) — the boundaries among `CLAUDE.md`, Rules, and auto memory.
@@ -117,8 +114,6 @@ Read only two starting points before you begin: [Claude Code quickstart](https:/
 7. [Plugins](https://code.claude.com/docs/en/plugins) — packaging and sharing extensions.
 8. [Subagents](https://code.claude.com/docs/en/sub-agents), [parallel agents](https://code.claude.com/docs/en/agents), and [Dynamic workflows](https://code.claude.com/docs/en/workflows) — isolation, collaboration, and large-scale scripted orchestration.
 9. [Agent SDK overview](https://code.claude.com/docs/en/agent-sdk/overview) — read only when you need to embed it in a program.
-
-</details>
 
 ## 🛠 Hands-on exercises
 
@@ -528,9 +523,6 @@ On your first pass, choose only one entry that matches the exercise at hand. Fiv
 
 **Start with this chapter project:** [`tool-calling-tutor`](/en) ⭐⭐⭐⭐⭐ — it is a Skill example in this repository that you can follow directly. For Claude Code releases and issues, use [`anthropics/claude-code`](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐.
 
-<details markdown="1">
-<summary>Expand the 35 grouped resources and verification date</summary>
-
 <small>Information checked: 2026-08-29 UTC</small>
 
 <table>
@@ -585,8 +577,6 @@ On your first pass, choose only one entry that matches the exercise at hand. Fiv
 <tr><td><a href="https://github.com/wshobson/agents">wshobson/agents</a></td><td>⭐⭐⭐⭐</td><td>Observe the readability and permission surface of a harness through actual Agent definitions.</td></tr>
 </tbody>
 </table>
-
-</details>
 
 <a id="-self-check-before-stage-6"></a>
 

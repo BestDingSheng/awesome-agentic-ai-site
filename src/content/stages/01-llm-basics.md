@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-30T04:29:27.228Z"
+syncedAt: "2026-08-30T16:19:33.353Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -79,9 +79,6 @@ Path A 需要 [Ollama](https://ollama.com)、`pip install openai`，以及 `olla
 
 先知道這五個官方入口；需要時再展開，不必讀完才開始練習。
 
-<details markdown="1">
-<summary>📚 展開必修閱讀與建議順序</summary>
-
 依序閱讀 1–3 後開始練習；4–5 在需要理解 token 或本機部署時查閱：
 
 1. [Anthropic Claude 模型總覽](https://platform.claude.com/docs/en/models/overview) — 型號、context 與價格入口。
@@ -89,8 +86,6 @@ Path A 需要 [Ollama](https://ollama.com)、`pip install openai`，以及 `olla
 3. [Google Gemini 模型文件](https://ai.google.dev/gemini-api/docs/models) — GA／Preview 狀態與 context。
 4. [Hugging Face LLM Course：Tokenizers](https://huggingface.co/learn/llm-course/chapter6/1) — tokenizer 如何切分文字。
 5. [Ollama 官方網站](https://ollama.com) — 本機模型安裝與服務啟動。
-
-</details>
 
 ## 🛠 動手練習
 
