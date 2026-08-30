@@ -1,21 +1,21 @@
 ---
-title: "Stage 7 — Loop & Graph Engineering: Multi-Agent Production"
-description: "This stage has one simple job: make an Agent do more than succeed once. You should be able to see and check its work, and it should stop safely when something goes wrong."
+title: "Stage 7 — Agent Production Engineering: Harness, Loops, and Graphs"
+description: "This stage is Agent Production Engineering: give the Agent a Harness where it can work safely, design a Loop that continues or stops based on evidence, and arrange the whole route with a Workflow Graph. It should do more"
 section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
 order: 7
 ---
-# Stage 7 — Loop & Graph Engineering: Multi-Agent Production
+# Stage 7 — Agent Production Engineering: Harness, Loops, and Graphs
 
 > [繁體中文](/zh-tw/stages/07-multi-agent-production/) | [简体中文](/stages/07-multi-agent-production/) | **English**
 
-This stage has one simple job: make an Agent do more than succeed once. You should be able to see and check its work, and it should stop safely when something goes wrong.
+This stage is **Agent Production Engineering**: give the Agent a **Harness** where it can work safely, design a Loop that continues or stops based on evidence, and arrange the whole route with a Workflow Graph. It should do more than “succeed once”: you should be able to see and check its work, and it should stop safely when something goes wrong.
 
 ## 🎯 What This Stage Does (Start Here)
 
@@ -50,7 +50,7 @@ Remember one rule:
 After this stage, you can:
 
 1. Explain when a single Agent is enough and when **Multi-Agent** is justified.
-2. Use **Orchestration** to arrange order, roles, and handoffs, and distinguish an **Agent Loop** from a **Workflow Graph**.
+2. Distinguish **Harness**, **Agent Loop**, and **Workflow Graph**: they work together, but none replaces the others.
 3. Use an **Eval** to check quality instead of saying, “It looks fine to me.”
 4. Use **Observability** to see steps, errors, latency, and token usage.
 5. Add a **Guardrail**, human approval, and recovery before other people use the Agent.
@@ -62,7 +62,7 @@ After this stage, you can:
 | **Multi-Agent** | Several helpers work together | Multiple Agents complete a task with explicit roles |
 | **Orchestration** | A conductor decides who acts next | The order, data flow, roles, and stop conditions of execution |
 | **Handoff** | One runner passes the baton | One Agent passes control and the needed context to another Agent |
-| **Harness** | A safe playground around the Agent | The runtime around models, tools, state, permissions, retries, tracing, and evaluation |
+| **Harness** | A safe workspace where the Agent does its job | The execution system that calls models, routes tools, and manages permissions, sandboxes, state, errors, and records; it commonly runs the Agent Loop too |
 | **Eval** | A small test that checks whether it really works | Fixed cases and scoring rules used to measure behavior |
 | **Observability** | A clear window into the system | Traces, logs, and metrics that reveal internal state |
 | **Guardrail** | A rail at the edge of the playground | Rules that limit inputs, outputs, tool permissions, or risky actions |
@@ -102,52 +102,46 @@ Read these five first. They explain the relationship between Agent Loops, Workfl
 
 </details>
 
-## The Five-Layer Engineering Split: Prompt → Context → Harness → Loop → Graph
+<a id="the-five-layer-engineering-split-prompt--context--harness--loop--graph"></a>
+## Five Control Questions: Prompt → Context → Harness → Loop → Graph
 
-These are not five products or five chapter numbers. They simply order the scope you control from small to large: each upper layer uses parts from the layers below it.
+These are five **check questions**, not five product layers. The Agent Loop manages one Harness run; Loop Engineering manages how a long task observes, adjusts, and stops; the Graph arranges its route. They work together; none replaces another.
 
-| Layer | Plain-language question | Precise name | First encountered | Deepened here |
-|---|---|---|---|---|
-| 1 | Did I explain the request clearly? | **Prompt Engineering** | [Stage 2](/en/stages/02-prompt-engineering/) | The Prompt and Eval in every stage |
-| 2 | Did I include the information it needs? | **Context Engineering** | [Stage 2](/en/stages/02-prompt-engineering/) to distinguish Prompt and Context | RAG / Memory in [Stage 6](/en/stages/06-memory-rag/) |
-| 3 | Can it use tools safely and stop after failure? | **Harness Engineering** | The runner / tool boundary in [Stage 3](/en/stages/03-tool-use-and-hello-agent/) | Examples in [Stage 5](/en/stages/05-claude-code-ecosystem/) and this stage's production checklist |
-| 4 | How does it act, inspect results, and act again without running forever? | **Loop Engineering** | The Agent Loop in [Stage 3](/en/stages/03-tool-use-and-hello-agent/) | This stage's bounded long-running loop |
-| 5 | Can every step, branch, and return path be seen and controlled? | **Graph Engineering** | The Workflow Graph in [Stage 4](/en/stages/04-agent-frameworks/) | This stage's production orchestration |
+| Control surface | Plain-language question | What runs | Work that designs it | First encountered | Deepened here |
+|---|---|---|---|---|---|
+| 1 | Did I explain the request clearly? | **Prompt** | **Prompt Engineering** | [Stage 2](/en/stages/02-prompt-engineering/) | The Prompt and Eval in every stage |
+| 2 | Did I include the information it needs? | **Context** | **Context Engineering** | [Stage 2](/en/stages/02-prompt-engineering/) to distinguish Prompt and Context | RAG / Memory in [Stage 6](/en/stages/06-memory-rag/) |
+| 3 | Can it use tools safely and stop after failure? | **Agent Harness** | **Harness Engineering** | The runner / tool boundary in [Stage 3](/en/stages/03-tool-use-and-hello-agent/) | Examples in [Stage 5](/en/stages/05-claude-code-ecosystem/) and this stage's production checklist |
+| 4 | How does it act, inspect, and act again without running forever? | **Agent Loop**; an outer loop may rerun the Harness | **Loop Engineering**: goals, evidence, adjustment, and stopping for long work | [Stage 3](/en/stages/03-tool-use-and-hello-agent/) | This stage's long-task loop |
+| 5 | Can every step, branch, and return path be seen and controlled? | **Workflow Graph** | **Production orchestration**; emerging writing may also say Graph Engineering | The Workflow Graph in [Stage 4](/en/stages/04-agent-frameworks/) | This stage's production orchestration |
 
 - **Stage 3: Agent Loop entry** — learn one execution of “model → tool → result → next step.”
 - **Stage 4: Workflow Graph entry** — use framework parts to draw nodes, edges, branches, and state.
-- **Stage 7: Loop / Graph Engineering deepening** — add budgets, verification, checkpoints, human approval, observability, and recovery.
+- **Stage 7: Agent Production Engineering integration** — connect Harness, Loop, and Graph, then add budgets, verification, checkpoints, human approval, observability, and recovery.
 
-**An Agent Framework is a toolbox; Graph Engineering uses that toolbox to design the whole work map.** That is why Stage 4 can still be titled Agent Frameworks; this stage should not simply rename it Graph Engineering.
+Stage 4 introduces the **Workflow Graph** and the **Agent Frameworks** that can implement it. Stage 7 makes that same map observable and recoverable as production orchestration. A framework is the toolbox, not the work map or the production discipline itself.
 
-![Five-layer Agent engineering stack](/upstream/resources/diagrams/agent-engineering-5layer.en.png)
+![One Agent run and the whole long-running task: Harness contains the Agent Loop; Workflow Graph arranges the route, while Loop Engineering adjusts from evidence](/upstream/resources/diagrams/agent-engineering-control-questions.en.png)
 
-Prompt, Context, and Harness already appear in major vendors' engineering material. **Loop Engineering** and **Graph Engineering** are umbrella terms taking shape in 2026: they were not invented by this project, and they are not yet standard names adopted by every vendor. The underlying **agent loop**, **workflow graph**, **graph-based workflow**, and **orchestration** are established practices.
+IBM explicitly describes **Loop Engineering** as an emerging practice. **Graph Engineering** is looser still; major framework documentation usually says **workflow**, **graph-based execution**, or **orchestration**. This stage keeps both labels so you can understand outside discussions, but teaches the actual responsibilities instead of presenting them as one industry-wide standard.
 
-Term sources: [IBM — Loop Engineering](https://www.ibm.com/think/topics/loop-engineering), [Loop Engineering exploratory preprint](https://arxiv.org/abs/2608.21884), and [Graph Engineering survey preprint](https://arxiv.org/abs/2608.21156). The papers are evidence for emerging terminology, not required reading for beginners.
+Definition sources: [IBM — Loop Engineering](https://www.ibm.com/think/topics/loop-engineering), [Anthropic — agent harness definition](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents), and [Microsoft Agent Framework — graph-based workflows](https://learn.microsoft.com/en-us/agent-framework/concepts/workflows/builder-and-execution).
 
-### What Is the Difference Between a Loop and a Graph?
+## 🧭 What Does Harness, Loop, and Graph Each Control?
 
-A **Loop** is like washing a plate: wash it, inspect it, and wash it again if it is still dirty.<br>
-A **Graph** is like a restaurant line: prepare, cook, and plate, with every box and order drawn out.
+They are not three product generations, nor does a newer one replace an older one. One system can contain all three:
 
-> **A box can contain a loop; the graph arranges the order between boxes.**
+| Responsibility | Plain-language meaning | What it manages | Common misunderstanding |
+|---|---|---|---|
+| **Harness** | The Agent's safe workbench | Processes input, calls the model, routes tools, returns results, and manages permissions, sandbox, state, errors, and logs | It is only a tool wrapper, or a Loop makes it obsolete |
+| **Loop** | Do one step, inspect evidence, then continue, stop, or ask a person | Goals, actions, observations, adjustments, budgets, stopping, and human escalation | It is only `for`/`while`, or a newer Harness |
+| **Graph** | A map of all stops, forks, and return routes | Nodes, edges, branches, parallel work, checkpoints, and human approval | Every node must be an Agent |
 
-<details markdown="1">
-<summary>🧠 Expand: choosing a Loop, Graph, or Multi-Agent design</summary>
-
-- Use a Loop when there is one path that may need many retries.
-- Use a Graph / Workflow when there are branches, parallel steps, human approvals, or a need to resume in the middle.
-- Add Multi-Agent only when parts can truly work independently or distinct roles must check one another.
-- A Graph node can be an Agent, a tool, fixed code, or “wait for human approval.” Not every box needs an Agent.
-
-![What is inside a graph](/upstream/resources/diagrams/inside-a-graph.en.png)
-
-</details>
+In practice the boundaries necessarily overlap. Anthropic describes a harness as a loop that calls Claude and routes tools; the OpenAI Agents SDK Runner also executes an agent loop. The point is not to police wording, but to debug with three questions: **What makes the system execute safely? Why should it take another round? How does the whole route proceed?**
 
 ## 🏗 Harness Engineering — Production Agent Runtime Design ⭐ Core Concept of This Stage
 
-**Harness Engineering** means designing the runtime outside the model. The model thinks. The Harness controls which tools it may use, where state lives, when to stop, how to recover, and how we know what happened.
+**Harness Engineering** means designing the runtime that lets a model act as an Agent. The model produces decisions; the Harness processes input, tools, state, permissions, failures, and results, and it often runs the agent loop directly. An outer scheduler may call the Harness many times, so a Harness is not limited to “one short run.” Sources: [OpenAI — Harness engineering](https://openai.com/index/harness-engineering/), [Anthropic — agent harness definition](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents), and [Anthropic — Managed agents](https://www.anthropic.com/engineering/managed-agents).
 
 ### The 8 Core Components of a Harness
 
@@ -173,6 +167,44 @@ These eight items are this project’s production checklist, not the world’s o
 - Prompt caching, batching, model routing, and smaller models may reduce cost, but results depend on the workload. Measure a baseline, change one thing, and measure again.
 - Anthropic prompt caching can be automatic or use explicit `cache_control`. Cache duration and read/write pricing depend on the option; use the [official documentation](https://platform.claude.com/docs/en/build-with-claude/prompt-caching).
 - Traces may capture sensitive inputs and outputs. Configure redaction, retention, and access before release.
+
+</details>
+
+## 🔁 Loop Engineering — Let the Agent Act, Observe, Adjust, and Know When to Stop
+
+First separate three kinds of Loop that sound similar but cover different scopes:
+
+| Name | What repeats | Example |
+|---|---|---|
+| **Program loop** | The same code block | `for item in items`; this is syntax, not the topic of this section |
+| **Agent Loop** | Model → tool → tool result → model | Keep calling tools inside one run until completion or `max_turns` |
+| **Loop Engineering** | Goal → action → observation → adjustment | Repeat work in one long run or across sessions／schedules, with verification, memory, budgets, and stop conditions on every round |
+
+IBM explains Loop Engineering as `Goal → Action → Observation → Adjustment`. The point is not to let an Agent run forever. Every round must answer: **Is the goal still valid? Is the evidence enough? Should we continue, stop, or hand control to a person?**
+
+Therefore, Loop Engineering **is not the next Harness product generation and does not automatically replace a Harness**. In Anthropic's terminology, the Harness itself includes the loop that calls the model and routes tools. IBM's broader Loop Engineering practice includes goals, checking, tools, hooks, context, subagents, and persistent state. Sources draw the boundary differently, so remember the responsibilities instead of memorizing one universal layer diagram. Sources: [IBM — Loop Engineering](https://www.ibm.com/think/topics/loop-engineering) and [Anthropic — Managed Agents](https://www.anthropic.com/engineering/managed-agents).
+
+When models improve, a particular patch may be removable. For example, Anthropic removed context resets used by an earlier harness for newer models. That only means **the same Evals showed one workaround was no longer needed**. It does not mean permissions, safety, logs, evals, or recovery automatically became obsolete. Source: [Anthropic — Harness design for long-running applications](https://www.anthropic.com/engineering/harness-design-long-running-apps). Stage 7.5 explains how to keep, simplify, or remove each part under [Model–Harness Fit](/en/stages/07-5-advanced-agentic-concepts/).
+
+<a id="-graph-engineering--arrange-steps-loops-and-approvals-into-a-complete-route"></a>
+## 🗺 Workflow Graph / Production Orchestration — Arrange Steps, Loops, and Approvals into a Complete Route
+
+A **Loop** is like washing a plate: wash it, inspect it, and wash it again if it is still dirty.<br>
+A **Graph** is like a restaurant line: prepare, cook, and plate, with every box and order drawn out.
+
+Outside writing sometimes calls this engineering work **Graph Engineering**. The label is emerging. What matters is learning nodes, edges, branches, cycles, state, checkpoints, and human approval—not memorizing a name that is not yet standardized.
+
+> **A box can contain a loop; the graph arranges the order between boxes.**
+
+<details markdown="1">
+<summary>🧠 Expand: choosing a Loop, Graph, or Multi-Agent design</summary>
+
+- Use a Loop when there is one path that may need many retries.
+- Use a Graph / Workflow when there are branches, parallel steps, human approvals, or a need to resume in the middle.
+- Add Multi-Agent only when parts can truly work independently or distinct roles must check one another.
+- A Graph node can be an Agent, a tool, fixed code, or “wait for human approval.” Not every box needs an Agent.
+
+![What is inside a graph](/upstream/resources/diagrams/inside-a-graph.en.png)
 
 </details>
 

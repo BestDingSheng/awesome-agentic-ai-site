@@ -1,21 +1,21 @@
 ---
-title: "Stage 4 — Agent 框架（Agent Frameworks）"
-description: "你在 Stage 3 已经自己写过工具循环。这一关要做的事很简单：看看哪些重复工作可以交给现成工具箱，并学会什么时候不要把系统变复杂。"
+title: "Stage 4 — Workflow Graph 与 Agent 框架"
+description: "你在 Stage 3 已经自己写过 Agent Loop。这一关先把多步工作画成 Workflow Graph，再选 Framework（框架） 来帮你接线。先看懂工作地图，再选工具箱，才不会因为某个框架很流行就硬把事情变复杂。"
 section: "Stage"
 sourcePath: "stages/04-agent-frameworks.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/04-agent-frameworks.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "04-agent-frameworks"
 order: 4
 ---
-# Stage 4 — Agent 框架（Agent Frameworks）
+# Stage 4 — Workflow Graph 与 Agent 框架
 
 > [繁体中文](/zh-tw/stages/04-agent-frameworks/) | **简体中文** | [English](/en/stages/04-agent-frameworks/)
 
-你在 Stage 3 已经自己写过工具循环。这一关要做的事很简单：看看哪些重复工作可以交给现成工具箱，并学会什么时候不要把系统变复杂。
+你在 Stage 3 已经自己写过 **Agent Loop**。这一关先把多步工作画成 **Workflow Graph**，再选 **Framework（框架）** 来帮你接线。先看懂工作地图，再选工具箱，才不会因为某个框架很流行就硬把事情变复杂。
 
 <!-- freshness: canonical=stages/04-agent-frameworks.md; verified_on=2026-08-27; scope=frameworks,releases,maintenance,licenses,security; max_age_days=90 -->
 
@@ -23,21 +23,34 @@ order: 4
 
 完成这一关后，你可以：
 
-- 用自己的话分清固定流程、动态决策与多角色系统。
+- 用自己的话分清 Agent Loop、Workflow Graph、Agent framework 与多角色系统。
 - 先选最简单能完成任务的工具，不为了流行硬加角色。
 - 跑完五个练习，亲手比较 LangGraph、CrewAI、Smolagents 与 Pydantic AI。
 - 说出交接、存档与人工批准各自解决什么问题。
 
 ## 🧩 先认识八个核心词
 
+- **Workflow（工作流程）／Workflow Graph（工作流程图）**：像照食谱做菜，再把每一步和下一站画出来。程序先写好 node、edge 与分支，模型只完成其中需要判断的工作。
 - **Framework（框架）**：一盒已经整理好的积木。它帮你接好循环、工具、记录与错误处理；但盒子越大，藏起来的细节也越多。
-- **Workflow（工作流程）**：像照食谱做菜。程序先写好下一步走哪里，模型只完成其中的工作。
 - **Agent（智能体）**：像拿到目标的助手。模型可以根据当前结果决定下一步，但真正的权限、验证与停止条件仍由程序控制。
 - **Orchestration（编排）**：像交通指挥。它安排谁先做、谁后做、数据交给谁，以及失败时怎么回来。
 - **State（状态）**：像工作中的笔记本。它记住当前输入、工具结果、进度与下一步需要的数据。
 - **Checkpoint（检查点）**：像游戏存档。流程中断后，可以从已保存的位置继续，不必全部重来。
 - **Handoff（交接）**：像把工作单交给另一位同学。新的 Agent 接手后，需要拿到足够背景，也不能得到不需要的权限。
 - **Human-in-the-loop（HITL，人在循环中）**：像先举手请老师看。程序在花钱、寄信、删除数据或发布前暂停，等人批准才继续。
+
+<a id="-先分清loopframework-与-graph"></a>
+## 🧭 先分清：Loop、Graph 与 Framework
+
+| 名称 | 五岁也懂的说法 | 正确边界与学习位置 |
+|---|---|---|
+| **Agent Loop** | 助手做一步、看结果，再决定下一步 | Stage 3 的一次执行内循环：model → tool call → execute → tool result → model |
+| **Workflow Graph** | 把每一站和道路画出来 | 用 node、edge、branch 与 state 表示工作顺序；格子里可以是 Agent、工具、检查或人工批准 |
+| **Agent Framework** | 一盒帮你接线的工具积木 | 提供 runner、tool、state、handoff、checkpoint 等零件；一个 Agent 也能使用 |
+| **Loop Engineering** | 设计它怎么反复做、怎么验证、何时停 | Stage 7 才加入预算、验证、恢复与人工升级 |
+| **Production orchestration（上线编排）** | 把整张工作地图做成真的能安全运行 | Stage 7 才为多个 loop、工具和人工批准加上观测、恢复与停止规则；新兴文章也可能称为 Graph Engineering |
+
+**Framework 是工具箱；Workflow Graph 是你画出的工作地图；Production orchestration 是让地图能安全运行的工程工作。** **Graph Engineering** 是新兴但还未统一的称呼，不是 Framework 的另一个名字。**Multi-Agent** 可以放进图里，但不是每张图都需要多个 Agent，也不是每个 node 都必须是 Agent。
 
 ## 🗺️ 先看一张选择地图
 
@@ -58,12 +71,10 @@ order: 4
 - Path B：本章用 Anthropic Haiku 比较。单次成本公式是 `输入 tokens ÷ 1,000,000 × $1 + 输出 tokens ÷ 1,000,000 × $5`；五题总成本是五次实际用量相加，不先猜固定小数。
 
 </details>
+
 ## 📚 必修阅读
 
-先读“怎么选简单形状”，再挑一个框架 Quickstart。完整清单默认收起，避免还没动手就撞上资源墙。
-
-<details markdown="1">
-<summary>展开四份必修阅读与顺序</summary>
+先读“怎么选简单形状”，再从第 4 步的两个 framework Quickstart 中挑一个。下面共有 4 个阅读步骤、5 个官方链接；先按顺序读，不必一次读完每一页。
 
 1. [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)：先分清 workflow 与 agent，也看懂为什么要从简单方案开始。
 2. [LangGraph — Workflows and Agents](https://docs.langchain.com/oss/python/langgraph/workflows-agents)：看固定路线与动态路线怎么写成图。
@@ -72,11 +83,10 @@ order: 4
 
 第三方排行榜可以提供候选名单，但不能证明版本、授权、可用性或哪个“最强”。这些事以官方文件与你自己的 eval 为准。
 
-</details>
+<a id="-什么是-multi-agent-framework"></a>
+## 🤔 什么是 Agent framework？
 
-## 🤔 什么是 multi-agent framework？
-
-Multi-agent system 是“多个 Agent 分工”。Multi-agent framework 则是帮它们安排交接、共享数据、重试、存档与人工批准的工具箱。它不是魔法，也不是每个项目的默认答案。
+Agent framework 是帮一个或多个 Agent 接好模型、工具、state、重试、存档与人工批准的工具箱。**一个 Agent 也能使用 framework；Multi-Agent 只是后面的一种系统形状，不是 framework 的定义。** Framework 不是魔法，也不是每个项目的默认答案。
 
 <a id="两个维度先分清楚workflow-vs-agent--single-vs-multi"></a>
 ### 两个维度先分清楚（workflow vs agent / single vs multi）
@@ -89,7 +99,7 @@ Multi-agent system 是“多个 Agent 分工”。Multi-agent framework 则是�
 这四格会重叠。例如 LangGraph 的 conditional edge 可以同时有固定规则与模型决策。表格是帮你问问题，不是把所有系统硬塞进盒子。
 
 <a id="什么时候真的需要-multi-agent不要硬上"></a>
-### 什么时候**真的**需要 multi-agent（不要硬上）
+### 什么时候**真的**需要 Multi-Agent（不要硬上）
 
 先用一个 Agent。只有出现下面的证据，再考虑增加角色：
 
@@ -247,10 +257,7 @@ py -3.11 test.py
 
 ## 🎯 精选 Projects
 
-第一个入口选 [LangGraph](https://github.com/langchain-ai/langgraph) ⭐⭐⭐⭐⭐：你能直接看到 state、edge、checkpoint 与中断点。其他 17 笔依用途收合；推荐度是本章学习顺序，不是人气排行榜。
-
-<details markdown="1">
-<summary>展开 18 笔框架、harness 与基础设施</summary>
+第一个入口先看 [LangGraph](https://github.com/langchain-ai/langgraph) ⭐⭐⭐⭐⭐：你能直接看到 state、edge、checkpoint 与中断点。其余 17 条已按用途分组放在下面；推荐度是本章学习顺序，不是人气排行榜。
 
 <small>框架信息核查：2026-08-27 UTC</small>
 
@@ -294,11 +301,9 @@ py -3.11 test.py
   </tbody>
 </table>
 
-</details>
-
 ## ✅ 进 Stage 5 前的自我检查
 
-- [ ] 我能分清 Workflow、Agent 与 multi-agent，不把它们当同一件事。
+- [ ] 我能分清 Agent Loop、Agent framework、Workflow Graph 与 Multi-Agent，不把它们当同一件事。
 - [ ] 我会先用最简单方案，只有看到可量化证据才增加 Agent。
 - [ ] 我能说明 State、Checkpoint、Handoff 与 HITL 各自保存或控制什么。
 - [ ] 我跑过五题的离线测试，并完成至少一条 Ollama Path A。

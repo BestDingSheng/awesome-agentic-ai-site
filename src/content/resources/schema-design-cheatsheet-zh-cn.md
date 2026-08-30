@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "schema-design-cheatsheet"
@@ -14,7 +14,7 @@ baseSlug: "schema-design-cheatsheet"
 
 > [繁體中文](/zh-tw/resources/schema-design-cheatsheet/) | **简体中文** | [English](/en/resources/schema-design-cheatsheet/)
 
-> [Stage 3 — Tool Use & Agent 入门](/stages/03-tool-use-and-hello-agent/) 的补充参考。写 tool / function schema 时的 5 条黄金规则 + 5 个 anti-pattern。
+> [Stage 3 — 工具使用与第一个 Agent Loop](/stages/03-tool-use-and-hello-agent/) 的补充参考。写 tool / function schema 时的 5 条黄金规则 + 5 个 anti-pattern。
 
 > 规格查核：2026-08-27 UTC。Schema 是模型和程序共同使用的接口；写清楚会减少歧义，但不能代替应用程序验证或固定 eval。
 
@@ -171,5 +171,5 @@ Tool 失败只回 `null` 或 `{}`，模型可能把空数据当成功。返回�
 - [Anthropic — Define Tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools) — 官方 schema 与 description 指南
 - [Anthropic — Handle Tool Calls](https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls) — Tool Result 与 `is_error`
 - [OpenAI — Function Calling](https://developers.openai.com/api/docs/guides/function-calling) — strict mode 与 function schema 规格
-- [Stage 3 — Tool Use & Agent 入门](/stages/03-tool-use-and-hello-agent/) — 主要动手练习
+- [Stage 3 — 工具使用与第一个 Agent Loop](/stages/03-tool-use-and-hello-agent/) — 主要动手练习
 - [Stage 5.2 — MCP 基础](/stages/05-claude-code-ecosystem/#52--mcpmodel-context-protocol-基础) — MCP server 也使用 tool schema，但 host、权限与协议层不同

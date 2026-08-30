@@ -152,7 +152,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 |---|---|
 | follow 条款 | 遵守条款 |
 | ready-made 教材 | 现成可改的教材 |
-| NotebookLM-like 工具 | 类 NotebookLM 的工具 / 类似 NotebookLM 的工具 |
+| Gemini Notebook-like 工具 | 类 Gemini Notebook 的工具 / 类似 Gemini Notebook 的工具 |
 | 视觉化 node-based | 视觉化节点式 |
 | Anthropic host 的 server | Anthropic 维护的 server |
 | coding 流程 | 开发流程 / 程序开发流程 |
@@ -308,9 +308,12 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 ### 概念图写法
 
 - 先在正文用白话定义核心词，再用图整理它们的关系；不要让图片成为读者第一次遇到术语的地方。
-- 三语图保持相同构图、顺序、数字和限制，并分别提供正确语言的图片与 alt text。
+- 默认参考主页 README：奶油白底、深蓝主字、少量亮色、圆角卡片、简单线条 icon、充足留白和一个主要阅读方向。每张图只回答一个核心问题；信息太多时拆成两张，不缩小文字硬塞。
+- 新画或重画的概念图用 Image 2.0 生成 PNG，不用临时 SVG 代替；旧图轮到该章重画时再套用，不一次迁移所有历史图片。
+- 三语图保持相同画布比例、构图、共同网格、顺序、数字和限制，并分别提供正确语言的图片与 alt text。卡片位置、外边距、内边距和同层高度应一致。
 - 图里的精确数字也要有官方依据。没有固定规则时，写“多个”“依模型而异”等诚实文字，不要为了好看造出范围。
-- 逐张以原始尺寸检查文字、简繁字形、箭头和对比；最后运行 image-locale gate 和三语 MkDocs build。
+- 箭头只走留白通道，不穿过文字、icon 或其他卡片；arrowhead、icon、标签和框线不得互相重叠。同层卡片使用共同网格、等高和一致内边距。
+- 逐张以原始尺寸检查安全边距、文字、简繁字形、箭头、共同网格和对比；任何文字、icon、箭头或边框重叠都视为失败。最后运行 image-locale gate 和三语 MkDocs build。
 
 ### Reader UX ratchet
 
@@ -415,6 +418,24 @@ Branch 的 entry 格式可以比 stage 简洁（不一定要完整 schema 表格
 
 角色页的分组资源表遵守上面的 `rowspan` 规则。三种语系保留相同 URL 顺序、状态、授权、限制和稳定编辑评分（⭐⭐⭐–⭐⭐⭐⭐⭐）；不写易变的 GitHub stars。ELI5 白话仍须保留等价语意、技术名称和安全边界。
 
+### Cookbook
+
+Cookbook 的用途、选择表、核心词、六份 recipe 标题、成果、第一个可复制动作、必读、精选资源和完成检查应保持可见；九个完整步骤／替代路径／排错区块默认收合，使用闭合的 `<details markdown="1">`，且不得添加 `open`。每个核心词第一次出现时都要用粗体和通俗语言定义；不得把可执行命令或产品名称翻译成另一种东西。
+
+完整资源表固定使用六个独立 `<tbody>`，分类单元格使用 `scope="rowgroup"` 和 `rowspan`。三种语言的 URL、命令、日期、许可证、安全边界和编辑评分必须一致。社区集成必须标明非官方、可能失效，并提供官方 fallback。易变事实附上核查日期，但不得承诺“永远最新”。
+
+### Resources 工具柜入口
+
+`resources/README*` 先问读者卡在哪里，再用粗体和白话定义 Reference、Guide、Cookbook、Catalog 与 Glossary。11 份 reference 的入口、用途、限制与回到主路线的链接保持可见；只折叠分文件的理由与 maintainer 规则。不要添加会变化的行数、GitHub stars，也不要把旧产品名称写成当前名称。
+
+完整入口表固定使用五个独立 `<tbody>`，分类行数为 `4／2／2／2／1`。同类型只在第一行出现一次，使用 `scope="rowgroup"` 与真正的 `rowspan`；不能用重复文字或空白单元格假装合并。每种语言都链接自己的 mirror，并保持相同顺序与语意。
+
+### Glossary 查词入口
+
+Glossary 的快速地图、工具身份表、每个词的 heading 和一句白话定义保持可见；不能把最短答案藏进 `<details>`。只有 maintainer 完整分类表、来源与核查说明默认收合。核心词第一次出现在可见文字时继续用**粗体**标出，并保留准确的技术名称。
+
+工具身份表必须分清 Provider API、Router、Model Runtime、Coding Agent／Agent Harness 与 Agent Framework。不要把容易变化的型号、价格、context 或固定 token 换算复制进 Glossary；改为链接有 freshness gate 的章节或官方文档。
+
 ### 内部链接
 - Stage 之间：相对路径 `[Stage 4](./04-agent-frameworks.zh-Hans.md)`
 - Branch ↔ README：`[← 回主路线](../README.zh-Hans.md)`
@@ -443,6 +464,6 @@ Branch 的 entry 格式可以比 stage 简洁（不一定要完整 schema 表格
 
 ## 修改本指南
 
-这份指南本身也欢迎 PR。修改前请先开 Issue 讨论——术语决策影响 100+ 个 entry。
+这份指南本身也欢迎 PR。修改前请先开 Issue 讨论——术语决策会影响三语中的许多 entry。
 
 当前 maintainer：[@WenyuChiou](https://github.com/WenyuChiou)。

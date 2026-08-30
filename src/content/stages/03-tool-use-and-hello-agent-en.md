@@ -1,21 +1,21 @@
 ---
-title: "Stage 3 — Tool Use & Hello Agent ⭐"
-description: "This stage does one thing: let the model fill out a “tool work order,” then have your program validate it, execute it, and send the result back."
+title: "Stage 3 — Tool Use & Your First Agent Loop ⭐"
+description: "This stage does one thing: let the model fill out a “tool work order,” then have your program validate it, execute it, and send the result back. This round trip is your first Agent Loop."
 section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
 order: 3
 ---
-# Stage 3 — Tool Use & Hello Agent ⭐
+# Stage 3 — Tool Use & Your First Agent Loop ⭐
 
 🌐 **English** | [繁體中文](/zh-tw/stages/03-tool-use-and-hello-agent/) | [简体中文](/stages/03-tool-use-and-hello-agent/)
 
-This stage does one thing: let the model fill out a “tool work order,” then have your program validate it, execute it, and send the result back.
+This stage does one thing: let the model fill out a “tool work order,” then have your program validate it, execute it, and send the result back. This round trip is your first **Agent Loop**.
 
 <!-- freshness: canonical=stages/03-tool-use-and-hello-agent.md; verified_on=2026-08-27; scope=models,pricing,tool-apis,security; max_age_days=90 -->
 
@@ -57,7 +57,7 @@ A Tool Result is the data returned after the program finishes the work, matched 
 
 ### **Agent Loop**
 
-The program repeats “ask the model → execute a tool → return the result” until it gets an answer or reaches a limit. It is like following a recipe one step at a time and stopping when it is done. This chapter’s working definition is `model + tools + bounded loop`; it is a learning definition, not the only academic definition of an Agent.
+The program repeats “ask the model → execute a tool → return the result” until it gets an answer or reaches a limit. It is like following a recipe one step at a time and stopping when it is done. The full round trip is `model → tool call → execute → tool result → model`. This chapter’s working definition is `model + tools + bounded loop`; it is a learning definition, not the only academic definition of an Agent.
 
 ### **ReAct**
 
@@ -87,14 +87,14 @@ The model returns data in a fixed shape, such as JSON that conforms to a schema.
 
 ## 📚 Required Reading
 
-<details markdown="1">
-<summary>Expand for the three required readings, order, and chapter setup</summary>
-
 Read in this order:
 
 1. [Ollama Tool Calling](https://docs.ollama.com/capabilities/tool-calling) ⭐⭐⭐⭐⭐ — Start with the single-tool and multi-turn loop.
 2. [Anthropic — How Tool Use Works](https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works) ⭐⭐⭐⭐⭐ — See what the model, application, and tool result each do.
 3. [ReAct paper](https://arxiv.org/abs/2210.03629) ⭐⭐⭐⭐ — Read the abstract first; learn where Reasoning + Acting comes from without trying to finish every equation at once.
+
+<details markdown="1">
+<summary>Expand prerequisites, setup, time, and budget</summary>
 
 **Prerequisites**: You can run Python, understand lists/dicts/functions, and have completed [Stage 02](/en/stages/02-prompt-engineering/).
 
@@ -492,9 +492,6 @@ This chapter covers a single-session loop only. For carrying failed experiences 
 
 Complete one five-star route first: official docs → Exercises 1–3 → one from-scratch implementation. The full table is a toolbox, not a list of 21 tasks.
 
-<details markdown="1">
-<summary>Expand 21 official docs, courses, repos, and Structured Output tools</summary>
-
 <small>Resources checked: 2026-08-27 UTC</small>
 
 > Ratings indicate this Stage’s learning priority, not popularity: `⭐⭐⭐⭐⭐` = skipping it will block this chapter’s route; `⭐⭐⭐⭐` = recommended early; `⭐⭐⭐` = read if needed; `⭐⭐` = historical or niche context.
@@ -544,8 +541,6 @@ Complete one five-star route first: official docs → Exercises 1–3 → one fr
   </tbody>
 </table>
 
-</details>
-
 ## ✅ Self-Check Before Stage 4
 
 - [ ] I can explain `schema → call → execute → result → answer` in my own words.
@@ -554,4 +549,4 @@ Complete one five-star route first: official docs → Exercises 1–3 → one fr
 - [ ] I ran Exercises 1–3 and saw at least one successful and one error path.
 - [ ] When comparing models or schemas, I used the same test set and explicit scores.
 
-Once these are done, enter [Stage 4 — Agent Frameworks](/en/stages/04-agent-frameworks/). If you still cannot explain the full round trip, rerun Exercise 1; you do not need to reread the whole chapter.
+Once these are done, enter [Stage 4 — Workflow Graphs & Agent Frameworks](/en/stages/04-agent-frameworks/). If you still cannot explain the full round trip, rerun Exercise 1; you do not need to reread the whole chapter.

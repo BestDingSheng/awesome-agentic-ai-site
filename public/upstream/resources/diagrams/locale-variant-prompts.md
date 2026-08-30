@@ -62,6 +62,31 @@ Git 歷史復原。
 三語圖必須各自引用 locale 檔，並由 `scripts/test_stage075_content.py` 鎖住六張 PNG 的尺寸、
 不同 hash 與正文引用。完整文字表與重產限制在 [`concept-prompts.md`](concept-prompts.md)。
 
+## 2026-08-29：Stage 7.5 Model–Harness Fit 判斷圖
+
+新增 `model-harness-fit.png`、`.en.png`、`.zh-Hans.png`。圖先讓一個 Harness 元件跑同一組 Eval，再分成平行的 Keep／Simplify／Remove 三個結果；三者不是成熟度階梯，也不暗示所有元件最後都應移除。底部固定提醒「模型變強不等於安全邊界自動過時」與「一次只改一個元件，再測一次」。
+
+初版繁中圖雖然文字正確，但 imagegen 自行加上紅色印章、山水、竹子與雲紋，不符合技術教材 house style，也違反無 watermark 約束；最終版移除全部裝飾與印章，改用暖白底、細電路線、深藍大字與藍／橘／綠三張平行卡。英語與簡中以通過人工檢查的最終繁中版作構圖 reference，各自換入完整逐字文字表。獨立 review 發現第一張簡中圖仍殘留「保護／步驟」兩個繁體詞，因此重新產圖並逐字複查；最終簡中橘卡人工逐字確認為「保护仍然需要，但步骤可以更少」。PNG 內文目前仍由人工圖文稽核，不能把一般文字檢查誤稱為 OCR。
+
+共同 prompt 約束：
+
+> Show one Harness component, run the same Eval, then branch into three equal
+> parallel outcomes: KEEP when removing it restores a repeatable failure,
+> SIMPLIFY when the protection still matters but fewer steps are enough, and
+> REMOVE when a deletion test passes without quality loss. State that a stronger
+> model does not automatically obsolete safety boundaries and that only one
+> component changes before retesting. Warm off-white modern technical-textbook
+> style, flat vector icons, no arrow between outcomes, no maturity ladder, no
+> model/version/price/ranking/vendor fact, no logo, seal, stamp, signature, or
+> watermark, and only the supplied locale text.
+
+人工驗收逐張確認：
+
+- 三個結果都從同一個 Eval 分出去，彼此之間沒有箭頭。
+- 繁中圖沒有印章或山水裝飾；英語圖沒有中文；簡中圖沒有繁體字。
+- 圖沒有把 prompt workaround 與 permission／sandbox／log／Eval／recovery 畫成同一種可隨意刪除的東西。
+- 九張 Stage 7.5 圖維持不同 hash，三語正文各自引用 locale 檔。
+
 ## 2026-08-28：Stage 6 RAG 與 Memory 三路圖
 
 新增 `rag-memory-map.png`、`.en.png`、`.zh-Hans.png`。三張都使用 16:9 亮色白底卡片，固定畫出三條互不串線的路：文件切成 Chunk、轉成 Embedding 並寫進 Vector Database；問題取回相關片段、經 Reranking 後產生有來源的答案；重要狀態寫進 Memory，下一次再讀回來。每條箭頭只在自己的色框內由左往右，不暗示 Vector Database 會自動寫入 Memory。
@@ -153,16 +178,17 @@ Git 歷史復原。
 還引入新缺陷（標籤壓框、文字被形狀邊緣裁切）。
 **指定重新生成、並附完整規格，比叫它「只修這兩點」可靠。**
 
-## 已知未竟事項
+## 已退役的舊圖
 
-`rag-pipeline-overview` 與 `chunking-strategies` 這兩組（共 6 張）**視覺等級不如 teacher 兩組**——
-是乾淨、文字正確、三語一致的淺色卡片流程圖，但沒有線條 icon、配色也弱。
-四次嘗試都在「有 house style 但有瑕疵」與「乾淨但退回素面」之間擺盪。
+2026-08-30 全站引用掃描確認下列舊圖已沒有任何頁面使用，因此直接移除，不再重畫：
 
-要再挑戰的話，建議：
-- 以 `teacher-ai-use-cases-overview.png` 為唯一視覺樣板，把它的構圖元素逐項拆解寫進 brief
-- 或改用 `--model` 指定不同模型重試
-- 原始 `.jpg`（2026-05 版）仍在 git 歷史中，必要時可還原
+- `rag-pipeline-overview` 三語圖：由 Stage 6 的 `rag-memory-map` 三語圖取代。
+- `chunking-strategies` 三語圖：內容已放入 Stage 6 漸進式文字教學，不再保留素面流程框。
+- `reflexion-persistent-memory-loop` 三語圖：內容已整合進 Stage 6 的 RAG／Memory 路線。
+- `multi-agent-debate-flow` 三語圖：沒有頁面使用，且深色霓虹風不符合目前主頁式視覺規範。
+- `branch-tier-progression.png`：角色入口不是必走的升級階梯，表格比箭頭圖更不容易誤導。
+
+這些圖仍可從 Git 歷史取回。`check-image-locale.py` 現在也會阻擋新的未引用圖檔，避免新版上線後又把舊版留在 repository。
 
 ## 重產時的檢查
 
@@ -174,35 +200,49 @@ python scripts/check-image-locale.py
 `KNOWN_MISSING` 白名單裡——所以**新增一張缺變體的圖會讓 build 失敗**，不會默默累積。
 補完變體後記得把對應的 `KNOWN_MISSING` 條目一起移除。
 
-## 2026-08-29：Stage 7 五層圖名詞與順序修正
+## 2026-08-29：Stage 7 控制問題圖
 
-`agent-engineering-5layer.{png,en.png,zh-Hans.png}` 與
-`inside-a-graph.{png,en.png,zh-Hans.png}` 保留原檔名重繪，因此 README、Stage 7.5、
-Stage 8 與 glossary 的既有深連結不用改。Stage 7 三語頁改成各自引用對應 locale 檔，
-不再讓英語／簡中讀者看到繁中圖。
+`agent-engineering-control-questions.{png,en.png,zh-Hans.png}` 取代原本的垂直五層圖。
+三張皆以 Image 2.0 產生，固定為和主頁 README 圖相同的 `1672×941` 橫式比例；繁中先定稿，
+英語與簡中再以同一母版做文字在地化。視覺基準是主頁 `banner`／`learning-map`：奶油白背景、
+深藍字、亮色語意線、圓角卡、簡單線條 icon、充足留白與單一閱讀方向。
 
-本批使用 Codex 內建 imagegen 的 edit／text-localization 路徑：
+共同語意契約：
 
-1. 先讀原圖，保留 16:9 與由下往上的 Prompt → Context → Harness → Loop → Graph。
-2. 左側只留一支向上箭頭，表示控制範圍變大；這不是 Stage 編號或閱讀順序。
-3. 移除所有「官方採用／非官方名稱／Industry term／Community term」badge 與底部二分圖例。
-4. Graph 列同時寫 Workflow Graph；Loop 列同時寫 Bounded Agent Loops，讓讀者找到官方文件常用的搜尋詞。
-5. 以通過人工檢查的繁中版為構圖 reference，再逐字提供英語與簡中文字表；不得混合語言或繁簡字形。
-6. 用 `python scripts/check-image-locale.py` 確認所有 mirror 實際引用自己的圖。
-
-共同 prompt 約束：
-
-> Preserve the exact bottom-up Prompt → Context → Harness → Loop → Graph order,
-> icons, one upward scope arrow, 16:9 composition, and hierarchy. Use a warm
-> off-white background, soft bright pastel cards, dark navy text, high contrast,
-> and no watermark. Remove all maturity badges. Pair Graph Engineering with
-> Workflow Graph and Loop Engineering with Bounded Agent Loops. Use only the
-> supplied verbatim locale text; do not add rankings, versions, prices, dates,
-> standards claims, or new facts.
+1. Prompt 與 Context 都進入 Harness，但不是完整 Agent runtime。
+2. 上半部只畫一次 Agent run：Harness 內含 model call、tools、state／logs／results、下一步決定與 Agent Loop。
+3. 下半部才畫整個長任務：Workflow Graph／Production Orchestration 連接 Goal、Harness run、evidence check、返回路線、human approval 與完成狀態。
+4. Loop Engineering 另外明寫 `Goal → Action → Observation → Adjustment`、預算與停止條件；不得和 Harness 內的一次 Agent Loop 混成同一尺度。
+5. 圖上以「不是五層」直接阻止嚴格層級誤讀；Harness 包住 Agent Loop，上下兩個尺度分開；不得畫成 Harness 被 Loop 淘汰，也不是章節順序。
+6. 三語使用相同尺寸、形狀、箭頭、icon、配色與間距，並各自引用 locale 檔。
+7. 箭頭只能走卡片間或專用返回通道；不能穿過文字、icon 或另一個框，arrowhead 也不能壓到無關元素。
 
 人工驗收除了看文字，也逐一確認：
 
-- 五層仍是 Prompt → Context → Harness → Loop → Graph，只有一支向上的「控制範圍變大」箭頭；沒有任何官方／非官方 badge。
-- 圖只表達範圍，不暗示 Stage 2→6→7→5→4 的閱讀順序；正文另外提供 Stage 3、4、7 的入門／加深路線。
-- Graph 圖仍保留平行草稿、獨立驗證、人工核准與失敗返回，沒有把每個節點都畫成 Agent。
+- Prompt 與 Context 都指向 Harness；Harness 內同時畫出 model、tools、state、logs、results、下一步與 Agent Loop。
+- 圖用 Harness 包住 Agent Loop 與上下兩個尺度呈現責任重疊；標題「不是五層」不暗示產品世代或 Stage 2→6→7→5→4 的閱讀順序；正文另外提供 Stage 3、4、7 的入門／加深路線。
+- 下方 Workflow Graph 保留 Harness run、evidence check、人工核准、完成與失敗返回，沒有把每個節點都畫成 Agent。
+- 所有卡片依同一格線對齊；icon 完整留在自己的圓框內；兩條返回箭頭都有獨立留白通道，沒有壓字、穿框或互相交叉。
 - 英語圖沒有中文；簡中圖沒有肉眼可見的繁體字；繁中圖沒有簡中用語。
+
+原 `harness-loop-graph-boundary.{png,en.png,zh-Hans.png}` 因把 Harness 縮成「一次執行」且和新圖重複而退役；控制問題 PNG 已吸收正確的責任重疊、內外兩種 loop 與返回路線，不再讓讀者同一章看兩張近似圖。
+
+## 2026-08-29：教師把關循環圖
+
+新增 `teacher-ai-review-loop.png`、`.en.png`、`.zh-Hans.png`，取代會把「即時批改」和學生能力推測畫成可靠功能的舊 `teacher-ai-classroom-use-cases` 三語圖。新圖只保留一條可由教師控制的五步循環：
+
+1. 教師寫清學習目標。
+2. AI 只做草稿。
+3. 教師檢查隱私、事實與偏見。
+4. 學生使用教材。
+5. 教師觀察學習情況並修改下一輪設計。
+
+用 Codex 內建 imagegen 先產生繁中母版，再以 text-localization 路徑產生英語與簡中。三張都維持 16:9、亮色白底卡片、同一組 icon、單一路徑與回到第一步的箭頭。人工逐字確認標題、五步與底部「AI 幫忙，教師決定」；不得出現產品 logo、模型名稱、成熟度 badge、分數、診斷、自動評分或自動決策。
+
+共同 prompt 約束：
+
+> Preserve the exact five-step clockwise loop, illustrations, arrows, colors,
+> spacing, proportions, and warm off-white background. Use only the supplied
+> verbatim locale text. AI drafts; the teacher checks privacy, facts, and bias;
+> the teacher observes and revises. No autonomous grading, diagnosis, learner
+> score, product logo, badge, extra caption, mixed language, or watermark.

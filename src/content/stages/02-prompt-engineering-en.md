@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -335,4 +335,4 @@ We also do not teach OpenRouter, OpenCode, or Pi here yet. They involve model ro
 - [ ] I change one thing at a time and keep the score.
 - [ ] I know that a prompt alone is not enough when data is missing or action is needed.
 
-When all are true, continue to [Stage 3 — Tool Use and Agent Basics](/en/stages/03-tool-use-and-hello-agent/).
+When all are true, continue to [Stage 3 — Tool Use & Your First Agent Loop](/en/stages/03-tool-use-and-hello-agent/).

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
@@ -419,4 +419,4 @@ Start with **LlamaIndex or LangChain + Chroma** to understand the minimal pipeli
 - [ ] I can compare before and after with a small question set instead of one impressive answer.
 - [ ] Memory stores only necessary, approved data, and users can view, edit, and delete it.
 
-Once you can do all of this, go to [Stage 7 — Multi-Agent and Production](/en/stages/07-multi-agent-production/).
+Once you can do all of this, go to [Stage 7 — Agent Production Engineering: Harness, Loops, and Graphs](/en/stages/07-multi-agent-production/).

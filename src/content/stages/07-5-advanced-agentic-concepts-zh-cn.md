@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -14,7 +14,7 @@ baseSlug: "07-5-advanced-agentic-concepts"
 
 > [繁體中文](/zh-tw/stages/07-5-advanced-agentic-concepts/) | **简体中文** | [English](/en/stages/07-5-advanced-agentic-concepts/)
 
-<!-- freshness: canonical=stages/07.5-advanced-agentic-concepts.md; verified_on=2026-08-28; scope=agent-patterns,harnesses,evals,dynamic-workflows,framework-status,research; max_age_days=90 -->
+<!-- freshness: canonical=stages/07.5-advanced-agentic-concepts.md; verified_on=2026-08-29; scope=agent-patterns,harnesses,evals,dynamic-workflows,framework-status,research; max_age_days=90 -->
 
 这一关不是要你背完所有新名词。它像一张地图：你的 Agent 卡在哪里，就先看那一小块。
 
@@ -232,10 +232,29 @@ Anthropic 2026 的研究直接显示，基础设施差异可能大到超过排�
 
 </details>
 
-<details markdown="1">
-<summary>⏳ 展开：Model–Harness Fit、Bitter Lesson 与人机分工</summary>
+## ⚖️ Model–Harness Fit：用 Eval 决定保留、简化或移除
 
-**Model–Harness Fit** 是本章使用的编辑简称，不是公认标准。意思很简单：Harness 常在补某一代模型的弱点；模型变强后，旧补丁可能变成阻力。每加一层，问三件事：
+这一节才回答“一个 Harness 零件会不会过时”。它不是 Loop Engineering 的定义，也不是用 Loop 取代整个 Harness。
+
+模型变强时，某个 prompt 补丁、context reset 或额外规划步骤可能不再需要；但权限、sandbox、log、Eval、人工批准和 recovery 代表长期责任，**不会因为模型升级就自动消失**。一次只拿一个 Harness 元件做删除测试，再运行同一组质量和安全 Eval。
+
+![Model–Harness Fit：用同一组 Eval 决定保留、简化或移除](/upstream/resources/diagrams/model-harness-fit.zh-Hans.png)
+
+| 决定 | 你看到什么 | 下一步 |
+|---|---|---|
+| **保留 Keep** | 拿掉后，同一个可重复的失败又回来 | 放回去，记下它防住哪个失败 |
+| **简化 Simplify** | 保护仍有用，但更少步骤也能通过同一组 Eval | 一次减少一个步骤，再测试一次 |
+| **移除 Remove** | 删除测试通过，质量和安全没有退步 | 移除后继续监测，保留恢复方法 |
+
+| 先分哪一类 | 例子 | 怎么处理 |
+|---|---|---|
+| **模型补强元件** | context reset、重复提醒 prompt、额外 planner／reviewer | 模型变化时可以做删除测试；用同一组 Eval 决定保留、简化或移除 |
+| **长期安全责任** | 最小权限、sandbox、audit log、人工批准、rollback | 实现可以换，但不能只因为“模型变强”就删除责任 |
+
+<details markdown="1">
+<summary>⏳ 展开：判断证据、Bitter Lesson 与人机分工</summary>
+
+**Model–Harness Fit** 是本章使用的编辑简称，不是公认标准。Harness 常在补某一代模型的弱点；模型变强后，旧补丁可能变成阻力。每加一层，问三件事：
 
 1. 哪个可重现的失败证明需要它？
 2. 哪个 Eval 证明加上后真的变好？

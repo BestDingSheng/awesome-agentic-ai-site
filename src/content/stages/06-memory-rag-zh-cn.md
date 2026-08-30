@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "06-memory-rag"
@@ -411,4 +411,4 @@ Chunk 太大时，一张卡会混进太多主题；太小时，答案需要的�
 - [ ] 我能用一小组问题比较修改前后，而不是只看一次漂亮回答。
 - [ ] Memory 只保存必要且获准的数据，用户能查看、修改与删除。
 
-都能做到后，前往 [Stage 7 — Multi-Agent 与 Production](/stages/07-multi-agent-production/)。
+都能做到后，前往 [Stage 7 — Agent Production Engineering：Harness、Loop 与 Graph](/stages/07-multi-agent-production/)。

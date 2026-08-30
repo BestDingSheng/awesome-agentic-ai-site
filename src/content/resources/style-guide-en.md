@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "style-guide"
@@ -165,7 +165,7 @@ Splicing an English verb or adjective into a Chinese sentence reads as untransla
 |---|---|
 | follow 條款 | 遵守條款 |
 | ready-made 教材 | 現成可改的教材 |
-| NotebookLM-like 工具 | 類 NotebookLM 的工具 / 類似 NotebookLM 的工具 |
+| Gemini Notebook-like 工具 | 類 Gemini Notebook 的工具 / 類似 Gemini Notebook 的工具 |
 | 視覺化 node-based | 視覺化節點式 |
 | Anthropic host 的 server | Anthropic 維護的 server |
 | coding 流程 | 開發流程 / 程式開發流程 |
@@ -319,9 +319,12 @@ This rule applies to the entire learning map. The goal is for a five-year-old to
 ### Concept-diagram writing
 
 - Define core terms in plain text first, then use a diagram to organize their relationships. A diagram must not be the reader's first encounter with a term.
-- Keep the same layout, order, numbers, and limits in all three locales. Provide a correctly localized image and alt text for each page.
+- Use the main README as the default visual baseline: cream-white background, navy primary text, a few bright semantic colors, rounded cards, simple line icons, generous whitespace, and one primary reading direction. Each diagram answers one core question; split dense material instead of shrinking the text.
+- Produce new or redrawn concept diagrams as Image 2.0 PNGs, not temporary SVG stand-ins. Apply this ratchet when a legacy chapter is redrawn instead of forcing a one-shot migration of every old image.
+- Keep the same canvas ratio, layout, shared grid, order, numbers, and limits in all three locales. Provide a correctly localized image and alt text for each page. Card positions, margins, padding, and same-level heights stay aligned.
 - Exact numbers inside a diagram need the same official evidence as prose. When no fixed rule exists, write “multiple” or “varies by model” instead of inventing a neat range.
-- Inspect every image at original size for text, locale characters, arrow direction, and contrast; then run the image-locale gate and all three MkDocs builds.
+- Route arrows only through whitespace. They must not cross text, icons, or other cards; arrowheads, icons, labels, and borders must not overlap. Cards on the same level share a grid, equal height, and consistent padding.
+- Inspect every image at original size for safe margins, text, locale characters, arrow direction, shared-grid alignment, and contrast. Any overlap among text, icons, arrows, or borders fails review. Then run the image-locale gate and all three MkDocs builds.
 
 ### Reader UX ratchet
 
@@ -421,6 +424,24 @@ Separate core identity from surfaces. IDE, CLI, desktop, cloud, CI, and SDK may 
 
 Role-page resource tables follow the grouped `rowspan` rules above. Locales keep the same URL order, status, license, limits, and stable editorial rating (⭐⭐⭐–⭐⭐⭐⭐⭐), without volatile GitHub-star counts. ELI5 wording must preserve equivalent meaning, technical names, and safety boundaries.
 
+### Cookbook
+
+Keep the Cookbook’s purpose, chooser table, core terms, six recipe headings, outcomes, first copyable actions, required reading, curated resources, and completion check visible. Put the nine full-step, alternative-route, and troubleshooting sections in closed `<details markdown="1">` blocks; never add `open`. Define each core term in plain language and bold at its first use. Do not translate an executable command or product name into something else.
+
+The full resource table always uses six separate `<tbody>` groups, with `scope="rowgroup"` and `rowspan` on the category cells. Keep URLs, commands, dates, licenses, safety boundaries, and editorial ratings aligned across all three locales. Label a community integration as unofficial, state that it may fail, and provide an official fallback. Add a verification date to changeable facts, but never promise that they are permanently current.
+
+### Resources tool-cabinet entrance
+
+`resources/README*` first asks what the learner is stuck on, then defines Reference, Guide, Cookbook, Catalog, and Glossary in bold plain language. Keep the entrances, purposes, limits, and return-to-route links for all 11 references visible. Collapse only the reason for separate files and the maintainer rules. Do not add drifting line counts, GitHub stars, or an old product name presented as current.
+
+The complete entrance table uses five separate `<tbody>` groups with row counts `4／2／2／2／1`. Show one category cell only on the first row, using `scope="rowgroup"` and a real `rowspan`; do not fake a merge with repeated text or empty cells. Each locale links to its own mirror and keeps the same order and meaning.
+
+### Glossary lookup entrance
+
+Keep the quick map, tool-identity table, every term heading, and a one-sentence plain-language definition visible. Do not hide the shortest answer inside `<details>`. Only the complete maintainer classification table and source／verification notes are closed by default. Follow the site-wide rule by bolding a core term at first visible use while preserving its exact technical name.
+
+The identity table must distinguish Provider API, Router, Model Runtime, Coding Agent／Agent Harness, and Agent Framework. Do not copy volatile model, price, context, or fixed token-conversion snapshots into the glossary; link to a freshness-gated chapter or official documentation instead.
+
 ### Internal links
 - Between stages: relative path `[Stage 4](/en/resources/04-agent-frameworks/)`
 - Branch ↔ README: `[← Back to main path](/en)`
@@ -449,6 +470,6 @@ This style guide covers "how to write an entry." For **design rationale** — wh
 
 ## Modifying this guide
 
-PRs to this guide are welcome. Open an Issue first to discuss — terminology decisions affect 100+ entries.
+PRs to this guide are welcome. Open an Issue first to discuss — terminology decisions affect many entries across three locales.
 
 Current maintainer: [@WenyuChiou](https://github.com/WenyuChiou).

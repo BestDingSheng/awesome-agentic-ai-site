@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "02-prompt-engineering"
@@ -335,4 +335,4 @@ Path A 六题两轮的 API 费用为 `$0`。Path B 先设 `$0.05` 上限；如�
 - [ ] 我一次只改一件事，并留下分数。
 - [ ] 我知道资料不足或需要采取行动时，不能只靠 prompt。
 
-全部做到后，进入 [Stage 3 — Tool Use 与 Agent 入门](/stages/03-tool-use-and-hello-agent/)。
+全部做到后，进入 [Stage 3 — 工具使用与第一个 Agent Loop](/stages/03-tool-use-and-hello-agent/)。

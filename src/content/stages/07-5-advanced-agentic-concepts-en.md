@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07.5-advanced-agentic-concepts.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07.5-advanced-agentic-concepts.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-5-advanced-agentic-concepts"
@@ -14,7 +14,7 @@ baseSlug: "07-5-advanced-agentic-concepts"
 
 > [繁體中文](/zh-tw/stages/07-5-advanced-agentic-concepts/) | [简体中文](/stages/07-5-advanced-agentic-concepts/) | **English**
 
-<!-- freshness: canonical=stages/07.5-advanced-agentic-concepts.md; verified_on=2026-08-28; scope=agent-patterns,harnesses,evals,dynamic-workflows,framework-status,research; max_age_days=90 -->
+<!-- freshness: canonical=stages/07.5-advanced-agentic-concepts.md; verified_on=2026-08-29; scope=agent-patterns,harnesses,evals,dynamic-workflows,framework-status,research; max_age_days=90 -->
 
 This stage is not about memorizing every new term. Think of it as a map: start with the small area where your agent is stuck.
 
@@ -232,10 +232,29 @@ The 2026-05-28 announcement called it a research preview and announced it with O
 
 </details>
 
-<details markdown="1">
-<summary>⏳ Model–Harness Fit, the Bitter Lesson, and human–machine division</summary>
+## ⚖️ Model–Harness Fit: Use Evals to Keep, Simplify, or Remove
 
-**Model–Harness Fit** is this chapter’s editorial shorthand, not a recognized standard. It means a harness often compensates for weaknesses in one model generation; as models improve, old patches can become friction. For every layer, ask:
+This is the section that asks whether one part inside a Harness has gone stale. It is not the definition of Loop Engineering, and it does not replace an entire Harness with a Loop.
+
+When a model improves, a prompt patch, context reset, or extra planning step may no longer be needed. Permissions, sandboxes, logs, Evals, human approvals, and recovery represent lasting responsibilities; they do **not disappear automatically after a model upgrade**. Test one Harness component at a time, then run the same quality and safety Evals.
+
+![Model–Harness Fit: use the same Eval to keep, simplify, or remove](/upstream/resources/diagrams/model-harness-fit.en.png)
+
+| Decision | What you see | Next step |
+|---|---|---|
+| **Keep** | Removing it brings back the same repeatable failure | Restore it and record which failure it prevents |
+| **Simplify** | The protection still helps, but fewer steps pass the same Eval | Remove one step, then test again |
+| **Remove** | The deletion test passes without reducing quality or safety | Remove it, keep monitoring, and retain a rollback path |
+
+| Classify it first | Examples | How to handle it |
+|---|---|---|
+| **Model-compensation component** | Context reset, repeated reminder prompt, extra planner / reviewer | Run a deletion test after a model change; use the same Evals to keep, simplify, or remove it |
+| **Lasting safety responsibility** | Least privilege, sandbox, audit log, human approval, rollback | The implementation may change, but a stronger model is not evidence that the responsibility can be deleted |
+
+<details markdown="1">
+<summary>⏳ Evidence, the Bitter Lesson, and human–machine division</summary>
+
+**Model–Harness Fit** is this chapter’s editorial shorthand, not a recognized standard. A harness often compensates for weaknesses in one model generation; as models improve, old patches can become friction. For every layer, ask:
 
 1. What reproducible failure proves that we need it?
 2. What Eval proves that adding it improved things?

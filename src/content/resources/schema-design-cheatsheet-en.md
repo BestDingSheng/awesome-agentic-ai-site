@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-29T16:26:16.701Z"
+syncedAt: "2026-08-30T04:29:27.228Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "schema-design-cheatsheet"
@@ -14,7 +14,7 @@ baseSlug: "schema-design-cheatsheet"
 
 > [繁體中文](/zh-tw/resources/schema-design-cheatsheet/) | [简体中文](/resources/schema-design-cheatsheet/) | **English**
 
-> Companion to [Stage 3 — Tool Use & Agent Intro](/en/stages/03-tool-use-and-hello-agent/). 5 golden rules + 5 common anti-patterns when writing tool / function schemas.
+> Companion to [Stage 3 — Tool Use & Your First Agent Loop](/en/stages/03-tool-use-and-hello-agent/). 5 golden rules + 5 common anti-patterns when writing tool / function schemas.
 
 > Specification checked: 2026-08-27 UTC. A schema is an interface shared by the model and program; clarity reduces ambiguity but cannot replace application validation or a fixed eval.
 
@@ -171,5 +171,5 @@ This JSON shape is an application convention, not a mandatory format for every A
 - [Anthropic — Define Tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools) — official schema and description guidance
 - [Anthropic — Handle Tool Calls](https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls) — Tool Result and `is_error`
 - [OpenAI — Function Calling](https://developers.openai.com/api/docs/guides/function-calling) — strict mode and function schema specification
-- [Stage 3 — Tool Use & Agent Intro](/en/stages/03-tool-use-and-hello-agent/) — main exercises
+- [Stage 3 — Tool Use & Your First Agent Loop](/en/stages/03-tool-use-and-hello-agent/) — main exercises
 - [Stage 5.2 — MCP foundation](/en/stages/05-claude-code-ecosystem/#52--mcp-model-context-protocol--foundation) — MCP servers also use tool schemas, but host, permissions, and protocol layers differ
