@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/README.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/README.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-31T04:34:11.632Z"
+syncedAt: "2026-08-31T18:57:08.370Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "readme"
@@ -24,6 +24,7 @@ baseSlug: "readme"
 |---|---|
 | 我完全沒寫過 code，不知道怎麼開始 | [`setup-guide.md`](/zh-tw/resources/setup-guide/) |
 | 我想照完整學習地圖開始 | [主頁](/zh-tw) → [Stage 0](/zh-tw/stages/00-foundations/) |
+| 我分不清模型怎麼學會、怎麼被調整、什麼時候只是在產生答案 | [`model-training-guide.md`](/zh-tw/resources/model-training-guide/) |
 | 我看到一個詞，但不知道意思 | [查詞卡](/zh-tw/resources/glossary/) |
 | 我分不清這四個名字：OpenRouter＝統一模型 API／router；Ollama＝本機模型 runtime；OpenCode／Pi＝coding agent／toolkit | [`cli-agents-guide.md`](/zh-tw/resources/cli-agents-guide/) |
 | 我想做出第一個操作卡（Skill）、工具接頭（MCP server）或文件流程 | [實作食譜](/zh-tw/resources/cookbook/) |
@@ -43,7 +44,7 @@ baseSlug: "readme"
 - **Catalog（目錄）**：把很多工具放在同一處，方便搜尋和比較。
 - **Glossary（詞典）**：先給短定義，再把你送到講得更完整的章節。
 
-## 📚 全部 11 份參考資料
+## 📚 全部 12 份參考資料
 
 同一類型已合併在左欄。表格全部保持展開，因為讀者要先看得見有哪些入口。
 
@@ -60,7 +61,8 @@ baseSlug: "readme"
 <tr><td><a href="schema-design-cheatsheet.md">schema-design-cheatsheet.md</a></td><td>工具選錯或參數常常傳錯</td><td>不教完整 MCP server 安裝</td></tr>
 </tbody>
 <tbody>
-<tr><th scope="rowgroup" rowspan="2">搜尋與定位</th><td><a href="mcp-skills-catalog.md">mcp-skills-catalog.md</a></td><td>依工作類型找工具接頭（MCP server）或操作卡（Skill）</td><td>收錄不代表零風險或永遠可用</td></tr>
+<tr><th scope="rowgroup" rowspan="3">搜尋與定位</th><td><a href="model-training-guide.md">model-training-guide.md</a></td><td>分清 Pre-training、Post-training、Fine-tuning 與 Inference</td><td>不是從零訓練模型的完整課程</td></tr>
+<tr><td><a href="mcp-skills-catalog.md">mcp-skills-catalog.md</a></td><td>依工作類型找工具接頭（MCP server）或操作卡（Skill）</td><td>收錄不代表零風險或永遠可用</td></tr>
 <tr><td><a href="agent-paradigms.md">agent-paradigms.md</a></td><td>分清 agent 跑在終端機、編輯器、雲端或自己的裝置</td><td>不是產品排行榜</td></tr>
 </tbody>
 <tbody>
@@ -86,7 +88,7 @@ baseSlug: "readme"
 - [ ] 我看完後，知道要回主線的哪一站。
 
 <details markdown="1">
-<summary>為什麼不把 11 份資料合成一本書？</summary>
+<summary>為什麼不把 12 份資料合成一本書？</summary>
 
 因為它們解決不同問題。Glossary 是 30 秒查詞，Stage 是幾分鐘建立概念，Cookbook 是照著做出成果，Catalog 則是需要時搜尋工具。全部混成一本書，讀者反而更難找到入口。
 
@@ -97,7 +99,7 @@ baseSlug: "readme"
 <details markdown="1">
 <summary>Maintainer：三語覆蓋與新增 reference 的規則</summary>
 
-上表 11 份資料都有繁中、英文與簡中版本。新增 reference 前要同時符合：
+上表 12 份資料都有繁中、英文與簡中版本。新增 reference 前要同時符合：
 
 1. 它有一個既有檔案無法取代的工作。
 2. 至少三個 stage、track 或 branch 會需要它。

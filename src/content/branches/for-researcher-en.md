@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-researcher.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-31T04:34:11.632Z"
+syncedAt: "2026-08-31T18:57:08.370Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-researcher"
@@ -74,7 +74,7 @@ Read in order. The first two prevent treating citations as guarantees; the next 
 2. [Gemini Notebook privacy and terms](https://support.google.com/gemininotebook/answer/17004255): understand data handling before upload.
 3. [Zotero quick start](https://www.zotero.org/support/quick_start_guide): organize authors, years, PDFs, and notes.
 4. [PaperQA2 README](https://github.com/Future-House/paper-qa): connect literature RAG answers to documents.
-5. [DVC command reference](https://dvc.org/doc/command-reference/): version data and rerunnable pipelines with Git.
+5. [DVC command reference](https://doc.dvc.org/command-reference): version data and rerunnable pipelines with Git.
 6. [Zenodo quickstart](https://help.zenodo.org/docs/get-started/quickstart/): preserve publishable data, code, or materials in a citable version.
 
 <a id="curated-projects"></a><a id="outline--writing"></a><a id="citation-manager-integrations"></a>

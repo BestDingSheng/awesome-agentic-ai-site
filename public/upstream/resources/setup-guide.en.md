@@ -4,7 +4,7 @@
 
 > [← Back to the main roadmap README](../README.en.md)
 
-<!-- freshness: canonical=resources/setup-guide.md; verified_on=2026-08-30; scope=install-paths,api-keys,authentication,provider-entrypoints,project-status; max_age_days=90 -->
+<!-- freshness: canonical=resources/setup-guide.md; verified_on=2026-08-31; scope=install-paths,api-keys,authentication,provider-entrypoints,project-status; max_age_days=90 -->
 
 This page does not ask you to install every tool. Just choose one door first and complete one small result.
 
@@ -58,12 +58,12 @@ The table below is an entry-point list, not a ranking. The recommendation rating
 <tbody>
 <tr><th scope="rowgroup" rowspan="4">Desktop</th><td><a href="https://claude.com/download">Claude Desktop</a></td><td>Use the official page for the current Windows, macOS, and Linux entry points</td><td>⭐⭐⭐⭐⭐</td></tr>
 <tr><td><a href="https://chatgpt.com/download">ChatGPT Desktop</a></td><td>Use the official download page for platform requirements</td><td>⭐⭐⭐⭐⭐</td></tr>
-<tr><td><a href="https://gemini.google.com/mac">Gemini for macOS</a></td><td>Currently a macOS app; use the Web version on other systems</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td><a href="https://gemini.google/mac">Gemini for macOS</a></td><td>Currently a macOS app; use the Web version on other systems</td><td>⭐⭐⭐⭐</td></tr>
 <tr><td><a href="https://lmstudio.ai/download">LM Studio</a></td><td>Local-model runtime and graphical interface; you still manage models, hardware, and file permissions</td><td>⭐⭐⭐⭐</td></tr>
 </tbody>
 <tbody>
 <tr><th scope="rowgroup" rowspan="5">IDE／Editor</th><td><a href="https://cursor.com">Cursor</a></td><td>AI editor; confirm every modification and terminal action</td><td>⭐⭐⭐⭐⭐</td></tr>
-<tr><td><a href="https://windsurf.com/editor">Windsurf</a></td><td>AI editor; use the official documentation for plans and permissions</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td><a href="https://devin.ai/desktop">Devin Desktop (formerly Windsurf)</a></td><td>Windsurf's current desktop coding-agent / IDE surface; still check tool permissions and plans</td><td>⭐⭐⭐⭐</td></tr>
 <tr><td><a href="https://cline.bot">Cline</a></td><td>VS Code coding agent; start with low permissions</td><td>⭐⭐⭐⭐</td></tr>
 <tr><td><a href="https://zed.dev/ai">Zed AI</a></td><td>AI features in the Zed editor</td><td>⭐⭐⭐⭐</td></tr>
 <tr><td><a href="https://github.com/features/copilot">GitHub Copilot</a></td><td>Available in GitHub, IDEs, and other interfaces; permissions differ by interface</td><td>⭐⭐⭐⭐⭐</td></tr>

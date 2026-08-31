@@ -9,7 +9,7 @@
 - [**Prompt（提示词）**](#prompt提示词) — 你交给模型的完整任务包，包含要做什么、数据、示例和限制。
 - [**Token**](#token) — 模型切分文字时使用的小单位；计费和可读长度常用它计算。
 - [**Context Window（上下文视窗）**](#context-window上下文视窗) — 模型这一次最多能一起参考的信息空间。
-- [**Agent**](#agent代理人) — 会在限制内选择动作、查看结果，再决定下一步的系统。
+- [**Agent**](#agent代理人) — 能为了人的目标，自己判断下一步并采取行动；只在规则和权限内自动做事的 AI 系统。
 - [**Tool Use（工具使用）**](#tool-use--function-calling) — 模型提出工具请求，程序检查后才真正执行。
 - [**Agent Loop**](#agent-loop) — Agent 重复“决定、行动、观察”，直到完成或停止的执行循环。
 - [**RAG**](#ragretrieval-augmented-generation) — 先找数据，再把证据交给模型回答。
@@ -150,11 +150,57 @@
 
 **Chain-of-Thought（CoT）** 是让模型经过中间推理步骤再回答的 prompting 研究方法。早期研究包含 [Few-shot CoT](https://arxiv.org/abs/2201.11903) 和 [Zero-shot CoT](https://arxiv.org/abs/2205.11916)。实际使用时通常要求简短、可核对的理由和证据，不要求公开模型的私有推理全文。
 
+## 模型训练与调整
+
+### Pre-training（预训练）
+
+**Pre-training** 是用大量数据让模型先学会一般模式。它会改变模型权重，产生之后还能继续调整的 Base Model。
+
+### Post-training（后训练）
+
+**Post-training** 是 Base Model 完成后的训练阶段。它用示范、偏好或反馈，让模型更会遵循指令、安全地完成任务。
+
+### Inference（推理）
+
+**Inference** 是模型训练完成后，收到这一次输入并产生这一次结果。它是在使用模型，不是在重新训练模型。
+
+### Fine-tuning（模型微调）
+
+**Fine-tuning** 用较小、较专门的数据继续调整模型权重。它适合反复出现的行为或格式；每天变化的事实通常改用 RAG 或工具读取。
+
+### SFT（Supervised Fine-Tuning）
+
+**SFT** 把好的输入和答案交给模型模仿。它是常见的 Post-training 方法，会调整模型权重。
+
+### DPO（Direct Preference Optimization）
+
+**DPO** 让模型从“较好答案”和“较差答案”的配对中学习偏好。它需要可信的偏好数据，也会调整权重。
+
+### RLHF / RL
+
+**RLHF/RL** 用人类或规则的反馈来训练模型。反馈设计错误时，模型也可能学会钻评分漏洞，所以仍要做独立 Eval。
+
+### GRPO
+
+**GRPO** 让同一问题的多个答案互相比较，再根据相对表现更新模型。它是 Post-training 方法之一，不是每个项目都必须使用。
+
+### PEFT / LoRA
+
+**PEFT** 是只训练较少参数的一组方法；**LoRA** 会冻结原来的权重，再训练新增的低秩矩阵。它们能减少需要更新的参数，但仍需要数据与 Eval。
+
+### Distillation（蒸馏）
+
+**Distillation** 让较小的 Student Model 学习较大的 Teacher Model。目标常是缩小模型或降低推理成本，但效果要用自己的任务测试。
+
+📍 选修导览：[模型训练与调整指南](model-training-guide.zh-Hans.md)
+
 ## 2. Agent / 工具使用
 
 ### Agent（代理人）
 
-**Agent** 是会在限制内读取状态、选择动作、执行并观察结果的系统。它至少需要模型、可用动作和停止条件；不是只要接上一个 LLM 就会自动做完工作。
+**Agent** 是能为了人的目标，自己判断下一步并采取行动的 AI 系统。人给它目标后，它会读取当前状态、决定下一步，需要时使用工具，再根据结果继续、修正、停止，或把控制权交还给人。它可以自动替人完成工作，但只能在明确规则和权限内行动。
+
+只回答一次的聊天机器人，或每一步都由程序预先写死的固定脚本，不一定是 Agent。关键在于 AI 是否会在执行过程中，根据状态决定如何达成目标。这个边界参考 [OpenAI 的 Agent 指南](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/) 和 [Anthropic 的 Agents 说明](https://www.anthropic.com/engineering/building-effective-agents)。
 
 ### Tool Use / Function Calling
 
@@ -239,10 +285,6 @@
 ### Contextual Retrieval
 
 **Contextual Retrieval** 先给每个 chunk 补上它在原文档中的简短背景，再建立搜索索引。Anthropic 的[方法说明](https://www.anthropic.com/engineering/contextual-retrieval)把 contextual embeddings 和 contextual BM25 一起评估；效果仍要用自己的数据测试。
-
-### Fine-tuning（模型微调）
-
-**Fine-tuning** 用训练数据调整模型权重，适合反复出现的行为或格式。它不适合用来保存每天变化的事实；这类数据通常用 RAG 或工具读取。
 
 ## 4. Multi-Agent
 
@@ -447,8 +489,8 @@
 
 上面的易变产品和协议说明只采用官方文档；研究术语链接到原始 paper。完整型号、价格和 Context 清单集中在 Stage 1，不在词典中复制。
 
-<small>官方链接和产品身份核查：2026-08-30 UTC。</small>
+<small>官方链接、产品身份和模型生命周期核查：2026-08-31 UTC。</small>
 
-<!-- freshness: canonical=resources/glossary.md; verified_on=2026-08-30; scope=protocols,product-identities,terminology,official-links; max_age_days=90 -->
+<!-- freshness: canonical=resources/glossary.md; verified_on=2026-08-31; scope=protocols,product-identities,terminology,official-links,model-lifecycle; max_age_days=90 -->
 
 </details>

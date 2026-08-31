@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/diagrams/locale-variant-prompts.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/diagrams/locale-variant-prompts.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-31T04:34:11.632Z"
+syncedAt: "2026-08-31T18:57:08.370Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "diagrams-locale-variant-prompts"
@@ -291,3 +291,11 @@ GitHub stars 或其他容易漂移的指標。箭頭只能落在卡片／節點�
 > the five role paths. Replace mutable duration metrics with
 > stable Track A, Track B, and one-result-per-stop guidance. Every arrow must land
 > on a card or node edge. No text, icon, border, node, or arrow may overlap.
+# Model lifecycle to Agent (`model-lifecycle-to-agent*`)
+
+- Canvas: 1672×941 PNG, warm cream background, deep navy text, bright gentle accents, rounded cards, shared grid, simple line icons, and one left-to-right reading direction.
+- Keep the six aligned cards in this order: Data → Pre-training → Base Model → Post-training → Instruct Model → Inference.
+- Keep the Agent system in a separate outlined container after Inference. Its blocks are Prompt, RAG, Memory, Tools, and Harness. The diagram must make clear that Agent is a system around model use, not a seventh model checkpoint.
+- Keep the Post-training chips SFT, DPO, and RLHF／RL, plus the bottom comparison between methods that change weights and systems that usually do not.
+- Locale variants must preserve every card position, icon, arrow route, border, spacing, number, and technical English term. Only the explanatory prose changes language.
+- Arrows must use whitespace lanes. Text, icons, arrowheads, borders, and chips must never overlap.

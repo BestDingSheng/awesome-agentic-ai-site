@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-31T04:34:11.632Z"
+syncedAt: "2026-08-31T18:57:08.370Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "style-guide"
@@ -435,9 +435,9 @@ The full resource table always uses six separate `<tbody>` groups, with `scope="
 
 ### Resources tool-cabinet entrance
 
-`resources/README*` first asks what the learner is stuck on, then defines Reference, Guide, Cookbook, Catalog, and Glossary in bold plain language. Keep the entrances, purposes, limits, and return-to-route links for all 11 references visible. Collapse only the reason for separate files and the maintainer rules. Do not add drifting line counts, GitHub stars, or an old product name presented as current.
+`resources/README*` first asks what the learner is stuck on, then defines Reference, Guide, Cookbook, Catalog, and Glossary in bold plain language. Keep the entrances, purposes, limits, and return-to-route links for all 12 references visible. Collapse only the reason for separate files and the maintainer rules. Do not add drifting line counts, GitHub stars, or an old product name presented as current.
 
-The complete entrance table uses five separate `<tbody>` groups with row counts `4／2／2／2／1`. Show one category cell only on the first row, using `scope="rowgroup"` and a real `rowspan`; do not fake a merge with repeated text or empty cells. Each locale links to its own mirror and keeps the same order and meaning.
+The complete entrance table uses five separate `<tbody>` groups with row counts `4／2／3／2／1`. Show one category cell only on the first row, using `scope="rowgroup"` and a real `rowspan`; do not fake a merge with repeated text or empty cells. Each locale links to its own mirror and keeps the same order and meaning.
 
 ### Glossary lookup entrance
 

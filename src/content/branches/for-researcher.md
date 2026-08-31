@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-researcher.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-researcher.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-31T04:34:11.632Z"
+syncedAt: "2026-08-31T18:57:08.370Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "for-researcher"
@@ -90,7 +90,7 @@ Gemini Notebook 是 Google 在 2026-07-16 對 NotebookLM 使用的現行名稱�
 2. [Gemini Notebook 隱私與使用條款](https://support.google.com/gemininotebook/answer/17004255)：上傳前先知道資料會怎麼被處理。
 3. [Zotero 快速入門](https://www.zotero.org/support/quick_start_guide)：先把作者、年份、PDF 與筆記整理好。
 4. [PaperQA2 README](https://github.com/Future-House/paper-qa)：看程式化 literature RAG 怎麼把回答連回文件。
-5. [DVC 常用流程](https://dvc.org/doc/command-reference/)：用 Git 搭配資料版本與可重跑 pipeline。
+5. [DVC 常用流程](https://doc.dvc.org/command-reference)：用 Git 搭配資料版本與可重跑 pipeline。
 6. [Zenodo 快速入門](https://help.zenodo.org/docs/get-started/quickstart/)：把可公開的資料、程式或材料保存成可引用的版本。
 
 <a id="精選-projects"></a>

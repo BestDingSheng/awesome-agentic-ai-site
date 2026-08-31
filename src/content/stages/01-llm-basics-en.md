@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-31T04:34:11.632Z"
+syncedAt: "2026-08-31T18:57:08.370Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "01-llm-basics"
@@ -15,15 +15,16 @@ order: 1
 
 > [繁體中文](/zh-tw/stages/01-llm-basics/) | **English** | [简体中文](/stages/01-llm-basics/)
 
-> Purpose: follow a repeatable local-to-cloud path to call an LLM through an API (application programming interface), understand **Token**, **Context Window**, and **Temperature**, and explain model choices using cost and latency.
+> Purpose: first see how a model moves from data to an Agent, then use a repeatable local-to-cloud path to call an LLM through an API (application programming interface). You will understand **Token**, **Context Window**, and **Temperature**, and explain model choices using cost and latency.
 
-<!-- freshness: canonical=stages/01-llm-basics.md; verified_on=2026-08-27; scope=models,pricing,availability,deprecations; max_age_days=90 -->
+<!-- freshness: canonical=stages/01-llm-basics.md; verified_on=2026-08-31; scope=models,pricing,availability,deprecations,model-lifecycle; max_age_days=90 -->
 
 ## 📌 Learning Goals
 
 By the end of this stage, you can:
 
 - Make your first API call with a local Ollama model, then compare it with Anthropic.
+- Explain the order from Pre-training and Post-training to Inference.
 - Explain token, context window, and temperature with simple examples.
 - Read input and output token counts from a response's `usage` field.
 - Explain a model choice using input/output price, latency, and data sensitivity.
@@ -41,6 +42,23 @@ A Context Window is the token space a model can process for one request. Think o
 ### 3. **Temperature**
 
 Temperature controls how much sampling varies. Imagine choosing the next block from several candidates: a low value favors the most likely candidate, which suits classification and fixed formats; a high value tries less likely candidates more often, which can help brainstorming but may be less stable. This stage treats it as a knob for output stability; it does not add knowledge or guarantee exact reproducibility.
+
+## How a Model Moves from Data to an Agent
+
+Keep this main path in mind:
+
+`Data → Pre-training → Base Model → Post-training → Instruct Model → Inference → Agent system`
+
+- **Pre-training**: the model learns patterns from large amounts of text, images, or code. This changes the model weights.
+- **Post-training**: demonstrations, preferences, or feedback teach the model to follow instructions and act more safely. Common methods include **SFT**, **DPO**, and **RLHF/RL**; this also changes weights.
+- **Fine-tuning**: smaller, specialized data is used to continue changing model weights. Post-training is the broad later-training stage; Fine-tuning is one common kind of it.
+- **Inference**: after training, the model receives one input and produces one result. This uses the model; it does not retrain it.
+
+![Data passes through Pre-training and Post-training to make a model ready for Inference; Prompt, RAG, Memory, Tools, and Harness surround the model in an Agent system and usually do not change its weights](/upstream/resources/diagrams/model-lifecycle-to-agent.en.png)
+
+**Agent** is not the next model checkpoint in the training process. It is a system that connects a model with Prompt, RAG, Memory, Tools, and Harness. These parts usually work outside the model and do not change its weights.
+
+For SFT, DPO, RLHF/RL, GRPO, LoRA/PEFT, Distillation, and Quantization, open the [optional model training and adaptation guide](/en/resources/model-training-guide/). Beginners do not need to train a model in this stage.
 
 ## Scene-Based Model Picker
 
@@ -77,15 +95,17 @@ The local path costs $0 per call (though it uses electricity and time). For 3–
 
 ## 📚 Required Reading
 
-Know where these five official entry points are; open them when needed instead of reading everything first.
+Know where these seven official entry points are; open them when needed instead of reading everything first.
 
-Read 1–3 before starting the exercises; consult 4–5 when you need tokenizer or local-runtime details:
+Read 1–3 before starting the exercises; consult 4–7 when you need model, tokenizer, or local-runtime details:
 
-1. [Anthropic Claude model overview](https://platform.claude.com/docs/en/models/overview) — model names, context, and pricing entry point.
-2. [OpenAI API models](https://developers.openai.com/api/docs/models) — model and pricing fields.
-3. [Google Gemini models](https://ai.google.dev/gemini-api/docs/models) — GA/Preview status and context.
-4. [Hugging Face LLM Course: Tokenizers](https://huggingface.co/learn/llm-course/chapter6/1) — how tokenizers split text.
-5. [Ollama](https://ollama.com) — installing and serving local models.
+1. [OpenAI: how models are developed](https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/) — the relationship between data, training, and models.
+2. [Google Machine Learning: LLM tuning](https://developers.google.com/machine-learning/crash-course/llm/tuning) — the boundary between Prompt Engineering, Fine-tuning, and Distillation.
+3. [Anthropic Claude model overview](https://platform.claude.com/docs/en/models/overview) — model names, context, and pricing entry point.
+4. [OpenAI API models](https://developers.openai.com/api/docs/models) — model and pricing fields.
+5. [Google Gemini models](https://ai.google.dev/gemini-api/docs/models) — GA/Preview status and context.
+6. [Hugging Face LLM Course: Tokenizers](https://huggingface.co/learn/llm-course/chapter6/1) — how tokenizers split text.
+7. [Ollama](https://ollama.com) — installing and serving local models.
 
 ## 🛠 Hands-On Exercises
 
@@ -481,7 +501,7 @@ If an official source gives no reliable public number, the table says “Not pub
 | Qwen | qwen3.8-max (API); Qwen3.8 open-weight variants | Generally available | 1M | API pricing varies by region; for example, Beijing is CNY 12/36 per million input/output tokens; open-weight variants use their own licenses | Chinese tasks, multimodal work, self-hosted workflows | API models and open-weight variants must be checked separately for availability and license | [Qwen 3.8 Max](https://help.aliyun.com/en/model-studio/qwen3-8-max) |
 | GLM | GLM-5.3 | Generally available | 1M (128K output) | API: US$1.40/$0.26/$4.40 per million tokens for input/cache hit/output | Chinese agents, tool use, reasoning | Text-only; reasoning is always enabled | [GLM-5.3 docs](https://docs.z.ai/guides/llm/glm-5.3) · [GLM API pricing](https://docs.z.ai/guides/overview/pricing) |
 | Yi | Yi-34B / Yi-9B and 200K variants | Maintained | 200K (some older models) | Repository license and existing service terms; current price not published | Existing Yi experiments and self-hosted baselines | No verified current frontier successor was found | [01.AI Yi repository](https://github.com/01-ai/Yi) |
-| Llama | Llama 4 Scout / Maverick; Llama 3.3 70B (more practical older baseline) | Open weights | Scout 10M | Llama Community License | Self-hosting, fine-tuning, ecosystem integration | Scout needs H100-class hardware; license is not Apache/MIT | [Meta Llama Get Started](https://ai.meta.com/llama/get-started/) |
+| Llama | Llama 4 Scout / Maverick; Llama 3.3 70B (more practical older baseline) | Open weights | Scout 10M | Llama Community License | Self-hosting, fine-tuning, ecosystem integration | Scout needs H100-class hardware; license is not Apache/MIT | [Meta AI developer docs](https://developer.meta.com/ai/docs/overview/) |
 | Muse | Muse Glimmer 30B | Open weights | 131K | Apache 2.0 | Local agents, coding agents, long tasks | Full or quantized deployments still need substantial consumer-GPU memory | [Hugging Face Muse Glimmer](https://huggingface.co/meta-models/Muse-Glimmer-30B) |
 | Gemma | Gemma 4: E2B, E4B, 12B, 26B A4B, 31B | Open weights | 128K for small models; 256K for medium models | Gemma 4 Terms/license; not Apache 2.0 | Edge, local use, constrained-hardware experiments | Read the license terms; hardware needs vary by model | [Gemma core docs](https://ai.google.dev/gemma/docs/core) · [Gemma Terms](https://ai.google.dev/gemma/terms) |
 | Mistral | Mistral Small 4; Large 3; Ministral 3 | Generally available | Small 4: 256K | Small 4 $0.15/$0.60; open-weight licenses vary by model, including Apache 2.0 versions | Reasoning, vision, coding, self-hosting | API and license terms differ by model | [Mistral Small 4](https://docs.mistral.ai/models/mistral-small-4-0-26-03) |

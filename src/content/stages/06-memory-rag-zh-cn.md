@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-31T04:34:11.632Z"
+syncedAt: "2026-08-31T18:57:08.370Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "06-memory-rag"
@@ -61,7 +61,7 @@ order: 6
 | 资料不长，而且这次回答用完就好 | **Long context** | 直接把资料放进这次请求，流程最短。 |
 | 文档很多，问题来了才知道要找哪几段 | **RAG** | 先找相关片段，不必每次塞入全部文档。 |
 | 助理下次仍要记得偏好、任务状态或过往结果 | **Memory** | 把值得保留的信息写入可再次读取的存储层。 |
-| 想稳定改变模型的行为或特定能力 | **Fine-tuning** | 调整模型行为；它不会自动提供最新文档。 |
+| 想稳定改变模型的行为或特定能力 | [**Fine-tuning**](/resources/model-training-guide/) | 调整模型权重与行为；它不会自动提供最新文档。 |
 
 没有一个选项永远最好。请用自己的资料、问题与成功条件做评测。
 

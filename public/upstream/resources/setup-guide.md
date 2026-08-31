@@ -4,7 +4,7 @@
 
 > [← 回主路線 README](../README.md)
 
-<!-- freshness: canonical=resources/setup-guide.md; verified_on=2026-08-30; scope=install-paths,api-keys,authentication,provider-entrypoints,project-status; max_age_days=90 -->
+<!-- freshness: canonical=resources/setup-guide.md; verified_on=2026-08-31; scope=install-paths,api-keys,authentication,provider-entrypoints,project-status; max_age_days=90 -->
 
 這一頁不是叫你把所有工具都裝一遍。你只要先選一扇門，完成一個小結果。
 
@@ -58,12 +58,12 @@
 <tbody>
 <tr><th scope="rowgroup" rowspan="4">Desktop</th><td><a href="https://claude.com/download">Claude Desktop</a></td><td>Windows、macOS 與 Linux 的現行入口以官方頁為準</td><td>⭐⭐⭐⭐⭐</td></tr>
 <tr><td><a href="https://chatgpt.com/download">ChatGPT Desktop</a></td><td>平台需求以官方下載頁為準</td><td>⭐⭐⭐⭐⭐</td></tr>
-<tr><td><a href="https://gemini.google.com/mac">Gemini for macOS</a></td><td>目前是 macOS App；其他系統可使用 Web</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td><a href="https://gemini.google/mac">Gemini for macOS</a></td><td>目前是 macOS App；其他系統可使用 Web</td><td>⭐⭐⭐⭐</td></tr>
 <tr><td><a href="https://lmstudio.ai/download">LM Studio</a></td><td>本機模型 runtime 與圖形介面；仍要管理模型、硬體與檔案權限</td><td>⭐⭐⭐⭐</td></tr>
 </tbody>
 <tbody>
 <tr><th scope="rowgroup" rowspan="5">IDE／Editor</th><td><a href="https://cursor.com">Cursor</a></td><td>AI editor；確認每次修改與 terminal 動作</td><td>⭐⭐⭐⭐⭐</td></tr>
-<tr><td><a href="https://windsurf.com/editor">Windsurf</a></td><td>AI editor；方案與權限以官方文件為準</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td><a href="https://devin.ai/desktop">Devin Desktop（原 Windsurf）</a></td><td>Windsurf 更名後的桌面 Coding Agent／IDE；仍要確認工具權限與方案</td><td>⭐⭐⭐⭐</td></tr>
 <tr><td><a href="https://cline.bot">Cline</a></td><td>VS Code coding agent；從低權限開始</td><td>⭐⭐⭐⭐</td></tr>
 <tr><td><a href="https://zed.dev/ai">Zed AI</a></td><td>Zed editor 的 AI 功能</td><td>⭐⭐⭐⭐</td></tr>
 <tr><td><a href="https://github.com/features/copilot">GitHub Copilot</a></td><td>可在 GitHub、IDE 與其他介面使用；各介面的權限不同</td><td>⭐⭐⭐⭐⭐</td></tr>

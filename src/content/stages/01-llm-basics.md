@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-31T04:34:11.632Z"
+syncedAt: "2026-08-31T18:57:08.370Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -15,15 +15,16 @@ order: 1
 
 > **繁體中文** | [简体中文](/stages/01-llm-basics/) | [English](/en/stages/01-llm-basics/)
 
-> 本章目的：用一條可重複的本機到雲端路徑，學會透過 API（應用程式介面）呼叫 LLM，讀懂 **Token（詞元）**、**Context Window（上下文視窗）** 與 **Temperature（溫度）**，再用成本與延遲做出可解釋的模型選擇。
+> 本章目的：先看懂模型怎麼從資料走到 Agent，再用一條可重複的本機到雲端路徑呼叫 LLM。你會讀懂 **Token（詞元）**、**Context Window（上下文視窗）** 與 **Temperature（溫度）**，也會用成本與延遲解釋模型選擇。
 
-<!-- freshness: canonical=stages/01-llm-basics.md; verified_on=2026-08-27; scope=models,pricing,availability,deprecations; max_age_days=90 -->
+<!-- freshness: canonical=stages/01-llm-basics.md; verified_on=2026-08-31; scope=models,pricing,availability,deprecations,model-lifecycle; max_age_days=90 -->
 
 ## 📌 學習目標
 
 完成本階段後，你可以：
 
 - 用 Ollama 的本機模型完成第一次 API 呼叫，再用 Anthropic API 做對照。
+- 說出模型從 Pre-training、Post-training 到 Inference 的順序。
 - 以簡單例子說明 token、context window 與 temperature。
 - 從回應的 usage 欄位讀出輸入與輸出 token。
 - 用輸入／輸出單價、延遲與資料敏感度解釋模型選擇。
@@ -41,6 +42,23 @@ Context Window 是模型處理一次請求時可用的 token 空間。它像桌�
 ### 3. **Temperature（溫度）**
 
 Temperature 是控制抽樣變化程度的參數。把模型想成每次都從幾塊候選積木中挑下一塊：低值偏向最可能的候選，適合分類或固定格式；高值更常嘗試其他候選，適合構思但可能更不穩定。本章把它當成輸出穩定度的旋鈕；它不會增加模型知識，也不會保證完全可重現。
+
+## 模型怎麼從資料走到 Agent？
+
+先記住一條主線：
+
+`資料 → Pre-training → Base Model → Post-training → Instruct Model → Inference → Agent 系統`
+
+- **Pre-training（預訓練）**：模型先從大量資料學習文字、圖片或程式碼裡的模式。這一步會改變模型權重。
+- **Post-training（後訓練）**：再教模型怎麼照指令、比較偏好，並更安全地完成任務。常見方法有 **SFT**、**DPO**、**RLHF／RL**；這一步也會改變權重。
+- **Fine-tuning（微調）**：拿較小、較專門的資料繼續調整模型權重。Post-training 是廣義的後續訓練階段；Fine-tuning 是其中常見的一類做法。
+- **Inference（推論）**：訓練完成後，模型收到這次輸入並產生這次結果。這是在使用模型，不是在重新訓練它。
+
+![資料經過 Pre-training 與 Post-training 變成可供 Inference 使用的模型；Prompt、RAG、Memory、Tools 與 Harness 在 Agent 系統中包住模型，通常不改模型權重](/upstream/resources/diagrams/model-lifecycle-to-agent.png)
+
+**Agent** 不是訓練流程的下一個模型版本。它是把模型、Prompt、RAG、Memory、Tools 與 Harness 接在一起的系統。這些零件通常在模型外面工作，不會改變模型權重。
+
+想知道 SFT、DPO、RLHF／RL、GRPO、LoRA／PEFT、Distillation 與 Quantization 各自做什麼，請打開[模型訓練與調整選修指南](/zh-tw/resources/model-training-guide/)。初學本章不用自己訓練模型。
 
 ## 場景式模型選擇器
 
@@ -77,15 +95,17 @@ Path A 需要 [Ollama](https://ollama.com)、`pip install openai`，以及 `olla
 
 ## 📚 必修閱讀
 
-先知道這五個官方入口；需要時再展開，不必讀完才開始練習。
+先知道這七個官方入口；不必讀完才開始練習。
 
-依序閱讀 1–3 後開始練習；4–5 在需要理解 token 或本機部署時查閱：
+依序閱讀 1–3 後開始練習；4–7 在需要理解模型型號、token 或本機部署時查閱：
 
-1. [Anthropic Claude 模型總覽](https://platform.claude.com/docs/en/models/overview) — 型號、context 與價格入口。
-2. [OpenAI API 模型文件](https://developers.openai.com/api/docs/models) — 型號與計價欄位。
-3. [Google Gemini 模型文件](https://ai.google.dev/gemini-api/docs/models) — GA／Preview 狀態與 context。
-4. [Hugging Face LLM Course：Tokenizers](https://huggingface.co/learn/llm-course/chapter6/1) — tokenizer 如何切分文字。
-5. [Ollama 官方網站](https://ollama.com) — 本機模型安裝與服務啟動。
+1. [OpenAI：模型如何開發](https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/) — 先看資料、訓練與模型之間的關係。
+2. [Google Machine Learning：LLM 調整](https://developers.google.com/machine-learning/crash-course/llm/tuning) — 分清 Prompt Engineering、Fine-tuning 與 Distillation。
+3. [Anthropic Claude 模型總覽](https://platform.claude.com/docs/en/models/overview) — 型號、context 與價格入口。
+4. [OpenAI API 模型文件](https://developers.openai.com/api/docs/models) — 型號與計價欄位。
+5. [Google Gemini 模型文件](https://ai.google.dev/gemini-api/docs/models) — GA／Preview 狀態與 context。
+6. [Hugging Face LLM Course：Tokenizers](https://huggingface.co/learn/llm-course/chapter6/1) — tokenizer 如何切分文字。
+7. [Ollama 官方網站](https://ollama.com) — 本機模型安裝與服務啟動。
 
 ## 🛠 動手練習
 
@@ -481,7 +501,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 | Qwen | qwen3.8-max（API）；Qwen3.8 開放權重變體 | 正式可用 | 1M | API 依區域定價；例如北京為 CNY 12／36，每百萬輸入／輸出 tokens；開放權重變體依各自授權 | 中文任務、多模態、可自架工作流 | API 型號與開放權重變體不可混用；各自的可用性與授權要分開確認 | [Qwen 3.8 Max](https://help.aliyun.com/en/model-studio/qwen3-8-max) |
 | GLM | GLM-5.3 | 正式可用 | 1M（輸出 128K） | API：輸入／cache hit／輸出各 US$1.40／$0.26／$4.40，每百萬 tokens | 中文 agent、工具使用、推理 | 純文字；reasoning 一律啟用 | [GLM-5.3 文件](https://docs.z.ai/guides/llm/glm-5.3) · [GLM API 定價](https://docs.z.ai/guides/overview/pricing) |
 | Yi | Yi-34B／Yi-9B 及 200K 變體 | 維護中 | 200K（部分舊型號） | 官方 repo 授權與既有服務條件；目前價格官方未公布 | 維護既有 Yi 實驗、自架基線 | 沒有查到已驗證的現行 frontier 後繼型號 | [01.AI Yi repository](https://github.com/01-ai/Yi) |
-| Llama | Llama 4 Scout／Maverick；Llama 3.3 70B（較實用舊基線） | 開放權重 | Scout 10M | Llama Community License | 自架、微調、生態整合 | Scout 需要 H100 等級硬體；授權不是 Apache／MIT | [Meta Llama Get Started](https://ai.meta.com/llama/get-started/) |
+| Llama | Llama 4 Scout／Maverick；Llama 3.3 70B（較實用舊基線） | 開放權重 | Scout 10M | Llama Community License | 自架、微調、生態整合 | Scout 需要 H100 等級硬體；授權不是 Apache／MIT | [Meta AI 開發者文件](https://developer.meta.com/ai/docs/overview/) |
 | Muse | Muse Glimmer 30B | 開放權重 | 131K | Apache 2.0 | 本機 agent、coding agent、長任務 | 全量或量化部署仍需相當消費級 GPU 記憶體 | [Hugging Face Muse Glimmer](https://huggingface.co/meta-models/Muse-Glimmer-30B) |
 | Gemma | Gemma 4：E2B、E4B、12B、26B A4B、31B | 開放權重 | 小型型號 128K；中型型號 256K | Gemma 4 Terms／license；不是 Apache 2.0 | Edge、本機與受限硬體實驗 | 授權條款須逐項閱讀；硬體需求依型號 | [Gemma 核心文件](https://ai.google.dev/gemma/docs/core) · [Gemma Terms](https://ai.google.dev/gemma/terms) |
 | Mistral | Mistral Small 4；Large 3；Ministral 3 | 正式可用 | Small 4：256K | Small 4 $0.15/$0.60；Apache 2.0 開放權重依版本 | reasoning、vision、coding 與自架 | 不同型號的 API 與授權不同 | [Mistral Small 4](https://docs.mistral.ai/models/mistral-small-4-0-26-03) |

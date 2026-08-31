@@ -9,7 +9,7 @@ When an unfamiliar term appears, you do not need to stop reading the whole chapt
 - [**Prompt**](#prompt) — the complete task package you give a model, including the job, data, examples, and limits.
 - [**Token**](#token) — a small unit a model uses to split input; usage limits and billing often count it.
 - [**Context Window**](#context-window) — the information space a model can consider together in one call.
-- [**Agent**](#agent) — a system that chooses actions within limits, checks results, and decides what to do next.
+- [**Agent**](#agent) — an AI system that decides what to do next and takes action toward a person's goal, automatically but only within rules and permissions.
 - [**Tool Use**](#tool-use--function-calling) — the model requests a tool, but the program checks and executes it.
 - [**Agent Loop**](#agent-loop) — the running cycle of deciding, acting, and observing until completion or a stop condition.
 - [**RAG**](#rag-retrieval-augmented-generation) — retrieve evidence first, then give that evidence to the model for an answer.
@@ -150,11 +150,57 @@ More examples are not automatically better. Compare them with the same Eval.
 
 **Chain-of-Thought (CoT)** is a prompting research method in which a model goes through intermediate reasoning before answering. Early work includes [Few-shot CoT](https://arxiv.org/abs/2201.11903) and [Zero-shot CoT](https://arxiv.org/abs/2205.11916). In practice, ask for short, verifiable reasons and evidence rather than a model's private reasoning transcript.
 
+## Model training and adaptation
+
+### Pre-training
+
+**Pre-training** uses large amounts of data to teach a model general patterns. It changes model weights and produces a Base Model that can be adapted later.
+
+### Post-training
+
+**Post-training** is the training stage after a Base Model is complete. It uses demonstrations, preferences, or feedback to help the model follow instructions and complete tasks safely.
+
+### Inference
+
+**Inference** is when a trained model receives this input and produces this result. It uses the model; it does not retrain it.
+
+### Fine-tuning
+
+**Fine-tuning** continues changing model weights with smaller, specialized data. It suits repeated behavior or formats; facts that change daily usually belong in RAG or tools.
+
+### SFT (Supervised Fine-Tuning)
+
+**SFT** gives the model good inputs and answers to imitate. It is a common Post-training method and changes model weights.
+
+### DPO (Direct Preference Optimization)
+
+**DPO** teaches preferences from pairs of better and worse answers. It needs trustworthy preference data and changes weights.
+
+### RLHF / RL
+
+**RLHF/RL** trains a model with human or rule-based feedback. Poorly designed feedback can teach the model to exploit the score, so an independent Eval is still needed.
+
+### GRPO
+
+**GRPO** compares several answers to the same question, then updates the model from their relative results. It is one Post-training method, not a requirement for every project.
+
+### PEFT / LoRA
+
+**PEFT** is a group of methods that trains fewer parameters; **LoRA** freezes the original weights and trains added low-rank matrices. They reduce the parameters that must be updated, but still need data and Eval.
+
+### Distillation
+
+**Distillation** teaches a smaller Student Model from a larger Teacher Model. It often aims to shrink a model or lower inference cost; test the result on your own task.
+
+📍 Optional guide: [Model training and adaptation guide](model-training-guide.en.md)
+
 ## 2. Agent / tool use
 
 ### Agent
 
-An **Agent** is a system that reads state, chooses an action within limits, executes it, and observes the result. It needs at least a model, available actions, and stop conditions; connecting an LLM alone does not finish a job automatically.
+An **Agent** is an AI system that can decide what to do next and take action toward a person's goal. Once a person gives it a goal, it reads the current state, decides the next step, uses tools when needed, then, based on the result, continues, corrects course, stops, or hands control back to the person. It can do work automatically on a person's behalf, but only within clear rules and permissions.
+
+A one-shot chatbot or a fixed script with every step hard-coded in advance is not necessarily an Agent. The key is whether the AI decides how to achieve the goal based on the current state while it runs. This boundary follows [OpenAI's practical guide to building agents](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/) and [Anthropic's explanation of effective agents](https://www.anthropic.com/engineering/building-effective-agents).
 
 ### Tool Use / Function Calling
 
@@ -239,10 +285,6 @@ A **Vector DB** stores vectors, metadata, and indexes and retrieves nearby items
 ### Contextual Retrieval
 
 **Contextual Retrieval** adds a short piece of document context to each chunk before indexing it. Anthropic's [method description](https://www.anthropic.com/engineering/contextual-retrieval) evaluates contextual embeddings together with contextual BM25; measure the effect on your own data.
-
-### Fine-tuning
-
-**Fine-tuning** changes model weights with training data and can teach repeated behavior or formats. It is not a good place to store facts that change every day; those usually belong in RAG or tools.
 
 ## 4. Multi-Agent
 
@@ -447,8 +489,8 @@ A **microVM** is a streamlined execution environment that still uses a virtual-m
 
 Changeable product and protocol statements above use official documentation; research terms link to original papers. Current model, price, and Context tables live in Stage 1 instead of being copied here.
 
-<small>Official links and product identities checked: 2026-08-30 UTC.</small>
+<small>Official links, product identities, and model lifecycle checked: 2026-08-31 UTC.</small>
 
-<!-- freshness: canonical=resources/glossary.md; verified_on=2026-08-30; scope=protocols,product-identities,terminology,official-links; max_age_days=90 -->
+<!-- freshness: canonical=resources/glossary.md; verified_on=2026-08-31; scope=protocols,product-identities,terminology,official-links,model-lifecycle; max_age_days=90 -->
 
 </details>
