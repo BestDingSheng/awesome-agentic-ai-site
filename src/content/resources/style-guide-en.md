@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-30T16:19:33.353Z"
+syncedAt: "2026-08-31T04:34:11.632Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "style-guide"
@@ -297,6 +297,8 @@ If no → ...
 ```
 
 Keep the title, outcome, and first action visible. Secondary `<details>` blocks omit `open` by default. Ollama Path A remains the primary path, but do not expand every Path A automatically: use `open` only when it is the reader's single immediate action and its content is short. Keep long code and troubleshooting collapsed by default; Anthropic Path B is also collapsed by default. Do not place a linkable heading inside `<details>`, and do not nest more than three disclosure levels.
+
+When an advanced topic has its own required reading, core terms, exercise, and rated resource table, use a standalone trilingual page. The overview must provide a visible entry point; the standalone page’s header and footer must link back to the same-locale Stage. Keep important terms, required reading, and rated resources visible; collapse only setup, cost, alternatives, and troubleshooting. Make legacy anchors land on a visible gateway with matching meaning.
 
 ### Site-wide plain-language rule (ELI5)
 

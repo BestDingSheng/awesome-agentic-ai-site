@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-08-30T16:19:33.353Z"
+syncedAt: "2026-08-31T04:34:11.632Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "style-guide"
@@ -298,6 +298,8 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 ```
 
 保留标题、成果和第一步可见。次要 `<details>` 默认不加 `open`。Ollama Path A 仍是主要路径，但不要看到 Path A 就一律展开：只有它是读者眼前唯一要做的事，而且内容很短时才可加 `open`。长代码和排错默认收合；Anthropic Path B 也默认收合。不要把可被链接的 heading 放进 `<details>`，也不要使用三层以上的嵌套收合。
+
+如果一个进阶主题已有自己的必读、核心术语、练习与精选资源表，应使用可独立阅读的三语页面。概览必须提供可见入口；独立页的页首与页尾都要链接回同语系的 Stage。重要术语、必读与带评分的资源保持可见；只有设置、成本、替代方案与排错收合。旧 anchor 要落在语意相符的可见 gateway。
 
 ### 全站白话规则（ELI5）
 
