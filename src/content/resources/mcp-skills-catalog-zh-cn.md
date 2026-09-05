@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-04T16:00:01.427Z"
+syncedAt: "2026-09-05T03:38:47.178Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "mcp-skills-catalog"
@@ -126,16 +126,16 @@ baseSlug: "mcp-skills-catalog"
 **适合谁**：Logseq 用户要自动化 daily journal、跨页 link、查询 backlinks。
 **备注**：需要 Logseq 开启 HTTP API（Settings → Features → HTTP API）。
 
-### [skridlevsky/graphthulhu](https://github.com/skridlevsky/graphthulhu) ⭐⭐⭐
+### [skridlevsky/graphthulhu](https://github.com/skridlevsky/graphthulhu) ⭐⭐⭐（已归档／历史范例）
 
 | 栏位 | 内容 |
 |---|---|
 | License | MIT |
-| 推荐度 | ⭐⭐⭐（同时支持 Logseq + Obsidian） |
+| 推荐度 | ⭐⭐⭐（历史学习价值；已归档，新项目不建议从它开始） |
 
 **教什么**：一组 tool，覆盖 navigation、search、analysis、writing、journals、flashcards、whiteboards。
-**适合谁**：同时用 Logseq 跟 Obsidian、不想装两套 MCP server 的人。
-**备注**：community project，工具数多但每个工具相对基本。
+**适合谁**：想研究早期 Logseq + Obsidian MCP 设计的人；新项目应改找仍在维护的替代方案。
+**备注**：此 GitHub 项目已归档，适合当历史参考；不要用它作为新项目的起点。
 
 ### [ankimcp/anki-mcp-server](https://github.com/ankimcp/anki-mcp-server) ⭐⭐⭐
 
