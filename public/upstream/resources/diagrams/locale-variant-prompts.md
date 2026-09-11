@@ -1,5 +1,14 @@
 # 語系變體圖 — 生成流程與教訓
 
+## 2026-09-10：角色分流原畫動畫試版
+
+- 原圖固定在 commit `20dc3fb50e3cc605c28d1847701b467f7300e477` 的三語 `branch-decision-tree.png`；繁中、簡中為 `1600×900`，英文為 `1672×941`。不統一重畫、不更換字型、色彩、圖示或構圖。
+- `scripts/build-role-map.py` 以 WebP quality 95 內嵌原圖，固定來源 PNG 與壓縮 payload SHA-256。這是高品質有損壓縮，不宣稱與舊 PNG bytes 相同；新靜態 PNG 與 SVG 底圖像素一致。
+- 五個裁切區域依序做小動作：顯微鏡傾斜、電腦確認、學士帽輕轉、圖表伸縮、人物上移；各自兩秒，間隔一秒，18 秒循環，16–18 秒完全靜止。活動時以角落取色遮住原位置，避免重影。文字與接線不動，不表示必須依序學完五條角色路線。
+- 重製：`python scripts/build-role-map.py --png`；唯讀驗證：`python scripts/build-role-map.py --check`。首次匯入用 `--import-original --png`，之後不需要讀舊 commit。
+- 文件站保留 lazy／async、兩個原圖入口與三語停止／播放控制；README 有靜態圖連結，PDF 使用 PNG。上方與下方動畫共用停止狀態，減少動態或無 JavaScript 時顯示 PNG。
+- 試版已知限制：保留的英文原圖把知識工作者寫成較窄的 `Analysts`，三語文字亦有歷史差異。正式採用前要校正，不能以此試版宣稱三語圖中文字已完全一致。下方 `learning-map` 的舊順序另行修正後再動畫化。
+
 > 姊妹檔：[`concept-prompts.md`](concept-prompts.md)（Stage 7.5 兩組三語概念圖的 Image 2.0 重產規格）。
 > 這份記錄的是 **2026-08-02 那批 5 張圖 × 3 語系** 是怎麼產出來的，以及過程中踩到的坑。
 
@@ -252,6 +261,16 @@ python scripts/check-image-locale.py
 > verbatim locale text. AI drafts; the teacher checks privacy, facts, and bias;
 > the teacher observes and revises. No autonomous grading, diagnosis, learner
 > score, product logo, badge, extra caption, mixed language, or watermark.
+
+## 2026-09-10：README Banner 動畫 SVG 試版例外
+
+- 來源：直接使用 commit `ca75de9814a321fb3a3e8db606f082b2c2422124` 中既有三語 banner。使用者再次確認「只把原版變成動畫」，因此不採用重新設計的向量圖。原圖的字型、實心圖示、紫色 Hub、藍／橘路線、底部四格及各語言既有位置全部保留。
+- 可編輯來源：`scripts/build-banner.py` 的路線、節點、圖示座標與語意動作；SVG 自包含原圖的 WebP quality 95 資料，payload SHA-256 固定在產生器。這是高品質有損壓縮，不宣稱與原 PNG 位元相同；底圖沒有縮放、裁切、改字或重畫。動畫以 13 個局部裁切重用底圖的代表性圖示，沒有新增圖像資料或替換畫風；活動時以角落取色的底色蓋住原位置，再移動裁切副本，避免重影。首次以 `--import-original --png` 從固定 commit 匯入；平常用 `python scripts/build-banner.py --png` 重製覆蓋層與同名靜態 PNG，`--check` 比對來源與成品。
+- 靜態輸出：PNG 直接解碼同版 SVG 的內嵌原圖，像素與該底圖一致。減少動態時覆蓋層全部隱藏；不載入外部圖片、字型或 JavaScript。
+- 原文字、完整箭頭、圖示與卡片始終可見；光點沿各語言原圖的既有通道移動，共用 Hub 不跨錯分支。共用時間軸：基礎 0–2 秒、A 2–8 秒、B 8–16 秒、全圖停留 16–18 秒，持續循環。Stage 7.5 進階選讀與五條角色依需求選讀寫入替代說明，不為動畫重排原圖或改動底部文字。
+- 圖示動作：基礎堆疊輕抬、兩處 CLI 游標輸入、兩處工具輕轉、Stage 5／8 循環箭頭旋轉、清單確認，以及研究燒瓶輕晃、開發電腦確認、教師帽輕轉、知識圖表伸展與日常人物輕抬。三語 13 區意義與時段一致，座標各自貼齊原圖；不動 GitHub 標誌。16–18 秒不動，減少動態與停止模式仍顯示完整原圖。
+- README 三語 SVG 各有同語 PNG 靜態入口，文件站有停止／播放與減少動態效果支援，PDF 自動使用 PNG。GitHub README 是否動畫與原圖預覽分開實測；不支援時不改 GIF。
+- 不修改下方 learning-map、角色圖或章節正文；不提高圖片容量上限。
 
 ## 2026-08-30：首頁學習路徑 Banner
 
