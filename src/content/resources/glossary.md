@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-13T03:57:16.202Z"
+syncedAt: "2026-09-13T15:51:03.399Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "glossary"
@@ -371,6 +371,42 @@ baseSlug: "glossary"
 **Eval** 用固定輸入、成功條件與記錄方式比較 Prompt、模型或 Agent。先從少量代表題開始；改動前後跑同一組，才知道品質、成本與延遲怎麼變。
 
 📍 入門：[Stage 2](/zh-tw/stages/02-prompt-engineering/)；Agent 系統：[Stage 7](/zh-tw/stages/07-multi-agent-production/)
+
+### Case／Task（案例／任務）
+
+**Case／Task** 是 Eval 考卷上的一題：固定輸入、測試環境與成功條件。沒有清楚的 case，就不知道兩次執行是不是在考同一件事。
+
+### Suite（測試組）
+
+**Suite** 是一起執行和版本化的一組 cases。報告要記 suite 的版本，否則「這次 90 分」不能和換過題目的上次直接比較。
+
+### Golden Set／Reference Set（黃金集／參考集）
+
+**Golden Set／Reference Set** 是人先審查過、能代表真實工作的案例與預期標準。Golden Set 是常見實務叫法，不是跨供應商的正式規格；它用來檢查系統，不等於訓練資料或 Few-shot 範例。
+
+### Reference Solution／Criteria（參考答案／標準）
+
+**Reference Solution／Criteria** 說明怎樣才算成功。Agent 任務常有不只一種好答案，所以可以寫必要證據、允許範圍、禁止行為與 rubric，不一定只放一段標準文字。
+
+### Trial（試跑）
+
+**Trial** 是同一個 case 的一次完整執行。模型輸出可能改變，所以高風險或不穩定案例要跑多次，不能用一次結果假裝成固定能力。
+
+### Grader（評分器）
+
+**Grader** 按規則判定 trial。能用程式精確檢查的先用 deterministic grader；模糊品質可加模型或人工評分，但要留下 rubric、版本與原始證據。
+
+### Baseline（基線）
+
+**Baseline** 是修改前的比較起點。它必須使用同一版 cases、環境、trial 次數與門檻，否則前後分數不能公平比較。
+
+### Regression（回歸）
+
+**Regression** 是新版本相對 baseline 出現超過門檻的退步，可能發生在品質、成本、安全或可靠性。先看多次 trials 與失敗案例，再決定是否阻擋發布。
+
+### Holdout Set（保留測試集）
+
+**Holdout Set** 是平常不拿來反覆調整的凍結案例。開發時用 development／reference cases；準備發布或做最後驗證時才打開 holdout，避免把系統調成只會回答已看過的考題。
 
 ### Observability
 
