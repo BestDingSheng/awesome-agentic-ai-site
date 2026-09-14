@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
@@ -263,4 +263,4 @@ This table keeps only the tools needed for a Stage 6 baseline. Advanced techniqu
 - [ ] I can compare changes with a small question set instead of one attractive answer.
 - [ ] Memory saves only necessary, permitted data and lets users view, change, and delete it.
 
-When you can do these, go to [Stage 7 — Agent Production Engineering: Harness, Loops, and Graphs](/en/stages/07-multi-agent-production/).
+When you can do these, go to [Stage 7 — Agent Production Engineering: Testable, Observable, Stoppable, and Recoverable](/en/stages/07-multi-agent-production/).

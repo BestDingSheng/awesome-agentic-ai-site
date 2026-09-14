@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "06-memory-rag"
@@ -254,4 +254,4 @@ RAG 有两条路：一条先整理数据，一条在问题来时找资料。
 - [ ] 我能用一小组问题比较修改前后，而不是只看一次漂亮回答。
 - [ ] Memory 只保存必要且获准的资料，用户能查看、修改与删除。
 
-都能做到后，前往 [Stage 7 — Agent Production Engineering：Harness、Loop 与 Graph](/stages/07-multi-agent-production/)。
+都能做到后，前往 [Stage 7 — Agent 上线工程：可测、可看、可停、可恢复](/stages/07-multi-agent-production/)。

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -448,7 +448,7 @@ my-plugin/
 
 Worktree 解决“不要改同一份文件”；Subagent/team 解决“谁做哪件事”。两者可一起使用，但不是同一功能。Agent teams 不会自动为每个 teammate 建 Worktree，所以仍要清楚划分文件 ownership。
 
-**Dynamic workflows** 会把计划放进可读的 JavaScript 脚本，而不是绑定到某个特定 Claude 模型；用 `/workflows` 查看进度。它要求 Claude Code v2.1.154+，可用于付费方案、API、Bedrock、Google Cloud Agent Platform 与 Foundry；Pro 需从 `/config` 的对应项目开启。
+**Dynamic workflows** 会把计划放进可读的 JavaScript 脚本，而不是绑定到某个特定 Claude 模型；用 `/workflows` 查看进度。现行官方文件列出付费方案、API、Bedrock、Google Cloud Agent Platform 与 Foundry，但没有声明一个通用最低版本；Pro 需从 `/config` 的对应项目开启。
 
 </details>
 

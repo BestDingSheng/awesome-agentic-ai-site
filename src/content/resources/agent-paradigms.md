@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/agent-paradigms.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "agent-paradigms"
@@ -69,7 +69,7 @@ baseSlug: "agent-paradigms"
 1. [CLI Agents 指南](/zh-tw/resources/cli-agents-guide/)：比較登入、Provider、Sandbox、project rules 與權限。
 2. [Stage 4：Workflow Graph 與 Agent 框架](/zh-tw/stages/04-agent-frameworks/)：學 Framework 與 Workflow Graph。
 3. [Stage 5：Claude Code 生態](/zh-tw/stages/05-claude-code-ecosystem/)：學 Skills、MCP、Hooks 與 Subagents。
-4. [Stage 7：Agent Production Engineering](/zh-tw/stages/07-multi-agent-production/)：學 Harness、Loop、Graph 與上線邊界。
+4. [Stage 7：Agent Production Engineering](/zh-tw/stages/07-multi-agent-production/)：學 Harness、Loop、Graph、跨系統 Eval 與上線邊界。
 
 ## 🪜 三步選擇法
 

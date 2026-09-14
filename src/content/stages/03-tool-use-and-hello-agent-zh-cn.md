@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -160,7 +160,7 @@ Path A 的 **API 费用是 `$0`**；仍会使用你的硬件、内存与电力�
 **第一步**：复制并运行 `ollama pull qwen2.5:3b`。接着展开 Path A，把完整程序直接复制成 `hello_tool.py`。
 
 <details markdown="1">
-<summary>Path A：Ollama 完整可复制示例（API 费用 `$0`）</summary>
+<summary>Path A：Ollama 完整可复制示例（API 费用 <code>$0</code>）</summary>
 
 ```python
 import json
@@ -242,7 +242,7 @@ python hello_tool.py
 </details>
 
 <details markdown="1">
-<summary>Path B：Anthropic 完整来回（每次先预留 `$0.05`）</summary>
+<summary>Path B：Anthropic 完整来回（每次先预留 <code>$0.05</code>）</summary>
 
 ```python
 import json

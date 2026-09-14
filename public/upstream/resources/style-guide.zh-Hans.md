@@ -303,6 +303,7 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 
 - 每个完成回溯的 Stage／Track，都要在第一个练习前放一个可见核心词区。核心词名称与最短解释不能放进 `<details>`。
 - 每个核心词独立回答四件事：**它是什么**、**它像什么**、**这章用它做什么**、**正确术语是什么**。需要更深原理时，再把补充放进默认收合区。
+- 新建页面或轮到该章进行阅读体验重整时，若核心词有四个以上，或能分成两组以上，不要堆成长串小标题。改用一张保持展开的 HTML 表格，栏位固定回答“先处理什么／正式核心词／白话说法／本章用途与技术边界”。同一组用独立 `<tbody>` 和真正的 `<th scope="rowgroup" rowspan="N">` 合并；详细限制可在表格后补充，但不可再复制一份同内容的速记清单。尚未轮到重整的既有页面依 stacked PR 顺序迁移，不因新增本规则而一次改写全站。
 - 只收后文、练习或 self-check 真的会用到的关键概念。不要把每个普通名词拉出来凑数，也不能用“太细”当理由删掉 Zero-Shot、Token、MCP 等必要术语。
 - 三语的概念、顺序、用途与限制一致；英文名、缩写、指令与规格名称保持精确。
 - `scripts/reader-ux-pages.yml` 的 `core_terms` 会记录核心区、第一个练习、三语 term／label、顺序与最低解释长度。加入后只能维持或加强，不能静默移除。
@@ -322,9 +323,12 @@ PR 之前请先读完本文。项目维护者也会用这份指南做 review。
 
 ### Eval 教学写法
 
-- 第一次解释 Eval 时，按顺序介绍 **Case/Task、Suite、Golden/Reference Set、Reference Solution/Criteria、Trial、Grader、Baseline、Regression、Holdout Set**。每个词先用一句生活比喻，再保留正式术语；重要定义、图、完成条件和学习资源保持可见。
-- **Golden Set** 是常见实践叫法，不是跨供应商的正式规范。它用来检查系统，不等于训练数据或 Few-shot 示例。
-- Development/reference cases 用来反复改进；frozen holdout 只在 release candidate 或最后验证时使用。报告至少记录 dataset version、split、case ID、trial 次数、grader、Outcome/Trajectory 和 baseline。
+- 第一次解释 Eval 时，先说清楚 **Outcome（要得到的结果）**，再依次介绍 **Eval Case、Eval Suite、Reviewed Eval Set**。读者看懂这三层后，再补充 Golden Set／Reference Set 等外部常见叫法。
+- 一个 **Eval Case** 不只是输入。完整案例至少要写明输入、初始状态、成功条件、禁止行为、可选参考答案、grader 与 case metadata；没有参考答案时，也要靠明确条件判断结果。
+- **Reviewed Eval Set** 是本项目的主要教学名称，指一组由人检查、可重复使用的完整案例。**Golden Set／Reference Set** 的实际含义因团队而异；第一次出现时说明当前来源中的含义，不能直接当成跨供应商标准。
+- Golden／Reference Set 用来检查系统，不只是 input，也不等于训练数据或 Few-shot 示例。图中要把 input 画成完整案例的一部分。
+- 视需要再补充 **Trial、Grader、Baseline、Regression、Development Set、Holdout Set**。每个词先用白话说明用途，再保留正式术语；重要定义、图、完成条件和学习资源保持可见。
+- Development／reference cases 用来反复改进；frozen holdout 只在 release candidate 或最后验证时使用。报告至少记录 dataset version、split、case ID、trial 次数、grader、Outcome／Trajectory 和 baseline。
 - 能精确判断就先用 deterministic grader；模型或人工 grader 必须附 rubric 和版本。Regression 要依据多次 trials、预先定义的阈值和失败案例判断，不能把一次随机波动写成必然退步。
 
 ### Reader UX ratchet

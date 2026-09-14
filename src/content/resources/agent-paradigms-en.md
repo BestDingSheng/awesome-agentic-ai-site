@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/agent-paradigms.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/agent-paradigms.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "agent-paradigms"
@@ -69,7 +69,7 @@ The shortest check is: **Who runs the model? Who routes the request? Who can tou
 1. [CLI Agents guide](/en/resources/cli-agents-guide/): compare sign-in, Providers, Sandboxes, project rules, and permissions.
 2. [Stage 4: Workflow Graphs & Agent Frameworks](/en/stages/04-agent-frameworks/): learn Frameworks and Workflow Graphs.
 3. [Stage 5: Claude Code Ecosystem](/en/stages/05-claude-code-ecosystem/): learn Skills, MCP, Hooks, and Subagents.
-4. [Stage 7: Agent Production Engineering](/en/stages/07-multi-agent-production/): learn Harnesses, Loops, Graphs, and production boundaries.
+4. [Stage 7: Agent Production Engineering](/en/stages/07-multi-agent-production/): learn Harnesses, Loops, Graphs, system-wide Eval, and production boundaries.
 
 ## 🪜 A three-step choice
 

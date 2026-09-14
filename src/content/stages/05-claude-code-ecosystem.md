@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -442,7 +442,7 @@ my-plugin/
 | Subagent | 主對話 | 隔離搜尋或專門任務 | 同一 session 內回傳結果 |
 | Agent view | 使用者 | 監看多個獨立背景 session | Research preview |
 | Agent teams | Lead 與 teammates | Workers 要共享任務並互相傳訊 | Experimental、預設關閉 |
-| [**Dynamic workflows**](https://code.claude.com/docs/en/workflows) | Script／runtime | 大型 audit、migration、交叉查證研究 | Claude Code v2.1.154+；可讀、可重跑，會增加 token 用量 |
+| [**Dynamic workflows**](https://code.claude.com/docs/en/workflows) | Script／runtime | 大型 audit、migration、交叉查證研究 | 可讀、可重跑，會增加 token 用量；使用前看現行官方可用條件 |
 | Worktree | Git／使用者 | 隔離同 repo 的檔案修改 | 不負責 agent 溝通 |
 | `/batch` | Claude 規劃後分派 | 5–30 個可切開的機械式改動 | 每個 worker 應有獨立範圍與 review |
 

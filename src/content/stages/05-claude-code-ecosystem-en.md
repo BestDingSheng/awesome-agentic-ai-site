@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -451,7 +451,7 @@ The outcome of this section: you can distinguish who coordinates work from who i
 
 A Worktree solves “do not edit the same files”; a Subagent or team solves “who does which task.” They can be used together, but are not the same feature. Agent teams do not automatically create a Worktree for every teammate, so file ownership must still be divided clearly.
 
-**Dynamic workflows** put the plan in a readable JavaScript script, not in a particular Claude model; use `/workflows` to see progress. They require Claude Code v2.1.154+ and are available on paid plans, through the API, and on Bedrock, Google Cloud Agent Platform, and Foundry. On Pro, enable them from their row in `/config`.
+**Dynamic workflows** put the plan in a readable JavaScript script, not in a particular Claude model; use `/workflows` to see progress. Current official documentation lists access through paid plans, the API, Bedrock, Google Cloud Agent Platform, and Foundry without stating one general minimum version. On Pro, enable them from their row in `/config`.
 
 </details>
 

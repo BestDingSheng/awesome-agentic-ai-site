@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -474,7 +474,7 @@ A **Frontier Model** is a model near the capability frontier at a particular tim
 
 **Agent Production Engineering** is this roadmap's umbrella name for making an Agent dependable, safe, and observable over time. It brings Harnesses, Loops, Workflow Graphs, Evals, Guardrails, cost, recovery, and human approval into one chapter.
 
-The learning order is [Stage 3 Agent Loop](/en/stages/03-tool-use-and-hello-agent/) → [Stage 4 Workflow Graph / Agent Framework](/en/stages/04-agent-frameworks/) → [Stage 7 Agent Production Engineering](/en/stages/07-multi-agent-production/). Prompt, Context, Harness, Loop, and Graph are five overlapping control questions, not five product generations that replace one another.
+The learning order is [Stage 3 Agent Loop](/en/stages/03-tool-use-and-hello-agent/) → [Stage 4 Workflow Graph / Agent Framework](/en/stages/04-agent-frameworks/) → [Stage 7 Agent Production Engineering](/en/stages/07-multi-agent-production/). Prompt, Context, Harness, Loop, and Graph work together; they are not five layers or product generations that replace one another.
 
 📍 Full chapter: [Stage 7](/en/stages/07-multi-agent-production/)
 

@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "style-guide"
@@ -312,6 +312,7 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 
 - 每個完成回溯的 Stage／Track，都要在第一個練習前放一個可見核心詞區。核心詞名稱與最短解釋不能放進 `<details>`。
 - 每個核心詞獨立回答四件事：**它是什麼**、**它像什麼**、**這章用它做什麼**、**正確術語是什麼**。需要更深原理時，再把補充放進預設收合區。
+- 新建頁面或輪到該章進行閱讀體驗重整時，若核心詞有四個以上，或能分成兩組以上，不要堆成長串小標題。改用一張保持展開的 HTML 表格，欄位固定回答「先處理什麼／正式核心詞／白話說法／本章用途與技術界線」。同一組用獨立 `<tbody>` 和真正的 `<th scope="rowgroup" rowspan="N">` 合併；詳細限制可在表格後補充，但不可再複製一份同內容的速記清單。尚未輪到重整的既有頁面依 stacked PR 順序遷移，不因新增本規則而一次改寫全站。
 - 只收後文、練習或 self-check 真的會用到的關鍵概念。不要把每個普通名詞拉出來湊數，也不能用「太細」當理由刪掉 Zero-Shot、Token、MCP 等必要術語。
 - 三語的概念、順序、用途與限制一致；英文名、縮寫、指令與規格名稱保持精確。
 - `scripts/reader-ux-pages.yml` 的 `core_terms` 會記錄核心區、第一個練習、三語 term／label、順序與最低解釋長度。加入後只能維持或加強，不能靜默移除。
@@ -331,8 +332,11 @@ PR 之前請先讀完本文。專案維護者也會用這份指南做 review。
 
 ### Eval 教學寫法
 
-- 初次解釋 Eval 時，依序介紹 **Case／Task、Suite、Golden／Reference Set、Reference Solution／Criteria、Trial、Grader、Baseline、Regression、Holdout Set**。每個詞先用一句生活比喻，再保留正式術語；重要定義、圖、完成條件與學習資源保持可見。
-- **Golden Set** 是常見實務叫法，不是跨供應商的正式規格。它用來檢查系統，不等於訓練資料或 Few-shot 範例。
+- 初次解釋 Eval 時，先說清楚 **Outcome（要得到的結果）**，再依序介紹 **Eval Case、Eval Suite、Reviewed Eval Set**。只有讀者看懂這三層後，才補充 Golden Set／Reference Set 等外部常見叫法。
+- 一個 **Eval Case** 不是只有輸入。完整案例至少要交代輸入、初始狀態、成功條件、禁止行為、選用的參考答案、grader 與 case metadata；沒有參考答案時，也要能靠明確條件判斷結果。
+- **Reviewed Eval Set** 是本專案的主要教學名稱，表示一組已由人檢查、可重複使用的完整案例。**Golden Set／Reference Set** 的實際意思會依團隊而異；第一次出現時要說明它在當前來源裡指什麼，不能直接當成跨供應商標準。
+- Golden／Reference Set 用來檢查系統，不只是 input，也不等於訓練資料或 Few-shot 範例。圖中要把 input 畫成完整案例的一部分。
+- 再依需要補充 **Trial、Grader、Baseline、Regression、Development Set、Holdout Set**。每個詞先用白話說用途，再保留正式術語；重要定義、圖、完成條件與學習資源保持可見。
 - Development／reference cases 用來反覆改進；frozen holdout 只在 release candidate 或最後驗證時使用。報告至少寫 dataset version、split、case ID、trial 次數、grader、Outcome／Trajectory 與 baseline。
 - 能精確判斷就先用 deterministic grader；模型或人工 grader 必須附 rubric 與版本。Regression 要依多次 trials、預先定義的門檻與失敗案例判斷，不把單次隨機波動寫成必然退步。
 

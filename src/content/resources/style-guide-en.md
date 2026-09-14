@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "style-guide"
@@ -314,6 +314,7 @@ This rule applies to the entire learning map. The goal is for a five-year-old to
 
 - Every Stage/Track that has completed a retrospective must put a visible core-term section before the first exercise. Core-term names and their shortest explanations must not go inside `<details>`.
 - Each core term must answer four questions on its own: **what it is**, **what it is like**, **what this chapter uses it for**, and **what the correct term is**. Put deeper theory in a collapsed section when needed.
+- For a new page, or when a chapter reaches its reader-experience revision, do not stack a long series of mini-headings when there are four or more core terms or at least two meaningful groups. Use one visible HTML table with columns for “problem to handle / formal core term / plain-language picture / chapter use and technical boundary.” Give each group its own `<tbody>` and merge its label with a real `<th scope="rowgroup" rowspan="N">`. Detailed boundaries may follow the table, but do not copy the same content into a second quick-reference list. Existing pages that have not reached their revision migrate in stacked-PR order instead of being rewritten all at once by this rule.
 - Collect only key concepts used later in the text, exercises, or self-check. Do not pull out every ordinary noun just to fill a quota, and do not delete necessary terms such as Zero-Shot, Token, or MCP because they seem “too detailed.”
 - Keep the concept, order, purpose, and limits consistent across the three languages. Keep English names, abbreviations, commands, and specification names exact.
 - `scripts/reader-ux-pages.yml` uses `core_terms` to record the core section, first exercise, terms/labels in all three languages, their order, and the minimum explanation length. Once added, it may only be maintained or strengthened; it must not be silently removed.
@@ -333,10 +334,13 @@ This rule applies to the entire learning map. The goal is for a five-year-old to
 
 ### Eval teaching style
 
-- When first explaining Eval, introduce **Case/Task, Suite, Golden/Reference Set, Reference Solution/Criteria, Trial, Grader, Baseline, Regression, Holdout Set** in that order. Give a one-sentence everyday picture before the formal term; keep important definitions, the diagram, completion criteria, and learning resources visible.
-- **Golden Set** is a common practical label, not a universal vendor standard. It checks the system and is not training data or Few-shot examples.
-- Use development/reference cases for iteration; use frozen holdout only for a release candidate or final validation. Reports must include at least dataset version, split, case ID, trial count, grader, Outcome/Trajectory, and baseline.
-- Prefer deterministic graders when code can make an exact judgment. Model or human graders need a rubric and version. Decide Regression from multiple trials, predefined thresholds, and failure review—not one random change.
+- When first explaining Eval, clarify **Outcome** (the result to obtain), then introduce **Eval Case**, **Eval Suite**, and **Reviewed Eval Set**. Only after readers understand these three layers should you add common outside labels such as Golden Set/Reference Set.
+- An **Eval Case** is more than input. At minimum, state input, initial state, success criteria, forbidden actions, an optional reference answer, a grader, and case metadata; without a reference answer, explicit criteria must still determine the result.
+- **Reviewed Eval Set** is this project's primary teaching term for a reusable set of complete, human-checked cases. The meaning of **Golden Set/Reference Set** varies by team; explain what it means in the current source rather than treating it as a cross-vendor standard.
+- Golden/Reference Set checks the system; it is not input alone, training data, or Few-shot examples. A diagram must show input as one part of a complete case.
+- Add **Trial, Grader, Baseline, Regression, Development Set,** and **Holdout Set** as needed. Give each term a plain-language purpose before retaining the formal term; keep important definitions, diagrams, completion criteria, and learning resources visible.
+- Development/reference cases support iteration; frozen holdout is used only for a release candidate or final validation. Reports must include at least dataset version, split, case ID, trial count, grader, Outcome/Trajectory, and baseline.
+- Prefer deterministic graders when code can judge exactly. Model or human graders need a rubric and version. Decide Regression from multiple trials, predefined thresholds, and failure review—not one random change.
 
 ### Reader UX ratchet
 

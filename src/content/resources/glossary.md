@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-14T04:04:29.444Z"
+syncedAt: "2026-09-14T17:55:01.788Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "glossary"
@@ -474,7 +474,7 @@ baseSlug: "glossary"
 
 **Agent Production Engineering** 是本學習地圖對「讓 Agent 可以長期、安全、可觀察地運作」的上位名稱。它把 Harness、Loop、Workflow Graph、Eval、Guardrails、成本、復原與人工核准放在同一章討論。
 
-學習順序是 [Stage 3 的 Agent Loop](/zh-tw/stages/03-tool-use-and-hello-agent/) → [Stage 4 的 Workflow Graph／Agent Framework](/zh-tw/stages/04-agent-frameworks/) → [Stage 7 的 Agent Production Engineering](/zh-tw/stages/07-multi-agent-production/)。Prompt、Context、Harness、Loop、Graph 是五個會重疊的控制問題，不是五個互相取代的產品世代。
+學習順序是 [Stage 3 的 Agent Loop](/zh-tw/stages/03-tool-use-and-hello-agent/) → [Stage 4 的 Workflow Graph／Agent Framework](/zh-tw/stages/04-agent-frameworks/) → [Stage 7 的 Agent Production Engineering](/zh-tw/stages/07-multi-agent-production/)。Prompt、Context、Harness、Loop、Graph 會一起工作；它們不是五層，也不是互相取代的產品世代。
 
 📍 完整章節：[Stage 7](/zh-tw/stages/07-multi-agent-production/)
 
