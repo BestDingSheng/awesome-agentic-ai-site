@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-19T03:50:18.085Z"
+syncedAt: "2026-09-19T15:36:48.767Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "mcp-skills-catalog"
@@ -1212,5 +1212,5 @@ PR 送出前看一下 [`resources/style-guide.md`](/zh-tw/resources/style-guide/
 - 官方狀態、授權、權限與 hosted endpoint 以供應商文件或 canonical repo 為準
 - CI 定期掃 repository redirect、archive、HTTP error 與 freshness 訊號；警告後仍要人工判斷，不能只因很久沒 release 就刪除穩定工具
 - 新分類先說清楚讀者工作與安全邊界，再收錄可核對的官方或優質社群入口
-- 中文社群工具用同一套教學價值、維護、授權與權限標準，不使用 stars 門檻
+- 中文社群工具也用同一套規則：新收錄的第三方 GitHub repo 至少要有 1,000 stars，並繼續檢查教學價值、維護、授權與權限；官方文件、標準規格與不可替代的 canonical source 不套這個門檻
 - 用詞與格式先修到五歲也能理解，同時保留精確術語、限制與來源

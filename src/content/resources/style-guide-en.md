@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/style-guide.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/style-guide.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-19T03:50:18.085Z"
+syncedAt: "2026-09-19T15:36:48.767Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "style-guide"
@@ -80,8 +80,8 @@ Example: an `Anthropic — Building Effective Agents` blog entry uses `Format = 
 Recommendation is a required editorial judgment for every entry.
 
 - Use current official documentation, specifications, and model cards to verify facts.
-- Use well-known or widely used practical repositories to give readers a hands-on path.
-- Popularity is only a candidate-discovery signal; it never replaces checks for maintenance, license, safety, or relevance.
+- A newly added third-party GitHub repository must have at least **1,000 stars** when reviewed. Then prefer well-known or widely used practical repositories that give readers a hands-on path. Official provider docs, standards, model cards, and irreplaceable canonical sources are not third-party repositories and do not use this threshold.
+- The 1,000-star rule is only an admission threshold, not a quality score. It never replaces checks for maintenance, license, safety, relevance, or teaching value, and pages still do not store a drifting star count.
 - Every project entry must say what it teaches, who it is best for, and its status or limits.
 
 ### Optional fields
