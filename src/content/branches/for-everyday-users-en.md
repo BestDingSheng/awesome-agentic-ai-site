@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-22T16:34:48.533Z"
+syncedAt: "2026-09-23T03:58:09.979Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "for-everyday-users"
@@ -93,6 +93,8 @@ Then check three things yourself:
 </table>
 
 If you only want to chat, you do not need a CLI Agent or local runtime. Go to [Track A1](/en/tracks/cli-a1-cli-intro/) when you want the command line, or [Stage 1](/en/stages/01-llm-basics/) when you want to understand models.
+
+**Personal Agent** is an assistant that can carry out multi-step work across tools after you give it a goal—like asking an assistant to research, draft, and return for approval. [Meta Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) is one example, rolling out in the US as checked on 2026-09-22; it asks for approval before important actions such as sending mail or buying something. Muse is a product, not the Muse Spark model and not Muse Code running in a terminal. Check which accounts it connects to and what permissions it receives; “acts on its own” does not mean “skip human review.”
 
 <a id="required-reading"></a>
 ## 📖 Required reading

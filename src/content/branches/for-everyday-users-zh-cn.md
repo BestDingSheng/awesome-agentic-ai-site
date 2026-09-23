@@ -5,7 +5,7 @@ section: "Branch"
 sourcePath: "branches/for-everyday-users.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/branches/for-everyday-users.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-22T16:34:48.533Z"
+syncedAt: "2026-09-23T03:58:09.979Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "for-everyday-users"
@@ -93,6 +93,8 @@ baseSlug: "for-everyday-users"
 </table>
 
 如果你只想聊天，不需要安装 CLI Agent 或本地 Runtime。想学命令行时再去 [Track A 第一站](/tracks/cli-a1-cli-intro/)；想了解模型时再去 [Stage 1](/stages/01-llm-basics/)。
+
+**个人 Agent（Personal Agent）** 是你交代目标后，能跨工具帮你完成多步骤工作的助手，例如先查资料、写草稿，再拿回来请你确认。[Meta Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) 是一个例子，于 2026-09-22 核查时正在美国逐步开放；它在发信或购买等重要动作前会请求批准。Muse 是产品，不等于 Muse Spark 模型，也不等于在终端工作的 Muse Code。先看它会连接哪些账号、获得什么权限；“会自己做事”不等于可以跳过人工检查。
 
 <a id="必修阅读"></a>
 ## 📖 必读
