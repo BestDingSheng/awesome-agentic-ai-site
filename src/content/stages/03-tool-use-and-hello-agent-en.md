@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-28T19:25:20.025Z"
+syncedAt: "2026-09-29T04:57:49.587Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -515,7 +515,7 @@ Complete one five-star route first: official docs → Exercises 1–3 → one fr
     <tr><td><a href="https://arxiv.org/abs/2210.03629">ReAct paper</a></td><td>Read the abstract and method diagram first.</td><td>Original paper; arXiv</td><td>⭐⭐⭐⭐</td></tr>
   </tbody>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="4">Official courses and examples</th><td><a href="https://github.com/anthropics/courses">Anthropic Courses — Tool Use</a></td><td>Complete the Tool Use notebook.</td><td>Official course; upstream provides no SPDX</td><td>⭐⭐⭐⭐</td></tr>
+    <tr><th scope="rowgroup" rowspan="4">Official courses and examples</th><td><a href="https://github.com/anthropics/courses">Anthropic Courses — Tool Use</a></td><td>Read the older Tool Use notebook; use the Cookbook in the next row when building.</td><td>Archived official course; upstream provides no SPDX</td><td>⭐⭐⭐⭐</td></tr>
     <tr><td><a href="https://github.com/anthropics/claude-cookbooks/tree/main/tool_use">Anthropic Tool Use Cookbook</a></td><td>Move from one tool to parallel tools.</td><td>Maintained; MIT</td><td>⭐⭐⭐⭐⭐</td></tr>
     <tr><td><a href="https://github.com/anthropics/claude-quickstarts">Anthropic Quickstarts</a></td><td>After the exercises, see how a full app connects tools.</td><td>Maintained; MIT</td><td>⭐⭐⭐⭐</td></tr>
     <tr><td><a href="https://github.com/microsoft/ai-agents-for-beginners">Microsoft AI Agents for Beginners</a></td><td>Choose a chapter if you want another complete course.</td><td>Maintained; MIT</td><td>⭐⭐⭐⭐</td></tr>

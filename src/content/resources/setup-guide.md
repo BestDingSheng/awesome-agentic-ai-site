@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/setup-guide.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-28T19:25:20.025Z"
+syncedAt: "2026-09-29T04:57:49.587Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "setup-guide"
@@ -246,8 +246,8 @@ load_dotenv()
 client = Anthropic()  # 從 ANTHROPIC_API_KEY 讀取 key
 
 message = client.messages.create(
-    model="claude-sonnet-5",
-    max_tokens=120,
+    model="claude-sonnet-5-5",
+    max_tokens=1024,
     messages=[{"role": "user", "content": "請用一句話介紹你自己。"}],
 )
 

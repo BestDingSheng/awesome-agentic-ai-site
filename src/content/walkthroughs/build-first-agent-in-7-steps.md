@@ -5,7 +5,7 @@ section: "Walkthrough"
 sourcePath: "walkthroughs/build-first-agent-in-7-steps.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/walkthroughs/build-first-agent-in-7-steps.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-28T19:25:20.025Z"
+syncedAt: "2026-09-29T04:57:49.587Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "build-first-agent-in-7-steps"
@@ -109,7 +109,7 @@ response = client.messages.create(
     }]
 )
 
-print(response.content[0].text)
+print("".join(block.text for block in response.content if block.type == "text"))
 print(f"\n--- Tokens: input={response.usage.input_tokens}, "
       f"output={response.usage.output_tokens} ---")
 ```
@@ -118,7 +118,7 @@ print(f"\n--- Tokens: input={response.usage.input_tokens}, "
 
 **學到什麼**：API call 的長相、`messages` 結構、`usage` 怎麼算 token。
 
-這裡的 `claude-sonnet-5` 是現行 Claude API ID；型號有生命週期，實作前仍要對照 [Anthropic Model IDs and versioning](https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions)。
+這份實作用仍可使用的 `claude-sonnet-5` 固定範例；目前較新的 Sonnet 是 `claude-sonnet-5-5`。舊程式不能只改型號：工具指定和參數有變，升級前先看 [Sonnet 5.5 遷移指南](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide)。
 
 ---
 
@@ -160,7 +160,7 @@ if __name__ == "__main__":
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": PAPER_TEXT}]
     )
-    print(response.content[0].text)
+    print("".join(block.text for block in response.content if block.type == "text"))
 ```
 
 **學到什麼**：system prompt 跟 user message 分工、明確格式要求、防 hallucinate 的「不知道就說沒提到」。

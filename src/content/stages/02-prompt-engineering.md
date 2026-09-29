@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-09-28T19:25:20.025Z"
+syncedAt: "2026-09-29T04:57:49.587Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
@@ -271,7 +271,7 @@ Path A 六題兩輪的 API 費用是 `$0`。Path B 先設 `$0.05` 上限；若�
   </thead>
   <tbody>
     <tr><th scope="rowgroup" rowspan="5">官方課程</th><td><a href="https://github.com/anthropics/prompt-eng-interactive-tutorial">Anthropic Prompt Engineering Tutorial</a></td><td>照 notebook 做第一章。</td><td>維護中；上游未提供 SPDX</td><td>⭐⭐⭐⭐</td></tr>
-    <tr><td><a href="https://github.com/anthropics/courses">Anthropic Courses</a></td><td>看 Real World Prompting 與 Prompt Evaluations。</td><td>維護中；上游未提供 SPDX</td><td>⭐⭐⭐⭐</td></tr>
+    <tr><td><a href="https://github.com/anthropics/courses">Anthropic Courses</a></td><td>看舊版 Real World Prompting 與 Prompt Evaluations；實作時對照本表的現行官方文件。</td><td>已封存；上游未提供 SPDX</td><td>⭐⭐⭐⭐</td></tr>
     <tr><td><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview">Anthropic Prompt Engineering</a></td><td>先讀「何時該改 prompt」。</td><td>官方文件</td><td>⭐⭐⭐⭐</td></tr>
     <tr><td><a href="https://developers.openai.com/api/docs/guides/prompt-engineering">OpenAI Prompt Engineering</a></td><td>看訊息角色、範例與 eval。</td><td>官方文件</td><td>⭐⭐⭐⭐</td></tr>
     <tr><td><a href="https://ai.google.dev/gemini-api/docs/prompting-strategies">Google Prompt Design Strategies</a></td><td>看清楚指令與固定結構。</td><td>官方文件</td><td>⭐⭐⭐⭐</td></tr>
