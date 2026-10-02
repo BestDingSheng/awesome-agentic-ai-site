@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-02T04:47:07.397Z"
+syncedAt: "2026-10-02T17:38:45.497Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -644,7 +644,7 @@ Installation and testing belong in [Stage 5](/en/stages/05-claude-code-ecosystem
 **Audience**: SREs / DevOps using Grafana for metrics.
 **Notes**: "why did this dashboard line drop?" — ask, and the LLM pulls metrics for the answer.
 
-### [getsentry/sentry-mcp](https://github.com/getsentry/sentry-mcp) ⭐⭐⭐⭐
+### [getsentry/toolkit](https://github.com/getsentry/toolkit) ⭐⭐⭐⭐
 
 | Field | Value |
 |---|---|
@@ -654,6 +654,7 @@ Installation and testing belong in [Stage 5](/en/stages/05-claude-code-ecosystem
 **What it does**: query Sentry error events / issues / traces from LLMs.
 **Audience**: engineers using Sentry for production errors.
 **Notes**: "show me last week's stack trace for this error" works directly in Claude Code.
+The former `getsentry/sentry-mcp` repository is now `getsentry/toolkit`, the same project (checked 2026-10-02). Sentry MCP still uses the name `sentry-mcp` and package `@sentry/mcp-server`.
 
 ### [winor30/mcp-server-datadog](https://github.com/winor30/mcp-server-datadog) ⭐⭐⭐
 
