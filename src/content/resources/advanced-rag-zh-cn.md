@@ -1,16 +1,18 @@
 ---
 title: "进阶 RAG：先找出哪一步坏了，再加新技巧"
-description: "基础 RAG 像“先翻书，再回答”。进阶 RAG 不是把更多零件全装上去，而是先看哪一步找错了资料，再只修那一步。"
+description: "RAG（Retrieval-Augmented Generation）：先找相关资料，再依资料回答。"
 section: "Resource"
 sourcePath: "resources/advanced-rag.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/advanced-rag.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-02T17:38:45.497Z"
+syncedAt: "2026-10-03T04:29:27.353Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "advanced-rag"
 ---
 # 进阶 RAG：先找出哪一步坏了，再加新技巧
+
+**RAG**（Retrieval-Augmented Generation）：先找相关资料，再依资料回答。
 
 [繁體中文](/zh-tw/resources/advanced-rag/) | [English](/en/resources/advanced-rag/) | [简体中文](/resources/advanced-rag/)
 
@@ -47,8 +49,8 @@ baseSlug: "advanced-rag"
 | 你看到的问题 | 先量什么 | 第一个可试的方法 | 先不要做什么 |
 |---|---|---|---|
 | 文档里明明有答案，却完全没被找回 | Recall@k、命中率 | 改 chunk、metadata filter 或 Hybrid Search | 先换更大的生成模型 |
-| 正确文档有找回，但排在很后面 | MRR、nDCG、前 k 名人工检查 | Reranking | 一口气加 graph 与 agent loop |
-| 问题太短、太模糊或包含多个小问题 | 各改写查询的命中率与延迟 | Multi-Query、拆题或 HyDE | 无限制产生大量查询 |
+| 正确文档有找回，但排在很后面 | MRR（Mean Reciprocal Rank，看首项相关结果排多前）、nDCG（Normalized Discounted Cumulative Gain，对照理想排序看整个排序质量）、前 k 名人工检查 | Reranking | 一口气加 graph 与 agent loop |
+| 问题太短、太模糊或包含多个小问题 | 各改写查询的命中率与延迟 | Multi-Query、拆题或 HyDE（Hypothetical Document Embeddings，用假想文档的向量找真实资料；假想内容不是证据） | 无限制产生大量查询 |
 | 要回答跨很多文档的关系或整体主题 | 关系覆盖率、global question 测试集 | GraphRAG、LightRAG 或摘要树 | 把 graph 当成每个 RAG 的默认配置 |
 | 有些问题根本不需要查资料 | 不必要检索率、成本、延迟 | Adaptive／Agentic RAG | 让 agent 无上限重试 |
 | 找到正确证据，回答仍不受证据支持 | Faithfulness／人工引用核对 | 改回答 prompt、引用格式与拒答规则 | 继续调 retrieval 掩盖生成问题 |
@@ -92,7 +94,7 @@ GraphRAG 适合“哪些人物共同影响这件事？”或“整批文档有�
 ### 5. 流程需要判断时，才加 Corrective 或 Agentic RAG
 
 - **Self-RAG**：模型学习何时检索，并对证据与回答做反思。
-- **CRAG（Corrective RAG）**：先判断候选是否够好，不够时改查询或改来源。
+- **CRAG**（Corrective Retrieval Augmented Generation，检索不够好时修正查询或来源）（Corrective RAG）：先判断候选是否够好，不够时改查询或改来源。
 - **Adaptive RAG**：依问题难度选择不同流程。
 - **Agentic RAG**：让 agent 决定何时调用 retriever；必须设定步数、时间、成本与可用来源上限。
 
@@ -100,7 +102,7 @@ GraphRAG 适合“哪些人物共同影响这件事？”或“整批文档有�
 
 ### 6. 最后才碰摘要树与程序优化
 
-**RAPTOR** 把内容反复聚类、摘要成由细到粗的树；细节问题找叶节点，主题问题找高层摘要。**DSPy** 用 examples 与 metric 调整 LLM program；它仍需要清楚任务、可靠资料与评测指标。
+**RAPTOR**（Recursive Abstractive Processing for Tree-Organized Retrieval） 把内容反复聚类、摘要成由细到粗的树；细节问题找叶节点，主题问题找高层摘要。**DSPy** 用 examples 与 metric 调整 LLM（Large Language Model，能读写语言的模型） program；它仍需要清楚任务、可靠资料与评测指标。
 
 阅读：[RAPTOR paper](https://arxiv.org/abs/2401.18059) · [DSPy](https://github.com/stanfordnlp/dspy)
 

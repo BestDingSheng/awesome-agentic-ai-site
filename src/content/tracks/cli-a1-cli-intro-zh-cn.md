@@ -1,17 +1,19 @@
 ---
 title: "A1 — 选一个 CLI agent，安全地完成第一个小任务"
-description: "这一站会把“终端里的 AI”讲清楚，然后让你在一个可丢弃的 demo repo（由 Git 管理的练习项目文件夹）里安全地跑一次。你会先让工具读文件、找测试指令、提出计划；确认计划后，它才会做一个可以用 git diff 看到、也能撤销的小改动。"
+description: "CLI（Command-Line Interface）：用终端机文字指令操作的界面。"
 section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-02T17:38:45.497Z"
+syncedAt: "2026-10-03T04:29:27.353Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a1-cli-intro"
 order: 1
 ---
 # A1 — 选一个 CLI agent，安全地完成第一个小任务
+
+**CLI**（Command-Line Interface）：用终端机文字指令操作的界面。
 
 > [繁體中文](/zh-tw/tracks/cli-a1-cli-intro/) | **简体中文** | [English](/en/tracks/cli-a1-cli-intro/)
 
@@ -33,7 +35,7 @@ order: 1
 
 ## 📌 学习目标
 
-- 分清 **LLM**、**Provider API**、**Router**、**Coding agent** 和 **Local runtime**。
+- 分清 **LLM**（Large Language Model，能读写语言的模型）、**Provider API（Application Programming Interface，让程序调用服务的接口）**、**Router**、**Coding agent** 和 **Local runtime**。
 - 根据你已有的账号、provider 或本机环境选择入口，不做总排名。
 - 在 demo repo 中完成一次“先读取 → 看计划 → 确认 → 小改动 → `git diff` → 撤销”的循环。
 

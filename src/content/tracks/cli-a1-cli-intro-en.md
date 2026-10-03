@@ -1,17 +1,19 @@
 ---
 title: "A1 — Choose a CLI agent and safely complete your first small task"
-description: "This stop explains what “AI in the terminal” means, then has you run it once in a disposable demo repo (a Git-managed practice project folder). You will first have the tool read files, find the test command, and propose "
+description: "CLI (Command-Line Interface): an interface operated by typed terminal commands."
 section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-02T17:38:45.497Z"
+syncedAt: "2026-10-03T04:29:27.353Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a1-cli-intro"
 order: 1
 ---
 # A1 — Choose a CLI agent and safely complete your first small task
+
+**CLI** (Command-Line Interface): an interface operated by typed terminal commands.
 
 > [繁體中文](/zh-tw/tracks/cli-a1-cli-intro/) | [简体中文](/tracks/cli-a1-cli-intro/) | **English**
 
@@ -33,7 +35,7 @@ When it is done, you should see a repo summary, a test command, a plan waiting f
 
 ## 📌 Learning Goals
 
-- Distinguish an **LLM**, **Provider API**, **Router**, **Coding agent**, and **Local runtime**.
+- Distinguish an **LLM** (Large Language Model, a model that reads and writes language), **Provider API (Application Programming Interface, an interface through which programs request a service)**, **Router**, **Coding agent**, and **Local runtime**.
 - Choose an entry point based on the account, provider, or local environment you already have; do not make an overall ranking.
 - Complete one “read first → inspect the plan → confirm → small change → `git diff` → undo” cycle in a demo repo.
 

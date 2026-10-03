@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-02T17:38:45.497Z"
+syncedAt: "2026-10-03T04:29:27.353Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -44,6 +44,8 @@ order: 3
 模型按照约定格式，返回要调用的函数名称与参数。就像填写一张有固定栏位的工作单。本章用它把自然语言问题变成程序能读取的请求。不同供应商的消息格式不完全相同。
 
 ### **Tool Schema（工具纲要）**
+
+**JSON**（JavaScript Object Notation） 是程序交换数据的文本格式。
 
 Schema 是工具的说明卡：名称、用途、可填栏位和数据类型。就像菜单告诉客人能点什么。本章会用 JSON Schema 描述工具。Schema 能约束外形，但程序仍要验证数值、权限和业务规则。
 

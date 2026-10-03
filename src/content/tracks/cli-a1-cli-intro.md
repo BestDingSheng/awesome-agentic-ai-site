@@ -1,17 +1,19 @@
 ---
 title: "A1 — 選一個 CLI agent，安全地完成第一個小任務"
-description: "這一站要把「終端機裡的 AI」說清楚，然後在一個可丟棄的 demo repo（由 Git 管理的練習專案資料夾）裡安全地跑一次。你會先讓工具讀檔、找測試指令、提出計畫；確認計畫後，才做一個可用 git diff 看見、也能復原的小改動。"
+description: "CLI（Command-Line Interface）：用終端機文字指令操作的介面。"
 section: "Track"
 sourcePath: "tracks/cli/A1-cli-intro.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A1-cli-intro.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-02T17:38:45.497Z"
+syncedAt: "2026-10-03T04:29:27.353Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a1-cli-intro"
 order: 1
 ---
 # A1 — 選一個 CLI agent，安全地完成第一個小任務
+
+**CLI**（Command-Line Interface）：用終端機文字指令操作的介面。
 
 > **繁體中文** | [简体中文](/tracks/cli-a1-cli-intro/) | [English](/en/tracks/cli-a1-cli-intro/)
 
@@ -33,7 +35,7 @@ order: 1
 
 ## 📌 學習目標
 
-- 分清 **LLM**、**Provider API**、**Router**、**Coding agent** 與 **Local runtime**。
+- 分清 **LLM**（Large Language Model，能讀寫語言的模型）、**Provider API（Application Programming Interface，讓程式呼叫服務的介面）**、**Router**、**Coding agent** 與 **Local runtime**。
 - 依你已有的帳號、provider 或本機環境選入口，不做總排名。
 - 在 demo repo 中完成一次「先讀取 → 看計畫 → 確認 → 小改動 → `git diff` → 復原」的循環。
 

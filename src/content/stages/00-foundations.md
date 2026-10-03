@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/00-foundations.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/00-foundations.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-02T17:38:45.497Z"
+syncedAt: "2026-10-03T04:29:27.353Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "00-foundations"
@@ -21,7 +21,7 @@ order: 0
 
 看看下面四件事。你不需要背指令，但要能自己查資料並完成：
 
-- [ ] 用 Python 向 API（給程式取資料的入口）拿公開資料，再從 JSON 裡找出一個值。
+- [ ] 用 Python 向 API（Application Programming Interface，讓程式呼叫服務的介面）（給程式取資料的入口）拿公開資料，再從 JSON（JavaScript Object Notation，程式交換資料常用的文字格式） 裡找出一個值。
 - [ ] 用 Git 複製專案（clone）、開工作線（branch）、保存版本（commit），再把版本送到網路上（push）。兩次修改撞在一起時，知道要留下什麼（合併衝突）。
 - [ ] 用命令列（在終端機輸入的文字指令）切換資料夾、建立檔案並執行 Python script。
 - [ ] 看懂 YAML 與 JSON。它們都是用文字保存資料的格式。

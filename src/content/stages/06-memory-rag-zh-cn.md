@@ -1,17 +1,19 @@
 ---
 title: "Stage 6 — RAG 与 Memory：先找数据，再记住重要的事"
-description: "模型不是什么都知道。RAG 像叫它先翻书再回答；Memory 像给它一本笔记本，记住下次还会用到的事。这一关会把两者分清楚，再带你一步一步做出来。"
+description: "RAG（Retrieval-Augmented Generation）：先找相关资料，再依资料回答。"
 section: "Stage"
 sourcePath: "stages/06-memory-rag.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-02T17:38:45.497Z"
+syncedAt: "2026-10-03T04:29:27.353Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "06-memory-rag"
 order: 6
 ---
 # Stage 6 — RAG 与 Memory：先找数据，再记住重要的事
+
+**RAG**（Retrieval-Augmented Generation）：先找相关资料，再依资料回答。
 
 > [繁體中文](/zh-tw/stages/06-memory-rag/) | **简体中文** | [English](/en/stages/06-memory-rag/)
 
@@ -213,7 +215,7 @@ RAG 有两条路：一条先整理数据，一条在问题来时找资料。
 
 ### [进阶 RAG：先找出哪一步坏了，再加新技巧](/resources/advanced-rag/)
 
-适合已经做出最小 RAG、但遇到“找不到、排序错、跨文档关系难找”的人。页面会完整解释 **Hybrid Search**、**Reranking**、**HyDE**、**Multi-Query**、**RAG Fusion**、**Contextual Retrieval**、**GraphRAG**、**Self-RAG**、**CRAG**、**Adaptive RAG**、**Agentic RAG**、**RAPTOR** 与 **DSPy**，并保持必读与五星资源表直接可见。
+适合已经做出最小 RAG、但遇到“找不到、排序错、跨文档关系难找”的人。页面会完整解释 **Hybrid Search**、**Reranking**、**HyDE**、**Multi-Query**、**RAG Fusion**、**Contextual Retrieval**、**GraphRAG**、**Self-RAG**、**CRAG**（Corrective Retrieval Augmented Generation，检索不够好时修正查询或来源）、**Adaptive RAG**、**Agentic RAG**、**RAPTOR** 与 **DSPy**，并保持必读与五星资源表直接可见。
 
 ### [Agent Memory：只记值得记、允许记、能删掉的事](/resources/agent-memory/)
 

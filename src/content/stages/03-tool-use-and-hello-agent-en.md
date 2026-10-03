@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-02T17:38:45.497Z"
+syncedAt: "2026-10-03T04:29:27.353Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -44,6 +44,8 @@ When a model needs external data or an action, it first makes a tool request. It
 The model returns a function name and arguments in an agreed format. It is like filling out a work order with fixed fields. This chapter uses it to turn a natural-language question into a request that a program can read. Message formats are not identical across providers.
 
 ### **Tool Schema**
+
+**JSON** (JavaScript Object Notation) is a text format for sharing data.
 
 A schema is a tool’s information card: its name, purpose, fields, and data types. It is like a menu telling a customer what can be ordered. This chapter describes tools with JSON Schema. A schema constrains the shape, but the program must still validate values, permissions, and business rules.
 

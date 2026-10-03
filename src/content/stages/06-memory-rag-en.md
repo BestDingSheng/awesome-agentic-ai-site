@@ -1,17 +1,19 @@
 ---
 title: "Stage 6 — RAG and Memory: find the source first, then remember what matters"
-description: "Models do not know everything. RAG asks a model to consult a book before it answers; Memory gives it a notebook for things it will need next time. This stage separates the two and then builds both step by step."
+description: "RAG (Retrieval-Augmented Generation): retrieve relevant material, then answer using it."
 section: "Stage"
 sourcePath: "stages/06-memory-rag.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-02T17:38:45.497Z"
+syncedAt: "2026-10-03T04:29:27.353Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "06-memory-rag"
 order: 6
 ---
 # Stage 6 — RAG and Memory: find the source first, then remember what matters
+
+**RAG** (Retrieval-Augmented Generation): retrieve relevant material, then answer using it.
 
 > [繁體中文](/zh-tw/stages/06-memory-rag/) | [简体中文](/stages/06-memory-rag/) | **English**
 
@@ -221,7 +223,7 @@ These are advanced Stage 6 branches, not new prerequisites. Complete the basic e
 
 ### [Advanced RAG: find the broken step before adding new techniques](/en/resources/advanced-rag/)
 
-For people who have built a minimal RAG system but face missed documents, bad ranking, or hard cross-document relationships. It explains **Hybrid Search**, **Reranking**, **HyDE**, **Multi-Query**, **RAG Fusion**, **Contextual Retrieval**, **GraphRAG**, **Self-RAG**, **CRAG**, **Adaptive RAG**, **Agentic RAG**, **RAPTOR**, and **DSPy**, with required reading and the rated resource table kept visible.
+For people who have built a minimal RAG system but face missed documents, bad ranking, or hard cross-document relationships. It explains **Hybrid Search**, **Reranking**, **HyDE**, **Multi-Query**, **RAG Fusion**, **Contextual Retrieval**, **GraphRAG**, **Self-RAG**, **CRAG** (Corrective Retrieval Augmented Generation, correct the query or source when retrieval is inadequate), **Adaptive RAG**, **Agentic RAG**, **RAPTOR**, and **DSPy**, with required reading and the rated resource table kept visible.
 
 ### [Agent Memory: save only what is useful, permitted, and removable](/en/resources/agent-memory/)
 
