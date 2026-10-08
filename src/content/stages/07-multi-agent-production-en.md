@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-07T18:39:07.373Z"
+syncedAt: "2026-10-08T05:14:26.695Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "07-multi-agent-production"
@@ -417,10 +417,12 @@ Ask five questions before trusting a score:
 <summary>📊 Expand: useful Benchmarks and production evaluation</summary>
 
 - [SWE-bench](https://www.swebench.com/): real software issues.
-- [Terminal-Bench](https://github.com/harbor-framework/terminal-bench-1): terminal tasks.
+- [Terminal-Bench](https://www.tbench.ai/): terminal tasks; use the official entry point to select a dataset and the [Harbor](https://docs.harborframework.com/) execution setup. The [1.x repository](https://github.com/harbor-framework/terminal-bench-1) is a legacy entry point for reproducing older results.
 - [OSWorld](https://github.com/xlang-ai/OSWorld): desktop-environment tasks.
-- [τ²-bench](https://github.com/sierra-research/tau2-bench): tasks with tools and multi-turn interaction.
+- [τ-bench](https://github.com/sierra-research/tau2-bench): tools and multi-turn interaction; the same repository now includes τ³ voice and knowledge tasks. Use a fixed release, domain, and task split; `banking_knowledge` scores before and after the v1.0.1 fixes are not directly comparable.
 - [GAIA](https://huggingface.co/gaia-benchmark): general-assistant tasks.
+
+Before comparing, record the dataset/task split, harness commit, grader version, model settings, and trial count; do not combine results from different versions into one ranking.
 
 Do not copy one SOTA score into the page as a permanent fact. Release decisions should use your own cases, rubric, complete trajectories, cost, and latency. Whenever you change the model, Prompt, Tool, or Harness, rerun the development/reference cases first; do not tune repeatedly on the frozen holdout. Open the holdout only for a release candidate or final validation.
 
@@ -445,8 +447,8 @@ Choose by purpose; ratings are not GitHub stars. Compare the two new three-star 
     <tr><th scope="rowgroup" rowspan="6">Eval / Observability</th><td><a href="https://platform.claude.com/docs/en/test-and-evaluate/develop-tests">Anthropic — Develop tests and evaluations</a></td><td>⭐⭐⭐⭐⭐</td><td>Define success criteria and graders</td><td>You must supply cases that represent real work</td></tr>
     <tr><td><a href="https://github.com/promptfoo/promptfoo">promptfoo</a></td><td>⭐⭐⭐⭐⭐</td><td>Put Evals in CI</td><td>A config file cannot replace a good rubric</td></tr>
     <tr><td><a href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI conventions</a></td><td>⭐⭐⭐⭐</td><td>Learn portable trace fields</td><td>The conventions evolve and support varies</td></tr>
-    <tr><td><a href="https://github.com/langfuse/langfuse">Langfuse</a></td><td>⭐⭐⭐⭐⭐</td><td>Tracing, Eval, and prompt management</td><td>Self-hosting still needs operations and data governance</td></tr>
-    <tr><td><a href="https://github.com/Arize-ai/phoenix">Arize Phoenix</a></td><td>⭐⭐⭐⭐</td><td>OpenTelemetry and local analysis</td><td>Design sensitive-data redaction first</td></tr>
+    <tr><td><a href="https://github.com/langfuse/langfuse">Langfuse</a></td><td>⭐⭐⭐⭐⭐</td><td>Tracing, Eval, and prompt management</td><td>MIT excludes enterprise directories such as ee/; self-hosting needs operations and data governance</td></tr>
+    <tr><td><a href="https://github.com/Arize-ai/phoenix">Arize Phoenix</a></td><td>⭐⭐⭐⭐</td><td>OpenTelemetry and local analysis</td><td>ELv2 restricts hosted services for third parties; redact sensitive data</td></tr>
      <tr><td><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic — Demystifying evals for AI agents</a></td><td>⭐⭐⭐⭐⭐</td><td>Check Outcome, Trajectory, and graders together</td><td>Build cases from your own real work and failures</td></tr>
   </tbody>
   <tbody>

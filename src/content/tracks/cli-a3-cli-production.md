@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-07T18:39:07.373Z"
+syncedAt: "2026-10-08T05:14:26.695Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a3-cli-production"
@@ -237,7 +237,7 @@ Skill 的核心意思可以共用，但資料夾、權限、frontmatter 與安�
 </tbody>
 <tbody>
 <tr><th scope="rowgroup" rowspan="4">觀察與評估</th><td><code>langfuse/langfuse</code></td><td>traces、usage 與 eval</td><td>想把多次執行放在一起看</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://github.com/langfuse/langfuse">GitHub repo</a></td></tr>
-<tr><td><code>Arize-ai/phoenix</code></td><td>tracing 與 evaluation</td><td>想用開放原始碼觀察 AI 系統</td><td>⭐⭐⭐⭐</td><td><a href="https://github.com/Arize-ai/phoenix">GitHub repo</a></td></tr>
+<tr><td><code>Arize-ai/phoenix</code></td><td>tracing 與 evaluation</td><td>想在本機觀察 AI 系統</td><td>⭐⭐⭐⭐</td><td><a href="https://github.com/Arize-ai/phoenix">GitHub repo</a></td></tr>
 <tr><td><code>Helicone/helicone</code></td><td>proxy／gateway 的資料流與隱私邊界</td><td>想從 gateway 收集 request 紀錄</td><td>⭐⭐⭐⭐</td><td><a href="https://github.com/Helicone/helicone">GitHub repo</a></td></tr>
 <tr><td><code>promptfoo/promptfoo</code></td><td>eval cases 與 CI regression</td><td>要比較改動前後是否退步</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://github.com/promptfoo/promptfoo">GitHub repo</a></td></tr>
 </tbody>

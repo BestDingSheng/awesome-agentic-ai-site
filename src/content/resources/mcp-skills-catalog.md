@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-07T18:39:07.373Z"
+syncedAt: "2026-10-08T05:14:26.695Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "mcp-skills-catalog"
@@ -167,7 +167,7 @@ baseSlug: "mcp-skills-catalog"
 
 | 欄位 | 內容 |
 |---|---|
-| License | 無 license 檔（上游未提供；使用前請先確認授權） |
+| License | 各 Skill 分別授權；許多為 Apache-2.0，docx／pdf／pptx／xlsx 為 source-available，依各資料夾條款 |
 | 推薦度 | ⭐⭐⭐⭐⭐（**官方範例**） |
 
 **教什麼**：Anthropic 官方 Agent Skills 範例 repo，包含 docx、xlsx、pptx 與 pdf 等文件處理 skill。
@@ -673,13 +673,14 @@ Observability 工具能看見 trace 與 log；不要把 secret、個資或完整
 
 | 欄位 | 內容 |
 |---|---|
-| License | NOASSERTION |
+| License | FSL-1.1-Apache-2.0 |
 | 推薦度 | ⭐⭐⭐⭐（**Sentry 官方**） |
 
 **教什麼**：從 LLM 查 Sentry error event、issue、trace。
 **適合誰**：用 Sentry 接 production error 的工程師。
 **備註**：「上週這個 error 的 stack trace 給我看」直接問 Claude Code。
 原 `getsentry/sentry-mcp` 已改名為 `getsentry/toolkit`。這是同一個專案（2026-10-02 核對）。Sentry MCP 的名稱仍是 `sentry-mcp`，套件仍是 `@sentry/mcp-server`。
+授權限制 Competing Use；不是目前全面採 Apache-2.0，須按該版本 LICENSE 判斷。
 
 ### [winor30/mcp-server-datadog](https://github.com/winor30/mcp-server-datadog) ⭐⭐⭐
 

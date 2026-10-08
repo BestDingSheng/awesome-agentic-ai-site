@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-07T18:39:07.373Z"
+syncedAt: "2026-10-08T05:14:26.695Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "02-prompt-engineering"
@@ -285,7 +285,7 @@ Path A 六题两轮的 API 费用为 `$0`。Path B 先设 `$0.05` 上限；如�
   <tbody>
     <tr><th scope="rowgroup" rowspan="4">跟着范例学</th><td><a href="https://github.com/dair-ai/Prompt-Engineering-Guide">DAIR.AI Prompt Engineering Guide</a></td><td>把它当查询手册，不必从头背完。</td><td>维护中；MIT</td><td>⭐⭐⭐⭐</td></tr>
     <tr><td><a href="https://www.promptingguide.ai/">PromptingGuide.ai</a></td><td>用网站版快速找一个技巧。</td><td>维护中；网站</td><td>⭐⭐⭐</td></tr>
-    <tr><td><a href="https://github.com/NirDiamant/Prompt_Engineering">NirDiamant Prompt Engineering</a></td><td>挑一个 notebook，边运行边学习。</td><td>维护中；上游未提供 SPDX</td><td>⭐⭐⭐</td></tr>
+    <tr><td><a href="https://github.com/NirDiamant/Prompt_Engineering">NirDiamant Prompt Engineering</a></td><td>挑一个 notebook，边运行边学习。</td><td>自定义非商业授权；商用须另取得书面许可</td><td>⭐⭐⭐</td></tr>
     <tr><td><a href="https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php">李宏毅 GenAI-ML（2025 Fall）</a></td><td>需要中文课堂讲解时再看。</td><td>2025 Fall 课程网站；不是最新模型文档</td><td>⭐⭐⭐</td></tr>
   </tbody>
   <tbody>

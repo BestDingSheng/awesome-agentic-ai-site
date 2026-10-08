@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-07T18:39:07.373Z"
+syncedAt: "2026-10-08T05:14:26.695Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
@@ -237,7 +237,7 @@ Editorial ratings are learning-map guidance, not GitHub stars. `⭐⭐⭐⭐⭐`
 </tbody>
 <tbody>
 <tr><th scope="rowgroup" rowspan="4">Observability and evaluation</th><td><code>langfuse/langfuse</code></td><td>Traces, usage, and eval</td><td>Viewing multiple runs together</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://github.com/langfuse/langfuse">GitHub repo</a></td></tr>
-<tr><td><code>Arize-ai/phoenix</code></td><td>Tracing and evaluation</td><td>Observing an AI system with open source</td><td>⭐⭐⭐⭐</td><td><a href="https://github.com/Arize-ai/phoenix">GitHub repo</a></td></tr>
+<tr><td><code>Arize-ai/phoenix</code></td><td>Tracing and evaluation</td><td>Observing an AI system locally</td><td>⭐⭐⭐⭐</td><td><a href="https://github.com/Arize-ai/phoenix">GitHub repo</a></td></tr>
 <tr><td><code>Helicone/helicone</code></td><td>Proxy/gateway data flow and privacy boundary</td><td>Collecting request records from a gateway</td><td>⭐⭐⭐⭐</td><td><a href="https://github.com/Helicone/helicone">GitHub repo</a></td></tr>
 <tr><td><code>promptfoo/promptfoo</code></td><td>Eval cases and CI regression</td><td>Comparing whether a change made things worse</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://github.com/promptfoo/promptfoo">GitHub repo</a></td></tr>
 </tbody>

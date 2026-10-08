@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-07T18:39:07.373Z"
+syncedAt: "2026-10-08T05:14:26.695Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -163,7 +163,7 @@ Installation and testing belong in [Stage 5](/en/stages/05-claude-code-ecosystem
 
 | Field | Value |
 |---|---|
-| License | No license file (none provided upstream; confirm terms before use) |
+| License | Per-Skill licenses; many are Apache-2.0, while docx/pdf/pptx/xlsx are source-available under their folder terms |
 | Rating | ⭐⭐⭐⭐⭐ (**official examples**) |
 
 **What it does**: Anthropic's official Agent Skills examples include document workflows for docx, xlsx, pptx, and pdf files.
@@ -648,13 +648,14 @@ Installation and testing belong in [Stage 5](/en/stages/05-claude-code-ecosystem
 
 | Field | Value |
 |---|---|
-| License | NOASSERTION |
+| License | FSL-1.1-Apache-2.0 |
 | Rating | ⭐⭐⭐⭐ (**Sentry official**) |
 
 **What it does**: query Sentry error events / issues / traces from LLMs.
 **Audience**: engineers using Sentry for production errors.
 **Notes**: "show me last week's stack trace for this error" works directly in Claude Code.
 The former `getsentry/sentry-mcp` repository is now `getsentry/toolkit`, the same project (checked 2026-10-02). Sentry MCP still uses the name `sentry-mcp` and package `@sentry/mcp-server`.
+The license restricts Competing Use; it is not a blanket current Apache-2.0 license. Check the terms for the version used.
 
 ### [winor30/mcp-server-datadog](https://github.com/winor30/mcp-server-datadog) ⭐⭐⭐
 

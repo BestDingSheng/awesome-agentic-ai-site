@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-07T18:39:07.373Z"
+syncedAt: "2026-10-08T05:14:26.695Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -285,7 +285,7 @@ Start with one of the three starting points above. The full list is a toolbox, n
   <tbody>
     <tr><th scope="rowgroup" rowspan="4">Learn from examples</th><td><a href="https://github.com/dair-ai/Prompt-Engineering-Guide">DAIR.AI Prompt Engineering Guide</a></td><td>Use it as a reference. You do not need to memorize it from start to finish.</td><td>Maintained; MIT</td><td>⭐⭐⭐⭐</td></tr>
     <tr><td><a href="https://www.promptingguide.ai/">PromptingGuide.ai</a></td><td>Use the website to find one technique quickly.</td><td>Maintained; website</td><td>⭐⭐⭐</td></tr>
-    <tr><td><a href="https://github.com/NirDiamant/Prompt_Engineering">NirDiamant Prompt Engineering</a></td><td>Choose one notebook and learn while running it.</td><td>Maintained; upstream does not provide SPDX</td><td>⭐⭐⭐</td></tr>
+    <tr><td><a href="https://github.com/NirDiamant/Prompt_Engineering">NirDiamant Prompt Engineering</a></td><td>Choose one notebook and learn while running it.</td><td>Custom non-commercial license; commercial use needs written permission</td><td>⭐⭐⭐</td></tr>
     <tr><td><a href="https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php">李宏毅 GenAI-ML (2025 Fall)</a></td><td>Use it when you need a Chinese classroom explanation.</td><td>2025 Fall course website; not current model documentation</td><td>⭐⭐⭐</td></tr>
   </tbody>
   <tbody>

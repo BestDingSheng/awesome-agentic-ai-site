@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/07-multi-agent-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/07-multi-agent-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-07T18:39:07.373Z"
+syncedAt: "2026-10-08T05:14:26.695Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "07-multi-agent-production"
@@ -421,10 +421,12 @@ python test.py
 <summary>📊 展開：可參考的 Benchmark 與 production 評測方法</summary>
 
 - [SWE-bench](https://www.swebench.com/)：真實軟體問題。
-- [Terminal-Bench](https://github.com/harbor-framework/terminal-bench-1)：終端機任務。
+- [Terminal-Bench](https://www.tbench.ai/)：終端機任務；從官方入口選資料集與 [Harbor](https://docs.harborframework.com/) 執行方式。[1.x repository](https://github.com/harbor-framework/terminal-bench-1) 是舊版入口，重現舊結果時才依該版本操作。
 - [OSWorld](https://github.com/xlang-ai/OSWorld)：桌面環境操作。
-- [τ²-bench](https://github.com/sierra-research/tau2-bench)：需要工具與多輪互動的任務。
+- [τ-bench](https://github.com/sierra-research/tau2-bench)：工具與多輪互動；同一 repository 已包含 τ³ 的語音與知識任務。先固定 release、domain 與 task split；`banking_knowledge` 在 v1.0.1 修正前後的分數不可直接比較。
 - [GAIA](https://huggingface.co/gaia-benchmark)：一般助理任務。
+
+比較前記錄 dataset／task split、harness commit、grader 版本、模型設定與 trial 次數；版本不同時不要直接拼成同一張排名表。
 
 不要把頁面上的某個 SOTA 分數抄成永久事實。上線判斷應以自己的案例、rubric、完整 trajectory、成本與延遲為主。每次換模型、Prompt、Tool 或 Harness，先重跑 development／reference cases；frozen holdout 不拿來逐次調整，只在 release candidate 或最後驗證時打開。
 
@@ -449,8 +451,8 @@ python test.py
     <tr><th scope="rowgroup" rowspan="6">Eval／Observability</th><td><a href="https://platform.claude.com/docs/en/test-and-evaluate/develop-tests">Anthropic — Develop tests and evaluations</a></td><td>⭐⭐⭐⭐⭐</td><td>建立成功標準與 grader</td><td>需自行準備代表真實工作的案例</td></tr>
     <tr><td><a href="https://github.com/promptfoo/promptfoo">promptfoo</a></td><td>⭐⭐⭐⭐⭐</td><td>把 Eval 放進 CI</td><td>設定檔不能代替好的 rubric</td></tr>
     <tr><td><a href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI conventions</a></td><td>⭐⭐⭐⭐</td><td>學可攜的 trace 欄位</td><td>規格仍演進，各平台支援度不同</td></tr>
-    <tr><td><a href="https://github.com/langfuse/langfuse">Langfuse</a></td><td>⭐⭐⭐⭐⭐</td><td>trace、Eval 與 prompt 管理</td><td>自架仍需維運與資料治理</td></tr>
-    <tr><td><a href="https://github.com/Arize-ai/phoenix">Arize Phoenix</a></td><td>⭐⭐⭐⭐</td><td>OpenTelemetry 與本機分析</td><td>先設計敏感資料遮罩</td></tr>
+    <tr><td><a href="https://github.com/langfuse/langfuse">Langfuse</a></td><td>⭐⭐⭐⭐⭐</td><td>trace、Eval 與 prompt 管理</td><td>MIT 不含 ee/ 等企業目錄；自架仍需維運與資料治理</td></tr>
+    <tr><td><a href="https://github.com/Arize-ai/phoenix">Arize Phoenix</a></td><td>⭐⭐⭐⭐</td><td>OpenTelemetry 與本機分析</td><td>ELv2 限制對外託管服務；先設計敏感資料遮罩</td></tr>
     <tr><td><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic — Demystifying evals for AI agents</a></td><td>⭐⭐⭐⭐⭐</td><td>一起檢查 Outcome、Trajectory 與 grader</td><td>案例仍要從自己的真實工作與失敗建立</td></tr>
   </tbody>
   <tbody>
