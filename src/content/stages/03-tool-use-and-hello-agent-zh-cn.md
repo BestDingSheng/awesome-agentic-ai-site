@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/03-tool-use-and-hello-agent.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-08T18:37:35.017Z"
+syncedAt: "2026-10-09T05:17:23.835Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "03-tool-use-and-hello-agent"
@@ -18,6 +18,8 @@ order: 3
 这一关要做一件事：让模型填写一张“工具工作单”，再由你的程序检查、执行，并把结果送回去。这个来回就是你的第一个 **Agent Loop**。
 
 <!-- freshness: canonical=stages/03-tool-use-and-hello-agent.md; verified_on=2026-08-27; scope=models,pricing,tool-apis,security; max_age_days=90 -->
+
+> **云端范例兼容性**：现有 Anthropic 范例刻意保留 **Haiku 4.5 兼容性基准**，不代表最新或最低价模型。改用固定 ID `claude-haiku-5-5` 前，先按 [Haiku 5.5 迁移指南](https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide) 调整程序，不能只换 model ID：处理默认 adaptive thinking（自适应思考）、按 `type == "text"` 提取文字、移除 `temperature`／`top_p`／`top_k`，并重新计算 tokens、输出上限与预算。工具循环须原样保留 thinking 区块并只追加历史；离线测试通过不代表已验证真实模型质量。
 
 ## 📌 学习目标
 

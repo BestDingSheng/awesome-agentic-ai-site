@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-08T18:37:35.017Z"
+syncedAt: "2026-10-09T05:17:23.835Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -18,6 +18,8 @@ order: 2
 This stage teaches only three things: **say what you mean, give examples, and check answers**.
 
 **Prompt** is not only one question. It is a complete task package for the model, which can include instructions, **Input Data**, examples, and output rules.
+
+> **Cloud example compatibility**: Existing Anthropic examples deliberately retain a **Haiku 4.5 compatibility baseline**, rather than claiming the latest or lowest-price model. Before adopting the fixed ID `claude-haiku-5-5`, follow the [Haiku 5.5 migration guide](https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide); changing only the model ID is insufficient. Handle default adaptive thinking, select text using `type == "text"`, omit `temperature`/`top_p`/`top_k`, and recount tokens, output limits, and budget. Tool loops must preserve thinking blocks unchanged and keep history append-only; passing offline tests does not validate live model quality.
 
 ## 📌 Learning Goals
 
