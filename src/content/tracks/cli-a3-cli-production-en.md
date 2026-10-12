@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-11T17:30:53.163Z"
+syncedAt: "2026-10-12T05:05:48.767Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a3-cli-production"
@@ -192,6 +192,14 @@ The core idea of a Skill can be shared, but folders, permissions, frontmatter, a
 `Define the scope → run read-only → leave a record → human judgment → recoverable`
 
 If you have no scope, evidence, or recovery method, do not increase permissions yet. This matters more than memorizing many tool names.
+
+> **After an upgrade, recheck safety boundaries:** In a disposable demo repo, rerun negative cases: a folder-disabled MCP stays off
+> after a headless directory change or plugin reload. A `PreToolUse` hook (run before a tool call) in managed settings (administrator settings)
+> must block a call it denies; if it also returns `"continue": false`, the turn must end. Denying only the call lets Claude choose another approach.
+> Read-only mode cannot write, and a command
+> requiring human approval is not auto-approved (include a `BASH_ARGV0` permission case). Anthropic’s [Claude Code v2.1.296 release
+> notes (Oct 9)](https://github.com/anthropics/claude-code/releases/tag/v2.1.296) supply upstream regression cues for MCP, hooks,
+> and `BASH_ARGV0`; they do not show that this repository or your installed version passed these checks.
 
 ### 📋 Playbook 4: Dispatching subagents for independent tasks
 

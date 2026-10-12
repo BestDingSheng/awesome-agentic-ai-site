@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/cli-agents-guide.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/cli-agents-guide.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-11T17:30:53.163Z"
+syncedAt: "2026-10-12T05:05:48.767Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-agents-guide"
@@ -50,6 +50,11 @@ baseSlug: "cli-agents-guide"
 ## 9 個 CLI 工具
 
 完整表預設收合；展開後請把「查核日」與你的安裝版本一起記下。官方資料查核日：**2026-08-30 UTC**。
+
+> **穩定通道與局部查核（2026-10-11 UTC）：** 新手基準優先選官方 stable release。只有驗證特定功能時，才在隔離 demo repo 試用 alpha、preview 或 nightly；
+> 先讀 release notes、固定 exact version，並保留回退方式。官方發布頁將 [Codex CLI `0.163.0-alpha.5`](https://github.com/openai/codex/releases/tag/rust-v0.163.0-alpha.5)
+> 與 [Gemini CLI `0.65.0-nightly.20261010.g9b6e0265d`](https://github.com/google-gemini/gemini-cli/releases/tag/v0.65.0-nightly.20261010.g9b6e0265d) 標記為 pre-release，
+> 兩者都不作為穩定的新手入門基準。此處僅局部查核發布通道；整張表最後一次完整查核仍為 2026-08-30 UTC。
 
 <details markdown="1">
 <summary>展開 9 個 CLI 的安裝、認證、provider 與安全事實</summary>
