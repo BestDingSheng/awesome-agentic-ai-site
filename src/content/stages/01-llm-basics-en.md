@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-12T21:04:15.128Z"
+syncedAt: "2026-10-13T06:05:21.090Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "01-llm-basics"
@@ -149,18 +149,19 @@ client = OpenAI(
 )
 
 r = client.chat.completions.create(
-    model="gemma4:e4b",   # qwen2.5:3b or llama3.2:3b also works if installed
+    model="gemma4:e4b",
     max_tokens=100,
+    reasoning_effort="none",
     messages=[{"role": "user", "content": "Introduce yourself in one sentence."}],
 )
 
 # === Self-check ===
-text = r.choices[0].message.content
+choice = r.choices[0]
+text = choice.message.content or ""
 print("Response:", text)
 print("usage:", r.usage)
 
-assert r.choices[0].finish_reason in ("stop", "length"), f"Unexpected finish_reason: {r.choices[0].finish_reason}"
-assert len(text) > 0, "The response must not be empty"
+assert choice.finish_reason == "stop" and text.strip(), f"Expected complete non-empty response; got finish_reason={choice.finish_reason!r}"
 assert r.usage.completion_tokens > 0, "Output tokens must be greater than zero"
 print("✅ Exercise 1 passed — Ollama gemma4:e4b answered locally at $0 per call")
 ```
@@ -230,9 +231,13 @@ for label, prompt in PROMPTS.items():
         r = client.chat.completions.create(
             model="gemma4:e4b",
             max_tokens=80,
+            reasoning_effort="none",
             temperature=1.0,  # Raise temperature to observe variation
             messages=[{"role": "user", "content": prompt}],
         )
+        choice = r.choices[0]
+        text = choice.message.content or ""
+        assert choice.finish_reason == "stop" and text.strip(), f"Discard incomplete/empty output (finish_reason={choice.finish_reason!r})"
         output_tokens.append(r.usage.completion_tokens)
     print(f"\n[{label}] prompt: {prompt}")
     print(f"  input tokens: {r.usage.prompt_tokens}")
@@ -552,7 +557,8 @@ At each step an LLM predicts a probability distribution for the next token, then
 
 - `Connection refused`: make sure `ollama serve` is running and the `base_url` port is 11434.
 - Model not found: run `ollama list`, then install with `ollama pull gemma4:e4b`; do not guess a tag.
-- Truncated response: shorten the prompt or lower `max_tokens`, and check the model's context window.
+- Truncated response: check `finish_reason` and the model's context window first. If `finish_reason="length"` and the answer is incomplete, modestly raise `max_tokens` or shorten the requested answer; if the prompt and conversation history exceed the context window, shorten the input.
+- Ollama returns empty content or `finish_reason="length"`: `max_tokens` caps one generation. In the reported setup (`gemma4:e4b` with Ollama 0.34.2), thinking may consume this budget; both Path A examples set `reasoning_effort="none"` and accept only `finish_reason="stop"` with nonblank `content`. This is evidenced only for that model/version; verify compatibility before changing either. This is a per-call output limit, not a paid API quota.
 - API failure: save the model, status code, and request id. Retry only temporary network/service errors; fix authentication and context errors first.
 - Cost mismatch: multiply input and output separately; cache hits, batches, and plans can change the actual price.
 

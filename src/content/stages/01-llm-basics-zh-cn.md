@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-12T21:04:15.128Z"
+syncedAt: "2026-10-13T06:05:21.090Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "01-llm-basics"
@@ -149,18 +149,19 @@ client = OpenAI(
 )
 
 r = client.chat.completions.create(
-    model="gemma4:e4b",   # 已安装时也可换成 qwen2.5:3b / llama3.2:3b
+    model="gemma4:e4b",
     max_tokens=100,
+    reasoning_effort="none",
     messages=[{"role": "user", "content": "用一句话自我介绍。"}],
 )
 
 # === 自我验证 ===
-text = r.choices[0].message.content
+choice = r.choices[0]
+text = choice.message.content or ""
 print("响应：", text)
 print("usage:", r.usage)
 
-assert r.choices[0].finish_reason in ("stop", "length"), f"非预期 finish_reason: {r.choices[0].finish_reason}"
-assert len(text) > 0, "响应不应为空"
+assert choice.finish_reason == "stop" and text.strip(), f"Expected complete non-empty response; got finish_reason={choice.finish_reason!r}"
 assert r.usage.completion_tokens > 0, "output token 应大于 0"
 print("✅ 练习 1 通过 — Ollama gemma4:e4b 已能在本地响应，每次 $0")
 ```
@@ -230,9 +231,13 @@ for label, prompt in PROMPTS.items():
         r = client.chat.completions.create(
             model="gemma4:e4b",
             max_tokens=80,
+            reasoning_effort="none",
             temperature=1.0,  # 调高 temperature 以观察变化
             messages=[{"role": "user", "content": prompt}],
         )
+        choice = r.choices[0]
+        text = choice.message.content or ""
+        assert choice.finish_reason == "stop" and text.strip(), f"Discard incomplete/empty output (finish_reason={choice.finish_reason!r})"
         output_tokens.append(r.usage.completion_tokens)
     print(f"\n[{label}] prompt: {prompt}")
     print(f"  input tokens: {r.usage.prompt_tokens}")
@@ -552,7 +557,8 @@ LLM 每一步都会预测下一个 token 的概率分布，再按设置选出候
 
 - `Connection refused`：确认 `ollama serve` 正在运行，且 `base_url` 的端口是 11434。
 - 找不到模型：先运行 `ollama list`，再用 `ollama pull gemma4:e4b` 安装，不要猜 tag。
-- 响应被截断：缩短提示或降低 `max_tokens`，并检查型号的 context window。
+- 响应被截断：先检查 `finish_reason`，再确认模型的 context window。若 `finish_reason="length"` 且答案未完成，可适度提高 `max_tokens` 或缩短回答要求；若提示与对话历史超出 context window，则缩短输入。
+- Ollama 返回空白内容或 `finish_reason="length"`：`max_tokens` 限制单次生成；回报者使用 `gemma4:e4b` 搭配 Ollama 0.34.2 时，thinking 可能会耗用这个上限。两个 Path A 示例设为 `reasoning_effort="none"`，并只接受 `finish_reason="stop"` 且非空白的 `content`；此设置仅有该模型／版本的证据，更换版本或模型前请先确认兼容性。这是单次输出上限，不是付费 API 额度。
 - API 失败：先保存型号、状态码和 request id；只重试临时网络／服务错误，先修复认证与 context 错误。
 - 成本对不上：输入和输出分别相乘；缓存命中、批处理和方案可能改变实际价格。
 
