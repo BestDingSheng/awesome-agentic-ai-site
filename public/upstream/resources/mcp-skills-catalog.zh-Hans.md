@@ -32,6 +32,14 @@
 
 > ⚠️ MCP Server 可能碰到真实数据。即使来源是官方，也要确认登录账号、scope、可写工具与批准画面。
 
+### 新增工具怎么选
+
+<small>新增项目核查：2026-10-15 UTC</small>
+
+| 需求 | 建议入口 | 编辑评分 | 先确认 |
+|---|---|---|---|
+| 查找、安装或更新 Agent Skills | [Vercel Skills](#vercel-skills) | ⭐⭐⭐⭐ | 它不是 MCP server 或模型；安装前检查来源、权限与 host 支持 |
+
 ### 目录
 
 1. [笔记 / 知识库](#1-笔记--知识库)
@@ -869,6 +877,26 @@
 **教什么**：一个用 SDK 与 MCP server 把 Agent 连到多种应用的平台，并集中处理服务登录，不用每个服务都自行写连接器。
 **适合谁**：agent 要跨大量工具、但不想维护几十个独立 MCP server 的团队。
 **备注**：提供 MCP server + Python / TypeScript SDK；可通过 MCP 接到 Claude Code。属"工具聚合器"（跟 n8n / Zapier 自动化平台同类）。
+
+<a id="vercel-skills"></a>
+### [Vercel Skills](https://github.com/vercel-labs/skills) ⭐⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| License | MIT |
+| 推荐度 | ⭐⭐⭐⭐ |
+
+**教什么**：**CLI（命令行接口）**让你在终端用文字命令操作程序。
+Vercel Skills 用这种方式管理 skills。
+你可以用 `npx skills find`、`add` 与 `update` 查找、安装和更新 Agent Skills。
+它不是 MCP server 或模型。
+**适合谁**：需要在支持的 coding agent 间管理 skills，并愿意逐项检查来源与权限的人。
+**备注**：安装或更新不等于完成安全审查。也不保证每个 host 都支持。
+本页核查固定在以下 commit：
+[13e4063a1cf913f5606d57d42ab83a86f5001e04](https://github.com/vercel-labs/skills/commit/13e4063a1cf913f5606d57d42ab83a86f5001e04)。
+更新后要重新审查。
+CLI 根据官方 README 会收集匿名使用记录（usage telemetry）。
+可用 `DISABLE_TELEMETRY=1` 或 `DO_NOT_TRACK=1` 关闭。
 
 ---
 

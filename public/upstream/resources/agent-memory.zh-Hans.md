@@ -122,16 +122,22 @@
 
 评分代表“对这张学习地图的教学价值”，不是项目质量排行榜。先选一种 memory 形状，再选工具。
 
-<small>资料核查：2026-08-30 UTC</small>
+<small>既有项目核查：2026-08-30 UTC；新增项目核查：2026-10-15 UTC</small>
+
+本地或自建不代表没有模型与存储成本。
+评估 memory 工具时，除了写入与搜索，也要测试更新与删除。
+还要测试用户／workspace 隔离，以及恶意内容会不会污染后续行为。
 
 <table>
   <thead><tr><th scope="col">分类</th><th scope="col">项目／资源</th><th scope="col">编辑评分</th><th scope="col">适合谁</th><th scope="col">能学什么</th><th scope="col">状态／限制</th></tr></thead>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="5">Memory layer</th><td><a href="https://github.com/mem0ai/mem0">Mem0</a></td><td>⭐⭐⭐⭐⭐</td><td>第一次做跨 session memory</td><td>library、server、cloud 与搜索生命周期</td><td>Apache-2.0；OSS 与 managed 能力分开看</td></tr>
+    <tr><th scope="rowgroup" rowspan="7">Memory layer</th><td><a href="https://github.com/mem0ai/mem0">Mem0</a></td><td>⭐⭐⭐⭐⭐</td><td>第一次做跨 session memory</td><td>library、server、cloud 与搜索生命周期</td><td>Apache-2.0；OSS 与 managed 能力分开看</td></tr>
     <tr><td><a href="https://github.com/langchain-ai/langmem">LangMem</a></td><td>⭐⭐⭐⭐</td><td>已使用 LangGraph 的团队</td><td>hot-path／background memory</td><td>MIT；先理解 LangGraph store</td></tr>
     <tr><td><a href="https://github.com/letta-ai/letta">Letta 项目入口</a></td><td>⭐⭐⭐⭐</td><td>先分清 Letta 的产品范围</td><td>现行安装、文档与 source 去向</td><td>landing page；退役 V1 server 只留在 archive branch</td></tr>
     <tr><td><a href="https://github.com/letta-ai/letta-code">Letta Code</a></td><td>⭐⭐⭐⭐</td><td>建立 stateful agent 或 App Server</td><td>agent harness、git-backed MemFS、长期 identity</td><td>现行 source；产品型 agent harness，不是通用 memory DB</td></tr>
     <tr><td><a href="https://github.com/vshulcz/deja-vu">deja-vu</a></td><td>⭐⭐⭐⭐</td><td>先用磁盘上已经存在的记忆</td><td>从 coding agent 的 session 文件做 episodic memory；默认是词汇检索（BM25），不需要 embedding；可选的 <code>deja embed</code> 另外提供语义召回</td><td>MIT；默认只在本机。若配置远程 embedding 端点，会把已脱敏凭据的索引文本发送过去；用本机 Ollama 或 LM Studio 则不离开本机</td></tr>
+    <tr><td><a href="https://github.com/vectorize-io/hindsight">Hindsight</a></td><td>⭐⭐⭐⭐</td><td>想比较明确 memory 操作的读者</td><td><code>retain</code>／<code>recall</code>／<code>reflect</code>：保存、检索、根据记忆推理并回答</td><td>MIT；不要把供应商 benchmark 当作自己的质量证据</td></tr>
+    <tr><td><a href="https://github.com/volcengine/OpenViking">OpenViking</a></td><td>⭐⭐⭐（进阶）</td><td>要整理大量 agent context 的团队</td><td>用类文件系统组织 resource、memory 与 skill</td><td>主项目 AGPL-3.0。CLI／examples 分别授权。README 另有重写限制文字。</td></tr>
   </tbody>
   <tbody>
     <tr><th scope="rowgroup" rowspan="3">时间与关系</th><td><a href="https://github.com/getzep/graphiti">Graphiti</a></td><td>⭐⭐⭐⭐⭐</td><td>关系会随时间改变的应用</td><td>bi-temporal facts、temporal graph</td><td>Apache-2.0；需要图数据库与治理</td></tr>
@@ -145,6 +151,8 @@
     <tr><td><a href="https://github.com/mem0ai/memory-benchmarks">Mem0 Memory Benchmarks</a></td><td>⭐⭐⭐⭐</td><td>要测 memory quality 的开发者</td><td>数据集与可重复运行评测入口</td><td>供应商维护；自行加入 isolation／deletion 测试</td></tr>
   </tbody>
 </table>
+
+集成 OpenViking 前先读 [LICENSE](https://github.com/volcengine/OpenViking/blob/main/LICENSE)。
 
 ## ✅ 自我检查
 

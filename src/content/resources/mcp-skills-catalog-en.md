@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/mcp-skills-catalog.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/mcp-skills-catalog.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-15T16:34:17.166Z"
+syncedAt: "2026-10-16T03:46:40.976Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "mcp-skills-catalog"
@@ -43,6 +43,14 @@ Installation and testing belong in [Stage 5](/en/stages/05-claude-code-ecosystem
 | [anthropics/skills](https://github.com/anthropics/skills) | See how Agent Skill folders, instructions, and resources fit together | ⭐⭐⭐⭐⭐ |
 
 > ⚠️ An MCP Server may touch real data. Even with an official source, confirm the signed-in account, scopes, writable tools, and approval screen.
+
+### Choosing the new tool
+
+<small>New entry verified: 2026-10-15 UTC</small>
+
+| Need | Suggested entry | Editorial rating | Check first |
+|---|---|---|---|
+| Find, install, or update Agent Skills | [Vercel Skills](#vercel-skills) | ⭐⭐⭐⭐ | It is not an MCP Server or model; inspect the source, permissions, and host support before installation |
 
 ### Index
 
@@ -880,6 +888,26 @@ The license restricts Competing Use; it is not a blanket current Apache-2.0 lice
 **What it does**: a platform (SDKs + MCP servers) that connects agents to many apps (Slack / GitHub / Gmail / Salesforce / Notion…) and handles the logins for you, so you don't build a separate connector for each one.
 **Audience**: teams whose agents need broad API coverage without maintaining dozens of separate MCP servers.
 **Notes**: provides MCP servers + Python / TypeScript SDKs; connect to Claude Code via MCP. A "tool aggregator" (compare with n8n / Zapier for automation).
+
+<a id="vercel-skills"></a>
+### [Vercel Skills](https://github.com/vercel-labs/skills) ⭐⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| License | MIT |
+| Rating | ⭐⭐⭐⭐ |
+
+**What it teaches**: a **command-line interface (CLI)** lets you control a program with text commands in a terminal.
+Vercel Skills uses this interface to manage skills.
+Use `npx skills find`, `add`, and `update` to find, install, and update Agent Skills.
+This CLI manages skills; it is not an MCP Server or model.
+**Who it is for**: people managing skills across supported coding agents who will inspect each source and permission boundary.
+**Notes**: installation or update is not a safety review. It does not guarantee support in every host.
+This page reviewed the following commit:
+[`13e4063a1cf913f5606d57d42ab83a86f5001e04`](https://github.com/vercel-labs/skills/commit/13e4063a1cf913f5606d57d42ab83a86f5001e04).
+Review again after updating.
+The official README says the CLI collects anonymous usage records (usage telemetry).
+Set `DISABLE_TELEMETRY=1` or `DO_NOT_TRACK=1` to opt out.
 
 ---
 

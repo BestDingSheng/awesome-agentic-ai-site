@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/DESIGN.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/DESIGN.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-15T16:34:17.166Z"
+syncedAt: "2026-10-16T03:46:40.976Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "design"
@@ -183,6 +183,8 @@ stage 的價值 = 讀者學完後**能回答這個問題**。
 
 多數 stage 保留以下 section；**呈現順序採漸進式揭露**。Stage 1 是第一個完成遷移的 pilot，其他 stage 在各自內容更新時逐章遷移，不要求在同一個 PR 一次重寫：
 
+Stage 1 的完整模型規格是查詢資料，不是初學者的必讀清單。保留外層收合入口，再依 18 個家族分成預設關閉的選單。每家使用「欄位／內容」兩欄表，型號各佔一列，共用欄名以真正的 `rowspan` 合併；狀態、context、價格、用途、限制與官方來源各留一個寬列。原本共用的規格不得臆測成個別型號的數字。不能再把多個型號、價格和限制塞進八欄窄表；可見的選模型主線、必讀與評分資源維持原位。
+
 Stage 1 的模型生命週期固定保持可見：`資料 → Pre-training → Base Model → Post-training → Instruct Model → Inference → Agent 系統`。正文先粗體白話解釋 **Pre-training**、**Post-training**、**Fine-tuning** 與 **Inference**，再用三語同構亮色圖整理關係。圖與正文都要明說 Agent 是包住模型使用流程的系統，不是第七個模型 checkpoint；Prompt、RAG、Memory、Tools 與 Harness 通常不改模型權重。SFT、DPO 與 RLHF／RL 留在 Stage 1 可見主線；GRPO、PEFT／LoRA、Distillation 與 Quantization 由三語 `resources/model-training-guide*` 提供可見選修導覽。選修頁的名詞、必修閱讀、完整五星資源與完成檢查直接可見，只有實作前安全清單預設收合。Stage 6 提到 Fine-tuning 時必須連回同語言指南，避免把它誤當成 RAG 或保存最新資料的方法。
 
 Stage 2 的固定主線是「目標／資料／規則／輸出 → Zero-Shot／One-Shot／Few-Shot → Chain-of-Thought 的正確邊界 → 六筆固定案例 → 一次只改一件事 → 比較分數」。三語概念圖固定放在可見核心詞之後：先由正文定義，再用同構圖整理關係；圖片不能取代定義，也不能畫入正文已撤掉的固定數字。必修閱讀與 18 筆五星資源表保持可見；程式碼、模型比較與安全補充預設收合。CoT 必須先用白話解釋，但不當成要求模型公開完整內部推理的通用步驟。
@@ -213,7 +215,7 @@ Stage 6 的固定主線是「七個可見核心詞 → RAG／Memory 選擇 → �
 
 Stage 6 的可見亮色三語圖固定畫成三條同構路徑：文件進入知識庫的 ingest path、問題取回證據再回答的 query path，以及重要狀態的 Memory write／read loop。關閉的「RAG 基礎流水線」另放一張詳細三語圖，分成 index lane 與 query lane；Contextualization、query rewrite、fusion、reranking 必須標為可選，retrieve 連線只能落到候選檢索，不能跳到答案。圖與正文都要說清 vector database 不是唯一 retriever，並區分 Hybrid RAG（流程形狀）與 Hybrid Search（候選融合）。圖片只整理正文已定義的關係，不把 vendor benchmark、固定 chunk size、top-k、成本倍數或模型排名畫成通則。五題 heading、anchor、成果、第一個可複製 PowerShell 動作、資料／預算提醒、必修閱讀與 9 筆基線五星資源保持可見；時間、環境與完整流水線補充預設收合。
 
-`resources/advanced-rag*` 與 `resources/agent-memory*` 是 Stage 6 的三語獨立深讀頁，頁首與頁尾都要有回到同語言 Stage 6 的連結，Stage 6 也要在可見主線直接連入兩頁。進階 RAG 頁依「症狀 → 指標 → 最小方法」教 BM25／Hybrid Search、Reranking、Contextual Retrieval、HyDE、Multi-Query、RAG Fusion、Self-RAG、CRAG、Adaptive／Agentic RAG、GraphRAG、RAPTOR 與 DSPy；12 筆五星資源固定分成 `4／4／4`。Agent Memory 頁先分開 Chat History／Context／RAG／Memory，再教 short／long-term、episodic／semantic／procedural、寫入／搜尋／更新／刪除／忘記、隔離與 consent；11 筆五星資源固定分成 `4／3／4`。兩頁的必修閱讀、完整名詞、練習、精選專案與安全底線直接可見；只有成本／實作細節與排錯使用兩個預設關閉的 `<details>`。
+`resources/advanced-rag*` 與 `resources/agent-memory*` 是 Stage 6 的三語獨立深讀頁，頁首與頁尾都要有回到同語言 Stage 6 的連結，Stage 6 也要在可見主線直接連入兩頁。進階 RAG 頁依「症狀 → 指標 → 最小方法」教 BM25／Hybrid Search、Reranking、Contextual Retrieval、HyDE、Multi-Query、RAG Fusion、Self-RAG、CRAG、Adaptive／Agentic RAG、GraphRAG、RAPTOR 與 DSPy；12 筆五星資源固定分成 `4／4／4`。Agent Memory 頁先分開 Chat History／Context／RAG／Memory，再教 short／long-term、episodic／semantic／procedural、寫入／搜尋／更新／刪除／忘記、隔離與 consent；14 筆有編輯評分的資源固定分成 `7／3／4`。兩頁的必修閱讀、完整名詞、練習、精選專案與安全底線直接可見；只有成本／實作細節與排錯使用兩個預設關閉的 `<details>`。
 
 Stage 6 overview 的 9 筆基線資源固定分成 `3／4／2` 三組；三頁的每組都使用獨立 `<tbody>` 與真正 HTML `rowspan`。保留五星編輯評分，移除 GitHub stars 數字；官方文件、paper 與 canonical repo 負責證明事實，知名或活躍專案只負責提供動手入口。GraphRAG 維護狀態、Ragas canonical owner、Letta／Letta Code 的不同用途、Zep Community Edition 歷史狀態，以及 RAG／retrieval／embedding／vector store／memory／evaluation／project status 使用 90 天 freshness marker。
 
@@ -316,9 +318,9 @@ Banner 由 `scripts/build-banner.py` 在原版插圖上加動畫，不重畫文�
 
 ### 課程地圖固定結構
 
-`resources/courses*` 先幫讀者選一門課，不做證書排行榜。可見順序固定為「五個證書／課程核心詞 → 按需求選一條 → 11 筆精選課程與學習路線 → 可直接複製的五行作品證據卡 → Stage 3／4／7 返回路線」。證書限制與清單維護方法可以收合；精選課程、編輯評分與作品卡保持可見。
+`resources/courses*` 先幫讀者選一門課，不做證書排行榜。可見順序固定為「五個證書／課程核心詞 → 按需求選一條 → 13 筆精選課程與學習路線 → 可直接複製的五行作品證據卡 → Stage 3／4／7 返回路線」。證書限制與清單維護方法可以收合；精選課程、編輯評分與作品卡保持可見。
 
-11 筆主資源依 `3／4／2／2` 分成免費打底、建構與上線、較長系列課、中文供應商路線。每組使用獨立 `<tbody>`、`scope="rowgroup"` 與真正 `rowspan`；一列只放一個主課程 URL，中文伴讀等補充入口放在表格外。星等只表示教學價值、實作完整度、更新狀態與可轉移性，不表示證書排名，也不保存 GitHub stars。
+13 筆主資源依 `3／6／2／2` 分成免費打底、建構與上線、較長系列課、中文供應商路線。每組使用獨立 `<tbody>`、`scope="rowgroup"` 與真正 `rowspan`；一列只放一個主課程 URL，中文伴讀等補充入口放在表格外。星等只表示教學價值、實作完整度、更新狀態與可轉移性，不表示證書排名，也不保存 GitHub stars。
 
 **Certificate of Completion**、**Skill Badge**、**Professional Certificate** 與 **Certification Exam** 必須分開定義。沒有官方證書條件就寫未明示，不自行補成「免費證書」；費用、cohort、證書、評量與 repository status 使用三語一致的 90 天 freshness marker。官方頁證明課程與證書事實，canonical repo 證明開源教材狀態，第三方文章只能當線索。
 

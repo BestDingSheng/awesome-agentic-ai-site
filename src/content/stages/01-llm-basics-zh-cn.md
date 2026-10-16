@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-15T16:34:17.166Z"
+syncedAt: "2026-10-16T03:46:40.976Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "01-llm-basics"
@@ -516,33 +516,578 @@ print("💡 本次调用为 $0（不含电费）")
 <details markdown="1">
 <summary>🌐 完整 18 个家族表（官方规格入口）</summary>
 
-<small>全表查核：2026-09-22 UTC。GPT 一行更新：2026-10-02 UTC。Claude 一行更新：2026-10-08 UTC。Gemini 一行更新：2026-10-02 UTC。</small>
+<small>全表查核：2026-09-22 UTC。GPT 一行更新：2026-10-02 UTC。Claude 一行更新：2026-10-08 UTC。Gemini／Muse／Mistral／Jev 与 GPT 选读更新：2026-10-15 UTC。</small>
 
 没有可靠公开数字就写“官方未公布”。价格通常是 USD／每 1M token；供应商若用别的单位，就按官方单位记录。
 **缓存（cache）**就像重复使用读过的便条：读取旧内容和写入新内容可能有不同价格。
 
-| 家族 | 当前推荐型号 | 状态 | Context | 价格或授权 | 适合做什么 | 限制 | 官方来源 |
-|---|---|---|---|---|---|---|---|
-| Claude | Fable 5.1（`claude-fable-5-1`）；Mythos 5.1（`claude-mythos-5-1`）；Opus 5.5（`claude-opus-5-5`）；Sonnet 5.5（`claude-sonnet-5-5`）；Haiku 5.5 (`claude-haiku-5-5`) | Fable／Opus／Sonnet／Haiku：正式可用；Mythos：限核准用户 | 1M context／128K 最大输出 | Claude API：Fable／Mythos US$10/$50、Opus US$4/$20、Sonnet US$2/$10、Haiku US$0.10/$0.50 (prompt ≤100K), US$0.50/$2.50 (prompt >100K)（每百万输入／输出 token）；Sonnet cache read US$0.10，Opus US$0.20，Fable／Mythos US$0.25 | 长文、编程、长时间 Agent 工作流 | Mythos 5.1 限网络安全与生命科学核准用户；Sonnet 5.5 的工具指定与 temperature 设置不同于旧版，升级现有程序前先看迁移指南；云端合作平台价格另查 | [Claude 模型总览](https://platform.claude.com/docs/en/models/overview) · [Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview) · [Sonnet 5.5](https://platform.claude.com/docs/en/models/sonnet-5-5/overview) · [迁移指南](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide) · [Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/overview) · [Haiku 5.5 migration](https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide) · [Claude API 价格](https://platform.claude.com/docs/en/about-claude/pricing) |
-| GPT | GPT-6 Astra（`gpt-6-astra`）；GPT-6.1 Sol（`gpt-6.1-sol`）；GPT-6 Luna（`gpt-6-luna`） | 正式 API 模型；免费层不支持 | 1.05M context／128K 最大输出 | Standard API，每百万 token，US$ 输入／cache 读／cache 写／输出。Astra $10/$1/$12.50/$50。Sol 6.1 $2/$0.10/$2.50/$10。Luna $0.10/$0.01/$0.125/$0.50 | Sol 6.1 用于编程与多步 Agent 工作；Luna 用于聚焦、重复任务；Astra 的成本与质量差异要自行评测 | Sol 6.1 的工具调用须用 Responses API；Chat Completions 不支持工具调用。超过 272K 输入时，整次请求输入与 cache 价格为 2 倍、输出为 1.5 倍。Batch／Flex 半价，Fast 为 2 倍。工具可能另收费 | [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra) · [GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol) · [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna) · [OpenAI API 价格](https://developers.openai.com/api/docs/pricing) |
-| Jev（TypeSafe AI） | TypeSafe direct：Jev 1.13（`jev-1.13.0`），稳定 alias `jev-latest`；Cloudflare route：`typesafe/jev` | 正式模型；服务仍为 Early access | TypeSafe direct：64K／request，`state` 加最长 question 上限 32K；Cloudflare route：32K | TypeSafe direct：$0.042／百万 input token，output 不计费；Cloudflare route：以 Cloudflare dashboard 显示为准 | 固定选项分类、路由、rubric 评分和 guardrail 判断 | 不生成自由文本；概率不等于正确，门槛、权限和 fallback 要由自己的程序与 Eval 决定 | [TypeSafe 模型规格](https://docs.typesafe.ai/models) · [Jev 入门](https://docs.typesafe.ai/introduction) · [Early access 公告](https://typesafe.ai/blog/introducing-system-one-models-and-jev) · [Cloudflare route](https://developers.cloudflare.com/ai/models/typesafe/jev/) |
-| Gemini | Gemini 3.8 Flash；Gemini 4 Argon（发布参考；限制开放） | Flash：正式可用；Argon：限 Fairwind 可信网络安全防御者 | Flash：1,048,576 context／65,536 最大输出。Argon：公告 1M 输出上限，公开 API context 规格未公布 | Flash：2026-12-31 前介绍价 $0.75/$3.75（输入／输出）。Argon：公告未来介绍价 $2/$10，期满后 $4/$20；每百万 token | Flash 用于可执行的多模态与 Agent 练习；Argon 是长任务模型的官方发布参考 | Argon 的一般 API／Google AI Ultra 开放仍待后续发布，公开 API model ID 未公布。不能作为本章可执行默认值 | [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash) · [Gemini API 定价](https://ai.google.dev/gemini-api/docs/pricing) · [Gemini 4 Argon 公告](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/) |
-| DeepSeek | V4.1 Flash（`deepseek-flash`）；V4 Pro（`deepseek-v4-pro`） | 两者 API 仍可用；旧 V4 Flash 已退役 | 1M context／384K 最大输出 | 每百万 token，峰／谷：Flash 输入 US$0.30/$0.15、输出 US$1.20/$0.60、cache hit US$0.006/$0.003；Pro 输入 US$1.32/$0.66、输出 US$3.96/$1.98、cache hit US$0.044/$0.022 | 推理、编程与大量 token 任务 | 旧 `deepseek-v4-flash` 名称暂时导向 V4.1 Flash；峰值为周一至周五 UTC 01–04、06–10 时 | [DeepSeek 模型与价格](https://api-docs.deepseek.com/quick_start/pricing/) · [更新记录](https://api-docs.deepseek.com/updates/) |
-| Kimi | `kimi-k3` | 正式可用 | 1M | API：cache hit／输入／输出分别为 CNY 2／20／100，每百万 tokens | 中文长文、视觉输入、长上下文任务 | 2.8T 参数；部署与配额取决于平台 | [Kimi 平台总览](https://platform.kimi.com/docs/overview) · [Kimi API 定价](https://platform.kimi.com/) |
-| Hunyuan | `Hy3`（TokenHub） | 正式可用 | 256K | API：cache hit／输入／输出分别为 CNY 0.25／1／4，每百万 tokens | 中文推理与 Tencent Cloud 整合 | `hy3-preview` 已于 2026-08-31 下线；Hy4 仍是 Preview | [TokenHub 模型列表](https://cloud.tencent.com/document/product/1823/130051) · [TokenHub 定价](https://cloud.tencent.com/document/product/1823/130055) · [Hy3 迁移公告](https://cloud.tencent.com/announce/detail/2391) |
-| MiniMax | MiniMax M3 | 开放权重 | 1M | MiniMax API 优惠价（每百万输入／cache read／输出 token）：≤512K 为 US$0.30/$0.06/$1.20；512K–1M 为 US$0.60/$0.12/$2.40；权重使用 MiniMax Community License | 文本、视觉、coding 与自部署工作 | 优惠与转售平台价格可能变动；不是 Apache／MIT | [MiniMax M3 model card](https://huggingface.co/MiniMaxAI/MiniMax-M3) · [MiniMax API 定价](https://platform.minimax.io/subscribe/token-plan?tab=api-enterprise) |
-| Qwen | qwen3.8-max（API）；Qwen3.8 开放权重变体 | 正式可用 | 1M | API 按地区定价；例如北京为 CNY 12／36，每百万输入／输出 tokens；开放权重变体使用各自授权 | 中文任务、多模态、自部署工作流 | API 型号与开放权重变体不可混用；可用性与授权要分别确认 | [Qwen 3.8 Max](https://help.aliyun.com/en/model-studio/qwen3-8-max) |
-| GLM | GLM-5.3 | 正式可用 | 1M（输出 128K） | API：输入／cache hit／输出分别为 US$1.40／$0.26／$4.40，每百万 tokens | 中文 agent、工具使用、推理 | 纯文本；reasoning 始终启用 | [GLM-5.3 文档](https://docs.z.ai/guides/llm/glm-5.3) · [GLM API 定价](https://docs.z.ai/guides/overview/pricing) |
-| Yi | Yi-34B／Yi-9B 及 200K 变体 | 冻结／历史 | 200K（部分旧型号） | 官方 repo 授权；当前 API 价格官方未公布 | 重现已有 Yi 实验、自部署历史基线 | 官方 repo 未证明目前仍在维护或有 frontier 后继型号 | [01.AI Yi repository](https://github.com/01-ai/Yi) |
-| Llama | Llama 4 Scout／Maverick；Llama 3.3 70B（较实用旧基线） | 开放权重 | Scout 10M | Llama Community License | 自部署、微调、生态整合 | Scout 需要 H100 级硬件；授权不是 Apache／MIT | [Meta Llama 文档](https://dev.meta.ai/llama) |
-| Muse | Muse Spark 1.3（Standard：`muse-spark-1.3`；Contributor：`muse-spark-1.3-contributor`）；Muse Glimmer 30B | Spark：Meta Model API 公开预览；Glimmer：开放权重 | Spark 约 1M；Glimmer 131K | Spark Standard：每百万 token 输入／cache hit／输出 US$1.25/$0.15/$4.25；Contributor：US$0.10/$0.002/$0.20，但允许 Meta 用输入与输出训练模型。Glimmer：Apache 2.0 | Spark 做云端 Agent 与编程任务；Glimmer 做本地 Agent | 产品 Muse、API 模型 Spark 与开放权重 Glimmer 是不同东西；Spark 1.3 的音频理解尚未完整支持 | [Meta Model API 模型](https://dev.meta.ai/docs/models) · [价格与数据方案](https://dev.meta.ai/docs/pricing-rate-limits) · [Muse Glimmer](https://huggingface.co/meta-models/Muse-Glimmer-30B) |
-| Grok | Grok 4.7（`grok-4.7`） | 正式可用 | 500K | xAI API：每百万 token 输入／cache hit／输出 US$2/$0.50/$6；提示达到 200K 后，整次请求改用 US$4/$1/$12 | 编程、工具调用与多步 Agent 任务 | 美国区域端点另加 10%；服务器工具调用可能另计费 | [Grok 4.7 规格](https://docs.x.ai/developers/models/grok-4.7) · [xAI 价格](https://docs.x.ai/developers/pricing) |
-| MiMo | MiMo V2.6 Pro（`mimo-v2.6-pro`） | 正式可用 API | 1M context／128K 最大输出 | Xiaomi API：每百万 token 输入／cache hit／输出 US$0.435/$0.0036/$0.87；官方另列 CNY 3/0.025/6 | 长任务、工具调用与多模态输入的 Agent | 要确认账号可用地区、配额与实际账单；不要把供应商自述 benchmark 当跨模型排名 | [MiMo V2.6 Pro 规格与价格](https://mimo.mi.com/models/en-US/mimo-v2.6-pro) · [MiMo API 模型列表](https://mimo.mi.com/docs/en-US/api/model/list-models) |
-| Gemma | Gemma 4：E2B、E4B、12B、26B A4B、31B | 开放权重 | 小型型号 128K；中型型号 256K | Gemma 4 Terms／license；不是 Apache 2.0 | Edge、本地与受限硬件实验 | 需逐项阅读授权条款；硬件需求按型号变化 | [Gemma 核心文档](https://ai.google.dev/gemma/docs/core) · [Gemma Terms](https://ai.google.dev/gemma/terms) |
-| Mistral | Mistral Small 4；Large 3；Ministral 3 | 正式可用 | Small 4：256K | Small 4 $0.15/$0.60；开放权重按版本授权，包括 Apache 2.0 版本 | reasoning、vision、coding 与自部署 | 不同型号的 API 与授权不同 | [Mistral Small 4](https://docs.mistral.ai/models/mistral-small-4-0-26-03) |
-| Phi | Phi-4 14B；Phi-4 mini／multimodal | 开放权重 | Phi-4 multimodal 128K | Phi-4 multimodal MIT；按型号查授权 | 小型推理、多模态、edge | 不宣称固定 RAM；量化方式会改变硬件需求 | [Microsoft Phi](https://azure.microsoft.com/en-us/products/phi) · [Phi-4 multimodal](https://huggingface.co/microsoft/Phi-4-multimodal-instruct) |
+先展开你想查的家族，再看型号、价格与限制。
+
+<details class="model-family" markdown="1">
+<summary>Claude</summary>
+
+<table data-model-family="Claude">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="rowgroup" rowspan="5">当前推荐型号</th><td>Fable 5.1（<code>claude-fable-5-1</code>）</td></tr>
+    <tr><td>Mythos 5.1（<code>claude-mythos-5-1</code>）</td></tr>
+    <tr><td>Opus 5.5（<code>claude-opus-5-5</code>）</td></tr>
+    <tr><td>Sonnet 5.5（<code>claude-sonnet-5-5</code>）</td></tr>
+    <tr><td>Haiku 5.5 (<code>claude-haiku-5-5</code>)</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>Fable／Opus／Sonnet／Haiku：正式可用；Mythos：限核准用户</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>1M context／128K 最大输出</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>Claude API：Fable／Mythos US$10/$50、Opus US$4/$20、Sonnet US$2/$10、Haiku US$0.10/$0.50 (prompt ≤100K), US$0.50/$2.50 (prompt &gt;100K)（每百万输入／输出 token）；Sonnet cache read US$0.10，Opus US$0.20，Fable／Mythos US$0.25</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>长文、编程、长时间 Agent 工作流</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>Mythos 5.1 限网络安全与生命科学核准用户；Sonnet 5.5 的工具指定与 temperature 设置不同于旧版，升级现有程序前先看迁移指南；云端合作平台价格另查</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://platform.claude.com/docs/en/models/overview">Claude 模型总览</a> · <a href="https://platform.claude.com/docs/en/models/opus-5-5/overview">Opus 5.5</a> · <a href="https://platform.claude.com/docs/en/models/sonnet-5-5/overview">Sonnet 5.5</a> · <a href="https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide">迁移指南</a> · <a href="https://platform.claude.com/docs/en/models/haiku-5-5/overview">Haiku 5.5</a> · <a href="https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide">Haiku 5.5 migration</a> · <a href="https://platform.claude.com/docs/en/about-claude/pricing">Claude API 价格</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>GPT</summary>
+
+<table data-model-family="GPT">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="rowgroup" rowspan="3">当前推荐型号</th><td>GPT-6 Astra（<code>gpt-6-astra</code>）</td></tr>
+    <tr><td>GPT-6.1 Sol（<code>gpt-6.1-sol</code>）</td></tr>
+    <tr><td>GPT-6 Luna（<code>gpt-6-luna</code>）</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>正式 API 模型；免费层不支持</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>1.05M context／128K 最大输出</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>Standard API，每百万 token，US$ 输入／cache 读／cache 写／输出。Astra $10/$1/$12.50/$50。Sol 6.1 $2/$0.10/$2.50/$10。Luna $0.10/$0.01/$0.125/$0.50</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>Sol 6.1 用于编程与多步 Agent 工作；Luna 用于聚焦、重复任务；Astra 的成本与质量差异要自行评测</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>Sol 6.1 的工具调用须用 Responses API；Chat Completions 不支持工具调用。超过 272K 输入时，整次请求输入与 cache 价格为 2 倍、输出为 1.5 倍。Batch／Flex 半价，Fast 为 2 倍。工具可能另收费</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://developers.openai.com/api/docs/models/gpt-6-astra">GPT-6 Astra</a> · <a href="https://developers.openai.com/api/docs/models/gpt-6.1-sol">GPT-6.1 Sol</a> · <a href="https://developers.openai.com/api/docs/models/gpt-6-luna">GPT-6 Luna</a> · <a href="https://developers.openai.com/api/docs/pricing">OpenAI API 价格</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Jev（TypeSafe AI）</summary>
+
+<table data-model-family="Jev（TypeSafe AI）">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="rowgroup" rowspan="3">当前推荐型号</th><td>TypeSafe direct：稳定 Jev 1.13（<code>jev-1.13.0</code>／<code>jev-latest</code>）</td></tr>
+    <tr><td>Preview Jev 1.14（<code>jev-1.14.0</code>／<code>jev-preview</code>）</td></tr>
+    <tr><td>Cloudflare route：<code>typesafe/jev</code></td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>1.13：正式模型；1.14：Preview。服务仍为 Early access</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>TypeSafe direct：64K／request，<code>state</code> 加最长 question 上限 32K。Cloudflare route：32K</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>TypeSafe direct：US$0.042／百万 input token，output 不计费。Cloudflare route：以 Cloudflare dashboard 为准</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>固定选项分类、路由、rubric 评分与 guardrail 判断</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>不生成自由文本；概率不等于正确。程序与 Eval 决定门槛、权限与 fallback。262K 长 context 与图片须另启用，属 experimental，不是默认</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://docs.typesafe.ai/models">TypeSafe 模型规格</a> · <a href="https://docs.typesafe.ai/introduction">Jev 入门</a> · <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">Early access 公告</a> · <a href="https://developers.cloudflare.com/ai/models/typesafe/jev/">Cloudflare route</a> · <a href="https://docs.typesafe.ai/images">图片限制</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Gemini</summary>
+
+<table data-model-family="Gemini">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="rowgroup" rowspan="2">当前推荐型号</th><td>Gemini 3.8 Flash</td></tr>
+    <tr><td>Gemini 4 Argon（<code>gemini-4-argon</code>）</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>Flash／Argon：正式可用</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>Flash：1,048,576 context／65,536 最大输出。Argon：1,048,576 输入与输出合计；同步输出默认 65,536</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>每百万 token，US$。Flash：2026-12-31 前输入／输出 $0.75/$3.75。Argon Standard 输入／cache／输出：2026-11-30 前 $2/$0.10/$10。2026-12-01 起 $4/$0.20/$20</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>Flash 用于多模态与 Agent 练习。Argon 可比较长任务与编程成果</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>Argon 无免费层。输出到 1M 须使用 long decode，不是每次请求的默认。本章仍先用本地模型练习</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash">Gemini 3.8 Flash</a> · <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API 定价</a> · <a href="https://ai.google.dev/gemini-api/docs/models/gemini-4-argon">Gemini 4 Argon 规格</a> · <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">发布公告</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>DeepSeek</summary>
+
+<table data-model-family="DeepSeek">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="rowgroup" rowspan="2">当前推荐型号</th><td>V4.1 Flash（<code>deepseek-flash</code>）</td></tr>
+    <tr><td>V4 Pro（<code>deepseek-v4-pro</code>）</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>两者 API 仍可用；旧 V4 Flash 已退役</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>1M context／384K 最大输出</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>每百万 token，峰／谷：Flash 输入 US$0.30/$0.15、输出 US$1.20/$0.60、cache hit US$0.006/$0.003；Pro 输入 US$1.32/$0.66、输出 US$3.96/$1.98、cache hit US$0.044/$0.022</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>推理、编程与大量 token 任务</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>旧 <code>deepseek-v4-flash</code> 名称暂时导向 V4.1 Flash；峰值为周一至周五 UTC 01–04、06–10 时</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://api-docs.deepseek.com/quick_start/pricing/">DeepSeek 模型与价格</a> · <a href="https://api-docs.deepseek.com/updates/">更新记录</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Kimi</summary>
+
+<table data-model-family="Kimi">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="row">当前推荐型号</th><td><code>kimi-k3</code></td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>正式可用</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>1M</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>API：cache hit／输入／输出分别为 CNY 2／20／100，每百万 tokens</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>中文长文、视觉输入、长上下文任务</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>2.8T 参数；部署与配额取决于平台</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://platform.kimi.com/docs/overview">Kimi 平台总览</a> · <a href="https://platform.kimi.com/">Kimi API 定价</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Hunyuan</summary>
+
+<table data-model-family="Hunyuan">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="row">当前推荐型号</th><td><code>Hy3</code>（TokenHub）</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>正式可用</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>256K</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>API：cache hit／输入／输出分别为 CNY 0.25／1／4，每百万 tokens</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>中文推理与 Tencent Cloud 整合</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td><code>hy3-preview</code> 已于 2026-08-31 下线；Hy4 仍是 Preview</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://cloud.tencent.com/document/product/1823/130051">TokenHub 模型列表</a> · <a href="https://cloud.tencent.com/document/product/1823/130055">TokenHub 定价</a> · <a href="https://cloud.tencent.com/announce/detail/2391">Hy3 迁移公告</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>MiniMax</summary>
+
+<table data-model-family="MiniMax">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="row">当前推荐型号</th><td>MiniMax M3</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>开放权重</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>1M</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>MiniMax API 优惠价（每百万输入／cache read／输出 token）：≤512K 为 US$0.30/$0.06/$1.20；512K–1M 为 US$0.60/$0.12/$2.40；权重使用 MiniMax Community License</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>文本、视觉、coding 与自部署工作</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>优惠与转售平台价格可能变动；不是 Apache／MIT</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://huggingface.co/MiniMaxAI/MiniMax-M3">MiniMax M3 model card</a> · <a href="https://platform.minimax.io/subscribe/token-plan?tab=api-enterprise">MiniMax API 定价</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Qwen</summary>
+
+<table data-model-family="Qwen">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="rowgroup" rowspan="2">当前推荐型号</th><td>qwen3.8-max（API）</td></tr>
+    <tr><td>Qwen3.8 开放权重变体</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>正式可用</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>1M</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>API 按地区定价；例如北京为 CNY 12／36，每百万输入／输出 tokens；开放权重变体使用各自授权</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>中文任务、多模态、自部署工作流</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>API 型号与开放权重变体不可混用；可用性与授权要分别确认</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://help.aliyun.com/en/model-studio/qwen3-8-max">Qwen 3.8 Max</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>GLM</summary>
+
+<table data-model-family="GLM">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="row">当前推荐型号</th><td>GLM-5.3</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>正式可用</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>1M（输出 128K）</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>API：输入／cache hit／输出分别为 US$1.40／$0.26／$4.40，每百万 tokens</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>中文 agent、工具使用、推理</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>纯文本；reasoning 始终启用</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://docs.z.ai/guides/llm/glm-5.3">GLM-5.3 文档</a> · <a href="https://docs.z.ai/guides/overview/pricing">GLM API 定价</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Yi</summary>
+
+<table data-model-family="Yi">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="row">当前推荐型号</th><td>Yi-34B／Yi-9B 及 200K 变体</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>冻结／历史</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>200K（部分旧型号）</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>官方 repo 授权；当前 API 价格官方未公布</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>重现已有 Yi 实验、自部署历史基线</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>官方 repo 未证明目前仍在维护或有 frontier 后继型号</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://github.com/01-ai/Yi">01.AI Yi repository</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Llama</summary>
+
+<table data-model-family="Llama">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="rowgroup" rowspan="2">当前推荐型号</th><td>Llama 4 Scout／Maverick</td></tr>
+    <tr><td>Llama 3.3 70B（较实用旧基线）</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>开放权重</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>Scout 10M</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>Llama Community License</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>自部署、微调、生态整合</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>Scout 需要 H100 级硬件；授权不是 Apache／MIT</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://dev.meta.ai/llama">Meta Llama 文档</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Muse</summary>
+
+<table data-model-family="Muse">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="rowgroup" rowspan="3">当前推荐型号</th><td>Muse Wonder（<code>muse-wonder-1.0</code>）</td></tr>
+    <tr><td>Muse Spark 1.3（<code>muse-spark-1.3</code>／<code>muse-spark-1.3-contributor</code>）</td></tr>
+    <tr><td>Muse Glimmer 30B</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>Wonder／Spark：API 可用；Glimmer：开放权重</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>Wonder／Spark：1,048,576；Glimmer：131K</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>每百万输入／cache hit／输出 token。Wonder Standard：US$4/$0.20/$20。Spark Standard：US$1.25/$0.15/$4.25。Spark Contributor：US$0.10/$0.002/$0.20，允许 Meta 用内容训练模型。Glimmer：Apache 2.0</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>Wonder 比较长任务与多文件编程工作。Spark 做较聚焦的云端工作；Glimmer 做本地 Agent</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>产品 Muse、API 模型、开放权重是不同东西。Wonder API 没有 Contributor。Wonder Full 只在特定 Muse Code 订阅提供，不能用 max effort 取得。Spark 1.3 音频支持仍不完整</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://dev.meta.ai/docs/models">Meta Model API 模型</a> · <a href="https://dev.meta.ai/docs/pricing-rate-limits">价格与数据方案</a> · <a href="https://huggingface.co/meta-models/Muse-Glimmer-30B">Muse Glimmer</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Grok</summary>
+
+<table data-model-family="Grok">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="row">当前推荐型号</th><td>Grok 4.7（<code>grok-4.7</code>）</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>正式可用</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>500K</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>xAI API：每百万 token 输入／cache hit／输出 US$2/$0.50/$6；提示达到 200K 后，整次请求改用 US$4/$1/$12</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>编程、工具调用与多步 Agent 任务</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>美国区域端点另加 10%；服务器工具调用可能另计费</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://docs.x.ai/developers/models/grok-4.7">Grok 4.7 规格</a> · <a href="https://docs.x.ai/developers/pricing">xAI 价格</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>MiMo</summary>
+
+<table data-model-family="MiMo">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="row">当前推荐型号</th><td>MiMo V2.6 Pro（<code>mimo-v2.6-pro</code>）</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>正式可用 API</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>1M context／128K 最大输出</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>Xiaomi API：每百万 token 输入／cache hit／输出 US$0.435/$0.0036/$0.87；官方另列 CNY 3/0.025/6</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>长任务、工具调用与多模态输入的 Agent</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>要确认账号可用地区、配额与实际账单；不要把供应商自述 benchmark 当跨模型排名</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://mimo.mi.com/models/en-US/mimo-v2.6-pro">MiMo V2.6 Pro 规格与价格</a> · <a href="https://mimo.mi.com/docs/en-US/api/model/list-models">MiMo API 模型列表</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Gemma</summary>
+
+<table data-model-family="Gemma">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="row">当前推荐型号</th><td>Gemma 4：E2B、E4B、12B、26B A4B、31B</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>开放权重</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>小型型号 128K；中型型号 256K</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>Gemma 4 Terms／license；不是 Apache 2.0</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>Edge、本地与受限硬件实验</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>需逐项阅读授权条款；硬件需求按型号变化</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://ai.google.dev/gemma/docs/core">Gemma 核心文档</a> · <a href="https://ai.google.dev/gemma/terms">Gemma Terms</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Mistral</summary>
+
+<table data-model-family="Mistral">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="rowgroup" rowspan="5">当前推荐型号</th><td>Mistral Large 4（<code>mistral-large-4</code>）</td></tr>
+    <tr><td>Medium 3.5（<code>mistral-medium-3-5</code>）</td></tr>
+    <tr><td>Small 4</td></tr>
+    <tr><td>Large 3</td></tr>
+    <tr><td>Ministral 3</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>Large 4：Public Preview。Medium 3.5／Small 4：正式可用</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>Large 4：1M。Medium 3.5／Small 4：256K</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>每百万 token，US$。Large 4 输入／cache／输出：优惠 US$0.68/$0.07/$2.09，牌价 US$1.36/$0.14/$4.18。Medium 3.5 输入／输出 $1.50/$7.50，Modified MIT。Small 4：$0.15/$0.60，Apache 2.0</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>比较推理、视觉、程序与工具使用。想自部署时，先选已有权重和授权的型号</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>Large 4 权重尚未发布。优惠是发布后 2 周，不是固定价格。不要把整个家族都当成 Apache 2.0</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://docs.mistral.ai/models/mistral-large-4-0">Large 4 规格与价格</a> · <a href="https://docs.mistral.ai/resources/changelogs">发布状态</a> · <a href="https://docs.mistral.ai/models/mistral-medium-3-5-26-04">Medium 3.5</a> · <a href="https://docs.mistral.ai/models/mistral-small-4-0-26-03">Small 4</a></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+<details class="model-family" markdown="1">
+<summary>Phi</summary>
+
+<table data-model-family="Phi">
+  <thead><tr><th scope="col">栏位</th><th scope="col">内容</th></tr></thead>
+  <tbody data-field="models">
+    <tr><th scope="rowgroup" rowspan="2">当前推荐型号</th><td>Phi-4 14B</td></tr>
+    <tr><td>Phi-4 mini／multimodal</td></tr>
+  </tbody>
+  <tbody data-field="status">
+    <tr><th scope="row">状态</th><td>开放权重</td></tr>
+  </tbody>
+  <tbody data-field="context">
+    <tr><th scope="row">Context</th><td>Phi-4 multimodal 128K</td></tr>
+  </tbody>
+  <tbody data-field="pricing">
+    <tr><th scope="row">价格或授权</th><td>Phi-4 multimodal MIT；按型号查授权</td></tr>
+  </tbody>
+  <tbody data-field="use">
+    <tr><th scope="row">适合做什么</th><td>小型推理、多模态、edge</td></tr>
+  </tbody>
+  <tbody data-field="limits">
+    <tr><th scope="row">限制</th><td>不宣称固定 RAM；量化方式会改变硬件需求</td></tr>
+  </tbody>
+  <tbody data-field="sources">
+    <tr><th scope="row">官方来源</th><td><a href="https://azure.microsoft.com/en-us/products/phi">Microsoft Phi</a> · <a href="https://huggingface.co/microsoft/Phi-4-multimodal-instruct">Phi-4 multimodal</a></td></tr>
+  </tbody>
+</table>
+
+</details>
 
 想做“听人说话、立刻用声音回答”的 Agent，可选读 [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live)。它是独立的稳定语音 API 型号，不等于上表的 Gemini 3.8 Flash；费用与功能要看 [Gemini API 价格页](https://ai.google.dev/gemini-api/docs/pricing)。
+
+**GPT API 选读**：先完成一般请求，再比较下面两种用途。
+
+- **Ultrafast（加价低延迟服务层）**：让支持的模型更快响应，不是新模型或免费加速。[官方指南](https://developers.openai.com/api/docs/guides/ultrafast-mode) 列出 GPT-6.1 Sol 的用法；费用依服务层另算。
+- **Decisions API（判断接口，public beta）**：让 `gpt-6-luna` 返回分类、分数或条件成立的概率。[官方指南](https://developers.openai.com/api/docs/guides/decisions) 说明它和一般文字生成的差别；不代替工具调用，计费也要分开看。
 
 </details>
 
