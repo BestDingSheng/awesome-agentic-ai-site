@@ -1,11 +1,11 @@
 ---
 title: "Subagent 進階使用 — Description 寫法 / Composition / Debug"
-description: "| 你的問題 | 看哪節 | |---|---| | 寫了一個 subagent，但 Claude 從來不主動派它——為什麼？ | §1 Description 怎麼寫才會被主 session 主動 spawn | | 想跑 2-3 個 subagent 串成 pipeline / parallel——怎麼設計？ | §2 Composition pattern 怎麼設計 | | Subagent 跑壞 / 報錯 / 行為跟設定的不一樣"
+description: "| 你的問題 | 看哪節 | |:---|:---| | 寫了一個 subagent，但 Claude 從來不主動派它——為什麼？ | §1 Description 怎麼寫才會被主 session 主動 spawn | | 想跑 2-3 個 subagent 串成 pipeline / parallel——怎麼設計？ | §2 Composition pattern 怎麼設計 | | Subagent 跑壞 / 報錯 / 行為跟設定的不"
 section: "Resource"
 sourcePath: "resources/subagent-advanced.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/subagent-advanced.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-28T18:05:08.978Z"
+syncedAt: "2026-10-29T04:57:47.010Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "subagent-advanced"
@@ -24,11 +24,15 @@ baseSlug: "subagent-advanced"
 
 3 個獨立的進階主題、按需要查：
 
+<div align="center" markdown="1">
+
 | 你的問題 | 看哪節 |
-|---|---|
+|:---|:---|
 | 寫了一個 subagent，但 Claude 從來不主動派它——為什麼？ | [§1 Description 怎麼寫才會被主 session 主動 spawn](#1-description-怎麼寫才會被主-session-主動-spawn) |
 | 想跑 2-3 個 subagent 串成 pipeline / parallel——怎麼設計？ | [§2 Composition pattern 怎麼設計](#2-composition-pattern-怎麼設計) |
 | Subagent 跑壞 / 報錯 / 行為跟設定的不一樣——怎麼 debug？ | [§3 自製 subagent 的 debug 工具](#3-自製-subagent-的-debug-工具) |
+
+</div>
 
 每節獨立、可跳讀。
 
@@ -168,11 +172,15 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 
 ### 3 個 pattern 怎麼選
 
+<div align="center" markdown="1">
+
 | 你的情境 | 用哪個 |
-|---|---|
+|:---|:---|
 | 3 個獨立任務、結果各回主 session | **Pattern A** |
 | 多步驟協作、有 input → output 依賴 | **Pattern B** |
 | 想「自動生成 subagent」 | **不要做**（去想為什麼、通常 skill / template 更合適）|
+
+</div>
 
 **90% 的使用情境是 Pattern A**——上 Pattern B 之前先確認「真的需要 coordination」、別 over-engineer。
 
@@ -275,13 +283,17 @@ issues, error handling gaps. Per-issue: file:line + suggested fix.
 
 ### 5 切點 quick check
 
+<div align="center" markdown="1">
+
 | 症狀 | 切點 |
-|---|---|
+|:---|:---|
 | `/agents` 看不到 | 切點 1（檔案位置 / YAML 語法）|
 | Claude 不主動派 | 切點 2（description 寫法）|
 | Subagent 報「no access to X tool」 | 切點 3（tools 白名單）|
 | Token 帳單暴增 | 切點 4（model 沒指定）|
 | Subagent 跑亂、行為怪 | 切點 5（prompt 不 self-contained）|
+
+</div>
 
 ---
 

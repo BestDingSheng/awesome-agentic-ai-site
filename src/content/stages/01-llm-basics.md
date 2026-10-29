@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-28T18:05:08.978Z"
+syncedAt: "2026-10-29T04:57:47.010Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "01-llm-basics"
@@ -74,12 +74,14 @@ Temperature 是控制抽樣變化程度的參數。把模型想成每次都從�
 
 ## 場景式模型選擇器
 
-**Typed Decision Model（型別化決策模型）**只從預設答案中選擇、評分或回傳機率。TypeSafe AI 的 **Jev** 屬於這類，不能用來聊天、摘要或寫程式。
+**Typed Decision Model（型別化決策模型）** 只從預設答案中選擇、評分或回傳機率。TypeSafe AI 的 **Jev** 屬於這類，不能用來聊天、摘要或寫程式。
 
 **判斷不是授權**：程式仍須檢查權限；寄信、付款或刪檔前先請人確認。
 
+<div align="center" markdown="1">
+
 | 你的場景 | 先試哪條路 | 選擇理由 |
-|---|---|---|
+|:---|:---|:---|
 | 第一次學 API、想零費用反覆試 | **Ollama + `gemma4:e4b`** | 本機執行，單次 API 成本為 $0；同一組範例可反覆改寫。 |
 | 要比較雲端品質、資料可送出 | **Claude Haiku 5.5／Sonnet 5.5** | Anthropic SDK（Software Development Kit，開發工具與函式庫的工具包） 路徑簡單；按輸入與輸出 token 計費。 |
 | OpenAI Agent API | **GPT-6.1 Sol／Terra／GPT-6 Luna** | Sol 寫程式；Terra 看圖與改寫；Luna 做簡單任務。先小測，再查價格。 |
@@ -88,7 +90,11 @@ Temperature 是控制抽樣變化程度的參數。把模型想成每次都從�
 | 固定選項的分類、評分或分流，結果要直接交給程式 | **Jev 1.13（服務 Early access）** | 回傳 Choice、Score 或 Noul 的機率結果；低信心或高風險動作仍要交給人或另一個模型。 |
 | 隱私、離線或需自行部署 | **Llama 4、Qwen 3.8、Gemma 4 等開放權重** | 先估算硬體與授權，再以 Ollama 或其他推論工具測量實際速度。 |
 
-**Haiku 5.5（2026-10-07 發布，2026-10-08 查核）**適合分類、摘要與範圍明確的子代理；複雜程式 Agent 仍先評估 Sonnet／Opus。API ID 是固定的 `claude-haiku-5-5`，沒有日期尾碼或另一個 alias。練習 1、3 改用 5.5；temperature 練習與跨章範例保留 Haiku 4.5 相容基線。5.5 預設 adaptive thinking，須依區塊 `type` 取文字、保留 thinking 區塊並重新計算 token；不能只換 ID。參考 [發布公告](https://www.anthropic.com/claude-haiku-5-5) 與 [Haiku 5.5 遷移指南](https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide)。
+</div>
+
+**Gemini 4 Carbon** 已公告，但一般開發者還不能直接用。Google 先逐步開放給指定的電腦安全團隊與可信夥伴；先選已開放的模型練習。[官方公告](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/)。
+
+**Haiku 5.5（2026-10-07 發布，2026-10-08 查核）** 適合分類、摘要與範圍明確的子代理；複雜程式 Agent 仍先評估 Sonnet／Opus。API ID 是固定的 `claude-haiku-5-5`，沒有日期尾碼或另一個 alias。練習 1、3 改用 5.5；temperature 練習與跨章範例保留 Haiku 4.5 相容基線。5.5 預設 adaptive thinking，須依區塊 `type` 取文字、保留 thinking 區塊並重新計算 token；不能只換 ID。參考 [發布公告](https://www.anthropic.com/claude-haiku-5-5) 與 [Haiku 5.5 遷移指南](https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide)。
 
 ## 🚪 進入條件
 
@@ -129,7 +135,7 @@ Path A 需要 [Ollama](https://ollama.com)、`pip install openai`，以及 `olla
 
 ### 練習 1：LLM API（hello world）
 
-**成果：**用五行左右的核心呼叫取得一段回應，並從 `usage` 讀出輸出 token。單次預算：Ollama $0；Anthropic Haiku 請依回應的 input／output usage 與 5.5 的 `$0.10/$0.50` 短提示費率（提示超過 100K token 時為 `$0.50/$2.50`）計算。階段預算：本機反覆跑仍為 $0；雲端依 3–5 次與實際 usage 累計。
+**成果：** 用五行左右的核心呼叫取得一段回應，並從 `usage` 讀出輸出 token。單次預算：Ollama $0；Anthropic Haiku 請依回應的 input／output usage 與 5.5 的 `$0.10/$0.50` 短提示費率（提示超過 100K token 時為 `$0.50/$2.50`）計算。階段預算：本機反覆跑仍為 $0；雲端依 3–5 次與實際 usage 累計。
 
 <details markdown="1" open>
 <summary>📋 <b>起手碼 — Path A（本機 Ollama <code>gemma4:e4b</code>、預設）</b>（複製到 <code>practice_1.py</code>、執行 <code>python practice_1.py</code>）</summary>
@@ -203,7 +209,7 @@ print("✅ 練習 1 通過 — 你已成功打通 Anthropic API")
 
 ### 練習 2：Tokens
 
-**成果：**以同一個提示重複呼叫，觀察語言、temperature 與輸出長度如何改變 token 使用量。單次預算：Ollama $0；Anthropic Haiku 請依該次 input／output usage 與官方費率計算。階段預算：本機為 $0；Path B 以 3–5 組重複測試的實際 `usage` 加總。
+**成果：** 以同一個提示重複呼叫，觀察語言、temperature 與輸出長度如何改變 token 使用量。單次預算：Ollama $0；Anthropic Haiku 請依該次 input／output usage 與官方費率計算。階段預算：本機為 $0；Path B 以 3–5 組重複測試的實際 `usage` 加總。
 
 <details markdown="1" open>
 <summary>📋 <b>起手碼 — Path A（本機 Ollama <code>gemma4:e4b</code>、預設）</b>（複製到 <code>practice_2.py</code>）</summary>
@@ -280,7 +286,7 @@ for label, prompt in PROMPTS.items():
 
 ### 練習 3：Pricing / Latency
 
-**成果：**把同一個小任務的 token 成本與等待時間分開量測。單次預算：Ollama $0；Anthropic Haiku 依本次 input／output usage 與官方費率計算。階段預算：本機為 $0；若用 Path B，先跑 1 次取得實際輸入／輸出 token，再乘以預計次數，避免直接套用平均值。
+**成果：** 把同一個小任務的 token 成本與等待時間分開量測。單次預算：Ollama $0；Anthropic Haiku 依本次 input／output usage 與官方費率計算。階段預算：本機為 $0；若用 Path B，先跑 1 次取得實際輸入／輸出 token，再乘以預計次數，避免直接套用平均值。
 
 <details markdown="1" open>
 <summary>📋 <b>起手碼 — Path A（本機 Ollama <code>gemma4:e4b</code>、量 latency）</b>（複製到 <code>practice_3.py</code>）</summary>
@@ -395,34 +401,34 @@ print(f"\n✅ 練習 3 通過（Anthropic）— 已計算本次成本；跨模�
 
 以下表格保留本章原有的 17 個延伸入口；它們是選讀資源，不是本章必做項目。推薦度是編輯判斷，不是 GitHub 熱門度：`⭐⭐⭐⭐⭐` 代表跳過會卡住；本表都是補充入口，所以誠實使用 `⭐⭐⭐⭐`、`⭐⭐⭐` 或歷史參考的 `⭐⭐`，不列會變動的 stars。
 
-<table>
+<table align="center">
   <thead><tr><th scope="col">分類</th><th scope="col">資源</th><th scope="col">入口</th><th scope="col">推薦度</th><th scope="col">用途／狀態</th></tr></thead>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="4">官方 API 入門</th><td>Anthropic Cookbook</td><td><a href="https://github.com/anthropics/claude-cookbooks">GitHub</a></td><td>⭐⭐⭐⭐</td><td>Claude API notebook；可查 tool use、batch 與 prompt cache。</td></tr>
-    <tr><td>Anthropic Courses</td><td><a href="https://github.com/anthropics/courses">GitHub</a></td><td>⭐⭐⭐⭐</td><td>已封存的官方課程；可看舊範例，動手時請對照下方現行 API Quickstart。</td></tr>
-    <tr><td>OpenAI Cookbook</td><td><a href="https://github.com/openai/openai-cookbook">GitHub</a></td><td>⭐⭐⭐⭐</td><td>OpenAI API、structured output 與 function calling 範例。</td></tr>
-    <tr><td>Anthropic Claude API Quickstart</td><td><a href="https://platform.claude.com/docs/en/get-started">官方文件</a></td><td>⭐⭐⭐</td><td>快速完成第一個 Claude API 呼叫。</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">官方 API 入門</th><td>Anthropic Cookbook</td><td><a href="https://github.com/anthropics/claude-cookbooks">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>Claude API notebook；可查 tool use、batch 與 prompt cache。</td></tr>
+    <tr><td>Anthropic Courses</td><td><a href="https://github.com/anthropics/courses">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>已封存的官方課程；可看舊範例，動手時請對照下方現行 API Quickstart。</td></tr>
+    <tr><td>OpenAI Cookbook</td><td><a href="https://github.com/openai/openai-cookbook">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>OpenAI API、structured output 與 function calling 範例。</td></tr>
+    <tr><td>Anthropic Claude API Quickstart</td><td><a href="https://platform.claude.com/docs/en/get-started">官方文件</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>快速完成第一個 Claude API 呼叫。</td></tr>
   </tbody>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="4">中文教材</th><td>datawhalechina/happy-llm</td><td><a href="https://github.com/datawhalechina/happy-llm">GitHub</a></td><td>⭐⭐⭐⭐</td><td>以中文理解 LLM 原理與訓練流程。</td></tr>
-    <tr><td>datawhalechina/llm-universe</td><td><a href="https://github.com/datawhalechina/llm-universe">GitHub</a></td><td>⭐⭐⭐⭐</td><td>從 API 基礎延伸到知識庫與 RAG。</td></tr>
-    <tr><td>datawhalechina/llm-cookbook</td><td><a href="https://github.com/datawhalechina/llm-cookbook">GitHub</a></td><td>⭐⭐⭐</td><td>Andrew Ng 課程的中文改編；更新速度較慢。</td></tr>
-    <tr><td>jingyaogong/minimind</td><td><a href="https://github.com/jingyaogong/minimind">GitHub</a></td><td>⭐⭐⭐</td><td>從零實作小型模型訓練；Apache-2.0。</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">中文教材</th><td>datawhalechina/happy-llm</td><td><a href="https://github.com/datawhalechina/happy-llm">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>以中文理解 LLM 原理與訓練流程。</td></tr>
+    <tr><td>datawhalechina/llm-universe</td><td><a href="https://github.com/datawhalechina/llm-universe">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>從 API 基礎延伸到知識庫與 RAG。</td></tr>
+    <tr><td>datawhalechina/llm-cookbook</td><td><a href="https://github.com/datawhalechina/llm-cookbook">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>Andrew Ng 課程的中文改編；更新速度較慢。</td></tr>
+    <tr><td>jingyaogong/minimind</td><td><a href="https://github.com/jingyaogong/minimind">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>從零實作小型模型訓練；Apache-2.0。</td></tr>
   </tbody>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="2">英文課程</th><td>Hugging Face — LLM Course</td><td><a href="https://huggingface.co/learn/llm-course/chapter1/1">課程</a></td><td>⭐⭐⭐⭐</td><td>Transformer、tokenizer 與 Hugging Face 生態。</td></tr>
-    <tr><td>LangChain Academy</td><td><a href="https://academy.langchain.com/">課程</a></td><td>⭐⭐⭐</td><td>官方免費課程；包含 RAG 與 agent。</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">英文課程</th><td>Hugging Face — LLM Course</td><td><a href="https://huggingface.co/learn/llm-course/chapter1/1">課程</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>Transformer、tokenizer 與 Hugging Face 生態。</td></tr>
+    <tr><td>LangChain Academy</td><td><a href="https://academy.langchain.com/">課程</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>官方免費課程；包含 RAG 與 agent。</td></tr>
   </tbody>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="4">本機執行</th><td>ollama/ollama</td><td><a href="https://github.com/ollama/ollama">GitHub</a></td><td>⭐⭐⭐⭐</td><td>本章 Path A 的本機執行入口。</td></tr>
-    <tr><td>ggml-org/llama.cpp</td><td><a href="https://github.com/ggml-org/llama.cpp">GitHub</a></td><td>⭐⭐⭐⭐</td><td>理解量化與本機推論底層。</td></tr>
-    <tr><td>mudler/LocalAI</td><td><a href="https://github.com/mudler/LocalAI">GitHub</a></td><td>⭐⭐⭐</td><td>提供 OpenAI 相容的 self-host 服務。</td></tr>
-    <tr><td>ml-explore/mlx</td><td><a href="https://github.com/ml-explore/mlx">GitHub</a></td><td>⭐⭐⭐</td><td>Apple Silicon 的機器學習框架。</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">本機執行</th><td>ollama/ollama</td><td><a href="https://github.com/ollama/ollama">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>本章 Path A 的本機執行入口。</td></tr>
+    <tr><td>ggml-org/llama.cpp</td><td><a href="https://github.com/ggml-org/llama.cpp">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>理解量化與本機推論底層。</td></tr>
+    <tr><td>mudler/LocalAI</td><td><a href="https://github.com/mudler/LocalAI">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>提供 OpenAI 相容的 self-host 服務。</td></tr>
+    <tr><td>ml-explore/mlx</td><td><a href="https://github.com/ml-explore/mlx">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>Apple Silicon 的機器學習框架。</td></tr>
   </tbody>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="3">從零理解</th><td>Karpathy — Let's build GPT from scratch</td><td><a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">影片</a></td><td>⭐⭐⭐⭐</td><td>以 PyTorch 示範從零建立 GPT。</td></tr>
-    <tr><td>rasbt/LLMs-from-scratch</td><td><a href="https://github.com/rasbt/LLMs-from-scratch">GitHub</a></td><td>⭐⭐⭐⭐</td><td>以書本與程式碼深入 tokenizer、attention 與訓練。</td></tr>
-    <tr><td>karpathy/LLM101n</td><td><a href="https://github.com/karpathy/LLM101n">GitHub</a></td><td>⭐⭐</td><td>已封存的課程大綱；屬歷史參考，不是現行教學。</td></tr>
+    <tr><th scope="rowgroup" rowspan="3" align="center" valign="middle">從零理解</th><td>Karpathy — Let's build GPT from scratch</td><td><a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">影片</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>以 PyTorch 示範從零建立 GPT。</td></tr>
+    <tr><td>rasbt/LLMs-from-scratch</td><td><a href="https://github.com/rasbt/LLMs-from-scratch">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>以書本與程式碼深入 tokenizer、attention 與訓練。</td></tr>
+    <tr><td>karpathy/LLM101n</td><td><a href="https://github.com/karpathy/LLM101n">GitHub</a></td><td align="center" valign="middle">⭐⭐</td><td>已封存的課程大綱；屬歷史參考，不是現行教學。</td></tr>
   </tbody>
 </table>
 
@@ -436,13 +442,13 @@ print(f"\n✅ 練習 3 通過（Anthropic）— 已計算本次成本；跨模�
 
 ### 練習 4：Cross-Provider 比較
 
-**成果：**用同一提示比較不同供應商的輸出，並記錄差異而不把單次結果當成排名。單次預算：Path A Ollama $0；Path B 依三家 API 的實際 token 計費。階段預算：本機為 $0；雲端先各跑 1 次，再按 3–5 組評測估算。
+**成果：** 用同一提示比較不同供應商的輸出，並記錄差異而不把單次結果當成排名。單次預算：Path A Ollama $0；Path B 依三家 API 的實際 token 計費。階段預算：本機為 $0；雲端先各跑 1 次，再按 3–5 組評測估算。
 
 <details markdown="1">
 <summary>🔬 練習 4 詳細路徑（選做）</summary>
 
-- **Path A（Ollama，主要練習）：**使用 [`examples/stage-1/04-cross-provider/`](../examples/stage-1/04-cross-provider/) 的 Ollama 呼叫，先讓本機結果成為基準。
-- **Path B（Anthropic，選擇性）：**在同一資料集上加入 Anthropic SDK；若也加入 OpenAI／Google，請逐一記錄型號、參數、token 與失敗情況。
+- **Path A（Ollama，主要練習）：** 使用 [`examples/stage-1/04-cross-provider/`](../examples/stage-1/04-cross-provider/) 的 Ollama 呼叫，先讓本機結果成為基準。
+- **Path B（Anthropic，選擇性）：** 在同一資料集上加入 Anthropic SDK；若也加入 OpenAI／Google，請逐一記錄型號、參數、token 與失敗情況。
 - 比較回答風格、長度、格式遵守度與事實遺漏；把結果視為你的任務小評測，不是官方規格或普遍排名。
 
 這個 starter 含三家 SDK 並行呼叫與 table 對照，缺哪家 key 就 skip 哪家；它是 illustrative 範例，不是 chapter-length 教學。
@@ -451,13 +457,13 @@ print(f"\n✅ 練習 3 通過（Anthropic）— 已計算本次成本；跨模�
 
 ### 練習 5：Error Handling
 
-**成果：**為錯誤分類、重試與停止條件寫出可測試的處理流程。單次預算：Path A Ollama $0；Path B 若只用 mock 不產生 API 費用。階段預算：本機與 mock 測試為 $0；若加入雲端整合測試，限制為 1–2 次並按實際 token 加總。
+**成果：** 為錯誤分類、重試與停止條件寫出可測試的處理流程。單次預算：Path A Ollama $0；Path B 若只用 mock 不產生 API 費用。階段預算：本機與 mock 測試為 $0；若加入雲端整合測試，限制為 1–2 次並按實際 token 加總。
 
 <details markdown="1">
 <summary>🧰 練習 5 詳細路徑（選做）</summary>
 
-- **Path A（Ollama，主要練習）：**先在 [`examples/stage-1/05-error-handling/`](../examples/stage-1/05-error-handling/) 執行 mock-based test，再用本機端點觀察可恢復的網路錯誤。
-- **Path B（Anthropic，選擇性）：**以 Anthropic SDK 的例外型別接上相同的 retry wrapper；API key 錯誤與 context 過長不應無限重試。
+- **Path A（Ollama，主要練習）：** 先在 [`examples/stage-1/05-error-handling/`](../examples/stage-1/05-error-handling/) 執行 mock-based test，再用本機端點觀察可恢復的網路錯誤。
+- **Path B（Anthropic，選擇性）：** 以 Anthropic SDK 的例外型別接上相同的 retry wrapper；API key 錯誤與 context 過長不應無限重試。
 - 至少覆蓋錯誤 API key、提示過長與網路中斷；exponential backoff 要有上限與明確的最大嘗試次數。
 
 這個 starter 讓你不用真的斷網就能驗證重試邏輯；它是 illustrative 範例，不是 chapter-length 教學。
@@ -466,7 +472,7 @@ print(f"\n✅ 練習 3 通過（Anthropic）— 已計算本次成本；跨模�
 
 ### 練習 6：Local LLM
 
-**成果：**在自己的電腦上啟動 Ollama，並以 OpenAI-compatible API 呼叫本機模型。單次預算：Ollama $0（另有硬體電力成本）；Path B 雲端依實際 token 計費。階段預算：本機練習為 $0；若用 Anthropic 做一次品質對照，先限制為 1–3 次並記錄 usage。
+**成果：** 在自己的電腦上啟動 Ollama，並以 OpenAI-compatible API 呼叫本機模型。單次預算：Ollama $0（另有硬體電力成本）；Path B 雲端依實際 token 計費。階段預算：本機練習為 $0；若用 Anthropic 做一次品質對照，先限制為 1–3 次並記錄 usage。
 
 <details markdown="1">
 <summary>🦙 練習 6 詳細路徑（選做）</summary>
@@ -507,7 +513,7 @@ print(f"✅ 練習 6 通過 — 你的本機 Ollama 已能透過 OpenAI-compatib
 print(f"💡 跑這次完全沒花錢（除了你的電力）")
 ```
 
-**Path B（Anthropic，選擇性）：**把同一個 ReAct 提示送到 `claude-haiku-4-5`，保存回應與 `msg.usage`，再和 Path A 的格式遵守度、延遲及成本比較。不要把雲端結果當成本機模型的規格保證。
+**Path B（Anthropic，選擇性）：** 把同一個 ReAct 提示送到 `claude-haiku-4-5`，保存回應與 `msg.usage`，再和 Path A 的格式遵守度、延遲及成本比較。不要把雲端結果當成本機模型的規格保證。
 
 若沒有 Ollama，可把 `base_url` 換成 [LM Studio](https://lmstudio.ai)（`http://localhost:1234/v1`）或 [vLLM](https://github.com/vllm-project/vllm) endpoint；介面相同，但模型 tag 與硬體需求要重新確認。
 
@@ -516,20 +522,20 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details markdown="1">
 <summary>🌐 完整 18 家族資料表（官方規格入口）</summary>
 
-<small>全表查核：2026-09-22 UTC。GPT／Kimi 局部更新：2026-10-26 UTC。Claude 一列更新：2026-10-08 UTC。Gemini／Muse／Mistral／Jev 與 GPT 選讀更新：2026-10-15 UTC。DeepSeek／Decisions／Clef 選讀更新：2026-10-23 UTC。</small>
+<small>全表查核：2026-09-22 UTC。GPT／Kimi 局部更新：2026-10-26 UTC。Claude 一列更新：2026-10-08 UTC。Gemini 一列更新：2026-10-29 UTC。Muse／Mistral／Jev 與 GPT 選讀更新：2026-10-15 UTC。DeepSeek／Decisions／Clef 選讀更新：2026-10-23 UTC。</small>
 
 沒有可靠公開數字就寫「官方未公布」。價格通常是 USD／每 1M token；供應商若用別的單位，就照官方單位記錄。
-**快取（cache）**像重用已讀過的便條：讀取舊內容與寫入新內容可能有不同價格。
+**快取（cache）** 像重用已讀過的便條：讀取舊內容與寫入新內容可能有不同價格。
 
 先展開你想查的家族，再看型號、價格與限制。
 
 <details class="model-family" markdown="1">
 <summary>Claude</summary>
 
-<table data-model-family="Claude">
+<table data-model-family="Claude" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="5">目前推薦型號</th><td>Fable 5.1（<code>claude-fable-5-1</code>）</td></tr>
+    <tr><th scope="rowgroup" rowspan="5" align="center" valign="middle">目前推薦型號</th><td>Fable 5.1（<code>claude-fable-5-1</code>）</td></tr>
     <tr><td>Mythos 5.1（<code>claude-mythos-5-1</code>）</td></tr>
     <tr><td>Opus 5.5（<code>claude-opus-5-5</code>）</td></tr>
     <tr><td>Sonnet 5.5（<code>claude-sonnet-5-5</code>）</td></tr>
@@ -560,10 +566,10 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>GPT</summary>
 
-<table data-model-family="GPT">
+<table data-model-family="GPT" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="4">目前推薦型號</th><td>GPT-6 Astra（<code>gpt-6-astra</code>）</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">目前推薦型號</th><td>GPT-6 Astra（<code>gpt-6-astra</code>）</td></tr>
     <tr><td>GPT-6.1 Sol（<code>gpt-6.1-sol</code>）</td></tr>
     <tr><td>GPT-6.1 Terra（<code>gpt-6.1-terra</code>）</td></tr>
     <tr><td>GPT-6 Luna（<code>gpt-6-luna</code>）</td></tr>
@@ -575,7 +581,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
     <tr><th scope="row">Context</th><td>1.05M context／128K 最大輸出</td></tr>
   </tbody>
   <tbody data-field="pricing">
-    <tr><th scope="rowgroup" rowspan="5">價格或授權</th><td>Standard API，每百萬 token，US$ 輸入／cache 讀／cache 寫（30 分鐘）／輸出。</td></tr>
+    <tr><th scope="rowgroup" rowspan="5" align="center" valign="middle">價格或授權</th><td>Standard API，每百萬 token，US$ 輸入／cache 讀／cache 寫（30 分鐘）／輸出。</td></tr>
     <tr><td>Astra $10/$1/$12.50/$50。</td></tr>
     <tr><td>Sol 6.1 $2/$0.10/$2.50/$10。</td></tr>
     <tr><td>Terra 6.1 $1/$0.05/$1.25/$5；12 小時 cache 寫入 $2.50。</td></tr>
@@ -597,10 +603,10 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Jev（TypeSafe AI）</summary>
 
-<table data-model-family="Jev（TypeSafe AI）">
+<table data-model-family="Jev（TypeSafe AI）" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="3">目前推薦型號</th><td>TypeSafe direct：穩定 Jev 1.13（<code>jev-1.13.0</code>／<code>jev-latest</code>）</td></tr>
+    <tr><th scope="rowgroup" rowspan="3" align="center" valign="middle">目前推薦型號</th><td>TypeSafe direct：穩定 Jev 1.13（<code>jev-1.13.0</code>／<code>jev-latest</code>）</td></tr>
     <tr><td>Preview Jev 1.14（<code>jev-1.14.0</code>／<code>jev-preview</code>）</td></tr>
     <tr><td>Cloudflare route：<code>typesafe/jev</code></td></tr>
   </tbody>
@@ -629,29 +635,39 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Gemini</summary>
 
-<table data-model-family="Gemini">
+<table data-model-family="Gemini" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">目前推薦型號</th><td>Gemini 3.8 Flash</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">目前推薦型號</th><td>Gemini 3.8 Flash</td></tr>
     <tr><td>Gemini 4 Argon（<code>gemini-4-argon</code>）</td></tr>
   </tbody>
   <tbody data-field="status">
-    <tr><th scope="row">狀態</th><td>Flash／Argon：正式可用</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">狀態</th><td>Flash／Argon：正式可用。</td></tr>
+    <tr><td>Gemini 4 Carbon：Preview；限指定夥伴逐步開放，一般 API 尚未開放。</td></tr>
   </tbody>
   <tbody data-field="context">
-    <tr><th scope="row">Context</th><td>Flash：1,048,576 context／65,536 最大輸出。Argon：1,048,576 輸入與輸出合計；同步輸出預設 65,536</td></tr>
+    <tr><th scope="rowgroup" rowspan="3" align="center" valign="middle">Context</th><td>Flash：1,048,576 context／65,536 最大輸出。</td></tr>
+    <tr><td>Argon：1,048,576 輸入與輸出合計；同步輸出預設 65,536。</td></tr>
+    <tr><td>Carbon：輸入 context 與最大輸出官方未公布。</td></tr>
   </tbody>
   <tbody data-field="pricing">
-    <tr><th scope="row">價格或授權</th><td>每百萬 token，US$。Flash：2026-12-31 前輸入／輸出 $0.75/$3.75。Argon Standard 輸入／cache／輸出：2026-11-30 前 $2/$0.10/$10。2026-12-01 起 $4/$0.20/$20</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">價格或授權</th><td>每百萬 token，US$。Flash：2026-12-31 前輸入／輸出 $0.75/$3.75。</td></tr>
+    <tr><td>Argon Standard 輸入／cache／輸出：2026-11-30 前 $2/$0.10/$10。2026-12-01 起 $4/$0.20/$20。</td></tr>
+    <tr><td>Carbon 公告優惠價：輸入／輸出 $2/$10。快取輸入為當期輸入價的 5%（優惠期 $0.10）。</td></tr>
+    <tr><td>Carbon 公告優惠後價格：輸入／輸出 $4/$20。優惠結束日期官方未公布。</td></tr>
   </tbody>
   <tbody data-field="use">
-    <tr><th scope="row">適合做什麼</th><td>Flash 用於多模態與 Agent 練習。Argon 可比較長任務與程式成果</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">適合做什麼</th><td>Flash 用於多模態與 Agent 練習。Argon 可比較長任務與程式成果。</td></tr>
+    <tr><td>Carbon 的公告方向是長時間程式任務與電腦安全防禦；尚不作一般入門推薦。</td></tr>
   </tbody>
   <tbody data-field="limits">
-    <tr><th scope="row">限制</th><td>Argon 無免費層。輸出到 1M 須使用 long decode，不是每次請求的預設。本章仍先用本機模型練習</td></tr>
+    <tr><th scope="rowgroup" rowspan="3" align="center" valign="middle">限制</th><td>Argon 無免費層。輸出到 1M 須使用 long decode，不是每次請求的預設。</td></tr>
+    <tr><td>Carbon 的 API ID、工具支援與正式開放日期官方未公布。公告價格不表示現在就能呼叫 API。</td></tr>
+    <tr><td>本章仍先用本機模型練習。</td></tr>
   </tbody>
   <tbody data-field="sources">
-    <tr><th scope="row">官方來源</th><td><a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash">Gemini 3.8 Flash</a> · <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API 定價</a> · <a href="https://ai.google.dev/gemini-api/docs/models/gemini-4-argon">Gemini 4 Argon 規格</a> · <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">發布公告</a></td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">官方來源</th><td><a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash">Gemini 3.8 Flash</a> · <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API 定價</a> · <a href="https://ai.google.dev/gemini-api/docs/models/gemini-4-argon">Gemini 4 Argon 規格</a> · <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">發布公告</a></td></tr>
+    <tr><td><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/">Carbon 公告與價格預告</a> · <a href="https://ai.google.dev/gemini-api/docs/models">一般開發者模型清單</a></td></tr>
   </tbody>
 </table>
 
@@ -660,10 +676,10 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>DeepSeek</summary>
 
-<table data-model-family="DeepSeek">
+<table data-model-family="DeepSeek" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">目前推薦型號</th><td>V4.1 Flash 1017（<code>deepseek-flash</code>）</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">目前推薦型號</th><td>V4.1 Flash 1017（<code>deepseek-flash</code>）</td></tr>
     <tr><td>V4 Pro 0813（<code>deepseek-v4-pro</code>）</td></tr>
   </tbody>
   <tbody data-field="status">
@@ -691,10 +707,10 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Kimi</summary>
 
-<table data-model-family="Kimi">
+<table data-model-family="Kimi" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">目前推薦型號</th><td>Kimi K3.1 Pro（<code>kimi-k3.1-pro</code>）</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">目前推薦型號</th><td>Kimi K3.1 Pro（<code>kimi-k3.1-pro</code>）</td></tr>
     <tr><td>Kimi K3.1 Pro Highspeed（<code>kimi-k3.1-pro-highspeed</code>）</td></tr>
   </tbody>
   <tbody data-field="status">
@@ -704,7 +720,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
     <tr><th scope="row">Context</th><td>1,048,576 token。</td></tr>
   </tbody>
   <tbody data-field="pricing">
-    <tr><th scope="rowgroup" rowspan="4">價格或授權</th><td>國際 API，每百萬 token，US$ 輸入／cache 讀／cache 寫（5 分鐘）／輸出；未含稅。</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">價格或授權</th><td>國際 API，每百萬 token，US$ 輸入／cache 讀／cache 寫（5 分鐘）／輸出；未含稅。</td></tr>
     <tr><td>Pro $2/$0.20/$2/$10。</td></tr>
     <tr><td>Highspeed $4/$0.20/$4/$20。</td></tr>
     <tr><td>重複前綴自動快取；1 小時保留另有寫入費率。API 按量計費，不等於 Kimi 會員或 Kimi Code 訂閱。</td></tr>
@@ -713,7 +729,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
     <tr><th scope="row">適合做什麼</th><td>長程式任務、看圖與影片、整理長文件。先用自己的任務測試，不把供應商分數當成成果保證。</td></tr>
   </tbody>
   <tbody data-field="limits">
-    <tr><th scope="rowgroup" rowspan="2">限制</th><td>固定開啟思考。<code>reasoning_effort</code> 可選 <code>low</code>／<code>high</code>／<code>max</code>，預設 <code>max</code>。工具對話須保留完整 assistant 訊息。</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">限制</th><td>固定開啟思考。<code>reasoning_effort</code> 可選 <code>low</code>／<code>high</code>／<code>max</code>，預設 <code>max</code>。工具對話須保留完整 assistant 訊息。</td></tr>
     <tr><td>K3 是前一代。K2 系列自 2026-10-31 不再開放新帳號，官方計畫於 2026 年底退役；不是已全部停用。</td></tr>
   </tbody>
   <tbody data-field="sources">
@@ -726,7 +742,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Hunyuan</summary>
 
-<table data-model-family="Hunyuan">
+<table data-model-family="Hunyuan" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">目前推薦型號</th><td><code>Hy3</code>（TokenHub）</td></tr>
@@ -756,7 +772,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>MiniMax</summary>
 
-<table data-model-family="MiniMax">
+<table data-model-family="MiniMax" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">目前推薦型號</th><td>MiniMax M3</td></tr>
@@ -786,10 +802,10 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Qwen</summary>
 
-<table data-model-family="Qwen">
+<table data-model-family="Qwen" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">目前推薦型號</th><td>qwen3.8-max（API）</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">目前推薦型號</th><td>qwen3.8-max（API）</td></tr>
     <tr><td>Qwen3.8 開放權重變體</td></tr>
   </tbody>
   <tbody data-field="status">
@@ -817,7 +833,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>GLM</summary>
 
-<table data-model-family="GLM">
+<table data-model-family="GLM" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">目前推薦型號</th><td>GLM-5.3</td></tr>
@@ -847,7 +863,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Yi</summary>
 
-<table data-model-family="Yi">
+<table data-model-family="Yi" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">目前推薦型號</th><td>Yi-34B／Yi-9B 及 200K 變體</td></tr>
@@ -877,10 +893,10 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Llama</summary>
 
-<table data-model-family="Llama">
+<table data-model-family="Llama" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">目前推薦型號</th><td>Llama 4 Scout／Maverick</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">目前推薦型號</th><td>Llama 4 Scout／Maverick</td></tr>
     <tr><td>Llama 3.3 70B（較實用舊基線）</td></tr>
   </tbody>
   <tbody data-field="status">
@@ -908,10 +924,10 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Muse</summary>
 
-<table data-model-family="Muse">
+<table data-model-family="Muse" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="3">目前推薦型號</th><td>Muse Wonder（<code>muse-wonder-1.0</code>）</td></tr>
+    <tr><th scope="rowgroup" rowspan="3" align="center" valign="middle">目前推薦型號</th><td>Muse Wonder（<code>muse-wonder-1.0</code>）</td></tr>
     <tr><td>Muse Spark 1.3（<code>muse-spark-1.3</code>／<code>muse-spark-1.3-contributor</code>）</td></tr>
     <tr><td>Muse Glimmer 30B</td></tr>
   </tbody>
@@ -940,7 +956,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Grok</summary>
 
-<table data-model-family="Grok">
+<table data-model-family="Grok" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">目前推薦型號</th><td>Grok 4.7（<code>grok-4.7</code>）</td></tr>
@@ -970,7 +986,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>MiMo</summary>
 
-<table data-model-family="MiMo">
+<table data-model-family="MiMo" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">目前推薦型號</th><td>MiMo V2.6 Pro（<code>mimo-v2.6-pro</code>）</td></tr>
@@ -1000,7 +1016,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Gemma</summary>
 
-<table data-model-family="Gemma">
+<table data-model-family="Gemma" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">目前推薦型號</th><td>Gemma 4：E2B、E4B、12B、26B A4B、31B</td></tr>
@@ -1030,10 +1046,10 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Mistral</summary>
 
-<table data-model-family="Mistral">
+<table data-model-family="Mistral" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="5">目前推薦型號</th><td>Mistral Large 4（<code>mistral-large-4</code>）</td></tr>
+    <tr><th scope="rowgroup" rowspan="5" align="center" valign="middle">目前推薦型號</th><td>Mistral Large 4（<code>mistral-large-4</code>）</td></tr>
     <tr><td>Medium 3.5（<code>mistral-medium-3-5</code>）</td></tr>
     <tr><td>Small 4</td></tr>
     <tr><td>Large 3</td></tr>
@@ -1064,10 +1080,10 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 <details class="model-family" markdown="1">
 <summary>Phi</summary>
 
-<table data-model-family="Phi">
+<table data-model-family="Phi" align="center">
   <thead><tr><th scope="col">欄位</th><th scope="col">內容</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">目前推薦型號</th><td>Phi-4 14B</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">目前推薦型號</th><td>Phi-4 14B</td></tr>
     <tr><td>Phi-4 mini／multimodal</td></tr>
   </tbody>
   <tbody data-field="status">

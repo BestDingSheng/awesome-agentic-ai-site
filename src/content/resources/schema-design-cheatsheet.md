@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-28T18:05:08.978Z"
+syncedAt: "2026-10-29T04:57:47.010Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "schema-design-cheatsheet"
@@ -43,13 +43,17 @@ baseSlug: "schema-design-cheatsheet"
 
 LLM 對 `type: string` 自由度高、容易亂傳。能用窄型別就用：
 
+<div align="center" markdown="1">
+
 | 模糊 | 收斂 |
-|---|---|
+|:---|:---|
 | `unit: string`（攝氏？華氏？kelvin？） | `unit: enum["celsius", "fahrenheit"]` |
 | `priority: string`（low/中/HIGH？） | `priority: enum["low", "medium", "high"]` |
 | `count: string`（"五個"？） | `count: integer` |
 | `enabled: string`（"true" / "True"） | `enabled: boolean` |
 | `tags: string`（"a,b,c"？JSON？） | `tags: array of string` |
+
+</div>
 
 ### 規則 3：required vs optional 分清楚
 

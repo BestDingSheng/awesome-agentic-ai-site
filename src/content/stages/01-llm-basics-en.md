@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/01-llm-basics.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/01-llm-basics.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-28T18:05:08.978Z"
+syncedAt: "2026-10-29T04:57:47.010Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "01-llm-basics"
@@ -78,8 +78,10 @@ A **Typed Decision Model** returns a predefined choice, score, or probability. T
 
 **Deciding is not authorization**: code must check permissions; ask a person before sending mail, paying, or deleting files.
 
+<div align="center" markdown="1">
+
 | Your situation | Start with | Why |
-|---|---|---|
+|:---|:---|:---|
 | Learning the API and iterating at zero cost | **Ollama + `gemma4:e4b`** | Runs locally, so each API call costs $0 and the example can be repeated freely. |
 | Comparing cloud quality when data may be sent out | **Claude Haiku 5.5 / Sonnet 5.5** | The Anthropic SDK (Software Development Kit, a toolkit of developer tools and libraries) path is simple; pricing is based on input and output tokens. |
 | OpenAI Agent API | **GPT-6.1 Sol / Terra / GPT-6 Luna** | Sol for coding; Terra for images and writing; Luna for simple tasks. Test first; check pricing. |
@@ -87,6 +89,10 @@ A **Typed Decision Model** returns a predefined choice, score, or probability. T
 | Chinese-language API work with usage control | **DeepSeek V4.1 Flash or GLM-5.3** | Compare official prices, output limits, and availability; do not choose by name alone. |
 | Classification, scoring, or routing with fixed choices that code will use directly | **Jev 1.13 (service in early access)** | Returns probabilities for Choice, Score, or Noul questions; send low-confidence or high-risk actions to a person or another model. |
 | Privacy, offline use, or self-hosting | **Llama 4, Qwen 3.8, Gemma 4, and other open weights** | Estimate hardware and license requirements, then measure real speed with Ollama or another runtime. |
+
+</div>
+
+**Gemini 4 Carbon** has been announced, but it is not yet available to general developers. Google is gradually opening access to selected teams that protect computer systems and trusted partners. Start with an available model; see the [official announcement](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/).
 
 **Haiku 5.5 (released 2026-10-07; checked 2026-10-08)** suits classification, summarization, and narrowly scoped subagents; evaluate Sonnet/Opus for complex coding agents. Its fixed API ID is `claude-haiku-5-5`, without a date suffix or separate alias. Exercises 1 and 3 use 5.5; the temperature exercise and cross-stage examples retain a Haiku 4.5 compatibility baseline. With adaptive thinking enabled by default, select text by block `type`, preserve thinking blocks, and recount tokens; an ID-only swap is insufficient. See the [announcement](https://www.anthropic.com/claude-haiku-5-5) and [Haiku 5.5 migration guide](https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide).
 
@@ -395,34 +401,34 @@ The finished project should show:
 
 The table below keeps the 17 original extension entries. They are optional, not required work. A recommendation is an editorial judgment, not GitHub popularity: `⭐⭐⭐⭐⭐` means skipping it would block the stage. Because every entry here is supplementary, the table honestly uses `⭐⭐⭐⭐`, `⭐⭐⭐`, or `⭐⭐` for historical reference and omits volatile star counts.
 
-<table>
+<table align="center">
   <thead><tr><th scope="col">Category</th><th scope="col">Resource</th><th scope="col">Link</th><th scope="col">Recommendation</th><th scope="col">Use / status</th></tr></thead>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="4">Official API intro</th><td>Anthropic Cookbook</td><td><a href="https://github.com/anthropics/claude-cookbooks">GitHub</a></td><td>⭐⭐⭐⭐</td><td>Claude API notebooks for tool use, batch, and prompt cache.</td></tr>
-    <tr><td>Anthropic Courses</td><td><a href="https://github.com/anthropics/courses">GitHub</a></td><td>⭐⭐⭐⭐</td><td>Archived official courses: read older examples, then check the current API Quickstart below before building.</td></tr>
-    <tr><td>OpenAI Cookbook</td><td><a href="https://github.com/openai/openai-cookbook">GitHub</a></td><td>⭐⭐⭐⭐</td><td>OpenAI API, structured output, and function-calling examples.</td></tr>
-    <tr><td>Anthropic Claude API Quickstart</td><td><a href="https://platform.claude.com/docs/en/get-started">Docs</a></td><td>⭐⭐⭐</td><td>Quick path to a first Claude API call.</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">Official API intro</th><td>Anthropic Cookbook</td><td><a href="https://github.com/anthropics/claude-cookbooks">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>Claude API notebooks for tool use, batch, and prompt cache.</td></tr>
+    <tr><td>Anthropic Courses</td><td><a href="https://github.com/anthropics/courses">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>Archived official courses: read older examples, then check the current API Quickstart below before building.</td></tr>
+    <tr><td>OpenAI Cookbook</td><td><a href="https://github.com/openai/openai-cookbook">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>OpenAI API, structured output, and function-calling examples.</td></tr>
+    <tr><td>Anthropic Claude API Quickstart</td><td><a href="https://platform.claude.com/docs/en/get-started">Docs</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>Quick path to a first Claude API call.</td></tr>
   </tbody>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="4">Chinese learning</th><td>datawhalechina/happy-llm</td><td><a href="https://github.com/datawhalechina/happy-llm">GitHub</a></td><td>⭐⭐⭐⭐</td><td>Understand LLM principles and training in Chinese.</td></tr>
-    <tr><td>datawhalechina/llm-universe</td><td><a href="https://github.com/datawhalechina/llm-universe">GitHub</a></td><td>⭐⭐⭐⭐</td><td>Extends from API basics to knowledge bases and RAG.</td></tr>
-    <tr><td>datawhalechina/llm-cookbook</td><td><a href="https://github.com/datawhalechina/llm-cookbook">GitHub</a></td><td>⭐⭐⭐</td><td>Chinese adaptation of an Andrew Ng course; updates are slower.</td></tr>
-    <tr><td>jingyaogong/minimind</td><td><a href="https://github.com/jingyaogong/minimind">GitHub</a></td><td>⭐⭐⭐</td><td>Implement a small model from scratch; Apache-2.0.</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">Chinese learning</th><td>datawhalechina/happy-llm</td><td><a href="https://github.com/datawhalechina/happy-llm">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>Understand LLM principles and training in Chinese.</td></tr>
+    <tr><td>datawhalechina/llm-universe</td><td><a href="https://github.com/datawhalechina/llm-universe">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>Extends from API basics to knowledge bases and RAG.</td></tr>
+    <tr><td>datawhalechina/llm-cookbook</td><td><a href="https://github.com/datawhalechina/llm-cookbook">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>Chinese adaptation of an Andrew Ng course; updates are slower.</td></tr>
+    <tr><td>jingyaogong/minimind</td><td><a href="https://github.com/jingyaogong/minimind">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>Implement a small model from scratch; Apache-2.0.</td></tr>
   </tbody>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="2">English course</th><td>Hugging Face — LLM Course</td><td><a href="https://huggingface.co/learn/llm-course/chapter1/1">Course</a></td><td>⭐⭐⭐⭐</td><td>Transformers, tokenizers, and the Hugging Face ecosystem.</td></tr>
-    <tr><td>LangChain Academy</td><td><a href="https://academy.langchain.com/">Course</a></td><td>⭐⭐⭐</td><td>Official free course including RAG and agents.</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">English course</th><td>Hugging Face — LLM Course</td><td><a href="https://huggingface.co/learn/llm-course/chapter1/1">Course</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>Transformers, tokenizers, and the Hugging Face ecosystem.</td></tr>
+    <tr><td>LangChain Academy</td><td><a href="https://academy.langchain.com/">Course</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>Official free course including RAG and agents.</td></tr>
   </tbody>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="4">Local runtime</th><td>ollama/ollama</td><td><a href="https://github.com/ollama/ollama">GitHub</a></td><td>⭐⭐⭐⭐</td><td>Local runtime used by this stage's Path A.</td></tr>
-    <tr><td>ggml-org/llama.cpp</td><td><a href="https://github.com/ggml-org/llama.cpp">GitHub</a></td><td>⭐⭐⭐⭐</td><td>Understand quantization and the local inference layer.</td></tr>
-    <tr><td>mudler/LocalAI</td><td><a href="https://github.com/mudler/LocalAI">GitHub</a></td><td>⭐⭐⭐</td><td>OpenAI-compatible self-hosted service.</td></tr>
-    <tr><td>ml-explore/mlx</td><td><a href="https://github.com/ml-explore/mlx">GitHub</a></td><td>⭐⭐⭐</td><td>Machine-learning framework for Apple Silicon.</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">Local runtime</th><td>ollama/ollama</td><td><a href="https://github.com/ollama/ollama">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>Local runtime used by this stage's Path A.</td></tr>
+    <tr><td>ggml-org/llama.cpp</td><td><a href="https://github.com/ggml-org/llama.cpp">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>Understand quantization and the local inference layer.</td></tr>
+    <tr><td>mudler/LocalAI</td><td><a href="https://github.com/mudler/LocalAI">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>OpenAI-compatible self-hosted service.</td></tr>
+    <tr><td>ml-explore/mlx</td><td><a href="https://github.com/ml-explore/mlx">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐</td><td>Machine-learning framework for Apple Silicon.</td></tr>
   </tbody>
   <tbody>
-    <tr><th scope="rowgroup" rowspan="3">From-scratch</th><td>Karpathy — Let's build GPT from scratch</td><td><a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">Video</a></td><td>⭐⭐⭐⭐</td><td>Build a GPT from scratch with PyTorch.</td></tr>
-    <tr><td>rasbt/LLMs-from-scratch</td><td><a href="https://github.com/rasbt/LLMs-from-scratch">GitHub</a></td><td>⭐⭐⭐⭐</td><td>Work through tokenizers, attention, and training with code.</td></tr>
-    <tr><td>karpathy/LLM101n</td><td><a href="https://github.com/karpathy/LLM101n">GitHub</a></td><td>⭐⭐</td><td>Archived course outline; historical reference, not current teaching.</td></tr>
+    <tr><th scope="rowgroup" rowspan="3" align="center" valign="middle">From-scratch</th><td>Karpathy — Let's build GPT from scratch</td><td><a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">Video</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>Build a GPT from scratch with PyTorch.</td></tr>
+    <tr><td>rasbt/LLMs-from-scratch</td><td><a href="https://github.com/rasbt/LLMs-from-scratch">GitHub</a></td><td align="center" valign="middle">⭐⭐⭐⭐</td><td>Work through tokenizers, attention, and training with code.</td></tr>
+    <tr><td>karpathy/LLM101n</td><td><a href="https://github.com/karpathy/LLM101n">GitHub</a></td><td align="center" valign="middle">⭐⭐</td><td>Archived course outline; historical reference, not current teaching.</td></tr>
   </tbody>
 </table>
 
@@ -516,7 +522,7 @@ Without Ollama, replace `base_url` with [LM Studio](https://lmstudio.ai) (`http:
 <details markdown="1">
 <summary>🌐 Complete 18-family table (official specification entries)</summary>
 
-<small>Full table checked: 2026-09-22 UTC. Scoped GPT/Kimi update: 2026-10-26 UTC. Claude row updated: 2026-10-08 UTC. Gemini/Muse/Mistral/Jev and GPT electives updated: 2026-10-15 UTC. DeepSeek/Decisions/Clef electives updated: 2026-10-23 UTC.</small>
+<small>Full table checked: 2026-09-22 UTC. Scoped GPT/Kimi update: 2026-10-26 UTC. Claude row updated: 2026-10-08 UTC. Gemini row updated: 2026-10-29 UTC. Muse/Mistral/Jev and GPT electives updated: 2026-10-15 UTC. DeepSeek/Decisions/Clef electives updated: 2026-10-23 UTC.</small>
 
 If an official source gives no reliable public number, the table says “Not published by the official source.” Prices use USD per 1M tokens unless the provider uses another unit.
 **Cache** is like reusing a note you already read: reading old content and writing new content may have different prices.
@@ -526,10 +532,10 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Claude</summary>
 
-<table data-model-family="Claude">
+<table data-model-family="Claude" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="5">Models</th><td>Fable 5.1 (<code>claude-fable-5-1</code>)</td></tr>
+    <tr><th scope="rowgroup" rowspan="5" align="center" valign="middle">Models</th><td>Fable 5.1 (<code>claude-fable-5-1</code>)</td></tr>
     <tr><td>Mythos 5.1 (<code>claude-mythos-5-1</code>)</td></tr>
     <tr><td>Opus 5.5 (<code>claude-opus-5-5</code>)</td></tr>
     <tr><td>Sonnet 5.5 (<code>claude-sonnet-5-5</code>)</td></tr>
@@ -560,10 +566,10 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>GPT</summary>
 
-<table data-model-family="GPT">
+<table data-model-family="GPT" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="4">Models</th><td>GPT-6 Astra (<code>gpt-6-astra</code>)</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">Models</th><td>GPT-6 Astra (<code>gpt-6-astra</code>)</td></tr>
     <tr><td>GPT-6.1 Sol (<code>gpt-6.1-sol</code>)</td></tr>
     <tr><td>GPT-6.1 Terra (<code>gpt-6.1-terra</code>)</td></tr>
     <tr><td>GPT-6 Luna (<code>gpt-6-luna</code>)</td></tr>
@@ -575,7 +581,7 @@ Open the family you need, then check its models, pricing, and limits.
     <tr><th scope="row">Context</th><td>1.05M context / 128K max output</td></tr>
   </tbody>
   <tbody data-field="pricing">
-    <tr><th scope="rowgroup" rowspan="5">Price or license</th><td>Standard API, US$ per 1M tokens, input/cache read/cache write (30 minutes)/output.</td></tr>
+    <tr><th scope="rowgroup" rowspan="5" align="center" valign="middle">Price or license</th><td>Standard API, US$ per 1M tokens, input/cache read/cache write (30 minutes)/output.</td></tr>
     <tr><td>Astra $10/$1/$12.50/$50.</td></tr>
     <tr><td>Sol 6.1 $2/$0.10/$2.50/$10.</td></tr>
     <tr><td>Terra 6.1 $1/$0.05/$1.25/$5; 12-hour cache writes $2.50.</td></tr>
@@ -597,10 +603,10 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Jev (TypeSafe AI)</summary>
 
-<table data-model-family="Jev (TypeSafe AI)">
+<table data-model-family="Jev (TypeSafe AI)" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="3">Models</th><td>TypeSafe direct: stable Jev 1.13 (<code>jev-1.13.0</code> / <code>jev-latest</code>)</td></tr>
+    <tr><th scope="rowgroup" rowspan="3" align="center" valign="middle">Models</th><td>TypeSafe direct: stable Jev 1.13 (<code>jev-1.13.0</code> / <code>jev-latest</code>)</td></tr>
     <tr><td>Preview Jev 1.14 (<code>jev-1.14.0</code> / <code>jev-preview</code>)</td></tr>
     <tr><td>Cloudflare route: <code>typesafe/jev</code></td></tr>
   </tbody>
@@ -629,29 +635,39 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Gemini</summary>
 
-<table data-model-family="Gemini">
+<table data-model-family="Gemini" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">Models</th><td>Gemini 3.8 Flash</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">Models</th><td>Gemini 3.8 Flash</td></tr>
     <tr><td>Gemini 4 Argon (<code>gemini-4-argon</code>)</td></tr>
   </tbody>
   <tbody data-field="status">
-    <tr><th scope="row">Status</th><td>Flash/Argon: generally available</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">Status</th><td>Flash/Argon: generally available.</td></tr>
+    <tr><td>Gemini 4 Carbon: Preview; phased access for selected partners, not a generally available API.</td></tr>
   </tbody>
   <tbody data-field="context">
-    <tr><th scope="row">Context</th><td>Flash: 1,048,576 context / 65,536 max output. Argon: 1,048,576 combined input/output; default synchronous output 65,536</td></tr>
+    <tr><th scope="rowgroup" rowspan="3" align="center" valign="middle">Context</th><td>Flash: 1,048,576 context / 65,536 max output.</td></tr>
+    <tr><td>Argon: 1,048,576 combined input/output; default synchronous output 65,536.</td></tr>
+    <tr><td>Carbon: input context and maximum output not published by the official source.</td></tr>
   </tbody>
   <tbody data-field="pricing">
-    <tr><th scope="row">Price or license</th><td>US$ per million tokens. Flash: $0.75/$3.75 input/output through 2026-12-31. Argon Standard input/cache/output: $2/$0.10/$10 through 2026-11-30. $4/$0.20/$20 from 2026-12-01</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">Price or license</th><td>US$ per million tokens. Flash: $0.75/$3.75 input/output through 2026-12-31.</td></tr>
+    <tr><td>Argon Standard input/cache/output: $2/$0.10/$10 through 2026-11-30. $4/$0.20/$20 from 2026-12-01.</td></tr>
+    <tr><td>Carbon announced introductory input/output: $2/$10. Cached input is 5% of the current input price ($0.10 during the introductory period).</td></tr>
+    <tr><td>Carbon announced post-introductory input/output: $4/$20. The introductory end date has not been published.</td></tr>
   </tbody>
   <tbody data-field="use">
-    <tr><th scope="row">Good for</th><td>Flash for multimodal and Agent practice. Argon for comparing long tasks and coding outcomes</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">Good for</th><td>Flash for multimodal and Agent practice. Argon for comparing long tasks and coding outcomes.</td></tr>
+    <tr><td>Carbon is announced for sustained coding and computer-security defense; it is not yet a general beginner recommendation.</td></tr>
   </tbody>
   <tbody data-field="limits">
-    <tr><th scope="row">Limits</th><td>Argon has no free tier. Output up to 1M requires long decode, not the default for every request. This chapter still starts with local models</td></tr>
+    <tr><th scope="rowgroup" rowspan="3" align="center" valign="middle">Limits</th><td>Argon has no free tier. Output up to 1M requires long decode, not the default for every request.</td></tr>
+    <tr><td>Carbon API ID, tool support and general-access date have not been published. Announced pricing does not mean the API can be called now.</td></tr>
+    <tr><td>This chapter still starts with local models.</td></tr>
   </tbody>
   <tbody data-field="sources">
-    <tr><th scope="row">Official source</th><td><a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash">Gemini 3.8 Flash</a> · <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API pricing</a> · <a href="https://ai.google.dev/gemini-api/docs/models/gemini-4-argon">Gemini 4 Argon specs</a> · <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">Launch announcement</a></td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">Official source</th><td><a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash">Gemini 3.8 Flash</a> · <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API pricing</a> · <a href="https://ai.google.dev/gemini-api/docs/models/gemini-4-argon">Gemini 4 Argon specs</a> · <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">Launch announcement</a></td></tr>
+    <tr><td><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/">Carbon announcement and advertised pricing</a> · <a href="https://ai.google.dev/gemini-api/docs/models">General developer model list</a></td></tr>
   </tbody>
 </table>
 
@@ -660,10 +676,10 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>DeepSeek</summary>
 
-<table data-model-family="DeepSeek">
+<table data-model-family="DeepSeek" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">Models</th><td>V4.1 Flash 1017 (<code>deepseek-flash</code>)</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">Models</th><td>V4.1 Flash 1017 (<code>deepseek-flash</code>)</td></tr>
     <tr><td>V4 Pro 0813 (<code>deepseek-v4-pro</code>)</td></tr>
   </tbody>
   <tbody data-field="status">
@@ -691,10 +707,10 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Kimi</summary>
 
-<table data-model-family="Kimi">
+<table data-model-family="Kimi" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">Models</th><td>Kimi K3.1 Pro (<code>kimi-k3.1-pro</code>)</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">Models</th><td>Kimi K3.1 Pro (<code>kimi-k3.1-pro</code>)</td></tr>
     <tr><td>Kimi K3.1 Pro Highspeed (<code>kimi-k3.1-pro-highspeed</code>)</td></tr>
   </tbody>
   <tbody data-field="status">
@@ -704,7 +720,7 @@ Open the family you need, then check its models, pricing, and limits.
     <tr><th scope="row">Context</th><td>1,048,576 tokens.</td></tr>
   </tbody>
   <tbody data-field="pricing">
-    <tr><th scope="rowgroup" rowspan="4">Price or license</th><td>International API, US$ per 1M tokens, input/cache read/cache write (5 minutes)/output; excluding taxes.</td></tr>
+    <tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">Price or license</th><td>International API, US$ per 1M tokens, input/cache read/cache write (5 minutes)/output; excluding taxes.</td></tr>
     <tr><td>Pro $2/$0.20/$2/$10.</td></tr>
     <tr><td>Highspeed $4/$0.20/$4/$20.</td></tr>
     <tr><td>Repeated prefixes are cached automatically; 1-hour retention has separate write rates. API usage billing is separate from Kimi membership or Kimi Code subscriptions.</td></tr>
@@ -713,7 +729,7 @@ Open the family you need, then check its models, pricing, and limits.
     <tr><th scope="row">Good for</th><td>Long coding tasks, images and video, and long-document work. Test your own tasks; vendor scores do not guarantee outcomes.</td></tr>
   </tbody>
   <tbody data-field="limits">
-    <tr><th scope="rowgroup" rowspan="2">Limits</th><td>Thinking is always on. <code>reasoning_effort</code> supports <code>low</code>/<code>high</code>/<code>max</code>, default <code>max</code>. Preserve complete assistant messages in tool conversations.</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">Limits</th><td>Thinking is always on. <code>reasoning_effort</code> supports <code>low</code>/<code>high</code>/<code>max</code>, default <code>max</code>. Preserve complete assistant messages in tool conversations.</td></tr>
     <tr><td>K3 is the previous generation. K2-series access closes to new accounts on 2026-10-31; retirement is planned by the end of 2026, not already complete.</td></tr>
   </tbody>
   <tbody data-field="sources">
@@ -726,7 +742,7 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Hunyuan</summary>
 
-<table data-model-family="Hunyuan">
+<table data-model-family="Hunyuan" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">Models</th><td><code>Hy3</code> (TokenHub)</td></tr>
@@ -756,7 +772,7 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>MiniMax</summary>
 
-<table data-model-family="MiniMax">
+<table data-model-family="MiniMax" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">Models</th><td>MiniMax M3</td></tr>
@@ -786,10 +802,10 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Qwen</summary>
 
-<table data-model-family="Qwen">
+<table data-model-family="Qwen" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">Models</th><td>qwen3.8-max (API)</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">Models</th><td>qwen3.8-max (API)</td></tr>
     <tr><td>Qwen3.8 open-weight variants</td></tr>
   </tbody>
   <tbody data-field="status">
@@ -817,7 +833,7 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>GLM</summary>
 
-<table data-model-family="GLM">
+<table data-model-family="GLM" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">Models</th><td>GLM-5.3</td></tr>
@@ -847,7 +863,7 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Yi</summary>
 
-<table data-model-family="Yi">
+<table data-model-family="Yi" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">Models</th><td>Yi-34B / Yi-9B and 200K variants</td></tr>
@@ -877,10 +893,10 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Llama</summary>
 
-<table data-model-family="Llama">
+<table data-model-family="Llama" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">Models</th><td>Llama 4 Scout / Maverick</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">Models</th><td>Llama 4 Scout / Maverick</td></tr>
     <tr><td>Llama 3.3 70B (more practical older baseline)</td></tr>
   </tbody>
   <tbody data-field="status">
@@ -908,10 +924,10 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Muse</summary>
 
-<table data-model-family="Muse">
+<table data-model-family="Muse" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="3">Models</th><td>Muse Wonder (<code>muse-wonder-1.0</code>)</td></tr>
+    <tr><th scope="rowgroup" rowspan="3" align="center" valign="middle">Models</th><td>Muse Wonder (<code>muse-wonder-1.0</code>)</td></tr>
     <tr><td>Muse Spark 1.3 (<code>muse-spark-1.3</code> / <code>muse-spark-1.3-contributor</code>)</td></tr>
     <tr><td>Muse Glimmer 30B</td></tr>
   </tbody>
@@ -940,7 +956,7 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Grok</summary>
 
-<table data-model-family="Grok">
+<table data-model-family="Grok" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">Models</th><td>Grok 4.7 (<code>grok-4.7</code>)</td></tr>
@@ -970,7 +986,7 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>MiMo</summary>
 
-<table data-model-family="MiMo">
+<table data-model-family="MiMo" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">Models</th><td>MiMo V2.6 Pro (<code>mimo-v2.6-pro</code>)</td></tr>
@@ -1000,7 +1016,7 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Gemma</summary>
 
-<table data-model-family="Gemma">
+<table data-model-family="Gemma" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
     <tr><th scope="row">Models</th><td>Gemma 4: E2B, E4B, 12B, 26B A4B, 31B</td></tr>
@@ -1030,10 +1046,10 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Mistral</summary>
 
-<table data-model-family="Mistral">
+<table data-model-family="Mistral" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="5">Models</th><td>Mistral Large 4 (<code>mistral-large-4</code>)</td></tr>
+    <tr><th scope="rowgroup" rowspan="5" align="center" valign="middle">Models</th><td>Mistral Large 4 (<code>mistral-large-4</code>)</td></tr>
     <tr><td>Medium 3.5 (<code>mistral-medium-3-5</code>)</td></tr>
     <tr><td>Small 4</td></tr>
     <tr><td>Large 3</td></tr>
@@ -1064,10 +1080,10 @@ Open the family you need, then check its models, pricing, and limits.
 <details class="model-family" markdown="1">
 <summary>Phi</summary>
 
-<table data-model-family="Phi">
+<table data-model-family="Phi" align="center">
   <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
   <tbody data-field="models">
-    <tr><th scope="rowgroup" rowspan="2">Models</th><td>Phi-4 14B</td></tr>
+    <tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">Models</th><td>Phi-4 14B</td></tr>
     <tr><td>Phi-4 mini / multimodal</td></tr>
   </tbody>
   <tbody data-field="status">

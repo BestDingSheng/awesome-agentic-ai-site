@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/glossary.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/glossary.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-28T18:05:08.978Z"
+syncedAt: "2026-10-29T04:57:47.010Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "glossary"
@@ -35,7 +35,7 @@ When an unfamiliar term appears, you do not need to stop reading the whole chapt
 
 One screen may contain a model, a Router, and an Agent at the same time. Ask what job each product performs before comparing their names.
 
-<table>
+<table align="center">
 <thead>
 <tr><th>Identity</th><th>Plain-language job</th><th>Example and boundary</th></tr>
 </thead>
@@ -53,16 +53,16 @@ One screen may contain a model, a Router, and an Agent at the same time. Ask wha
 
 This table keeps names consistent across Stages. General readers do not need to memorize it first.
 
-<table>
+<table align="center">
 <thead>
 <tr><th>Group</th><th>English term</th><th>Project meaning</th><th>Main Stage</th></tr>
 </thead>
 <tbody>
-<tr><th scope="rowgroup" rowspan="2">Input and information</th><td>Prompt Engineering</td><td>Prompt design</td><td>Stage 2</td></tr>
+<tr><th scope="rowgroup" rowspan="2" align="center" valign="middle">Input and information</th><td>Prompt Engineering</td><td>Prompt design</td><td>Stage 2</td></tr>
 <tr><td>Context Engineering</td><td>Context management</td><td>Stage 6 / 7</td></tr>
 </tbody>
 <tbody>
-<tr><th scope="rowgroup" rowspan="17">Agent execution</th><td>Agent Production Engineering</td><td>Making Agents dependable</td><td>Stage 7</td></tr>
+<tr><th scope="rowgroup" rowspan="17" align="center" valign="middle">Agent execution</th><td>Agent Production Engineering</td><td>Making Agents dependable</td><td>Stage 7</td></tr>
 <tr><td>Harness Engineering</td><td>Agent execution-system design</td><td>Stage 7</td></tr>
 <tr><td>Loop Engineering</td><td>Agent loop design</td><td>Stage 7</td></tr>
 <tr><td>Graph Engineering</td><td>Workflow Graph engineering</td><td>Stage 4 / 7</td></tr>
@@ -81,7 +81,7 @@ This table keeps names consistent across Stages. General readers do not need to 
 <tr><td>Scaffolding</td><td>Supporting structure</td><td>Stage 7</td></tr>
 </tbody>
 <tbody>
-<tr><th scope="rowgroup" rowspan="9">Quality and production</th><td>Observability</td><td>Inspectable operation records</td><td>Stage 7</td></tr>
+<tr><th scope="rowgroup" rowspan="9" align="center" valign="middle">Quality and production</th><td>Observability</td><td>Inspectable operation records</td><td>Stage 7</td></tr>
 <tr><td>Telemetry</td><td>Runtime records</td><td>Stage 7</td></tr>
 <tr><td>Eval</td><td>Outcome evaluation</td><td>Stage 7</td></tr>
 <tr><td>Evaluation Harness</td><td>Evaluation system</td><td>Stage 7</td></tr>
@@ -92,14 +92,14 @@ This table keeps names consistent across Stages. General readers do not need to 
 <tr><td>Latency</td><td>Waiting time</td><td>Stage 7</td></tr>
 </tbody>
 <tbody>
-<tr><th scope="rowgroup" rowspan="5">Retrieval and models</th><td>Vector DB</td><td>Vector database</td><td>Stage 6</td></tr>
+<tr><th scope="rowgroup" rowspan="5" align="center" valign="middle">Retrieval and models</th><td>Vector DB</td><td>Vector database</td><td>Stage 6</td></tr>
 <tr><td>Retrieval</td><td>Retrieval</td><td>Stage 6</td></tr>
 <tr><td>Reranking</td><td>Reordering candidates</td><td>Stage 6</td></tr>
 <tr><td>Long Context</td><td>Long context</td><td>Stage 6</td></tr>
 <tr><td>Fine-tuning</td><td>Adjusting model weights</td><td>Stage 6</td></tr>
 </tbody>
 <tbody>
-<tr><th scope="rowgroup" rowspan="4">Interfaces</th><td>Agent Interfaces</td><td>Ways an Agent acts</td><td>Stage 8</td></tr>
+<tr><th scope="rowgroup" rowspan="4" align="center" valign="middle">Interfaces</th><td>Agent Interfaces</td><td>Ways an Agent acts</td><td>Stage 8</td></tr>
 <tr><td>Code Sandbox</td><td>Isolated code environment</td><td>Stage 8</td></tr>
 <tr><td>Cold Start</td><td>Startup delay</td><td>Stage 8</td></tr>
 <tr><td>Reward Hacking</td><td>Gaming the score</td><td>Stage 7 / 8</td></tr>

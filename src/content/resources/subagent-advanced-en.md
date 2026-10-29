@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/subagent-advanced.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/subagent-advanced.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-28T18:05:08.978Z"
+syncedAt: "2026-10-29T04:57:47.010Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "subagent-advanced"
@@ -24,11 +24,15 @@ baseSlug: "subagent-advanced"
 
 Three independent advanced topics. Jump to the section you need:
 
+<div align="center" markdown="1">
+
 | Your question | Read |
-|---|---|
+|:---|:---|
 | I wrote a subagent, but Claude never dispatches it proactively. Why? | [§1 How to Write a Description That Triggers Proactive Dispatch](#1-how-to-write-a-description-that-triggers-proactive-dispatch) |
 | I want to run 2-3 subagents as a pipeline or in parallel. How should I design that? | [§2 How to Design Composition Patterns](#2-how-to-design-composition-patterns) |
 | A subagent fails, errors, or behaves differently from its settings. How do I debug it? | [§3 Debugging Tools for Custom Subagents](#3-debugging-tools-for-custom-subagents) |
+
+</div>
 
 Each section stands alone; skim or jump around as needed.
 
@@ -168,11 +172,15 @@ When you want to run 2+ subagents together, how should you compose them? The 3 p
 
 ### How to choose among the 3 patterns
 
+<div align="center" markdown="1">
+
 | Your situation | Use |
-|---|---|
+|:---|:---|
 | 3 independent tasks, each returning to the main session | **Pattern A** |
 | Multi-step collaboration with input → output dependencies | **Pattern B** |
 | You want to “automatically generate subagents” | **Do not do this** (ask why; usually a skill / template is a better fit) |
+
+</div>
 
 **90% of use cases are Pattern A**. Before moving to Pattern B, confirm that you really need coordination and are not over-engineering.
 
@@ -275,13 +283,17 @@ This is fully self-contained. The subagent can run from this prompt without any 
 
 ### 5-Point Quick Check
 
+<div align="center" markdown="1">
+
 | Symptom | Debug entry point |
-|---|---|
+|:---|:---|
 | `/agents` does not show it | Entry point 1 (file location / YAML syntax) |
 | Claude does not dispatch it proactively | Entry point 2 (description wording) |
 | The subagent reports “no access to X tool” | Entry point 3 (`tools:` allowlist) |
 | Token bill spikes | Entry point 4 (`model:` not specified) |
 | The subagent behaves strangely or goes off track | Entry point 5 (prompt is not self-contained) |
+
+</div>
 
 ---
 

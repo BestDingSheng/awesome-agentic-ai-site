@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/DESIGN.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/DESIGN.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-28T18:05:08.978Z"
+syncedAt: "2026-10-29T04:57:47.010Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "design"
@@ -56,13 +56,17 @@ README、PROGRESS、CAPSTONE、章節頁首、章末下一站與路線圖必須�
 
 **初版草稿（A1-A5）→ 合併後（A1-A3）**：
 
+<div align="center" markdown="1">
+
 | 草稿 | 草稿主題 | 最終歸屬 |
-|---|---|---|
+|:---|:---|:---|
 | A1 | CLI 入門 + 選擇 | → 最終 A1 |
 | A2 | Workflow（project instructions / Skill / 任務拆解 / portable prompt） | → 最終 A2 |
 | A3 | MCP 接 CLI | → 最終 A3 |
 | A4 | 多 CLI 並用 | → 移到最終 A1／A2 的工具比較與 portable prompt |
 | A5 | Production CLI workflow（CI / cost / observability / team sharing） | → 最終 A3 |
+
+</div>
 
 合併邏輯：
 
@@ -122,12 +126,16 @@ Stage 5（Claude Code 生態）兩條軌都會碰到：
 
 ### Track A 跟 Track B 的 entry curation 差別
 
+<div align="center" markdown="1">
+
 | | Track A（A1-A3） | Track B（Stage 3-8） |
-|---|---|---|
+|:---|:---|:---|
 | **entry 結構** | 大量 cross-link 到 Stage 5 / Stage 8 / cli-agents-guide | 完整獨立 entry（每個都有 schema 表格）|
 | **entry 數** | ~24 個（多為 cross-link） | ~80 個（多為獨立 entry） |
 | **新增 entry 標準** | 必須是 CLI agent 直接相關的工具 | framework / library / agent component |
 | **更新頻率** | 高（CLI 工具迭代快） | 中（framework 更新慢一些） |
+
+</div>
 
 **判準**：Track A entry 出現的條件是「對 CLI workflow 有直接幫助」；Track B entry 出現的條件是「教讀者一個 agent design pattern」。
 
@@ -372,7 +380,7 @@ Banner 由 `scripts/build-banner.py` 在原版插圖上加動畫，不重畫文�
 
 **已知例外**：
 
-- **Stage 0**：prerequisite gateway，使用可見的跳過判斷、單一整合練習、18 筆五星學習資源與短版完成檢查；時間、環境、補充練習與名詞預設收合（見「Stage 0 為什麼可以 skip」）
+- **Stage 0**：prerequisite gateway，學習目標後先放可見核心名詞、概念圖與真實 Commit 範例，再做單一整合練習、短版完成檢查與 18 筆評分學習資源；只有時間、環境與補充練習預設收合（見「Stage 0 為什麼可以 skip」）
 - **Stage 5**：分 7 個核心 sub-stage（5.1-5.7）+ 5.8 SDK（選修、包成產品或服務才需要），每個 sub-stage 各有自己的 學習目標 / 必修閱讀 / 動手練習 / 精選 Projects
 - **Stage 6**：直接跳過進入條件 section（前面 stage 已隱含 prerequisite）；Stage 7 仍保留可見進入條件，讓讀者先確認 Stage 4／5／6 的必要基礎。
 - **Stage 7 Eval**：先教 **Outcome**，再教完整 **Eval Case**、**Eval Suite** 與 **Reviewed Eval Set**；最後才補充 Golden／Reference Set 等外部常見名稱。Eval Case 至少交代 input、initial state、success criteria、forbidden actions、optional reference answer、grader 與 case metadata。Golden Set 不只是 input，也不等於訓練資料或 Few-shot；Development cases 用來調整，frozen holdout 只在 release candidate／最後驗證使用。報告保留 dataset version、split、trials、grader、Outcome、Trajectory 與 baseline；不能把 20–50 cases 說成所有專案的硬性最低數，也不能因單次隨機失敗直接判定 regression。
@@ -541,7 +549,7 @@ Stage 0 不是 stage——它是 prerequisite gateway。
 - Python / git / CLI / JSON 已經會的人 → 直接 Stage 1
 - 不會的人 → 用一個不需帳號或 token 的小工具，同時練 Python、API、JSON、CLI 與 Git
 
-Stage 0 的可見主線固定為「skip 條件 → 4 個學習目標 → 1 個整合練習 → 18 筆五星學習資源 → 短版完成檢查」。時間、環境、分項補充與名詞放進預設收合的 `<details>`。它存在是為了**讓真的初學者不會在後面 stage 卡住**，但不把這個 repo 變成完整的 Python 或 Git 教科書。
+Stage 0 的可見主線固定為「skip 條件 → 4 個學習目標 → 核心名詞 → Git／GitHub 概念圖與真實 Commit 範例 → 1 個整合練習 → 短版完成檢查 → 18 筆評分學習資源」。時間、環境與分項補充放進預設收合的 `<details>`。核心名詞依程式與執行、資料與介面、平台與專案、認識專案、修改與協作分成 `4／4／3／3／5` 組；先區分 Python、Terminal、CLI、Shell，再解釋 API、資料格式及 GitHub 協作。圖前須定義 History／Diff。Commit 保存本機版本，Push 上傳工作線，PR 提出檢查，Merge 合併；作者、時間、說明與識別碼可供追查，但作者標籤不等於身分驗證。公開不代表開源，使用前要查看 License。瀏覽器觀察不要求帳號或建立公開 Issue／PR。它存在是為了**讓真的初學者不會在後面 stage 卡住**，但不把這個 repo 變成完整的 Python 或 Git 教科書。
 
 ---
 
@@ -551,3 +559,12 @@ Stage 0 的可見主線固定為「skip 條件 → 4 個學習目標 → 1 個�
 - **branch 設計理由**：見 [`../branches/DESIGN.md`](/zh-tw/branches/design/)
 - **entry schema / 用詞規範**：見 [`../resources/style-guide.md`](/zh-tw/resources/style-guide/)
 - **跨 stage 範例**：見 [`../walkthroughs/build-first-agent-in-7-steps.md`](/zh-tw/walkthroughs/build-first-agent-in-7-steps/)
+
+
+### GitHub 原生表格與網站排版
+
+學習資源表同時服務 GitHub Markdown 與文件站。原生 Markdown 表格用置中的 `markdown="1"` 外框，說明欄明確靠左；HTML 表格置中，合併分類與短評分置中。資源欄改用沒有段落預設留白的 `div[data-field]`，保留所有資料、URL、星等與分組。GitHub 會移除 class／data 屬性，所以原生版須靠可接受的 HTML 排版，不能用手機文件站的 CSS 通過來代替驗收。reader UX 量測不把表格對齊冒號算成新增敘述，也不能為了計數而插入改變原始 HTML 巢狀關係的容器。
+
+桌面資源比較優先五欄：分類、專案／文件、推薦度、用途、限制；資料不足不硬湊五欄，也不新增星等。GitHub Markdown 保留多欄比較；文件站在手機／平板可將同一份資料直向排滿寬。說明文字靠左，分類與星等可置中；置中的是整張表，不是所有敘述。
+
+路線與選路表需另做名稱換行驗收：完整章名與入口不能因欄寬留下孤字。依實測選擇名稱欄寬，長名較多的路線保留自動欄寬；手機文件站將同一份資料滿寬直向排列。這不是新增教學內容，也不縮短正式名稱來配合欄位。

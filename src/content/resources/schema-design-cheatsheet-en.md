@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/schema-design-cheatsheet.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/schema-design-cheatsheet.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-28T18:05:08.978Z"
+syncedAt: "2026-10-29T04:57:47.010Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "schema-design-cheatsheet"
@@ -43,13 +43,17 @@ Compare:
 
 LLMs are loose with `type: string` and pass arbitrary text. Tighten where possible:
 
+<div align="center" markdown="1">
+
 | Vague | Constrained |
-|---|---|
+|:---|:---|
 | `unit: string` (celsius? fahrenheit? kelvin?) | `unit: enum["celsius", "fahrenheit"]` |
 | `priority: string` (low/medium/HIGH?) | `priority: enum["low", "medium", "high"]` |
 | `count: string` ("five"?) | `count: integer` |
 | `enabled: string` ("true"/"True") | `enabled: boolean` |
 | `tags: string` ("a,b,c"? JSON?) | `tags: array of string` |
+
+</div>
 
 ### Rule 3: Be careful with `required` vs optional
 
