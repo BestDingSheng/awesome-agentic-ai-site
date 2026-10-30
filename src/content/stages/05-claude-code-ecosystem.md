@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "05-claude-code-ecosystem"
@@ -256,7 +256,7 @@ Get-Content .claude/hooks/events.jsonl
 
 ### 練習 4：接一個受限 MCP server
 
-完成後，Claude 只能讀你指定的示範資料夾，不能碰整台電腦。
+先核對這個 MCP server 可操作的資料夾與工具。這些限制只管它；Claude 的其他工具仍依各自權限運作。
 
 ```text
 我要連一個 filesystem MCP server。請先解釋它會看到哪個目錄、有哪些 tools、如何移除，再等我批准；不要直接安裝。

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "08-agent-interfaces"
@@ -74,7 +74,7 @@ Use it when work crosses desktop applications. The model reads a screenshot and 
 
 ### **Sandbox**
 
-A separate workroom for code. It sees only the files, network, and tools you provide, so a mistake is less likely to harm the host.
+A separate workspace for code. Its configuration determines limits on files, network access, and tools. Check which operations are actually isolated before running them.
 
 ### **Accessibility Tree**
 

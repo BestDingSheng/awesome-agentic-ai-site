@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "cli-a2-cli-workflow"
@@ -82,7 +82,7 @@ order: 2
 
 **成果：** CLI agent 每次进入 repo，都知道这个项目做什么、不能碰什么、怎么验证，以及完成时要回报什么。
 
-先从上方对照表中选出属于你所用工具的项目规则文件，再放入这四件事：
+展开上方“四个 CLI 的规则文件与 Skill 位置”，选你的工具，再把这四件事放进对应的规则文件：
 
 ```markdown
 # 项目规则

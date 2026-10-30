@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "02-prompt-engineering"
@@ -200,7 +200,7 @@ Path A API cost for six questions in two rounds is `$0`. Set a `$0.05` cap for P
 
 After finishing, you will have a small experiment you can repeat instead of only saying “it feels better.”
 
-**First step**: Pick one wrong answer from Exercise 2. Change only one of the four parts.
+**First step**: Pick one wrong or easily confused answer from Exercise 2. Change only one of the four parts.
 
 Then run all six questions again. Copy this result card and fill in the scores:
 

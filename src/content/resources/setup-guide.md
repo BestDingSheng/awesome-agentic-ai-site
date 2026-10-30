@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/setup-guide.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/setup-guide.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "setup-guide"
@@ -217,6 +217,8 @@ PowerShell、macOS 與 Linux terminal 都可以使用：
 mkdir my-first-llm
 cd my-first-llm
 ```
+
+用文字編輯器（例如 VS Code）在 `my-first-llm` 資料夾建立以下檔案。存檔時保留完整檔名，別加 `.txt`。
 
 ### 2. 先建立 `.gitignore`
 

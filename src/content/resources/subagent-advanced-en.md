@@ -5,7 +5,7 @@ section: "Resource"
 sourcePath: "resources/subagent-advanced.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/resources/subagent-advanced.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "subagent-advanced"
@@ -132,7 +132,7 @@ When you want to run 2+ subagents together, how should you compose them? The 3 p
 - 4 files need the same audit (spawn 4 `general-purpose` subagents)
 - Run “code review” + “find related papers” + “write a changelog” as 3 independent tasks
 
-**How to run it**: list N independent tasks **in a single prompt** (for example, “Audit these 4 files at the same time: A.md / B.md / C.md / D.md”). Claude will call the **Agent tool** multiple times within one turn and run them in parallel automatically. This is **not** the same as entering N prompts one after another; that is sequential and waits for the previous one to finish. For long-running independent background work, use `/bg`.
+**How to run it**: List independent tasks in one prompt and ask Claude to use separate subagents in parallel. Check the run status to see whether they actually overlap. Sending several messages does not guarantee parallel execution; concurrency depends on the tool and settings.
 
 **Cost**: Low (no coordination needed)
 

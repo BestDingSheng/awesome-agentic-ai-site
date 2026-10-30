@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A2-cli-workflow.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A2-cli-workflow.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "cli-a2-cli-workflow"
@@ -82,7 +82,7 @@ The common part is what you need to explain; filenames, search locations, permis
 
 **Outcome:** Every time the CLI agent enters the repo, it knows what the project does, what it must not touch, how to verify changes, and what to report when finished.
 
-First choose the project-instructions file for your tool from the comparison above, then add these four things:
+Expand “the project-instructions and Skill locations for four CLIs” above. Find your tool, then put these four things in its instructions file:
 
 ```markdown
 # Project rules

@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/06-memory-rag.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/06-memory-rag.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "06-memory-rag"
@@ -102,7 +102,7 @@ order: 6
 <a id="-動手練習基礎-illustrative-練習"></a>
 ## 🛠 動手練習
 
-每題都已經有 starter。直接複製命令執行，不需要先抄一份空白答案。
+每題先回專案根目錄（放著 README.md 的那層）。下面會依序進入本題資料夾、安裝套件，再跑本機 Path A。練習 4、5 先依本題說明準備 Ollama、下載 `qwen2.5:3b` 並啟動服務。Path B 是選用；先看本題是否使用雲端、供應商、金鑰與費用。
 
 <a id="練習-1embeddings"></a>
 ### 練習 1：把兩句話變成 Embedding
@@ -111,11 +111,11 @@ order: 6
 
 ```powershell
 cd examples/stage-6/01-embeddings
+python -m pip install -r requirements.txt
 python starter.py
-python starter_anthropic.py
 ```
 
-[打開完整說明與檢查方式](/zh-tw)。先用很少的句子，避免不必要的 API 費用。
+[打開安裝、檢查與選用 Path B 說明](/zh-tw)。先用很少的句子，避免不必要的 API 費用。
 
 <a id="練習-2vector-db"></a>
 ### 練習 2：把 Embedding 放進 Vector Database
@@ -124,11 +124,11 @@ python starter_anthropic.py
 
 ```powershell
 cd examples/stage-6/02-vector-db
+python -m pip install -r requirements.txt
 python starter.py
-python starter_anthropic.py
 ```
 
-[打開完整說明與檢查方式](/zh-tw)。練習資料不得包含秘密或個資。
+[打開安裝、檢查與選用 Path B 說明](/zh-tw)。練習資料不得包含秘密或個資。
 
 <a id="練習-3chunking-對照"></a>
 ### 練習 3：比較三種 Chunking 方法
@@ -137,11 +137,11 @@ python starter_anthropic.py
 
 ```powershell
 cd examples/stage-6/03-chunking-comparison
+python -m pip install -r requirements.txt
 python starter.py
-python starter_anthropic.py
 ```
 
-[打開完整說明與檢查方式](/zh-tw)。不要先背一個「標準大小」；先看文件結構與測試結果。
+[打開安裝、檢查與選用 Path B 說明](/zh-tw)。不要先背一個「標準大小」；先看文件結構與測試結果。
 
 <a id="練習-4完整-rag-流水線"></a>
 ### 練習 4：串起完整 RAG
@@ -150,11 +150,11 @@ python starter_anthropic.py
 
 ```powershell
 cd examples/stage-6/04-full-rag-pipeline
+python -m pip install -r requirements.txt
 python starter.py
-python starter_anthropic.py
 ```
 
-[打開完整說明與檢查方式](/zh-tw)。先用小型資料集；不要把「程式能跑」當成「回答一定正確」。
+[打開安裝、檢查與選用 Path B 說明](/zh-tw)。先用小型資料集；不要把「程式能跑」當成「回答一定正確」。
 
 <a id="練習-5long-term-memory"></a>
 ### 練習 5：記住一項偏好
@@ -163,11 +163,11 @@ python starter_anthropic.py
 
 ```powershell
 cd examples/stage-6/05-long-term-memory
+python -m pip install -r requirements.txt
 python starter.py
-python starter_anthropic.py
 ```
 
-[打開完整說明與檢查方式](/zh-tw)。只保存完成任務需要的資料，並提供查看、修改與刪除的方法。
+[打開安裝、檢查與選用 Path B 說明](/zh-tw)。只保存完成任務需要的資料，並提供查看、修改與刪除的方法。
 
 ### 推薦小專案：會翻資料、也會記偏好的助理
 
@@ -199,7 +199,7 @@ RAG 有兩條路：一條先整理資料，一條在問題來時找資料。
 
 </div>
 
-**Retriever** 是「收到問題後，回傳相關文件」的介面。它不一定使用 vector database；BM25、SQL、網站搜尋與混合搜尋也能成為 retriever。
+<strong>Retriever（檢索器）</strong>依問題找相關文件，不一定使用向量資料庫（vector database）。也能用 <strong>BM25（按字詞匹配排序的方法）</strong>找產品編號，用 <strong>SQL（查詢資料庫的語言）</strong>查表格，或使用網站搜尋、混合搜尋。
 
 </details>
 
@@ -224,7 +224,7 @@ RAG 有兩條路：一條先整理資料，一條在問題來時找資料。
 
 ### [進階 RAG：先找出哪一步壞了，再加新技巧](/zh-tw/resources/advanced-rag/)
 
-適合已經做出最小 RAG、但遇到「找不到、排序錯、跨文件關係難找」的人。頁面會完整解釋 **Hybrid Search**、**Reranking**、**HyDE**、**Multi-Query**、**RAG Fusion**、**Contextual Retrieval**、**GraphRAG**、**Self-RAG**、**CRAG**（Corrective Retrieval Augmented Generation，檢索不夠好時修正查詢或來源）、**Adaptive RAG**、**Agentic RAG**、**RAPTOR** 與 **DSPy**，並保留必讀與五星資源表。
+已做出最小 RAG，卻遇到「找不到、排序錯、跨文件關係難找」？到這裡先看症狀，再選方法。完整技術名詞、必讀與五星資源都在進階頁。
 
 ### [Agent Memory：只記值得記、允許記、能刪掉的事](/zh-tw/resources/agent-memory/)
 

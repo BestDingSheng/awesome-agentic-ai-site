@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/08-agent-interfaces.zh-Hans.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/08-agent-interfaces.zh-Hans.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "zh-cn"
 languageLabel: "简体中文"
 baseSlug: "08-agent-interfaces"
@@ -75,7 +75,7 @@ agent 用来看见、操作或执行工作的“门”。搜索、浏览器、�
 
 ### **Sandbox（沙箱）**
 
-把 code 关进独立工作房间。它只能看见你放进去的文件、网络和工具，出错时比较不容易伤到主机。
+把程序放进独立工作空间，按沙箱设置限制文件、网络与工具的使用范围。先确认哪些操作真正受到隔离，再让它执行。
 
 ### **Accessibility Tree（无障碍树）**
 

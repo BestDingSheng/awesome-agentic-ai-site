@@ -5,7 +5,7 @@ section: "Track"
 sourcePath: "tracks/cli/A3-cli-production.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/tracks/cli/A3-cli-production.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "cli-a3-cli-production"
@@ -145,9 +145,9 @@ GitHub 建議 production workflow 把第三方 Action pin 到完整 commit SHA�
 
 **成果：** 你留下 provider／model、input usage、output usage、時間與結果；資料拿不到的欄位會清楚寫「未確認」，不會猜。
 
-先分清你用的是訂閱方案，還是按 API usage 計費。若官方提供 token 與單價，成本才用這個算式：
+先分清訂閱費與 API 用量費。下面只估算一般輸入／輸出 token 的費用，兩種單價都按「每百萬 token」計；其他收費另查供應商規則。
 
-`input tokens × input price + output tokens × output price`
+`(input tokens ÷ 1,000,000 × input price) + (output tokens ÷ 1,000,000 × output price)`
 
 <details markdown="1">
 <summary>展開 CLI-11 的記錄卡、停止規則與 observability</summary>

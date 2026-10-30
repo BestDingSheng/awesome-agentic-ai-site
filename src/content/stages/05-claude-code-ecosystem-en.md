@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/05-claude-code-ecosystem.en.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/05-claude-code-ecosystem.en.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "en"
 languageLabel: "English"
 baseSlug: "05-claude-code-ecosystem"
@@ -256,7 +256,7 @@ Then enter `/hooks` in Claude Code and confirm that `PreToolUse` shows one Hook.
 
 ### Exercise 4: Connect a restricted MCP server
 
-When you finish, Claude can read only the demo directory you specify; it cannot access your whole computer.
+Check which folders and tools this MCP server can use. These limits apply to this server; Claude’s other tools keep their own permissions.
 
 ```text
 I want to connect a filesystem MCP server. First explain which directory it will see, which tools it has, and how to remove it; then wait for my approval. Do not install it directly.

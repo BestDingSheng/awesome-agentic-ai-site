@@ -5,7 +5,7 @@ section: "Stage"
 sourcePath: "stages/02-prompt-engineering.md"
 sourceUrl: "https://github.com/BestDingSheng/awesome-agentic-ai-zh/blob/main/stages/02-prompt-engineering.md"
 sourceRepo: "https://github.com/BestDingSheng/awesome-agentic-ai-zh"
-syncedAt: "2026-10-29T18:12:58.760Z"
+syncedAt: "2026-10-30T04:57:34.502Z"
 language: "zh-tw"
 languageLabel: "繁體中文"
 baseSlug: "02-prompt-engineering"
@@ -200,7 +200,7 @@ Path A 六題兩輪的 API 費用是 `$0`。Path B 先設 `$0.05` 上限；若�
 
 完成後，你會有一個能重做的小實驗，不再只說「感覺比較好」。
 
-**第一步**：從練習 2 挑一筆答錯的資料。只改四格中的一格。
+**第一步**：從練習 2 挑一筆答錯或容易混淆的資料。只改四格中的一格。
 
 接著重跑全部六題，直接複製這段結果卡並填入分數：
 
